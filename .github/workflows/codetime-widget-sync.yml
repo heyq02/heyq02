@@ -1,0 +1,108 @@
+name: CodeTime Widget Sync
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+  push:
+    paths:
+      - ".github/workflows/codetime-widget-sync.yml"
+
+concurrency:
+  group: codetime-sync
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  sync-widgets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure images directory
+        run: mkdir -p images
+
+      - name: Fetch CodeTime widgets
+        env:
+          UID_VALUE: "37640"
+        run: |
+          set -euo pipefail
+
+          fetch() {
+            local url="$1"
+            local out="$2"
+            local tmp
+            tmp="$(mktemp)"
+            local attempt=0
+            local max=3
+            local delay=2
+            while : ; do
+              attempt=$((attempt + 1))
+              if curl --fail --silent --show-error --location \
+                   --max-time 20 \
+                   --user-agent "codetime-widget-sync/1.0 (+github-actions)" \
+                   --output "$tmp" \
+                   "$url"; then
+                break
+              fi
+              if [ "$attempt" -ge "$max" ]; then
+                echo "::error::Failed to fetch $url after $max attempts"
+                exit 1
+              fi
+              echo "Attempt $attempt failed for $url; retrying in ${delay}s"
+              sleep "$delay"
+              delay=$((delay * 2))
+            done
+
+            if [ ! -s "$tmp" ]; then
+              echo "::error::Downloaded file for $url is empty"
+              exit 1
+            fi
+
+            if ! head -c 512 "$tmp" | grep -qE '<svg|<\?xml'; then
+              echo "::error::Downloaded content for $url is not a valid SVG"
+              exit 1
+            fi
+
+            mv "$tmp" "$out"
+            echo "Saved $out ($(wc -c < "$out") bytes)"
+          }
+
+          fetch "https://codetime.dev/api/widgets/status.svg?uid=${UID_VALUE}&theme=light&style=minimal" images/codetime-status.svg
+          fetch "https://codetime.dev/api/widgets/usage.svg?uid=${UID_VALUE}&theme=light&style=minimal&range=24h" images/codetime-usage.svg
+          fetch "https://codetime.dev/api/widgets/trend.svg?uid=${UID_VALUE}&days=90&theme=light" images/codetime-trend.svg
+
+      - name: Detect changes
+        id: diff
+        run: |
+          if git diff --quiet -- images/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No widget changes detected."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Changes detected:"
+            git status --short -- images/
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/codetime-status.svg images/codetime-usage.svg images/codetime-trend.svg
+          git commit -m "chore(images): refresh CodeTime widgets [skip ci]"
+          # Rebase-and-retry once if the remote moved under us.
+          for i in 1 2; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push rejected on attempt $i; rebasing and retrying"
+            git pull --rebase --autostash
+          done
+          echo "::error::Failed to push after rebase"
+          exit 1
