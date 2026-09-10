@@ -13,34 +13,20 @@ Welcome to my corner of GitHub.
 
 <sub>Widgets refresh automatically every 30 minutes via GitHub Actions.</sub>
 
-## Contact    
+## 📫 Contact
 
 <p>
-  <a href="#">
-    <img height="16" width="16" src="https://cdn.simpleicons.org/x" />
-  </a>
-  <a href="#">
-    <img height="16" width="16" src="https://cdn.simpleicons.org/bluesky" />
-  </a>
-    <a href="#">
-    <img height="16" width="16" src="https://cdn.simpleicons.org/zhihu" />
-  </a>
-    <a href="#">
-    <img height="16" width="16" src="https://cdn.simpleicons.org/xiaohongshu" />
-  </a>
-    <a href="#">
-    <img height="16" width="16" src="https://cdn.simpleicons.org/bilibili" />
-  </a>
-    </a>
-    <a href="#">
-    <img height="16" width="16" src="https://cdn.simpleicons.org/qq" />
-  </a>
-    </a>
-    <a href="#">
-    <img height="16" width="16" src="https://cdn.simpleicons.org/wechat" />
-  </a>
-    </a>
-    <a href="#">
-    <img height="16" width="16" src="https://cdn.simpleicons.org/bilibili" />
-  </a>
+  <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/x" alt="X" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/bluesky" alt="Bluesky" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/zhihu" alt="Zhihu" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/xiaohongshu" alt="Xiaohongshu" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/bilibili" alt="Bilibili" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/qq" alt="QQ" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/wechat" alt="WeChat" /></a>
 </p>
