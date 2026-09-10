@@ -16,6 +16,12 @@ Welcome to my corner of GitHub.
 ## 📫 Contact
 
 <p>
+  <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/stackoverflow" alt="Stack Overflow" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/reddit" alt="Reddit" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/devdotto" alt="Dev.to" /></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/x" alt="X" /></a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="#"><img height="20" width="20" src="https://cdn.simpleicons.org/bluesky" alt="Bluesky" /></a>
