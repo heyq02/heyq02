@@ -2,5 +2,5 @@
   <rect width="200" height="36" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
   <circle cx="14" cy="18" r="3" fill="#6b7280"/>
   <text x="28" y="18" dominant-baseline="central" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" letter-spacing="0.14em" font-weight="700" fill="#6b7280">IDLE</text>
-  <text x="188" y="18" text-anchor="end" dominant-baseline="central" font-family="ui-monospace, SFMono-Regular, Menlo, 'JetBrains Mono', Consolas, monospace" font-size="10.5" fill="#6b7280">2h 49m</text>
+  <text x="188" y="18" text-anchor="end" dominant-baseline="central" font-family="ui-monospace, SFMono-Regular, Menlo, 'JetBrains Mono', Consolas, monospace" font-size="10.5" fill="#6b7280">2h 50m</text>
 </svg>
