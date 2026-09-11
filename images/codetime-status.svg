@@ -1,11 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="36" viewBox="0 0 200 36" role="img" aria-label="CodeTime coding">
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="36" viewBox="0 0 200 36" role="img" aria-label="CodeTime idle">
   <rect width="200" height="36" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
-  
-      <circle cx="14" cy="18" r="4.5" fill="#10b981" opacity="0.5">
-        <animate attributeName="r" values="3.5;7.5;3.5" dur="1.6s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.55;0;0.55" dur="1.6s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="14" cy="18" r="3" fill="#10b981"/>
-  <text x="28" y="18" dominant-baseline="central" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" letter-spacing="0.14em" font-weight="700" fill="#10b981">CODING</text>
-  <text x="188" y="18" text-anchor="end" dominant-baseline="central" font-family="ui-monospace, SFMono-Regular, Menlo, 'JetBrains Mono', Consolas, monospace" font-size="10.5" fill="#6b7280">2h 45m</text>
+  <circle cx="14" cy="18" r="3" fill="#6b7280"/>
+  <text x="28" y="18" dominant-baseline="central" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" letter-spacing="0.14em" font-weight="700" fill="#6b7280">IDLE</text>
+  <text x="188" y="18" text-anchor="end" dominant-baseline="central" font-family="ui-monospace, SFMono-Regular, Menlo, 'JetBrains Mono', Consolas, monospace" font-size="10.5" fill="#6b7280">2h 48m</text>
 </svg>
