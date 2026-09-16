@@ -1,5 +1,10 @@
 # Hi 👋, I'm Heyq
 
+<p>
+  <a href="https://codetime.dev"><img alt="CodeTime Badge" src="https://shields.jannchie.com/endpoint?style=flat&color=0284c7&url=https%3A%2F%2Fcodetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D37640"></a>
+  <a href="https://ghfind.com/u/heyq02?ref=badge"><img src="https://ghfind.com/api/badge/heyq02" alt="GitHub Roast score badge" /></a>
+</p>
+
 Welcome to my corner of GitHub.
 
 ## 📊 CodeTime
