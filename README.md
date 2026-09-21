@@ -1,1 +1,1 @@
-<img src="images/push-mill-loop.png" />
+<img src="assets/heima-product-thinking-illustrations/01-cover-stuck-first-step.png" />
