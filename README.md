@@ -2,4 +2,4 @@
 
 Think like a product manager in the AI era.
 
-<img width="800" alt="image" src="https://storage.360buyimg.com/store-jddj-pro/otter-ari/00-cover-product-thinking.png" />
+<img width="800" alt="image" src="https://storage.360buyimg.com/store-jddj-pro/otter-ari/yunduo-nongchang-katong.jpg" />
