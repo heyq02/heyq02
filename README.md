@@ -2,5 +2,5 @@
 
 Think like a product manager in the AI era.
 
-<img width="800" alt="image" src="https://storage.360buyimg.com/store-jddj-pro/otter-ari/b4f4d4ce45109a6e1bef634f933be0ef.jpg" />
+<img width="800" alt="image" src="./5f520c61957bcdf2f23b4c8e07ef5d78.jpg" />
 
