@@ -36,6 +36,7 @@
     "@rslint/core": "0.9.4",
     "@types/node": "^26.1.1",
     "bumpp": "^11.1.0",
+    "prettier": "3.9.9",
     "typescript": "^7.0.2",
     "vite-plus": "catalog:"
   },
