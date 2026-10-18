@@ -6,11 +6,9 @@ export function renderPlain(): string {
     '',
     profile.bio,
     '',
-    profile.quote,
-    '',
     profile.site,
     '',
-    '经历',
+    'Experience',
   ];
 
   for (const job of profile.experiences) {
@@ -22,12 +20,12 @@ export function renderPlain(): string {
     );
   }
 
-  lines.push('技能');
+  lines.push('Skills');
   for (const skill of profile.skills) {
     lines.push(`${skill.name} — ${skill.summary}`, skill.href);
   }
 
-  lines.push('', '开源');
+  lines.push('', 'Open source');
   for (const project of profile.projects) {
     const stats = [`★ ${formatCount(project.stars)}`];
     if (project.forks > 0) {
@@ -41,7 +39,7 @@ export function renderPlain(): string {
     );
   }
 
-  lines.push('联系');
+  lines.push('Contact');
   for (const place of profile.places) {
     lines.push(`${place.label} · ${place.detail}`, place.href);
   }

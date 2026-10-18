@@ -84,12 +84,9 @@ export function IntroScreen({
               {line}
             </Text>
           ))}
-          <Text color={muted} italic>
-            {profile.quote}
-          </Text>
         </Box>
 
-        <Section title="经历" padded={padded} spaced={spaced}>
+        <Section title="Experience" padded={padded} spaced={spaced}>
           {profile.experiences.map((job) => (
             <Box key={job.company} flexDirection="column">
               <Text>
@@ -108,7 +105,7 @@ export function IntroScreen({
           ))}
         </Section>
 
-        <Section title="技能" padded={padded} spaced={spaced}>
+        <Section title="Skills" padded={padded} spaced={spaced}>
           {skillRows(width).map((row) => (
             <Text key={row.join('·')}>
               {row.map((name, index) => (
@@ -121,7 +118,7 @@ export function IntroScreen({
           ))}
         </Section>
 
-        <Section title="开源" padded={padded} spaced={spaced}>
+        <Section title="Open source" padded={padded} spaced={spaced}>
           {profile.projects.map((project) => (
             <Box key={project.name} flexDirection="column">
               <Text>
@@ -142,7 +139,7 @@ export function IntroScreen({
           ))}
         </Section>
 
-        <Section title="联系" padded={padded} spaced={spaced}>
+        <Section title="Contact" padded={padded} spaced={spaced}>
           {showPlaces ? (
             <Box flexDirection="column">
               {profile.places.map((place) => (
@@ -152,11 +149,11 @@ export function IntroScreen({
                 </Text>
               ))}
               <Text>
-                <Text color={muted}>{pad('电话', 10)}</Text>
+                <Text color={muted}>{pad('Phone', 10)}</Text>
                 <Text color={ink}>{profile.phone}</Text>
               </Text>
               <Text>
-                <Text color={muted}>{pad('邮箱', 10)}</Text>
+                <Text color={muted}>{pad('Email', 10)}</Text>
                 <Text color={ink}>{profile.email}</Text>
               </Text>
             </Box>
@@ -182,7 +179,7 @@ export function IntroScreen({
             color={muted}
           >{`  ${profile.site.replace('https://', '')}`}</Text>
         </Text>
-        <Text color={muted}>任意键退出</Text>
+        <Text color={muted}>any key to exit</Text>
       </Box>
     </Box>
   );
@@ -217,10 +214,9 @@ function Section({
 }
 
 function sentences(text: string): string[] {
-  return text
-    .split('。')
-    .filter((part) => part.length > 0)
-    .map((part) => `${part}。`);
+  return (text.match(/[^。]+。|[^.]+(?:\.|$)/g) ?? [text])
+    .map((part) => part.trim())
+    .filter((part) => part.length > 0);
 }
 
 function skillRows(width: number): string[][] {

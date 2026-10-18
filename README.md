@@ -1,16 +1,16 @@
-<h1>Hello, I'm 永琪（Ari）</h1>
+<h1>Hello, I'm Ari He</h1>
 
-## 经历
+## Experience
 
-**[北京京东世纪贸易有限公司](https://www.jd.com/)** · 2024.06 – 至今
+**[JD.com, Inc.](https://www.jd.com/)** · 2024.06 – Present
 
-- 负责京东外卖跨端小程序&H5、管理后台需求迭代
-- 进行管理后台老旧架构升级，TP95性能优化
-- 本地生活产研C3层面 AI Infra 建设，提升研发效能
+- Owned iterations for JD Takeout across the mini program, H5, and admin console
+- Upgraded the admin console off its legacy architecture and improved TP95
+- Built C3-level AI Infra for Local Life product and engineering, improving R&D efficiency
 
-## 技能
+## Skills
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=dark" />
-  <img width="100%" alt="Vue、React、Next、Rolldown、Vite、Oxc、Spring、Redis、RabbitMQ、Nginx、Docker" src="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light" />
+  <img width="100%" alt="Vue, React, Next, Rolldown, Vite, Oxc, Spring, Redis, RabbitMQ, Nginx, Docker" src="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light" />
 </picture>

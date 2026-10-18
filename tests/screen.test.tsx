@@ -29,14 +29,15 @@ test('keeps the introduction on screen until a key is pressed', async () => {
   const frame = view.lastFrame() ?? '';
 
   expect(frame).toContain(fullName());
-  expect(frame).toContain('北京京东世纪贸易有限公司');
-  expect(frame).toContain('负责京东外卖跨端小程序&H5、管理后台需求迭代');
+  expect(frame).toContain('JD.com, Inc.');
+  expect(frame).toContain(
+    'Owned iterations for JD Takeout across the mini program, H5, and admin console',
+  );
   expect(frame).toContain('Vue');
   expect(frame).toContain('jd-opensource/taro-ui');
   expect(frame).toContain('★ 4.7k');
   expect(frame).toContain('hello@heyq02.com');
-  expect(frame).toContain('任意键退出');
-  expect(frame).toContain(profile.quote);
+  expect(frame).toContain('any key to exit');
   expect(frame).not.toContain('tel:');
 
   view.stdin.write('x');
@@ -52,6 +53,6 @@ test('still shows the name on a short screen', async () => {
   expect(frame).toContain(fullName());
   expect(frame).toContain(profile.phone);
   expect(frame).toContain(profile.email);
-  expect(frame).toContain('任意键退出');
+  expect(frame).toContain('any key to exit');
   view.unmount();
 });

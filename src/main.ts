@@ -12,10 +12,10 @@ import { showIntro } from './show.tsx';
 
 const program = command(
   name('heyq02'),
-  description('永琪（Ari），全栈研发。'),
+  description('Ari He. Full-stack engineer.'),
   version('0.1.0'),
-  command(name('intro'), description('展示介绍，任意键退出。')),
-  command(name('hw'), description('打印 Hello, World!')),
+  command(name('intro'), description('Show the introduction. Any key exits.')),
+  command(name('hw'), description('Print Hello, World!')),
 );
 
 export async function main(argv = process.argv.slice(2)): Promise<void> {

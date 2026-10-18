@@ -4,15 +4,15 @@ import { renderPlain } from '../src/plain.ts';
 import { formatCount, fullName, profile } from '../src/profile.ts';
 
 test('keeps the intro site copy', () => {
-  expect(fullName()).toBe('永琪（Ari），全栈研发');
+  expect(fullName()).toBe('Ari He');
   expect(profile.bio).toBe(
-    '南京邮电大学生物医学工程本科毕业。专注前端工程化，推动 AI 在业务场景中落地。',
+    'Full-stack engineer / open-source enthusiast / vlogger on career. Focused on AI that speeds up development and ships in real products (๑•̀ㅂ•́)و',
   );
   expect(profile.phone).toBe('+86 135****8086');
   expect(profile.experiences[0]?.points).toEqual([
-    '负责京东外卖跨端小程序&H5、管理后台需求迭代',
-    '进行管理后台老旧架构升级，TP95性能优化',
-    '本地生活产研C3层面 AI Infra 建设，提升研发效能',
+    'Owned iterations for JD Takeout across the mini program, H5, and admin console',
+    'Upgraded the admin console off its legacy architecture and improved TP95',
+    'Built C3-level AI Infra for Local Life product and engineering, improving R&D efficiency',
   ]);
   expect(profile.skills.map((skill) => skill.name)).toEqual([
     'Vue',
@@ -39,8 +39,8 @@ test('formats star counts the same way as the site', () => {
 test('prints a plain introduction without a phone link', () => {
   const text = renderPlain();
 
-  expect(text).toContain('永琪（Ari），全栈研发');
-  expect(text).toContain('北京京东世纪贸易有限公司 · 2024.06 – 至今');
+  expect(text).toContain('Ari He');
+  expect(text).toContain('JD.com, Inc. · 2024.06 – Present');
   expect(text).toContain(
     'jd-opensource/taro-ui · TypeScript · ★ 4.7k · 743 forks',
   );
