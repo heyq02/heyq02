@@ -64,5 +64,5 @@ TypeScript · ★ 171
 ## 终端
 
 ```sh
-npx heyq02
+npx heyq02 intro
 ```

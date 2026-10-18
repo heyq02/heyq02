@@ -107,21 +107,40 @@ test("opens the highlighted row after moving", () => {
   view.unmount();
 });
 
-test("help and plain mode write to stdout", async () => {
+test("routes intro and hw", async () => {
   let written = "";
-  const write = process.stdout.write.bind(process.stdout);
+  let errors = "";
+  const stdoutWrite = process.stdout.write.bind(process.stdout);
+  const stderrWrite = process.stderr.write.bind(process.stderr);
   process.stdout.write = ((chunk: string | Uint8Array) => {
     written += String(chunk);
     return true;
   }) as typeof process.stdout.write;
+  process.stderr.write = ((chunk: string | Uint8Array) => {
+    errors += String(chunk);
+    return true;
+  }) as typeof process.stderr.write;
 
   try {
     await main(["--help"]);
-    expect(written).toContain("回车退出");
+    expect(written).toContain("intro");
+    expect(written).toContain("hw");
+
     written = "";
-    await main(["--plain"]);
+    await main(["intro", "--plain"]);
     expect(written).toContain(fullName());
+
+    written = "";
+    await main(["hw"]);
+    expect(written).toBe("Hello, World!\n");
+
+    process.exitCode = 0;
+    await main(["nope"]);
+    expect(process.exitCode).toBe(1);
+    expect(errors.length).toBeGreaterThan(0);
   } finally {
-    process.stdout.write = write;
+    process.stdout.write = stdoutWrite;
+    process.stderr.write = stderrWrite;
+    process.exitCode = 0;
   }
 });
