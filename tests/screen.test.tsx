@@ -1,13 +1,21 @@
 import { cleanup, render } from 'ink-testing-library';
 import { afterEach, expect, test } from '@rstest/core';
-import { IntroScreen } from '../src/screen.tsx';
 import { fullName, profile } from '../src/profile.ts';
+
+// Node 26 links static imports in parallel. ink-testing-library imports Ink,
+// so the screen is loaded after that import finishes. A static import reads
+// `measureElement` before the binding is initialized.
+async function loadIntroScreen() {
+  const { IntroScreen } = await import('../src/screen.tsx');
+  return IntroScreen;
+}
 
 afterEach(() => {
   cleanup();
 });
 
-test('keeps the introduction on screen until a key is pressed', () => {
+test('keeps the introduction on screen until a key is pressed', async () => {
+  const IntroScreen = await loadIntroScreen();
   let exited = false;
   const view = render(
     <IntroScreen
@@ -36,7 +44,8 @@ test('keeps the introduction on screen until a key is pressed', () => {
   view.unmount();
 });
 
-test('still shows the name on a short screen', () => {
+test('still shows the name on a short screen', async () => {
+  const IntroScreen = await loadIntroScreen();
   const view = render(<IntroScreen columns={80} rows={24} />);
   const frame = view.lastFrame() ?? '';
 
