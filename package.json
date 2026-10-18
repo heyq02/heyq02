@@ -1,16 +1,19 @@
 {
   "name": "heyq02",
-  "version": "0.0.0",
-  "description": "A starter for creating a TypeScript package.",
-  "homepage": "https://github.com/author/library#readme",
+  "version": "0.1.0",
+  "description": "永琪（Ari），全栈研发。终端里的个人介绍。",
+  "homepage": "https://intro.heyq02.com",
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/heyq02/heyq02/issues"
   },
   "license": "MIT",
-  "author": "Author Name <author.name@mail.com>",
+  "author": "永琪（Ari） <hello@heyq02.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/heyq02/heyq02.git"
+  },
+  "bin": {
+    "heyq02": "./dist/cli.mjs"
   },
   "files": [
     "dist"
@@ -32,10 +35,16 @@
     "lint": "rslint . --type-check",
     "lint:fix": "rslint . --type-check --fix"
   },
+  "dependencies": {
+    "ink": "^8.0.0",
+    "react": "19.3.1"
+  },
   "devDependencies": {
     "@rslint/core": "0.9.4",
     "@types/node": "^26.1.1",
+    "@types/react": "19.3.0",
     "bumpp": "^11.1.0",
+    "ink-testing-library": "^4.0.0",
     "prettier": "3.9.9",
     "typescript": "^7.0.2",
     "vite-plus": "catalog:"
@@ -46,5 +55,8 @@
       "version": "12.10.1",
       "onFail": "download"
     }
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

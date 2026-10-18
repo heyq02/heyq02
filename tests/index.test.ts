@@ -1,6 +1,6 @@
 import { expect, test } from "vite-plus/test";
-import { fn } from "../src/index.ts";
+import { fullName } from "../src/index.ts";
 
-test("fn", () => {
-  expect(fn()).toBe("Hello, tsdown!");
+test("exports the introduction", () => {
+  expect(fullName()).toBe("永琪（Ari），全栈研发");
 });
