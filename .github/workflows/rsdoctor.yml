@@ -46,7 +46,7 @@ jobs:
 
       - name: Build Rsdoctor report
         env:
-          RSDOCTOR: 'true'
+          RSDOCTOR: "true"
         run: pnpm run build:rsdoctor
 
       - name: Bundle analysis
