@@ -10,21 +10,7 @@
 
 ## 技能
 
-<p>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=dark" />
-    <img width="600" alt="Vue、React、Next、Rolldown、Vite、Oxc、Spring、Redis、RabbitMQ、Nginx、Docker" src="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light" />
-  </picture>
-</p>
-
-
-
----
-
-<p align="center">
-  <a href="https://space.bilibili.com/3493273159075938">Bilibili</a>
-  &nbsp;·&nbsp;
-  <a href="https://juejin.cn/user/708557910842296">掘金</a>
-  &nbsp;·&nbsp;
-  <a href="https://intro.heyq02.com/wechat.jpg">微信</a>
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=dark" />
+  <img width="100%" alt="Vue、React、Next、Rolldown、Vite、Oxc、Spring、Redis、RabbitMQ、Nginx、Docker" src="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light" />
+</picture>
