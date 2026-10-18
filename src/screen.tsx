@@ -1,15 +1,15 @@
-import { Box, Text, useApp, useInput, useStdout } from "ink";
-import type { ReactNode } from "react";
-import { formatCount, fullName, profile } from "./profile.ts";
-import { wordmark } from "./wordmark.ts";
+import { Box, Text, useApp, useInput, useStdout } from 'ink';
+import type { ReactNode } from 'react';
+import { formatCount, fullName, profile } from './profile.ts';
+import { wordmark } from './wordmark.ts';
 
-const paper = "#F6F3ED";
-const ink = "#343945";
-const muted = "#8991A0";
-const accent = "#3F6CC4";
-const card = "#FFFFFF";
-const bar = "#EAE1D3";
-const gold = "#C08A3E";
+const paper = '#F6F3ED';
+const ink = '#343945';
+const muted = '#8991A0';
+const accent = '#3F6CC4';
+const card = '#FFFFFF';
+const bar = '#EAE1D3';
+const gold = '#C08A3E';
 
 export function IntroScreen({
   columns,
@@ -39,7 +39,12 @@ export function IntroScreen({
   });
 
   return (
-    <Box width={width} height={height} flexDirection="column" backgroundColor={paper}>
+    <Box
+      width={width}
+      height={height}
+      flexDirection="column"
+      backgroundColor={paper}
+    >
       <Box paddingX={2} justifyContent="space-between">
         <Text>
           <Text color={accent} bold>
@@ -59,14 +64,18 @@ export function IntroScreen({
         paddingTop={showWordmark ? 1 : 0}
       >
         {showWordmark
-          ? wordmark("ARI").map((line) => (
+          ? wordmark('ARI').map((line) => (
               <Text key={line} color={accent}>
                 {line}
               </Text>
             ))
           : null}
 
-        <Box flexShrink={0} marginTop={showWordmark ? 1 : 0} flexDirection="column">
+        <Box
+          flexShrink={0}
+          marginTop={showWordmark ? 1 : 0}
+          flexDirection="column"
+        >
           <Text color={ink} bold>
             {fullName()}
           </Text>
@@ -101,7 +110,7 @@ export function IntroScreen({
 
         <Section title="技能" padded={padded} spaced={spaced}>
           {skillRows(width).map((row) => (
-            <Text key={row.join("·")}>
+            <Text key={row.join('·')}>
               {row.map((name, index) => (
                 <Text key={name}>
                   {index > 0 ? <Text color={muted}> · </Text> : null}
@@ -121,10 +130,14 @@ export function IntroScreen({
                 </Text>
                 <Text color={gold}>{`  ★ ${formatCount(project.stars)}`}</Text>
                 {project.forks > 0 ? (
-                  <Text color={muted}>{`  ·  ${formatCount(project.forks)} forks`}</Text>
+                  <Text
+                    color={muted}
+                  >{`  ·  ${formatCount(project.forks)} forks`}</Text>
                 ) : null}
               </Text>
-              {showSummaries ? <Text color={muted}>{project.summary}</Text> : null}
+              {showSummaries ? (
+                <Text color={muted}>{project.summary}</Text>
+              ) : null}
             </Box>
           ))}
         </Section>
@@ -139,11 +152,11 @@ export function IntroScreen({
                 </Text>
               ))}
               <Text>
-                <Text color={muted}>{pad("电话", 10)}</Text>
+                <Text color={muted}>{pad('电话', 10)}</Text>
                 <Text color={ink}>{profile.phone}</Text>
               </Text>
               <Text>
-                <Text color={muted}>{pad("邮箱", 10)}</Text>
+                <Text color={muted}>{pad('邮箱', 10)}</Text>
                 <Text color={ink}>{profile.email}</Text>
               </Text>
             </Box>
@@ -163,9 +176,11 @@ export function IntroScreen({
       <Box paddingX={2} backgroundColor={bar} justifyContent="space-between">
         <Text>
           <Text backgroundColor={accent} color={paper}>
-            {" heyq02 "}
+            {' heyq02 '}
           </Text>
-          <Text color={muted}>{`  ${profile.site.replace("https://", "")}`}</Text>
+          <Text
+            color={muted}
+          >{`  ${profile.site.replace('https://', '')}`}</Text>
         </Text>
         <Text color={muted}>任意键退出</Text>
       </Box>
@@ -203,7 +218,7 @@ function Section({
 
 function sentences(text: string): string[] {
   return text
-    .split("。")
+    .split('。')
     .filter((part) => part.length > 0)
     .map((part) => `${part}。`);
 }
@@ -235,7 +250,7 @@ function placeRows(width: number): string[] {
   const budget = Math.max(20, width - 8);
   const items = profile.places.map((place) => `${place.label} ${place.detail}`);
   const rows: string[] = [];
-  let current = "";
+  let current = '';
 
   for (const item of items) {
     const next = current.length === 0 ? item : `${current}    ${item}`;
@@ -256,7 +271,7 @@ function placeRows(width: number): string[] {
 
 function pad(text: string, columns: number): string {
   const gap = columns - displayWidth(text);
-  return gap > 0 ? `${text}${" ".repeat(gap)}` : text;
+  return gap > 0 ? `${text}${' '.repeat(gap)}` : text;
 }
 
 function displayWidth(text: string): number {

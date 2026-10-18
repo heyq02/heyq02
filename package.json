@@ -6,34 +6,42 @@
   "bugs": {
     "url": "https://github.com/heyq02/heyq02/issues"
   },
-  "license": "MIT",
-  "author": "永琪（Ari） <hello@heyq02.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heyq02/heyq02.git"
   },
+  "license": "MIT",
+  "author": "永琪（Ari） <hello@heyq02.com>",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "bin": {
-    "heyq02": "./dist/cli.mjs"
+    "heyq02": "./dist/cli.js"
   },
   "files": [
     "dist"
   ],
-  "type": "module",
-  "exports": {
-    ".": "./dist/index.mjs",
-    "./package.json": "./package.json"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "build": "vp pack",
-    "dev": "vp pack --watch",
-    "test": "vp test",
-    "check": "vp check",
-    "prepublishOnly": "vp run build",
-    "lint": "rslint . --type-check",
-    "lint:fix": "rslint . --type-check --fix"
+    "build": "rs lib",
+    "build:rsdoctor": "RSDOCTOR=true rs lib",
+    "check": "rs check && pnpm run typecheck",
+    "commitlint": "commitlint",
+    "dev": "rs lib --watch",
+    "format": "rs fmt",
+    "format:check": "rs fmt --check",
+    "lint": "rs lint .",
+    "lint:fix": "rs lint --fix .",
+    "prepare": "rs hooks",
+    "prepublishOnly": "pnpm run build",
+    "release": "bumpp",
+    "test": "rs test",
+    "test:coverage": "rs test --coverage",
+    "typecheck": "tsc6 --noEmit -p tsconfig.typecheck.json"
   },
   "dependencies": {
     "@bomb.sh/router": "0.8.0",
@@ -41,14 +49,24 @@
     "react": "19.3.1"
   },
   "devDependencies": {
-    "@rslint/core": "0.9.4",
+    "@commitlint/cli": "20.5.3",
+    "@heyq02/rstack-config": "^0.0.6",
+    "@microsoft/api-extractor": "^7.59.4",
+    "@rsdoctor/rspack-plugin": "^1.6.5",
+    "@rslib/core": "^1.0.3",
+    "@rslint/core": "^0.9.5",
+    "@rstest/core": "^0.12.3",
+    "@rstest/coverage-v8": "^0.12.3",
     "@types/node": "^26.1.1",
     "@types/react": "19.3.0",
     "bumpp": "^11.1.0",
     "ink-testing-library": "^4.0.0",
-    "prettier": "3.9.9",
-    "typescript": "^7.0.2",
-    "vite-plus": "catalog:"
+    "rstack": "^0.8.4",
+    "typescript": "npm:@typescript/typescript6@^6.0.0"
+  },
+  "packageManager": "pnpm@12.10.1",
+  "engines": {
+    "node": ">=22.12.0"
   },
   "devEngines": {
     "packageManager": {
@@ -57,7 +75,7 @@
       "onFail": "download"
     }
   },
-  "engines": {
-    "node": ">=22"
+  "publishConfig": {
+    "access": "public"
   }
 }

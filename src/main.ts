@@ -7,15 +7,15 @@ import {
   printHelp,
   printVersion,
   version,
-} from "@bomb.sh/router";
-import { showIntro } from "./show.tsx";
+} from '@bomb.sh/router';
+import { showIntro } from './show.tsx';
 
 const program = command(
-  name("heyq02"),
-  description("永琪（Ari），全栈研发。"),
-  version("0.1.0"),
-  command(name("intro"), description("展示介绍，任意键退出。")),
-  command(name("hw"), description("打印 Hello, World!")),
+  name('heyq02'),
+  description('永琪（Ari），全栈研发。'),
+  version('0.1.0'),
+  command(name('intro'), description('展示介绍，任意键退出。')),
+  command(name('hw'), description('打印 Hello, World!')),
 );
 
 export async function main(argv = process.argv.slice(2)): Promise<void> {
@@ -28,29 +28,29 @@ export async function main(argv = process.argv.slice(2)): Promise<void> {
   }
 
   switch (result.method) {
-    case "help": {
+    case 'help': {
       process.stdout.write(`${printHelp(result)}\n`);
       return;
     }
-    case "version": {
+    case 'version': {
       process.stdout.write(`${printVersion(result)}\n`);
       return;
     }
-    case "execute": {
+    case 'execute': {
       switch (result.route) {
-        case "/": {
-          const help = parse(program, { argv: ["--help"] });
-          if (help.ok && help.method === "help") {
+        case '/': {
+          const help = parse(program, { argv: ['--help'] });
+          if (help.ok && help.method === 'help') {
             process.stdout.write(`${printHelp(help)}\n`);
           }
           return;
         }
-        case "/intro": {
+        case '/intro': {
           await showIntro();
           return;
         }
-        case "/hw": {
-          process.stdout.write("Hello, World!\n");
+        case '/hw': {
+          process.stdout.write('Hello, World!\n');
           return;
         }
       }

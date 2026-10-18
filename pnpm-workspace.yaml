@@ -1,10 +1,8 @@
-catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@1.0.0
-  vite-plus: 1.0.0
-overrides:
-  vite@*: "catalog:"
+allowBuilds:
+  simple-git-hooks: true
+# rsbuild-plugin-arethetypeswrong needs the TypeScript JS API (<7).
+# Use the official TS 6 compatibility package for `typescript` resolution.
+# See: https://github.com/rstackjs/rsbuild-plugin-arethetypeswrong/pull/71
 peerDependencyRules:
-  allowAny:
-    - vite
   allowedVersions:
-    vite: "*"
+    typescript: '*'

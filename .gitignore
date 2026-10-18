@@ -1,7 +1,16 @@
 node_modules
 dist
+coverage
+.rsdoctor
+.rstack/hooks/_
+*.tgz
 *.log
 .DS_Store
 !.vscode/
 !.vscode/settings.json
 !.vscode/extensions.json
+
+# dotenv environment variable files
+.env
+.env.*
+!.env.example
