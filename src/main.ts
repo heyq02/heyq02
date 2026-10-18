@@ -6,21 +6,15 @@ import {
   printErrors,
   printHelp,
   printVersion,
-  toggle,
   version,
 } from "@bomb.sh/router";
 import { renderPlain } from "./plain.ts";
-import { runTui } from "./tui.tsx";
 
 const program = command(
   name("heyq02"),
   description("永琪（Ari），全栈研发。"),
   version("0.1.0"),
-  command(
-    name("intro"),
-    description("在终端里看介绍，回车退出。"),
-    toggle(name("plain"), description("只打印文本")),
-  ),
+  command(name("intro"), description("打印介绍。")),
   command(name("hw"), description("打印 Hello, World!")),
 );
 
@@ -52,7 +46,7 @@ export async function main(argv = process.argv.slice(2)): Promise<void> {
           return;
         }
         case "/intro": {
-          await runIntro(result.model.plain);
+          process.stdout.write(`${renderPlain()}\n`);
           return;
         }
         case "/hw": {
@@ -62,15 +56,4 @@ export async function main(argv = process.argv.slice(2)): Promise<void> {
       }
     }
   }
-}
-
-async function runIntro(plain: boolean): Promise<void> {
-  const interactive = !plain && Boolean(process.stdout.isTTY && process.stdin.isTTY);
-
-  if (!interactive) {
-    process.stdout.write(`${renderPlain()}\n`);
-    return;
-  }
-
-  await runTui();
 }

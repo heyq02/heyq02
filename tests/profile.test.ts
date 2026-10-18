@@ -1,15 +1,7 @@
-import { cleanup, render } from "ink-testing-library";
-import { afterEach, expect, test } from "vite-plus/test";
-import { actions } from "../src/actions.ts";
-import { Intro } from "../src/app.tsx";
+import { expect, test } from "vite-plus/test";
 import { main } from "../src/main.ts";
 import { renderPlain } from "../src/plain.ts";
 import { formatCount, fullName, profile } from "../src/profile.ts";
-import { applySelection } from "../src/select.ts";
-
-afterEach(() => {
-  cleanup();
-});
 
 test("keeps the intro site copy", () => {
   expect(fullName()).toBe("永琪（Ari），全栈研发");
@@ -55,58 +47,6 @@ test("prints a plain introduction without a phone link", () => {
   expect(text).not.toContain("tel:");
 });
 
-test("enter exits until something is selected", () => {
-  expect(applySelection({ index: null }, "enter", actions.length)).toEqual({ type: "exit" });
-  expect(applySelection({ index: null }, "down", actions.length)).toEqual({
-    type: "select",
-    index: 0,
-  });
-  expect(applySelection({ index: 0 }, "enter", actions.length)).toEqual({ type: "open", index: 0 });
-  expect(applySelection({ index: null }, "up", actions.length)).toEqual({
-    type: "select",
-    index: actions.length - 1,
-  });
-  expect(applySelection({ index: 0 }, "quit", actions.length)).toEqual({ type: "exit" });
-});
-
-test("shows the introduction and exits on enter before selection", () => {
-  let exited = false;
-  let opened = "";
-  const view = render(
-    <Intro
-      onExit={() => {
-        exited = true;
-      }}
-      onOpen={(href) => {
-        opened = href;
-      }}
-    />,
-  );
-
-  expect(view.lastFrame()).toContain("永琪（Ari），全栈研发");
-  expect(view.lastFrame()).toContain("回车退出");
-  view.stdin.write("\r");
-  expect(exited).toBe(true);
-  expect(opened).toBe("");
-  view.unmount();
-});
-
-test("opens the highlighted row after moving", () => {
-  let opened = "";
-  const view = render(
-    <Intro
-      onOpen={(href) => {
-        opened = href;
-      }}
-    />,
-  );
-
-  view.stdin.write("\u001B[B");
-  view.stdin.write("\r");
-  expect(opened).toBe(actions[0]?.href);
-  view.unmount();
-});
-
 test("routes intro and hw", async () => {
   let written = "";
   let errors = "";
@@ -127,8 +67,9 @@ test("routes intro and hw", async () => {
     expect(written).toContain("hw");
 
     written = "";
-    await main(["intro", "--plain"]);
+    await main(["intro"]);
     expect(written).toContain(fullName());
+    expect(written).toContain(profile.bio);
 
     written = "";
     await main(["hw"]);

@@ -5,7 +5,6 @@
     "moduleDetection": "force",
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "jsx": "react-jsx",
     "resolveJsonModule": true,
     "types": ["node"],
     "strict": true,

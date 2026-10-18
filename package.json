@@ -36,16 +36,12 @@
     "lint:fix": "rslint . --type-check --fix"
   },
   "dependencies": {
-    "@bomb.sh/router": "0.8.0",
-    "ink": "^8.0.0",
-    "react": "19.3.1"
+    "@bomb.sh/router": "0.8.0"
   },
   "devDependencies": {
     "@rslint/core": "0.9.4",
     "@types/node": "^26.1.1",
-    "@types/react": "19.3.0",
     "bumpp": "^11.1.0",
-    "ink-testing-library": "^4.0.0",
     "prettier": "3.9.9",
     "typescript": "^7.0.2",
     "vite-plus": "catalog:"
