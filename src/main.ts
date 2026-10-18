@@ -8,13 +8,13 @@ import {
   printVersion,
   version,
 } from "@bomb.sh/router";
-import { renderPlain } from "./plain.ts";
+import { showIntro } from "./show.tsx";
 
 const program = command(
   name("heyq02"),
   description("永琪（Ari），全栈研发。"),
   version("0.1.0"),
-  command(name("intro"), description("打印介绍。")),
+  command(name("intro"), description("展示介绍，任意键退出。")),
   command(name("hw"), description("打印 Hello, World!")),
 );
 
@@ -46,7 +46,7 @@ export async function main(argv = process.argv.slice(2)): Promise<void> {
           return;
         }
         case "/intro": {
-          process.stdout.write(`${renderPlain()}\n`);
+          await showIntro();
           return;
         }
         case "/hw": {

@@ -61,6 +61,11 @@ test("routes intro and hw", async () => {
     return true;
   }) as typeof process.stderr.write;
 
+  const stdoutTty = process.stdout.isTTY;
+  const stdinTty = process.stdin.isTTY;
+  Object.defineProperty(process.stdout, "isTTY", { configurable: true, value: false });
+  Object.defineProperty(process.stdin, "isTTY", { configurable: true, value: false });
+
   try {
     await main(["--help"]);
     expect(written).toContain("intro");
@@ -82,6 +87,8 @@ test("routes intro and hw", async () => {
   } finally {
     process.stdout.write = stdoutWrite;
     process.stderr.write = stderrWrite;
+    Object.defineProperty(process.stdout, "isTTY", { configurable: true, value: stdoutTty });
+    Object.defineProperty(process.stdin, "isTTY", { configurable: true, value: stdinTty });
     process.exitCode = 0;
   }
 });
