@@ -22,7 +22,6 @@ jobs:
         env:
           SPONSORKIT_GITHUB_TOKEN: ${{ secrets.SPONSORKIT_GITHUB_TOKEN }}
           SPONSORKIT_GITHUB_LOGIN: heyq02
-          SPONSORKIT_LIBERAPAY_LOGIN: heyq02
           SPONSORKIT_KOFI_VERIFICATION_TOKEN: ${{ secrets.SPONSORKIT_KOFI_VERIFICATION_TOKEN }}
 
       - name: Commit

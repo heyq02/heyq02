@@ -29,7 +29,6 @@ export default liangmi({
           env: [
             'SPONSORKIT_GITHUB_TOKEN',
             'SPONSORKIT_GITHUB_LOGIN',
-            'SPONSORKIT_LIBERAPAY_LOGIN',
             'SPONSORKIT_KOFI_VERIFICATION_TOKEN'
           ]
         }
