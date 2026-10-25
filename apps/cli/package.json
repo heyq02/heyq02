@@ -34,11 +34,9 @@
     "prepublishOnly": "vp run -t build",
     "test": "vp run ctest"
   },
-  "dependencies": {
-    "@heyq02/profile": "workspace:*"
-  },
   "devDependencies": {
     "@bomb.sh/router": "0.8.0",
+    "@heyq02/profile": "workspace:*",
     "@liangmi/vp-config": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "19.3.0",

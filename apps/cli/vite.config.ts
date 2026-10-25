@@ -21,7 +21,7 @@ export default liangmi({
       // AlwaysBundle reads @heyq02/profile from dist/.
       cpack: {
         command: 'vp pack',
-        dependsOn: [{ task: 'build', from: 'dependencies' }]
+        dependsOn: [{ task: 'build', from: ['dependencies', 'devDependencies'] }]
       }
     }
   }

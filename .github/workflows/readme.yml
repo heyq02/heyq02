@@ -1,0 +1,36 @@
+# Regenerate GitHub profile README from static/data/intro.json.
+name: Update README
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: voidzero-dev/setup-vp@v1.21.2
+        with:
+          node-version: 'lts'
+          cache: true
+
+      - run: vp run @heyq02/readme#build
+
+      - name: Commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Actions
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: 'chore: update README.md [ci skip]'
+          add: 'README.md'
+          # Tag pushes are detached HEAD; land the commit on main.
+          branch: main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
