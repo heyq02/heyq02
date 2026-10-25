@@ -1,3 +1,5 @@
+/** Resolve `@heyq02/brands` slugs to `simple-icons` objects for the site UI. */
+
 import { brandSlug, matchBrandName } from '@heyq02/brands'
 import type { SimpleIcon } from 'simple-icons'
 import * as simpleIcons from 'simple-icons'

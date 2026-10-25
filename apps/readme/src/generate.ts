@@ -9,6 +9,7 @@ const root = resolve(import.meta.dirname, '../../..')
 const out = resolve(root, 'README.md')
 const templates = resolve(import.meta.dirname, '../templates')
 
+// Markdown output: keep `&` / newlines; do not HTML-escape.
 const eta = new Eta({ views: templates, autoEscape: false, autoTrim: false })
 
 function skillsPicture() {

@@ -30,6 +30,7 @@ function copyCname(): Plugin {
   }
 }
 
+/** Dev-serve and emit favicons from `static/signature` (no copies under public/). */
 function signatureFavicons(): Plugin {
   return {
     name: 'signature-favicons',
@@ -55,6 +56,7 @@ function signatureFavicons(): Plugin {
   }
 }
 
+/** Inject title/description from `@heyq02/profile` pages. */
 function htmlMeta(): Plugin {
   const meta = {
     '/index.html': pages.home,
@@ -97,7 +99,7 @@ export default liangmi({
   },
   run: {
     tasks: {
-      // Workspace packages only export dist/; build them before Vite.
+      // @heyq02/profile and @heyq02/brands only export dist/; build them before Vite.
       cbuild: {
         command: 'vp build',
         dependsOn: [{ task: 'build', from: 'dependencies' }]

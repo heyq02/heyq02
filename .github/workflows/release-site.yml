@@ -30,7 +30,7 @@ jobs:
           cache: true
 
       - name: Build site
-        # vp run (not bare `vp build`) so cbuild dependsOn builds @heyq02/profile first.
+        # vp run (not bare `vp build`) so cbuild dependsOn builds @heyq02/profile and @heyq02/brands first.
         run: vp run @heyq02/site#cbuild
 
       - name: Setup Pages

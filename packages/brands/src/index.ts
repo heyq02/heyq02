@@ -1,4 +1,4 @@
-/** Display name → [simple-icons](https://simpleicons.org) slug. */
+/** Display name → [simple-icons](https://simpleicons.org) slug for site icons and readme badges. */
 export const brandSlugs: Record<string, string> = {
   JavaScript: 'javascript',
   TypeScript: 'typescript',

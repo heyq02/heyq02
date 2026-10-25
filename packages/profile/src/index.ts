@@ -1,3 +1,5 @@
+/** Shared intro SSOT from `static/data/intro.json` for site, cli, and readme. */
+
 import raw from '../../../static/data/intro.json' with { type: 'json' }
 import type { Intro, Place, Skill } from './types.ts'
 
