@@ -1,5 +1,5 @@
 # Regenerate GitHub profile README from static/data/intro.json.
-name: Update README
+name: Release README
 
 on:
   push:
