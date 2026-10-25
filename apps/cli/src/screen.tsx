@@ -46,7 +46,7 @@ export function IntroScreen({
           <Text color={accent} bold>
             heyq02
           </Text>
-          <Text color={muted}> · intro</Text>
+          <Text color={muted}> · profile</Text>
         </Text>
         <Text color={muted}>0.1.0</Text>
       </Box>

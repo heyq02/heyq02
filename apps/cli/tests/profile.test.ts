@@ -48,7 +48,7 @@ it('prints a plain introduction without a phone link', () => {
   expect(text).not.toContain('tel:')
 })
 
-it('routes intro and hw', async () => {
+it('shows the profile by default and still routes hw', async () => {
   let written = ''
   let errors = ''
   const stdoutWrite = process.stdout.write.bind(process.stdout)
@@ -75,11 +75,11 @@ it('routes intro and hw', async () => {
 
   try {
     await main(['--help'])
-    expect(written).toContain('intro')
     expect(written).toContain('hw')
+    expect(written).not.toContain('intro')
 
     written = ''
-    await main(['intro'])
+    await main([])
     expect(written).toContain(fullName())
     expect(written).toContain(profile.bio)
 
