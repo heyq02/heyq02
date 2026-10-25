@@ -1,5 +1,6 @@
 {
   "name": "heyq02-monorepo",
+  "version": "0.1.5",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,7 +13,7 @@
     "lint": "vp run clint",
     "lint:fix": "vp lint --fix",
     "prepare": "vp config",
-    "release": "bumpp apps/cli/package.json",
+    "release": "bumpp -r",
     "test": "vp -C apps/cli run ctest",
     "test:coverage": "vp -C apps/cli test --coverage"
   },
