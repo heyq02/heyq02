@@ -20,14 +20,14 @@ function copyCname(): Plugin {
           throw error
         }
       }
-    },
+    }
   }
 }
 
 function htmlMeta(): Plugin {
   const meta = {
     '/index.html': intro.pages.home,
-    '/blog/index.html': intro.pages.blog,
+    '/blog/index.html': intro.pages.blog
   } as const
 
   return {
@@ -40,16 +40,16 @@ function htmlMeta(): Plugin {
           {
             tag: 'title',
             children: page.title,
-            injectTo: 'head',
+            injectTo: 'head'
           },
           {
             tag: 'meta',
             attrs: { name: 'description', content: page.description },
-            injectTo: 'head',
-          },
-        ],
+            injectTo: 'head'
+          }
+        ]
       }
-    },
+    }
   }
 }
 
@@ -60,8 +60,8 @@ export default liangmi({
     rollupOptions: {
       input: {
         index: resolve(import.meta.dirname, 'index.html'),
-        blog: resolve(import.meta.dirname, 'blog/index.html'),
-      },
-    },
-  },
+        blog: resolve(import.meta.dirname, 'blog/index.html')
+      }
+    }
+  }
 })

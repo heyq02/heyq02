@@ -26,6 +26,11 @@
     "typescript": "catalog:",
     "vite-plus": "catalog:"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
@@ -36,8 +41,5 @@
   "engines": {
     "node": ">=22.12.0"
   },
-  "packageManager": "pnpm@12.10.1",
-  "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
-  }
+  "packageManager": "pnpm@12.10.1"
 }
