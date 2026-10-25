@@ -1,6 +1,7 @@
-import { expect, test } from '@rstest/core';
-import { fullName } from '../src/index.ts';
+import { expect, test } from "@rstest/core";
 
-test('exports the introduction', () => {
-  expect(fullName()).toBe('Ari He');
+import { fullName } from "../src/index.ts";
+
+test("exports the introduction", () => {
+  expect(fullName()).toBe("Ari He");
 });

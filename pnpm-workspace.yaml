@@ -5,4 +5,4 @@ allowBuilds:
 # See: https://github.com/rstackjs/rsbuild-plugin-arethetypeswrong/pull/71
 peerDependencyRules:
   allowedVersions:
-    typescript: '*'
+    typescript: "*"

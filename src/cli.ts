@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { main } from './main.ts';
+import { main } from "./main.ts";
 
 try {
   await main();
