@@ -29,8 +29,8 @@ jobs:
           cache: true
 
       - name: Build site
-        # Use the package script so @heyq02/profile dist exists before Vite builds.
-        run: pnpm --filter @heyq02/site build
+        # vp run (not bare `vp build`) so cbuild dependsOn builds @heyq02/profile first.
+        run: vp run @heyq02/site#cbuild
 
       - name: Setup Pages
         uses: actions/configure-pages@v6

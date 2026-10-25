@@ -63,5 +63,19 @@ export default liangmi({
         blog: resolve(import.meta.dirname, 'blog/index.html')
       }
     }
+  },
+  run: {
+    tasks: {
+      // @heyq02/profile only exports dist/; build it before Vite.
+      cbuild: {
+        command: 'vp build',
+        dependsOn: [{ task: 'build', from: 'dependencies' }]
+      },
+      dev: {
+        command: 'vp dev',
+        cache: false,
+        dependsOn: [{ task: 'build', from: 'dependencies' }]
+      }
+    }
   }
 })

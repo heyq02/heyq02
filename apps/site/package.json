@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "build": "vp run cbuild",
-    "dev": "vp run @heyq02/profile#build && vp dev",
     "preview": "vp preview"
   },
   "dependencies": {
