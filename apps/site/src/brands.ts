@@ -1,98 +1,29 @@
+import { brandSlug, matchBrandName } from '@heyq02/brands'
 import type { SimpleIcon } from 'simple-icons'
-import {
-  siApachemaven,
-  siBilibili,
-  siBluesky,
-  siClaude,
-  siCss,
-  siCursor,
-  siDeepseek,
-  siDocker,
-  siExpo,
-  siFigma,
-  siGit,
-  siGithub,
-  siGithubactions,
-  siGithubcopilot,
-  siGithubpages,
-  siGradle,
-  siHtml5,
-  siJavascript,
-  siJuejin,
-  siLinux,
-  siMacos,
-  siMysql,
-  siNextdotjs,
-  siNginx,
-  siNodedotjs,
-  siOxc,
-  siRabbitmq,
-  siReact,
-  siRedis,
-  siRolldown,
-  siRust,
-  siSpring,
-  siSpringboot,
-  siTypescript,
-  siVim,
-  siVite,
-  siVitest,
-  siVuedotjs,
-  siWebpack,
-  siWechat
-} from 'simple-icons'
+import * as simpleIcons from 'simple-icons'
 
-const brands: { name: string; icon?: SimpleIcon }[] = [
-  { name: 'JavaScript', icon: siJavascript },
-  { name: 'TypeScript', icon: siTypescript },
-  { name: 'Node.js', icon: siNodedotjs },
-  { name: 'HTML', icon: siHtml5 },
-  { name: 'CSS', icon: siCss },
-  { name: 'Rust', icon: siRust },
-  { name: 'Vue', icon: siVuedotjs },
-  { name: 'React', icon: siReact },
-  { name: 'Next', icon: siNextdotjs },
-  { name: 'Expo', icon: siExpo },
-  { name: 'Taro' },
-  { name: 'Webpack', icon: siWebpack },
-  { name: 'Rolldown', icon: siRolldown },
-  { name: 'Vite', icon: siVite },
-  { name: 'Vitest', icon: siVitest },
-  { name: 'Oxc', icon: siOxc },
-  { name: 'Spring Boot', icon: siSpringboot },
-  { name: 'Spring', icon: siSpring },
-  { name: 'MySQL', icon: siMysql },
-  { name: 'Redis', icon: siRedis },
-  { name: 'RabbitMQ', icon: siRabbitmq },
-  { name: 'Maven', icon: siApachemaven },
-  { name: 'Gradle', icon: siGradle },
-  { name: 'GitHub Actions', icon: siGithubactions },
-  { name: 'GitHub Copilot', icon: siGithubcopilot },
-  { name: 'GitHub Pages', icon: siGithubpages },
-  { name: 'Rspack' },
-  { name: 'GitHub', icon: siGithub },
-  { name: 'Git', icon: siGit },
-  { name: 'Figma', icon: siFigma },
-  { name: 'Linux', icon: siLinux },
-  { name: 'Docker', icon: siDocker },
-  { name: 'Vim', icon: siVim },
-  { name: 'Nginx', icon: siNginx },
-  { name: 'macOS', icon: siMacos },
-  { name: 'Cursor', icon: siCursor },
-  { name: 'DeepSeek', icon: siDeepseek },
-  { name: 'Claude', icon: siClaude },
-  { name: 'Bluesky', icon: siBluesky },
-  { name: 'WeChat', icon: siWechat },
-  { name: 'Bilibili', icon: siBilibili },
-  { name: 'Juejin', icon: siJuejin }
-]
-
-function matchBrand(label: string) {
-  return brands.find(
-    ({ name }) => label === name || label.startsWith(`${name}（`) || label.startsWith(`${name} `)
+function isSimpleIcon(value: unknown): value is SimpleIcon {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    'slug' in value &&
+    'path' in value &&
+    typeof (value as SimpleIcon).slug === 'string'
   )
 }
 
-export function brandIcon(label: string) {
-  return matchBrand(label)?.icon
+const iconsBySlug = new Map(
+  Object.values(simpleIcons)
+    .filter(isSimpleIcon)
+    .map(icon => [icon.slug, icon])
+)
+
+export function brandIcon(label: string): SimpleIcon | undefined {
+  const name = matchBrandName(label)
+  if (name === undefined) {
+    return undefined
+  }
+
+  const slug = brandSlug(name)
+  return slug === undefined ? undefined : iconsBySlug.get(slug)
 }

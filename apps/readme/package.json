@@ -4,7 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node --experimental-strip-types ./src/generate.ts"
+    "build": "vp run cbuild"
+  },
+  "dependencies": {
+    "@heyq02/brands": "workspace:*",
+    "@heyq02/profile": "workspace:*",
+    "eta": "^4.6.0"
   },
   "devDependencies": {
     "@liangmi/vp-config": "catalog:",

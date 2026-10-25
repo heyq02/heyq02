@@ -1,4 +1,4 @@
-# Regenerate GitHub profile README from static/data/intro.json.
+# Regenerate GitHub profile README via @heyq02/readme (profile + brands).
 name: Release README
 
 on:

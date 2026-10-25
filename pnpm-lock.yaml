@@ -243,6 +243,16 @@ importers:
         version: 1.3.0(@types/node@26.6.4)(@vitest/ui@5.0.5)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(yaml@2.9.1)
 
   apps/readme:
+    dependencies:
+      '@heyq02/brands':
+        specifier: workspace:*
+        version: link:../../packages/brands
+      '@heyq02/profile':
+        specifier: workspace:*
+        version: link:../../packages/profile
+      eta:
+        specifier: ^4.6.0
+        version: 4.6.0
     devDependencies:
       '@liangmi/vp-config':
         specifier: 'catalog:'
@@ -259,6 +269,9 @@ importers:
 
   apps/site:
     dependencies:
+      '@heyq02/brands':
+        specifier: workspace:*
+        version: link:../../packages/brands
       '@heyq02/profile':
         specifier: workspace:*
         version: link:../../packages/profile
@@ -299,6 +312,21 @@ importers:
       tailwindcss:
         specifier: ^4.3.3
         version: 4.3.3
+      typescript:
+        specifier: 'catalog:'
+        version: 7.0.2
+      vite-plus:
+        specifier: 'catalog:'
+        version: 1.3.0(@types/node@26.6.4)(@vitest/ui@5.0.5)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(yaml@2.9.1)
+
+  packages/brands:
+    devDependencies:
+      '@liangmi/vp-config':
+        specifier: 'catalog:'
+        version: 1.0.0(oxlint@1.88.0(oxlint-tsgolint@7.0.2004)(vite-plus@1.3.0(@types/node@26.6.4)(@vitest/ui@5.0.5)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(yaml@2.9.1)))(vite-plus@1.3.0(@types/node@26.6.4)(@vitest/ui@5.0.5)(jiti@2.7.0)(publint@0.3.25)(typescript@7.0.2)(yaml@2.9.1))
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.6.4
       typescript:
         specifier: 'catalog:'
         version: 7.0.2
@@ -1740,6 +1768,10 @@ packages:
 
   estree-walker@3.0.3:
     resolution: {integrity: sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==}
+
+  eta@4.6.0:
+    resolution: {integrity: sha512-lW6is4T1NFOYnmqGZIfvixqj7A7sSvScF+DN8EK6K58xI5MZ5UvYe0GjopxOXQtZvUn4eDdVuZ8XSoYWTMEKwA==}
+    engines: {node: '>=20'}
 
   expect-type@1.4.0:
     resolution: {integrity: sha512-KfYbmpRm0VbLjEvVa9yGwCi9GI34xvi7A/HXYWQO65CSD2u3MczUJSuwXKFIxlGsgBQizV9q5J9NHj4VG0n+pA==}
@@ -3737,6 +3769,8 @@ snapshots:
   estree-walker@3.0.3:
     dependencies:
       '@types/estree': 1.0.9
+
+  eta@4.6.0: {}
 
   expect-type@1.4.0: {}
 

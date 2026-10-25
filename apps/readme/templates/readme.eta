@@ -1,0 +1,16 @@
+<h1>Hello, I'm <%= it.name %></h1>
+
+## <%= it.sections.experience %>
+
+<% for (const job of it.experiences) { %>
+**[<%= job.company %>](<%= job.href %>)** · <%= job.start %> – <%= job.end %>
+
+<%= job.points.map((point) => `- ${point}`).join('\n') %>
+
+<% } %>
+## <%= it.sections.skills %>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="<%= it.skills.base %>&theme=dark" />
+  <img width="100%" alt="<%= it.skills.alt %>" src="<%= it.skills.base %>&theme=light" />
+</picture>
