@@ -29,11 +29,10 @@
     "access": "public"
   },
   "scripts": {
-    "build": "pnpm --filter @heyq02/profile run build && vp run cpack",
+    "build": "vp run cpack",
     "dev": "vp pack --watch",
-    "prepublishOnly": "vp run build",
-    "test": "vp run ctest",
-    "test:coverage": "vp test --coverage"
+    "prepublishOnly": "vp run -t build",
+    "test": "vp run ctest"
   },
   "dependencies": {
     "@heyq02/profile": "workspace:*"
@@ -41,7 +40,7 @@
   "devDependencies": {
     "@bomb.sh/router": "0.8.0",
     "@liangmi/vp-config": "catalog:",
-    "@types/node": "^26.1.1",
+    "@types/node": "catalog:",
     "@types/react": "19.3.0",
     "ink": "^8.0.0",
     "ink-testing-library": "^4.0.0",
