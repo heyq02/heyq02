@@ -1,4 +1,4 @@
-# Build and deploy apps/site to GitHub Pages (heyq02.dev).
+# Build and deploy apps/site to GitHub Pages (heyq02.com).
 name: GitHub Pages
 
 on:
