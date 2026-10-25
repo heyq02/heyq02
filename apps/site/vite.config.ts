@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import type { Plugin } from 'vite-plus'
 
-// Read JSON here (not `@heyq02/profile`): `vp run` loads this config before packages are built.
+// Never import `@heyq02/*` here: `vp run` loads every app's vite.config before packages are built.
 import intro from '../../static/data/intro.json' with { type: 'json' }
 
 const monorepoRoot = resolve(import.meta.dirname, '../..')
@@ -101,7 +101,7 @@ export default liangmi({
   },
   run: {
     tasks: {
-      // @heyq02/profile and @heyq02/brands only export dist/; build them before Vite.
+      // App code imports `@heyq02/profile` / `@heyq02/brands` from package exports.
       cbuild: {
         command: 'vp build',
         dependsOn: [{ task: 'build', from: 'dependencies' }]
