@@ -1,72 +1,30 @@
 {
-  "name": "heyq02",
-  "version": "0.1.5",
-  "description": "Ari He. A terminal introduction.",
-  "homepage": "https://intro.heyq02.com",
-  "bugs": {
-    "url": "https://github.com/heyq02/heyq02/issues"
-  },
-  "license": "MIT",
-  "author": "Ari He <hello@heyq02.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/heyq02/heyq02.git"
-  },
-  "bin": {
-    "heyq02": "./dist/cli.js"
-  },
-  "files": [
-    "dist"
-  ],
+  "name": "heyq02-monorepo",
+  "private": true,
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "build": "rs lib",
-    "build:rsdoctor": "RSDOCTOR=true rs lib",
-    "check": "rs check && pnpm run typecheck",
+    "build": "vp run -r build",
+    "check": "vp run ccheck",
     "commitlint": "commitlint",
-    "dev": "rs lib --watch",
-    "format": "rs fmt",
-    "format:check": "rs fmt --check",
-    "lint": "rs lint .",
-    "lint:fix": "rs lint --fix .",
-    "prepare": "rs hooks",
-    "prepublishOnly": "pnpm run build",
-    "release": "bumpp",
-    "test": "rs test",
-    "test:coverage": "rs test --coverage",
-    "typecheck": "tsc6 --noEmit -p tsconfig.typecheck.json"
+    "dev": "vp -C apps/site dev",
+    "format": "vp run cfmt",
+    "format:check": "vp fmt --check",
+    "lint": "vp run clint",
+    "lint:fix": "vp lint --fix",
+    "prepare": "vp config",
+    "release": "bumpp apps/cli/package.json",
+    "test": "vp -C apps/cli run ctest",
+    "test:coverage": "vp -C apps/cli test --coverage"
   },
   "devDependencies": {
-    "@bomb.sh/router": "0.8.0",
     "@commitlint/cli": "20.5.3",
-    "@heyq02/rstack-config": "^0.0.6",
-    "@microsoft/api-extractor": "^7.59.4",
-    "@rsdoctor/rspack-plugin": "^1.6.5",
-    "@rslib/core": "^1.0.3",
-    "@rslint/core": "^0.9.5",
-    "@rstest/core": "^0.12.3",
-    "@rstest/coverage-v8": "^0.12.3",
+    "@commitlint/config-conventional": "20.5.3",
+    "@liangmi/vp-config": "catalog:",
     "@types/node": "^26.1.1",
-    "@types/react": "19.3.0",
     "bumpp": "^11.1.0",
-    "ink": "^8.0.0",
-    "ink-testing-library": "^4.0.0",
-    "oxfmt": "^0.73.0",
-    "react": "19.3.1",
-    "rstack": "^0.8.4",
     "sponsorkit": "19.0.0",
-    "typescript": "7.0.2",
-    "vite-plus": "1.3.0"
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
   },
   "devEngines": {
     "packageManager": {

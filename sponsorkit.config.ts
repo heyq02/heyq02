@@ -1,48 +1,48 @@
-import { defineConfig, tierPresets } from "sponsorkit";
+import { defineConfig, tierPresets } from 'sponsorkit'
 
 export default defineConfig({
-  // includePrivate: true,
+  // IncludePrivate: true,
   tiers: [
     {
-      title: "Past Sponsors",
+      title: 'Past Sponsors',
       monthlyDollars: -1,
-      preset: tierPresets.xs,
+      preset: tierPresets.xs
     },
     {
-      title: "Backers",
-      // to replace the entire tier rendering
-      // compose: (composer, tierSponsors, config) => {
-      //   composer.addRaw(
+      title: 'Backers'
+      // To replace the entire tier rendering
+      // Compose: (composer, tierSponsors, config) => {
+      //   Composer.addRaw(
       //     '<-- custom svg -->',
       //   )
       // },
     },
     {
-      title: "Sponsors",
+      title: 'Sponsors',
       monthlyDollars: 10,
       preset: tierPresets.medium,
-      // to insert custom elements after the tier block
+      // To insert custom elements after the tier block
       composeAfter: (composer, _tierSponsors, _config) => {
-        composer.addSpan(10);
-      },
+        composer.addSpan(10)
+      }
     },
     {
-      title: "Silver Sponsors",
+      title: 'Silver Sponsors',
       monthlyDollars: 50,
-      preset: tierPresets.large,
+      preset: tierPresets.large
     },
     {
-      title: "Gold Sponsors",
+      title: 'Gold Sponsors',
       monthlyDollars: 100,
-      preset: tierPresets.xl,
-    },
+      preset: tierPresets.xl
+    }
   ],
 
   // Replace links and avatars
-  // replaceLinks: {
+  // ReplaceLinks: {
   //   'https://github.com/antfu': 'https://antfu.me',
   // },
-  // replaceAvatars: {
+  // ReplaceAvatars: {
   //   ...
   // },
 
@@ -50,7 +50,7 @@ export default defineConfig({
   sponsorsAutoMerge: true,
 
   // Manually merge sponsors from different platforms
-  // mergeSponsors: [
+  // MergeSponsors: [
   //   [
   //     { login: 'patak-dev', provider: 'github' },
   //     { login: 'patak', provider: 'opencollective' },
@@ -60,20 +60,20 @@ export default defineConfig({
   // Run multiple renders with different configurations
   renders: [
     {
-      name: "sponsors",
+      name: 'sponsors',
       width: 800,
-      formats: ["svg", "png"],
+      formats: ['svg', 'png']
     },
     {
-      name: "sponsors-wide",
+      name: 'sponsors-wide',
       width: 1000,
-      formats: ["svg"],
+      formats: ['svg']
     },
     {
-      renderer: "circles",
-      name: "sponsors-circles",
+      renderer: 'circles',
+      name: 'sponsors-circles',
       width: 1000,
-      includePastSponsors: true,
-    },
-  ],
-});
+      includePastSponsors: true
+    }
+  ]
+})

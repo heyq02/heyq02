@@ -1,46 +1,39 @@
-import { defineConfig } from "vite-plus";
+import { liangmi } from '@liangmi/vp-config'
 
-export default defineConfig({
-  pack: {
-    deps: {
-      // tsdown <0.23 compatibility: resolve external dependency subpaths.
-      // Remove to preserve subpath imports as written (the new default).
-      // https://tsdown.dev/options/dependencies#deps-resolvedepsubpath
-      resolveDepSubpath: true,
-    },
-    dts: {
-      generator: "tsgo",
-    },
-    exports: true,
+export default liangmi({
+  defaultPackage: {
+    pack: './apps/cli',
+    dev: './apps/site',
+    build: './apps/site',
+    preview: './apps/site'
   },
-  lint: {
-    options: {
-      typeAware: true,
-      typeCheck: true,
-    },
-    ignorePatterns: ["sponsorkit/**"],
-  },
+  lint: [
+    { ignores: ['sponsorkit/**'] },
+    // Motion / Ink JSX props are intentionally ephemeral objects and callbacks.
+    {
+      files: ['apps/site/**', 'apps/cli/tests/**'],
+      rules: {
+        'react-perf/jsx-no-new-object-as-prop': 'off',
+        'react-perf/jsx-no-new-function-as-prop': 'off'
+      }
+    }
+  ],
   fmt: {
-    sortImports: true,
-    sortPackageJson: true,
-    ignorePatterns: ["sponsorkit/**"],
+    ignorePatterns: ['sponsorkit/**']
   },
   run: {
     tasks: {
       sponsorkit: {
-        command: "vpx sponsorkit",
+        command: 'vpx sponsorkit',
         cache: {
           env: [
-            "SPONSORKIT_GITHUB_TOKEN",
-            "SPONSORKIT_GITHUB_LOGIN",
-            "SPONSORKIT_LIBERAPAY_LOGIN",
-            "SPONSORKIT_KOFI_VERIFICATION_TOKEN",
-          ],
-        },
-      },
-    },
-  },
-  staged: {
-    "*": "vp check --fix",
-  },
-});
+            'SPONSORKIT_GITHUB_TOKEN',
+            'SPONSORKIT_GITHUB_LOGIN',
+            'SPONSORKIT_LIBERAPAY_LOGIN',
+            'SPONSORKIT_KOFI_VERIFICATION_TOKEN'
+          ]
+        }
+      }
+    }
+  }
+})

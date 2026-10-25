@@ -1,0 +1,91 @@
+{
+  "name": "heyq02",
+  "version": "0.1.5",
+  "description": "Ari He. A terminal introduction.",
+  "homepage": "https://heyq02.dev",
+  "bugs": {
+    "url": "https://github.com/heyq02/heyq02/issues"
+  },
+  "license": "MIT",
+  "author": "Ari He <hello@heyq02.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heyq02/heyq02.git",
+    "directory": "apps/cli"
+  },
+  "bin": {
+    "heyq02": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./cli": "./dist/cli.js",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vp run cpack",
+    "dev": "vp pack --watch",
+    "prepublishOnly": "vp run build",
+    "test": "vp run ctest",
+    "test:coverage": "vp test --coverage"
+  },
+  "devDependencies": {
+    "@bomb.sh/router": "0.8.0",
+    "@liangmi/vp-config": "catalog:",
+    "@types/node": "^26.1.1",
+    "@types/react": "19.3.0",
+    "ink": "^8.0.0",
+    "ink-testing-library": "^4.0.0",
+    "react": "19.3.1",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "inlinedDependencies": {
+    "@alcalzone/ansi-tokenize": "0.3.1",
+    "@bomb.sh/router": "0.8.0",
+    "ansi-escapes": "7.3.0",
+    "ansi-regex": "6.4.0",
+    "ansi-styles": "6.2.3",
+    "auto-bind": "5.0.1",
+    "chalk": "6.0.1",
+    "cli-boxes": "4.0.1",
+    "cli-cursor": "4.0.0",
+    "cli-truncate": "6.1.1",
+    "code-excerpt": "4.0.0",
+    "convert-to-spaces": "2.0.1",
+    "environment": "1.1.0",
+    "es-toolkit": "1.52.0",
+    "escape-string-regexp": "2.0.0",
+    "get-east-asian-width": "1.7.0",
+    "indent-string": "5.0.0",
+    "ink": "8.0.0",
+    "is-fullwidth-code-point": "5.1.0",
+    "is-in-ci": "2.0.0",
+    "mimic-fn": "2.1.0",
+    "onetime": "5.1.2",
+    "patch-console": "2.0.0",
+    "quick-lru": "7.3.0",
+    "react": "19.3.1",
+    "react-reconciler": "0.34.0",
+    "restore-cursor": "4.0.0",
+    "scheduler": "0.28.0",
+    "signal-exit": "3.0.7",
+    "slice-ansi": "9.0.1",
+    "stack-utils": "2.0.6",
+    "string-width": "8.3.0",
+    "strip-ansi": "7.2.0",
+    "terminal-size": "4.0.1",
+    "widest-line": "6.0.0",
+    "wrap-ansi": "10.0.2",
+    "yoga-layout": "3.2.1"
+  }
+}
