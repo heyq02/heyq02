@@ -37,4 +37,8 @@ export function renderReadme(): string {
   })
 }
 
-writeFileSync(out, `${renderReadme().trimEnd()}\n`)
+// Collapse template loop whitespace so output matches oxfmt (avoids empty CI commits).
+const markdown = renderReadme()
+  .replaceAll(/\n{3,}/g, '\n\n')
+  .trimEnd()
+writeFileSync(out, `${markdown}\n`)

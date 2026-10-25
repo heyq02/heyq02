@@ -14,7 +14,10 @@ jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
+      # Tag pushes check out a detached HEAD; commit/push must land on main.
       - uses: actions/checkout@v6
+        with:
+          ref: main
 
       - uses: voidzero-dev/setup-vp@v1.21.2
         with:
@@ -30,7 +33,7 @@ jobs:
           author_email: 41898282+github-actions[bot]@users.noreply.github.com
           message: 'chore: update README.md [ci skip]'
           add: 'README.md'
-          # Tag pushes are detached HEAD; land the commit on main.
-          branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Bot commit; skip vp staged so format-only noise cannot empty the commit.
+          VP_GIT_HOOKS: '0'
