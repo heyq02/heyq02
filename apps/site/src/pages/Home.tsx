@@ -1,7 +1,8 @@
+import { formatCount } from '@heyq02/profile'
 import { useReducedMotion } from 'motion/react'
 import { useEffect, useState } from 'react'
 
-import { brandIcon, brandOf } from '../brands.ts'
+import { brandIcon } from '../brands.ts'
 import { BrandIcon } from '../components/BrandIcon.tsx'
 import { SectionHeading } from '../components/SectionHeading.tsx'
 import { Page } from '../layout.tsx'
@@ -108,14 +109,6 @@ function CityIcon() {
       <path d='M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7m0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5' />
     </svg>
   )
-}
-
-function formatCount(count: number) {
-  if (count < 1000) {
-    return String(count)
-  }
-
-  return `${(count / 1000).toFixed(1).replace(/\.0$/, '')}k`
 }
 
 function StarIcon() {
@@ -228,22 +221,22 @@ export function Home() {
           <SectionHeading id='skills-heading' title={sections.skills} />
           <ul className='grid grid-cols-3 gap-x-2 gap-y-4'>
             {skills.map(skill => {
-              const brand = brandOf(skill.name)
+              const icon = brandIcon(skill.name)
 
               return (
                 <li className='flex items-center justify-center' key={skill.name} translate='no'>
-                  {brand?.href && brand.icon ? (
+                  {icon ? (
                     <a
                       aria-label={skill.summary ? `${skill.name}, ${skill.summary}` : skill.name}
                       className='group hover:border-title/12 hover:bg-title/8 relative z-0 inline-flex size-9 items-center justify-center rounded-lg border border-transparent transition-[background-color,border-color] duration-150 ease-out hover:z-10 focus-visible:z-10'
-                      href={brand.href}
+                      href={skill.href}
                       rel='noopener noreferrer'
                       target='_blank'
                     >
-                      <BrandIcon colored icon={brand.icon} size='md' />
+                      <BrandIcon colored icon={icon} size='md' />
                       <span className='border-title/8 bg-background pointer-events-none absolute top-full left-1/2 z-10 mt-2.5 -translate-x-1/2 rounded-md border opacity-0 shadow-md transition-opacity duration-150 group-hover:opacity-100 group-hover:delay-150 group-focus-visible:opacity-100'>
                         <span className='flex items-center gap-3 px-3 py-2'>
-                          <BrandIcon colored icon={brand.icon} size='md' />
+                          <BrandIcon colored icon={icon} size='md' />
                           <span className='flex w-44 flex-col'>
                             <span className='text-title text-sm leading-5 font-medium'>
                               {skill.name}

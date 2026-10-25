@@ -1,12 +1,11 @@
 import { copyFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
+import { pages } from '@heyq02/profile'
 import { liangmi } from '@liangmi/vp-config'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import type { Plugin } from 'vite-plus'
-
-import intro from '../../static/data/intro.json' with { type: 'json' }
 
 function copyCname(): Plugin {
   return {
@@ -21,15 +20,15 @@ function copyCname(): Plugin {
 }
 
 function htmlMeta(): Plugin {
-  const pages = {
-    '/index.html': intro.pages.home,
-    '/blog/index.html': intro.pages.blog
+  const meta = {
+    '/index.html': pages.home,
+    '/blog/index.html': pages.blog
   } as const
 
   return {
     name: 'html-meta',
     transformIndexHtml(html, ctx) {
-      const page = ctx.path in pages ? pages[ctx.path as keyof typeof pages] : intro.pages.home
+      const page = ctx.path in meta ? meta[ctx.path as keyof typeof meta] : pages.home
       return {
         html,
         tags: [

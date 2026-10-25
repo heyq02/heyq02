@@ -35,6 +35,9 @@
     "test": "vp run ctest",
     "test:coverage": "vp test --coverage"
   },
+  "dependencies": {
+    "@heyq02/profile": "workspace:*"
+  },
   "devDependencies": {
     "@bomb.sh/router": "0.8.0",
     "@liangmi/vp-config": "catalog:",

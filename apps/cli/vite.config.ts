@@ -9,7 +9,8 @@ export default liangmi({
     // Prefer .js under "type": "module" instead of fixed .mjs/.d.mts.
     fixedExtension: false,
     deps: {
-      neverBundle: ['react-devtools-core']
+      neverBundle: ['react-devtools-core'],
+      alwaysBundle: ['@heyq02/profile']
     }
   },
   test: {
