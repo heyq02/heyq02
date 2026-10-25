@@ -2,7 +2,7 @@ node_modules
 dist
 coverage
 .rsdoctor
-.vite-plus/hooks/_
+.vite-hooks/_
 *.tgz
 *.log
 .DS_Store
