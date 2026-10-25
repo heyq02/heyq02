@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "rootDir": ".",
-    "types": ["rstack/types", "node"]
-  },
-  "include": ["src", "tests", "rstack.config.ts"]
-}

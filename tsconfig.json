@@ -1,8 +1,20 @@
 {
-  "extends": "@heyq02/rstack-config/tsconfig",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "rootDir": "src"
-  },
-  "include": ["src"]
+    "target": "esnext",
+    "lib": ["es2023"],
+    "moduleDetection": "force",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "strict": true,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
+  }
 }

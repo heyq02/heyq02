@@ -1,0 +1,38 @@
+name: SponsorKit Scheduler
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches: [main]
+
+jobs:
+  update-sponsors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: voidzero-dev/setup-vp@v1.21.2
+        with:
+          node-version: "lts"
+          cache: true
+
+      - run: vp run sponsorkit
+        env:
+          SPONSORKIT_GITHUB_TOKEN: ${{ secrets.SPONSORKIT_GITHUB_TOKEN }}
+          SPONSORKIT_GITHUB_LOGIN: heyq02
+
+          SPONSORKIT_LIBERAPAY_LOGIN: heyq02
+
+          SPONSORKIT_KOFI_VERIFICATION_TOKEN: ${{ secrets.SPONSORKIT_KOFI_VERIFICATION_TOKEN }}
+
+      - name: Commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Actions
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: "chore: update sponsors.svg [ci skip]"
+          add: "sponsorkit/**"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

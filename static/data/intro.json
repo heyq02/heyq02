@@ -1,0 +1,138 @@
+{
+  "name": "Ari He",
+  "names": ["Ari He", "Developer"],
+  "degree": "Bachelor",
+  "city": "China",
+  "bio": "Full-stack engineer / open-source enthusiast / vlogger on career. Focused on AI that speeds up development and ships in real products",
+  "kaomoji": "(๑•̀ㅂ•́)و",
+  "avatar": "https://avatars.githubusercontent.com/u/206218794?v=4",
+  "pages": {
+    "home": {
+      "kicker": "PROFILE",
+      "title": "Ari He",
+      "description": "Ari He. Full-stack engineer, open-source enthusiast, and vlogger on career. Focused on AI that speeds up development and ships in real products."
+    },
+    "blog": {
+      "title": "Blog · Ari He",
+      "description": "Blog of Ari He.",
+      "heading": "Blog",
+      "empty": "Posts live on this site. None yet."
+    }
+  },
+  "sections": {
+    "experience": "Experience",
+    "skills": "Skills",
+    "openSource": "Open source"
+  },
+  "nav": [
+    { "id": "home", "href": "/", "label": "Home" },
+    { "id": "blog", "href": "/blog/", "label": "Blog" }
+  ],
+  "places": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/heyq02",
+      "detail": "heyq02"
+    },
+    {
+      "label": "Bluesky",
+      "href": "https://bsky.app/profile/heyq02.com",
+      "detail": "heyq02.com"
+    },
+    {
+      "label": "Bilibili",
+      "href": "https://space.bilibili.com/3493273159075938",
+      "detail": "全栈糕手Ari"
+    },
+    {
+      "label": "Juejin",
+      "href": "https://juejin.cn/user/708557910842296",
+      "detail": "编程糕手Ari"
+    },
+    {
+      "label": "WeChat",
+      "href": "/wechat.jpg",
+      "detail": "Scan to add"
+    }
+  ],
+  "experiences": [
+    {
+      "company": "JD.com, Inc.",
+      "href": "https://www.jd.com/",
+      "start": "2024.06",
+      "end": "Present",
+      "points": [
+        "Owned iterations for JD Takeout across the mini program, H5, and admin console",
+        "Upgraded the admin console off its legacy architecture and improved TP95",
+        "Built C3-level AI Infra for Local Life product and engineering, improving R&D efficiency"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Vue",
+      "summary": "Progressive JavaScript framework for building web UIs"
+    },
+    {
+      "name": "React",
+      "summary": "The library for web and native user interfaces"
+    },
+    {
+      "name": "Next",
+      "summary": "The React framework for the web"
+    },
+    {
+      "name": "Rolldown",
+      "summary": "Rust-based JavaScript bundler with a Rollup-compatible API"
+    },
+    {
+      "name": "Vite",
+      "summary": "Frontend build tool for the web"
+    },
+    {
+      "name": "Oxc",
+      "summary": "High-performance JavaScript tools written in Rust"
+    },
+    {
+      "name": "Spring",
+      "summary": "Framework for creating Java enterprise applications"
+    },
+    {
+      "name": "Redis",
+      "summary": "In-memory store for databases, cache, and messaging"
+    },
+    {
+      "name": "RabbitMQ",
+      "summary": "Open-source messaging and streaming broker"
+    },
+    {
+      "name": "Nginx",
+      "summary": "HTTP server, reverse proxy, and load balancer"
+    },
+    {
+      "name": "Docker",
+      "summary": "Open platform for building, shipping, and running apps"
+    }
+  ],
+  "projects": [
+    {
+      "name": "jd-opensource/taro-ui",
+      "href": "https://github.com/jd-opensource/taro-ui",
+      "summary": "一款基于 Taro 框架开发的多端 UI 组件库",
+      "language": "TypeScript",
+      "languageColor": "#3178c6",
+      "stars": 4730,
+      "forks": 743
+    },
+    {
+      "name": "simpleicons.dev",
+      "href": "https://github.com/heyq02/simpleicons.dev",
+      "summary": "Showcase your skills on your GitHub readme or resumé with ease.",
+      "language": "TypeScript",
+      "languageColor": "#3178c6",
+      "stars": 171,
+      "forks": 0
+    }
+  ],
+  "posts": []
+}

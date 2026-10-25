@@ -61,8 +61,9 @@
     "oxfmt": "^0.73.0",
     "react": "19.3.1",
     "rstack": "^0.8.4",
-    "typescript": "npm:@typescript/typescript6@^6.0.0",
-    "vite-plus": "^1.3.0"
+    "sponsorkit": "19.0.0",
+    "typescript": "7.0.2",
+    "vite-plus": "1.3.0"
   },
   "packageManager": "pnpm@12.10.1",
   "engines": {
