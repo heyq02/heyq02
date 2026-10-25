@@ -7,6 +7,9 @@
     ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vp run cpack",
     "dev": "vp pack --watch"

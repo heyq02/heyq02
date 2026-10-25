@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vp run cbuild",
-    "dev": "vp dev",
+    "build": "pnpm --filter @heyq02/profile run build && vp run cbuild",
+    "dev": "pnpm --filter @heyq02/profile run build && vp dev",
     "preview": "vp preview"
   },
   "dependencies": {

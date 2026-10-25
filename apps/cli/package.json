@@ -29,7 +29,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "vp run cpack",
+    "build": "pnpm --filter @heyq02/profile run build && vp run cpack",
     "dev": "vp pack --watch",
     "prepublishOnly": "vp run build",
     "test": "vp run ctest",
