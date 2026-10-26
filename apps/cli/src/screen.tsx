@@ -263,13 +263,13 @@ function displayWidth(text: string): number {
 
 function isWide(code: number): boolean {
   return (
-    (code >= 0x11_00 && code <= 0x11_5f) ||
-    (code >= 0x2e_80 && code <= 0xa4_cf) ||
-    (code >= 0xac_00 && code <= 0xd7_a3) ||
-    (code >= 0xf9_00 && code <= 0xfa_ff) ||
-    (code >= 0xfe_10 && code <= 0xfe_19) ||
-    (code >= 0xfe_30 && code <= 0xfe_6f) ||
-    (code >= 0xff_00 && code <= 0xff_60) ||
-    (code >= 0xff_e0 && code <= 0xff_e6)
+    (code >= 0x11_00 && code <= 0x11_5F) ||
+    (code >= 0x2E_80 && code <= 0xA4_CF) ||
+    (code >= 0xAC_00 && code <= 0xD7_A3) ||
+    (code >= 0xF9_00 && code <= 0xFA_FF) ||
+    (code >= 0xFE_10 && code <= 0xFE_19) ||
+    (code >= 0xFE_30 && code <= 0xFE_6F) ||
+    (code >= 0xFF_00 && code <= 0xFF_60) ||
+    (code >= 0xFF_E0 && code <= 0xFF_E6)
   )
 }
