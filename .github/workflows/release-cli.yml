@@ -1,4 +1,5 @@
-name: Release Cli
+# Publish heyq02 CLI to npm (OIDC trusted publishing) and create a GitHub Release.
+name: Release CLI
 
 on:
   push:
@@ -6,23 +7,37 @@ on:
       - 'v*'
   workflow_dispatch:
 
+concurrency:
+  group: release-cli-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  id-token: write
+
 jobs:
   release:
     name: Release
+    if: github.repository == 'heyq02/heyq02'
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      id-token: write
+    timeout-minutes: 15
     steps:
+      - name: Require version tag
+        if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
+        run: |
+          echo "::error::Release CLI must run against a v* tag (got ${GITHUB_REF})."
+          exit 1
+
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Setup Vite Plus
-        uses: voidzero-dev/setup-vp@v1.21.2
+        uses: voidzero-dev/setup-vp@v1.22.0
         with:
-          node-version: 'lts'
+          node-version: lts
+          # Fresh deps for release reproducibility (npm trusted-publishing guidance).
           cache: false
 
       - name: Generate GitHub Changelog
@@ -35,3 +50,5 @@ jobs:
       # sxzz/workflows@vp still passes that flag and fails under current vite-plus.
       - name: Publish to NPM
         run: vp pm stage publish --access public -r
+        env:
+          NPM_CONFIG_PROVENANCE: true
