@@ -1,0 +1,34 @@
+apps/site/src/site.ts
+  s_509952f779f1b2::t_b34892942cb3a6 9,16-17,20
+apps/site/vite.config.ts
+  s_509952f779f1b2::t_c87c853c7576ca 61,65,71,76
+apps/site/tsconfig.json
+  s_509952f779f1b2::t_52f68bcbd912a2 12,14
+static/data/intro.json
+  s_509952f779f1b2::t_7d7037634b568f 10-12,138
+apps/site/src/pages/Home.tsx
+  s_509952f779f1b2::t_1b5d1821b20089 132
+  s_509952f779f1b2::t_d372137122bd1f 16
+apps/site/src/layout.tsx
+  s_509952f779f1b2::t_ecf56ddea22b69 1,5,7,20-22
+packages/profile/src/index.ts
+  s_509952f779f1b2::t_741642b584a740 6,36-38,42
+packages/profile/src/types.ts
+  s_509952f779f1b2::t_2cf91755f0de2f 45-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "1cfdc38fefaa263b50eb3ddf66353109caecf4b0",
+  "prompts": {},
+  "sessions": {
+    "s_509952f779f1b2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5565c61a-dacd-4b99-bce6-12bac5980f26",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
