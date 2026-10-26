@@ -85,6 +85,21 @@ function htmlMeta(): Plugin {
 export default liangmi({
   base: '/',
   plugins: [react(), tailwindcss(), htmlMeta(), copyCname(), signatureFavicons()],
+  test: {
+    environment: 'happy-dom',
+    include: ['tests/**/*.{test,spec}.{ts,tsx}'],
+    setupFiles: ['./tests/setup.ts'],
+    coverage: {
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: ['src/index.tsx', 'src/env.d.ts'],
+      thresholds: {
+        statements: 95,
+        branches: 95,
+        functions: 95,
+        lines: 95
+      }
+    }
+  },
   run: {
     tasks: {
       // App code imports `@heyq02/profile` / `@heyq02/brands` from package exports.

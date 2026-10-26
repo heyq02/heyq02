@@ -1,4 +1,4 @@
-import { writeFileSync } from 'node:fs'
+import { writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
 import { brandSlug } from '@heyq02/brands'
@@ -7,7 +7,7 @@ import intro from '../../../static/data/intro.json' with { type: 'json' }
 
 const out = resolve(import.meta.dirname, '../../../README.md')
 
-function skillsPicture() {
+export function skillsPicture() {
   const named = intro.skills.flatMap(skill => {
     const slug = brandSlug(skill.name)
     return slug ? [{ name: skill.name, slug }] : []
@@ -18,7 +18,7 @@ function skillsPicture() {
   return { alt, base }
 }
 
-function renderReadme(): string {
+export function renderReadme(): string {
   const experience = intro.experiences
     .map(job => {
       const points = job.points.map(point => `- ${point}`).join('\n')
@@ -43,4 +43,6 @@ ${experience}
 `
 }
 
-writeFileSync(out, `${renderReadme().trimEnd()}\n`)
+export async function writeReadme(path = out): Promise<void> {
+  await writeFile(path, `${renderReadme().trimEnd()}\n`)
+}

@@ -91,7 +91,7 @@ function TypedName() {
   )
 }
 
-function markAbbr(mark: string) {
+export function markAbbr(mark: string) {
   return mark.slice(0, 2)
 }
 

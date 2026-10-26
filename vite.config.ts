@@ -16,15 +16,23 @@ export default liangmi({
         'react-perf/jsx-no-new-object-as-prop': 'off',
         'react-perf/jsx-no-new-function-as-prop': 'off'
       }
+    },
+    {
+      files: ['**/tests/**'],
+      rules: {
+        'promise/prefer-await-to-callbacks': 'off',
+        'node/no-sync': 'off'
+      }
     }
   ],
   fmt: {
     ignorePatterns: ['sponsorkit/**']
   },
   test: {
+    setupFiles: ['./apps/site/tests/setup.ts'],
     coverage: {
-      include: ['apps/cli/src/**/*.ts', 'packages/*/src/**/*.ts'],
-      exclude: ['**/cli.ts', '**/types.ts'],
+      include: ['apps/*/src/**/*.{ts,tsx}', 'packages/*/src/**/*.ts'],
+      exclude: ['**/cli.ts', '**/types.ts', '**/env.d.ts', '**/index.tsx', '**/App.css'],
       thresholds: {
         statements: 95,
         branches: 95,

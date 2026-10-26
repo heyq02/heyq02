@@ -9,5 +9,5 @@
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true
   },
-  "include": ["src", "vite.config.ts", "index.html"]
+  "include": ["src", "tests", "vite.config.ts", "index.html"]
 }
