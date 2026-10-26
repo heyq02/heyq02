@@ -9,9 +9,9 @@ export default liangmi({
   },
   lint: [
     { ignores: ['sponsorkit/**'] },
-    // Motion / Ink JSX props are intentionally ephemeral objects and callbacks.
+    // Motion JSX props are intentionally ephemeral objects and callbacks.
     {
-      files: ['apps/site/**', 'apps/cli/tests/**'],
+      files: ['apps/site/**'],
       rules: {
         'react-perf/jsx-no-new-object-as-prop': 'off',
         'react-perf/jsx-no-new-function-as-prop': 'off'

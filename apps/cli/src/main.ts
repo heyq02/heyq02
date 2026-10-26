@@ -1,59 +1,34 @@
-import {
-  command,
-  description,
-  name,
-  parse,
-  printErrors,
-  printHelp,
-  printVersion,
-  version
-} from '@bomb.sh/router'
+import packageJson from '../package.json' with { type: 'json' }
 
-import { showIntro } from './show.tsx'
+import { renderIntro } from './intro.ts'
 
-const program = command(
-  name('heyq02'),
-  description('Ari He. Full-stack engineer.'),
-  version('0.1.0'),
-  command(name('hw'), description('Print Hello, World!'))
-)
+const help = `Usage: heyq02
 
-export async function main(argv = process.argv.slice(2)): Promise<void> {
-  const result = parse(program, { argv })
+Print Ari He's profile introduction.
 
-  if (!result.ok) {
-    process.stderr.write(`${printErrors(result)}\n`)
+Options:
+  -h, --help     Show help
+  -v, --version  Show version
+`
+
+export function main(argv = process.argv.slice(2)): void {
+  const arg = argv[0]
+
+  if (arg === '-h' || arg === '--help') {
+    process.stdout.write(help)
+    return
+  }
+
+  if (arg === '-v' || arg === '--version') {
+    process.stdout.write(`${packageJson.version}\n`)
+    return
+  }
+
+  if (arg) {
+    process.stderr.write(`Unknown argument: ${arg}\n\n${help}`)
     process.exitCode = 1
     return
   }
 
-  switch (result.method) {
-    case 'help': {
-      process.stdout.write(`${printHelp(result)}\n`)
-      break
-    }
-    case 'version': {
-      process.stdout.write(`${printVersion(result)}\n`)
-      break
-    }
-    case 'execute': {
-      switch (result.route) {
-        case '/': {
-          await showIntro()
-          break
-        }
-        case '/hw': {
-          process.stdout.write('Hello, World!\n')
-          break
-        }
-        default: {
-          break
-        }
-      }
-      break
-    }
-    default: {
-      break
-    }
-  }
+  process.stdout.write(`${renderIntro()}\n`)
 }

@@ -2,7 +2,7 @@
 import { main } from './main.ts'
 
 try {
-  await main()
+  main()
 } catch (error: unknown) {
   const message = error instanceof Error ? error.message : String(error)
   process.stderr.write(`${message}\n`)
