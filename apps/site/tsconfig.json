@@ -11,4 +11,3 @@
   },
   "include": ["src", "vite.config.ts", "index.html"]
 }
-

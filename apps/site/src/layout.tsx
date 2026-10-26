@@ -17,9 +17,7 @@ export function Page({ children, kicker }: { children: ReactNode; kicker?: strin
             >
               Skip to content
             </a>
-            {kicker ? (
-              <p className='text-title mb-8 text-sm font-medium'>{kicker}</p>
-            ) : null}
+            {kicker ? <p className='text-title mb-8 text-sm font-medium'>{kicker}</p> : null}
             <main className='scroll-mt-6' id='main' tabIndex={-1}>
               {children}
             </main>

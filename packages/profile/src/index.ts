@@ -5,7 +5,7 @@ import type { Intro, Place, Skill } from './types.ts'
 
 export type { Contact, Experience, Intro, Place, Project, Skill } from './types.ts'
 
-export const intro = raw as Intro
+export const intro = raw
 
 export function absoluteHref(href: string, site = intro.site): string {
   if (href.startsWith('/')) {
