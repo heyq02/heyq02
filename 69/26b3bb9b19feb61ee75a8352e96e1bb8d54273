@@ -1,0 +1,26 @@
+apps/cli/src/plain.ts
+  s_509952f779f1b2::t_71ceaeea4894d2 1,3,5,15
+apps/cli/src/screen.tsx
+  s_509952f779f1b2::t_83c812f114730b 4,27,36-38,41,43,48,60,75,82,84
+apps/cli/tests/screen.test.tsx
+  s_509952f779f1b2::t_af13ae48ac69b7 4,24,32-33,38,41-42,49,51,54-56
+apps/cli/tests/profile.test.ts
+  s_509952f779f1b2::t_758fb34b681065 87-90
+  s_509952f779f1b2::t_847061674872eb 40,43-44,46-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "6926b3bb9b19feb61ee75a8352e96e1bb8d54273",
+  "prompts": {},
+  "sessions": {
+    "s_509952f779f1b2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5565c61a-dacd-4b99-bce6-12bac5980f26",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
