@@ -1,5 +1,4 @@
 import packageJson from '../package.json' with { type: 'json' }
-
 import { renderIntro } from './intro.ts'
 
 const help = `Usage: heyq02
