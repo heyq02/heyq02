@@ -1,0 +1,23 @@
+.github/workflows/release-site.yml
+  s_509952f779f1b2::t_8907fac2a98af6 16,21,23,26,29,31,42,44,47,53
+.github/workflows/release-cli.yml
+  s_509952f779f1b2::t_fadd8ebbc9bcb8 1-2,10-17,21,23,25-30,32,37,39-40,53-54
+.github/workflows/release-rdme.yml
+  s_509952f779f1b2::t_b9f8171bf2b34d 10-13,19,21,24-25,29-30,32,35-36,39,41,44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "b0bacf1f04bbb4c6e7b8f4a579f973128e567f64",
+  "prompts": {},
+  "sessions": {
+    "s_509952f779f1b2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5565c61a-dacd-4b99-bce6-12bac5980f26",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
