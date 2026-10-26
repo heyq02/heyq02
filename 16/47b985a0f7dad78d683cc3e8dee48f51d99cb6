@@ -1,0 +1,29 @@
+apps/cli/src/intro.ts
+  s_509952f779f1b2::t_8013ad5330ba27 1-18
+apps/cli/vite.config.ts
+  s_509952f779f1b2::t_68180600d346a6 15,19
+apps/cli/tests/intro.test.ts
+  s_509952f779f1b2::t_ffbaf2fe7047fa 1-61
+apps/cli/src/cli.ts
+  s_509952f779f1b2::t_60529a74b3eaf5 5
+apps/cli/src/main.ts
+  s_509952f779f1b2::t_e95647e02e507c 1-18,22-30,32-33
+vite.config.ts
+  s_509952f779f1b2::t_7ea6475f0d5226 12,14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "1647b985a0f7dad78d683cc3e8dee48f51d99cb6",
+  "prompts": {},
+  "sessions": {
+    "s_509952f779f1b2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5565c61a-dacd-4b99-bce6-12bac5980f26",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
