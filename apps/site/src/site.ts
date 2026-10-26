@@ -6,16 +6,15 @@ export {
   degree,
   experiences,
   kaomoji,
+  kicker,
   name,
   names,
-  nav,
-  pages,
   places,
-  posts,
   projects,
   sections,
   site,
-  skills
+  skills,
+  title
 } from '@heyq02/profile'
 
-export type { Experience, Intro, NavLink, Place, Post, Project, Skill } from '@heyq02/profile'
+export type { Experience, Intro, Place, Project, Skill } from '@heyq02/profile'

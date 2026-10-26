@@ -58,28 +58,22 @@ function signatureFavicons(): Plugin {
   }
 }
 
-/** Inject title/description from intro pages. */
+/** Inject title/description from intro. */
 function htmlMeta(): Plugin {
-  const meta = {
-    '/index.html': intro.pages.home,
-    '/blog/index.html': intro.pages.blog
-  } as const
-
   return {
     name: 'html-meta',
-    transformIndexHtml(html, ctx) {
-      const page = ctx.path in meta ? meta[ctx.path as keyof typeof meta] : intro.pages.home
+    transformIndexHtml(html) {
       return {
         html,
         tags: [
           {
             tag: 'title',
-            children: page.title,
+            children: intro.title,
             injectTo: 'head'
           },
           {
             tag: 'meta',
-            attrs: { name: 'description', content: page.description },
+            attrs: { name: 'description', content: intro.description },
             injectTo: 'head'
           }
         ]
@@ -91,14 +85,6 @@ function htmlMeta(): Plugin {
 export default liangmi({
   base: '/',
   plugins: [react(), tailwindcss(), htmlMeta(), copyCname(), signatureFavicons()],
-  build: {
-    rollupOptions: {
-      input: {
-        index: resolve(import.meta.dirname, 'index.html'),
-        blog: resolve(import.meta.dirname, 'blog/index.html')
-      }
-    }
-  },
   run: {
     tasks: {
       // App code imports `@heyq02/profile` / `@heyq02/brands` from package exports.

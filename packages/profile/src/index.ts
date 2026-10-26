@@ -3,7 +3,7 @@
 import raw from '../../../static/data/intro.json' with { type: 'json' }
 import type { Intro, Place, Skill } from './types.ts'
 
-export type { Contact, Experience, Intro, NavLink, Place, Post, Project, Skill } from './types.ts'
+export type { Contact, Experience, Intro, Place, Project, Skill } from './types.ts'
 
 export const intro = raw as Intro
 
@@ -33,13 +33,13 @@ export const {
   kaomoji,
   avatar,
   site,
+  kicker,
+  title,
+  description,
   contact,
-  pages,
   sections,
-  nav,
   experiences,
-  projects,
-  posts
+  projects
 } = intro
 
 export function formatCount(count: number): string {

@@ -7,32 +7,18 @@
   "kaomoji": "(๑•̀ㅂ•́)و",
   "avatar": "https://avatars.githubusercontent.com/u/206218794?v=4",
   "site": "https://heyq02.com",
+  "kicker": "PROFILE",
+  "title": "Ari He",
+  "description": "Ari He. Full-stack engineer, open-source enthusiast, and vlogger on career. Focused on AI that speeds up development and ships in real products.",
   "contact": {
     "phone": "+86 135****8086",
     "email": "hello@heyq02.com"
-  },
-  "pages": {
-    "home": {
-      "kicker": "PROFILE",
-      "title": "Ari He",
-      "description": "Ari He. Full-stack engineer, open-source enthusiast, and vlogger on career. Focused on AI that speeds up development and ships in real products."
-    },
-    "blog": {
-      "title": "Blog · Ari He",
-      "description": "Blog of Ari He.",
-      "heading": "Blog",
-      "empty": "Posts live on this site. None yet."
-    }
   },
   "sections": {
     "experience": "Experience",
     "skills": "Skills",
     "openSource": "Open source"
   },
-  "nav": [
-    { "id": "home", "href": "/", "label": "Home" },
-    { "id": "blog", "href": "/blog/", "label": "Blog" }
-  ],
   "places": [
     {
       "label": "GitHub",
@@ -149,6 +135,5 @@
       "stars": 171,
       "forks": 0
     }
-  ],
-  "posts": []
+  ]
 }

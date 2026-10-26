@@ -22,7 +22,6 @@
   --font-emphasis: 'JINGDONGLangZhengTi1-Semibold', var(--font-fallback);
   --font-strong: 'JINGDONGLangZhengTi2-Bold', var(--font-emphasis);
   --text-h1: 2rem;
-  --spacing-nav: 64px;
   --spacing-page-x: 24px;
   --spacing-page-x-md: 36px;
   --spacing-page-x-xl: 80px;

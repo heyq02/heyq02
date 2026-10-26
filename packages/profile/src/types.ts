@@ -28,19 +28,6 @@ export interface Skill {
   summary: string
 }
 
-export interface Post {
-  slug: string
-  title: string
-  date: string
-  summary: string
-}
-
-export interface NavLink {
-  id: 'home' | 'blog'
-  href: string
-  label: string
-}
-
 export interface Contact {
   phone: string
   email: string
@@ -55,25 +42,17 @@ export interface Intro {
   kaomoji: string
   avatar: string
   site: string
+  kicker: string
+  title: string
+  description: string
   contact: Contact
-  pages: {
-    home: { kicker: string; title: string; description: string }
-    blog: {
-      title: string
-      description: string
-      heading: string
-      empty: string
-    }
-  }
   sections: {
     experience: string
     skills: string
     openSource: string
   }
-  nav: NavLink[]
   places: Place[]
   experiences: Experience[]
   skills: Skill[]
   projects: Project[]
-  posts: Post[]
 }

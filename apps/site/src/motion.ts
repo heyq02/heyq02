@@ -22,17 +22,11 @@ function seconds(name: string) {
 }
 
 let cachedEase: [number, number, number, number] | undefined
-let cachedHover: number | undefined
 let cachedRise: number | undefined
 
 export function easeOutQuart() {
   cachedEase ??= cubicBezier('--ease-out-quart')
   return cachedEase
-}
-
-export function hoverDuration() {
-  cachedHover ??= seconds('--default-transition-duration')
-  return cachedHover
 }
 
 export function riseDuration() {
