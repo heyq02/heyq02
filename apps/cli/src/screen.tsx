@@ -1,16 +1,13 @@
 import { Box, Text, useApp, useInput, useStdout } from 'ink'
 import type { ReactNode } from 'react'
 
-import { formatCount, fullName, profile } from './profile.ts'
-import { wordmark } from './wordmark.ts'
+import { fullName, profile } from './profile.ts'
 
 const paper = '#F6F3ED'
 const ink = '#343945'
 const muted = '#8991A0'
 const accent = '#3F6CC4'
-const card = '#FFFFFF'
 const bar = '#EAE1D3'
-const gold = '#C08A3E'
 
 export function IntroScreen({
   columns,
@@ -27,12 +24,7 @@ export function IntroScreen({
   const measuredWidth = stream?.columns ?? 0
   const measuredHeight = stream?.rows ?? 0
   const width = columns ?? (measuredWidth > 0 ? measuredWidth : 80)
-  const height = rows ?? (measuredHeight > 0 ? measuredHeight : 32)
-  const showWordmark = height >= 38 && width >= 64
-  const padded = height >= 48 && width >= 80
-  const spaced = height >= 30
-  const showSummaries = height >= 36
-  const showPlaces = height >= 32
+  const height = rows ?? (measuredHeight > 0 ? measuredHeight : 24)
 
   useInput(() => {
     onExit?.()
@@ -41,51 +33,19 @@ export function IntroScreen({
 
   return (
     <Box width={width} height={height} flexDirection='column' backgroundColor={paper}>
-      <Box paddingX={2} justifyContent='space-between'>
-        <Text>
-          <Text color={accent} bold>
-            heyq02
-          </Text>
-          <Text color={muted}> · profile</Text>
+      <Box flexGrow={1} flexDirection='column' paddingX={3} paddingTop={1} overflow='hidden'>
+        <Text color={ink} bold>
+          {`Hello, I'm ${fullName()}`}
         </Text>
-        <Text color={muted}>0.1.0</Text>
-      </Box>
 
-      <Box
-        flexGrow={1}
-        flexShrink={1}
-        flexDirection='column'
-        overflow='hidden'
-        paddingX={3}
-        paddingTop={showWordmark ? 1 : 0}
-      >
-        {showWordmark
-          ? wordmark('ARI').map(line => (
-              <Text key={line} color={accent}>
-                {line}
-              </Text>
-            ))
-          : null}
-
-        <Box flexShrink={0} marginTop={showWordmark ? 1 : 0} flexDirection='column'>
-          <Text color={ink} bold>
-            {fullName()}
-          </Text>
-          {sentences(profile.bio).map(line => (
-            <Text key={line} color={ink}>
-              {line}
-            </Text>
-          ))}
-        </Box>
-
-        <Section title='Experience' padded={padded} spaced={spaced}>
+        <Section title='Experience'>
           {profile.experiences.map(job => (
-            <Box key={job.company} flexDirection='column'>
+            <Box key={job.company} flexDirection='column' marginTop={1}>
               <Text>
                 <Text color={ink} bold>
                   {job.company}
                 </Text>
-                <Text color={muted}>{`  ${job.start} – ${job.end}`}</Text>
+                <Text color={muted}>{` · ${job.start} – ${job.end}`}</Text>
               </Text>
               {job.points.map(point => (
                 <Text key={point} color={ink}>
@@ -97,7 +57,7 @@ export function IntroScreen({
           ))}
         </Section>
 
-        <Section title='Skills' padded={padded} spaced={spaced}>
+        <Section title='Skills'>
           {skillRows(width).map(row => (
             <Text key={row.join('·')}>
               {row.map((name, index) => (
@@ -109,100 +69,25 @@ export function IntroScreen({
             </Text>
           ))}
         </Section>
-
-        <Section title='Open source' padded={padded} spaced={spaced}>
-          {profile.projects.map(project => (
-            <Box key={project.name} flexDirection='column'>
-              <Text>
-                <Text color={ink} bold>
-                  {project.name}
-                </Text>
-                <Text color={gold}>{`  ★ ${formatCount(project.stars)}`}</Text>
-                {project.forks > 0 ? (
-                  <Text color={muted}>{`  ·  ${formatCount(project.forks)} forks`}</Text>
-                ) : null}
-              </Text>
-              {showSummaries ? <Text color={muted}>{project.summary}</Text> : null}
-            </Box>
-          ))}
-        </Section>
-
-        <Section title='Contact' padded={padded} spaced={spaced}>
-          {showPlaces ? (
-            <Box flexDirection='column'>
-              {profile.places.map(place => (
-                <Text key={place.label}>
-                  <Text color={muted}>{pad(place.label, 10)}</Text>
-                  <Text color={ink}>{place.detail}</Text>
-                </Text>
-              ))}
-              <Text>
-                <Text color={muted}>{pad('Phone', 10)}</Text>
-                <Text color={ink}>{profile.phone}</Text>
-              </Text>
-              <Text>
-                <Text color={muted}>{pad('Email', 10)}</Text>
-                <Text color={ink}>{profile.email}</Text>
-              </Text>
-            </Box>
-          ) : (
-            <Box flexDirection='column'>
-              {placeRows(width).map(row => (
-                <Text key={row} color={ink}>
-                  {row}
-                </Text>
-              ))}
-              <Text color={ink}>{`${profile.phone}    ${profile.email}`}</Text>
-            </Box>
-          )}
-        </Section>
       </Box>
 
       <Box paddingX={2} backgroundColor={bar} justifyContent='space-between'>
-        <Text>
-          <Text backgroundColor={accent} color={paper}>
-            {' heyq02 '}
-          </Text>
-          <Text color={muted}>{`  ${profile.site.replace('https://', '')}`}</Text>
-        </Text>
+        <Text color={muted}>{profile.site.replace('https://', '')}</Text>
         <Text color={muted}>any key to exit</Text>
       </Box>
     </Box>
   )
 }
 
-function Section({
-  title,
-  padded,
-  spaced,
-  children
-}: {
-  title: string
-  padded: boolean
-  spaced: boolean
-  children: ReactNode
-}) {
+function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <Box
-      flexShrink={0}
-      marginTop={spaced ? 1 : 0}
-      flexDirection='column'
-      backgroundColor={padded ? card : undefined}
-      paddingX={padded ? 2 : 0}
-      paddingY={padded ? 1 : 0}
-    >
+    <Box flexShrink={0} marginTop={1} flexDirection='column'>
       <Text color={accent} bold>
         {title}
       </Text>
       {children}
     </Box>
   )
-}
-
-function sentences(text: string): string[] {
-  return (text.match(/[^。]+。|[^.]+(?:\.|$)/g) ?? [text])
-    .map(part => part.trim())
-    .filter(part => part.length > 0)
 }
 
 function skillRows(width: number): string[][] {
@@ -223,34 +108,6 @@ function skillRows(width: number): string[][] {
   }
 
   return rows
-}
-
-function placeRows(width: number): string[] {
-  const budget = Math.max(20, width - 8)
-  const items = profile.places.map(place => `${place.label} ${place.detail}`)
-  const rows: string[] = []
-  let current = ''
-
-  for (const item of items) {
-    const next = current.length === 0 ? item : `${current}    ${item}`
-    if (current.length > 0 && displayWidth(next) > budget) {
-      rows.push(current)
-      current = item
-    } else {
-      current = next
-    }
-  }
-
-  if (current.length > 0) {
-    rows.push(current)
-  }
-
-  return rows
-}
-
-function pad(text: string, columns: number): string {
-  const gap = columns - displayWidth(text)
-  return gap > 0 ? `${text}${' '.repeat(gap)}` : text
 }
 
 function displayWidth(text: string): number {

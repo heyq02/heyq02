@@ -37,15 +37,19 @@ it('formats star counts the same way as the site', () => {
   expect(formatCount(4730)).toBe('4.7k')
 })
 
-it('prints a plain introduction without a phone link', () => {
+it('prints a plain introduction matching the README shape', () => {
   const text = renderPlain()
 
-  expect(text).toContain('Ari He')
+  expect(text).toContain("Hello, I'm Ari He")
+  expect(text).toContain('Experience')
   expect(text).toContain('JD.com, Inc. · 2024.06 – Present')
-  expect(text).toContain('jd-opensource/taro-ui · TypeScript · ★ 4.7k · 743 forks')
-  expect(text).toContain('simpleicons.dev · TypeScript · ★ 171')
-  expect(text).toContain('hello@heyq02.com')
-  expect(text).not.toContain('tel:')
+  expect(text).toContain(
+    '- Owned iterations for JD Takeout across the mini program, H5, and admin console'
+  )
+  expect(text).toContain('Skills')
+  expect(text).toContain('Vue · React · Next · Rolldown · Vite · Oxc')
+  expect(text).not.toContain('Open source')
+  expect(text).not.toContain('hello@heyq02.com')
 })
 
 it('shows the profile by default and still routes hw', async () => {
@@ -80,8 +84,10 @@ it('shows the profile by default and still routes hw', async () => {
 
     written = ''
     await main([])
-    expect(written).toContain(fullName())
-    expect(written).toContain(profile.bio)
+    expect(written).toContain(`Hello, I'm ${fullName()}`)
+    expect(written).toContain('Experience')
+    expect(written).toContain('Skills')
+
 
     written = ''
     await main(['hw'])
