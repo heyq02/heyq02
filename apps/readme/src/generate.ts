@@ -2,43 +2,45 @@ import { writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 import { brandSlug } from '@heyq02/brands'
-import { intro, skills } from '@heyq02/profile'
-import { Eta } from 'eta'
 
-const root = resolve(import.meta.dirname, '../../..')
-const out = resolve(root, 'README.md')
-const templates = resolve(import.meta.dirname, '../templates')
+import intro from '../../../static/data/intro.json' with { type: 'json' }
 
-// Markdown output: keep `&` / newlines; do not HTML-escape.
-const eta = new Eta({ views: templates, autoEscape: false, autoTrim: false })
+const out = resolve(import.meta.dirname, '../../../README.md')
 
 function skillsPicture() {
-  const named = skills
-    .map(skill => {
-      const slug = brandSlug(skill.name)
-      return slug ? { name: skill.name, slug } : undefined
-    })
-    .filter((entry): entry is { name: string; slug: string } => entry !== undefined)
-
+  const named = intro.skills.flatMap(skill => {
+    const slug = brandSlug(skill.name)
+    return slug ? [{ name: skill.name, slug }] : []
+  })
   const icons = named.map(skill => skill.slug).join(',')
   const alt = named.map(skill => skill.name).join(', ')
-  const perline = Math.max(named.length, 1)
-  const base = `https://simpleicons.dev/icons?icons=${icons}&perline=${perline}`
-
+  const base = `https://simpleicons.dev/icons?icons=${icons}&perline=${Math.max(named.length, 1)}`
   return { alt, base }
 }
 
-export function renderReadme(): string {
-  return eta.render('./readme', {
-    name: intro.name,
-    sections: intro.sections,
-    experiences: intro.experiences,
-    skills: skillsPicture()
-  })
+function renderReadme(): string {
+  const experience = intro.experiences
+    .map(job => {
+      const points = job.points.map(point => `- ${point}`).join('\n')
+      return `**[${job.company}](${job.href})** · ${job.start} – ${job.end}\n\n${points}`
+    })
+    .join('\n\n')
+
+  const { alt, base } = skillsPicture()
+
+  return `<h1>Hello, I'm ${intro.name}</h1>
+
+## ${intro.sections.experience}
+
+${experience}
+
+## ${intro.sections.skills}
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="${base}&theme=dark" />
+  <img width="100%" alt="${alt}" src="${base}&theme=light" />
+</picture>
+`
 }
 
-// Collapse template loop whitespace so output matches oxfmt (avoids empty CI commits).
-const markdown = renderReadme()
-  .replaceAll(/\n{3,}/g, '\n\n')
-  .trimEnd()
-writeFileSync(out, `${markdown}\n`)
+writeFileSync(out, `${renderReadme().trimEnd()}\n`)
