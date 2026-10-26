@@ -1,0 +1,23 @@
+apps/readme/tsconfig.json
+  s_509952f779f1b2::t_9b193fe7bb9ec4 1-9
+packages/profile/src/index.ts
+  s_509952f779f1b2::t_04f01481d636fe 4,8
+apps/readme/package.json
+  s_509952f779f1b2::t_4526b8ea3a4c78 11-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "557d5db740b16311895f85fae9707cc19ceeabe2",
+  "prompts": {},
+  "sessions": {
+    "s_509952f779f1b2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5565c61a-dacd-4b99-bce6-12bac5980f26",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
