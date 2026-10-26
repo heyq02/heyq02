@@ -1,0 +1,14 @@
+package.json
+  h_a57efa94f24ca5 31-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "ecf36375fab7eead129c0d84e9a624b2d18778e8",
+  "prompts": {},
+  "humans": {
+    "h_a57efa94f24ca5": {
+      "author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
