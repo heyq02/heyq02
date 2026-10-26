@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "20.5.3",
-    "@commitlint/config-conventional": "20.5.3",
+    "@commitlint/config-conventional": "21.2.4",
     "@liangmi/vp-config": "catalog:",
     "@types/node": "catalog:",
     "bumpp": "^12.3.0",
