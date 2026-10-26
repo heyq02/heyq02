@@ -8,5 +8,8 @@
   },
   "dependencies": {
     "@heyq02/brands": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:"
   }
 }
