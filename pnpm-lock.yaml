@@ -232,6 +232,10 @@ importers:
       '@heyq02/brands':
         specifier: workspace:*
         version: link:../../packages/brands
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.6.4
 
   apps/site:
     dependencies:
