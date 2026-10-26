@@ -21,6 +21,7 @@
   ],
   "type": "module",
   "exports": {
+    ".": "./dist/cli.js",
     "./package.json": "./package.json"
   },
   "publishConfig": {
