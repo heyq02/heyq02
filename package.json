@@ -11,7 +11,7 @@
     "lint": "vp run clint",
     "prepare": "vp config",
     "release": "bumpp -r",
-    "test": "vp run heyq02#test"
+    "test": "vp test"
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.4",

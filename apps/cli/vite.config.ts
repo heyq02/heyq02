@@ -12,7 +12,17 @@ export default liangmi({
     }
   },
   test: {
-    include: ['tests/**/*.test.ts']
+    include: ['tests/**/*.test.ts'],
+    coverage: {
+      include: ['src/**/*.ts'],
+      exclude: ['src/cli.ts'],
+      thresholds: {
+        statements: 95,
+        branches: 95,
+        functions: 95,
+        lines: 95
+      }
+    }
   },
   run: {
     tasks: {

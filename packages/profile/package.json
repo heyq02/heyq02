@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "vp run cpack",
-    "dev": "vp pack --watch"
+    "dev": "vp pack --watch",
+    "test": "vp run ctest"
   },
   "devDependencies": {
     "@liangmi/vp-config": "catalog:",

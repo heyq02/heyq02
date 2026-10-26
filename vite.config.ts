@@ -21,6 +21,18 @@ export default liangmi({
   fmt: {
     ignorePatterns: ['sponsorkit/**']
   },
+  test: {
+    coverage: {
+      include: ['apps/cli/src/**/*.ts', 'packages/*/src/**/*.ts'],
+      exclude: ['**/cli.ts', '**/types.ts'],
+      thresholds: {
+        statements: 95,
+        branches: 95,
+        functions: 95,
+        lines: 95
+      }
+    }
+  },
   run: {
     tasks: {
       sponsorkit: {

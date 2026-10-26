@@ -7,6 +7,9 @@
     ".": "./src/index.ts",
     "./package.json": "./package.json"
   },
+  "scripts": {
+    "test": "vp run ctest"
+  },
   "devDependencies": {
     "@liangmi/vp-config": "catalog:",
     "@types/node": "catalog:",
