@@ -1,0 +1,23 @@
+apps/readme/package.json
+  s_509952f779f1b2::t_56d32f956605e0 7,10
+apps/readme/src/generate.ts
+  s_509952f779f1b2::t_690a3c7dc6bd3e 6,8,11-14,17,21-43,46
+.github/workflows/release-rdme.yml
+  s_509952f779f1b2::t_e246ec0a513680 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "ae427c9ba5966f99b6186a7a4edb9e70e50b3aca",
+  "prompts": {},
+  "sessions": {
+    "s_509952f779f1b2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5565c61a-dacd-4b99-bce6-12bac5980f26",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
