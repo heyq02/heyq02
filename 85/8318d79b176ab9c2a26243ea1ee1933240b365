@@ -1,0 +1,14 @@
+apps/cli/src/screen.tsx
+  h_a57efa94f24ca5 266-273
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "858318d79b176ab9c2a26243ea1ee1933240b365",
+  "prompts": {},
+  "humans": {
+    "h_a57efa94f24ca5": {
+      "author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
