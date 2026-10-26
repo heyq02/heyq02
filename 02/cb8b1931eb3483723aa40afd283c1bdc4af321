@@ -1,0 +1,18 @@
+apps/cli/vite.config.ts
+  h_a57efa94f24ca5 19
+apps/site/src/layout.tsx
+  h_a57efa94f24ca5 20
+packages/profile/src/index.ts
+  h_a57efa94f24ca5 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "02cb8b1931eb3483723aa40afd283c1bdc4af321",
+  "prompts": {},
+  "humans": {
+    "h_a57efa94f24ca5": {
+      "author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
