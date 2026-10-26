@@ -1,0 +1,19 @@
+apps/cli/package.json
+  s_509952f779f1b2::t_aec39e6cd0b02e 24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "7a01703ed3ee592b5c0bb94774ae2c27d13f6937",
+  "prompts": {},
+  "sessions": {
+    "s_509952f779f1b2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5565c61a-dacd-4b99-bce6-12bac5980f26",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
