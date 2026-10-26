@@ -1,11 +1,11 @@
 /** Shared intro SSOT from `static/data/intro.json` for site, cli, and readme. */
 
 import raw from '../../../static/data/intro.json' with { type: 'json' }
-import type { Place, Skill } from './types.ts'
+import type { Intro, Place, Skill } from './types.ts'
 
 export type { Contact, Experience, Intro, Place, Project, Skill } from './types.ts'
 
-export const intro: import('./types.ts').Intro = raw
+export const intro = raw satisfies Intro
 
 export function absoluteHref(href: string, site = intro.site): string {
   if (href.startsWith('/')) {
