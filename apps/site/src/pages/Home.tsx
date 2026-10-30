@@ -5,28 +5,14 @@ import { useEffect, useState } from 'react'
 import { brandIcon } from '../brands.ts'
 import { BrandIcon } from '../components/BrandIcon.tsx'
 import { SectionHeading } from '../components/SectionHeading.tsx'
+import { useContent } from '../i18n/LocaleContext.tsx'
 import { Page } from '../layout.tsx'
-import {
-  avatar,
-  bio,
-  city,
-  degree,
-  experiences,
-  kaomoji,
-  kicker,
-  name,
-  names,
-  places,
-  projects,
-  sections,
-  skills
-} from '../site.ts'
 
 const typeDelay = 140
 const deleteDelay = 100
 const holdDelay = 2000
 
-function TypedName() {
+function TypedName({ label, names }: { label: string; names: string[] }) {
   const reduce = useReducedMotion()
   const [text, setText] = useState('')
 
@@ -72,18 +58,18 @@ function TypedName() {
         globalThis.clearTimeout(timer)
       }
     }
-  }, [reduce])
+  }, [names, reduce])
 
   if (reduce !== false) {
     return (
       <h1 className='text-h1 font-medium whitespace-nowrap'>
-        <span className='brand-text'>{name}</span>
+        <span className='brand-text'>{label}</span>
       </h1>
     )
   }
 
   return (
-    <h1 aria-label={name} className='text-h1 font-medium whitespace-nowrap'>
+    <h1 aria-label={label} className='text-h1 font-medium whitespace-nowrap'>
       <span aria-hidden='true' className='brand-text name-caret'>
         {text || '\u200B'}
       </span>
@@ -128,6 +114,22 @@ function ForkIcon() {
 }
 
 export function Home() {
+  const {
+    avatar,
+    bio,
+    city,
+    degree,
+    experiences,
+    kaomoji,
+    kicker,
+    name,
+    names,
+    places,
+    projects,
+    sections,
+    skills
+  } = useContent()
+
   return (
     <Page kicker={kicker}>
       <div className='grid items-start gap-8 lg:grid-cols-[13.5rem_minmax(0,1fr)_11.5rem] lg:gap-x-12 lg:gap-y-10'>
@@ -145,7 +147,7 @@ export function Home() {
               width={128}
             />
           </div>
-          <TypedName />
+          <TypedName key={names.join('\0')} label={name} names={names} />
           <ul className='mt-5 flex flex-nowrap items-center gap-x-3 text-sm leading-6'>
             <li className='flex items-center gap-1.5'>
               <DegreeIcon />
