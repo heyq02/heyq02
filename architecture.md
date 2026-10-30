@@ -28,13 +28,14 @@ flowchart LR
   json --> site
   zh --> site
   json --> readme
+  zh --> readme
   profile --> site
   profile --> cli
   brands --> site
   brands --> readme
 ```
 
-`profile` is the typed API over the English file and the Chinese overlay, and the only runtime reader of that overlay. The site Vite config also reads both files for the shell, because app configs must not import `@heyq02/*`. README still reads only `intro.json`. `brands` maps display names to simple-icons slugs and depends on neither package. Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
+`profile` is the typed API over the English file and the Chinese overlay. The site runtime and the CLI read that merge. The site Vite config and the README generator also read the files directly, because the config must not import `@heyq02/*` and the README build does not wait on package `dist/` (`readme`). `brands` maps display names to simple-icons slugs and depends on neither package. Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
 
 ## Decisions
 
@@ -48,5 +49,5 @@ flowchart LR
 
 - App Vite configs must not import `@heyq02/*`. `vp run` loads every app config before workspace packages are built. The site config reads `intro.json` for the HTML title (the English name) and `intro.zh.json` for the default description. Runtime code imports package exports, and site `cbuild` / `dev` wait on dependency builds. The CLI pack always bundles `profile` from `dist/`.
 - Relative profile links (a leading `/`) are absolutized against the site origin before a surface treats them as external URLs. `profile` does this for its exports; the site's Chinese places do it the same way.
-- English copy is not forked into the CLI or README. Those surfaces read `intro.json`, `intro.zh.json`, or `profile`, never a site-local Chinese table.
+- English and Chinese profile copy are not forked into the CLI or README. Those surfaces read `intro.json`, `intro.zh.json`, or `profile`, never a site-local Chinese table.
 - Coverage thresholds in the root Vite Plus config are 95% statements, branches, functions, and lines for app and package source. Commits are conventional (`@commitlint/config-conventional`).

@@ -1,10 +1,10 @@
-import { experiences, fullName, skills } from '@heyq02/profile'
+import { intro, introZh } from '@heyq02/profile'
+import type { Intro } from '@heyq02/profile'
 
-/** Same shape as the profile README: greeting, Experience, Skills. */
-export function renderIntro(): string {
-  const lines = [`Hello, I'm ${fullName()}`, '', 'Experience', '']
+function renderBlock(source: Intro, greeting: string, includeSkills: boolean): string[] {
+  const lines = [`${greeting} ${source.name}`, '', source.sections.experience, '']
 
-  for (const job of experiences) {
+  for (const job of source.experiences) {
     lines.push(
       `${job.company} · ${job.start} – ${job.end}`,
       ...job.points.map(point => `- ${point}`),
@@ -12,7 +12,20 @@ export function renderIntro(): string {
     )
   }
 
-  lines.push('Skills', '', skills.map(skill => skill.name).join(' · '))
+  if (includeSkills) {
+    lines.push(source.sections.skills, '', source.skills.map(skill => skill.name).join(' · '))
+  }
+  if (lines.at(-1) === '') {
+    lines.pop()
+  }
 
-  return lines.join('\n')
+  return lines
+}
+
+export function renderIntro(): string {
+  return [
+    ...renderBlock(introZh, '你好，我是', true),
+    '',
+    ...renderBlock(intro, "Hello, I'm", false)
+  ].join('\n')
 }

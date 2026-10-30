@@ -6,14 +6,19 @@ import { main } from '../src/main.ts'
 it('renders the README-shaped introduction', () => {
   const text = renderIntro()
 
-  expect(text).toContain("Hello, I'm Ari He")
+  expect(text).toContain('你好，我是 Ari He')
+  expect(text).toContain('经历')
+  expect(text).toContain('京东集团 · 2024.06 – 至今')
+  expect(text.indexOf('你好，我是 Ari He')).toBeLessThan(text.indexOf("Hello, I'm Ari He"))
   expect(text).toContain('Experience')
   expect(text).toContain('JD.com, Inc. · 2024.06 – Present')
   expect(text).toContain(
     '- Owned iterations for JD Takeout across the mini program, H5, and admin console'
   )
-  expect(text).toContain('Skills')
+  expect(text).toContain('技能')
   expect(text).toContain('Vue · React · Next · Rolldown · Vite · Oxc')
+  expect(text.indexOf('技能')).toBeLessThan(text.indexOf("Hello, I'm Ari He"))
+  expect(text.slice(text.indexOf("Hello, I'm Ari He"))).not.toContain('Skills')
   expect(text).not.toContain('Open source')
   expect(text).not.toContain('hello@heyq02.com')
 })
@@ -43,9 +48,9 @@ it('prints the intro by default and handles flags', () => {
 
     written = ''
     main([])
+    expect(written).toContain('你好，我是 Ari He')
     expect(written).toContain("Hello, I'm Ari He")
-    expect(written).toContain('Experience')
-    expect(written).toContain('Skills')
+    expect(written).toContain('经历')
 
     process.exitCode = 0
     written = ''
