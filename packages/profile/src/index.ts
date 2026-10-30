@@ -21,16 +21,14 @@ function zip<T, U>(
   return base.map((item, index) => merge(item, overlay[index] as U))
 }
 
-/** Chinese copy over the English intro. Links, start dates, counts, and skill names stay English. */
 export function mergeIntro(english: Intro, overlay: ChineseOverlay): Intro {
   return {
     ...english,
-    names: overlay.names,
+    names: [english.name, overlay.alias],
     degree: overlay.degree,
     city: overlay.city,
     bio: overlay.bio,
     kicker: overlay.kicker,
-    title: overlay.title,
     description: overlay.description,
     sections: overlay.sections,
     places: zip('places', english.places, overlay.places, (place, extra) => ({

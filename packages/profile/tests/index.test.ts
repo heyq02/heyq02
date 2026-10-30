@@ -44,6 +44,9 @@ it('exposes a terminal-oriented profile view', () => {
 })
 
 it('overlays Chinese copy without forking shared facts', () => {
+  expect(introZh.name).toBe(intro.name)
+  expect(introZh.title).toBe(intro.title)
+  expect(introZh.names).toEqual([intro.name, chinese.alias])
   expect(introZh.bio).toBe(chinese.bio)
   expect(introZh.sections.experience).toBe('经历')
   expect(introZh.experiences[0]?.company).toBe('京东集团')

@@ -29,5 +29,5 @@ Anything else the repo does not do yet is open, not forbidden.
 
 ## Principles
 
-- One English profile document is the source for every surface. Chinese is a site presentation, not shared profile data.
+- One English profile document is the source for shared facts on every surface. Chinese profile copy is one overlay on that document, owned by `profile`, not a private site table.
 - Surfaces stay thin. Shared facts live in the profile document and the brand-name map; see `architecture`.

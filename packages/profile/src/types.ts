@@ -35,12 +35,11 @@ export interface Contact {
 
 /** Translated fields only. Shared facts stay on the English intro. */
 export interface ChineseOverlay {
-  names: string[]
+  alias: string
   degree: string
   city: string
   bio: string
   kicker: string
-  title: string
   description: string
   sections: Intro['sections']
   places: { detail: string }[]
