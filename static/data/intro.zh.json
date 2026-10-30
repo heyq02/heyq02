@@ -1,0 +1,49 @@
+{
+  "names": ["Ari He", "开发者"],
+  "degree": "学士",
+  "city": "中国",
+  "bio": "全栈工程师 / 开源爱好者 / 职业向视频创作者。专注于能加速研发并落地到真实产品中的 AI",
+  "kicker": "简介",
+  "title": "Ari He",
+  "description": "Ari He。全栈工程师、开源爱好者、职业向视频创作者。专注于能加速研发并落地到真实产品中的 AI。",
+  "sections": {
+    "experience": "经历",
+    "skills": "技能",
+    "openSource": "开源"
+  },
+  "places": [
+    { "detail": "heyq02" },
+    { "detail": "heyq02.com" },
+    { "detail": "全栈糕手Ari" },
+    { "detail": "编程糕手Ari" },
+    { "detail": "扫码添加" }
+  ],
+  "experiences": [
+    {
+      "company": "京东集团",
+      "end": "至今",
+      "points": [
+        "负责京东外卖小程序、H5 与管理后台的迭代交付",
+        "推动管理后台脱离旧架构升级，并提升 TP95",
+        "搭建本地生活产研 C3 级 AI Infra，提升研发效率"
+      ]
+    }
+  ],
+  "skills": [
+    { "summary": "渐进式 JavaScript 框架，用于构建 Web 界面" },
+    { "summary": "用于构建 Web 与原生用户界面的库" },
+    { "summary": "面向 Web 的 React 框架" },
+    { "summary": "兼容 Rollup API 的 Rust 版 JavaScript 打包器" },
+    { "summary": "面向 Web 的前端构建工具" },
+    { "summary": "用 Rust 编写的高性能 JavaScript 工具集" },
+    { "summary": "用于构建 Java 企业应用的框架" },
+    { "summary": "内存数据库，可用于缓存与消息" },
+    { "summary": "开源消息与流式代理" },
+    { "summary": "HTTP 服务器、反向代理与负载均衡器" },
+    { "summary": "构建、交付与运行应用的开放平台" }
+  ],
+  "projects": [
+    { "summary": "一款基于 Taro 框架开发的多端 UI 组件库" },
+    { "summary": "轻松在 GitHub README 或简历中展示你的技能图标。" }
+  ]
+}
