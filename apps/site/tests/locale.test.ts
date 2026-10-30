@@ -15,13 +15,13 @@ afterEach(() => {
   globalThis.location.hash = ''
 })
 
-it('defaults to English and maps html lang', () => {
-  expect(DEFAULT_LOCALE).toBe('en')
+it('defaults to Chinese and maps html lang', () => {
+  expect(DEFAULT_LOCALE).toBe('zh')
   expect(localeHtmlLang.en).toBe('en')
   expect(localeHtmlLang.zh).toBe('zh-CN')
-  expect(localeFromHash('')).toBe('en')
-  expect(localeFromHash('#')).toBe('en')
-  expect(localeFromHash('#foo=bar')).toBe('en')
+  expect(localeFromHash('')).toBe('zh')
+  expect(localeFromHash('#')).toBe('zh')
+  expect(localeFromHash('#foo=bar')).toBe('zh')
 })
 
 it('parses hash locale parameters', () => {
@@ -36,7 +36,7 @@ it('parses hash locale parameters', () => {
   expect(parseLocaleFromHash('#en')).toBe('en')
   expect(parseLocaleFromHash('#/zh')).toBe('zh')
   expect(parseLocaleFromHash('#unknown')).toBeNull()
-  expect(localeFromHash()).toBe('en')
+  expect(localeFromHash()).toBe('zh')
   globalThis.location.hash = '#lang=zh'
   expect(localeFromHash()).toBe('zh')
 })

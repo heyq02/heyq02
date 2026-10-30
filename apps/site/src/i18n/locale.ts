@@ -1,6 +1,6 @@
 export type Locale = 'en' | 'zh'
 
-export const DEFAULT_LOCALE: Locale = 'en'
+export const DEFAULT_LOCALE: Locale = 'zh'
 
 export const localeHtmlLang: Record<Locale, string> = {
   en: 'en',

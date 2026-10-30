@@ -25,7 +25,7 @@ function LocaleProbe() {
   )
 }
 
-it('provides English content by default and switches via the control', () => {
+it('provides Chinese content by default and switches via the control', () => {
   render(
     <LocaleProvider>
       <LanguageSwitch />
@@ -33,16 +33,16 @@ it('provides English content by default and switches via the control', () => {
     </LocaleProvider>
   )
 
-  expect(screen.getByText('en:Experience')).toBeTruthy()
-  expect(document.documentElement.lang).toBe('en')
-
-  act(() => {
-    screen.getByRole('button', { name: '中文' }).click()
-  })
-
-  expect(globalThis.location.hash).toBe('#lang=zh')
   expect(screen.getByText('zh:经历')).toBeTruthy()
   expect(document.documentElement.lang).toBe('zh-CN')
+
+  act(() => {
+    screen.getByRole('button', { name: 'EN' }).click()
+  })
+
+  expect(globalThis.location.hash).toBe('#lang=en')
+  expect(screen.getByText('en:Experience')).toBeTruthy()
+  expect(document.documentElement.lang).toBe('en')
 })
 
 it('reads the initial locale from the hash', () => {
@@ -61,14 +61,14 @@ it('updates when the hash changes', () => {
       <LocaleProbe />
     </LocaleProvider>
   )
-  expect(screen.getByText('en:Experience')).toBeTruthy()
+  expect(screen.getByText('zh:经历')).toBeTruthy()
 
   act(() => {
-    globalThis.location.hash = '#lang=zh'
+    globalThis.location.hash = '#lang=en'
     globalThis.dispatchEvent(new Event('hashchange'))
   })
 
-  expect(screen.getByText('zh:经历')).toBeTruthy()
+  expect(screen.getByText('en:Experience')).toBeTruthy()
 })
 
 it('throws outside LocaleProvider', () => {
@@ -83,18 +83,18 @@ it('renders localized home chrome and switcher', () => {
   )
 
   expect(screen.getByRole('heading', { level: 1, name })).toBeTruthy()
-  expect(screen.getByRole('heading', { name: sections.experience })).toBeTruthy()
+  expect(screen.getByRole('heading', { name: '经历' })).toBeTruthy()
   expect(screen.getByRole('button', { name: 'EN' })).toBeTruthy()
   expect(screen.getByRole('button', { name: '中文' })).toBeTruthy()
-  expect(screen.getByRole('link', { name: 'Skip to content' })).toBeTruthy()
-
-  act(() => {
-    screen.getByRole('button', { name: '中文' }).click()
-  })
-
-  expect(screen.getByRole('heading', { name: '经历' })).toBeTruthy()
   expect(screen.getByRole('link', { name: '跳到正文' })).toBeTruthy()
   expect(screen.getByText('学士')).toBeTruthy()
+
+  act(() => {
+    screen.getByRole('button', { name: 'EN' }).click()
+  })
+
+  expect(screen.getByRole('heading', { name: sections.experience })).toBeTruthy()
+  expect(screen.getByRole('link', { name: 'Skip to content' })).toBeTruthy()
 })
 
 it('keeps Page usable under the provider without a kicker', () => {

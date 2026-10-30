@@ -9,6 +9,7 @@ import type { Plugin } from 'vite-plus'
 
 // Never import `@heyq02/*` here: `vp run` loads every app's vite.config before packages are built.
 import intro from '../../static/data/intro.json' with { type: 'json' }
+import chinese from '../../static/data/intro.zh.json' with { type: 'json' }
 
 const monorepoRoot = resolve(import.meta.dirname, '../..')
 const signature = {
@@ -73,7 +74,7 @@ function htmlMeta(): Plugin {
           },
           {
             tag: 'meta',
-            attrs: { name: 'description', content: intro.description },
+            attrs: { name: 'description', content: chinese.description },
             injectTo: 'head'
           }
         ]

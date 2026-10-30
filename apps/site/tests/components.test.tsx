@@ -13,7 +13,7 @@ import type * as Content from '../src/i18n/content.ts'
 import { LocaleProvider } from '../src/i18n/LocaleContext.tsx'
 import { Page } from '../src/layout.tsx'
 import { Home, markAbbr } from '../src/pages/Home.tsx'
-import { name, sections } from '../src/site.ts'
+import { name } from '../src/site.ts'
 
 function renderWithLocale(ui: ReactNode) {
   return render(<LocaleProvider>{ui}</LocaleProvider>)
@@ -62,7 +62,7 @@ it('renders Reveal and Page chrome', () => {
 
   expect(screen.getByText('PROFILE')).toBeTruthy()
   expect(screen.getByText('hello')).toBeTruthy()
-  expect(screen.getByRole('link', { name: 'Skip to content' }).getAttribute('href')).toBe('#main')
+  expect(screen.getByRole('link', { name: '跳到正文' }).getAttribute('href')).toBe('#main')
 
   rerender(
     <LocaleProvider>
@@ -99,9 +99,9 @@ it('renders the home page profile sections', () => {
   renderWithLocale(<Home />)
 
   expect(screen.getByRole('heading', { level: 1, name })).toBeTruthy()
-  expect(screen.getByRole('heading', { name: sections.experience })).toBeTruthy()
-  expect(screen.getByRole('heading', { name: sections.skills })).toBeTruthy()
-  expect(screen.getByRole('heading', { name: sections.openSource })).toBeTruthy()
+  expect(screen.getByRole('heading', { name: '经历' })).toBeTruthy()
+  expect(screen.getByRole('heading', { name: '技能' })).toBeTruthy()
+  expect(screen.getByRole('heading', { name: '开源' })).toBeTruthy()
   expect(screen.getByText('4.7k')).toBeTruthy()
 })
 
