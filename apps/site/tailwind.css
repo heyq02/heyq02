@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
+/* Class strings live in shared tokens + theme/plugin consumers. */
+@source '../../packages/shared/src';
 @source '../../packages/rspress-theme-heyq02';
 @source '../../packages/rspress-plugin-profile/src';
 
