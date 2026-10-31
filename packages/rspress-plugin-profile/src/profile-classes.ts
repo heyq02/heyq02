@@ -1,4 +1,6 @@
-/** Shared Tailwind + marker class strings for generated homepage MDX. */
+/** Shared Tailwind + marker class strings for generated homepage MDX.
+ * Keep in sync with `rspress-theme-heyq02/ui-classes.ts`.
+ */
 
 export const profileRoot =
   'profile rp-not-doc font-[family-name:var(--rp-font-family-base)] text-[var(--rp-c-text-1)]'
@@ -30,11 +32,12 @@ export const profileJobHead =
 export const profileEduMeta =
   'profile-edu-meta mt-[0.55rem] mb-0 text-[0.95rem] leading-relaxed text-[var(--rp-c-text-2)]'
 
-export const profileCard =
-  'profile-project group grid gap-[0.55rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline [&_.rp-badge]:no-underline'
+const siteCardChrome =
+  'rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline'
 
-export const profilePost =
-  'profile-post group grid gap-[0.55rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline [&_.rp-badge]:no-underline'
+export const profileCard = `profile-project group grid gap-[0.55rem] ${siteCardChrome} [&_.rp-badge]:no-underline`
+
+export const profilePost = `profile-post group grid gap-[0.55rem] ${siteCardChrome} [&_.rp-badge]:no-underline`
 
 export const profileCardTop = 'grid gap-2'
 
