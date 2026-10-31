@@ -26,4 +26,4 @@ The shell title and description come from the English intro.
 
 ## Limitations
 
-Markdown under `blogs/blog/posts` becomes a post page. `/blog/` is Rspress Overview (`overview: true`) with sidebar Overview first, then a Posts group. `prepare` regenerates the homepage Writing list, pinned project cards, plus `blog/_meta.json` and `blog/posts/_meta.json`. Without a GitHub token, prepare fails.
+Markdown under `blogs/blog/posts` becomes a post page. `/blog/` is Rspress Overview (`overview: true`) with sidebar Overview first, then a Posts group. Post `_meta` entries include `label` and `overviewHeaders: [2]` so Overview cards show the title plus h2 headings. `prepare` regenerates the homepage Writing list, pinned project cards, plus `blog/_meta.json` and `blog/posts/_meta.json`. Without a GitHub token, prepare fails.

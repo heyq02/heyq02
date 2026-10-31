@@ -273,3 +273,19 @@
   border-radius: var(--rp-radius-small);
   background: var(--rp-c-bg-soft);
 }
+
+/* Overview cards: keep post titles readable (default break-all splits CJK poorly). */
+.rp-overview-group__item__title,
+.rp-overview-group__grid-item {
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-height: 1.45;
+}
+
+.rp-overview-group__grid {
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.rp-overview-group__grid-item {
+  min-height: 4.5rem;
+}

@@ -87,7 +87,8 @@ export function renderPostsMetaJson(posts: BlogPost[]): string {
     posts.map(post => ({
       type: 'file',
       name: post.slug,
-      overviewHeaders: []
+      label: post.title,
+      overviewHeaders: [2]
     })),
     null,
     2

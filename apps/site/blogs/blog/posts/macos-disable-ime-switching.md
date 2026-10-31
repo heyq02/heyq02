@@ -2,7 +2,7 @@
 title: macOS 禁止切换输入法实操教程
 description: 输入法不再莫名其妙切到 ABC，稳定停在你真正要用的那一个。
 date: 2026-10-31
-overviewHeaders: []
+overviewHeaders: [2]
 ---
 
 # macOS 禁止切换输入法实操教程

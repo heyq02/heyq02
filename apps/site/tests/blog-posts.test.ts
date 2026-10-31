@@ -31,5 +31,5 @@ it('renders posts sidebar meta from post slugs', () => {
         }
       ])
     )
-  ).toEqual([{ type: 'file', name: 'demo', overviewHeaders: [] }])
+  ).toEqual([{ type: 'file', name: 'demo', label: 'Demo', overviewHeaders: [2] }])
 })

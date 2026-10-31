@@ -2,6 +2,7 @@
   {
     "type": "file",
     "name": "macos-disable-ime-switching",
-    "overviewHeaders": []
+    "label": "macOS 禁止切换输入法实操教程",
+    "overviewHeaders": [2]
   }
 ]
