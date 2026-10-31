@@ -9,7 +9,6 @@ export interface ProfilePage {
   kaomoji: string
   avatar: string
   sections: Intro['sections']
-  places: { label: string; href: string; detail: string }[]
   experiences: Intro['experiences']
   skills: { name: string; href: string; summary: string }[]
   projects: {
@@ -32,11 +31,6 @@ export function profilePage(): ProfilePage {
     kaomoji: intro.kaomoji,
     avatar: intro.avatar,
     sections: intro.sections,
-    places: intro.places.map(place => ({
-      label: place.label,
-      detail: place.detail,
-      href: absoluteHref(place.href)
-    })),
     experiences: intro.experiences,
     skills: intro.skills.map(skill => ({
       name: skill.name,

@@ -14,16 +14,6 @@ export function ProfileHome() {
         <p>
           {page.bio} {page.kaomoji}
         </p>
-        <ul>
-          {page.places.map(place => (
-            <li key={place.label}>
-              <a href={place.href} rel='noreferrer' target='_blank'>
-                {place.label}
-              </a>
-              <span> {place.detail}</span>
-            </li>
-          ))}
-        </ul>
       </header>
       <section>
         <h2>{page.sections.experience}</h2>
