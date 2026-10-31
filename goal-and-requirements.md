@@ -2,12 +2,12 @@
 id: goal
 type: goal-and-requirements
 status: draft
-title: Yongqi He public identity
+title: Ari He｜阿瑞 public identity
 ---
 
 ## Goal
 
-This repo is Yongqi He's public identity: an English profile site, a CLI that prints the GitHub README, and a generated GitHub README. Shared facts come from one English profile document (`static/data/intro.json`); the CLI prints the published README rather than reading that file.
+This repo is Ari He｜阿瑞's public identity: an English profile site, a CLI that prints the GitHub README, and a generated GitHub README. Shared facts come from one English profile document (`static/data/intro.json`); the CLI prints the published README rather than reading that file.
 
 ## Audience
 

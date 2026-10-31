@@ -13,7 +13,7 @@ English Rspress site for heyq02.com. The blog and navbar stay on Rspress. The ho
 
 GitHub, Bluesky, X, Bilibili, and WeChat sit only in the navbar. Email and phone do not. The homepage does not repeat them. Site chrome is English-only; there is no language switch. The navbar appearance switch follows the system theme by default.
 
-The shell title and description come from the English intro. The homepage sets `titleSuffix` from the first tag plus `bio` so the tab reads `Yongqi He - Full-stack engineer, focused on…` instead of duplicating the site title.
+The shell title and description come from the English intro. The homepage sets `titleSuffix` from the first tag plus `bio` so the tab reads `Ari He｜阿瑞 - Full-stack engineer, focused on…` instead of duplicating the site title.
 
 ## Boundary
 

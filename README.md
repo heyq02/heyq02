@@ -1,4 +1,4 @@
-# Hello, I'm Yongqi He
+# Hello, I'm Ari He｜阿瑞
 
 Full-stack engineer · Open-source enthusiast · Blogger on career
 

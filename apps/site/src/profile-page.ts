@@ -45,7 +45,7 @@ export function profilePage(projects: PinnedProject[] = []): ProfilePage {
   }
 }
 
-/** Browser tab suffix after the name (`Yongqi He - …`). */
+/** Browser tab suffix after the name (`Ari He｜阿瑞 - …`). */
 export function documentTitleSuffix(page: Pick<ProfilePage, 'tags'> = profilePage()): string {
   const role = page.tags[0] ?? ''
   const focus = intro.bio.replace(/^./, char => char.toLowerCase())
