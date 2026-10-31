@@ -10,17 +10,20 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
   const posts = await listBlogPosts(sitePostsDir)
   expect(posts.length).toBeGreaterThan(0)
   expect(posts.map(post => post.slug)).toEqual([
+    'anaconda-vscode-encoding-bug',
+    'iframe-child-route-state',
+    'python-tkinter-radix-converter',
     'webpack-import-path-variables',
     'multi-mcp-aggregation-nginx-vs-express',
+    'vue-router-hash-external-listen',
     'npm-download-daily-report',
     'weixin-homepage-ui-recreation',
     'macos-disable-ime-switching'
   ])
-  expect(posts[0]?.href).toBe('/blog/posts/webpack-import-path-variables/')
-  expect(posts[0]?.title).toContain('Webpack')
+  expect(posts[0]?.href).toBe('/blog/posts/anaconda-vscode-encoding-bug/')
+  expect(posts[0]?.title).toContain('Anaconda')
   expect(posts[0]?.date).toBe('2026-11-01')
-  expect(posts[2]?.slug).toBe('npm-download-daily-report')
-  expect(posts[4]?.date).toBe('2026-10-31')
+  expect(posts.at(-1)?.date).toBe('2026-10-31')
 })
 
 it('renders blog sidebar meta with Overview first', () => {
