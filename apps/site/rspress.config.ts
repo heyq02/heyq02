@@ -16,6 +16,7 @@ export default defineConfig({
   icon: '/favicon.ico',
   logoText: intro.title,
   siteOrigin: 'https://heyq02.com',
+  globalStyles: resolve(dir, 'styles/center.css'),
   themeConfig: {
     darkMode: 'force-light',
     socialLinks: socialLinks()

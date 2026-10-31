@@ -9,7 +9,7 @@ depends-on: [profile, brands]
 
 ## Responsibility
 
-English Rspress site for heyq02.com. The home page is a wide doc page, not Rspress's built-in homepage. It uses the doc components: badges for degree, city, and project counts, a callout for the bio, and steps for experience. The skills picture matches the README. It does not repeat contact links. GitHub, Bluesky, Twitter, Xiaohongshu, Bilibili, CSDN, and WeChat sit only in the navbar's social links, which the theme renders at the top right. Email and phone do not. A blog nav item lists posts from `blogs`. With no posts, that page says there are none.
+English Rspress site for heyq02.com. The home page is a normal doc page, not the wide layout and not Rspress's built-in homepage. The hidden sidebar keeps the content column toward the center. It uses the doc components: badges for degree, city, and project counts, a callout for the bio, and steps for experience. The skills picture matches the README. It does not repeat contact links. GitHub, Bluesky, Twitter, Xiaohongshu, Bilibili, CSDN, and WeChat sit only in the navbar's social links, which the theme renders at the top right. Email and phone do not. A blog nav item lists posts from `blogs`. With no posts, that page says there are none.
 
 There is no Chinese locale and no language switch. The theme stays light; the dark-mode toggle is hidden. The shell title and description come from the English intro.
 

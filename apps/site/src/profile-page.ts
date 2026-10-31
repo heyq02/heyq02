@@ -67,7 +67,7 @@ export function renderHomeMdx(): string {
     .join('\n\n')
 
   return `---
-pageType: doc-wide
+pageType: doc
 title: ${yamlString(page.name)}
 sidebar: false
 outline: false

@@ -15,7 +15,7 @@ it('builds the English profile page from the intro', () => {
   expect(page.skills.src).toContain('vuedotjs')
   expect(page.skills.src).toContain('theme=light')
   const home = renderHomeMdx()
-  expect(home).toContain('pageType: doc-wide')
+  expect(home).toContain('pageType: doc')
   expect(home).not.toContain('pageType: home')
   expect(home).toContain('Callout')
   expect(home).toContain('Steps')
