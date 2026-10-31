@@ -1,3 +1,6 @@
+import { mkdirSync, symlinkSync, rmSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { expect, it, vi } from 'vite-plus/test'
@@ -24,10 +27,20 @@ it('formats unknown errors as text', () => {
   expect(errorText('offline')).toBe('offline')
 })
 
-it('recognizes only this file as the CLI entry', () => {
-  expect(isCliEntry('', 'file:///index.ts')).toBe(false)
-  expect(isCliEntry(indexPath, 'file:///other.ts')).toBe(false)
-  expect(isCliEntry(indexPath)).toBe(true)
+it('recognizes only this file as the CLI entry', async () => {
+  await expect(isCliEntry('', 'file:///index.ts')).resolves.toBe(false)
+  await expect(isCliEntry(indexPath, 'file:///other.ts')).resolves.toBe(false)
+  await expect(isCliEntry(indexPath)).resolves.toBe(true)
+
+  const dir = join(tmpdir(), `heyq02-cli-${process.pid}`)
+  mkdirSync(dir, { recursive: true })
+  const link = join(dir, 'heyq02')
+  try {
+    symlinkSync(indexPath, link)
+    await expect(isCliEntry(link)).resolves.toBe(true)
+  } finally {
+    rmSync(dir, { recursive: true, force: true })
+  }
 })
 
 it('renders a terminal preview', async () => {

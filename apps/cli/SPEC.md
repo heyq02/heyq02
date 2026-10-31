@@ -15,4 +15,5 @@ Published npm binary `heyq02`. Every invocation fetches the raw `main` README an
 - May fetch only `https://raw.githubusercontent.com/heyq02/heyq02/main/README.md`. Timeout is 10 seconds. No `profile`, no `brands`, no other network. No help or version command.
 - The blob page is not fetched. It is GitHub HTML, not the README file.
 - `marked-terminal` renders the file as fetched. The README is Markdown, so this app does not rewrite HTML. Ink was not used: a print-and-exit package already existed.
+- CLI entry detection resolves `process.argv[1]` with `realpath` so npm/npx `.bin` symlinks still match `import.meta.url`.
 - Output is terminal text. It does not draw the skills picture.

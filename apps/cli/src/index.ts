@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpath } from 'node:fs/promises'
 import { pathToFileURL } from 'node:url'
 
 import { Marked } from 'marked'
@@ -34,11 +35,22 @@ export async function renderPreview(markdown: string): Promise<string> {
   return `${rendered.trimEnd()}\n`
 }
 
-export function isCliEntry(entry = process.argv[1], moduleUrl = import.meta.url): boolean {
+export async function isCliEntry(
+  entry = process.argv[1],
+  moduleUrl = import.meta.url
+): Promise<boolean> {
   if (!entry) {
     return false
   }
-  return moduleUrl === pathToFileURL(entry).href
+  // Npm/npx bins are symlinks under node_modules/.bin; argv keeps the link path
+  // While import.meta.url is the real file.
+  let resolved = entry
+  try {
+    resolved = await realpath(entry)
+  } catch {
+    // Keep the original path when the entry is missing (tests) or unreadable.
+  }
+  return moduleUrl === pathToFileURL(resolved).href
 }
 
 export async function run(): Promise<void> {
@@ -51,7 +63,7 @@ export async function run(): Promise<void> {
 }
 
 export async function start(entry = process.argv[1]): Promise<void> {
-  if (isCliEntry(entry)) {
+  if (await isCliEntry(entry)) {
     await run()
   }
 }
