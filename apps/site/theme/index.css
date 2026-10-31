@@ -215,6 +215,24 @@ html.dark .rspress-logo {
   gap: 0.35rem 1rem;
 }
 
+.profile-job-company {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.profile-job-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--rp-radius-small);
+  object-fit: contain;
+  background: var(--rp-c-bg);
+  border: 1px solid var(--rp-c-divider-light);
+}
+
 .profile-when {
   margin: 0;
   color: var(--rp-c-text-2);

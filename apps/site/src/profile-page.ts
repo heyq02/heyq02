@@ -112,9 +112,12 @@ export function renderHomeMdx(posts: BlogPost[] = [], pinned: PinnedProject[] = 
   const jobs = page.experiences
     .map(job => {
       const points = job.points.map(point => `<li>${escapeHtml(point)}</li>`).join('\n')
+      const logo = job.logo
+        ? `<img className="profile-job-logo" src=${yamlString(job.logo)} alt="" width="28" height="28" loading="lazy" decoding="async" />`
+        : ''
       return `<article className="profile-job">
 <div className="profile-job-head">
-<h3><a href=${yamlString(job.href)}>${escapeHtml(job.company)}</a></h3>
+<h3><a className="profile-job-company" href=${yamlString(job.href)}>${logo}<span>${escapeHtml(job.company)}</span></a></h3>
 <p className="profile-when">${escapeHtml(job.start)} – ${escapeHtml(job.end)}</p>
 </div>
 <ul>
