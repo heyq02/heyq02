@@ -1,8 +1,7 @@
 import { profilePage } from '../src/profile-page.ts'
-import type { SiteLocale } from '../src/profile-page.ts'
 
-export function ProfileHome({ locale }: { locale: SiteLocale }) {
-  const page = profilePage(locale)
+export function ProfileHome() {
+  const page = profilePage()
 
   return (
     <article>

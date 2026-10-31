@@ -2,12 +2,9 @@ import { expect, it } from 'vite-plus/test'
 
 import {
   absoluteHref,
-  chinese,
   formatCount,
   fullName,
   intro,
-  introZh,
-  mergeIntro,
   places,
   profile,
   skills
@@ -41,26 +38,4 @@ it('exposes a terminal-oriented profile view', () => {
   expect(profile.name).toBe(intro.name)
   expect(profile.email).toBe(intro.contact.email)
   expect(profile.projects[0]).not.toHaveProperty('languageColor')
-})
-
-it('overlays Chinese copy without forking shared facts', () => {
-  expect(introZh.name).toBe(intro.name)
-  expect(introZh.title).toBe(intro.title)
-  expect(introZh.names).toEqual([intro.name, chinese.alias])
-  expect(introZh.bio).toBe(chinese.bio)
-  expect(introZh.sections.experience).toBe('经历')
-  expect(introZh.experiences[0]?.company).toBe('京东集团')
-  expect(introZh.experiences[0]?.href).toBe(intro.experiences[0]?.href)
-  expect(introZh.experiences[0]?.start).toBe(intro.experiences[0]?.start)
-  expect(introZh.skills[0]?.name).toBe(intro.skills[0]?.name)
-  expect(introZh.skills[0]?.summary).not.toBe(intro.skills[0]?.summary)
-  expect(introZh.places[4]?.detail).toBe('扫码添加')
-  expect(introZh.places[4]?.href).toBe('/wechat.jpg')
-  expect(introZh.projects[0]?.stars).toBe(intro.projects[0]?.stars)
-})
-
-it('rejects a Chinese overlay that does not line up with English', () => {
-  expect(() => mergeIntro(intro, { ...chinese, places: [] })).toThrow(
-    /Chinese places \(0\) must match English/
-  )
 })

@@ -1,7 +1,5 @@
-import { absoluteHref, formatCount, intro, introZh } from '@heyq02/profile'
+import { absoluteHref, formatCount, intro } from '@heyq02/profile'
 import type { Intro } from '@heyq02/profile'
-
-export type SiteLocale = 'zh' | 'en'
 
 export interface ProfilePage {
   name: string
@@ -25,33 +23,27 @@ export interface ProfilePage {
   emptyBlog: string
 }
 
-const emptyBlog: Record<SiteLocale, string> = {
-  zh: '还没有文章。',
-  en: 'No posts yet.'
-}
-
-export function profilePage(locale: SiteLocale): ProfilePage {
-  const source = locale === 'zh' ? introZh : intro
+export function profilePage(): ProfilePage {
   return {
-    name: source.name,
-    degree: source.degree,
-    city: source.city,
-    bio: source.bio,
-    kaomoji: source.kaomoji,
-    avatar: source.avatar,
-    sections: source.sections,
-    places: source.places.map(place => ({
+    name: intro.name,
+    degree: intro.degree,
+    city: intro.city,
+    bio: intro.bio,
+    kaomoji: intro.kaomoji,
+    avatar: intro.avatar,
+    sections: intro.sections,
+    places: intro.places.map(place => ({
       label: place.label,
       detail: place.detail,
       href: absoluteHref(place.href)
     })),
-    experiences: source.experiences,
-    skills: source.skills.map(skill => ({
+    experiences: intro.experiences,
+    skills: intro.skills.map(skill => ({
       name: skill.name,
       href: absoluteHref(skill.href),
       summary: skill.summary
     })),
-    projects: source.projects.map(project => ({
+    projects: intro.projects.map(project => ({
       name: project.name,
       href: project.href,
       summary: project.summary,
@@ -59,6 +51,6 @@ export function profilePage(locale: SiteLocale): ProfilePage {
       stars: formatCount(project.stars),
       forks: formatCount(project.forks)
     })),
-    emptyBlog: emptyBlog[locale]
+    emptyBlog: 'No posts yet.'
   }
 }

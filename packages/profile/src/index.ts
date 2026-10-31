@@ -1,58 +1,11 @@
 /** Shared intro SSOT from `static/data/intro.json` for site, cli, and readme. */
 
 import raw from '../../../static/data/intro.json' with { type: 'json' }
-import chineseRaw from '../../../static/data/intro.zh.json' with { type: 'json' }
-import type { ChineseOverlay, Intro, Place, Skill } from './types.ts'
+import type { Intro, Place, Skill } from './types.ts'
 
-export type { ChineseOverlay, Contact, Experience, Intro, Place, Project, Skill } from './types.ts'
+export type { Contact, Experience, Intro, Place, Project, Skill } from './types.ts'
 
 export const intro = raw satisfies Intro
-export const chinese = chineseRaw satisfies ChineseOverlay
-
-function zip<T, U>(
-  label: string,
-  base: readonly T[],
-  overlay: readonly U[],
-  merge: (item: T, extra: U) => T
-): T[] {
-  if (base.length !== overlay.length) {
-    throw new Error(`Chinese ${label} (${overlay.length}) must match English (${base.length})`)
-  }
-  return base.map((item, index) => merge(item, overlay[index] as U))
-}
-
-export function mergeIntro(english: Intro, overlay: ChineseOverlay): Intro {
-  return {
-    ...english,
-    names: [english.name, overlay.alias],
-    degree: overlay.degree,
-    city: overlay.city,
-    bio: overlay.bio,
-    kicker: overlay.kicker,
-    description: overlay.description,
-    sections: overlay.sections,
-    places: zip('places', english.places, overlay.places, (place, extra) => ({
-      ...place,
-      detail: extra.detail
-    })),
-    experiences: zip('experiences', english.experiences, overlay.experiences, (job, extra) => ({
-      ...job,
-      company: extra.company,
-      end: extra.end,
-      points: extra.points
-    })),
-    skills: zip('skills', english.skills, overlay.skills, (skill, extra) => ({
-      ...skill,
-      summary: extra.summary
-    })),
-    projects: zip('projects', english.projects, overlay.projects, (project, extra) => ({
-      ...project,
-      summary: extra.summary
-    }))
-  }
-}
-
-export const introZh = mergeIntro(intro, chinese)
 
 export function absoluteHref(href: string, site = intro.site): string {
   if (href.startsWith('/')) {

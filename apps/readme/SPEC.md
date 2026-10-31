@@ -15,7 +15,7 @@ It does not emit places, projects, bio, or Chinese. The release workflow runs th
 
 ## Boundary
 
-- May depend on `brands` and `ejs`, and may read `static/data/intro.json` directly. Must not import `site`, `profile`, or `intro.zh.json`.
+- May depend on `brands` and `ejs`, and may read `static/data/intro.json` directly. Must not import `site` or `profile`.
 - The Markdown layout lives in an EJS template. This app fills it; it does not assemble the README string in code. `<%-` is used so intro text is not HTML-escaped.
 - Inferred, not confirmed: `profile` exports `dist/`, and this app's build is `node --experimental-strip-types` with no dependency build, so it cannot rely on that output. That is why it reads the English JSON directly.
 - Skill badges use `brandSlug` only. A skill with no slug is left out of the picture. This app must not grow its own slug map.
