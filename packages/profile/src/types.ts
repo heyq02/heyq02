@@ -7,8 +7,6 @@ export interface Place {
 export interface Experience {
   company: string
   href: string
-  /** Optional company mark shown next to the name on the site. */
-  logo?: string
   start: string
   end: string
   points: string[]
