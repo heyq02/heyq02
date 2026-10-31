@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "vp run cbuild",
-    "preview": "vp preview"
+    "preview": "vp preview",
+    "test": "vp run ctest",
+    "test:e2e": "playwright test --config=../../playwright.config.ts --project=site"
   },
   "dependencies": {
     "@heyq02/shared": "workspace:*",

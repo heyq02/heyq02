@@ -1,0 +1,40 @@
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+
+import { expect, it } from 'vite-plus/test'
+
+import { prepareProfile } from '../src/index.ts'
+
+it('profile e2e: writes homepage MDX with theme import and pins', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'heyq02-e2e-profile-'))
+  const site = join(root, 'apps/site')
+  try {
+    await mkdir(join(site, 'blogs/blog/posts'), { recursive: true })
+    await writeFile(
+      join(site, 'blogs/blog/posts/e2e.mdx'),
+      `---\ntitle: E2E\ndate: 2026-10-31\n---\n\n# E2E\n`
+    )
+    await prepareProfile({
+      siteRoot: site,
+      format: false,
+      fetchProjects: () =>
+        Promise.resolve([
+          {
+            name: 'e2e-repo',
+            href: 'https://github.com/heyq02/e2e-repo',
+            summary: 'e2e',
+            language: 'TypeScript',
+            stars: 1,
+            forks: 0
+          }
+        ])
+    })
+    const home = await readFile(join(site, 'blogs/index.mdx'), 'utf8')
+    expect(home).toContain('@theme/ProfilePlay')
+    expect(home).toContain('e2e-repo')
+    expect(home).toContain('E2E')
+  } finally {
+    await rm(root, { recursive: true, force: true })
+  }
+})

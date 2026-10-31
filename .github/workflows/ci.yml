@@ -19,7 +19,7 @@ jobs:
   check:
     if: github.repository == 'heyq02/heyq02'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -33,7 +33,16 @@ jobs:
       - name: Check
         run: vp run ccheck
 
-      - name: Test
+      - name: Unit tests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: vp test
+        run: vp test --coverage
+
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: End-to-end tests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm test:e2e

@@ -14,3 +14,8 @@ Render `blogs/index.mdx` (education, experience, open source, skills, writing) f
 ## Boundary
 
 - Depends on `shared`, `rspress-plugin-blog-meta` (`listBlogPosts`), and `rspress-plugin-github-pins` (`fetchPinnedProjects`). Does not write blog `_meta.json` or copy public assets.
+
+## Testing
+
+- Unit coverage at least 95% (statements, branches, functions, lines).
+- Independent `e2e/` suite required; run via root `pnpm test:e2e`.

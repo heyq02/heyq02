@@ -38,6 +38,16 @@ it('reads the GitHub login from intro places', () => {
   expect(githubLogin()).toBe('heyq02')
 })
 
+it('derives login from href when detail is missing', () => {
+  expect(githubLogin([{ label: 'GitHub', href: 'https://github.com/heyq02/' } as never])).toBe(
+    'heyq02'
+  )
+})
+
+it('fails when intro places has no GitHub entry', () => {
+  expect(() => githubLogin([])).toThrow(/no GitHub entry/)
+})
+
 it('prefers GITHUB_TOKEN then GH_TOKEN', () => {
   expect(githubToken({ GITHUB_TOKEN: 'a', GH_TOKEN: 'b' })).toBe('a')
   expect(githubToken({ GH_TOKEN: 'b' })).toBe('b')
@@ -118,4 +128,28 @@ it('fails when the GraphQL client throws', async () => {
       graphql: (() => Promise.reject(new Error('rate limited'))) as unknown as GraphqlClient
     })
   ).rejects.toThrow(/GitHub GraphQL request failed: rate limited/)
+})
+
+it('skips null pinned nodes', async () => {
+  const withNull = (() =>
+    Promise.resolve({
+      user: { pinnedItems: { nodes: [null, pinnedData.user.pinnedItems.nodes[0]] } }
+    })) as unknown as GraphqlClient
+  await expect(
+    fetchPinnedProjects('heyq02', { token: 'test-token', graphql: withNull })
+  ).resolves.toHaveLength(1)
+})
+
+it('reads token from env when options.token is omitted', async () => {
+  const prev = process.env.GH_TOKEN
+  process.env.GH_TOKEN = 'env-token'
+  try {
+    await expect(fetchPinnedProjects('heyq02', { graphql: graphqlOk })).resolves.toHaveLength(1)
+  } finally {
+    if (prev === undefined) {
+      delete process.env.GH_TOKEN
+    } else {
+      process.env.GH_TOKEN = prev
+    }
+  }
 })

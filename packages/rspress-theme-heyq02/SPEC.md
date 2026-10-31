@@ -16,3 +16,8 @@ Custom Rspress theme for heyq02.com: `Layout` (site footer + console greeting), 
 - May depend on `shared` and peer `@rspress/core` / React. Must not depend on site plugins or `readme` / `cli`.
 - Friends page data lives here (`friends-page.ts` + `static/data/friends.json`). Identity fields still come from intro via `shared`.
 - Theme entry re-exports `@rspress/core/theme-original`. Components used from MDX are imported via `@theme/...`.
+
+## Testing
+
+- Unit coverage at least 95% (statements, branches, functions, lines).
+- Independent `e2e/` suite required; run via root `pnpm test:e2e`.

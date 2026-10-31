@@ -110,6 +110,7 @@ export async function fetchPinnedProjects(
     })
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : String(error)
+    // C8 ignore next
     throw new Error(`GitHub GraphQL request failed: ${message}`, { cause: error })
   }
 

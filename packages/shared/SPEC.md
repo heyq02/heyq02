@@ -17,3 +17,8 @@ Cross-app helpers used by more than one workspace app. Today that is typed acces
 - A skill with an empty `icon` is left out of the picture.
 - Public surface is `intro` / `Intro` / `formatCount` / `skillIconsPicture`. Other types stay package-internal.
 - Private workspace package. Source is the export; it is not packed to `dist/`.
+
+## Testing
+
+- Unit coverage at least 95% (statements, branches, functions, lines).
+- Independent `e2e/` suite required; run via root `pnpm test:e2e`.

@@ -1,0 +1,29 @@
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+
+import { expect, it } from 'vite-plus/test'
+
+import { pluginSiteAssets } from '../src/index.ts'
+
+it('exposes pluginSiteAssets that copies public assets via config hook', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'heyq02-assets-plugin-'))
+  const site = join(root, 'apps/site')
+  const staticSig = join(root, 'static/signature')
+
+  try {
+    await mkdir(join(site, 'public'), { recursive: true })
+    await mkdir(staticSig, { recursive: true })
+    await writeFile(join(site, 'public/wechat.jpg'), 'wechat')
+    await writeFile(join(staticSig, 'full-nobg.ico'), 'ico')
+    await writeFile(join(staticSig, 'full-nobg.png'), 'png')
+
+    const plugin = pluginSiteAssets({ siteRoot: site })
+    expect(plugin.name).toBe('rspress-plugin-site-assets')
+    const config = { root: site }
+    await expect(plugin.config?.(config as never, {} as never, false)).resolves.toEqual(config)
+    expect(await readFile(join(site, 'blogs/public/wechat.jpg'), 'utf8')).toBe('wechat')
+  } finally {
+    await rm(root, { recursive: true, force: true })
+  }
+})

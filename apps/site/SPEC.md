@@ -36,3 +36,8 @@ The shell title and description come from the English intro. The homepage sets `
 ## Limitations
 
 Markdown under `blogs/blog/posts` becomes a post page. `/blog/` is Rspress Overview with sidebar Overview first, then Posts. Every `rspress dev` / `build` regenerates homepage MDX, Writing list, pinned cards, blog meta, and public assets via plugins before routes are scanned. Without a GitHub token the pins/profile step fails.
+
+## Testing
+
+- Unit coverage at least 95% (statements, branches, functions, lines).
+- Independent `e2e/` suite required; run via root `pnpm test:e2e`.

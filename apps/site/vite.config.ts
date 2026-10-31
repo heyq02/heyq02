@@ -4,7 +4,8 @@ export default liangmi({
   test: {
     include: ['tests/**/*.test.ts'],
     coverage: {
-      include: ['src/**/*.ts'],
+      include: ['src/**/*.ts', 'scripts/prepare.ts'],
+      exclude: ['scripts/build.ts', 'scripts/dev.ts'],
       thresholds: {
         statements: 95,
         branches: 95,

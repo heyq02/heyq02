@@ -3,11 +3,14 @@ import { resolve } from 'node:path'
 
 import { listBlogPosts, renderBlogMetaJson, renderPostsMetaJson } from './blog-posts.ts'
 import { formatGenerated } from './format-generated.ts'
+import type { SpawnFn } from './format-generated.ts'
 import { writeIfChanged } from './write-if-changed.ts'
 
 export interface PrepareBlogMetaOptions {
   siteRoot: string
   format?: boolean
+  /** Test seam for `vp fmt`. */
+  spawnFn?: SpawnFn
 }
 
 /** Write `blog/_meta.json` and `blog/posts/_meta.json` from post files. */
@@ -24,7 +27,7 @@ export async function prepareBlogMeta(options: PrepareBlogMetaOptions): Promise<
     await writeIfChanged(postsMeta, renderPostsMetaJson(posts))
   ].some(Boolean)
   if (options.format && changed) {
-    await formatGenerated(site, [blogMeta, postsMeta])
+    await formatGenerated(site, [blogMeta, postsMeta], options.spawnFn)
   }
 }
 

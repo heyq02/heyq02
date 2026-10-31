@@ -18,10 +18,16 @@ export default liangmi({
       }
     },
     {
-      files: ['**/tests/**'],
+      files: ['**/tests/**', '**/e2e/**'],
       rules: {
         'promise/prefer-await-to-callbacks': 'off',
-        'node/no-sync': 'off'
+        'node/no-sync': 'off',
+        'react-perf/jsx-no-jsx-as-prop': 'off',
+        'unicorn/prefer-event-target': 'off',
+        'unicorn/max-nested-calls': 'off',
+        'unicorn/consistent-function-scoping': 'off',
+        'vitest/consistent-test-filename': 'off',
+        'vitest/require-mock-type-parameters': 'off'
       }
     }
   ],
@@ -29,13 +35,28 @@ export default liangmi({
     ignorePatterns: ['sponsorkit/**']
   },
   test: {
+    environmentMatchGlobs: [['packages/rspress-theme-heyq02/tests/**', 'jsdom']],
+    exclude: ['**/e2e/**', '**/node_modules/**'],
     coverage: {
       include: [
         'apps/*/src/**/*.{ts,tsx}',
+        'apps/*/scripts/**/*.ts',
         'packages/*/src/**/*.ts',
+        'packages/rspress-theme-heyq02/*.{ts,tsx}',
         'packages/rspress-theme-heyq02/friends-page.ts'
       ],
-      exclude: ['**/cli.ts', '**/types.ts', '**/env.d.ts', '**/index.tsx', '**/App.css'],
+      exclude: [
+        '**/cli.ts',
+        '**/types.ts',
+        '**/env.d.ts',
+        '**/css.d.ts',
+        '**/App.css',
+        '**/*.css',
+        '**/vite.config.ts',
+        'apps/site/scripts/build.ts',
+        'apps/site/scripts/dev.ts',
+        'apps/site/scripts/prepare-cli.ts'
+      ],
       thresholds: {
         statements: 95,
         branches: 95,

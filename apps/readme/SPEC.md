@@ -20,3 +20,8 @@ It does not emit places, pinned projects, writing, bio, or Chinese. The release 
 - Identity facts and the skills picture come from `shared` (`intro`, `skillIconsPicture`). Build is `node --experimental-strip-types`.
 - A skill with an empty `icon` is left out of the picture.
 - The committed root `README.md` must match `renderReadme()`; the readme tests lock that.
+
+## Testing
+
+- Unit coverage at least 95% (statements, branches, functions, lines).
+- Independent `e2e/` suite required; run via root `pnpm test:e2e`.

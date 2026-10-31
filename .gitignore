@@ -15,3 +15,5 @@ apps/site/blogs/public
 .env
 .env.*
 !.env.example
+test-results/
+playwright-report/

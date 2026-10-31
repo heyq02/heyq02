@@ -11,17 +11,25 @@
     "lint": "vp run clint",
     "prepare": "vp config",
     "release": "bumpp -r",
-    "test": "vp test"
+    "test": "vp test --coverage",
+    "test:e2e": "pnpm run test:e2e:node && pnpm run test:e2e:browser",
+    "test:e2e:browser": "pnpm run test:e2e:site-build && playwright test",
+    "test:e2e:node": "vp test --config e2e.vite.config.ts",
+    "test:e2e:site-build": "node --experimental-strip-types ./scripts/e2e-site-build.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.4",
     "@commitlint/config-conventional": "21.2.4",
     "@liangmi/vp-config": "catalog:",
+    "@playwright/test": "^1.56.0",
     "@types/node": "catalog:",
+    "@vitejs/plugin-react": "^5.0.0",
     "@vitest/coverage-v8": "5.0.5",
     "bumpp": "^12.3.0",
+    "serve": "^14.2.4",
     "sponsorkit": "19.0.0",
     "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plus": "catalog:"
   },
   "commitlint": {

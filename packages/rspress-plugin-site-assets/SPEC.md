@@ -13,3 +13,8 @@ Copy signature favicons and the WeChat QR into `blogs/public` before Rspress ser
 ## Boundary
 
 - Reads `static/signature/` (relative to the monorepo via `siteRoot`) and `apps/site/public/wechat.jpg`. Does not generate MDX or meta JSON.
+
+## Testing
+
+- Unit coverage at least 95% (statements, branches, functions, lines).
+- Independent `e2e/` suite required; run via root `pnpm test:e2e`.

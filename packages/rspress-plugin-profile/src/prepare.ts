@@ -5,6 +5,7 @@ import { fetchPinnedProjects } from 'rspress-plugin-github-pins'
 import type { PinnedProject } from 'rspress-plugin-github-pins'
 
 import { formatGenerated } from './format-generated.ts'
+import type { SpawnFn } from './format-generated.ts'
 import { renderHomeMdx } from './profile-page.ts'
 import { writeIfChanged } from './write-if-changed.ts'
 
@@ -14,6 +15,8 @@ export interface PrepareProfileOptions {
   fetchProjects?: () => Promise<PinnedProject[]>
   /** MDX import path for ProfilePlay (default `@theme/ProfilePlay`). */
   profilePlayModule?: string
+  /** Test seam for `vp fmt`. */
+  spawnFn?: SpawnFn
 }
 
 /** Regenerate `blogs/index.mdx` from posts + pinned projects. */
@@ -28,7 +31,7 @@ export async function prepareProfile(options: PrepareProfileOptions): Promise<vo
   })
   const changed = await writeIfChanged(homeMdx, home)
   if (options.format && changed) {
-    await formatGenerated(site, [homeMdx])
+    await formatGenerated(site, [homeMdx], options.spawnFn)
   }
 }
 

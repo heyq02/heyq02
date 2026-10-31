@@ -79,3 +79,37 @@ it('builds the English profile page from the intro', () => {
   expect(home).toContain('Showcase your skills')
   expect(home).toContain('>Writing</h2>')
 })
+
+it('renders the quiet-shelf placeholder when there are no posts', () => {
+  const home = renderHomeMdx()
+  expect(home).toContain('quiet shelf')
+  expect(home).toContain('@theme/ProfilePlay')
+})
+
+it('omits post date and summary when blank', () => {
+  const home = renderHomeMdx([
+    { slug: 'x', href: '/blog/posts/x/', title: 'Bare', description: '', date: '' }
+  ])
+  expect(home).toContain('Bare')
+  expect(home).not.toContain('profile-post-summary')
+  expect(home).not.toContain('dateTime=')
+})
+
+it('builds title suffix from an empty tags page', () => {
+  expect(documentTitleSuffix({ tags: [] })).toContain('focused on')
+  expect(documentTitleSuffix()).toContain('Full-stack engineer')
+})
+
+it('escapes HTML in rendered MDX', () => {
+  const home = renderHomeMdx([
+    {
+      slug: 'x',
+      href: '/blog/posts/x/',
+      title: 'A & B <C>',
+      description: 'say "hi"',
+      date: '2026-01-01'
+    }
+  ])
+  expect(home).toContain('A &amp; B &lt;C&gt;')
+  expect(home).toContain('say &quot;hi&quot;')
+})

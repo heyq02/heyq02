@@ -12,13 +12,7 @@ function shuffle<T>(items: T[]): T[] {
   const next = [...items]
   for (let i = next.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1))
-    const left = next[i]
-    const right = next[j]
-    if (left === undefined || right === undefined) {
-      continue
-    }
-    next[i] = right
-    next[j] = left
+    ;[next[i], next[j]] = [next[j], next[i]]
   }
   return next
 }
@@ -27,9 +21,9 @@ function subscribeNever(): () => void {
   return () => {}
 }
 
-function FriendCard({ friend }: { friend: FriendLink }): ReactElement {
+function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): ReactElement {
   // Prefer readable link text for SSG-MD Agents over avatar+span chrome.
-  if (import.meta.env.SSG_MD) {
+  if (ssgMd) {
     return (
       <li>
         <a href={friend.url}>{friend.name}</a>
@@ -67,7 +61,11 @@ function FriendCard({ friend }: { friend: FriendLink }): ReactElement {
 }
 
 /** Avatar + name + desc grid; client shuffle like YunYouJun's links page. */
-export function FriendsPage(): ReactElement {
+export function FriendsPage({
+  ssgMd = Boolean(import.meta.env.SSG_MD)
+}: {
+  ssgMd?: boolean
+} = {}): ReactElement {
   const { title, kicker, intro, exchange, friends } = friendsData
   const isClient = useSyncExternalStore(
     subscribeNever,
@@ -80,9 +78,9 @@ export function FriendsPage(): ReactElement {
     <div className='friends rp-not-doc'>
       <header className='friends-hero'>
         <p className='friends-kicker'>{kicker}</p>
-        {import.meta.env.SSG_MD ? null : <h1>{title}</h1>}
+        {ssgMd ? null : <h1>{title}</h1>}
         <p className='friends-intro'>{intro}</p>
-        {import.meta.env.SSG_MD ? null : (
+        {ssgMd ? null : (
           <p className='friends-shuffle-hint'>Shuffled on each visit — say hi in a new order.</p>
         )}
       </header>
@@ -92,7 +90,7 @@ export function FriendsPage(): ReactElement {
       ) : (
         <ul className='friends-grid'>
           {ordered.map(friend => (
-            <FriendCard key={friend.url} friend={friend} />
+            <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />
           ))}
         </ul>
       )}
@@ -100,7 +98,7 @@ export function FriendsPage(): ReactElement {
       <section className='friends-exchange'>
         <h2>{exchange.title}</h2>
         <p>{exchange.body}</p>
-        {import.meta.env.SSG_MD ? (
+        {ssgMd ? (
           <ul>
             <li>{`Name: ${exchange.self.name}`}</li>
             <li>

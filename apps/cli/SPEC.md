@@ -17,3 +17,8 @@ Published npm binary `heyq02`. Every invocation fetches the raw `main` README an
 - `marked-terminal` renders the file as fetched. The README is Markdown, so this app does not rewrite HTML.
 - CLI entry detection resolves `process.argv[1]` with `realpath` so npm/npx `.bin` symlinks still match `import.meta.url`.
 - Output is terminal text. It does not draw the skills picture.
+
+## Testing
+
+- Unit coverage at least 95% (statements, branches, functions, lines).
+- Independent `e2e/` suite required; run via root `pnpm test:e2e`.

@@ -1,8 +1,16 @@
 import { spawn } from 'node:child_process'
+import type { ChildProcess } from 'node:child_process'
 
-export async function formatGenerated(site: string, files: string[]): Promise<void> {
+export type SpawnFn = typeof spawn
+
+/** Run `vp fmt` on generated files. Injectable spawn for unit tests. */
+export async function formatGenerated(
+  site: string,
+  files: string[],
+  spawnFn: SpawnFn = spawn
+): Promise<void> {
   await new Promise<void>((resolve, reject) => {
-    const child = spawn('pnpm', ['exec', 'vp', 'fmt', ...files], {
+    const child: ChildProcess = spawnFn('pnpm', ['exec', 'vp', 'fmt', ...files], {
       cwd: site,
       stdio: 'inherit'
     })

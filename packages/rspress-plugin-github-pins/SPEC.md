@@ -14,3 +14,8 @@ Fetch GitHub profile pinned repositories via Octokit GraphQL (`GITHUB_TOKEN` / `
 ## Boundary
 
 - May depend on `shared` and `@octokit/graphql`. Must not write site files.
+
+## Testing
+
+- Unit coverage at least 95% (statements, branches, functions, lines).
+- Independent `e2e/` suite required; run via root `pnpm test:e2e`.

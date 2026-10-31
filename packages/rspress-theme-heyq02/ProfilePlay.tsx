@@ -4,15 +4,20 @@ import type { ReactElement } from 'react'
 
 interface ProfilePlayProps {
   tags: ReactElement
+  /** Override for tests; defaults to Rspress SSG-MD env. */
+  ssgMd?: boolean
 }
 
 /** Hero avatar + kaomoji: poke to wobble and cycle moods. */
-export function ProfilePlay({ tags }: ProfilePlayProps): ReactElement {
-  const faces = intro.moods.length > 0 ? intro.moods : [intro.kaomoji]
+export function ProfilePlay({
+  tags,
+  ssgMd = Boolean(import.meta.env.SSG_MD)
+}: ProfilePlayProps): ReactElement {
+  const faces = intro.moods
   const [mood, setMood] = useState(0)
   const [spinning, setSpinning] = useState(false)
 
-  if (import.meta.env.SSG_MD) {
+  if (ssgMd) {
     return (
       <>
         {`![${intro.name}](${intro.avatar})`}
@@ -27,6 +32,8 @@ export function ProfilePlay({ tags }: ProfilePlayProps): ReactElement {
     setMood(index => (index + 1) % faces.length)
     setSpinning(true)
   }
+
+  const face = faces[mood % faces.length]
 
   return (
     <header className='profile-hero'>
@@ -58,7 +65,7 @@ export function ProfilePlay({ tags }: ProfilePlayProps): ReactElement {
           aria-label='Change mood'
           title='Click for another face'
         >
-          {faces[mood] ?? intro.kaomoji}
+          {face}
         </button>
         <p className='profile-meta'>{tags}</p>
       </div>

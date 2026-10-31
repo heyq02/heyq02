@@ -5,7 +5,6 @@ export default liangmi({
     include: ['tests/**/*.test.ts'],
     coverage: {
       include: ['src/**/*.ts'],
-      exclude: ['src/format-generated.ts', 'src/index.ts'],
       thresholds: {
         statements: 95,
         branches: 95,
