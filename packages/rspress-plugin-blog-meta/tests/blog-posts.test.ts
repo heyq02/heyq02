@@ -10,21 +10,19 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
   const posts = await listBlogPosts(sitePostsDir)
   expect(posts.length).toBeGreaterThan(0)
   expect(posts.map(post => post.slug)).toEqual([
-    'npm-download-daily-report',
     'macos-disable-ime-switching',
     'webpack-import-path-variables',
     'multi-mcp-aggregation-nginx-vs-express',
     'weixin-homepage-ui-recreation',
+    'npm-download-daily-report',
     'anaconda-vscode-encoding-bug',
     'vue-router-hash-external-listen',
     'iframe-child-route-state',
     'python-tkinter-radix-converter'
   ])
-  expect(posts[0]?.href).toBe('/blog/posts/npm-download-daily-report/')
-  expect(posts[0]?.date).toBe('2026-11-01')
-  expect(posts.find(post => post.slug === 'python-tkinter-radix-converter')?.date).toBe(
-    '2023-02-26'
-  )
+  expect(posts[0]?.href).toBe('/blog/posts/macos-disable-ime-switching/')
+  expect(posts[0]?.date).toBe('2026-10-31')
+  expect(posts.find(post => post.slug === 'npm-download-daily-report')?.date).toBe('2024-03-19')
   expect(posts.at(-1)?.slug).toBe('python-tkinter-radix-converter')
 })
 
