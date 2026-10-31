@@ -1,3 +1,6 @@
+/** Typed SSOT over `static/data/intro.json` for site runtime and theme. */
+import raw from '../../../static/data/intro.json' with { type: 'json' }
+
 export interface Place {
   label: string
   href: string
@@ -56,4 +59,14 @@ export interface Intro {
   education: Education[]
   experiences: Experience[]
   skills: Skill[]
+}
+
+export const intro = raw satisfies Intro
+
+export function formatCount(count: number): string {
+  if (count < 1000) {
+    return String(count)
+  }
+
+  return `${(count / 1000).toFixed(1).replace(/\.0$/, '')}k`
 }

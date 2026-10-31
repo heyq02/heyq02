@@ -1,7 +1,7 @@
-import { intro } from '@heyq02/profile'
 import { expect, it } from 'vite-plus/test'
 
 import { friendsData } from '../src/friends-page.ts'
+import { intro } from '../src/intro.ts'
 
 it('loads friend links from the shared JSON', () => {
   expect(friendsData.title).toBe('Friends')

@@ -1,6 +1,5 @@
-import { intro } from '@heyq02/profile'
-
 import data from '../../../static/data/friends.json' with { type: 'json' }
+import { intro } from './intro.ts'
 
 export interface FriendLink {
   name: string

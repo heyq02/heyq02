@@ -1,5 +1,6 @@
-import { intro } from '@heyq02/profile'
 import { graphql } from '@octokit/graphql'
+
+import { intro } from './intro.ts'
 
 export interface PinnedProject {
   name: string

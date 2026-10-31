@@ -4,7 +4,7 @@ type: module-design
 status: draft
 title: Profile site
 parent: architecture
-depends-on: [profile, brands]
+depends-on: [brands]
 ---
 
 ## Responsibility
@@ -17,8 +17,8 @@ The shell title and description come from the English intro. The homepage sets `
 
 ## Boundary
 
-- May depend on `profile`, `brands`, and `@rspress/core`. Must not read `readme` or `cli`, and must not render `sponsorkit/` art.
-- `rspress.config.ts` may read `intro.json` for HTML meta. It must not import `@heyq02/*` (`architecture`). Runtime code imports package exports.
+- May depend on `brands` and `@rspress/core`, and may read `static/data/intro.json` / `friends.json`. Must not read `readme` or `cli`, and must not render `sponsorkit/` art.
+- Typed intro access lives in `src/intro.ts` (`intro`, `Intro`, `formatCount`). `rspress.config.ts` and `social-links.ts` may still read `intro.json` directly for HTML meta / navbar (`architecture`: app configs must not import `@heyq02/*`).
 - Theme CSS styles the homepage column and hides doc chrome there. A custom `Layout` mounts Rspress `HomeFooter` on every page via the `bottom` slot (built-in home footer only runs for `pageType: home`). The footer message is copyright plus the 萌ICP备 link. Homepage frontmatter still sets `footer: false` so doc edit/prev-next chrome stays off.
 - The skills picture comes from `skillIconsPicture` and each skill's `icon` slug. The site does not keep its own icon set.
 - Favicons and the navbar signature both use `static/signature/full-nobg` (`favicon.ico` / `favicon.png` / `signature.png`). That PNG is sized for the navbar; the ICO keeps 16/32/48. `CNAME` is copied into the Rspress output. `outDir` stays `dist` so the Pages job does not change its artifact path.
@@ -26,7 +26,6 @@ The shell title and description come from the English intro. The homepage sets `
 - `@rspress/plugin-rss` builds an Atom feed at `/rss/blog.xml` from `/blog/posts/` (needs `date` or `published_at` in frontmatter). Generation runs on `rspress build` only, not `dev`.
 - Agent-friendly build: `llms: true` (SSG-MD) emits per-route `.md`, `/llms.txt`, and `/llms-full.txt`; `themeConfig.llmsUI` injects the llms.txt hint and Markdown copy controls; `@rspress/plugin-sitemap` emits `/sitemap.xml`. GitHub Pages does not content-negotiate `Accept: text/markdown`; Agents should use the `.md` URLs from `llms.txt`.
 - `/friends/` is a doc page (no sidebar/outline) that reads `static/data/friends.json` through `FriendsPage`. Cards show avatar, name, and optional blurb (DIYgod / YunYouJun style); browser visits shuffle the grid order. Exchange `self` name/url/avatar and the `{email}` in the body come from intro; JSON only keeps the blurb and friend list. Add or remove friends only in that JSON.
-- Theme components that need intro import `src/site-intro.ts` (re-exports `@heyq02/profile`). Rspress theme cannot resolve `@heyq02/*` bare imports directly.
 
 ## Limitations
 
