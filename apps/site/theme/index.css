@@ -453,7 +453,7 @@ html.dark .profile-skills img {
   min-width: 0;
 }
 
-.friends-card-blog {
+.friends-card-name {
   color: var(--rp-c-text-1);
   font-size: 0.98rem;
   font-weight: 650;
@@ -464,7 +464,7 @@ html.dark .profile-skills img {
   transition: color 0.2s ease;
 }
 
-.friends-card:hover .friends-card-blog {
+.friends-card:hover .friends-card-name {
   color: var(--rp-c-brand);
 }
 

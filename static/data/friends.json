@@ -7,7 +7,6 @@
     "body": "Want to swap links? Add my site first, then email hello@heyq02.com with your name, URL, avatar (HTTPS, square), and a short blurb.",
     "self": {
       "name": "Yongqi He",
-      "blog": "heyq02",
       "url": "https://heyq02.com",
       "avatar": "https://avatars.githubusercontent.com/u/206218794?v=4",
       "desc": "Full-stack engineer. Focused on AI that speeds up development and ships in real products."
@@ -15,37 +14,38 @@
   },
   "friends": [
     {
-      "name": "DIYgod",
-      "blog": "Hi, DIYgod",
+      "name": "Hi, DIYgod",
       "url": "https://diygod.cc/",
       "avatar": "https://avatars.githubusercontent.com/u/8266075?v=4",
       "desc": "写代码是热爱，写到世界充满爱！"
     },
     {
-      "name": "YunYouJun",
-      "blog": "云游君的小站",
+      "name": "云游君的小站",
       "url": "https://www.yunyoujun.cn/",
       "avatar": "https://avatars.githubusercontent.com/u/25154432?v=4",
       "desc": "希望能成为一个有趣的人。 希望能创造出可以成为他人回忆的事物。"
     },
     {
       "name": "Kevin Deng",
-      "blog": "Kevin Deng",
       "url": "https://sxzz.dev/",
       "avatar": "https://avatars.githubusercontent.com/u/6481596?v=4"
     },
     {
       "name": "Angine",
-      "blog": "Angine",
       "url": "https://angine.tech/",
       "avatar": "https://avatars.githubusercontent.com/u/77579735?v=4"
     },
     {
       "name": "Anthony Fu",
-      "blog": "Anthony Fu",
       "url": "https://antfu.me/",
       "avatar": "https://avatars.githubusercontent.com/u/11247099?v=4",
       "desc": "A ship in harbor is safe, but that is not what ships are built for."
+    },
+    {
+      "name": "Canmi",
+      "url": "https://canmi.net/",
+      "avatar": "https://avatars.githubusercontent.com/u/72544151?v=4",
+      "desc": "Rust x TypeScript"
     }
   ]
 }

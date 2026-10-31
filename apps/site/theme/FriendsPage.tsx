@@ -4,9 +4,7 @@ import { friendsData } from '../src/friends-page.ts'
 import type { FriendLink } from '../src/friends-page.ts'
 
 function friendLabel(friend: FriendLink): string {
-  return friend.desc
-    ? `${friend.name} · ${friend.blog} · ${friend.desc}`
-    : `${friend.name} · ${friend.blog}`
+  return friend.desc ? `${friend.name} · ${friend.desc}` : friend.name
 }
 
 function FriendCard({ friend }: { friend: FriendLink }): ReactElement {
@@ -14,7 +12,7 @@ function FriendCard({ friend }: { friend: FriendLink }): ReactElement {
   if (import.meta.env.SSG_MD) {
     return (
       <li>
-        <a href={friend.url}>{friend.blog}</a>
+        <a href={friend.url}>{friend.name}</a>
         {friend.desc ? ` — ${friend.desc}` : null}
       </li>
     )
@@ -40,7 +38,7 @@ function FriendCard({ friend }: { friend: FriendLink }): ReactElement {
           decoding='async'
         />
         <span className='friends-card-copy'>
-          <span className='friends-card-blog'>{friend.blog}</span>
+          <span className='friends-card-name'>{friend.name}</span>
           {friend.desc ? <span className='friends-card-desc'>{friend.desc}</span> : null}
         </span>
       </a>
@@ -48,7 +46,7 @@ function FriendCard({ friend }: { friend: FriendLink }): ReactElement {
   )
 }
 
-/** Avatar + blog + desc grid, same shape as DIYgod / YunYouJun friend pages. */
+/** Avatar + name + desc grid, same shape as DIYgod / YunYouJun friend pages. */
 export function FriendsPage(): ReactElement {
   const { title, kicker, intro, exchange, friends } = friendsData
 

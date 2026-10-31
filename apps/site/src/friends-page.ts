@@ -2,7 +2,6 @@ import data from '../../../static/data/friends.json' with { type: 'json' }
 
 export interface FriendLink {
   name: string
-  blog: string
   url: string
   avatar: string
   /** Optional one-line blurb; omit when the friend has none. */
