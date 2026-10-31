@@ -467,56 +467,6 @@ html.dark .profile-skills img {
   letter-spacing: 0.02em;
 }
 
-.github-corner {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 40;
-  color: var(--rp-c-bg);
-  fill: var(--rp-c-text-1);
-  line-height: 0;
-  transition: fill 0.2s ease;
-}
-
-.github-corner:hover {
-  fill: var(--rp-c-brand);
-}
-
-.github-corner:focus-visible {
-  outline: 2px solid var(--rp-c-brand);
-  outline-offset: 2px;
-}
-
-.github-corner__arm {
-  transform-origin: 130px 106px;
-}
-
-.github-corner:hover .github-corner__arm {
-  animation: github-arm-wave 0.56s ease-in-out;
-}
-
-@keyframes github-arm-wave {
-  0%,
-  100% {
-    transform: rotate(0);
-  }
-  20%,
-  60% {
-    transform: rotate(-25deg);
-  }
-  40%,
-  80% {
-    transform: rotate(10deg);
-  }
-}
-
-@media (max-width: 767px) {
-  .github-corner svg {
-    width: 56px;
-    height: 56px;
-  }
-}
-
 .friends-empty {
   margin: 2rem 0 0;
   padding: 1rem 1.05rem;
