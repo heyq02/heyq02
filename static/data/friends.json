@@ -39,6 +39,13 @@
       "blog": "Angine",
       "url": "https://angine.tech/",
       "avatar": "https://avatars.githubusercontent.com/u/77579735?v=4"
+    },
+    {
+      "name": "Anthony Fu",
+      "blog": "Anthony Fu",
+      "url": "https://antfu.me/",
+      "avatar": "https://avatars.githubusercontent.com/u/11247099?v=4",
+      "desc": "A ship in harbor is safe, but that is not what ships are built for."
     }
   ]
 }
