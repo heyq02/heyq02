@@ -9,7 +9,7 @@ depends-on: [shared]
 
 ## Responsibility
 
-Custom Rspress theme for heyq02.com: `Layout` (site footer + console greeting), `ProfilePlay`, `FriendsPage`, and profile/friends CSS. `themeDir` in the site config points at this package directory.
+Custom Rspress theme for heyq02.com: `Layout` (site footer + console greeting), `ProfilePlay`, `FriendsPage`, and thin `chrome.css` (Rspress `:has` layout + heading hooks). Component styling is Tailwind utilities from the site `globalStyles` entry. `themeDir` in the site config points at this package directory.
 
 ## Boundary
 

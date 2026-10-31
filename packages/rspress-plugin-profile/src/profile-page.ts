@@ -3,6 +3,26 @@ import type { Intro } from '@heyq02/shared'
 import type { BlogPost } from 'rspress-plugin-blog-meta'
 import type { PinnedProject } from 'rspress-plugin-github-pins'
 
+import {
+  profileCard,
+  profileCardName,
+  profileCardSummary,
+  profileCardTop,
+  profileCounts,
+  profileEduMeta,
+  profileGrid,
+  profileJob,
+  profileJobHead,
+  profilePlaceholder,
+  profilePost,
+  profileRoot,
+  profileSection,
+  profileSkills,
+  profileSkillsImg,
+  profileWhen,
+  profileWriting
+} from './profile-classes.ts'
+
 interface ProfilePage {
   name: string
   tags: string[]
@@ -67,20 +87,20 @@ function escapeHtml(value: string) {
 
 function renderWriting(posts: BlogPost[]): string {
   if (posts.length === 0) {
-    return `<p className="profile-placeholder">Essays and notes will show up here. For now, the <a href="/blog/">blog</a> is a quiet shelf.</p>`
+    return `<p className=${yamlString(profilePlaceholder)}>Essays and notes will show up here. For now, the <a href="/blog/">blog</a> is a quiet shelf.</p>`
   }
 
   const items = posts
     .map(post => {
       const when = post.date
-        ? `<time className="profile-when" dateTime=${yamlString(post.date)}>${escapeHtml(post.date)}</time>`
+        ? `<time className=${yamlString(profileWhen)} dateTime=${yamlString(post.date)}>${escapeHtml(post.date)}</time>`
         : ''
       const summary = post.description
-        ? `<span className="profile-post-summary">${escapeHtml(post.description)}</span>`
+        ? `<span className=${yamlString(`profile-post-summary ${profileCardSummary}`)}>${escapeHtml(post.description)}</span>`
         : ''
-      return `<a className="profile-post" href=${yamlString(post.href)}>
-<span className="profile-post-top">
-<span className="profile-post-title">${escapeHtml(post.title)}</span>
+      return `<a className=${yamlString(profilePost)} href=${yamlString(post.href)} data-card="">
+<span className=${yamlString(`profile-post-top ${profileCardTop}`)}>
+<span className=${yamlString(`profile-post-title ${profileCardName}`)}>${escapeHtml(post.title)}</span>
 ${when}
 </span>
 ${summary}
@@ -88,7 +108,7 @@ ${summary}
     })
     .join('\n\n')
 
-  return `<div className="profile-posts">
+  return `<div className=${yamlString(`profile-posts ${profileGrid}`)}>
 ${items}
 </div>`
 }
@@ -106,22 +126,22 @@ export function renderHomeMdx(
     .join(' ')
   const schools = page.education
     .map(
-      item => `<article className="profile-job profile-edu">
-<div className="profile-job-head">
+      item => `<article className=${yamlString(`${profileJob} profile-edu`)}>
+<div className=${yamlString(profileJobHead)}>
 <h3>${escapeHtml(item.school)}</h3>
-<p className="profile-when">${escapeHtml(item.start)} – ${escapeHtml(item.end)}</p>
+<p className=${yamlString(profileWhen)}>${escapeHtml(item.start)} – ${escapeHtml(item.end)}</p>
 </div>
-<p className="profile-edu-meta">${escapeHtml(item.degree)} · ${escapeHtml(item.major)}</p>
+<p className=${yamlString(profileEduMeta)}>${escapeHtml(item.degree)} · ${escapeHtml(item.major)}</p>
 </article>`
     )
     .join('\n\n')
   const jobs = page.experiences
     .map(job => {
       const points = job.points.map(point => `<li>${escapeHtml(point)}</li>`).join('\n')
-      return `<article className="profile-job">
-<div className="profile-job-head">
+      return `<article className=${yamlString(profileJob)}>
+<div className=${yamlString(profileJobHead)}>
 <h3><a href=${yamlString(job.href)}>${escapeHtml(job.company)}</a></h3>
-<p className="profile-when">${escapeHtml(job.start)} – ${escapeHtml(job.end)}</p>
+<p className=${yamlString(profileWhen)}>${escapeHtml(job.start)} – ${escapeHtml(job.end)}</p>
 </div>
 <ul>
 ${points}
@@ -132,12 +152,12 @@ ${points}
   const projects = page.projects
     .map(
       project =>
-        `<a className="profile-project" href=${yamlString(project.href)}>
-<span className="profile-project-top">
-<span className="profile-project-name">${escapeHtml(project.name)}</span>
-<span className="profile-counts"><Badge text=${yamlString(project.language)} type="info" /> <Badge text=${yamlString(`${project.stars} stars`)} type="info" /> <Badge text=${yamlString(`${project.forks} forks`)} type="info" /></span>
+        `<a className=${yamlString(profileCard)} href=${yamlString(project.href)} data-card="">
+<span className=${yamlString(`profile-project-top ${profileCardTop}`)}>
+<span className=${yamlString(`profile-project-name ${profileCardName}`)}>${escapeHtml(project.name)}</span>
+<span className=${yamlString(profileCounts)}><Badge text=${yamlString(project.language)} type="info" /> <Badge text=${yamlString(`${project.stars} stars`)} type="info" /> <Badge text=${yamlString(`${project.forks} forks`)} type="info" /></span>
 </span>
-<span className="profile-project-summary">${escapeHtml(project.summary)}</span>
+<span className=${yamlString(`profile-project-summary ${profileCardSummary}`)}>${escapeHtml(project.summary)}</span>
 </a>`
     )
     .join('\n\n')
@@ -154,37 +174,37 @@ footer: false
 import { Badge } from '@rspress/core/theme'
 import { ProfilePlay } from '${profilePlayModule}'
 
-<div className="profile rp-not-doc">
+<div className=${yamlString(profileRoot)}>
 
 <ProfilePlay tags={<>${tags}</>} />
 
-<section className="profile-section">
+<section className=${yamlString(profileSection)}>
 <h2>${escapeHtml(page.sections.education)}</h2>
 
 ${schools}
 </section>
 
-<section className="profile-section">
+<section className=${yamlString(profileSection)}>
 <h2>${escapeHtml(page.sections.experience)}</h2>
 
 ${jobs}
 </section>
 
-<section className="profile-section">
+<section className=${yamlString(profileSection)}>
 <h2>${escapeHtml(page.sections.openSource)}</h2>
 
-<div className="profile-projects">
+<div className=${yamlString(`profile-projects ${profileGrid}`)}>
 ${projects}
 </div>
 </section>
 
-<section className="profile-section">
+<section className=${yamlString(profileSection)}>
 <h2>${escapeHtml(page.sections.skills)}</h2>
 
-<p className="profile-skills"><img src=${yamlString(page.skills.src)} alt=${yamlString(page.skills.alt)} /></p>
+<p className=${yamlString(profileSkills)}><img className=${yamlString(profileSkillsImg)} src=${yamlString(page.skills.src)} alt=${yamlString(page.skills.alt)} /></p>
 </section>
 
-<section className="profile-section profile-writing">
+<section className=${yamlString(profileWriting)}>
 <h2>${escapeHtml(page.sections.writing)}</h2>
 
 ${renderWriting(posts)}

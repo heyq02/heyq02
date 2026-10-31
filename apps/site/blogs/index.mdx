@@ -10,7 +10,7 @@ footer: false
 import { Badge } from '@rspress/core/theme'
 import { ProfilePlay } from '@theme/ProfilePlay'
 
-<div className="profile rp-not-doc">
+<div className="profile rp-not-doc font-[family-name:var(--rp-font-family-base)] text-[var(--rp-c-text-1)]">
 
 <ProfilePlay
   tags={
@@ -22,25 +22,25 @@ import { ProfilePlay } from '@theme/ProfilePlay'
   }
 />
 
-<section className="profile-section">
+<section className="profile-section mt-10">
 <h2>Education</h2>
 
-<article className="profile-job profile-edu">
-<div className="profile-job-head">
+<article className="profile-job relative pl-[1.1rem] before:absolute before:top-[0.35rem] before:bottom-[0.2rem] before:left-0 before:w-0.5 before:rounded-full before:bg-[var(--rp-c-brand)] [&+.profile-job]:mt-6 profile-edu">
+<div className="profile-job-head flex flex-wrap items-baseline justify-between gap-x-4 gap-y-[0.35rem]">
 <h3>Nanjing University of Posts and Telecommunications</h3>
-<p className="profile-when">2020.09 – 2024.06</p>
+<p className="profile-when m-0 whitespace-nowrap font-[family-name:var(--rp-font-family-mono)] text-[0.78rem] font-medium text-[var(--rp-c-text-2)]">2020.09 – 2024.06</p>
 </div>
-<p className="profile-edu-meta">Bachelor of Engineering · Biomedical Engineering</p>
+<p className="profile-edu-meta mt-[0.55rem] mb-0 text-[0.95rem] leading-relaxed text-[var(--rp-c-text-2)]">Bachelor of Engineering · Biomedical Engineering</p>
 </article>
 </section>
 
-<section className="profile-section">
+<section className="profile-section mt-10">
 <h2>Experience</h2>
 
-<article className="profile-job">
-<div className="profile-job-head">
+<article className="profile-job relative pl-[1.1rem] before:absolute before:top-[0.35rem] before:bottom-[0.2rem] before:left-0 before:w-0.5 before:rounded-full before:bg-[var(--rp-c-brand)] [&+.profile-job]:mt-6">
+<div className="profile-job-head flex flex-wrap items-baseline justify-between gap-x-4 gap-y-[0.35rem]">
 <h3><a href="https://www.jd.com/">JD.com, Inc.</a></h3>
-<p className="profile-when">2024.06 – Present</p>
+<p className="profile-when m-0 whitespace-nowrap font-[family-name:var(--rp-font-family-mono)] text-[0.78rem] font-medium text-[var(--rp-c-text-2)]">2024.06 – Present</p>
 </div>
 <ul>
 <li>Owned iterations for JD Takeout across the mini program, H5, and admin console</li>
@@ -50,44 +50,44 @@ import { ProfilePlay } from '@theme/ProfilePlay'
 </article>
 </section>
 
-<section className="profile-section">
+<section className="profile-section mt-10">
 <h2>Open source</h2>
 
-<div className="profile-projects">
-<a className="profile-project" href="https://github.com/heyq02/simpleicons.dev">
-<span className="profile-project-top">
-<span className="profile-project-name">simpleicons.dev</span>
-<span className="profile-counts"><Badge text="TypeScript" type="info" /> <Badge text="172 stars" type="info" /> <Badge text="0 forks" type="info" /></span>
+<div className="profile-projects grid gap-3">
+<a className="profile-project group grid gap-[0.55rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline" href="https://github.com/heyq02/simpleicons.dev" data-card="">
+<span className="profile-project-top grid gap-2">
+<span className="profile-project-name text-[1.02rem] font-[650] leading-[1.35] text-[var(--rp-c-text-1)] transition-colors duration-200 group-hover:text-[var(--rp-c-brand)]">simpleicons.dev</span>
+<span className="profile-counts m-0 flex flex-wrap gap-[0.35rem]"><Badge text="TypeScript" type="info" /> <Badge text="172 stars" type="info" /> <Badge text="0 forks" type="info" /></span>
 </span>
-<span className="profile-project-summary">Showcase your skills on your GitHub readme or resumé with ease.</span>
+<span className="profile-project-summary text-[0.95rem] font-normal leading-relaxed text-[var(--rp-c-text-2)]">Showcase your skills on your GitHub readme or resumé with ease.</span>
 </a>
 
-<a className="profile-project" href="https://github.com/heyq02/keyboard-source-locker">
-<span className="profile-project-top">
-<span className="profile-project-name">keyboard-source-locker</span>
-<span className="profile-counts"><Badge text="Swift" type="info" /> <Badge text="1 stars" type="info" /> <Badge text="0 forks" type="info" /></span>
+<a className="profile-project group grid gap-[0.55rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline" href="https://github.com/heyq02/keyboard-source-locker" data-card="">
+<span className="profile-project-top grid gap-2">
+<span className="profile-project-name text-[1.02rem] font-[650] leading-[1.35] text-[var(--rp-c-text-1)] transition-colors duration-200 group-hover:text-[var(--rp-c-brand)]">keyboard-source-locker</span>
+<span className="profile-counts m-0 flex flex-wrap gap-[0.35rem]"><Badge text="Swift" type="info" /> <Badge text="1 stars" type="info" /> <Badge text="0 forks" type="info" /></span>
 </span>
-<span className="profile-project-summary">macOS menu-bar utility that locks the active keyboard input source to your choice</span>
+<span className="profile-project-summary text-[0.95rem] font-normal leading-relaxed text-[var(--rp-c-text-2)]">macOS menu-bar utility that locks the active keyboard input source to your choice</span>
 </a>
 </div>
 </section>
 
-<section className="profile-section">
+<section className="profile-section mt-10">
 <h2>Skills</h2>
 
-<p className="profile-skills"><img src="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light" alt="Vue, React, Next, Rolldown, Vite, Oxc, Spring, Redis, RabbitMQ, Nginx, Docker" /></p>
+<p className="profile-skills m-0"><img className="block h-auto max-w-full dark:invert" src="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light" alt="Vue, React, Next, Rolldown, Vite, Oxc, Spring, Redis, RabbitMQ, Nginx, Docker" /></p>
 </section>
 
-<section className="profile-section profile-writing">
+<section className="profile-section mt-10 profile-writing">
 <h2>Writing</h2>
 
-<div className="profile-posts">
-<a className="profile-post" href="/blog/posts/macos-disable-ime-switching/">
-<span className="profile-post-top">
-<span className="profile-post-title">macOS 禁止切换输入法实操教程</span>
-<time className="profile-when" dateTime="2026-10-31">2026-10-31</time>
+<div className="profile-posts grid gap-3">
+<a className="profile-post group grid gap-[0.55rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline" href="/blog/posts/macos-disable-ime-switching/" data-card="">
+<span className="profile-post-top grid gap-2">
+<span className="profile-post-title text-[1.02rem] font-[650] leading-[1.35] text-[var(--rp-c-text-1)] transition-colors duration-200 group-hover:text-[var(--rp-c-brand)]">macOS 禁止切换输入法实操教程</span>
+<time className="profile-when m-0 whitespace-nowrap font-[family-name:var(--rp-font-family-mono)] text-[0.78rem] font-medium text-[var(--rp-c-text-2)]" dateTime="2026-10-31">2026-10-31</time>
 </span>
-<span className="profile-post-summary">输入法不再莫名其妙切到 ABC，稳定停在你真正要用的那一个。</span>
+<span className="profile-post-summary text-[0.95rem] font-normal leading-relaxed text-[var(--rp-c-text-2)]">输入法不再莫名其妙切到 ABC，稳定停在你真正要用的那一个。</span>
 </a>
 </div>
 </section>

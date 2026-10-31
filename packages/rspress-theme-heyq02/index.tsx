@@ -4,7 +4,7 @@ import type { ReactElement } from 'react'
 
 import { SiteEasterEgg } from './SiteEasterEgg.tsx'
 
-import './index.css'
+import './chrome.css'
 
 // Required by Rspress so blog pages keep the default theme.
 // oxlint-disable-next-line import/export

@@ -1,0 +1,4 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@source '../../packages/rspress-theme-heyq02';
+@source '../../packages/rspress-plugin-profile/src';

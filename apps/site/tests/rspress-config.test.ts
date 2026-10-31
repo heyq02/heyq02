@@ -26,6 +26,10 @@ it('wires themeDir and compose plugins without side effects', async () => {
   expect(config.themeDir).toBe(
     resolve(import.meta.dirname, '../../../packages/rspress-theme-heyq02')
   )
+  expect(config.globalStyles).toBe(resolve(import.meta.dirname, '../tailwind.css'))
+  expect(config.builderConfig?.plugins).toEqual(
+    expect.arrayContaining([expect.objectContaining({ name: 'rsbuild:tailwindcss' })])
+  )
   const names = (config.plugins ?? []).map(plugin => plugin.name)
   expect(names).toEqual(
     expect.arrayContaining([

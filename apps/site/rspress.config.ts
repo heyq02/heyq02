@@ -1,6 +1,7 @@
 import { resolve } from 'node:path'
 
 import { socialLinksFrom } from '@heyq02/shared'
+import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 import { pluginSitemap } from '@rspress/plugin-sitemap'
@@ -19,6 +20,11 @@ export default defineConfig({
   root: resolve(dir, 'blogs'),
   outDir: resolve(dir, 'dist'),
   themeDir,
+  globalStyles: resolve(dir, 'tailwind.css'),
+  builderConfig: {
+    plugins: [pluginTailwindcss()]
+  },
+
   lang: 'en',
   title: intro.title,
   description: intro.description,

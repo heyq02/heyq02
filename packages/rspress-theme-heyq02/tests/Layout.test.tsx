@@ -3,7 +3,7 @@ import { cleanup, render, screen } from '@testing-library/react'
 import type { ReactNode } from 'react'
 import { afterEach, expect, it, vi } from 'vite-plus/test'
 
-vi.mock('../index.css', () => ({}))
+vi.mock('../chrome.css', () => ({}))
 
 vi.mock('@rspress/core/theme-original', () => ({
   HomeFooter: () => <footer data-testid='home-footer'>footer</footer>,

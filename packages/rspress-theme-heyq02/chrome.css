@@ -1,0 +1,202 @@
+/* Rspress chrome overrides — cannot attach utilities to built-in layout nodes. */
+
+.rspress-logo {
+  height: 2rem;
+  width: auto;
+}
+
+html.dark .rspress-logo {
+  filter: invert(1);
+}
+
+.rp-home-footer {
+  margin-top: 0;
+  padding-block: 1.5rem;
+}
+
+.rp-home-footer__message {
+  font-family: var(--rp-font-family-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.rp-home-footer__message a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rp-home-footer__message a:hover {
+  color: var(--rp-c-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rp-doc-layout__container:has(.profile),
+.rp-doc-layout__container:has(.friends) {
+  justify-content: center;
+  background: var(--rp-c-bg);
+}
+
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__sidebar-placeholder,
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__outline,
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__outline-placeholder,
+.rp-doc-layout__container:has(.friends) .rp-doc-layout__sidebar-placeholder,
+.rp-doc-layout__container:has(.friends) .rp-doc-layout__outline,
+.rp-doc-layout__container:has(.friends) .rp-doc-layout__outline-placeholder {
+  display: none;
+  width: 0;
+  min-width: 0;
+  margin: 0;
+}
+
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__doc {
+  flex: 0 1 44rem;
+  width: 100%;
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+.rp-doc-layout__container:has(.friends) .rp-doc-layout__doc {
+  flex: 0 1 52rem;
+  width: 100%;
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__doc-container,
+.rp-doc-layout__container:has(.friends) .rp-doc-layout__doc-container {
+  padding: 3rem 1.5rem 4rem;
+}
+
+.rp-doc-layout__container:has(.profile) .rp-doc > h1.rp-toc-include,
+.rp-doc-layout__container:has(.friends) .rp-doc > h1.rp-toc-include {
+  display: none;
+}
+
+.rp-doc-layout__container:has(.profile) .rp-llms-container,
+.rp-doc-layout__container:has(.friends) .rp-llms-container {
+  display: none;
+}
+
+.rp-doc-layout__container:has(.profile) .rp-header-anchor,
+.rp-doc-layout__container:has(.friends) .rp-header-anchor {
+  display: none !important;
+}
+
+.rp-overview-group__item__title,
+.rp-overview-group__grid-item {
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-height: 1.45;
+}
+
+.rp-overview-group__grid {
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.rp-overview-group__grid-item {
+  min-height: 4.5rem;
+}
+
+@keyframes profile-avatar-wobble {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-8deg);
+  }
+  55% {
+    transform: rotate(6deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+}
+
+.animate-avatar-wobble {
+  animation: profile-avatar-wobble 0.4s ease;
+}
+
+/* Heading / list hooks on generated MDX markers. */
+.profile h1,
+.friends h1 {
+  margin: 0;
+  color: var(--rp-c-text-1);
+  font-size: clamp(2.1rem, 5.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.profile h2,
+.friends-exchange h2 {
+  margin: 0 0 1rem;
+  color: var(--rp-c-text-1);
+  font-size: 1.25rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.profile h2::after,
+.friends-exchange h2::after {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 2px;
+  margin-top: 0.5rem;
+  background: var(--rp-c-brand);
+}
+
+.friends-exchange h2 {
+  margin-bottom: 0.85rem;
+}
+
+.profile h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.profile a:not([data-card]) {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.profile a:not([data-card]):hover {
+  color: var(--rp-c-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.profile ul {
+  margin: 0.7rem 0 0;
+  padding-left: 1.25rem;
+  color: var(--rp-c-text-2);
+  line-height: 1.7;
+  list-style: disc;
+}
+
+.profile li + li {
+  margin-top: 0.35rem;
+}
+
+.profile-project .rp-badge,
+.profile-post .rp-badge {
+  text-decoration: none;
+}
+
+.friends a:not([data-card]) {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.friends a:not([data-card]):hover {
+  color: var(--rp-c-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

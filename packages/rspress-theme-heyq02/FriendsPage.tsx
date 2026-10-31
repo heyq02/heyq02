@@ -21,6 +21,12 @@ function subscribeNever(): () => void {
   return () => {}
 }
 
+const avatarClass =
+  'block size-12 shrink-0 rounded-full border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg)] object-cover'
+
+const cardClass =
+  'group flex h-full items-center gap-[0.85rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-4 py-[0.9rem] font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline'
+
 function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): ReactElement {
   // Prefer readable link text for SSG-MD Agents over avatar+span chrome.
   if (ssgMd) {
@@ -33,17 +39,18 @@ function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): 
   }
 
   return (
-    <li className='friends-item'>
+    <li className='m-0 min-w-0'>
       <a
-        className='friends-card'
+        className={cardClass}
         href={friend.url}
         target='_blank'
         rel='noopener noreferrer friend'
         title={friend.name}
         aria-label={friendLabel(friend)}
+        data-card=''
       >
         <img
-          className='friends-avatar'
+          className={avatarClass}
           src={friend.avatar}
           alt=''
           width={48}
@@ -51,9 +58,15 @@ function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): 
           loading='lazy'
           decoding='async'
         />
-        <span className='friends-card-copy'>
-          <span className='friends-card-name'>{friend.name}</span>
-          {friend.desc ? <span className='friends-card-desc'>{friend.desc}</span> : null}
+        <span className='grid min-w-0 gap-1'>
+          <span className='truncate text-[0.98rem] font-[650] leading-[1.35] text-[var(--rp-c-text-1)] transition-colors duration-200 group-hover:text-[var(--rp-c-brand)]'>
+            {friend.name}
+          </span>
+          {friend.desc ? (
+            <span className='line-clamp-2 text-[0.86rem] font-normal leading-[1.45] text-[var(--rp-c-text-2)]'>
+              {friend.desc}
+            </span>
+          ) : null}
         </span>
       </a>
     </li>
@@ -75,29 +88,35 @@ export function FriendsPage({
   const ordered = useMemo(() => (isClient ? shuffle(friends) : friends), [friends, isClient])
 
   return (
-    <div className='friends rp-not-doc'>
-      <header className='friends-hero'>
-        <p className='friends-kicker'>{kicker}</p>
+    <div className='friends rp-not-doc font-[family-name:var(--rp-font-family-base)] text-[var(--rp-c-text-1)]'>
+      <header className='border-b border-[var(--rp-c-divider-light)] pb-8'>
+        <p className='mb-[0.35rem] font-[family-name:var(--rp-font-family-mono)] text-[0.72rem] font-medium leading-none tracking-[0.14em] text-[var(--rp-c-brand)] uppercase'>
+          {kicker}
+        </p>
         {ssgMd ? null : <h1>{title}</h1>}
-        <p className='friends-intro'>{intro}</p>
+        <p className='mt-3 mb-0 text-base leading-relaxed text-[var(--rp-c-text-2)]'>{intro}</p>
         {ssgMd ? null : (
-          <p className='friends-shuffle-hint'>Shuffled on each visit — say hi in a new order.</p>
+          <p className='mt-[0.45rem] mb-0 font-[family-name:var(--rp-font-family-mono)] text-[0.78rem] tracking-[0.02em] text-[var(--rp-c-text-2)]'>
+            Shuffled on each visit — say hi in a new order.
+          </p>
         )}
       </header>
 
       {ordered.length === 0 ? (
-        <p className='friends-empty'>No friends listed yet. Check back after the first exchange.</p>
+        <p className='friends-empty mt-8 mb-0 rounded-[var(--rp-radius-small)] border border-dashed border-[var(--rp-c-divider)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 leading-[1.7] text-[var(--rp-c-text-2)]'>
+          No friends listed yet. Check back after the first exchange.
+        </p>
       ) : (
-        <ul className='friends-grid'>
+        <ul className='friends-grid mt-8 mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] gap-3 p-0'>
           {ordered.map(friend => (
             <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />
           ))}
         </ul>
       )}
 
-      <section className='friends-exchange'>
+      <section className='friends-exchange mt-11 border-t border-[var(--rp-c-divider-light)] pt-8'>
         <h2>{exchange.title}</h2>
-        <p>{exchange.body}</p>
+        <p className='m-0 leading-[1.7] text-[var(--rp-c-text-2)]'>{exchange.body}</p>
         {ssgMd ? (
           <ul>
             <li>{`Name: ${exchange.self.name}`}</li>
@@ -110,9 +129,9 @@ export function FriendsPage({
             <li>{`Blurb: ${exchange.self.desc}`}</li>
           </ul>
         ) : (
-          <div className='friends-self'>
+          <div className='mt-5 flex flex-col items-start gap-4 rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 sm:flex-row'>
             <img
-              className='friends-avatar'
+              className={avatarClass}
               src={exchange.self.avatar}
               alt=''
               width={48}
@@ -120,26 +139,38 @@ export function FriendsPage({
               loading='lazy'
               decoding='async'
             />
-            <dl className='friends-self-meta'>
-              <div>
-                <dt>Name</dt>
-                <dd>{exchange.self.name}</dd>
+            <dl className='m-0 grid min-w-0 gap-[0.55rem]'>
+              <div className='grid grid-cols-1 items-baseline gap-x-3 gap-y-[0.15rem] sm:grid-cols-[4.5rem_1fr] sm:gap-y-2'>
+                <dt className='m-0 font-[family-name:var(--rp-font-family-mono)] text-[0.72rem] font-medium tracking-[0.06em] text-[var(--rp-c-text-2)] uppercase'>
+                  Name
+                </dt>
+                <dd className='m-0 text-[0.92rem] leading-normal text-[var(--rp-c-text-1)] wrap-anywhere'>
+                  {exchange.self.name}
+                </dd>
               </div>
-              <div>
-                <dt>Site</dt>
-                <dd>
+              <div className='grid grid-cols-1 items-baseline gap-x-3 gap-y-[0.15rem] sm:grid-cols-[4.5rem_1fr] sm:gap-y-2'>
+                <dt className='m-0 font-[family-name:var(--rp-font-family-mono)] text-[0.72rem] font-medium tracking-[0.06em] text-[var(--rp-c-text-2)] uppercase'>
+                  Site
+                </dt>
+                <dd className='m-0 text-[0.92rem] leading-normal text-[var(--rp-c-text-1)] wrap-anywhere'>
                   <a href={exchange.self.url}>{exchange.self.url}</a>
                 </dd>
               </div>
-              <div>
-                <dt>Avatar</dt>
-                <dd>
+              <div className='grid grid-cols-1 items-baseline gap-x-3 gap-y-[0.15rem] sm:grid-cols-[4.5rem_1fr] sm:gap-y-2'>
+                <dt className='m-0 font-[family-name:var(--rp-font-family-mono)] text-[0.72rem] font-medium tracking-[0.06em] text-[var(--rp-c-text-2)] uppercase'>
+                  Avatar
+                </dt>
+                <dd className='m-0 text-[0.92rem] leading-normal text-[var(--rp-c-text-1)] wrap-anywhere'>
                   <a href={exchange.self.avatar}>{exchange.self.avatar}</a>
                 </dd>
               </div>
-              <div>
-                <dt>Blurb</dt>
-                <dd>{exchange.self.desc}</dd>
+              <div className='grid grid-cols-1 items-baseline gap-x-3 gap-y-[0.15rem] sm:grid-cols-[4.5rem_1fr] sm:gap-y-2'>
+                <dt className='m-0 font-[family-name:var(--rp-font-family-mono)] text-[0.72rem] font-medium tracking-[0.06em] text-[var(--rp-c-text-2)] uppercase'>
+                  Blurb
+                </dt>
+                <dd className='m-0 text-[0.92rem] leading-normal text-[var(--rp-c-text-1)] wrap-anywhere'>
+                  {exchange.self.desc}
+                </dd>
               </div>
             </dl>
           </div>
