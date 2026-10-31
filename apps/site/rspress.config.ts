@@ -14,7 +14,7 @@ export default defineConfig({
   lang: 'en',
   title: intro.title,
   description: intro.description,
-  icon: '/favicon.ico',
+  icon: '/favicon.png',
   logo: '/signature.png',
   siteOrigin: 'https://heyq02.com',
   themeConfig: {
