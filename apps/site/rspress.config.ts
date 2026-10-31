@@ -17,6 +17,7 @@ export default defineConfig({
   logoText: intro.title,
   siteOrigin: 'https://heyq02.com',
   themeConfig: {
+    darkMode: 'force-light',
     socialLinks: socialLinks()
   }
 })
