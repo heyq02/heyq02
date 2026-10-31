@@ -3,7 +3,7 @@ import { liangmi } from '@liangmi/vp-config'
 export default liangmi({
   pack: {
     entry: {
-      main: './src/main.ts'
+      index: './src/index.ts'
     },
     // Prefer .js under "type": "module" instead of fixed .mjs/.d.mts.
     fixedExtension: false

@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url'
 
 import { expect, it, vi } from 'vite-plus/test'
 
-import { errorText, fetchReadme, isCliEntry, renderPreview, run, start } from '../src/main.ts'
+import { errorText, fetchReadme, isCliEntry, renderPreview, run, start } from '../src/index.ts'
 
 const sample = `# Hello, I'm Ari He
 
@@ -17,7 +17,7 @@ const sample = `# Hello, I'm Ari He
 ![Vue, React](https://example.com/icons)
 `
 
-const mainPath = fileURLToPath(new URL('../src/main.ts', import.meta.url))
+const indexPath = fileURLToPath(new URL('../src/index.ts', import.meta.url))
 
 it('formats unknown errors as text', () => {
   expect(errorText(new Error('offline'))).toBe('offline')
@@ -25,9 +25,9 @@ it('formats unknown errors as text', () => {
 })
 
 it('recognizes only this file as the CLI entry', () => {
-  expect(isCliEntry('', 'file:///main.ts')).toBe(false)
-  expect(isCliEntry(mainPath, 'file:///other.ts')).toBe(false)
-  expect(isCliEntry(mainPath)).toBe(true)
+  expect(isCliEntry('', 'file:///index.ts')).toBe(false)
+  expect(isCliEntry(indexPath, 'file:///other.ts')).toBe(false)
+  expect(isCliEntry(indexPath)).toBe(true)
 })
 
 it('renders a terminal preview', async () => {
@@ -81,7 +81,7 @@ it('prints the README and ignores arguments', async () => {
     expect(fetchImpl).toHaveBeenCalled()
 
     written = ''
-    await start(mainPath)
+    await start(indexPath)
     expect(written).toContain("Hello, I'm Ari He")
 
     await start('/not-the-cli.ts')

@@ -14,14 +14,14 @@
     "directory": "apps/cli"
   },
   "bin": {
-    "heyq02": "./dist/main.js"
+    "heyq02": "./dist/index.js"
   },
   "files": [
     "dist"
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/main.js",
+    ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
   "publishConfig": {
