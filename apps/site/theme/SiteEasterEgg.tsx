@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import intro from '../../../static/data/intro.json' with { type: 'json' }
+import { intro } from '../src/site-intro.ts'
 
 /** One console greeting, Anthony Fu–style. */
 export function SiteEasterEgg(): null {

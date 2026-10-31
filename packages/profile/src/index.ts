@@ -24,23 +24,6 @@ export const skills: Skill[] = intro.skills.map(skill => ({
   href: absoluteHref(skill.href)
 }))
 
-export const {
-  name,
-  tags,
-  bio,
-  kaomoji,
-  moods,
-  avatar,
-  site,
-  kicker,
-  title,
-  description,
-  contact,
-  sections,
-  education,
-  experiences
-} = intro
-
 export function formatCount(count: number): string {
   if (count < 1000) {
     return String(count)

@@ -42,7 +42,6 @@ export interface Intro {
   moods: string[]
   avatar: string
   site: string
-  kicker: string
   title: string
   description: string
   contact: Contact

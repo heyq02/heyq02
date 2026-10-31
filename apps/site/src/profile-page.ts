@@ -7,7 +7,6 @@ import type { PinnedProject } from './github-pinned.ts'
 
 export interface ProfilePage {
   name: string
-  kicker: string
   tags: string[]
   avatar: string
   sections: Intro['sections']
@@ -27,7 +26,6 @@ export interface ProfilePage {
 export function profilePage(projects: PinnedProject[] = []): ProfilePage {
   return {
     name: intro.name,
-    kicker: intro.kicker,
     tags: intro.tags,
     avatar: intro.avatar,
     sections: intro.sections,

@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import type { ReactElement } from 'react'
 
-import intro from '../../../static/data/intro.json' with { type: 'json' }
+import { intro } from '../src/site-intro.ts'
 
 interface ProfilePlayProps {
   tags: ReactElement
 }
 
-/** Hero avatar + kaomoji: click to spin and cycle moods (OSS-blog personality beat). */
+/** Hero avatar + kaomoji: poke to wobble and cycle moods. */
 export function ProfilePlay({ tags }: ProfilePlayProps): ReactElement {
   const faces = intro.moods.length > 0 ? intro.moods : [intro.kaomoji]
   const [mood, setMood] = useState(0)

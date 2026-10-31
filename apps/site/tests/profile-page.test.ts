@@ -14,7 +14,6 @@ it('builds the English profile page from the intro', () => {
     }
   ])
   expect(page.name).toBe('Ari He｜阿瑞')
-  expect(page.kicker).toBe('Profile')
   expect(page.tags).toEqual(['Full-stack engineer', 'Open-source enthusiast', 'Blogger on career'])
   expect(page.sections.education).toBe('Education')
   expect(page.sections.experience).toBe('Experience')
