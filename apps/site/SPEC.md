@@ -39,6 +39,7 @@ Markdown under `blogs/blog/posts` becomes a post page. `/blog/` is Rspress Overv
 ## Testing
 
 - Unit coverage at least 95% (statements, branches, functions, lines).
-- Independent `e2e/` suite required; run via root `pnpm test:e2e` (serves `cbuild` dist). Card chrome asserts border/padding/background/radius; open-source cards also lock a Playwright screenshot.
+- Independent `e2e/` suite required; run via root `pnpm test:e2e` (serves `cbuild` dist). Card chrome asserts computed styles; open-source / friends cards lock Playwright **DOM** snapshots (`outerHTML`), not pixel screenshots.
+- Unit tests also snapshot Friends card/grid HTML and generated open-source MDX card markup.
 - Tailwind `@source` must include `packages/shared/src` so `site-ui` class tokens are not purged.
-- Theme package e2e harness loads site Tailwind plus `harness.css` Rspress tokens and asserts Friends card chrome.
+- Theme package e2e harness loads site Tailwind plus `harness.css` Rspress tokens and asserts Friends card DOM.

@@ -78,6 +78,9 @@ it('builds the English profile page from the intro', () => {
   expect(home).toContain('simpleicons.dev')
   expect(home).toContain('Showcase your skills')
   expect(home).toContain('>Writing</h2>')
+  const projectCard = /<a className=\{?[^>]*profile-project[\s\S]*?<\/a>/.exec(home)?.[0]
+  expect(projectCard).toBeTruthy()
+  expect(projectCard).toMatchSnapshot('open-source-card.mdx')
 })
 
 it('renders the quiet-shelf placeholder when there are no posts', () => {

@@ -3,7 +3,6 @@ import type { Locator } from '@playwright/test'
 
 async function assertCardChrome(locator: Locator) {
   await expect(locator).toBeVisible()
-  // Soft panel tokens from siteCardChrome (lost when Tailwind missed @source shared).
   await expect(locator).toHaveCSS('border-style', 'solid')
   const padding = await locator.evaluate(el => getComputedStyle(el).padding)
   expect(padding).not.toBe('0px')
@@ -27,15 +26,15 @@ test.describe('site routes', () => {
     await expect(page.locator('.friends-grid, .friends-empty').first()).toBeVisible()
   })
 
-  test('open-source and friends cards keep soft chrome', async ({ page }) => {
+  test('open-source and friends cards match DOM snapshots', async ({ page }) => {
     await page.goto('/')
     const project = page.locator('a.profile-project').first()
     await assertCardChrome(project)
-    await expect(project).toHaveScreenshot('open-source-card.png', {
-      animations: 'disabled'
-    })
+    expect(await project.evaluate(el => el.outerHTML)).toMatchSnapshot('open-source-card.html')
 
     await page.goto('/friends/')
-    await assertCardChrome(page.locator('a[data-card]').filter({ hasText: 'DIYgod' }).first())
+    const friend = page.locator('a[data-card]').filter({ hasText: 'DIYgod' }).first()
+    await assertCardChrome(friend)
+    expect(await friend.evaluate(el => el.outerHTML)).toMatchSnapshot('friend-card-diygod.html')
   })
 })

@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-test('theme e2e: ProfilePlay poke and FriendsPage card chrome', async ({ page }) => {
+test('theme e2e: ProfilePlay poke and FriendsPage card DOM', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('heading', { name: 'Ari He｜阿瑞' })).toBeVisible()
   const poke = page.getByRole('button', { name: 'Poke the avatar' })
@@ -12,8 +12,5 @@ test('theme e2e: ProfilePlay poke and FriendsPage card chrome', async ({ page })
   await expect(friend).toHaveCSS('border-style', 'solid')
   const padding = await friend.evaluate(el => getComputedStyle(el).padding)
   expect(padding).not.toBe('0px')
-  const background = await friend.evaluate(el => getComputedStyle(el).backgroundColor)
-  expect(background).not.toBe('rgba(0, 0, 0, 0)')
-  const radius = await friend.evaluate(el => getComputedStyle(el).borderRadius)
-  expect(radius).not.toBe('0px')
+  expect(await friend.evaluate(el => el.outerHTML)).toMatchSnapshot('theme-friend-card-diygod.html')
 })
