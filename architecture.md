@@ -32,7 +32,7 @@ flowchart LR
   brands --> readme
 ```
 
-`profile` is the typed API over the English file and the Chinese overlay. The site runtime reads that merge. The CLI does not. With no arguments it fetches the published README from GitHub `main` and renders it in the terminal (`cli`). The site Vite config reads both files for the shell, because it must not import `@heyq02/*`. The README generator reads only `intro.json` (`readme`). `brands` maps display names to simple-icons slugs and depends on neither package. Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
+`profile` is the typed API over the English file and the Chinese overlay. The site runtime reads that merge. The CLI does not. Every invocation fetches the published README from GitHub `main` and renders it in the terminal (`cli`). The site Vite config reads both files for the shell, because it must not import `@heyq02/*`. The README generator reads only `intro.json` (`readme`). `brands` maps display names to simple-icons slugs and depends on neither package. Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
 
 ## Decisions
 

@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+import { pathToFileURL } from 'node:url'
+
 import { Marked } from 'marked'
 import { markedTerminal } from 'marked-terminal'
 
@@ -30,3 +33,27 @@ export async function renderPreview(markdown: string): Promise<string> {
   const rendered = await marked.parse(markdown)
   return `${rendered.trimEnd()}\n`
 }
+
+export function isCliEntry(entry = process.argv[1], moduleUrl = import.meta.url): boolean {
+  if (!entry) {
+    return false
+  }
+  return moduleUrl === pathToFileURL(entry).href
+}
+
+export async function run(): Promise<void> {
+  try {
+    process.stdout.write(await renderPreview(await fetchReadme()))
+  } catch (error: unknown) {
+    process.stderr.write(`${errorText(error)}\n`)
+    process.exitCode = 1
+  }
+}
+
+export async function start(entry = process.argv[1]): Promise<void> {
+  if (isCliEntry(entry)) {
+    await run()
+  }
+}
+
+await start()

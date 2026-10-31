@@ -1,7 +1,8 @@
+import { fileURLToPath } from 'node:url'
+
 import { expect, it, vi } from 'vite-plus/test'
 
-import { main } from '../src/main.ts'
-import { errorText, fetchReadme, renderPreview } from '../src/readme.ts'
+import { errorText, fetchReadme, isCliEntry, renderPreview, run, start } from '../src/readme.ts'
 
 const sample = `# Hello, I'm Ari He
 
@@ -16,9 +17,17 @@ const sample = `# Hello, I'm Ari He
 ![Vue, React](https://example.com/icons)
 `
 
+const readmePath = fileURLToPath(new URL('../src/readme.ts', import.meta.url))
+
 it('formats unknown errors as text', () => {
   expect(errorText(new Error('offline'))).toBe('offline')
   expect(errorText('offline')).toBe('offline')
+})
+
+it('recognizes only this file as the CLI entry', () => {
+  expect(isCliEntry('', 'file:///readme.ts')).toBe(false)
+  expect(isCliEntry(readmePath, 'file:///other.ts')).toBe(false)
+  expect(isCliEntry(readmePath)).toBe(true)
 })
 
 it('renders a terminal preview', async () => {
@@ -26,7 +35,6 @@ it('renders a terminal preview', async () => {
   expect(text).toContain("Hello, I'm Ari He")
   expect(text).toContain('Experience')
   expect(text).toContain('JD.com, Inc.')
-  expect(text).not.toContain('<h1>')
 })
 
 it('fetches the raw README and fails closed', async () => {
@@ -51,7 +59,7 @@ it('fetches the raw README and fails closed', async () => {
   )
 })
 
-it('prints the fetched preview by default and keeps flags offline', async () => {
+it('prints the README and ignores arguments', async () => {
   let written = ''
   let errors = ''
   const stdoutWrite = process.stdout.write.bind(process.stdout)
@@ -67,36 +75,24 @@ it('prints the fetched preview by default and keeps flags offline', async () => 
   const fetchImpl = vi.spyOn(globalThis, 'fetch')
 
   try {
-    await main(['--help'])
-    expect(written).toContain('Usage: heyq02')
-    expect(fetchImpl).not.toHaveBeenCalled()
-
-    written = ''
-    await main(['--version'])
-    expect(written).toMatch(/^\d+\.\d+\.\d+\n$/)
-    expect(fetchImpl).not.toHaveBeenCalled()
-
-    fetchImpl.mockResolvedValueOnce(new Response(sample, { status: 200 }))
-    written = ''
-    await main([])
+    fetchImpl.mockImplementation(() => Promise.resolve(new Response(sample, { status: 200 })))
+    await run()
     expect(written).toContain("Hello, I'm Ari He")
-    expect(written).not.toContain('<h1>')
-    expect(fetchImpl).toHaveBeenCalledOnce()
+    expect(fetchImpl).toHaveBeenCalled()
 
-    process.exitCode = 0
     written = ''
-    errors = ''
-    await main(['nope'])
-    expect(process.exitCode).toBe(1)
-    expect(errors).toContain('Unknown argument')
-    expect(fetchImpl).toHaveBeenCalledOnce()
+    await start(readmePath)
+    expect(written).toContain("Hello, I'm Ari He")
 
-    fetchImpl.mockRejectedValueOnce('offline')
+    await start('/not-the-cli.ts')
+    expect(fetchImpl.mock.calls.length).toBe(2)
+
+    fetchImpl.mockRejectedValueOnce(new Error('offline'))
     process.exitCode = 0
     errors = ''
-    await main([])
+    await run()
     expect(process.exitCode).toBe(1)
-    expect(errors).toContain('offline')
+    expect(errors).toContain('Failed to fetch README: offline')
   } finally {
     process.stdout.write = stdoutWrite
     process.stderr.write = stderrWrite

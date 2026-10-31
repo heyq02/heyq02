@@ -1,7 +1,7 @@
 {
   "name": "heyq02",
   "version": "0.2.7",
-  "description": "Ari He. A terminal introduction.",
+  "description": "Print the GitHub README.",
   "homepage": "https://heyq02.com",
   "bugs": {
     "url": "https://github.com/heyq02/heyq02/issues"
@@ -14,14 +14,14 @@
     "directory": "apps/cli"
   },
   "bin": {
-    "heyq02": "./dist/cli.js"
+    "heyq02": "./dist/readme.js"
   },
   "files": [
     "dist"
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/cli.js",
+    ".": "./dist/readme.js",
     "./package.json": "./package.json"
   },
   "publishConfig": {
