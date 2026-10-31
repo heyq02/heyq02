@@ -12,7 +12,6 @@ export interface FriendLink {
 
 export interface FriendsData {
   title: string
-  kicker: string
   intro: string
   exchange: {
     title: string
@@ -24,7 +23,6 @@ export interface FriendsData {
 
 interface FriendsJson {
   title: string
-  kicker: string
   intro: string
   exchange: {
     title: string
@@ -41,7 +39,6 @@ const raw = data satisfies FriendsJson
 /** Friends page data with identity fields taken from intro SSOT. */
 export const friendsData: FriendsData = {
   title: raw.title,
-  kicker: raw.kicker,
   intro: raw.intro,
   exchange: {
     title: raw.exchange.title,

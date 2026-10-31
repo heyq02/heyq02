@@ -10,7 +10,7 @@ afterEach(cleanup)
 it('renders friends grid and exchange block', () => {
   render(<FriendsPage ssgMd={false} />)
   expect(screen.getByRole('heading', { name: friendsData.title })).toBeTruthy()
-  expect(screen.getByText(friendsData.kicker)).toBeTruthy()
+  expect(screen.queryByText('Links')).toBeNull()
   expect(screen.getByText(/Shuffled on each visit/)).toBeTruthy()
   expect(screen.getByRole('heading', { name: friendsData.exchange.title })).toBeTruthy()
   if (friendsData.friends[0]) {

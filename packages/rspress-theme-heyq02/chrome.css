@@ -14,17 +14,11 @@ html.dark .rspress-logo {
   justify-content: center;
 }
 
-.rp-doc-layout__container:has(.profile) .rp-doc-layout__doc {
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__doc,
+.rp-doc-layout__container:has(.friends) .rp-doc-layout__doc {
   flex: 0 1 44rem;
   width: 100%;
   max-width: 44rem;
-  margin-inline: auto;
-}
-
-.rp-doc-layout__container:has(.friends) .rp-doc-layout__doc {
-  flex: 0 1 52rem;
-  width: 100%;
-  max-width: 52rem;
   margin-inline: auto;
 }
 

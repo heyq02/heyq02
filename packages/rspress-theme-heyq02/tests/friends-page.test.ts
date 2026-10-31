@@ -5,7 +5,6 @@ import { friendsData } from '../friends-page.ts'
 
 it('loads friend links from the shared JSON', () => {
   expect(friendsData.title).toBe('Friends')
-  expect(friendsData.kicker).toBe('Links')
   expect(friendsData.exchange.self.name).toBe(intro.name)
   expect(friendsData.exchange.self.url).toBe(intro.site)
   expect(friendsData.exchange.self.avatar).toBe(intro.avatar)

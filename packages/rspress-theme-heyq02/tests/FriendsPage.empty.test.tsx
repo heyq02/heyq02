@@ -5,7 +5,6 @@ import { afterEach, expect, it, vi } from 'vite-plus/test'
 vi.mock('../friends-page.ts', () => ({
   friendsData: {
     title: 'Friends',
-    kicker: 'Links',
     intro: 'Hello',
     exchange: {
       title: 'Exchange',

@@ -88,7 +88,7 @@ export function FriendsPage({
 }: {
   ssgMd?: boolean
 } = {}): ReactElement {
-  const { title, kicker, intro, exchange, friends } = friendsData
+  const { title, intro, exchange, friends } = friendsData
   const isClient = useSyncExternalStore(
     subscribeNever,
     () => true,
@@ -99,9 +99,6 @@ export function FriendsPage({
   return (
     <div className='friends rp-not-doc font-[family-name:var(--rp-font-family-base)] text-[var(--rp-c-text-1)]'>
       <header className='border-b border-[var(--rp-c-divider-light)] pb-8'>
-        <p className='mb-[0.35rem] font-[family-name:var(--rp-font-family-mono)] text-[0.72rem] font-medium leading-none tracking-[0.14em] text-[var(--rp-c-brand)] uppercase'>
-          {kicker}
-        </p>
         {ssgMd ? null : <h1 className={headingClass}>{title}</h1>}
         <p className='mt-3 mb-0 text-base leading-relaxed text-[var(--rp-c-text-2)]'>{intro}</p>
         {ssgMd ? null : (
