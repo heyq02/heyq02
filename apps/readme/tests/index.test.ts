@@ -6,7 +6,7 @@ import { expect, it, vi } from 'vite-plus/test'
 
 import intro from '../../../static/data/intro.json' with { type: 'json' }
 
-it('builds the skills picture URL from brand slugs', async () => {
+it('builds the skills picture URL from skill icon slugs', async () => {
   const { skillsPicture } = await import('../src/index.ts')
   const { alt, src } = skillsPicture()
 
@@ -16,7 +16,7 @@ it('builds the skills picture URL from brand slugs', async () => {
   expect(src).toContain('vuedotjs')
 })
 
-it('keeps a usable picture URL when no skill has a brand slug', async () => {
+it('keeps a usable picture URL when no skill has an icon', async () => {
   vi.resetModules()
   vi.doMock('@heyq02/brands', () => ({
     skillIconsPicture: () => ({

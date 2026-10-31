@@ -14,6 +14,8 @@ export interface Experience {
 
 export interface Skill {
   name: string
+  /** Simple-icons slug used by the shared skills picture. */
+  icon: string
   href: string
   summary: string
 }

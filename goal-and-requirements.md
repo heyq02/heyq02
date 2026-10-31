@@ -30,4 +30,4 @@ Anything else the repo does not do yet is open, not forbidden.
 ## Principles
 
 - One English profile document is the source for shared facts on the site and README. The CLI surfaces that README.
-- Surfaces stay thin. Shared facts live in the profile document and the brand-name map; see `architecture`.
+- Surfaces stay thin. Shared facts live in the profile document; see `architecture`.

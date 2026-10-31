@@ -61,56 +61,67 @@
   "skills": [
     {
       "name": "Vue",
+      "icon": "vuedotjs",
       "href": "https://vuejs.org/",
       "summary": "Progressive JavaScript framework for building web UIs"
     },
     {
       "name": "React",
+      "icon": "react",
       "href": "https://react.dev/",
       "summary": "The library for web and native user interfaces"
     },
     {
       "name": "Next",
+      "icon": "nextdotjs",
       "href": "https://nextjs.org/",
       "summary": "The React framework for the web"
     },
     {
       "name": "Rolldown",
+      "icon": "rolldown",
       "href": "https://rolldown.rs/",
       "summary": "Rust-based JavaScript bundler with a Rollup-compatible API"
     },
     {
       "name": "Vite",
+      "icon": "vite",
       "href": "https://vite.dev/",
       "summary": "Frontend build tool for the web"
     },
     {
       "name": "Oxc",
+      "icon": "oxc",
       "href": "https://oxc.rs/",
       "summary": "High-performance JavaScript tools written in Rust"
     },
     {
       "name": "Spring",
+      "icon": "spring",
       "href": "https://spring.io/",
       "summary": "Framework for creating Java enterprise applications"
     },
     {
       "name": "Redis",
+      "icon": "redis",
       "href": "https://redis.io/",
       "summary": "In-memory store for databases, cache, and messaging"
     },
     {
       "name": "RabbitMQ",
+      "icon": "rabbitmq",
       "href": "https://www.rabbitmq.com/",
       "summary": "Open-source messaging and streaming broker"
     },
     {
       "name": "Nginx",
+      "icon": "nginx",
       "href": "https://nginx.org/",
       "summary": "HTTP server, reverse proxy, and load balancer"
     },
     {
       "name": "Docker",
+      "icon": "docker",
       "href": "https://www.docker.com/",
       "summary": "Open platform for building, shipping, and running apps"
     }

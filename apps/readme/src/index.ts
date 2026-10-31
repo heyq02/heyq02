@@ -10,7 +10,7 @@ const out = resolve(import.meta.dirname, '../../../README.md')
 const templatePath = resolve(import.meta.dirname, 'README.ejs')
 
 export function skillsPicture() {
-  return skillIconsPicture(intro.skills.map(skill => skill.name))
+  return skillIconsPicture(intro.skills)
 }
 
 export async function renderReadme(): Promise<string> {

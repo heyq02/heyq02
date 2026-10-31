@@ -6,30 +6,33 @@ import {
   githubToken,
   mapPinnedRepository
 } from '../src/github-pinned.ts'
+import type { GraphqlClient } from '../src/github-pinned.ts'
 
-const pinnedResponse = Response.json({
-  data: {
-    user: {
-      pinnedItems: {
-        nodes: [
-          {
-            name: 'simpleicons.dev',
-            nameWithOwner: 'heyq02/simpleicons.dev',
-            url: 'https://github.com/heyq02/simpleicons.dev',
-            description: 'Showcase skills',
-            stargazerCount: 172,
-            forkCount: 0,
-            primaryLanguage: { name: 'TypeScript' },
-            owner: { login: 'heyq02' }
-          }
-        ]
-      }
+const pinnedData = {
+  user: {
+    pinnedItems: {
+      nodes: [
+        {
+          name: 'simpleicons.dev',
+          nameWithOwner: 'heyq02/simpleicons.dev',
+          url: 'https://github.com/heyq02/simpleicons.dev',
+          description: 'Showcase skills',
+          stargazerCount: 172,
+          forkCount: 0,
+          primaryLanguage: { name: 'TypeScript' },
+          owner: { login: 'heyq02' }
+        }
+      ]
     }
   }
-})
+}
 
-function fetchMock() {
-  return Promise.resolve(pinnedResponse)
+function graphqlOk() {
+  return Promise.resolve(pinnedData) as ReturnType<GraphqlClient>
+}
+
+function graphqlFail(message: string) {
+  return Promise.reject(new Error(message)) as ReturnType<GraphqlClient>
 }
 
 it('reads the GitHub login from intro places', () => {
@@ -85,9 +88,10 @@ it('uses the short name for own repos and nameWithOwner otherwise', () => {
   })
 })
 
-it('loads pinned repositories from GitHub GraphQL', async () => {
+it('loads pinned repositories via Octokit GraphQL', async () => {
+  const client = (() => graphqlOk()) as unknown as GraphqlClient
   await expect(
-    fetchPinnedProjects('heyq02', { token: 'test-token', fetch: fetchMock })
+    fetchPinnedProjects('heyq02', { token: 'test-token', graphql: client })
   ).resolves.toEqual([
     {
       name: 'simpleicons.dev',
@@ -104,37 +108,16 @@ it('fails when no token is available', async () => {
   await expect(
     fetchPinnedProjects('heyq02', {
       token: '',
-      fetch: () => Promise.resolve(new Response())
+      graphql: (() => graphqlOk()) as unknown as GraphqlClient
     })
   ).rejects.toThrow(/GITHUB_TOKEN/)
 })
 
-it('fails on non-OK HTTP and GraphQL errors', async () => {
+it('fails when the GraphQL client throws', async () => {
   await expect(
     fetchPinnedProjects('heyq02', {
       token: 'test-token',
-      fetch: () => Promise.resolve(new Response('nope', { status: 502 }))
+      graphql: (() => graphqlFail('rate limited')) as unknown as GraphqlClient
     })
-  ).rejects.toThrow(/502/)
-
-  await expect(
-    fetchPinnedProjects('heyq02', {
-      token: 'test-token',
-      fetch: () =>
-        Promise.resolve(
-          Response.json({
-            errors: [{ message: 'rate limited' }, { message: 'forbidden' }]
-          })
-        )
-    })
-  ).rejects.toThrow(/rate limited; forbidden/)
-})
-
-it('fails when the GraphQL request throws', async () => {
-  await expect(
-    fetchPinnedProjects('heyq02', {
-      token: 'test-token',
-      fetch: () => Promise.reject(new Error('offline'))
-    })
-  ).rejects.toThrow(/GitHub GraphQL request failed: offline/)
+  ).rejects.toThrow(/GitHub GraphQL request failed: rate limited/)
 })

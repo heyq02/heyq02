@@ -1,4 +1,5 @@
 import { intro } from '@heyq02/profile'
+import { graphql } from '@octokit/graphql'
 
 export interface PinnedProject {
   name: string
@@ -20,15 +21,12 @@ interface GraphQlRepository {
   owner: { login: string }
 }
 
-interface GraphQlResponse {
-  data?: {
-    user?: {
-      pinnedItems?: {
-        nodes?: (GraphQlRepository | null)[]
-      }
+interface PinnedQueryResult {
+  user: {
+    pinnedItems: {
+      nodes: (GraphQlRepository | null)[]
     }
-  }
-  errors?: { message: string }[]
+  } | null
 }
 
 export const PINNED_TIMEOUT_MS = 10_000
@@ -55,6 +53,8 @@ const pinnedQuery = `query($login: String!) {
     }
   }
 }`
+
+export type GraphqlClient = typeof graphql
 
 export function githubLogin(places = intro.places): string {
   const place = places.find(item => item.label === 'GitHub')
@@ -87,7 +87,7 @@ export async function fetchPinnedProjects(
   login = githubLogin(),
   options: {
     token?: string
-    fetch?: typeof globalThis.fetch
+    graphql?: GraphqlClient
   } = {}
 ): Promise<PinnedProject[]> {
   const token = options.token ?? githubToken()
@@ -95,38 +95,25 @@ export async function fetchPinnedProjects(
     throw new Error('Set GITHUB_TOKEN or GH_TOKEN to load pinned GitHub projects')
   }
 
-  const fetchImpl = options.fetch ?? globalThis.fetch
-  let response: Response
+  const client = options.graphql ?? graphql
+  let payload: PinnedQueryResult
   try {
-    response = await fetchImpl('https://api.github.com/graphql', {
-      method: 'POST',
+    payload = await client<PinnedQueryResult>(pinnedQuery, {
+      login,
       headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'User-Agent': 'heyq02-site'
+        authorization: `Bearer ${token}`,
+        'user-agent': 'heyq02-site'
       },
-      body: JSON.stringify({
-        query: pinnedQuery,
-        variables: { login }
-      }),
-      signal: AbortSignal.timeout(PINNED_TIMEOUT_MS)
+      request: {
+        signal: AbortSignal.timeout(PINNED_TIMEOUT_MS)
+      }
     })
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : String(error)
     throw new Error(`GitHub GraphQL request failed: ${message}`, { cause: error })
   }
 
-  if (!response.ok) {
-    throw new Error(`GitHub GraphQL failed with ${response.status}`)
-  }
-
-  const payload = (await response.json()) as GraphQlResponse
-  if (payload.errors?.length) {
-    throw new Error(payload.errors.map(error => error.message).join('; '))
-  }
-
-  const nodes = payload.data?.user?.pinnedItems?.nodes ?? []
+  const nodes = payload.user?.pinnedItems.nodes ?? []
   return nodes
     .filter((node): node is GraphQlRepository => node !== null && Boolean(node.url))
     .map(node => mapPinnedRepository(node, login))

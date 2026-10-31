@@ -18,4 +18,4 @@ It does not emit places, pinned projects, writing, bio, or Chinese. The release 
 - May depend on `brands` and `ejs`, and may read `static/data/intro.json` directly. Must not import `site` or `profile`.
 - The Markdown layout lives in an EJS template. This app fills it; it does not assemble the README string in code. `<%-` is used so intro text is not HTML-escaped.
 - This app reads `intro.json` directly: its build is `node --experimental-strip-types` and does not wait on `profile` `dist/`.
-- Skill badges use `skillIconsPicture` only. A skill with no slug is left out of the picture. This app must not grow its own slug map.
+- Skill badges use `skillIconsPicture` with each skill's `icon` slug. A skill with an empty `icon` is left out of the picture.

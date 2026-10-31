@@ -31,7 +31,7 @@ export function profilePage(projects: PinnedProject[] = []): ProfilePage {
     avatar: intro.avatar,
     sections: intro.sections,
     experiences: intro.experiences,
-    skills: skillIconsPicture(intro.skills.map(skill => skill.name)),
+    skills: skillIconsPicture(intro.skills),
     projects: projects.map(project => ({
       name: project.name,
       href: project.href,
