@@ -87,7 +87,9 @@ ${items}
 /** Doc page of Rspress theme components, not the built-in homepage. */
 export function renderHomeMdx(posts: BlogPost[] = []): string {
   const page = profilePage()
-  const tags = page.tags.map(tag => `<Badge text=${yamlString(tag)} />`).join(' ')
+  const tags = page.tags
+    .map(tag => `<Badge text=${yamlString(tag)} type="info" outline />`)
+    .join(' ')
   const jobs = page.experiences
     .map(job => {
       const points = job.points.map(point => `<li>${escapeHtml(point)}</li>`).join('\n')
@@ -108,7 +110,7 @@ ${points}
         `<a className="profile-project" href=${yamlString(project.href)}>
 <span className="profile-project-top">
 <span className="profile-project-name">${escapeHtml(project.name)}</span>
-<span className="profile-counts"><Badge text=${yamlString(project.language)} /> <Badge text=${yamlString(`${project.stars} stars`)} /> <Badge text=${yamlString(`${project.forks} forks`)} /></span>
+<span className="profile-counts"><Badge text=${yamlString(project.language)} type="info" /> <Badge text=${yamlString(`${project.stars} stars`)} type="info" /> <Badge text=${yamlString(`${project.forks} forks`)} type="info" /></span>
 </span>
 <span className="profile-project-summary">${escapeHtml(project.summary)}</span>
 </a>`
@@ -134,7 +136,7 @@ import { Badge } from '@rspress/core/theme'
 <h1>${escapeHtml(page.name)}</h1>
 <p className="profile-meta">${tags}</p>
 </div>
-<p className="profile-bio">${escapeHtml(page.bio)} ${escapeHtml(page.kaomoji)}</p>
+<div className="profile-bio">${escapeHtml(page.bio)} ${escapeHtml(page.kaomoji)}</div>
 </header>
 
 <section className="profile-section">

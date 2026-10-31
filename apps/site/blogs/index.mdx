@@ -22,13 +22,14 @@ import { Badge } from '@rspress/core/theme'
     <p className='profile-kicker'>Profile</p>
     <h1>Yongqi He</h1>
     <p className='profile-meta'>
-      <Badge text='Full-stack engineer' /> <Badge text='Open-source enthusiast' />{' '}
-      <Badge text='Blogger on career' />
+      <Badge text='Full-stack engineer' type='info' outline />{' '}
+      <Badge text='Open-source enthusiast' type='info' outline />{' '}
+      <Badge text='Blogger on career' type='info' outline />
     </p>
   </div>
-  <p className='profile-bio'>
+  <div className='profile-bio'>
     Focused on AI that speeds up development and ships in real products (๑•̀ㅂ•́)و
-  </p>
+  </div>
 </header>
 
 <section className="profile-section">
@@ -54,7 +55,7 @@ import { Badge } from '@rspress/core/theme'
 <a className="profile-project" href="https://github.com/jd-opensource/taro-ui">
 <span className="profile-project-top">
 <span className="profile-project-name">jd-opensource/taro-ui</span>
-<span className="profile-counts"><Badge text="TypeScript" /> <Badge text="4.7k stars" /> <Badge text="743 forks" /></span>
+<span className="profile-counts"><Badge text="TypeScript" type="info" /> <Badge text="4.7k stars" type="info" /> <Badge text="743 forks" type="info" /></span>
 </span>
 <span className="profile-project-summary">一款基于 Taro 框架开发的多端 UI 组件库</span>
 </a>
@@ -62,7 +63,7 @@ import { Badge } from '@rspress/core/theme'
 <a className="profile-project" href="https://github.com/heyq02/simpleicons.dev">
 <span className="profile-project-top">
 <span className="profile-project-name">simpleicons.dev</span>
-<span className="profile-counts"><Badge text="TypeScript" /> <Badge text="171 stars" /> <Badge text="0 forks" /></span>
+<span className="profile-counts"><Badge text="TypeScript" type="info" /> <Badge text="171 stars" type="info" /> <Badge text="0 forks" type="info" /></span>
 </span>
 <span className="profile-project-summary">Showcase your skills on your GitHub readme or resumé with ease.</span>
 </a>
