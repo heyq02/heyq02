@@ -9,7 +9,7 @@ depends-on: [profile]
 
 ## Responsibility
 
-English Rspress site for heyq02.com. The home page is the profile: name, degree and city, bio, place links, experience, skills, and project cards. Contact places, email, and phone sit in the navbar's social links, which the theme renders at the top right. A blog nav item lists posts from `blogs`. With no posts, that page says there are none.
+English Rspress site for heyq02.com. The home page is the profile: name, degree and city, bio, place links, experience, skills, and project cards. GitHub, Bluesky, Twitter, Xiaohongshu, Bilibili, CSDN, and WeChat sit in the navbar's social links, which the theme renders at the top right. Email and phone do not. A blog nav item lists posts from `blogs`. With no posts, that page says there are none.
 
 There is no Chinese locale and no language switch. The shell title and description come from the English intro.
 
