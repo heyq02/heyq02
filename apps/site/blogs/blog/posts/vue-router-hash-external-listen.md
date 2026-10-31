@@ -1,7 +1,7 @@
 ---
 title: 探究对 Vue Router Hash 模式的外部监听（未实现）
 description: 为什么给 window 挂 hashchange 监听不到 Vue Router 的 Hash 跳转，以及它实际走的是 pushState / replaceState。
-date: 2026-11-01
+date: 2023-12-25
 ---
 
 # 探究对 Vue Router Hash 模式的外部监听（未实现）

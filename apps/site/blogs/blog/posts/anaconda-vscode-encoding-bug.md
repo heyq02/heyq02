@@ -1,7 +1,7 @@
 ---
 title: Anaconda + VSCode 编码错误
 description: VSCode 集成终端激活 Conda 时踩到 GBK 无法编码的 UnicodeEncodeError，以及改 conda 源码用 gb18030 绕过的做法。
-date: 2026-11-01
+date: 2024-03-07
 ---
 
 # Anaconda + VSCode 编码错误

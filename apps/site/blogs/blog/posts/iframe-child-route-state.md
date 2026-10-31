@@ -1,7 +1,7 @@
 ---
 title: Iframe 父子页面消息传递实战
 description: 用 postMessage + localStorage 在刷新后恢复 iframe 内 Vue Router Hash 子路由状态。
-date: 2026-11-01
+date: 2023-12-19
 ---
 
 # Iframe 父子页面消息传递实战

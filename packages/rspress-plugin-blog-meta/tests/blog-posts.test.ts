@@ -10,24 +10,23 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
   const posts = await listBlogPosts(sitePostsDir)
   expect(posts.length).toBeGreaterThan(0)
   expect(posts.map(post => post.slug)).toEqual([
-    'anaconda-vscode-encoding-bug',
-    'iframe-child-route-state',
     'python-tkinter-radix-converter',
-    'vue-router-hash-external-listen',
     'npm-download-daily-report',
     'macos-disable-ime-switching',
     'webpack-import-path-variables',
     'multi-mcp-aggregation-nginx-vs-express',
-    'weixin-homepage-ui-recreation'
+    'weixin-homepage-ui-recreation',
+    'anaconda-vscode-encoding-bug',
+    'vue-router-hash-external-listen',
+    'iframe-child-route-state'
   ])
-  expect(posts[0]?.href).toBe('/blog/posts/anaconda-vscode-encoding-bug/')
+  expect(posts[0]?.href).toBe('/blog/posts/python-tkinter-radix-converter/')
   expect(posts[0]?.date).toBe('2026-11-01')
-  expect(posts.find(post => post.slug === 'webpack-import-path-variables')?.date).toBe('2026-06-22')
-  expect(posts.find(post => post.slug === 'multi-mcp-aggregation-nginx-vs-express')?.date).toBe(
-    '2026-01-19'
+  expect(posts.find(post => post.slug === 'vue-router-hash-external-listen')?.date).toBe(
+    '2023-12-25'
   )
-  expect(posts.at(-1)?.slug).toBe('weixin-homepage-ui-recreation')
-  expect(posts.at(-1)?.date).toBe('2024-09-17')
+  expect(posts.find(post => post.slug === 'iframe-child-route-state')?.date).toBe('2023-12-19')
+  expect(posts.at(-1)?.slug).toBe('iframe-child-route-state')
 })
 
 it('renders blog sidebar meta with Overview first', () => {
