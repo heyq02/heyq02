@@ -5,6 +5,7 @@ import { pluginRss } from '@rspress/plugin-rss'
 import { pluginSitemap } from '@rspress/plugin-sitemap'
 
 import intro from '../../static/data/intro.json' with { type: 'json' }
+import { pluginPrepareSite } from './src/plugin-prepare-site.ts'
 import { socialLinksFrom } from './src/social-links.ts'
 
 const dir = import.meta.dirname
@@ -22,6 +23,8 @@ export default defineConfig({
   // SSG-MD: per-page .md, llms.txt, llms-full.txt (Agent-friendly docs).
   llms: true,
   plugins: [
+    // Regenerates index.mdx + blog _meta.json before route scan (no stock plugin for this).
+    pluginPrepareSite(),
     pluginSitemap(),
     pluginRss({
       feed: {

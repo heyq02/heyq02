@@ -2,8 +2,6 @@ import { spawn } from 'node:child_process'
 import { cp } from 'node:fs/promises'
 import { resolve as resolvePath } from 'node:path'
 
-import { prepareSite } from './prepare.ts'
-
 const site = resolvePath(import.meta.dirname, '..')
 
 async function run(command: string, args: string[]) {
@@ -19,6 +17,6 @@ async function run(command: string, args: string[]) {
   })
 }
 
-await prepareSite()
+// Homepage / meta / assets regenerate inside pluginPrepareSite (Rspress config hook).
 await run('pnpm', ['exec', 'rspress', 'build'])
 await cp(resolvePath(site, 'CNAME'), resolvePath(site, 'dist/CNAME'))
