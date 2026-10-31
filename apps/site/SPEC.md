@@ -9,7 +9,7 @@ depends-on: [profile, brands]
 
 ## Responsibility
 
-English Rspress site for heyq02.com. The blog and navbar stay on Rspress. Nav `activeMatch` patterns are exclusive (`Home` only `/` or `/index.html`; `Blog` / `Friends` only their path prefixes) so Home does not stay lit on other pages. The homepage is a normal doc page, not the built-in hero and not a second page design. It opts out of doc chrome so it does not look like a guide: no info callout, no numbered steps, no heading anchors, and no external-link marks. Role tags and project counts stay badges. The skills picture matches the README. Theme CSS turns that page into a left-aligned identity column using Rspress `--rp-*` tokens: education above timeline experience, linked project/post rows, and a writing list from `blogs/blog/posts`. Empty side columns stay hidden on this page only.
+English Rspress site for heyq02.com. The blog and navbar stay on Rspress. Nav `activeMatch` patterns are exclusive (`Home` only `/` or `/index.html`; `Blog` / `Friends` only their path prefixes) so Home does not stay lit on other pages. The homepage is a normal doc page, not the built-in hero and not a second page design. It opts out of doc chrome so it does not look like a guide: no info callout, no numbered steps, no heading anchors, and no external-link marks. Role tags and project counts stay badges. The skills picture matches the README. Theme CSS turns that page into a left-aligned identity column using Rspress `--rp-*` tokens: education above timeline experience, linked project/post rows, and a writing list from `blogs/blog/posts`. Empty side columns stay hidden on this page only. Light personality beats: pokeable avatar + cycling `moods`, GitHub corner ribbon, console greeting, and shuffled Friends order on each visit.
 
 GitHub, Bluesky, X, Bilibili, and WeChat sit only in the navbar. Email and phone do not. The homepage does not repeat them. Site chrome is English-only; there is no language switch. The navbar appearance switch follows the system theme by default.
 
@@ -25,7 +25,7 @@ The shell title and description come from the English intro. The homepage sets `
 - Open source cards come from GitHub pinned repositories for the login in `intro.places` (GitHub). `prepare` uses `@octokit/graphql` with `GITHUB_TOKEN` or `GH_TOKEN` and a 10s timeout.
 - `@rspress/plugin-rss` builds an Atom feed at `/rss/blog.xml` from `/blog/posts/` (needs `date` or `published_at` in frontmatter). Generation runs on `rspress build` only, not `dev`.
 - Agent-friendly build: `llms: true` (SSG-MD) emits per-route `.md`, `/llms.txt`, and `/llms-full.txt`; `themeConfig.llmsUI` injects the llms.txt hint and Markdown copy controls; `@rspress/plugin-sitemap` emits `/sitemap.xml`. GitHub Pages does not content-negotiate `Accept: text/markdown`; Agents should use the `.md` URLs from `llms.txt`.
-- `/friends/` is a doc page (no sidebar/outline) that reads `static/data/friends.json` through `FriendsPage`. Cards show avatar, name, and optional blurb (DIYgod / YunYouJun style). The exchange block lists this site's own link fields for applicants. Add or remove friends only in that JSON.
+- `/friends/` is a doc page (no sidebar/outline) that reads `static/data/friends.json` through `FriendsPage`. Cards show avatar, name, and optional blurb (DIYgod / YunYouJun style); browser visits shuffle the grid order. The exchange block lists this site's own link fields for applicants. Add or remove friends only in that JSON.
 
 ## Limitations
 

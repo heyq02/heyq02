@@ -38,6 +38,8 @@ export interface Intro {
   tags: string[]
   bio: string
   kaomoji: string
+  /** Click-to-cycle faces on the homepage hero; first entry should match `kaomoji`. */
+  moods: string[]
   avatar: string
   site: string
   kicker: string

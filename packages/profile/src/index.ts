@@ -29,6 +29,7 @@ export const {
   tags,
   bio,
   kaomoji,
+  moods,
   avatar,
   site,
   kicker,

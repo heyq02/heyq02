@@ -1,3 +1,4 @@
+import { useMemo, useSyncExternalStore } from 'react'
 import type { ReactElement } from 'react'
 
 import { friendsData } from '../src/friends-page.ts'
@@ -5,6 +6,25 @@ import type { FriendLink } from '../src/friends-page.ts'
 
 function friendLabel(friend: FriendLink): string {
   return friend.desc ? `${friend.name} · ${friend.desc}` : friend.name
+}
+
+function shuffle<T>(items: T[]): T[] {
+  const next = [...items]
+  for (let i = next.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1))
+    const left = next[i]
+    const right = next[j]
+    if (left === undefined || right === undefined) {
+      continue
+    }
+    next[i] = right
+    next[j] = left
+  }
+  return next
+}
+
+function subscribeNever(): () => void {
+  return () => {}
 }
 
 function FriendCard({ friend }: { friend: FriendLink }): ReactElement {
@@ -46,24 +66,32 @@ function FriendCard({ friend }: { friend: FriendLink }): ReactElement {
   )
 }
 
-/** Avatar + name + desc grid, same shape as DIYgod / YunYouJun friend pages. */
+/** Avatar + name + desc grid; client shuffle like YunYouJun's links page. */
 export function FriendsPage(): ReactElement {
   const { title, kicker, intro, exchange, friends } = friendsData
+  const isClient = useSyncExternalStore(
+    subscribeNever,
+    () => true,
+    () => false
+  )
+  const ordered = useMemo(() => (isClient ? shuffle(friends) : friends), [friends, isClient])
 
   return (
     <div className='friends rp-not-doc'>
       <header className='friends-hero'>
         <p className='friends-kicker'>{kicker}</p>
-        {/* Frontmatter already emits the page H1 for Agents; keep a visual H1 for browsers. */}
         {import.meta.env.SSG_MD ? null : <h1>{title}</h1>}
         <p className='friends-intro'>{intro}</p>
+        {import.meta.env.SSG_MD ? null : (
+          <p className='friends-shuffle-hint'>Shuffled on each visit — say hi in a new order.</p>
+        )}
       </header>
 
-      {friends.length === 0 ? (
+      {ordered.length === 0 ? (
         <p className='friends-empty'>No friends listed yet. Check back after the first exchange.</p>
       ) : (
         <ul className='friends-grid'>
-          {friends.map(friend => (
+          {ordered.map(friend => (
             <FriendCard key={friend.url} friend={friend} />
           ))}
         </ul>

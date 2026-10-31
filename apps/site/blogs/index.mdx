@@ -8,27 +8,19 @@ footer: false
 ---
 
 import { Badge } from '@rspress/core/theme'
+import { ProfilePlay } from '../theme/ProfilePlay'
 
 <div className="profile rp-not-doc">
 
-<header className='profile-hero'>
-  <img
-    className='profile-avatar'
-    src='https://avatars.githubusercontent.com/u/206218794?v=4'
-    alt='Ari He｜阿瑞'
-    width='112'
-    height='112'
-  />
-  <div className='profile-hero-copy'>
-    <p className='profile-kicker'>Profile</p>
-    <h1>Ari He｜阿瑞</h1>
-    <p className='profile-meta'>
+<ProfilePlay
+  tags={
+    <>
       <Badge text='Full-stack engineer' type='info' outline />{' '}
       <Badge text='Open-source enthusiast' type='info' outline />{' '}
       <Badge text='Blogger on career' type='info' outline />
-    </p>
-  </div>
-</header>
+    </>
+  }
+/>
 
 <section className="profile-section">
 <h2>Education</h2>

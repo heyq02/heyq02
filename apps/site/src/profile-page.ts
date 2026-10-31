@@ -146,17 +146,11 @@ footer: false
 ---
 
 import { Badge } from '@rspress/core/theme'
+import { ProfilePlay } from '../theme/ProfilePlay'
 
 <div className="profile rp-not-doc">
 
-<header className="profile-hero">
-<img className="profile-avatar" src=${yamlString(page.avatar)} alt=${yamlString(page.name)} width="112" height="112" />
-<div className="profile-hero-copy">
-<p className="profile-kicker">${escapeHtml(page.kicker)}</p>
-<h1>${escapeHtml(page.name)}</h1>
-<p className="profile-meta">${tags}</p>
-</div>
-</header>
+<ProfilePlay tags={<>${tags}</>} />
 
 <section className="profile-section">
 <h2>${escapeHtml(page.sections.education)}</h2>
