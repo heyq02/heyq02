@@ -1,7 +1,8 @@
+@import 'tailwindcss';
 @import 'jingdong-lang-zheng-ti/JINGDONGLangZhengTi1-Regular';
 @import 'jingdong-lang-zheng-ti/JINGDONGLangZhengTi1-Semibold';
 @import 'jingdong-lang-zheng-ti/JINGDONGLangZhengTi2-Bold';
-@import 'tailwindcss';
+@import '../styles/center.css';
 
 @theme {
   --color-background: #fff;
@@ -40,7 +41,7 @@
     scroll-behavior: smooth;
   }
 
-  body {
+  .profile-page {
     margin: 0;
     touch-action: manipulation;
     background-color: var(--color-background);

@@ -9,5 +9,5 @@
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true
   },
-  "include": ["src", "tests", "vite.config.ts", "index.html"]
+  "include": ["src", "theme", "tests", "vite.config.ts", "rspress.config.ts", "scripts"]
 }

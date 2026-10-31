@@ -2,22 +2,96 @@
 
 import { brandSlug, matchBrandName } from '@heyq02/brands'
 import type { SimpleIcon } from 'simple-icons'
-import * as simpleIcons from 'simple-icons'
+import {
+  siApachemaven,
+  siBilibili,
+  siBluesky,
+  siClaude,
+  siCss,
+  siCursor,
+  siDeepseek,
+  siDocker,
+  siExpo,
+  siFigma,
+  siGit,
+  siGithub,
+  siGithubactions,
+  siGithubcopilot,
+  siGithubpages,
+  siGradle,
+  siHtml5,
+  siJavascript,
+  siJuejin,
+  siLinux,
+  siMacos,
+  siMysql,
+  siNextdotjs,
+  siNginx,
+  siNodedotjs,
+  siOxc,
+  siRabbitmq,
+  siReact,
+  siRedis,
+  siRolldown,
+  siRust,
+  siSpring,
+  siSpringboot,
+  siTypescript,
+  siVim,
+  siVite,
+  siVitest,
+  siVuedotjs,
+  siWechat,
+  siWebpack,
+  siX,
+  siXiaohongshu
+} from 'simple-icons'
 
-function isSimpleIcon(value: unknown): value is SimpleIcon {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    'slug' in value &&
-    'path' in value &&
-    typeof (value as SimpleIcon).slug === 'string'
-  )
-}
-
-const iconsBySlug = new Map(
-  Object.values(simpleIcons)
-    .filter(isSimpleIcon)
-    .map(icon => [icon.slug, icon])
+const iconsBySlug = new Map<string, SimpleIcon>(
+  [
+    siApachemaven,
+    siBilibili,
+    siBluesky,
+    siClaude,
+    siCss,
+    siCursor,
+    siDeepseek,
+    siDocker,
+    siExpo,
+    siFigma,
+    siGit,
+    siGithub,
+    siGithubactions,
+    siGithubcopilot,
+    siGithubpages,
+    siGradle,
+    siHtml5,
+    siJavascript,
+    siJuejin,
+    siLinux,
+    siMacos,
+    siMysql,
+    siNextdotjs,
+    siNginx,
+    siNodedotjs,
+    siOxc,
+    siRabbitmq,
+    siReact,
+    siRedis,
+    siRolldown,
+    siRust,
+    siSpring,
+    siSpringboot,
+    siTypescript,
+    siVim,
+    siVite,
+    siVitest,
+    siVuedotjs,
+    siWechat,
+    siWebpack,
+    siX,
+    siXiaohongshu
+  ].map(icon => [icon.slug, icon])
 )
 
 export function brandIcon(label: string): SimpleIcon | undefined {

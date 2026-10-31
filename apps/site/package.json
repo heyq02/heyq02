@@ -10,6 +10,7 @@
   "dependencies": {
     "@heyq02/brands": "workspace:*",
     "@heyq02/profile": "workspace:*",
+    "@rspress/core": "^2.0.23",
     "jingdong-lang-zheng-ti": "^1.0.2",
     "motion": "^14.2.0",
     "react": "^19.3.0",
@@ -18,7 +19,7 @@
   },
   "devDependencies": {
     "@liangmi/vp-config": "catalog:",
-    "@tailwindcss/vite": "^4.3.3",
+    "@rsbuild/plugin-tailwindcss": "^2.0.3",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@types/node": "catalog:",

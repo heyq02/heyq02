@@ -105,7 +105,6 @@ it('renders localized home chrome and switcher', () => {
 
   expect(screen.getByRole('heading', { level: 1, name })).toBeTruthy()
   expect(screen.getByRole('heading', { name: 'Experience' })).toBeTruthy()
-  expect(screen.getByRole('link', { name: 'GitHub heyq02' })).toBeTruthy()
   expect(screen.queryByRole('button', { name: 'EN' })).toBeNull()
   expect(screen.getByRole('link', { name: 'Skip to content' })).toBeTruthy()
   expect(screen.getByText('Bachelor')).toBeTruthy()

@@ -1,4 +1,16 @@
+const ssrTokens: Record<string, string> = {
+  '--ease-out-quart': 'cubic-bezier(0.16, 1, 0.3, 1)',
+  '--transition-duration-slow': '420ms'
+}
+
 function token(name: string) {
+  if (typeof document === 'undefined' || typeof getComputedStyle !== 'function') {
+    const fallback = ssrTokens[name]
+    if (fallback) {
+      return fallback
+    }
+    throw new Error(`Missing design token ${name}`)
+  }
   const value = getComputedStyle(document.documentElement).getPropertyValue(name).trim()
   if (!value) {
     throw new Error(`Missing design token ${name}`)
