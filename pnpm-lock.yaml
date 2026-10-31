@@ -261,6 +261,9 @@ importers:
 
   apps/site:
     dependencies:
+      '@heyq02/brands':
+        specifier: workspace:*
+        version: link:../../packages/brands
       '@heyq02/profile':
         specifier: workspace:*
         version: link:../../packages/profile

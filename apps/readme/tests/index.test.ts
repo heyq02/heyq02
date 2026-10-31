@@ -18,7 +18,12 @@ it('builds the skills picture URL from brand slugs', async () => {
 
 it('keeps a usable picture URL when no skill has a brand slug', async () => {
   vi.resetModules()
-  vi.doMock('@heyq02/brands', () => ({ brandSlug: () => {} }))
+  vi.doMock('@heyq02/brands', () => ({
+    skillIconsPicture: () => ({
+      alt: '',
+      src: 'https://simpleicons.dev/icons?icons=&perline=1&theme=light'
+    })
+  }))
   const { skillsPicture } = await import('../src/index.ts')
   const { alt, base } = skillsPicture()
   expect(alt).toBe('')

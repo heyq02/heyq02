@@ -61,3 +61,18 @@ export function brandSlugForLabel(label: string): string | undefined {
   const name = matchBrandName(label)
   return name === undefined ? undefined : brandSlug(name)
 }
+
+/** Same simpleicons.dev picture the README and the site skills section use. */
+export function skillIconsPicture(names: readonly string[]) {
+  const named = names.flatMap(name => {
+    const slug = brandSlug(name)
+    return slug ? [{ name, slug }] : []
+  })
+  const icons = named.map(skill => skill.slug).join(',')
+  const alt = named.map(skill => skill.name).join(', ')
+  const perline = Math.max(named.length, 1)
+  return {
+    alt,
+    src: `https://simpleicons.dev/icons?icons=${icons}&perline=${perline}&theme=light`
+  }
+}

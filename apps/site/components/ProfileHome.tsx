@@ -37,15 +37,7 @@ export function ProfileHome() {
       </section>
       <section>
         <h2>{page.sections.skills}</h2>
-        <ul>
-          {page.skills.map(skill => (
-            <li key={skill.name}>
-              <a href={skill.href} rel='noreferrer' target='_blank'>
-                {skill.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <img alt={page.skills.alt} src={page.skills.src} width='100%' />
       </section>
       <section>
         <h2>{page.sections.openSource}</h2>

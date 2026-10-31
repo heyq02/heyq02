@@ -5,7 +5,8 @@ import {
   brandSlug,
   brandSlugForLabel,
   brandSlugs,
-  matchBrandName
+  matchBrandName,
+  skillIconsPicture
 } from '../src/index.ts'
 
 it('matches exact brand names and labeled prefixes', () => {
@@ -21,6 +22,15 @@ it('resolves simple-icons slugs from names and labels', () => {
   expect(brandSlugForLabel('React · UI')).toBe('react')
   expect(brandSlugForLabel('Taro')).toBeUndefined()
   expect(brandSlugForLabel('Nope')).toBeUndefined()
+})
+
+it('builds the shared skills picture URL', () => {
+  const picture = skillIconsPicture(['Vue', 'Taro', 'Docker'])
+  expect(picture.alt).toBe('Vue, Docker')
+  expect(picture.src).toContain('icons=vuedotjs,docker')
+  expect(picture.src).toContain('perline=2')
+  expect(picture.src).toContain('theme=light')
+  expect(skillIconsPicture([]).src).toContain('perline=1')
 })
 
 it('keeps slug and no-slug brand catalogs disjoint', () => {

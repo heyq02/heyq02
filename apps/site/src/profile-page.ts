@@ -1,4 +1,5 @@
-import { absoluteHref, formatCount, intro } from '@heyq02/profile'
+import { skillIconsPicture } from '@heyq02/brands'
+import { formatCount, intro } from '@heyq02/profile'
 import type { Intro } from '@heyq02/profile'
 
 export interface ProfilePage {
@@ -10,7 +11,7 @@ export interface ProfilePage {
   avatar: string
   sections: Intro['sections']
   experiences: Intro['experiences']
-  skills: { name: string; href: string; summary: string }[]
+  skills: { alt: string; src: string }
   projects: {
     name: string
     href: string
@@ -32,11 +33,7 @@ export function profilePage(): ProfilePage {
     avatar: intro.avatar,
     sections: intro.sections,
     experiences: intro.experiences,
-    skills: intro.skills.map(skill => ({
-      name: skill.name,
-      href: absoluteHref(skill.href),
-      summary: skill.summary
-    })),
+    skills: skillIconsPicture(intro.skills.map(skill => skill.name)),
     projects: intro.projects.map(project => ({
       name: project.name,
       href: project.href,

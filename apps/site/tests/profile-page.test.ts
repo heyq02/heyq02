@@ -11,7 +11,9 @@ it('builds the English profile page from the intro', () => {
   expect(page.experiences[0]?.company).toBe('JD.com, Inc.')
   expect(page.emptyBlog).toBe('No posts yet.')
   expect(page.projects[0]?.stars).toBe('4.7k')
-  expect(page.skills[0]?.name).toBe('Vue')
+  expect(page.skills.alt).toContain('Vue')
+  expect(page.skills.src).toContain('vuedotjs')
+  expect(page.skills.src).toContain('theme=light')
 })
 
 it('puts contact links in the navbar social list', () => {
