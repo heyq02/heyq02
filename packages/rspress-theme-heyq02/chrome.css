@@ -20,13 +20,13 @@ html.dark .rspress-logo {
   width: min(180vw, 110rem);
   max-width: none;
   height: auto;
-  opacity: 0.07;
+  opacity: 0.035;
   transform: rotate(-24deg) scale(1.2);
 }
 
 html.dark .site-watermark__mark {
   filter: invert(1);
-  opacity: 0.1;
+  opacity: 0.05;
 }
 
 /* Keep interactive chrome above the watermark layer. */
