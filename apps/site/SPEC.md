@@ -23,6 +23,8 @@ The shell title and description come from the English intro.
 - The skills picture comes from `skillIconsPicture` and each skill's `icon` slug. The site does not keep its own icon set.
 - Favicons and the navbar signature both use `static/signature/full-nobg` (`favicon.ico` / `favicon.png` / `signature.png`). That PNG is sized for the navbar; the ICO keeps 16/32/48. `CNAME` is copied into the Rspress output. `outDir` stays `dist` so the Pages job does not change its artifact path.
 - Open source cards come from GitHub pinned repositories for the login in `intro.places` (GitHub). `prepare` uses `@octokit/graphql` with `GITHUB_TOKEN` or `GH_TOKEN` and a 10s timeout.
+- `@rspress/plugin-rss` builds an Atom feed at `/rss/blog.xml` from `/blog/posts/` (needs `date` or `published_at` in frontmatter). Generation runs on `rspress build` only, not `dev`.
+- Agent-friendly build: `llms: true` (SSG-MD) emits per-route `.md`, `/llms.txt`, and `/llms-full.txt`; `themeConfig.llmsUI` injects the llms.txt hint and Markdown copy controls; `@rspress/plugin-sitemap` emits `/sitemap.xml`. GitHub Pages does not content-negotiate `Accept: text/markdown`; Agents should use the `.md` URLs from `llms.txt`.
 
 ## Limitations
 

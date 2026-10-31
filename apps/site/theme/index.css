@@ -64,6 +64,11 @@ html.dark .rspress-logo {
   display: none;
 }
 
+/* Keep injectLlmsHint for Agents; hide Copy Markdown chrome on the profile column. */
+.rp-doc-layout__container:has(.profile) .rp-llms-container {
+  display: none;
+}
+
 .rp-doc-layout__container:has(.profile) .rp-header-anchor {
   display: none !important;
 }
