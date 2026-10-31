@@ -4,7 +4,7 @@ export default liangmi({
   test: {
     include: ['tests/**/*.test.ts'],
     coverage: {
-      include: ['src/**/*.ts', 'scripts/prepare.ts'],
+      include: ['src/**/*.ts', 'scripts/prepare.ts', 'scripts/absolutize-md-links.ts'],
       exclude: ['scripts/build.ts', 'scripts/dev.ts'],
       thresholds: {
         statements: 95,
