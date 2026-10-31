@@ -4,6 +4,11 @@ html.dark .rspress-logo {
   filter: invert(1);
 }
 
+.rp-doc-layout__container:has(.profile),
+.rp-doc-layout__container:has(.friends) {
+  justify-content: center;
+}
+
 .rp-doc-layout__container:has(.profile) .rp-doc-layout__sidebar-placeholder,
 .rp-doc-layout__container:has(.profile) .rp-doc-layout__outline,
 .rp-doc-layout__container:has(.profile) .rp-doc-layout__outline-placeholder,
@@ -14,6 +19,25 @@ html.dark .rspress-logo {
   width: 0;
   min-width: 0;
   margin: 0;
+}
+
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__doc {
+  flex: 0 1 44rem;
+  width: 100%;
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+.rp-doc-layout__container:has(.friends) .rp-doc-layout__doc {
+  flex: 0 1 52rem;
+  width: 100%;
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__doc-container,
+.rp-doc-layout__container:has(.friends) .rp-doc-layout__doc-container {
+  padding: 3rem 1.5rem 4rem;
 }
 
 .rp-doc-layout__container:has(.profile) .rp-doc > h1.rp-toc-include,
