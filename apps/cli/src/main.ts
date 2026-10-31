@@ -1,16 +1,16 @@
 import packageJson from '../package.json' with { type: 'json' }
-import { renderIntro } from './intro.ts'
+import { errorText, fetchReadme, renderPreview } from './readme.ts'
 
 const help = `Usage: heyq02
 
-Print Ari He's profile introduction.
+Fetch and print the GitHub README.
 
 Options:
   -h, --help     Show help
   -v, --version  Show version
 `
 
-export function main(argv = process.argv.slice(2)): void {
+export async function main(argv = process.argv.slice(2)): Promise<void> {
   const arg = argv[0]
 
   if (arg === '-h' || arg === '--help') {
@@ -29,5 +29,10 @@ export function main(argv = process.argv.slice(2)): void {
     return
   }
 
-  process.stdout.write(`${renderIntro()}\n`)
+  try {
+    process.stdout.write(await renderPreview(await fetchReadme()))
+  } catch (error: unknown) {
+    process.stderr.write(`${errorText(error)}\n`)
+    process.exitCode = 1
+  }
 }

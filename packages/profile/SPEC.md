@@ -16,7 +16,7 @@ It does not render or choose icons. The overlay supplies the alias, degree, city
 
 - May read `static/data/intro.json` and `static/data/intro.zh.json`, and nothing else in the repo. No dependency on `brands`, `site`, `cli`, or `readme`.
 - A Chinese list whose length does not match English is an error. A new job, place, skill, or project cannot ship in one language only.
-- Not a private site table. The site runtime imports this merge. The CLI and README stay English and must not read the overlay (`architecture`).
+- Not a private site table. The site runtime imports this merge. The CLI does not read this package. README stays English and must not read the overlay (`architecture`).
 - Not the only reader of those files. The site Vite config reads them for shell meta because it must not import this package (`architecture`). This package owns the typed contract, not exclusive file access.
 - The terminal `profile` view drops `languageColor`. Other exports keep the JSON shape.
 - Private workspace package. It is built to `dist/` because the CLI bundles that output.

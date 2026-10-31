@@ -6,10 +6,7 @@ export default liangmi({
       cli: './src/cli.ts'
     },
     // Prefer .js under "type": "module" instead of fixed .mjs/.d.mts.
-    fixedExtension: false,
-    deps: {
-      alwaysBundle: ['@heyq02/profile']
-    }
+    fixedExtension: false
   },
   test: {
     include: ['tests/**/*.test.ts'],
@@ -21,15 +18,6 @@ export default liangmi({
         branches: 95,
         functions: 95,
         lines: 95
-      }
-    }
-  },
-  run: {
-    tasks: {
-      // AlwaysBundle reads `@heyq02/profile` from dist/; build it before pack.
-      cpack: {
-        command: 'vp pack',
-        dependsOn: [{ task: 'build', from: ['dependencies', 'devDependencies'] }]
       }
     }
   }

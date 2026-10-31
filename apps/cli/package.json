@@ -33,8 +33,11 @@
     "prepublishOnly": "vp run -t build",
     "test": "vp run ctest"
   },
+  "dependencies": {
+    "marked": "^13.0.3",
+    "marked-terminal": "^8.0.0"
+  },
   "devDependencies": {
-    "@heyq02/profile": "workspace:*",
     "@liangmi/vp-config": "catalog:",
     "@types/node": "catalog:",
     "typescript": "catalog:",

@@ -21,7 +21,6 @@ flowchart LR
   profile["profile"]
   brands["brands"]
   site["site"]
-  cli["cli"]
   readme["readme"]
   json --> profile
   zh --> profile
@@ -29,12 +28,11 @@ flowchart LR
   zh --> site
   json --> readme
   profile --> site
-  profile --> cli
   brands --> site
   brands --> readme
 ```
 
-`profile` is the typed API over the English file and the Chinese overlay. The site runtime reads that merge. The CLI reads only the English intro from `profile`. The site Vite config reads both files for the shell, because it must not import `@heyq02/*`. The README generator reads only `intro.json` (`readme`). `brands` maps display names to simple-icons slugs and depends on neither package. Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
+`profile` is the typed API over the English file and the Chinese overlay. The site runtime reads that merge. The CLI does not. With no arguments it fetches the published README from GitHub `main` and renders it in the terminal (`cli`). The site Vite config reads both files for the shell, because it must not import `@heyq02/*`. The README generator reads only `intro.json` (`readme`). `brands` maps display names to simple-icons slugs and depends on neither package. Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
 
 ## Decisions
 
@@ -46,7 +44,7 @@ flowchart LR
 
 ## Invariants
 
-- App Vite configs must not import `@heyq02/*`. `vp run` loads every app config before workspace packages are built. The site config reads `intro.json` for the HTML title (the English name) and `intro.zh.json` for the default description. Runtime code imports package exports, and site `cbuild` / `dev` wait on dependency builds. The CLI pack always bundles `profile` from `dist/`.
+- App Vite configs must not import `@heyq02/*`. `vp run` loads every app config before workspace packages are built. The site config reads `intro.json` for the HTML title (the English name) and `intro.zh.json` for the default description. Runtime code imports package exports, and site `cbuild` / `dev` wait on dependency builds. The CLI no longer bundles `profile`.
 - Relative profile links (a leading `/`) are absolutized against the site origin before a surface treats them as external URLs. `profile` does this for its exports; the site's Chinese places do it the same way.
-- The CLI and README stay English. They read `intro.json` or the English intro from `profile`, never `intro.zh.json` or a site-local Chinese table.
+- The README stays English and reads `intro.json`, never `intro.zh.json` or a site-local Chinese table. The CLI prints that published README; it does not read `profile`.
 - Coverage thresholds in the root Vite Plus config are 95% statements, branches, functions, and lines for app and package source. Commits are conventional (`@commitlint/config-conventional`).

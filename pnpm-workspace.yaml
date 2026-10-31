@@ -15,3 +15,5 @@ peerDependencyRules:
 packages:
   - 'apps/*'
   - 'packages/*'
+minimumReleaseAgeExclude:
+  - marked-terminal@8.0.0
