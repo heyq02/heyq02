@@ -21,7 +21,7 @@ html.dark .rspress-logo {
   max-width: none;
   height: auto;
   opacity: 0.035;
-  transform: rotate(-24deg) scale(1.2);
+  transform: rotate(-24deg) scale(2.5);
 }
 
 html.dark .site-watermark__mark {
