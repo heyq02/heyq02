@@ -1,16 +1,10 @@
 import { liangmi } from '@liangmi/vp-config'
-import react from '@vitejs/plugin-react'
-import type { PluginOption } from 'vite-plus'
 
 export default liangmi({
-  plugins: [react()] as PluginOption[],
   test: {
-    environment: 'happy-dom',
-    include: ['tests/**/*.{test,spec}.{ts,tsx}'],
-    setupFiles: ['./tests/setup.ts'],
+    include: ['tests/**/*.test.ts'],
     coverage: {
-      include: ['src/**/*.{ts,tsx}'],
-      exclude: ['src/env.d.ts'],
+      include: ['src/**/*.ts'],
       thresholds: {
         statements: 95,
         branches: 95,

@@ -29,11 +29,11 @@ flowchart LR
   brands --> readme
 ```
 
-`profile` is the typed API over the English file. The site runtime reads it. The CLI does not. Every invocation fetches the published README from GitHub `main` and renders it in the terminal (`cli`). The site Rspress config reads `intro.json` for the shell, because app configs must not import `@heyq02/*`. The README generator reads that same file (`readme`). `brands` maps display names to simple-icons slugs and builds the README skills picture URL. The site uses the slug map for homepage icons; it does not render that picture. `brands` depends on neither package. Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
+`profile` is the typed API over the English file. The site runtime reads it. The CLI does not. Every invocation fetches the published README from GitHub `main` and renders it in the terminal (`cli`). The site Rspress config reads `intro.json` for the shell, because app configs must not import `@heyq02/*`. The README generator reads that same file (`readme`). `brands` maps display names to simple-icons slugs and builds the shared skills picture URL. The README and the site both render that picture. `brands` depends on neither package. Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
 
 ## Decisions
 
-- **English only.** The site is a GitHub Pages Rspress build in English. The homepage is a custom layout, not the built-in homepage. There is no Chinese copy and no language switch. Owned by `site`.
+- **English only.** The site is a GitHub Pages Rspress build in English. The homepage is a doc page of theme components, not the built-in homepage. There is no Chinese copy and no language switch. Owned by `site`.
 - **Publish surface.** Today only the `heyq02` CLI is public on npm. The site deploys to GitHub Pages (`heyq02.com` via `CNAME`). `profile`, `brands`, and `readme` are private workspace packages. This is what the repo enforces now, not a product non-goal (`goal`).
 - **Tag releases.** A `v*` tag (or a manual run) publishes the CLI with npm OIDC trusted publishing (`vp pm stage publish`, provenance on). CLI publish does not use `--no-git-checks`; current Vite Plus rejects that flag on `stage publish`.
 - **Site deploy.** Every branch push, or a manual run, deploys the site to GitHub Pages. Tag pushes do not. The job checks out `main`, so a push to another branch does not publish that branch.
