@@ -14,9 +14,9 @@ it('loads friend links from the shared JSON', () => {
     name: expect.any(String),
     blog: expect.any(String),
     url: expect.stringMatching(/^https?:\/\//),
-    avatar: expect.stringMatching(/^https?:\/\//),
-    desc: expect.any(String)
+    avatar: expect.stringMatching(/^https?:\/\//)
   })
+  expect(friends.every(friend => !('desc' in friend) || typeof friend.desc === 'string')).toBe(true)
   expect(friends.some(friend => friend.url.includes('diygod'))).toBe(true)
   expect(friends.some(friend => friend.url.includes('yunyoujun'))).toBe(true)
 })

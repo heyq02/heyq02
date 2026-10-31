@@ -3,13 +3,19 @@ import type { ReactElement } from 'react'
 import { friendsData } from '../src/friends-page.ts'
 import type { FriendLink } from '../src/friends-page.ts'
 
+function friendLabel(friend: FriendLink): string {
+  return friend.desc
+    ? `${friend.name} · ${friend.blog} · ${friend.desc}`
+    : `${friend.name} · ${friend.blog}`
+}
+
 function FriendCard({ friend }: { friend: FriendLink }): ReactElement {
   // Prefer readable link text for SSG-MD Agents over avatar+span chrome.
   if (import.meta.env.SSG_MD) {
     return (
       <li>
         <a href={friend.url}>{friend.blog}</a>
-        {` — ${friend.desc}`}
+        {friend.desc ? ` — ${friend.desc}` : null}
       </li>
     )
   }
@@ -22,7 +28,7 @@ function FriendCard({ friend }: { friend: FriendLink }): ReactElement {
         target='_blank'
         rel='noopener noreferrer friend'
         title={friend.name}
-        aria-label={`${friend.name} · ${friend.blog} · ${friend.desc}`}
+        aria-label={friendLabel(friend)}
       >
         <img
           className='friends-avatar'
@@ -35,7 +41,7 @@ function FriendCard({ friend }: { friend: FriendLink }): ReactElement {
         />
         <span className='friends-card-copy'>
           <span className='friends-card-blog'>{friend.blog}</span>
-          <span className='friends-card-desc'>{friend.desc}</span>
+          {friend.desc ? <span className='friends-card-desc'>{friend.desc}</span> : null}
         </span>
       </a>
     </li>

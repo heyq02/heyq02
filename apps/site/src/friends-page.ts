@@ -5,7 +5,8 @@ export interface FriendLink {
   blog: string
   url: string
   avatar: string
-  desc: string
+  /** Optional one-line blurb; omit when the friend has none. */
+  desc?: string
 }
 
 export interface FriendsData {
