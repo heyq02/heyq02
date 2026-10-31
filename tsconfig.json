@@ -3,5 +3,5 @@
   "compilerOptions": {
     "types": ["node"]
   },
-  "include": ["vite.config.ts", "sponsorkit.config.ts"]
+  "include": ["vite.config.ts", "sponsorkit.config.ts", "playwright.config.ts"]
 }

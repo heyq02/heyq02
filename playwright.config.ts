@@ -8,6 +8,8 @@ export default defineConfig({
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? 'github' : 'list',
+  // DOM snapshots are OS-agnostic; drop the default -{platform} suffix.
+  snapshotPathTemplate: '{testDir}/{testFilePath}-snapshots/{arg}-{projectName}{ext}',
   use: {
     ...devices['Desktop Chrome'],
     trace: 'on-first-retry'
