@@ -21,7 +21,7 @@ The shell title and description come from the English intro.
 - `rspress.config.ts` may read `intro.json` for HTML meta. It must not import `@heyq02/*` (`architecture`). Runtime code imports package exports.
 - Theme CSS styles the homepage column and hides doc chrome there. It does not replace `HomeLayout` or the blog layout.
 - The skills picture comes from `skillIconsPicture`. The site does not keep its own icon set.
-- Favicons use a circular black disc with the signature cut out in white (`static/signature/favicon.{png,ico}`, `icon-circle.png`). The navbar still uses the plain signature (`full-nobg.png` → `/signature.png`). `CNAME` is copied into the Rspress output. `outDir` stays `dist` so the Pages job does not change its artifact path.
+- Favicons use a circular black disc with a bold signature punched through (transparent cutout so the tab chrome shows through), like GitHub’s badge (`static/signature/favicon.{png,ico}`, `icon-circle.png`). The navbar still uses the plain signature (`full-nobg.png` → `/signature.png`). `CNAME` is copied into the Rspress output. `outDir` stays `dist` so the Pages job does not change its artifact path.
 - Open-source cards come from GitHub pinned repositories for the login in `intro.places` (GitHub). `prepare` calls the GraphQL API with `GITHUB_TOKEN` or `GH_TOKEN`.
 
 ## Limitations
