@@ -15,6 +15,6 @@ It does not render or choose icons. It does not translate.
 ## Boundary
 
 - May read `static/data/intro.json` and nothing else in the repo. No dependency on `brands`, `site`, `cli`, or `readme`.
-- Not the only reader of that file. The site Rspress config and `readme` read it directly (`architecture`). This package owns the typed contract, not exclusive file access.
+- Not the only reader of that file. The site Vite config and `readme` read it directly (`architecture`). This package owns the typed contract, not exclusive file access.
 - The terminal `profile` view drops `languageColor`. Other exports keep the JSON shape.
 - Private workspace package. It is built to `dist/` because the site imports that output.

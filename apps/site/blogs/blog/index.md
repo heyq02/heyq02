@@ -1,3 +1,0 @@
-# Blog
-
-No posts yet.
