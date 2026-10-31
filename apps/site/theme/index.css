@@ -183,17 +183,6 @@ html.dark .rspress-logo {
   outline-offset: 2px;
 }
 
-.profile-kicker {
-  margin: 0 0 0.35rem;
-  color: var(--rp-c-brand);
-  font-family: var(--rp-font-family-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
 .profile h1 {
   margin: 0;
   color: var(--rp-c-text-1);

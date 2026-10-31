@@ -51,7 +51,6 @@ export function ProfilePlay({ tags }: ProfilePlayProps): ReactElement {
         />
       </button>
       <div className='profile-hero-copy'>
-        <p className='profile-kicker'>{intro.kicker}</p>
         <h1>{intro.name}</h1>
         <button
           type='button'
