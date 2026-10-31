@@ -3,13 +3,14 @@
   "names": ["Yongqi He", "Developer"],
   "degree": "Bachelor",
   "city": "China",
-  "bio": "Full-stack engineer / open-source enthusiast / vlogger on career. Focused on AI that speeds up development and ships in real products",
+  "tags": ["Full-stack engineer", "Open-source enthusiast", "Blogger on career"],
+  "bio": "Focused on AI that speeds up development and ships in real products",
   "kaomoji": "(๑•̀ㅂ•́)و",
   "avatar": "https://avatars.githubusercontent.com/u/206218794?v=4",
   "site": "https://heyq02.com",
   "kicker": "PROFILE",
   "title": "Yongqi He",
-  "description": "Yongqi He. Full-stack engineer, open-source enthusiast, and vlogger on career. Focused on AI that speeds up development and ships in real products.",
+  "description": "Yongqi He. Full-stack engineer, open-source enthusiast, and blogger on career. Focused on AI that speeds up development and ships in real products.",
   "contact": {
     "phone": "+86 135****8086",
     "email": "hello@heyq02.com"

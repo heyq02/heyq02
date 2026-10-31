@@ -4,8 +4,7 @@ import type { Intro } from '@heyq02/profile'
 
 export interface ProfilePage {
   name: string
-  degree: string
-  city: string
+  tags: string[]
   bio: string
   kaomoji: string
   avatar: string
@@ -25,8 +24,7 @@ export interface ProfilePage {
 export function profilePage(): ProfilePage {
   return {
     name: intro.name,
-    degree: intro.degree,
-    city: intro.city,
+    tags: intro.tags,
     bio: intro.bio,
     kaomoji: intro.kaomoji,
     avatar: intro.avatar,
@@ -48,19 +46,42 @@ function yamlString(value: string) {
   return JSON.stringify(value)
 }
 
+function escapeHtml(value: string) {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+}
+
 /** Doc page of Rspress theme components, not the built-in homepage. */
 export function renderHomeMdx(): string {
   const page = profilePage()
+  const tags = page.tags.map(tag => `<Badge text=${yamlString(tag)} />`).join(' ')
   const jobs = page.experiences
     .map(job => {
-      const points = job.points.map(point => `- ${point}`).join('\n')
-      return `### [${job.company}](${job.href})\n\n<p className="profile-when">${job.start} – ${job.end}</p>\n\n${points}`
+      const points = job.points.map(point => `<li>${escapeHtml(point)}</li>`).join('\n')
+      return `<article className="profile-job">
+<div className="profile-job-head">
+<h3><a href=${yamlString(job.href)}>${escapeHtml(job.company)}</a></h3>
+<p className="profile-when">${escapeHtml(job.start)} – ${escapeHtml(job.end)}</p>
+</div>
+<ul>
+${points}
+</ul>
+</article>`
     })
     .join('\n\n')
   const projects = page.projects
     .map(
       project =>
-        `### [${project.name}](${project.href})\n\n${project.summary}\n\n<p className="profile-counts"><Badge text=${yamlString(project.language)} /> <Badge text=${yamlString(`${project.stars} stars`)} /> <Badge text=${yamlString(`${project.forks} forks`)} /></p>`
+        `<a className="profile-project" href=${yamlString(project.href)}>
+<span className="profile-project-top">
+<span className="profile-project-name">${escapeHtml(project.name)}</span>
+<span className="profile-counts"><Badge text=${yamlString(project.language)} /> <Badge text=${yamlString(`${project.stars} stars`)} /> <Badge text=${yamlString(`${project.forks} forks`)} /></span>
+</span>
+<span className="profile-project-summary">${escapeHtml(project.summary)}</span>
+</a>`
     )
     .join('\n\n')
 
@@ -76,25 +97,41 @@ import { Badge } from '@rspress/core/theme'
 
 <div className="profile rp-not-doc">
 
-<img className="profile-avatar" src=${yamlString(page.avatar)} alt="" width="96" height="96" />
+<header className="profile-hero">
+<img className="profile-avatar" src=${yamlString(page.avatar)} alt="" width="112" height="112" />
+<div className="profile-hero-copy">
+<p className="profile-kicker">Profile</p>
+<h1>${escapeHtml(page.name)}</h1>
+<p className="profile-meta">${tags}</p>
+</div>
+<p className="profile-bio">${escapeHtml(page.bio)} ${escapeHtml(page.kaomoji)}</p>
+</header>
 
-# ${page.name}
-
-<p className="profile-meta"><Badge text=${yamlString(page.degree)} /> <Badge text=${yamlString(page.city)} /></p>
-
-<p className="profile-bio">${page.bio} ${page.kaomoji}</p>
-
-## ${page.sections.experience}
+<section className="profile-section">
+<h2>${escapeHtml(page.sections.experience)}</h2>
 
 ${jobs}
+</section>
 
-## ${page.sections.skills}
+<section className="profile-section">
+<h2>${escapeHtml(page.sections.openSource)}</h2>
 
-<p className="profile-skills">![${page.skills.alt}](${page.skills.src})</p>
-
-## ${page.sections.openSource}
-
+<div className="profile-projects">
 ${projects}
+</div>
+</section>
+
+<section className="profile-section">
+<h2>${escapeHtml(page.sections.skills)}</h2>
+
+<p className="profile-skills"><img src=${yamlString(page.skills.src)} alt=${yamlString(page.skills.alt)} /></p>
+</section>
+
+<section className="profile-section profile-writing">
+<h2>Writing</h2>
+
+<p className="profile-placeholder">Essays and notes will show up here. For now, the <a href="/blog/">blog</a> is a quiet shelf.</p>
+</section>
 
 </div>
 `

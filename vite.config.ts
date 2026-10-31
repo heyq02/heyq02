@@ -29,7 +29,6 @@ export default liangmi({
     ignorePatterns: ['sponsorkit/**']
   },
   test: {
-    setupFiles: ['./apps/site/tests/setup.ts'],
     coverage: {
       include: ['apps/*/src/**/*.{ts,tsx}', 'packages/*/src/**/*.ts'],
       exclude: ['**/cli.ts', '**/types.ts', '**/env.d.ts', '**/index.tsx', '**/App.css'],

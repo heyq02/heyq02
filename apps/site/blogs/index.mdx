@@ -10,58 +10,75 @@ import { Badge } from '@rspress/core/theme'
 
 <div className="profile rp-not-doc">
 
-<img
-  className='profile-avatar'
-  src='https://avatars.githubusercontent.com/u/206218794?v=4'
-  alt=''
-  width='96'
-  height='96'
-/>
+<header className='profile-hero'>
+  <img
+    className='profile-avatar'
+    src='https://avatars.githubusercontent.com/u/206218794?v=4'
+    alt=''
+    width='112'
+    height='112'
+  />
+  <div className='profile-hero-copy'>
+    <p className='profile-kicker'>Profile</p>
+    <h1>Yongqi He</h1>
+    <p className='profile-meta'>
+      <Badge text='Full-stack engineer' /> <Badge text='Open-source enthusiast' />{' '}
+      <Badge text='Blogger on career' />
+    </p>
+  </div>
+  <p className='profile-bio'>
+    Focused on AI that speeds up development and ships in real products (๑•̀ㅂ•́)و
+  </p>
+</header>
 
-# Yongqi He
+<section className="profile-section">
+<h2>Experience</h2>
 
-<p className='profile-meta'>
-  <Badge text='Bachelor' /> <Badge text='China' />
-</p>
+<article className="profile-job">
+<div className="profile-job-head">
+<h3><a href="https://www.jd.com/">JD.com, Inc.</a></h3>
+<p className="profile-when">2024.06 – Present</p>
+</div>
+<ul>
+<li>Owned iterations for JD Takeout across the mini program, H5, and admin console</li>
+<li>Upgraded the admin console off its legacy architecture and improved TP95</li>
+<li>Built C3-level AI Infra for Local Life product and engineering, improving R&amp;D efficiency</li>
+</ul>
+</article>
+</section>
 
-<p className='profile-bio'>
-  Full-stack engineer / open-source enthusiast / vlogger on career. Focused on AI that speeds up
-  development and ships in real products (๑•̀ㅂ•́)و
-</p>
+<section className="profile-section">
+<h2>Open source</h2>
 
-## Experience
+<div className="profile-projects">
+<a className="profile-project" href="https://github.com/jd-opensource/taro-ui">
+<span className="profile-project-top">
+<span className="profile-project-name">jd-opensource/taro-ui</span>
+<span className="profile-counts"><Badge text="TypeScript" /> <Badge text="4.7k stars" /> <Badge text="743 forks" /></span>
+</span>
+<span className="profile-project-summary">一款基于 Taro 框架开发的多端 UI 组件库</span>
+</a>
 
-### [JD.com, Inc.](https://www.jd.com/)
+<a className="profile-project" href="https://github.com/heyq02/simpleicons.dev">
+<span className="profile-project-top">
+<span className="profile-project-name">simpleicons.dev</span>
+<span className="profile-counts"><Badge text="TypeScript" /> <Badge text="171 stars" /> <Badge text="0 forks" /></span>
+</span>
+<span className="profile-project-summary">Showcase your skills on your GitHub readme or resumé with ease.</span>
+</a>
+</div>
+</section>
 
-<p className='profile-when'>2024.06 – Present</p>
+<section className="profile-section">
+<h2>Skills</h2>
 
-- Owned iterations for JD Takeout across the mini program, H5, and admin console
-- Upgraded the admin console off its legacy architecture and improved TP95
-- Built C3-level AI Infra for Local Life product and engineering, improving R&D efficiency
+<p className="profile-skills"><img src="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light" alt="Vue, React, Next, Rolldown, Vite, Oxc, Spring, Redis, RabbitMQ, Nginx, Docker" /></p>
+</section>
 
-## Skills
+<section className="profile-section profile-writing">
+<h2>Writing</h2>
 
-<p className='profile-skills'>
-  ![Vue, React, Next, Rolldown, Vite, Oxc, Spring, Redis, RabbitMQ, Nginx,
-  Docker](https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light)
-</p>
-
-## Open source
-
-### [jd-opensource/taro-ui](https://github.com/jd-opensource/taro-ui)
-
-一款基于 Taro 框架开发的多端 UI 组件库
-
-<p className='profile-counts'>
-  <Badge text='TypeScript' /> <Badge text='4.7k stars' /> <Badge text='743 forks' />
-</p>
-
-### [simpleicons.dev](https://github.com/heyq02/simpleicons.dev)
-
-Showcase your skills on your GitHub readme or resumé with ease.
-
-<p className='profile-counts'>
-  <Badge text='TypeScript' /> <Badge text='171 stars' /> <Badge text='0 forks' />
-</p>
+<p className="profile-placeholder">Essays and notes will show up here. For now, the <a href="/blog/">blog</a> is a quiet shelf.</p>
+</section>
 
 </div>

@@ -38,6 +38,7 @@ export interface Intro {
   names: string[]
   degree: string
   city: string
+  tags: string[]
   bio: string
   kaomoji: string
   avatar: string
