@@ -34,7 +34,7 @@
     "test": "vp run ctest"
   },
   "dependencies": {
-    "marked": "^13.0.3",
+    "marked": "^18.1.2",
     "marked-terminal": "^8.0.0"
   },
   "devDependencies": {
