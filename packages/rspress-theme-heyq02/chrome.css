@@ -4,6 +4,11 @@ html.dark .rspress-logo {
   filter: invert(1);
 }
 
+/* Rspress has no llmsUI flag for LlmsCopyButton alone (viewOptions only hides the menu). */
+.rp-llms-container {
+  display: none;
+}
+
 .rp-doc-layout__container:has(.profile),
 .rp-doc-layout__container:has(.friends) {
   justify-content: center;

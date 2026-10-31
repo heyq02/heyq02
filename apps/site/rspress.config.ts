@@ -53,7 +53,8 @@ export default defineConfig({
   themeConfig: {
     darkMode: true,
     socialLinks: socialLinksFrom(intro.places),
-    // Agent discovery hint only; no Copy Markdown / open-in-AI chrome.
+    // Agent discovery hint only. viewOptions: false hides the open-in-AI menu;
+    // Copy Markdown itself has no config flag, so chrome.css hides .rp-llms-container.
     llmsUI: {
       injectLlmsHint: true,
       viewOptions: false
