@@ -53,6 +53,7 @@ it('builds the English profile page from the intro', () => {
   expect(home).toContain('Badge')
   expect(home).toContain('profile-hero')
   expect(home).toContain('profile-avatar')
+  expect(home).toContain('alt="Yongqi He"')
   expect(home).toContain('profile-project')
   expect(home).toContain('profile-writing')
   expect(home).toContain('profile-post')

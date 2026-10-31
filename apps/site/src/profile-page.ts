@@ -129,7 +129,7 @@ import { Badge } from '@rspress/core/theme'
 <div className="profile rp-not-doc">
 
 <header className="profile-hero">
-<img className="profile-avatar" src=${yamlString(page.avatar)} alt="" width="112" height="112" />
+<img className="profile-avatar" src=${yamlString(page.avatar)} alt=${yamlString(page.name)} width="112" height="112" />
 <div className="profile-hero-copy">
 <p className="profile-kicker">${escapeHtml(page.kicker)}</p>
 <h1>${escapeHtml(page.name)}</h1>

@@ -4,7 +4,7 @@ name: Release README
 on:
   push:
     branches:
-      - '**'
+      - main
   workflow_dispatch:
 
 concurrency:
@@ -20,11 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      # Branch pushes must not commit on the pushed ref; README lands on main.
       - name: Checkout
         uses: actions/checkout@v7
-        with:
-          ref: main
 
       - name: Setup Vite Plus
         uses: voidzero-dev/setup-vp@v1.22.0

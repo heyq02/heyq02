@@ -273,6 +273,11 @@ html.dark .rspress-logo {
   height: auto;
 }
 
+/* README keeps a light-only skills picture; invert it for dark chrome. */
+html.dark .profile-skills img {
+  filter: invert(1);
+}
+
 .profile-writing .profile-placeholder {
   margin: 0;
   padding: 1rem 1.05rem;

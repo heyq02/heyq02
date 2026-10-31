@@ -31,6 +31,8 @@ interface GraphQlResponse {
   errors?: { message: string }[]
 }
 
+export const PINNED_TIMEOUT_MS = 10_000
+
 const pinnedQuery = `query($login: String!) {
   user(login: $login) {
     pinnedItems(first: 6, types: REPOSITORY) {
@@ -94,19 +96,26 @@ export async function fetchPinnedProjects(
   }
 
   const fetchImpl = options.fetch ?? globalThis.fetch
-  const response = await fetchImpl('https://api.github.com/graphql', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'User-Agent': 'heyq02-site'
-    },
-    body: JSON.stringify({
-      query: pinnedQuery,
-      variables: { login }
+  let response: Response
+  try {
+    response = await fetchImpl('https://api.github.com/graphql', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'User-Agent': 'heyq02-site'
+      },
+      body: JSON.stringify({
+        query: pinnedQuery,
+        variables: { login }
+      }),
+      signal: AbortSignal.timeout(PINNED_TIMEOUT_MS)
     })
-  })
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error)
+    throw new Error(`GitHub GraphQL request failed: ${message}`, { cause: error })
+  }
 
   if (!response.ok) {
     throw new Error(`GitHub GraphQL failed with ${response.status}`)

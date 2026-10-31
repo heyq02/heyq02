@@ -4,7 +4,7 @@ name: Release Site
 on:
   push:
     branches:
-      - '**'
+      - main
   workflow_dispatch:
 
 permissions:
@@ -22,11 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      # Deploy main, not the branch that was pushed.
       - name: Checkout
         uses: actions/checkout@v7
-        with:
-          ref: main
 
       - name: Setup Vite Plus
         uses: voidzero-dev/setup-vp@v1.22.0

@@ -1,0 +1,39 @@
+# Lint and test on pull requests and pushes to main.
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.repository == 'heyq02/heyq02'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Vite Plus
+        uses: voidzero-dev/setup-vp@v1.22.0
+        with:
+          node-version: lts
+          cache: true
+
+      - name: Check
+        run: vp run ccheck
+
+      - name: Test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: vp test

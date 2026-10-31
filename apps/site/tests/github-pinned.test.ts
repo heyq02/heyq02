@@ -108,3 +108,33 @@ it('fails when no token is available', async () => {
     })
   ).rejects.toThrow(/GITHUB_TOKEN/)
 })
+
+it('fails on non-OK HTTP and GraphQL errors', async () => {
+  await expect(
+    fetchPinnedProjects('heyq02', {
+      token: 'test-token',
+      fetch: () => Promise.resolve(new Response('nope', { status: 502 }))
+    })
+  ).rejects.toThrow(/502/)
+
+  await expect(
+    fetchPinnedProjects('heyq02', {
+      token: 'test-token',
+      fetch: () =>
+        Promise.resolve(
+          Response.json({
+            errors: [{ message: 'rate limited' }, { message: 'forbidden' }]
+          })
+        )
+    })
+  ).rejects.toThrow(/rate limited; forbidden/)
+})
+
+it('fails when the GraphQL request throws', async () => {
+  await expect(
+    fetchPinnedProjects('heyq02', {
+      token: 'test-token',
+      fetch: () => Promise.reject(new Error('offline'))
+    })
+  ).rejects.toThrow(/GitHub GraphQL request failed: offline/)
+})
