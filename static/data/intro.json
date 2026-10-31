@@ -58,6 +58,15 @@
       ]
     }
   ],
+  "education": [
+    {
+      "school": "Nanjing University of Posts and Telecommunications",
+      "major": "Biomedical Engineering",
+      "degree": "Bachelor of Engineering",
+      "start": "2020.09",
+      "end": "2024.06"
+    }
+  ],
   "skills": [
     {
       "name": "Vue",
