@@ -19,3 +19,4 @@ It does not emit places, pinned projects, writing, bio, or Chinese. The release 
 - The Markdown layout lives in an EJS template. This app fills it; it does not assemble the README string in code. `<%-` is used so intro text is not HTML-escaped.
 - Identity facts and the skills picture come from `shared` (`intro`, `skillIconsPicture`). Build is `node --experimental-strip-types`.
 - A skill with an empty `icon` is left out of the picture.
+- The committed root `README.md` must match `renderReadme()`; the readme tests lock that.

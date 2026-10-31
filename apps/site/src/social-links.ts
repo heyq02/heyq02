@@ -1,6 +1,9 @@
 import type { SocialLink } from '@rspress/core'
 
-import intro from '../../../static/data/intro.json' with { type: 'json' }
+interface PlaceLike {
+  label: string
+  href: string
+}
 
 const navbarOrder = ['GitHub', 'Bluesky', 'X', 'Bilibili', 'WeChat'] as const
 
@@ -12,7 +15,8 @@ const icons: Record<(typeof navbarOrder)[number], SocialLink['icon']> = {
   WeChat: 'wechat'
 }
 
-export function socialLinksFrom(places: typeof intro.places): SocialLink[] {
+/** Build navbar social links from intro places (caller supplies places; no JSON read here). */
+export function socialLinksFrom(places: readonly PlaceLike[]): SocialLink[] {
   const byLabel = new Map(places.map(place => [place.label, place]))
   const links: SocialLink[] = []
   for (const label of navbarOrder) {
@@ -28,8 +32,4 @@ export function socialLinksFrom(places: typeof intro.places): SocialLink[] {
     })
   }
   return links
-}
-
-export function socialLinks() {
-  return socialLinksFrom(intro.places)
 }

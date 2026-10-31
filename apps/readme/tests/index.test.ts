@@ -1,13 +1,16 @@
 import { mkdtemp, readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 
-import { intro } from '@heyq02/shared'
+import { intro, skillIconsPicture } from '@heyq02/shared'
 import { expect, it } from 'vite-plus/test'
 
-it('builds the skills picture URL from skill icon slugs', async () => {
-  const { skillsPicture } = await import('../src/index.ts')
-  const { alt, src } = skillsPicture()
+import { renderReadme, writeReadme } from '../src/index.ts'
+
+const committedReadme = resolve(import.meta.dirname, '../../../README.md')
+
+it('builds the skills picture URL from skill icon slugs', () => {
+  const { alt, src } = skillIconsPicture(intro.skills)
 
   expect(alt).toContain('Vue')
   expect(alt).toContain('Docker')
@@ -16,7 +19,6 @@ it('builds the skills picture URL from skill icon slugs', async () => {
 })
 
 it('renders the README-shaped markdown', async () => {
-  const { renderReadme } = await import('../src/index.ts')
   const text = await renderReadme()
 
   expect(text).toContain(`# Hello, I'm ${intro.name}`)
@@ -34,8 +36,12 @@ it('renders the README-shaped markdown', async () => {
   expect(text).not.toContain('prefers-color-scheme')
 })
 
+it('matches the committed README', async () => {
+  const committed = await readFile(committedReadme, 'utf8')
+  expect(committed).toBe(`${(await renderReadme()).trimEnd()}\n`)
+})
+
 it('writes the rendered README to disk', async () => {
-  const { renderReadme, writeReadme } = await import('../src/index.ts')
   const dir = await mkdtemp(join(tmpdir(), 'heyq02-readme-'))
   const path = join(dir, 'README.md')
 

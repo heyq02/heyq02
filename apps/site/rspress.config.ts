@@ -5,7 +5,7 @@ import { pluginRss } from '@rspress/plugin-rss'
 import { pluginSitemap } from '@rspress/plugin-sitemap'
 
 import intro from '../../static/data/intro.json' with { type: 'json' }
-import { socialLinks } from './src/social-links.ts'
+import { socialLinksFrom } from './src/social-links.ts'
 
 const dir = import.meta.dirname
 
@@ -36,7 +36,7 @@ export default defineConfig({
   ],
   themeConfig: {
     darkMode: true,
-    socialLinks: socialLinks(),
+    socialLinks: socialLinksFrom(intro.places),
     // Copy Markdown / open-in-AI controls + injectLlmsHint for Agent discovery.
     llmsUI: {
       injectLlmsHint: true,

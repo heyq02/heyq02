@@ -1,9 +1,10 @@
 import { expect, it } from 'vite-plus/test'
 
-import { socialLinks, socialLinksFrom } from '../src/social-links.ts'
+import intro from '../../../static/data/intro.json' with { type: 'json' }
+import { socialLinksFrom } from '../src/social-links.ts'
 
 it('puts social links in the navbar list', () => {
-  const links = socialLinks()
+  const links = socialLinksFrom(intro.places)
   expect(links.find(link => link.icon === 'github')).toMatchObject({
     mode: 'link',
     content: 'https://github.com/heyq02'
@@ -24,7 +25,7 @@ it('puts social links in the navbar list', () => {
     '/wechat.jpg'
   ])
   expect(
-    socialLinksFrom([{ label: 'Unknown', href: 'https://example.com', detail: 'x' }]).some(
+    socialLinksFrom([{ label: 'Unknown', href: 'https://example.com' }]).some(
       link => link.content === 'https://example.com'
     )
   ).toBe(false)

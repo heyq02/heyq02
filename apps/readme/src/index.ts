@@ -7,12 +7,8 @@ import ejs from 'ejs'
 const out = resolve(import.meta.dirname, '../../../README.md')
 const templatePath = resolve(import.meta.dirname, 'README.ejs')
 
-export function skillsPicture() {
-  return skillIconsPicture(intro.skills)
-}
-
 export async function renderReadme(): Promise<string> {
-  const { alt, src } = skillsPicture()
+  const { alt, src } = skillIconsPicture(intro.skills)
   const template = await readFile(templatePath, 'utf8')
   return ejs.render(template, {
     name: intro.name,

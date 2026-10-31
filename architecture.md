@@ -44,5 +44,5 @@ flowchart LR
 
 - App Vite configs must not import `@heyq02/*`. `vp run` loads every app config before workspace packages are built. The site Rspress config reads `intro.json` for the title and description. Runtime code may import package exports (`shared`); site `cbuild` / `dev` wait on dependency builds when those packages expose a `build` task. The CLI does not import site or shared; it fetches the published README.
 - Relative intro links (a leading `/`) stay root-relative in the site navbar for Rspress `img` social links (WeChat). Surfaces that need absolute URLs resolve them at the call site.
-- The README and the site read identity facts through `shared` (or `intro.json` in configs). The CLI prints the published README; it does not read `intro.json` or `shared`.
+- The README and the site read identity facts through `shared`. Only the site Rspress config reads `intro.json` directly for shell meta. The CLI prints the published README; it does not read `intro.json` or `shared`.
 - Coverage thresholds in the root Vite Plus config are 95% statements, branches, functions, and lines for app and package source. Commits are conventional (`@commitlint/config-conventional`).
