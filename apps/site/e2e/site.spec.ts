@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test'
 import type { Locator } from '@playwright/test'
 
+import { normalizeDomSnapshot } from '../../../e2e/dom-snapshot.ts'
+
 async function assertCardChrome(locator: Locator) {
   await expect(locator).toBeVisible()
   await expect(locator).toHaveCSS('border-style', 'solid')
@@ -10,6 +12,10 @@ async function assertCardChrome(locator: Locator) {
   expect(background).not.toBe('rgba(0, 0, 0, 0)')
   const radius = await locator.evaluate(el => getComputedStyle(el).borderRadius)
   expect(radius).not.toBe('0px')
+}
+
+async function cardDomSnapshot(locator: Locator) {
+  return normalizeDomSnapshot(await locator.evaluate(el => el.outerHTML))
 }
 
 test.describe('site routes', () => {
@@ -30,11 +36,11 @@ test.describe('site routes', () => {
     await page.goto('/')
     const project = page.locator('a.profile-project').first()
     await assertCardChrome(project)
-    expect(await project.evaluate(el => el.outerHTML)).toMatchSnapshot('open-source-card.html')
+    expect(await cardDomSnapshot(project)).toMatchSnapshot('open-source-card.txt')
 
     await page.goto('/friends/')
     const friend = page.locator('a[data-card]').filter({ hasText: 'DIYgod' }).first()
     await assertCardChrome(friend)
-    expect(await friend.evaluate(el => el.outerHTML)).toMatchSnapshot('friend-card-diygod.html')
+    expect(await cardDomSnapshot(friend)).toMatchSnapshot('friend-card-diygod.txt')
   })
 })

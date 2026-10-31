@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test'
 
+import { normalizeDomSnapshot } from '../../../e2e/dom-snapshot.ts'
+
 test('theme e2e: ProfilePlay poke and FriendsPage card DOM', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('heading', { name: 'Ari He｜阿瑞' })).toBeVisible()
@@ -12,5 +14,7 @@ test('theme e2e: ProfilePlay poke and FriendsPage card DOM', async ({ page }) =>
   await expect(friend).toHaveCSS('border-style', 'solid')
   const padding = await friend.evaluate(el => getComputedStyle(el).padding)
   expect(padding).not.toBe('0px')
-  expect(await friend.evaluate(el => el.outerHTML)).toMatchSnapshot('theme-friend-card-diygod.html')
+  expect(normalizeDomSnapshot(await friend.evaluate(el => el.outerHTML))).toMatchSnapshot(
+    'theme-friend-card-diygod.txt'
+  )
 })

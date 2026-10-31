@@ -3,5 +3,10 @@
   "compilerOptions": {
     "types": ["node"]
   },
-  "include": ["vite.config.ts", "sponsorkit.config.ts", "playwright.config.ts"]
+  "include": [
+    "vite.config.ts",
+    "sponsorkit.config.ts",
+    "playwright.config.ts",
+    "e2e/dom-snapshot.ts"
+  ]
 }
