@@ -3,6 +3,18 @@
   width: auto;
 }
 
+.rp-home-footer {
+  margin-top: 0;
+  padding-block: 1.5rem;
+}
+
+.rp-home-footer__message {
+  font-family: var(--rp-font-family-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
 html.dark .rspress-logo {
   filter: invert(1);
 }

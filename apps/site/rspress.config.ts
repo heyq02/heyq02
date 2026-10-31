@@ -19,7 +19,10 @@ export default defineConfig({
   siteOrigin: intro.site,
   themeConfig: {
     darkMode: true,
-    socialLinks: socialLinks()
+    socialLinks: socialLinks(),
+    footer: {
+      message: `© ${new Date().getFullYear()} ${intro.name}`
+    }
   },
   i18nSource: {
     'overview.filterPlaceholderText': {
