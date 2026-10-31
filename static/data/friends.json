@@ -1,0 +1,32 @@
+{
+  "title": "Friends",
+  "kicker": "Links",
+  "intro": "Sites I enjoy reading and hanging out with.",
+  "exchange": {
+    "title": "Exchange",
+    "body": "Want to swap links? Add my site first, then email hello@heyq02.com with your name, URL, avatar (HTTPS, square), and a short blurb.",
+    "self": {
+      "name": "Yongqi He",
+      "blog": "heyq02",
+      "url": "https://heyq02.com",
+      "avatar": "https://avatars.githubusercontent.com/u/206218794?v=4",
+      "desc": "Full-stack engineer. Focused on AI that speeds up development and ships in real products."
+    }
+  },
+  "friends": [
+    {
+      "name": "DIYgod",
+      "blog": "Hi, DIYgod",
+      "url": "https://diygod.cc/",
+      "avatar": "https://avatars.githubusercontent.com/u/8266075?v=4",
+      "desc": "写代码是热爱，写到世界充满爱！"
+    },
+    {
+      "name": "YunYouJun",
+      "blog": "云游君的小站",
+      "url": "https://www.yunyoujun.cn/",
+      "avatar": "https://avatars.githubusercontent.com/u/25154432?v=4",
+      "desc": "希望能成为一个有趣的人。 希望能创造出可以成为他人回忆的事物。"
+    }
+  ]
+}

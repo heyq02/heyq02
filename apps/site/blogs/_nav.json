@@ -8,5 +8,10 @@
     "text": "Blog",
     "link": "/blog/",
     "activeMatch": "^/blog"
+  },
+  {
+    "text": "Friends",
+    "link": "/friends/",
+    "activeMatch": "^/friends"
   }
 ]
