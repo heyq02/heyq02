@@ -20,5 +20,13 @@ export default defineConfig({
   themeConfig: {
     darkMode: 'force-light',
     socialLinks: socialLinks()
-  }
+  },
+  i18nSource: {
+    'overview.filterPlaceholderText': {
+      en: 'Search posts'
+    },
+    'overview.filterNoResultText': {
+      en: 'No matching posts found'
+    }
+  } as Record<string, Record<string, string>>
 })

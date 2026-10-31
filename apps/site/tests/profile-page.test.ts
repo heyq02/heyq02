@@ -13,7 +13,15 @@ it('builds the English profile page from the intro', () => {
   expect(page.skills.src).toContain('vuedotjs')
   expect(page.skills.src).toContain('theme=light')
 
-  const home = renderHomeMdx()
+  const home = renderHomeMdx([
+    {
+      slug: 'demo',
+      href: '/blog/demo/',
+      title: 'Demo post',
+      description: 'A short note',
+      date: '2026-10-31'
+    }
+  ])
   expect(home).toContain('pageType: doc')
   expect(home).not.toContain('pageType: home')
   expect(home).toContain('rp-not-doc')
@@ -24,6 +32,9 @@ it('builds the English profile page from the intro', () => {
   expect(home).toContain('profile-avatar')
   expect(home).toContain('profile-project')
   expect(home).toContain('profile-writing')
+  expect(home).toContain('profile-post')
+  expect(home).toContain('Demo post')
+  expect(home).not.toContain('quiet shelf')
   expect(home).toContain('Yongqi He')
   expect(home).toContain('Full-stack engineer')
   expect(home).not.toContain('Bachelor')

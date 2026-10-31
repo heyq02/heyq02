@@ -355,6 +355,55 @@
   background: color-mix(in srgb, var(--profile-accent-soft) 55%, white);
 }
 
+.profile-posts {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.profile-post {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--profile-line);
+  border-radius: 14px;
+  background: color-mix(in srgb, white 78%, var(--profile-accent-soft));
+  background-image: none !important;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.profile-post:hover {
+  color: inherit;
+  border-color: color-mix(in srgb, var(--profile-accent) 45%, var(--profile-line));
+  background-color: white;
+  transform: translateY(-1px);
+}
+
+.profile-post-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.45rem 0.85rem;
+}
+
+.profile-post-title {
+  color: var(--profile-ink);
+  font-family: var(--profile-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.profile-post-summary {
+  color: var(--profile-muted);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
 @keyframes profile-rise {
   from {
     opacity: 0;

@@ -2,6 +2,8 @@ import { skillIconsPicture } from '@heyq02/brands'
 import { formatCount, intro } from '@heyq02/profile'
 import type { Intro } from '@heyq02/profile'
 
+import type { BlogPost } from './blog-posts.ts'
+
 export interface ProfilePage {
   name: string
   tags: string[]
@@ -54,8 +56,36 @@ function escapeHtml(value: string) {
     .replaceAll('"', '&quot;')
 }
 
+function renderWriting(posts: BlogPost[]): string {
+  if (posts.length === 0) {
+    return `<p className="profile-placeholder">Essays and notes will show up here. For now, the <a href="/blog/">blog</a> is a quiet shelf.</p>`
+  }
+
+  const items = posts
+    .map(post => {
+      const when = post.date
+        ? `<time className="profile-when" dateTime=${yamlString(post.date)}>${escapeHtml(post.date)}</time>`
+        : ''
+      const summary = post.description
+        ? `<span className="profile-post-summary">${escapeHtml(post.description)}</span>`
+        : ''
+      return `<a className="profile-post" href=${yamlString(post.href)}>
+<span className="profile-post-top">
+<span className="profile-post-title">${escapeHtml(post.title)}</span>
+${when}
+</span>
+${summary}
+</a>`
+    })
+    .join('\n\n')
+
+  return `<div className="profile-posts">
+${items}
+</div>`
+}
+
 /** Doc page of Rspress theme components, not the built-in homepage. */
-export function renderHomeMdx(): string {
+export function renderHomeMdx(posts: BlogPost[] = []): string {
   const page = profilePage()
   const tags = page.tags.map(tag => `<Badge text=${yamlString(tag)} />`).join(' ')
   const jobs = page.experiences
@@ -130,7 +160,7 @@ ${projects}
 <section className="profile-section profile-writing">
 <h2>Writing</h2>
 
-<p className="profile-placeholder">Essays and notes will show up here. For now, the <a href="/blog/">blog</a> is a quiet shelf.</p>
+${renderWriting(posts)}
 </section>
 
 </div>
