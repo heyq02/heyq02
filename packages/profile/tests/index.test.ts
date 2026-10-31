@@ -36,6 +36,9 @@ it('builds the full name with an optional role suffix', () => {
 
 it('exposes a convenience profile object', () => {
   expect(profile.name).toBe(intro.name)
+  expect(intro.name).toBe('Ari He｜阿瑞')
+  expect(intro.title).toBe(intro.name)
+  expect(intro.description.startsWith(`${intro.name}.`)).toBe(true)
   expect(profile.email).toBe(intro.contact.email)
   expect(profile.education[0]?.degree).toContain('Bachelor')
   expect(profile.skills.length).toBeGreaterThan(0)

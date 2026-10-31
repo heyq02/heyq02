@@ -1,3 +1,4 @@
+import { intro } from '@heyq02/profile'
 import { expect, it } from 'vite-plus/test'
 
 import { friendsData, friendsList } from '../src/friends-page.ts'
@@ -5,8 +6,9 @@ import { friendsData, friendsList } from '../src/friends-page.ts'
 it('loads friend links from the shared JSON', () => {
   expect(friendsData.title).toBe('Friends')
   expect(friendsData.kicker).toBe('Links')
-  expect(friendsData.exchange.self.url).toBe('https://heyq02.com')
-  expect(friendsData.exchange.self.avatar).toContain('avatars.githubusercontent.com')
+  expect(friendsData.exchange.self.name).toBe(intro.name)
+  expect(friendsData.exchange.self.url).toBe(intro.site)
+  expect(friendsData.exchange.self.avatar).toBe(intro.avatar)
 
   const friends = friendsList()
   expect(friends.length).toBeGreaterThan(0)
