@@ -11,22 +11,22 @@ export default defineConfig({
   root: resolve(dir, 'blogs'),
   outDir: resolve(dir, 'dist'),
   lang: 'zh',
-  title: 'Ari He',
+  title: intro.title,
   description: chinese.description,
   icon: '/favicon.ico',
-  logoText: 'Ari He',
+  logoText: intro.title,
   siteOrigin: 'https://heyq02.com',
   locales: [
     {
       lang: 'zh',
       label: '简体中文',
-      title: 'Ari He',
+      title: intro.title,
       description: chinese.description
     },
     {
       lang: 'en',
       label: 'English',
-      title: 'Ari He',
+      title: intro.title,
       description: intro.description
     }
   ]

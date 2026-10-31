@@ -2,12 +2,12 @@
 id: goal
 type: goal-and-requirements
 status: draft
-title: Ari He public identity
+title: Ari oxo public identity
 ---
 
 ## Goal
 
-This repo is Ari He's public identity: a bilingual profile site, a published terminal intro, and a generated GitHub README. Shared facts come from one English profile document. Chinese profile copy is one overlay on that document.
+This repo is Ari oxo's public identity: a bilingual profile site, a published terminal intro, and a generated GitHub README. Shared facts come from one English profile document. Chinese profile copy is one overlay on that document.
 
 ## Audience
 
