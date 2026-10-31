@@ -4,8 +4,8 @@ export default liangmi({
   test: {
     include: ['tests/**/*.test.ts'],
     coverage: {
-      include: ['src/**/*.ts', 'scripts/prepare.ts', 'scripts/absolutize-md-links.ts'],
-      exclude: ['scripts/build.ts', 'scripts/dev.ts'],
+      include: ['scripts/absolutize-md-links.ts'],
+      exclude: ['scripts/build.ts'],
       thresholds: {
         statements: 95,
         branches: 95,
@@ -21,7 +21,7 @@ export default liangmi({
         dependsOn: [{ task: 'build', from: 'dependencies' }]
       },
       dev: {
-        command: 'node --experimental-strip-types ./scripts/dev.ts',
+        command: 'pnpm exec rspress dev',
         cache: false,
         dependsOn: [{ task: 'build', from: 'dependencies' }]
       }

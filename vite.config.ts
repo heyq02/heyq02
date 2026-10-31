@@ -53,9 +53,7 @@ export default liangmi({
         '**/App.css',
         '**/*.css',
         '**/vite.config.ts',
-        'apps/site/scripts/build.ts',
-        'apps/site/scripts/dev.ts',
-        'apps/site/scripts/prepare-cli.ts'
+        'apps/site/scripts/build.ts'
       ],
       thresholds: {
         statements: 95,
