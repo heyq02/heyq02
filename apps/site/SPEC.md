@@ -29,7 +29,7 @@ The shell title and description come from the English intro. The homepage sets `
 - `rspress.config.ts` may import unscoped `rspress-plugin-*`, `@heyq02/shared` (`socialLinksFrom`), and resolve `themeDir` to the theme package path (`architecture`: app **Vite** configs must not import `@heyq02/*`).
 - Theme UI and friends data live in `rspress-theme-heyq02`. Homepage MDX, blog meta, pins, and public asset copy are regenerate via plugins before route scan.
 - `@rspress/plugin-rss` builds an Atom feed at `/rss/blog.xml` from `/blog/posts/`. Generation runs on `rspress build` only, not `dev`.
-- Agent-friendly build: `llms: true` (SSG-MD); `themeConfig.llmsUI`; `@rspress/plugin-sitemap` emits `/sitemap.xml`.
+- Agent-friendly build: `llms: true` (SSG-MD); `themeConfig.llmsUI` with `injectLlmsHint` and `viewOptions: false`; `@rspress/plugin-sitemap` emits `/sitemap.xml`.
 - `scripts/prepare.ts` remains a manual CLI (with `vp fmt`) that runs the same prepare steps as the plugins.
 - Favicons and the navbar signature use `static/signature/full-nobg` via `rspress-plugin-site-assets`. `CNAME` is copied into the Rspress output. `outDir` stays `dist`.
 

@@ -53,11 +53,10 @@ export default defineConfig({
   themeConfig: {
     darkMode: true,
     socialLinks: socialLinksFrom(intro.places),
-    // Copy Markdown / open-in-AI controls + injectLlmsHint for Agent discovery.
+    // Agent discovery hint only; no Copy Markdown / open-in-AI chrome.
     llmsUI: {
       injectLlmsHint: true,
-      viewOptions: ['markdownLink', 'chatgpt', 'claude'],
-      placement: 'title'
+      viewOptions: false
     },
     footer: {
       message: `© ${new Date().getFullYear()} ${intro.name} · <a href="https://icp.gov.moe/?keyword=20260869" target="_blank" rel="noopener noreferrer">萌ICP备20260869号</a>`
