@@ -3,6 +3,7 @@ import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 
 import { listBlogPosts, renderBlogMetaJson, renderPostsMetaJson } from '../src/blog-posts.ts'
+import { fetchPinnedProjects } from '../src/github-pinned.ts'
 import { renderHomeMdx } from '../src/profile-page.ts'
 
 /** Copy public assets and write the theme-component homepage. */
@@ -12,12 +13,13 @@ export async function prepareSite() {
   const blogDir = resolve(site, 'blogs/blog')
   const postsDir = resolve(blogDir, 'posts')
   const posts = await listBlogPosts(postsDir)
+  const projects = await fetchPinnedProjects()
   await mkdir(publicDir, { recursive: true })
   await mkdir(postsDir, { recursive: true })
   await cp(resolve(site, '../../static/signature/full-nobg.ico'), resolve(publicDir, 'favicon.ico'))
   await cp(resolve(site, '../../static/signature/full-nobg.png'), resolve(publicDir, 'favicon.png'))
   await cp(resolve(site, 'public/wechat.jpg'), resolve(publicDir, 'wechat.jpg'))
-  await writeFile(resolve(site, 'blogs/index.mdx'), renderHomeMdx(posts))
+  await writeFile(resolve(site, 'blogs/index.mdx'), renderHomeMdx(posts, projects))
   await writeFile(resolve(blogDir, '_meta.json'), renderBlogMetaJson())
   await writeFile(resolve(postsDir, '_meta.json'), renderPostsMetaJson(posts))
 }

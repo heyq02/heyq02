@@ -37,5 +37,5 @@ it('builds the full name with an optional role suffix', () => {
 it('exposes a terminal-oriented profile view', () => {
   expect(profile.name).toBe(intro.name)
   expect(profile.email).toBe(intro.contact.email)
-  expect(profile.projects[0]).not.toHaveProperty('languageColor')
+  expect(profile.skills.length).toBeGreaterThan(0)
 })

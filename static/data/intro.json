@@ -121,25 +121,5 @@
       "href": "https://www.docker.com/",
       "summary": "Open platform for building, shipping, and running apps"
     }
-  ],
-  "projects": [
-    {
-      "name": "jd-opensource/taro-ui",
-      "href": "https://github.com/jd-opensource/taro-ui",
-      "summary": "一款基于 Taro 框架开发的多端 UI 组件库",
-      "language": "TypeScript",
-      "languageColor": "#3178c6",
-      "stars": 4730,
-      "forks": 743
-    },
-    {
-      "name": "simpleicons.dev",
-      "href": "https://github.com/heyq02/simpleicons.dev",
-      "summary": "Showcase your skills on your GitHub readme or resumé with ease.",
-      "language": "TypeScript",
-      "languageColor": "#3178c6",
-      "stars": 171,
-      "forks": 0
-    }
   ]
 }

@@ -3,7 +3,7 @@
 import raw from '../../../static/data/intro.json' with { type: 'json' }
 import type { Intro, Place, Skill } from './types.ts'
 
-export type { Contact, Experience, Intro, Place, Project, Skill } from './types.ts'
+export type { Contact, Experience, Intro, Place, Skill } from './types.ts'
 
 export const intro = raw satisfies Intro
 
@@ -39,8 +39,7 @@ export const {
   description,
   contact,
   sections,
-  experiences,
-  projects
+  experiences
 } = intro
 
 export function formatCount(count: number): string {
@@ -66,6 +65,5 @@ export const profile = {
   site: intro.site,
   places,
   experiences: intro.experiences,
-  skills,
-  projects: intro.projects.map(({ languageColor: _languageColor, ...project }) => project)
+  skills
 }

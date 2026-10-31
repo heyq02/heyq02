@@ -3,25 +3,48 @@ import { expect, it } from 'vite-plus/test'
 import { profilePage, renderHomeMdx } from '../src/profile-page.ts'
 
 it('builds the English profile page from the intro', () => {
-  const page = profilePage()
+  const page = profilePage([
+    {
+      name: 'simpleicons.dev',
+      href: 'https://github.com/heyq02/simpleicons.dev',
+      summary: 'Showcase your skills',
+      language: 'TypeScript',
+      languageColor: '#3178c6',
+      stars: 172,
+      forks: 0
+    }
+  ])
   expect(page.name).toBe('Yongqi He')
   expect(page.tags).toEqual(['Full-stack engineer', 'Open-source enthusiast', 'Blogger on career'])
   expect(page.sections.experience).toBe('Experience')
   expect(page.experiences[0]?.company).toBe('JD.com, Inc.')
-  expect(page.projects[0]?.stars).toBe('4.7k')
+  expect(page.projects[0]?.stars).toBe('172')
   expect(page.skills.alt).toContain('Vue')
   expect(page.skills.src).toContain('vuedotjs')
   expect(page.skills.src).toContain('theme=light')
 
-  const home = renderHomeMdx([
-    {
-      slug: 'demo',
-      href: '/blog/demo/',
-      title: 'Demo post',
-      description: 'A short note',
-      date: '2026-10-31'
-    }
-  ])
+  const home = renderHomeMdx(
+    [
+      {
+        slug: 'demo',
+        href: '/blog/demo/',
+        title: 'Demo post',
+        description: 'A short note',
+        date: '2026-10-31'
+      }
+    ],
+    [
+      {
+        name: 'simpleicons.dev',
+        href: 'https://github.com/heyq02/simpleicons.dev',
+        summary: 'Showcase your skills',
+        language: 'TypeScript',
+        languageColor: '#3178c6',
+        stars: 172,
+        forks: 0
+      }
+    ]
+  )
   expect(home).toContain('pageType: doc')
   expect(home).not.toContain('pageType: home')
   expect(home).toContain('rp-not-doc')
@@ -40,5 +63,6 @@ it('builds the English profile page from the intro', () => {
   expect(home).not.toContain('Bachelor')
   expect(home).not.toContain('profile-bio')
   expect(home).not.toContain('Focused on AI')
-  expect(home).toContain('jd-opensource/taro-ui')
+  expect(home).toContain('simpleicons.dev')
+  expect(home).toContain('Showcase your skills')
 })

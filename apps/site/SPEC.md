@@ -22,7 +22,8 @@ The shell title and description come from the English intro.
 - Theme CSS styles the homepage column and hides doc chrome there. It does not replace `HomeLayout` or the blog layout.
 - The skills picture comes from `skillIconsPicture`. The site does not keep its own icon set.
 - Favicons and `CNAME` are copied into the Rspress output. `outDir` stays `dist` so the Pages job does not change its artifact path.
+- Open-source cards come from GitHub pinned repositories for the login in `intro.places` (GitHub). `prepare` calls the GraphQL API with `GITHUB_TOKEN` or `GH_TOKEN`.
 
 ## Limitations
 
-Markdown under `blogs/blog/posts` becomes a post page. `/blog/` is Rspress Overview (`overview: true`) with sidebar Overview first, then a Posts group. `prepare` regenerates the homepage Writing list plus `blog/_meta.json` and `blog/posts/_meta.json`.
+Markdown under `blogs/blog/posts` becomes a post page. `/blog/` is Rspress Overview (`overview: true`) with sidebar Overview first, then a Posts group. `prepare` regenerates the homepage Writing list, pinned project cards, plus `blog/_meta.json` and `blog/posts/_meta.json`. Without a GitHub token, prepare fails.

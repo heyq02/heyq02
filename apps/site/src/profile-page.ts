@@ -3,6 +3,7 @@ import { formatCount, intro } from '@heyq02/profile'
 import type { Intro } from '@heyq02/profile'
 
 import type { BlogPost } from './blog-posts.ts'
+import type { PinnedProject } from './github-pinned.ts'
 
 export interface ProfilePage {
   name: string
@@ -21,7 +22,7 @@ export interface ProfilePage {
   }[]
 }
 
-export function profilePage(): ProfilePage {
+export function profilePage(projects: PinnedProject[] = []): ProfilePage {
   return {
     name: intro.name,
     tags: intro.tags,
@@ -29,7 +30,7 @@ export function profilePage(): ProfilePage {
     sections: intro.sections,
     experiences: intro.experiences,
     skills: skillIconsPicture(intro.skills.map(skill => skill.name)),
-    projects: intro.projects.map(project => ({
+    projects: projects.map(project => ({
       name: project.name,
       href: project.href,
       summary: project.summary,
@@ -81,8 +82,8 @@ ${items}
 }
 
 /** Doc page of Rspress theme components, not the built-in homepage. */
-export function renderHomeMdx(posts: BlogPost[] = []): string {
-  const page = profilePage()
+export function renderHomeMdx(posts: BlogPost[] = [], pinned: PinnedProject[] = []): string {
+  const page = profilePage(pinned)
   const tags = page.tags
     .map(tag => `<Badge text=${yamlString(tag)} type="info" outline />`)
     .join(' ')

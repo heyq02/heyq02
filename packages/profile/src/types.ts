@@ -1,13 +1,3 @@
-export interface Project {
-  name: string
-  href: string
-  summary: string
-  language: string
-  languageColor: string
-  stars: number
-  forks: number
-}
-
 export interface Place {
   label: string
   href: string
@@ -55,5 +45,4 @@ export interface Intro {
   places: Place[]
   experiences: Experience[]
   skills: Skill[]
-  projects: Project[]
 }
