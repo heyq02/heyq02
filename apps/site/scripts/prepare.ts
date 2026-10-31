@@ -18,6 +18,10 @@ export async function prepareSite() {
   await mkdir(postsDir, { recursive: true })
   await cp(resolve(site, '../../static/signature/full-nobg.ico'), resolve(publicDir, 'favicon.ico'))
   await cp(resolve(site, '../../static/signature/full-nobg.png'), resolve(publicDir, 'favicon.png'))
+  await cp(
+    resolve(site, '../../static/signature/full-nobg.png'),
+    resolve(publicDir, 'signature.png')
+  )
   await cp(resolve(site, 'public/wechat.jpg'), resolve(publicDir, 'wechat.jpg'))
   await writeFile(resolve(site, 'blogs/index.mdx'), renderHomeMdx(posts, projects))
   await writeFile(resolve(blogDir, '_meta.json'), renderBlogMetaJson())

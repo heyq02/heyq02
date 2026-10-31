@@ -15,7 +15,7 @@ export default defineConfig({
   title: intro.title,
   description: intro.description,
   icon: '/favicon.ico',
-  logoText: intro.title,
+  logo: '/signature.png',
   siteOrigin: 'https://heyq02.com',
   themeConfig: {
     darkMode: true,
