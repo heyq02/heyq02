@@ -34,7 +34,7 @@ it('builds the full name with an optional role suffix', () => {
   expect(fullName(' · Engineer')).toBe(`${intro.name} · Engineer`)
 })
 
-it('exposes a terminal-oriented profile view', () => {
+it('exposes a convenience profile object', () => {
   expect(profile.name).toBe(intro.name)
   expect(profile.email).toBe(intro.contact.email)
   expect(profile.skills.length).toBeGreaterThan(0)

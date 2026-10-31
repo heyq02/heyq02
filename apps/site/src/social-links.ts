@@ -2,12 +2,12 @@ import type { SocialLink } from '@rspress/core'
 
 import intro from '../../../static/data/intro.json' with { type: 'json' }
 
-const navbarOrder = ['GitHub', 'Bluesky', 'Twitter', 'Bilibili', 'WeChat'] as const
+const navbarOrder = ['GitHub', 'Bluesky', 'X', 'Bilibili', 'WeChat'] as const
 
 const icons: Record<(typeof navbarOrder)[number], SocialLink['icon']> = {
   GitHub: 'github',
   Bluesky: 'bluesky',
-  Twitter: 'x',
+  X: 'x',
   Bilibili: 'bilibili',
   WeChat: 'wechat'
 }

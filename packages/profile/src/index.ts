@@ -54,7 +54,7 @@ export function fullName(role = ''): string {
 /** Convenience view of the same intro for tests and local inspection. */
 export const profile = {
   name: intro.name,
-  bio: `${intro.tags.join(' / ')}. ${intro.bio} ${intro.kaomoji}`,
+  bio: `${intro.tags.join(' · ')}. ${intro.bio} ${intro.kaomoji}`,
   phone: intro.contact.phone,
   email: intro.contact.email,
   site: intro.site,

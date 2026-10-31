@@ -33,7 +33,7 @@ flowchart LR
 
 ## Decisions
 
-- **English only.** The site is a GitHub Pages Rspress build in English. The homepage is a doc page of theme components, not the built-in homepage. There is no Chinese copy and no language switch. Owned by `site`.
+- **English chrome.** The site is a GitHub Pages Rspress build. The homepage is a doc page of theme components, not the built-in homepage. Site chrome is English-only; there is no language switch. Blog posts may be Chinese. Owned by `site`.
 - **Publish surface.** Today only the `heyq02` CLI is public on npm. The site deploys to GitHub Pages (`heyq02.com` via `CNAME`). `profile`, `brands`, and `readme` are private workspace packages. This is what the repo enforces now, not a product non-goal (`goal`).
 - **Tag releases.** A `v*` tag (or a manual run) publishes the CLI with npm OIDC trusted publishing (`vp pm stage publish`, provenance on). CLI publish does not use `--no-git-checks`; current Vite Plus rejects that flag on `stage publish`.
 - **Site deploy.** Every branch push, or a manual run, deploys the site to GitHub Pages. Tag pushes do not. The job checks out `main`, so a push to another branch does not publish that branch.
@@ -42,7 +42,7 @@ flowchart LR
 
 ## Invariants
 
-- App Vite configs must not import `@heyq02/*`. `vp run` loads every app config before workspace packages are built. The site Rspress config reads `intro.json` for the title and description. Runtime code imports package exports, and site `cbuild` / `dev` wait on dependency builds. The CLI no longer bundles `profile`.
+- App Vite configs must not import `@heyq02/*`. `vp run` loads every app config before workspace packages are built. The site Rspress config reads `intro.json` for the title and description. Runtime code imports package exports, and site `cbuild` / `dev` wait on dependency builds. The CLI does not import `profile`; it fetches the published README.
 - Relative profile links (a leading `/`) are absolutized against the site origin before a surface treats them as external URLs. `profile` does this for its exports. The site navbar keeps root-relative WeChat paths for Rspress `img` social links.
-- The README and the site read `intro.json`. The CLI prints that published README; it does not read `profile`.
+- The README and the site read `intro.json`. The CLI prints that published README; it does not read `intro.json` or `profile`.
 - Coverage thresholds in the root Vite Plus config are 95% statements, branches, functions, and lines for app and package source. Commits are conventional (`@commitlint/config-conventional`).

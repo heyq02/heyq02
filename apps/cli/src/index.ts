@@ -42,8 +42,7 @@ export async function isCliEntry(
   if (!entry) {
     return false
   }
-  // Npm/npx bins are symlinks under node_modules/.bin; argv keeps the link path
-  // While import.meta.url is the real file.
+  // Resolve `.bin` symlinks so argv matches import.meta.url after realpath.
   let resolved = entry
   try {
     resolved = await realpath(entry)

@@ -37,6 +37,7 @@ export const brandSlugs: Record<string, string> = {
   DeepSeek: 'deepseek',
   Claude: 'claude',
   Bluesky: 'bluesky',
+  X: 'x',
   Twitter: 'x',
   WeChat: 'wechat',
   Bilibili: 'bilibili'
