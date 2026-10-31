@@ -4,36 +4,8 @@ import { resolve } from 'node:path'
 import { brandSlug } from '@heyq02/brands'
 
 import intro from '../../../static/data/intro.json' with { type: 'json' }
-import chinese from '../../../static/data/intro.zh.json' with { type: 'json' }
 
 const out = resolve(import.meta.dirname, '../../../README.md')
-
-export function overlayExperiences<
-  T extends { company: string; end: string; points: string[] }
->(english: typeof intro.experiences, overlay: readonly T[]) {
-  if (overlay.length !== english.length) {
-    throw new Error(
-      `Chinese experiences (${overlay.length}) must match English (${english.length})`
-    )
-  }
-  return english.map((job, index) => {
-    const extra = overlay[index] as T
-    return { ...job, company: extra.company, end: extra.end, points: extra.points }
-  })
-}
-
-function experienceSection(
-  heading: string,
-  jobs: { company: string; href: string; start: string; end: string; points: string[] }[]
-) {
-  const experience = jobs
-    .map(job => {
-      const points = job.points.map(point => `- ${point}`).join('\n')
-      return `**[${job.company}](${job.href})** · ${job.start} – ${job.end}\n\n${points}`
-    })
-    .join('\n\n')
-  return `## ${heading}\n\n${experience}`
-}
 
 export function skillsPicture() {
   const named = intro.skills.flatMap(skill => {
@@ -47,25 +19,27 @@ export function skillsPicture() {
 }
 
 export function renderReadme(): string {
+  const experience = intro.experiences
+    .map(job => {
+      const points = job.points.map(point => `- ${point}`).join('\n')
+      return `**[${job.company}](${job.href})** · ${job.start} – ${job.end}\n\n${points}`
+    })
+    .join('\n\n')
+
   const { alt, base } = skillsPicture()
-  const picture = `<picture>
+
+  return `<h1>Hello, I'm ${intro.name}</h1>
+
+## ${intro.sections.experience}
+
+${experience}
+
+## ${intro.sections.skills}
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="${base}&theme=dark" />
   <img width="100%" alt="${alt}" src="${base}&theme=light" />
-</picture>`
-
-  return `<h1>你好，我是 ${intro.name}</h1>
-
-${experienceSection(chinese.sections.experience, overlayExperiences(intro.experiences, chinese.experiences))}
-
-## ${chinese.sections.skills}
-
-${picture}
-
----
-
-<h1>Hello, I'm ${intro.name}</h1>
-
-${experienceSection(intro.sections.experience, intro.experiences)}
+</picture>
 `
 }
 
