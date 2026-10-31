@@ -148,3 +148,12 @@ it('draws meteors and the background grid', () => {
   expect(stroke).toHaveBeenCalled()
   expect(createLinearGradient).toHaveBeenCalled()
 })
+
+it('ignores an unknown meteor direction', () => {
+  const meteor = createMeteor({ width: 100, height: 80 }, () => 0)
+  meteor.direction = 4 as Direction
+  updateMeteor(meteor)
+  drawMeteor(meteor, fakeCtx().ctx, '#12e5e5', '#ff351a')
+  resetMeteor(meteor, () => 1)
+  expect(meteor.direction).toBe(4)
+})

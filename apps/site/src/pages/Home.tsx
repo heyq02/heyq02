@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { brandIcon } from '../brands.ts'
 import { BrandIcon } from '../components/BrandIcon.tsx'
 import { SectionHeading } from '../components/SectionHeading.tsx'
-import { contentFor } from '../i18n/content.ts'
+import { content } from '../content.ts'
 import { Page } from '../layout.tsx'
 
 const typeDelay = 140
@@ -127,7 +127,7 @@ export function Home() {
     projects,
     sections,
     skills
-  } = contentFor('en')
+  } = content
 
   return (
     <Page kicker={kicker}>

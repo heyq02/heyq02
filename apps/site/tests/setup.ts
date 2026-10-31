@@ -38,8 +38,4 @@ export function mockMatchMedia(reducedMotion: boolean) {
 beforeEach(() => {
   applyDesignTokens()
   mockMatchMedia(true)
-  Object.defineProperty(globalThis.navigator, 'language', {
-    configurable: true,
-    get: () => 'zh-CN'
-  })
 })

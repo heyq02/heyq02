@@ -6,6 +6,17 @@ afterEach(() => {
   document.documentElement.removeAttribute('style')
 })
 
+it('uses the stylesheet fallback when the document is unavailable', async () => {
+  vi.resetModules()
+  vi.stubGlobal('getComputedStyle', null)
+
+  const motion = await import('../src/motion.ts')
+  expect(motion.easeOutQuart()).toEqual([0.16, 1, 0.3, 1])
+  expect(motion.riseDuration()).toBe(0.42)
+
+  vi.unstubAllGlobals()
+})
+
 it('reads ease and duration design tokens', async () => {
   const root = document.documentElement
   root.style.setProperty('--ease-out-quart', 'cubic-bezier(0.16, 1, 0.3, 1)')

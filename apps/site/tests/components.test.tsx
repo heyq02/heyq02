@@ -1,7 +1,6 @@
 /** @vitest-environment happy-dom */
 import { act, cleanup, render, screen } from '@testing-library/react'
 import type * as Motion from 'motion/react'
-import type { ReactNode } from 'react'
 import type { SimpleIcon } from 'simple-icons'
 import { afterEach, expect, it, vi } from 'vite-plus/test'
 
@@ -9,15 +8,10 @@ import * as brands from '../src/brands.ts'
 import { BrandIcon } from '../src/components/BrandIcon.tsx'
 import { Reveal } from '../src/components/Reveal.tsx'
 import { SectionHeading } from '../src/components/SectionHeading.tsx'
-import type * as Content from '../src/i18n/content.ts'
-import { LocaleProvider } from '../src/i18n/LocaleContext.tsx'
+import type * as Content from '../src/content.ts'
 import { Page } from '../src/layout.tsx'
 import { Home, markAbbr } from '../src/pages/Home.tsx'
 import { name } from '../src/site.ts'
-
-function renderWithLocale(ui: ReactNode) {
-  return render(<LocaleProvider>{ui}</LocaleProvider>)
-}
 
 afterEach(() => {
   cleanup()
@@ -52,7 +46,7 @@ it('renders section headings and abbreviation marks', () => {
 })
 
 it('renders Reveal and Page chrome', () => {
-  const { rerender } = renderWithLocale(
+  const { rerender } = render(
     <Page kicker='PROFILE'>
       <Reveal delay={0.1}>
         <p>hello</p>
@@ -65,11 +59,9 @@ it('renders Reveal and Page chrome', () => {
   expect(screen.getByRole('link', { name: 'Skip to content' }).getAttribute('href')).toBe('#main')
 
   rerender(
-    <LocaleProvider>
-      <Page>
-        <p>plain</p>
-      </Page>
-    </LocaleProvider>
+    <Page>
+      <p>plain</p>
+    </Page>
   )
   expect(screen.queryByText('PROFILE')).toBeNull()
   expect(screen.getByText('plain')).toBeTruthy()
@@ -96,7 +88,7 @@ it('animates Reveal when motion is allowed', async () => {
 })
 
 it('renders the home page profile sections', () => {
-  renderWithLocale(<Home />)
+  render(<Home />)
 
   expect(screen.getByRole('heading', { level: 1, name })).toBeTruthy()
   expect(screen.getByRole('heading', { name: 'Experience' })).toBeTruthy()
@@ -116,12 +108,7 @@ it('types the name when motion is allowed', async () => {
   vi.resetModules()
   vi.useFakeTimers()
   const { Home: AnimatedHome } = await import('../src/pages/Home.tsx')
-  const { LocaleProvider: AnimatedLocaleProvider } = await import('../src/i18n/LocaleContext.tsx')
-  render(
-    <AnimatedLocaleProvider>
-      <AnimatedHome />
-    </AnimatedLocaleProvider>
-  )
+  render(<AnimatedHome />)
 
   await act(async () => {
     await vi.advanceTimersByTimeAsync(140)
@@ -155,31 +142,26 @@ it('falls back when brand icons are missing', () => {
     label === 'Vue' || label === 'WeChat' ? undefined : original(label)
   )
 
-  renderWithLocale(<Home />)
+  render(<Home />)
   expect(screen.getByText('Vu')).toBeTruthy()
   expect(screen.queryByLabelText(/WeChat/)).toBeNull()
 })
 
 it('renders skill tooltips without a summary', async () => {
-  vi.doMock('../src/i18n/content.ts', async () => {
-    const actual = await vi.importActual<typeof Content>('../src/i18n/content.ts')
+  vi.doMock('../src/content.ts', async () => {
+    const actual = await vi.importActual<typeof Content>('../src/content.ts')
     return {
       ...actual,
-      contentFor: () => ({
-        ...actual.contentFor('en'),
+      content: {
+        ...actual.content,
         skills: [{ name: 'Vue', href: 'https://vuejs.org/', summary: '' }]
-      })
+      }
     }
   })
   vi.resetModules()
   const { Home: SummaryHome } = await import('../src/pages/Home.tsx')
-  const { LocaleProvider: SummaryLocaleProvider } = await import('../src/i18n/LocaleContext.tsx')
-  render(
-    <SummaryLocaleProvider>
-      <SummaryHome />
-    </SummaryLocaleProvider>
-  )
+  render(<SummaryHome />)
   expect(screen.getByLabelText('Vue')).toBeTruthy()
-  vi.doUnmock('../src/i18n/content.ts')
+  vi.doUnmock('../src/content.ts')
   vi.resetModules()
 })
