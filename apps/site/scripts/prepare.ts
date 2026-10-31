@@ -36,9 +36,8 @@ export async function prepareSite() {
   const projects = await fetchPinnedProjects()
   await mkdir(publicDir, { recursive: true })
   await mkdir(postsDir, { recursive: true })
-  await cp(resolve(site, '../../static/signature/favicon.ico'), resolve(publicDir, 'favicon.ico'))
-  await cp(resolve(site, '../../static/signature/favicon.png'), resolve(publicDir, 'favicon.png'))
-  await cp(resolve(site, '../../static/signature/icon-circle.png'), resolve(publicDir, 'icon.png'))
+  await cp(resolve(site, '../../static/signature/full-nobg.ico'), resolve(publicDir, 'favicon.ico'))
+  await cp(resolve(site, '../../static/signature/full-nobg.png'), resolve(publicDir, 'favicon.png'))
   await cp(
     resolve(site, '../../static/signature/full-nobg.png'),
     resolve(publicDir, 'signature.png')
