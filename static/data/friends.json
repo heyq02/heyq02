@@ -14,13 +14,13 @@
   },
   "friends": [
     {
-      "name": "Hi, DIYgod",
+      "name": "DIYgod",
       "url": "https://diygod.cc/",
       "avatar": "https://avatars.githubusercontent.com/u/8266075?v=4",
       "desc": "写代码是热爱，写到世界充满爱！"
     },
     {
-      "name": "云游君的小站",
+      "name": "云游君",
       "url": "https://www.yunyoujun.cn/",
       "avatar": "https://avatars.githubusercontent.com/u/25154432?v=4",
       "desc": "希望能成为一个有趣的人。 希望能创造出可以成为他人回忆的事物。"
@@ -46,6 +46,17 @@
       "url": "https://canmi.net/",
       "avatar": "https://avatars.githubusercontent.com/u/72544151?v=4",
       "desc": "Rust x TypeScript"
+    },
+    {
+      "name": "Jarvis",
+      "url": "https://jarvis636431.github.io/",
+      "avatar": "https://avatars.githubusercontent.com/u/112926380?v=4"
+    },
+    {
+      "name": "伍拾柒",
+      "url": "https://www.efu.me/",
+      "avatar": "https://avatars.githubusercontent.com/u/74389842?v=4",
+      "desc": "山不转路，我自转山。"
     }
   ]
 }
