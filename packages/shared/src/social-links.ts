@@ -1,13 +1,17 @@
-import type { SocialLink } from '@rspress/core'
-
 interface PlaceLike {
   label: string
   href: string
 }
 
+export interface SocialLinkItem {
+  icon: 'github' | 'bluesky' | 'x' | 'bilibili' | 'wechat'
+  mode: 'img' | 'link'
+  content: string
+}
+
 const navbarOrder = ['GitHub', 'Bluesky', 'X', 'Bilibili', 'WeChat'] as const
 
-const icons: Record<(typeof navbarOrder)[number], SocialLink['icon']> = {
+const icons: Record<(typeof navbarOrder)[number], SocialLinkItem['icon']> = {
   GitHub: 'github',
   Bluesky: 'bluesky',
   X: 'x',
@@ -16,9 +20,9 @@ const icons: Record<(typeof navbarOrder)[number], SocialLink['icon']> = {
 }
 
 /** Build navbar social links from intro places (caller supplies places; no JSON read here). */
-export function socialLinksFrom(places: readonly PlaceLike[]): SocialLink[] {
+export function socialLinksFrom(places: readonly PlaceLike[]): SocialLinkItem[] {
   const byLabel = new Map(places.map(place => [place.label, place]))
-  const links: SocialLink[] = []
+  const links: SocialLinkItem[] = []
   for (const label of navbarOrder) {
     const place = byLabel.get(label)
     if (!place) {

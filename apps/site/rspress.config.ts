@@ -1,5 +1,6 @@
 import { resolve } from 'node:path'
 
+import { socialLinksFrom } from '@heyq02/shared'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 import { pluginSitemap } from '@rspress/plugin-sitemap'
@@ -9,7 +10,6 @@ import { pluginProfile } from 'rspress-plugin-profile'
 import { pluginSiteAssets } from 'rspress-plugin-site-assets'
 
 import intro from '../../static/data/intro.json' with { type: 'json' }
-import { socialLinksFrom } from './src/social-links.ts'
 
 const dir = import.meta.dirname
 const siteRoot = dir

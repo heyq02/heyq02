@@ -1,7 +1,6 @@
-import { intro } from '@heyq02/shared'
 import { expect, it } from 'vite-plus/test'
 
-import { socialLinksFrom } from '../src/social-links.ts'
+import { intro, socialLinksFrom } from '../src/index.ts'
 
 it('puts social links in the navbar list', () => {
   const links = socialLinksFrom(intro.places)

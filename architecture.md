@@ -34,7 +34,7 @@ flowchart LR
   plugins --> site
 ```
 
-`intro.json` is the English SSOT. `shared` owns typed access (`intro`, `formatCount`) and the shared simpleicons.dev skills picture URL. The site is a thin composition of `rspress-theme-heyq02` plus small `rspress-plugin-*` packages (assets, GitHub pins, blog meta, profile MDX). The site and README import `shared` helpers; the site Rspress config still reads `intro.json` directly for the shell, because app configs must not import `@heyq02/*` (unscoped `rspress-plugin-*` imports are allowed). The CLI does not use `shared`; every invocation fetches the published README from GitHub `main` and renders it in the terminal (`cli`). Friend links live in `friends.json` and are consumed by the theme (`/friends/`). Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
+`intro.json` is the English SSOT. `shared` owns typed access (`intro`, `formatCount`), the shared simpleicons.dev skills picture URL, and navbar `socialLinksFrom`. The site is a thin composition of `rspress-theme-heyq02` plus small `rspress-plugin-*` packages (assets, GitHub pins, blog meta, profile MDX). The site and README import `shared` helpers; the site Rspress config still reads `intro.json` for shell meta and calls `socialLinksFrom` from `shared` (unscoped `rspress-plugin-*` imports are also allowed). App **Vite** configs must not import `@heyq02/*`. The CLI does not use `shared`; every invocation fetches the published README from GitHub `main` and renders it in the terminal (`cli`). Friend links live in `friends.json` and are consumed by the theme (`/friends/`). Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
 
 ## Decisions
 
@@ -48,7 +48,7 @@ flowchart LR
 
 ## Invariants
 
-- App Vite configs must not import `@heyq02/*`. `vp run` loads every app config before workspace packages are built. The site Rspress config reads `intro.json` for the title and description and may import unscoped `rspress-plugin-*`. Runtime code may import package exports (`shared`, theme/plugins); site `cbuild` / `dev` wait on dependency builds when those packages expose a `build` task. The CLI does not import site or shared; it fetches the published README.
+- App Vite configs must not import `@heyq02/*`. `vp run` loads every app config before workspace packages are built. The site Rspress config reads `intro.json` for the title and description and may import `@heyq02/shared` plus unscoped `rspress-plugin-*`. Runtime code may import package exports (`shared`, theme/plugins); site `cbuild` / `dev` wait on dependency builds when those packages expose a `build` task. The CLI does not import site or shared; it fetches the published README.
 - Relative intro links (a leading `/`) stay root-relative in the site navbar for Rspress `img` social links (WeChat). Surfaces that need absolute URLs resolve them at the call site.
 - The README and the site read identity facts through `shared`. Only the site Rspress config reads `intro.json` directly for shell meta. The CLI prints the published README; it does not read `intro.json` or `shared`.
 - Coverage thresholds in the root Vite Plus config are 95% statements, branches, functions, and lines for app and package source. Every `apps/*` and `packages/*` workspace owns unit tests and an independent `e2e/` suite (`pnpm test` / `pnpm test:e2e`). Commits are conventional (`@commitlint/config-conventional`).
