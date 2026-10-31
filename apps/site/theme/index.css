@@ -1,18 +1,120 @@
-@media (min-width: 960px) {
-  .rp-doc-layout__container {
-    justify-content: center;
-  }
+.rp-doc-layout__container:has(.profile) {
+  justify-content: center;
+}
 
-  .rp-doc-layout__sidebar-placeholder,
-  .rp-doc-layout__outline-placeholder {
-    flex: 1 1 0;
-    width: auto;
-  }
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__sidebar-placeholder,
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__outline,
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__outline-placeholder {
+  display: none;
+  width: 0;
+  min-width: 0;
+  margin: 0;
+}
+
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__doc {
+  flex: 0 1 40rem;
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+.rp-doc-layout__container:has(.profile) .rp-doc-layout__doc-container {
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+.profile {
+  color: var(--rp-c-text-1);
 }
 
 .profile-avatar {
+  display: block;
   width: 96px;
   height: 96px;
+  margin-inline: auto;
   border-radius: 999px;
   object-fit: cover;
+}
+
+.profile h1 {
+  margin: 1rem 0 0.75rem;
+  font-size: 2rem;
+  font-weight: 650;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.profile h2 {
+  margin: 2.75rem 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.profile h3 {
+  margin: 1.5rem 0 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.profile h2 + h3 {
+  margin-top: 0;
+}
+
+.profile a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.profile a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.profile-meta,
+.profile-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.profile-meta {
+  justify-content: center;
+}
+
+.profile-bio {
+  max-width: 34rem;
+  margin: 1.1rem auto 0;
+  color: var(--rp-c-text-2);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.profile-when {
+  margin: 0 0 0.6rem;
+  color: var(--rp-c-text-2);
+  font-size: 0.9rem;
+}
+
+.profile ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--rp-c-text-2);
+  line-height: 1.7;
+}
+
+.profile li + li {
+  margin-top: 0.35rem;
+}
+
+.profile-skills {
+  margin: 0;
+}
+
+.profile-skills img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

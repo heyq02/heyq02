@@ -51,16 +51,16 @@ function yamlString(value: string) {
 /** Doc page of Rspress theme components, not the built-in homepage. */
 export function renderHomeMdx(): string {
   const page = profilePage()
-  const steps = page.experiences
+  const jobs = page.experiences
     .map(job => {
       const points = job.points.map(point => `- ${point}`).join('\n')
-      return `### [${job.company}](${job.href})\n\n${job.start} – ${job.end}\n\n${points}`
+      return `### [${job.company}](${job.href})\n\n<p className="profile-when">${job.start} – ${job.end}</p>\n\n${points}`
     })
     .join('\n\n')
   const projects = page.projects
     .map(
       project =>
-        `### [${project.name}](${project.href})\n\n${project.summary}\n\n<Badge text=${yamlString(project.language)} /> <Badge text=${yamlString(`${project.stars} stars`)} /> <Badge text=${yamlString(`${project.forks} forks`)} />`
+        `### [${project.name}](${project.href})\n\n${project.summary}\n\n<p className="profile-counts"><Badge text=${yamlString(project.language)} /> <Badge text=${yamlString(`${project.stars} stars`)} /> <Badge text=${yamlString(`${project.forks} forks`)} /></p>`
     )
     .join('\n\n')
 
@@ -72,32 +72,30 @@ outline: false
 footer: false
 ---
 
-import { Badge, Callout, Steps } from '@rspress/core/theme'
+import { Badge } from '@rspress/core/theme'
+
+<div className="profile rp-not-doc">
 
 <img className="profile-avatar" src=${yamlString(page.avatar)} alt="" width="96" height="96" />
 
 # ${page.name}
 
-<Badge text=${yamlString(page.degree)} /> <Badge text=${yamlString(page.city)} />
+<p className="profile-meta"><Badge text=${yamlString(page.degree)} /> <Badge text=${yamlString(page.city)} /></p>
 
-<Callout type="info">
-${page.bio} ${page.kaomoji}
-</Callout>
+<p className="profile-bio">${page.bio} ${page.kaomoji}</p>
 
 ## ${page.sections.experience}
 
-<Steps>
-
-${steps}
-
-</Steps>
+${jobs}
 
 ## ${page.sections.skills}
 
-![${page.skills.alt}](${page.skills.src})
+<p className="profile-skills">![${page.skills.alt}](${page.skills.src})</p>
 
 ## ${page.sections.openSource}
 
 ${projects}
+
+</div>
 `
 }
