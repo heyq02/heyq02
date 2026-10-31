@@ -14,14 +14,14 @@
     "directory": "apps/cli"
   },
   "bin": {
-    "heyq02": "./dist/readme.js"
+    "heyq02": "./dist/main.js"
   },
   "files": [
     "dist"
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/readme.js",
+    ".": "./dist/main.js",
     "./package.json": "./package.json"
   },
   "publishConfig": {

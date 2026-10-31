@@ -3,7 +3,7 @@ import { liangmi } from '@liangmi/vp-config'
 export default liangmi({
   pack: {
     entry: {
-      readme: './src/readme.ts'
+      main: './src/main.ts'
     },
     // Prefer .js under "type": "module" instead of fixed .mjs/.d.mts.
     fixedExtension: false
