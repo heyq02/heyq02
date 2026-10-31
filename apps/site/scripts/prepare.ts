@@ -1,14 +1,19 @@
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 
-import { prepareSite } from '@heyq02/site-content'
+import { prepareBlogMeta } from 'rspress-plugin-blog-meta'
+import { prepareProfile } from 'rspress-plugin-profile'
+import { prepareSiteAssets } from 'rspress-plugin-site-assets'
 
 /** Manual / CI helper to refresh committed generated snapshots with formatting. */
 export async function prepareSiteCli() {
-  await prepareSite({
-    siteRoot: resolve(import.meta.dirname, '..'),
+  const siteRoot = resolve(import.meta.dirname, '..')
+  await prepareSiteAssets({ siteRoot })
+  await prepareBlogMeta({ siteRoot, format: true })
+  await prepareProfile({
+    siteRoot,
     format: true,
-    profilePlayModule: '../theme/ProfilePlay'
+    profilePlayModule: '@theme/ProfilePlay'
   })
 }
 

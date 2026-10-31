@@ -1,0 +1,23 @@
+{
+  "name": "rspress-plugin-site-assets",
+  "version": "0.4.2",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "vp run ctest"
+  },
+  "devDependencies": {
+    "@liangmi/vp-config": "catalog:",
+    "@rspress/core": "^2.0.23",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "@rspress/core": "^2.0.23"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "rspress-plugin-github-pins",
+  "version": "0.4.2",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "vp run ctest"
+  },
+  "dependencies": {
+    "@heyq02/shared": "workspace:*",
+    "@octokit/graphql": "^9.0.5"
+  },
+  "devDependencies": {
+    "@liangmi/vp-config": "catalog:",
+    "@rspress/core": "^2.0.23",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "@rspress/core": "^2.0.23"
+  }
+}

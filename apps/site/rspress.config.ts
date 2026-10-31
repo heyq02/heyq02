@@ -3,17 +3,22 @@ import { resolve } from 'node:path'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 import { pluginSitemap } from '@rspress/plugin-sitemap'
+import { pluginBlogMeta } from 'rspress-plugin-blog-meta'
+import { pluginGithubPins } from 'rspress-plugin-github-pins'
+import { pluginProfile } from 'rspress-plugin-profile'
+import { pluginSiteAssets } from 'rspress-plugin-site-assets'
 
 import intro from '../../static/data/intro.json' with { type: 'json' }
-import { pluginPrepareSite } from './src/plugin-prepare-site.ts'
 import { socialLinksFrom } from './src/social-links.ts'
 
 const dir = import.meta.dirname
+const siteRoot = dir
+const themeDir = resolve(dir, '../../packages/rspress-theme-heyq02')
 
 export default defineConfig({
   root: resolve(dir, 'blogs'),
   outDir: resolve(dir, 'dist'),
-  themeDir: resolve(dir, 'theme'),
+  themeDir,
   lang: 'en',
   title: intro.title,
   description: intro.description,
@@ -23,8 +28,10 @@ export default defineConfig({
   // SSG-MD: per-page .md, llms.txt, llms-full.txt (Agent-friendly docs).
   llms: true,
   plugins: [
-    // Regenerates index.mdx + blog _meta.json before route scan (no stock plugin for this).
-    pluginPrepareSite(),
+    pluginSiteAssets({ siteRoot }),
+    pluginGithubPins(),
+    pluginBlogMeta({ siteRoot }),
+    pluginProfile({ siteRoot, profilePlayModule: '@theme/ProfilePlay' }),
     pluginSitemap(),
     pluginRss({
       feed: {

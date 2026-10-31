@@ -4,30 +4,35 @@ type: module-design
 status: draft
 title: Profile site
 parent: architecture
-depends-on: [shared, site-content]
+depends-on:
+  [
+    shared,
+    rspress-theme-heyq02,
+    rspress-plugin-site-assets,
+    rspress-plugin-github-pins,
+    rspress-plugin-blog-meta,
+    rspress-plugin-profile
+  ]
 ---
 
 ## Responsibility
 
-English Rspress site for heyq02.com. The blog and navbar stay on Rspress. Nav `activeMatch` patterns are exclusive (`Home` only `/` or `/index.html`; `Blog` / `Friends` only their path prefixes) so Home does not stay lit on other pages. The homepage is a normal doc page, not the built-in hero and not a second page design. It opts out of doc chrome so it does not look like a guide: no info callout, no numbered steps, no heading anchors, and no external-link marks. Role tags and project counts stay badges. The skills picture matches the README. Theme CSS turns that page into a left-aligned identity column using Rspress `--rp-*` tokens: education above timeline experience, linked project/post rows, and a writing list from `blogs/blog/posts`. Empty side columns stay hidden on this page only. Light personality beats: pokeable avatar + cycling `moods`, console greeting, and shuffled Friends order on each visit.
+English Rspress site for heyq02.com. Thin composition root: content under `blogs/`, `rspress.config.ts` wiring, social-link helper, and deploy scripts. Behavior lives in `rspress-theme-heyq02` and `rspress-plugin-*` packages.
 
-GitHub, Bluesky, X, Bilibili, and WeChat sit only in the navbar. Email and phone do not. The homepage does not repeat them. Site chrome is English-only; there is no language switch. The navbar appearance switch follows the system theme by default.
+Nav `activeMatch` patterns are exclusive (`Home` only `/` or `/index.html`; `Blog` / `Friends` only their path prefixes). Site chrome is English-only; there is no language switch. The navbar appearance switch follows the system theme by default.
 
-The shell title and description come from the English intro. The homepage sets `titleSuffix` from the first tag plus `bio` so the tab reads `Ari He｜阿瑞 - Full-stack engineer, focused on…` instead of duplicating the site title.
+The shell title and description come from the English intro. The homepage sets `titleSuffix` from the first tag plus `bio` so the tab reads `Ari He｜阿瑞 - Full-stack engineer, focused on…`.
 
 ## Boundary
 
-- May depend on `shared`, `site-content`, and `@rspress/core`, and may read `static/data/intro.json` / `friends.json`. Must not read `readme` or `cli`, and must not render `sponsorkit/` art.
-- Typed intro and `skillIconsPicture` come from `shared`. Homepage/blog prepare (posts, pins, MDX, `_meta.json`) comes from `site-content`. Theme imports intro through `src/site-intro.ts` because Rspress theme cannot resolve `@heyq02/*` bare imports. `rspress.config.ts` may still read `intro.json` for HTML meta and pass `intro.places` into `socialLinksFrom` (`architecture`: app configs must not import `@heyq02/*`).
-- Theme CSS styles the homepage column and hides doc chrome there. A custom `Layout` mounts Rspress `HomeFooter` on every page via the `bottom` slot (built-in home footer only runs for `pageType: home`). The footer message is copyright plus the 萌ICP备 link. Homepage frontmatter still sets `footer: false` so doc edit/prev-next chrome stays off.
-- The skills picture comes from `skillIconsPicture` and each skill's `icon` slug. The site does not keep its own icon set.
-- Favicons and the navbar signature both use `static/signature/full-nobg` (`favicon.ico` / `favicon.png` / `signature.png`). That PNG is sized for the navbar; the ICO keeps 16/32/48. `CNAME` is copied into the Rspress output. `outDir` stays `dist` so the Pages job does not change its artifact path.
-- Open source cards come from GitHub pinned repositories for the login in `intro.places` (GitHub). Generation lives in `site-content` (`@octokit/graphql`, `GITHUB_TOKEN` or `GH_TOKEN`, 10s timeout).
-- There is no stock Rspress plugin for generating the homepage / blog `_meta.json`. The site keeps a thin `pluginPrepareSite` shim in the Rspress `config` hook (before route scan) that calls `prepareSiteOnce` from `site-content` with the site root and ProfilePlay import path. `scripts/prepare.ts` remains a manual CLI (with `vp fmt`) for refreshing committed snapshots.
-- `@rspress/plugin-rss` builds an Atom feed at `/rss/blog.xml` from `/blog/posts/` (needs `date` or `published_at` in frontmatter). Generation runs on `rspress build` only, not `dev`.
-- Agent-friendly build: `llms: true` (SSG-MD) emits per-route `.md`, `/llms.txt`, and `/llms-full.txt`; `themeConfig.llmsUI` injects the llms.txt hint and Markdown copy controls; `@rspress/plugin-sitemap` emits `/sitemap.xml`. GitHub Pages does not content-negotiate `Accept: text/markdown`; Agents should use the `.md` URLs from `llms.txt`.
-- `/friends/` is a doc page (no sidebar/outline) that reads `static/data/friends.json` through `FriendsPage`. Cards show avatar, name, and optional blurb (DIYgod / YunYouJun style); browser visits shuffle the grid order. Exchange `self` name/url/avatar and the `{email}` in the body come from intro; JSON only keeps the blurb and friend list. Add or remove friends only in that JSON.
+- May depend on `shared`, the rspress theme/plugin packages, and `@rspress/core`, and may read `static/data/intro.json` for config meta. Must not read `readme` or `cli`, and must not render `sponsorkit/` art.
+- `rspress.config.ts` may import unscoped `rspress-plugin-*` / resolve `themeDir` to the theme package path (`architecture`: app configs must not import `@heyq02/*`).
+- Theme UI and friends data live in `rspress-theme-heyq02`. Homepage MDX, blog meta, pins, and public asset copy are regenerate via plugins before route scan.
+- `@rspress/plugin-rss` builds an Atom feed at `/rss/blog.xml` from `/blog/posts/`. Generation runs on `rspress build` only, not `dev`.
+- Agent-friendly build: `llms: true` (SSG-MD); `themeConfig.llmsUI`; `@rspress/plugin-sitemap` emits `/sitemap.xml`.
+- `scripts/prepare.ts` remains a manual CLI (with `vp fmt`) that runs the same prepare steps as the plugins.
+- Favicons and the navbar signature use `static/signature/full-nobg` via `rspress-plugin-site-assets`. `CNAME` is copied into the Rspress output. `outDir` stays `dist`.
 
 ## Limitations
 
-Markdown under `blogs/blog/posts` becomes a post page. `/blog/` is Rspress Overview (`overview: true`) with sidebar Overview first, then a Posts group. Overview card titles and h2s come only from generated `blog/posts/_meta.json` (`label`, `overviewHeaders: [2]`), not post frontmatter. Every `rspress dev` / `build` regenerates homepage MDX, Writing list, pinned cards, and blog meta via `pluginPrepareSite` before routes are scanned. Without a GitHub token that step fails.
+Markdown under `blogs/blog/posts` becomes a post page. `/blog/` is Rspress Overview with sidebar Overview first, then Posts. Every `rspress dev` / `build` regenerates homepage MDX, Writing list, pinned cards, blog meta, and public assets via plugins before routes are scanned. Without a GitHub token the pins/profile step fails.

@@ -11,7 +11,7 @@ export default liangmi({
     { ignores: ['sponsorkit/**'] },
     // Motion JSX props are intentionally ephemeral objects and callbacks.
     {
-      files: ['apps/site/**'],
+      files: ['apps/site/**', 'packages/rspress-theme-heyq02/**'],
       rules: {
         'react-perf/jsx-no-new-object-as-prop': 'off',
         'react-perf/jsx-no-new-function-as-prop': 'off'
@@ -30,7 +30,11 @@ export default liangmi({
   },
   test: {
     coverage: {
-      include: ['apps/*/src/**/*.{ts,tsx}', 'packages/*/src/**/*.ts'],
+      include: [
+        'apps/*/src/**/*.{ts,tsx}',
+        'packages/*/src/**/*.ts',
+        'packages/rspress-theme-heyq02/friends-page.ts'
+      ],
       exclude: ['**/cli.ts', '**/types.ts', '**/env.d.ts', '**/index.tsx', '**/App.css'],
       thresholds: {
         statements: 95,
