@@ -5,9 +5,6 @@ import { expect, it, vi } from 'vite-plus/test'
 vi.mock('rspress-plugin-site-assets', () => ({
   pluginSiteAssets: () => ({ name: 'rspress-plugin-site-assets' })
 }))
-vi.mock('rspress-plugin-github-pins', () => ({
-  pluginGithubPins: () => ({ name: 'rspress-plugin-github-pins' })
-}))
 vi.mock('rspress-plugin-blog-meta', () => ({
   pluginBlogMeta: () => ({ name: 'rspress-plugin-blog-meta' })
 }))
@@ -40,11 +37,11 @@ it('wires themeDir and compose plugins without side effects', async () => {
   expect(names).toEqual(
     expect.arrayContaining([
       'rspress-plugin-site-assets',
-      'rspress-plugin-github-pins',
       'rspress-plugin-blog-meta',
       'rspress-plugin-profile',
       '@rspress/plugin-rss'
     ])
   )
+  expect(names).not.toContain('rspress-plugin-github-pins')
   expect(names).not.toContain('@rspress/plugin-sitemap')
 })

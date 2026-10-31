@@ -9,7 +9,6 @@ depends-on:
     shared,
     rspress-theme-heyq02,
     rspress-plugin-site-assets,
-    rspress-plugin-github-pins,
     rspress-plugin-blog-meta,
     rspress-plugin-profile
   ]
@@ -27,10 +26,10 @@ The shell title and description come from the English intro. The homepage sets `
 
 - May depend on `shared`, the rspress theme/plugin packages, and `@rspress/core`, and may read `static/data/intro.json` for config meta. Must not read `readme` or `cli`, and must not render `sponsorkit/` art.
 - `rspress.config.ts` may import unscoped `rspress-plugin-*`, `@heyq02/shared` (`socialLinksFrom`), and resolve `themeDir` to the theme package path (`architecture`: app **Vite** configs must not import `@heyq02/*`).
-- Theme UI and friends data live in `rspress-theme-heyq02`. Homepage MDX, blog meta, pins, and public asset copy are regenerate via plugins before route scan.
+- Theme UI and friends data live in `rspress-theme-heyq02`. Homepage MDX, blog meta, pins (via profile → github-pins library), and public asset copy regenerate via plugins before route scan; `blogs/index.mdx` and blog `_meta.json` are gitignored.
 - `@rspress/plugin-rss` builds an Atom feed at `/rss/blog.xml` from `/blog/posts/`. Generation runs on `rspress build` only, not `dev`.
 - Agent-friendly build: `llms` with custom `llmsTxt`; `webMcp: true`; `themeConfig.llmsUI` (`injectLlmsHint`, `viewOptions: false`); theme `chrome.css` hides `.rp-llms-container`; `fallbackHeadingTitle: false`; Open Graph/`head` meta; `editLink` + `lastUpdated`; Friends page includes a `Prompt` for link-exchange drafts; built-in `sitemap: true` emits `/sitemap.xml`.
-- GitHub Pages cannot honor `Accept: text/markdown`; agents use explicit `.md` / `llms.txt` URLs instead. `scripts/build.ts` post-processes SSG-MD via `absolutize-md-links.ts` and copies `CNAME`.
+- GitHub Pages cannot honor `Accept: text/markdown`; agents use explicit `.md` / `llms.txt` URLs instead. `scripts/build.ts` post-processes SSG-MD via `absolutize-md-links.ts` and copies `CNAME` (e2e uses the same path).
 - Favicons and the navbar signature use `static/signature/full-nobg` via `rspress-plugin-site-assets`. `outDir` stays `dist`.
 
 ## Limitations

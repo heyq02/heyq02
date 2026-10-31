@@ -5,7 +5,7 @@ export default liangmi({
     environment: 'jsdom',
     include: ['tests/**/*.{test.ts,test.tsx}'],
     coverage: {
-      include: ['*.tsx', 'friends-page.ts', 'ui-classes.ts'],
+      include: ['*.tsx', 'friends-page.ts'],
       exclude: ['env.d.ts', 'css.d.ts', 'vite.config.ts'],
       thresholds: {
         statements: 95,

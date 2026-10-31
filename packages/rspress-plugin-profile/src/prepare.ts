@@ -1,13 +1,12 @@
 import { resolve } from 'node:path'
 
+import { formatGenerated, writeIfChanged } from '@heyq02/shared/fs'
+import type { SpawnFn } from '@heyq02/shared/fs'
 import { listBlogPosts } from 'rspress-plugin-blog-meta'
 import { fetchPinnedProjects } from 'rspress-plugin-github-pins'
 import type { PinnedProject } from 'rspress-plugin-github-pins'
 
-import { formatGenerated } from './format-generated.ts'
-import type { SpawnFn } from './format-generated.ts'
 import { renderHomeMdx } from './profile-page.ts'
-import { writeIfChanged } from './write-if-changed.ts'
 
 export interface PrepareProfileOptions {
   siteRoot: string

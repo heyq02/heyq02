@@ -1,10 +1,10 @@
 import { mkdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
+import { formatGenerated, writeIfChanged } from '@heyq02/shared/fs'
+import type { SpawnFn } from '@heyq02/shared/fs'
+
 import { listBlogPosts, renderBlogMetaJson, renderPostsMetaJson } from './blog-posts.ts'
-import { formatGenerated } from './format-generated.ts'
-import type { SpawnFn } from './format-generated.ts'
-import { writeIfChanged } from './write-if-changed.ts'
 
 export interface PrepareBlogMetaOptions {
   siteRoot: string

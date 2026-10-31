@@ -1,12 +1,6 @@
 import { expect, it } from 'vite-plus/test'
 
-import {
-  fetchPinnedProjects,
-  githubLogin,
-  githubToken,
-  mapPinnedRepository,
-  pluginGithubPins
-} from '../src/index.ts'
+import { fetchPinnedProjects, githubLogin, githubToken, mapPinnedRepository } from '../src/index.ts'
 import type { GraphqlClient } from '../src/index.ts'
 
 const pinnedData = {
@@ -29,10 +23,6 @@ const pinnedData = {
 }
 
 const graphqlOk = (() => Promise.resolve(pinnedData)) as unknown as GraphqlClient
-
-it('exposes a marker Rspress plugin', () => {
-  expect(pluginGithubPins().name).toBe('rspress-plugin-github-pins')
-})
 
 it('reads the GitHub login from intro places', () => {
   expect(githubLogin()).toBe('heyq02')

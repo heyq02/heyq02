@@ -46,14 +46,12 @@ export default liangmi({
         'packages/rspress-theme-heyq02/friends-page.ts'
       ],
       exclude: [
-        '**/cli.ts',
-        '**/types.ts',
         '**/env.d.ts',
         '**/css.d.ts',
-        '**/App.css',
         '**/*.css',
         '**/vite.config.ts',
-        'apps/site/scripts/build.ts'
+        'apps/site/scripts/build.ts',
+        'packages/rspress-theme-heyq02/ui-classes.ts'
       ],
       thresholds: {
         statements: 95,

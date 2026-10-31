@@ -35,7 +35,6 @@ jobs:
           cache: true
 
       - name: Build site
-        # vp run (not bare `vp build`) so cbuild dependsOn builds workspace packages first.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: vp run @heyq02/site#cbuild

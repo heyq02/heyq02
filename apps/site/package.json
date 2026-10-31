@@ -15,7 +15,6 @@
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "rspress-plugin-blog-meta": "workspace:*",
-    "rspress-plugin-github-pins": "workspace:*",
     "rspress-plugin-profile": "workspace:*",
     "rspress-plugin-site-assets": "workspace:*",
     "rspress-theme-heyq02": "workspace:*"

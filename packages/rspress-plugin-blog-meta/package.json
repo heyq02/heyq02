@@ -10,6 +10,9 @@
   "scripts": {
     "test": "vp run ctest"
   },
+  "dependencies": {
+    "@heyq02/shared": "workspace:*"
+  },
   "devDependencies": {
     "@liangmi/vp-config": "catalog:",
     "@rspress/core": "^2.1.0-beta.2",

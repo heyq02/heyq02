@@ -17,13 +17,11 @@ export default liangmi({
   run: {
     tasks: {
       cbuild: {
-        command: 'node --experimental-strip-types ./scripts/build.ts',
-        dependsOn: [{ task: 'build', from: 'dependencies' }]
+        command: 'node --experimental-strip-types ./scripts/build.ts'
       },
       dev: {
         command: 'pnpm exec rspress dev',
-        cache: false,
-        dependsOn: [{ task: 'build', from: 'dependencies' }]
+        cache: false
       }
     }
   }

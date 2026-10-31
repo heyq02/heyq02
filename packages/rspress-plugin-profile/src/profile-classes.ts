@@ -1,17 +1,17 @@
-/** Shared Tailwind + marker class strings for generated homepage MDX.
- * Keep in sync with `rspress-theme-heyq02/ui-classes.ts`.
- */
+/** Marker-prefixed class strings for generated homepage MDX (tokens from `@heyq02/shared`). */
 
-export const profileRoot =
-  'profile rp-not-doc font-[family-name:var(--rp-font-family-base)] text-[var(--rp-c-text-1)]'
+import { siteCardChrome, siteEmpty, sitePageRoot, siteWhen } from '@heyq02/shared'
 
-export const profileH2 =
-  "m-0 mb-4 text-[1.25rem] font-[650] leading-[1.3] text-[var(--rp-c-text-1)] after:mt-2 after:block after:h-0.5 after:w-8 after:bg-[var(--rp-c-brand)] after:content-['']"
+export {
+  siteCardName as profileCardName,
+  siteCardSummary as profileCardSummary,
+  siteH2 as profileH2,
+  siteLink as profileLink
+} from '@heyq02/shared'
+
+export const profileRoot = `profile ${sitePageRoot}`
 
 export const profileH3 = 'm-0 text-[1.05rem] font-semibold leading-[1.4]'
-
-export const profileLink =
-  'font-semibold text-inherit no-underline hover:text-[var(--rp-c-link)] hover:underline hover:underline-offset-[3px]'
 
 export const profileList =
   'mt-[0.7rem] mb-0 list-disc pl-5 leading-[1.7] text-[var(--rp-c-text-2)] [&_li+li]:mt-[0.35rem]'
@@ -20,8 +20,7 @@ export const profileSection = 'profile-section mt-10'
 
 export const profileWriting = `${profileSection} profile-writing`
 
-export const profileWhen =
-  'profile-when m-0 whitespace-nowrap font-[family-name:var(--rp-font-family-mono)] text-[0.78rem] font-medium text-[var(--rp-c-text-2)]'
+export const profileWhen = `profile-when ${siteWhen}`
 
 export const profileJob =
   'profile-job relative pl-[1.1rem] before:absolute before:top-[0.35rem] before:bottom-[0.2rem] before:left-0 before:w-0.5 before:rounded-full before:bg-[var(--rp-c-brand)] [&+.profile-job]:mt-6'
@@ -32,20 +31,11 @@ export const profileJobHead =
 export const profileEduMeta =
   'profile-edu-meta mt-[0.55rem] mb-0 text-[0.95rem] leading-relaxed text-[var(--rp-c-text-2)]'
 
-const siteCardChrome =
-  'rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline'
-
 export const profileCard = `profile-project group grid gap-[0.55rem] ${siteCardChrome} [&_.rp-badge]:no-underline`
 
 export const profilePost = `profile-post group grid gap-[0.55rem] ${siteCardChrome} [&_.rp-badge]:no-underline`
 
 export const profileCardTop = 'grid gap-2'
-
-export const profileCardName =
-  'text-[1.02rem] font-[650] leading-[1.35] text-[var(--rp-c-text-1)] transition-colors duration-200 group-hover:text-[var(--rp-c-brand)]'
-
-export const profileCardSummary =
-  'text-[0.95rem] font-normal leading-relaxed text-[var(--rp-c-text-2)]'
 
 export const profileCounts = 'profile-counts m-0 flex flex-wrap gap-[0.35rem]'
 
@@ -55,5 +45,4 @@ export const profileSkills = 'profile-skills m-0'
 
 export const profileSkillsImg = 'block h-auto max-w-full dark:invert'
 
-export const profilePlaceholder =
-  'profile-placeholder m-0 rounded-[var(--rp-radius-small)] border border-dashed border-[var(--rp-c-divider)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 leading-[1.7] text-[var(--rp-c-text-2)]'
+export const profilePlaceholder = `profile-placeholder ${siteEmpty}`

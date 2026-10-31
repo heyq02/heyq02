@@ -23,7 +23,6 @@
     "@liangmi/vp-config": "catalog:",
     "@playwright/test": "^1.56.0",
     "@types/node": "catalog:",
-    "@vitejs/plugin-react": "^5.0.0",
     "@vitest/coverage-v8": "5.0.5",
     "bumpp": "^12.3.0",
     "serve": "^14.2.4",

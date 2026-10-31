@@ -5,7 +5,6 @@ import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 import { pluginBlogMeta } from 'rspress-plugin-blog-meta'
-import { pluginGithubPins } from 'rspress-plugin-github-pins'
 import { pluginProfile } from 'rspress-plugin-profile'
 import { pluginSiteAssets } from 'rspress-plugin-site-assets'
 
@@ -78,9 +77,8 @@ ${pages || '- (no additional pages yet)'}
   ],
   plugins: [
     pluginSiteAssets({ siteRoot }),
-    pluginGithubPins(),
     pluginBlogMeta({ siteRoot }),
-    pluginProfile({ siteRoot, profilePlayModule: '@theme/ProfilePlay' }),
+    pluginProfile({ siteRoot }),
     pluginRss({
       feed: {
         id: 'blog',

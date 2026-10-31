@@ -4,15 +4,16 @@ type: module-design
 status: draft
 title: Blog sidebar meta plugin
 parent: architecture
+depends-on: [shared]
 ---
 
 ## Responsibility
 
-Scan Markdown posts and write Rspress sidebar `_meta.json` for `/blog/` and `/blog/posts/`. Also exports `listBlogPosts` for the profile homepage Writing section.
+Scan Markdown posts and write Rspress sidebar `_meta.json` for `/blog/` and `/blog/posts/`. Also exports `listBlogPosts` for the profile homepage Writing section. Written `_meta.json` files are gitignored site outputs.
 
 ## Boundary
 
-- No dependency on `shared` or GitHub. Must not render homepage MDX.
+- May depend on `@heyq02/shared` (`formatGenerated`, `writeIfChanged`). Must not render homepage MDX or call GitHub.
 
 ## Testing
 

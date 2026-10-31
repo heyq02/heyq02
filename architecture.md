@@ -21,6 +21,7 @@ flowchart LR
   shared["shared"]
   theme["rspress-theme-heyq02"]
   plugins["rspress-plugin-*"]
+  pins["rspress-plugin-github-pins"]
   site["site"]
   readme["readme"]
   json --> shared
@@ -28,27 +29,29 @@ flowchart LR
   friends --> theme
   shared --> theme
   shared --> plugins
+  shared --> pins
   shared --> site
   shared --> readme
+  pins --> plugins
   theme --> site
   plugins --> site
 ```
 
-`intro.json` is the English SSOT. `shared` owns typed access (`intro`, `formatCount`), the shared simpleicons.dev skills picture URL, and navbar `socialLinksFrom`. The site is a thin composition of `rspress-theme-heyq02` plus small `rspress-plugin-*` packages (assets, GitHub pins, blog meta, profile MDX). The site and README import `shared` helpers; the site Rspress config still reads `intro.json` for shell meta and calls `socialLinksFrom` from `shared` (unscoped `rspress-plugin-*` imports are also allowed). App **Vite** configs must not import `@heyq02/*`. The CLI does not use `shared`; every invocation fetches the published README from GitHub `main` and renders it in the terminal (`cli`). Friend links live in `friends.json` and are consumed by the theme (`/friends/`). Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
+`intro.json` is the English SSOT. `shared` owns typed access (`intro`, `formatCount`), the shared simpleicons.dev skills picture URL, navbar `socialLinksFrom`, site UI tokens, and generated-file helpers. The site is a thin composition of `rspress-theme-heyq02` plus `rspress-plugin-*` packages (assets, blog meta, profile MDX). GitHub pins are a library used by the profile plugin, not a registered site plugin. The site and README import `shared` helpers; the site Rspress config still reads `intro.json` for shell meta and calls `socialLinksFrom` from `shared` (unscoped `rspress-plugin-*` imports are also allowed). App **Vite** configs must not import `@heyq02/*`. The CLI does not use `shared`; every invocation fetches the published README from GitHub `main` and renders it in the terminal (`cli`). Friend links live in `friends.json` and are consumed by the theme (`/friends/`). Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app. `static/` also holds a non-site asset library (selfies, signature variants) that code does not import.
 
 ## Decisions
 
 - **English chrome.** The site is a GitHub Pages Rspress build. The homepage is a doc page of theme components, not the built-in homepage. Site chrome is English-only; there is no language switch. Blog posts may be Chinese. Owned by `site` composition + theme/plugins. Styling is Tailwind CSS v4 via `@rsbuild/plugin-tailwindcss` on the site; the theme keeps only thin Rspress chrome CSS. Agent surface: SSG-MD + custom `llms.txt` and WebMCP (Rspress ≥2.1); agents fetch `.md` / `llms.txt` directly (no Accept negotiation on GitHub Pages).
 - **Publish surface.** Today only the `heyq02` CLI is public on npm. The site deploys to GitHub Pages (`heyq02.com` via `CNAME`). Theme/plugin packages and `shared` / `readme` are private workspace packages. This is what the repo enforces now, not a product non-goal (`goal`).
 - **Tag releases.** A `v*` tag (or a manual run) publishes the CLI with npm OIDC trusted publishing (`vp pm stage publish`, provenance on). CLI publish does not use `--no-git-checks`; current Vite Plus rejects that flag on `stage publish`.
-- **CI.** Pull requests and pushes to `main` run `vp run ccheck` and `vp test`.
-- **Site deploy.** Pushes to `main`, or a manual run, deploy the site to GitHub Pages. Tag pushes do not. Site `rspress` regenerates homepage MDX, blog `_meta.json`, and public assets through `rspress-plugin-*` `config` hooks before route scan.
+- **CI.** Pull requests and pushes to `main` run `vp run ccheck`, `vp test`, and `pnpm test:e2e`.
+- **Site deploy.** Pushes to `main`, or a manual run, deploy the site to GitHub Pages. Tag pushes do not. Site `rspress` regenerates homepage MDX, blog `_meta.json`, and public assets through `rspress-plugin-*` `config` hooks before route scan (those outputs are gitignored).
 - **README refresh.** Pushes to `main`, or a manual run, regenerate `README.md` on that ref. Tag pushes do not. The bot commit includes `[ci skip]`, so it does not start another run.
 - **Sponsor art is generated, not displayed.** A daily job, plus pushes to `main`, runs SponsorKit (GitHub and Ko-fi tokens) and commits `sponsorkit/**`. Lint and format ignore that tree. Confirmed: not a visitor-facing surface.
 
 ## Invariants
 
-- App Vite configs must not import `@heyq02/*`. `vp run` loads every app config before workspace packages are built. The site Rspress config reads `intro.json` for the title and description and may import `@heyq02/shared` plus unscoped `rspress-plugin-*`. Runtime code may import package exports (`shared`, theme/plugins); site `cbuild` / `dev` wait on dependency builds when those packages expose a `build` task. The CLI does not import site or shared; it fetches the published README.
+- App Vite configs must not import `@heyq02/*`. `vp run` loads every app config before workspace packages are built. The site Rspress config reads `intro.json` for the title and description and may import `@heyq02/shared` plus unscoped `rspress-plugin-*`. Runtime code may import package exports (`shared`, theme/plugins). The CLI does not import site or shared; it fetches the published README.
 - Relative intro links (a leading `/`) stay root-relative in the site navbar for Rspress `img` social links (WeChat). Surfaces that need absolute URLs resolve them at the call site.
 - The README and the site read identity facts through `shared`. Only the site Rspress config reads `intro.json` directly for shell meta. The CLI prints the published README; it does not read `intro.json` or `shared`.
 - Coverage thresholds in the root Vite Plus config are 95% statements, branches, functions, and lines for app and package source. Every `apps/*` and `packages/*` workspace owns unit tests and an independent `e2e/` suite (`pnpm test` / `pnpm test:e2e`). Commits are conventional (`@commitlint/config-conventional`).
