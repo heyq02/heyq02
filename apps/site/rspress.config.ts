@@ -3,6 +3,7 @@ import { resolve } from 'node:path'
 import { defineConfig } from '@rspress/core'
 
 import intro from '../../static/data/intro.json' with { type: 'json' }
+import { socialLinks } from './src/social-links.ts'
 
 const dir = import.meta.dirname
 
@@ -14,5 +15,8 @@ export default defineConfig({
   description: intro.description,
   icon: '/favicon.ico',
   logoText: intro.title,
-  siteOrigin: 'https://heyq02.com'
+  siteOrigin: 'https://heyq02.com',
+  themeConfig: {
+    socialLinks: socialLinks()
+  }
 })
