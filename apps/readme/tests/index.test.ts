@@ -7,7 +7,7 @@ import { expect, it, vi } from 'vite-plus/test'
 import intro from '../../../static/data/intro.json' with { type: 'json' }
 
 it('builds the skills picture URL from brand slugs', async () => {
-  const { skillsPicture } = await import('../src/generate.ts')
+  const { skillsPicture } = await import('../src/index.ts')
   const { alt, base } = skillsPicture()
 
   expect(alt).toContain('Vue')
@@ -19,7 +19,7 @@ it('builds the skills picture URL from brand slugs', async () => {
 it('keeps a usable picture URL when no skill has a brand slug', async () => {
   vi.resetModules()
   vi.doMock('@heyq02/brands', () => ({ brandSlug: () => {} }))
-  const { skillsPicture } = await import('../src/generate.ts')
+  const { skillsPicture } = await import('../src/index.ts')
   const { alt, base } = skillsPicture()
   expect(alt).toBe('')
   expect(base).toContain('perline=1')
@@ -28,7 +28,7 @@ it('keeps a usable picture URL when no skill has a brand slug', async () => {
 })
 
 it('renders the README-shaped markdown', async () => {
-  const { renderReadme } = await import('../src/generate.ts')
+  const { renderReadme } = await import('../src/index.ts')
   const text = await renderReadme()
 
   expect(text).toContain(`# Hello, I'm ${intro.name}`)
@@ -45,7 +45,7 @@ it('renders the README-shaped markdown', async () => {
 })
 
 it('writes the rendered README to disk', async () => {
-  const { renderReadme, writeReadme } = await import('../src/generate.ts')
+  const { renderReadme, writeReadme } = await import('../src/index.ts')
   const dir = await mkdtemp(join(tmpdir(), 'heyq02-readme-'))
   const path = join(dir, 'README.md')
 
