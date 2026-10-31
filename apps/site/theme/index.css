@@ -39,18 +39,13 @@
 .profile-hero {
   display: grid;
   grid-template-columns: 7rem 1fr;
-  grid-template-areas:
-    'avatar copy'
-    '. bio';
   column-gap: 1.25rem;
-  row-gap: 0.9rem;
   align-items: center;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--rp-c-divider-light);
 }
 
 .profile-avatar {
-  grid-area: avatar;
   display: block;
   width: 7rem;
   height: 7rem;
@@ -61,7 +56,6 @@
 }
 
 .profile-hero-copy {
-  grid-area: copy;
   min-width: 0;
 }
 
@@ -92,22 +86,9 @@
   margin: 0.65rem 0 0;
 }
 
-.profile-bio {
-  grid-area: bio;
-  max-width: 36rem;
-  margin: 0;
-  color: var(--rp-c-text-2);
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
 @media (max-width: 639px) {
   .profile-hero {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      'avatar'
-      'copy'
-      'bio';
     justify-items: start;
   }
 }
@@ -191,9 +172,10 @@
 
 .profile ul {
   margin: 0.7rem 0 0;
-  padding-left: 1.1rem;
+  padding-left: 1.25rem;
   color: var(--rp-c-text-2);
   line-height: 1.7;
+  list-style: disc;
 }
 
 .profile li + li {

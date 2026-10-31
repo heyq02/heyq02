@@ -38,5 +38,7 @@ it('builds the English profile page from the intro', () => {
   expect(home).toContain('Yongqi He')
   expect(home).toContain('Full-stack engineer')
   expect(home).not.toContain('Bachelor')
+  expect(home).not.toContain('profile-bio')
+  expect(home).not.toContain('Focused on AI')
   expect(home).toContain('jd-opensource/taro-ui')
 })

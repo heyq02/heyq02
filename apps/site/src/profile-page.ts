@@ -7,8 +7,6 @@ import type { BlogPost } from './blog-posts.ts'
 export interface ProfilePage {
   name: string
   tags: string[]
-  bio: string
-  kaomoji: string
   avatar: string
   sections: Intro['sections']
   experiences: Intro['experiences']
@@ -27,8 +25,6 @@ export function profilePage(): ProfilePage {
   return {
     name: intro.name,
     tags: intro.tags,
-    bio: intro.bio,
-    kaomoji: intro.kaomoji,
     avatar: intro.avatar,
     sections: intro.sections,
     experiences: intro.experiences,
@@ -136,7 +132,6 @@ import { Badge } from '@rspress/core/theme'
 <h1>${escapeHtml(page.name)}</h1>
 <p className="profile-meta">${tags}</p>
 </div>
-<div className="profile-bio">${escapeHtml(page.bio)} ${escapeHtml(page.kaomoji)}</div>
 </header>
 
 <section className="profile-section">
