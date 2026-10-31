@@ -43,6 +43,13 @@ export function profilePage(projects: PinnedProject[] = []): ProfilePage {
   }
 }
 
+/** Browser tab suffix after the name (`Yongqi He - …`). */
+export function documentTitleSuffix(page: Pick<ProfilePage, 'tags'> = profilePage()): string {
+  const role = page.tags[0] ?? ''
+  const focus = intro.bio.replace(/^./, char => char.toLowerCase())
+  return `${role}, ${focus}.`
+}
+
 function yamlString(value: string) {
   return JSON.stringify(value)
 }
@@ -119,6 +126,7 @@ ${points}
   return `---
 pageType: doc
 title: ${yamlString(page.name)}
+titleSuffix: ${yamlString(documentTitleSuffix(page))}
 sidebar: false
 outline: false
 footer: false

@@ -1,6 +1,6 @@
 import { expect, it } from 'vite-plus/test'
 
-import { profilePage, renderHomeMdx } from '../src/profile-page.ts'
+import { documentTitleSuffix, profilePage, renderHomeMdx } from '../src/profile-page.ts'
 
 it('builds the English profile page from the intro', () => {
   const page = profilePage([
@@ -63,7 +63,12 @@ it('builds the English profile page from the intro', () => {
   expect(home).toContain('Full-stack engineer')
   expect(home).not.toContain('Bachelor')
   expect(home).not.toContain('profile-bio')
-  expect(home).not.toContain('Focused on AI')
+  expect(documentTitleSuffix()).toBe(
+    'Full-stack engineer, focused on AI that speeds up development and ships in real products.'
+  )
+  expect(home).toContain(
+    'titleSuffix: "Full-stack engineer, focused on AI that speeds up development and ships in real products."'
+  )
   expect(home).toContain('simpleicons.dev')
   expect(home).toContain('Showcase your skills')
   expect(home).toContain('>Writing</h2>')
