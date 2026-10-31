@@ -38,10 +38,8 @@ export const brandSlugs: Record<string, string> = {
   Claude: 'claude',
   Bluesky: 'bluesky',
   Twitter: 'x',
-  Xiaohongshu: 'xiaohongshu',
   WeChat: 'wechat',
   Bilibili: 'bilibili',
-  CSDN: 'csdn',
   Juejin: 'juejin'
 }
 

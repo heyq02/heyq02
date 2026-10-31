@@ -20,9 +20,7 @@ it('puts contact links in the navbar social list', () => {
     'https://github.com/heyq02',
     'https://bsky.app/profile/heyq02.com',
     'https://x.com/heyq02',
-    'https://www.xiaohongshu.com/user/profile/6abdfdbb0000000013023000',
     'https://space.bilibili.com/3493273159075938',
-    'https://blog.csdn.net/m0_66681776',
     '/wechat.jpg'
   ])
   expect(
