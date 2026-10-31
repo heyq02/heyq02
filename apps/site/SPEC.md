@@ -19,7 +19,7 @@ The shell title and description come from the English intro.
 
 - May depend on `profile`, `brands`, and `@rspress/core`. Must not read `readme` or `cli`, and must not render `sponsorkit/` art.
 - `rspress.config.ts` may read `intro.json` for HTML meta. It must not import `@heyq02/*` (`architecture`). Runtime code imports package exports.
-- Theme CSS styles the homepage column and hides doc chrome there. A custom `Layout` mounts Rspress `HomeFooter` on every page via the `bottom` slot (built-in home footer only runs for `pageType: home`). Homepage frontmatter still sets `footer: false` so doc edit/prev-next chrome stays off.
+- Theme CSS styles the homepage column and hides doc chrome there. A custom `Layout` mounts Rspress `HomeFooter` on every page via the `bottom` slot (built-in home footer only runs for `pageType: home`). The footer message is copyright plus the 萌ICP备 link. Homepage frontmatter still sets `footer: false` so doc edit/prev-next chrome stays off.
 - The skills picture comes from `skillIconsPicture` and each skill's `icon` slug. The site does not keep its own icon set.
 - Favicons and the navbar signature both use `static/signature/full-nobg` (`favicon.ico` / `favicon.png` / `signature.png`). That PNG is sized for the navbar; the ICO keeps 16/32/48. `CNAME` is copied into the Rspress output. `outDir` stays `dist` so the Pages job does not change its artifact path.
 - Open source cards come from GitHub pinned repositories for the login in `intro.places` (GitHub). `prepare` uses `@octokit/graphql` with `GITHUB_TOKEN` or `GH_TOKEN` and a 10s timeout.

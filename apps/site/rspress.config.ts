@@ -21,7 +21,7 @@ export default defineConfig({
     darkMode: true,
     socialLinks: socialLinks(),
     footer: {
-      message: `© ${new Date().getFullYear()} ${intro.name}`
+      message: `© ${new Date().getFullYear()} ${intro.name} · <a href="https://icp.gov.moe/?keyword=20260869" target="_blank" rel="noopener noreferrer">萌ICP备20260869号</a>`
     }
   },
   i18nSource: {
