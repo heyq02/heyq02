@@ -2,16 +2,16 @@
   {
     "text": "Home",
     "link": "/",
-    "activeMatch": "^/$"
+    "activeMatch": "^/(?:index\\.html)?$"
   },
   {
     "text": "Blog",
     "link": "/blog/",
-    "activeMatch": "^/blog"
+    "activeMatch": "^/blog(?:/|\\.html|$)"
   },
   {
     "text": "Friends",
     "link": "/friends/",
-    "activeMatch": "^/friends"
+    "activeMatch": "^/friends(?:/|\\.html|$)"
   }
 ]
