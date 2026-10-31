@@ -12,13 +12,14 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
   expect(posts.map(post => post.slug)).toEqual([
     'webpack-import-path-variables',
     'multi-mcp-aggregation-nginx-vs-express',
+    'weixin-homepage-ui-recreation',
     'macos-disable-ime-switching'
   ])
   expect(posts[0]?.href).toBe('/blog/posts/webpack-import-path-variables/')
   expect(posts[0]?.title).toContain('Webpack')
   expect(posts[0]?.date).toBe('2026-11-01')
-  expect(posts[1]?.slug).toBe('multi-mcp-aggregation-nginx-vs-express')
-  expect(posts[2]?.date).toBe('2026-10-31')
+  expect(posts[2]?.slug).toBe('weixin-homepage-ui-recreation')
+  expect(posts[3]?.date).toBe('2026-10-31')
 })
 
 it('renders blog sidebar meta with Overview first', () => {
