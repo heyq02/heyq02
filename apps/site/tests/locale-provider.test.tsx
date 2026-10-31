@@ -45,6 +45,27 @@ it('provides Chinese content by default and switches via the control', () => {
   expect(document.documentElement.lang).toBe('en')
 })
 
+it('follows an English browser until a hash names Chinese', () => {
+  Object.defineProperty(globalThis.navigator, 'language', {
+    configurable: true,
+    get: () => 'en-US'
+  })
+  render(
+    <LocaleProvider>
+      <LocaleProbe />
+    </LocaleProvider>
+  )
+  expect(screen.getByText('en:Experience')).toBeTruthy()
+  expect(globalThis.location.hash).toBe('')
+
+  act(() => {
+    globalThis.location.hash = '#lang=zh'
+    globalThis.dispatchEvent(new Event('hashchange'))
+  })
+
+  expect(screen.getByText('zh:经历')).toBeTruthy()
+})
+
 it('reads the initial locale from the hash', () => {
   globalThis.location.hash = '#lang=zh'
   render(

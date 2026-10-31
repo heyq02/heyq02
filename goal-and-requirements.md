@@ -15,7 +15,7 @@ People who open heyq02.com, run the `heyq02` command, or read the GitHub profile
 
 ## Capabilities
 
-- **Site.** heyq02.com is a single-page profile: identity, experience, skills, and open-source projects. It opens in Chinese. English is available from the top-right control, which writes the URL hash. The browser's language is ignored.
+- **Site.** heyq02.com is a single-page profile: identity, experience, skills, and open-source projects. With no language hash, it follows the browser's primary language: Chinese for `zh` and `zh-*`, English otherwise. The top-right control writes a language hash, which wins on that URL.
 - **CLI.** The published `heyq02` package prints an English terminal introduction, plus help and version.
 - **README.** A generator writes the GitHub profile README (greeting, experience, skill icons) from the English profile document.
 - **Sponsor art.** A scheduled job regenerates sponsor images and commits them in the repo. They are not shown on the site or in the README.

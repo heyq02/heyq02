@@ -3,8 +3,8 @@ import { afterEach, expect, it } from 'vite-plus/test'
 
 import { contentFor } from '../src/i18n/content.ts'
 import {
-  DEFAULT_LOCALE,
   localeFromHash,
+  localeFromLanguage,
   localeHashValue,
   localeHtmlLang,
   parseLocaleFromHash,
@@ -15,13 +15,18 @@ afterEach(() => {
   globalThis.location.hash = ''
 })
 
-it('defaults to Chinese and maps html lang', () => {
-  expect(DEFAULT_LOCALE).toBe('zh')
+it('uses the browser language when the hash names no locale', () => {
   expect(localeHtmlLang.en).toBe('en')
   expect(localeHtmlLang.zh).toBe('zh-CN')
-  expect(localeFromHash('')).toBe('zh')
-  expect(localeFromHash('#')).toBe('zh')
-  expect(localeFromHash('#foo=bar')).toBe('zh')
+  expect(localeFromLanguage('zh-CN')).toBe('zh')
+  expect(localeFromLanguage('zh-TW')).toBe('zh')
+  expect(localeFromLanguage('en-US')).toBe('en')
+  expect(localeFromLanguage('')).toBe('en')
+  expect(localeFromHash('', 'zh-CN')).toBe('zh')
+  expect(localeFromHash('#', 'en-US')).toBe('en')
+  expect(localeFromHash('#foo=bar', 'zh-TW')).toBe('zh')
+  expect(localeFromHash('#lang=en', 'zh-CN')).toBe('en')
+  expect(localeFromHash('#lang=zh', 'en-US')).toBe('zh')
 })
 
 it('parses hash locale parameters', () => {

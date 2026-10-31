@@ -38,7 +38,7 @@ flowchart LR
 
 ## Decisions
 
-- **Hash locale, no router.** The site is a GitHub Pages SPA. Language is `#lang=en` or `#lang=zh` (short aliases accepted). Default is Chinese. The browser's language is ignored. Owned by `site`.
+- **Hash locale, no router.** The site is a GitHub Pages SPA. A `#lang=` hash that names a locale wins, so the top-right switch sticks on refresh of that URL. With no locale in the hash, the browser's primary language is used: `zh` and `zh-*` open Chinese, anything else opens English. First load does not write a hash. Link unfurls stay Chinese. Owned by `site`.
 - **Chinese is an overlay, not a second profile.** Confirmed. Translated fields live in `static/data/intro.zh.json`. `profile` merges them onto the English intro and keeps the display name, title, links, start dates, counts, and skill names from English. Site, CLI, and README must not keep a private Chinese profile table. UI chrome that is not profile data stays in the site (`site`).
 - **Publish surface.** Today only the `heyq02` CLI is public on npm. The site deploys to GitHub Pages (`heyq02.com` via `CNAME`). `profile`, `brands`, and `readme` are private workspace packages. This is what the repo enforces now, not a product non-goal (`goal`).
 - **Tag releases.** A `v*` tag (or a manual run) publishes the CLI with npm OIDC trusted publishing (`vp pm stage publish`, provenance on), deploys the site, and regenerates `README.md` onto `main`. The README job checks out `main` because a tag checkout is detached. CLI publish does not use `--no-git-checks`; current Vite Plus rejects that flag on `stage publish`.

@@ -11,7 +11,7 @@ depends-on: [profile, brands]
 
 GitHub Pages SPA for heyq02.com. One profile page: avatar and typed name, degree and city, bio, place links, experience, skill icons, and project cards (language, stars, forks).
 
-Language is a hash, not a route and not `Accept-Language`. `#lang=en` / `#lang=zh` are canonical; `#en`, `#zh`, `zh-CN`, `zh-Hans`, and `en-US` also parse. Default is Chinese. Changing locale writes the hash and updates `lang`, `title`, and the description meta. An unchanged hash does not add a history entry.
+Language is a hash, not a route. `#lang=en` / `#lang=zh` are canonical; short aliases and other `zh-*` / `en-*` tags also parse. A hash that names a locale wins. With no locale in the hash, the browser's primary language is used: `zh` and `zh-*` open Chinese, anything else opens English. The top-right control writes the hash. First load does not. Changing locale updates `lang`, `title`, and the description meta. An unchanged hash does not add a history entry. Link unfurls stay the Chinese shell, because crawlers do not run this detector.
 
 Both locales come from `profile`. Chinese is the overlay merge, not a handwritten table. UI chrome that is not profile data — skip link, language names — lives only here.
 

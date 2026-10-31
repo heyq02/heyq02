@@ -1,7 +1,5 @@
 export type Locale = 'en' | 'zh'
 
-export const DEFAULT_LOCALE: Locale = 'zh'
-
 export const localeHtmlLang: Record<Locale, string> = {
   en: 'en',
   zh: 'zh-CN'
@@ -23,8 +21,19 @@ export function parseLocaleFromHash(hash: string): Locale | null {
   return normalizeLocale(token)
 }
 
-export function localeFromHash(hash = globalThis.location.hash): Locale {
-  return parseLocaleFromHash(hash) ?? DEFAULT_LOCALE
+export function localeFromLanguage(language: string | null | undefined): Locale {
+  const lang = language?.trim().toLowerCase() ?? ''
+  if (lang === 'zh' || lang.startsWith('zh-')) {
+    return 'zh'
+  }
+  return 'en'
+}
+
+export function localeFromHash(
+  hash = globalThis.location.hash,
+  language = globalThis.navigator.language
+): Locale {
+  return parseLocaleFromHash(hash) ?? localeFromLanguage(language)
 }
 
 export function localeHashValue(locale: Locale): string {
@@ -46,11 +55,8 @@ function normalizeLocale(value: string | null | undefined): Locale | null {
   }
 
   const lang = value.trim().toLowerCase()
-  if (lang === 'zh' || lang === 'zh-cn' || lang === 'zh-hans') {
-    return 'zh'
+  if (!/^[a-z]{2,3}(?:-[a-z0-9]+)*$/.test(lang)) {
+    return null
   }
-  if (lang === 'en' || lang === 'en-us') {
-    return 'en'
-  }
-  return null
+  return localeFromLanguage(lang)
 }
