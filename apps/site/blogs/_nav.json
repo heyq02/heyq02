@@ -1,10 +1,12 @@
 [
   {
     "text": "Home",
-    "link": "/"
+    "link": "/",
+    "activeMatch": "^/$"
   },
   {
     "text": "Blog",
-    "link": "/blog/"
+    "link": "/blog/",
+    "activeMatch": "^/blog"
   }
 ]
