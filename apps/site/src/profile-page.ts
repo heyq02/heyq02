@@ -4,7 +4,7 @@ import type { Intro } from '@heyq02/shared'
 import type { BlogPost } from './blog-posts.ts'
 import type { PinnedProject } from './github-pinned.ts'
 
-export interface ProfilePage {
+interface ProfilePage {
   name: string
   tags: string[]
   avatar: string

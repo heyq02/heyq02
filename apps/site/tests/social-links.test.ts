@@ -1,6 +1,6 @@
+import { intro } from '@heyq02/shared'
 import { expect, it } from 'vite-plus/test'
 
-import intro from '../../../static/data/intro.json' with { type: 'json' }
 import { socialLinksFrom } from '../src/social-links.ts'
 
 it('puts social links in the navbar list', () => {
