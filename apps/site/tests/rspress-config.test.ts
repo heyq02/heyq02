@@ -17,9 +17,6 @@ vi.mock('rspress-plugin-profile', () => ({
 vi.mock('@rspress/plugin-rss', () => ({
   pluginRss: () => ({ name: '@rspress/plugin-rss' })
 }))
-vi.mock('@rspress/plugin-sitemap', () => ({
-  pluginSitemap: () => ({ name: '@rspress/plugin-sitemap' })
-}))
 
 it('wires themeDir and compose plugins without side effects', async () => {
   const config = (await import('../rspress.config.ts')).default
@@ -30,6 +27,15 @@ it('wires themeDir and compose plugins without side effects', async () => {
   expect(config.builderConfig?.plugins).toEqual(
     expect.arrayContaining([expect.objectContaining({ name: 'rsbuild:tailwindcss' })])
   )
+  expect(config.webMcp).toBe(true)
+  expect(config.sitemap).toBe(true)
+  expect(config.llms).toEqual(expect.objectContaining({ llmsTxt: expect.any(Function) }))
+  expect(config.themeConfig?.fallbackHeadingTitle).toBe(false)
+  expect(config.themeConfig?.lastUpdated).toBe(true)
+  expect(config.themeConfig?.editLink?.docRepoBaseUrl).toContain('apps/site/blogs')
+  expect(config.themeConfig?.llmsUI).toEqual(
+    expect.objectContaining({ injectLlmsHint: true, viewOptions: false })
+  )
   const names = (config.plugins ?? []).map(plugin => plugin.name)
   expect(names).toEqual(
     expect.arrayContaining([
@@ -37,8 +43,8 @@ it('wires themeDir and compose plugins without side effects', async () => {
       'rspress-plugin-github-pins',
       'rspress-plugin-blog-meta',
       'rspress-plugin-profile',
-      '@rspress/plugin-sitemap',
       '@rspress/plugin-rss'
     ])
   )
+  expect(names).not.toContain('@rspress/plugin-sitemap')
 })

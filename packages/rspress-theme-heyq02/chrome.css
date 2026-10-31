@@ -32,8 +32,3 @@ html.dark .rspress-logo {
 .rp-doc-layout__container:has(.friends) .rp-doc-layout__doc-container {
   padding: 3rem 1.5rem 4rem;
 }
-
-.rp-doc-layout__container:has(.profile) .rp-doc > h1.rp-toc-include,
-.rp-doc-layout__container:has(.friends) .rp-doc > h1.rp-toc-include {
-  display: none;
-}

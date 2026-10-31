@@ -9,7 +9,7 @@ depends-on: [shared]
 
 ## Responsibility
 
-Custom Rspress theme for heyq02.com: `Layout` (site footer + console greeting), `ProfilePlay`, `FriendsPage`, and minimal `chrome.css` (dark logo invert; center/constrain `.profile` / `.friends`; hide duplicate toc title). Profile/friends pages use `pageType: doc-wide` with `sidebar`/`outline: false`. Component and MDX styling is Tailwind utilities from the site `globalStyles` entry. `themeDir` in the site config points at this package directory.
+Custom Rspress theme for heyq02.com: `Layout` (site footer + console greeting), `ProfilePlay`, `FriendsPage`, and minimal `chrome.css` (dark logo invert; center/constrain `.profile` / `.friends`; hide `.rp-llms-container`). Profile/friends pages use `pageType: doc-wide` with `sidebar`/`outline: false` and site `fallbackHeadingTitle: false`. Component and MDX styling is Tailwind utilities from the site `globalStyles` entry. `themeDir` in the site config points at this package directory.
 
 ## Boundary
 

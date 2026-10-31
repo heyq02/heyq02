@@ -24,6 +24,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          # lastUpdated reads git history for each page.
+          fetch-depth: 0
 
       - name: Setup Vite Plus
         uses: voidzero-dev/setup-vp@v1.22.0
