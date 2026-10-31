@@ -9,14 +9,15 @@ it('builds the English profile page from the intro', () => {
       href: 'https://github.com/heyq02/simpleicons.dev',
       summary: 'Showcase your skills',
       language: 'TypeScript',
-      languageColor: '#3178c6',
       stars: 172,
       forks: 0
     }
   ])
   expect(page.name).toBe('Yongqi He')
+  expect(page.kicker).toBe('Profile')
   expect(page.tags).toEqual(['Full-stack engineer', 'Open-source enthusiast', 'Blogger on career'])
   expect(page.sections.experience).toBe('Experience')
+  expect(page.sections.writing).toBe('Writing')
   expect(page.experiences[0]?.company).toBe('JD.com, Inc.')
   expect(page.projects[0]?.stars).toBe('172')
   expect(page.skills.alt).toContain('Vue')
@@ -39,7 +40,6 @@ it('builds the English profile page from the intro', () => {
         href: 'https://github.com/heyq02/simpleicons.dev',
         summary: 'Showcase your skills',
         language: 'TypeScript',
-        languageColor: '#3178c6',
         stars: 172,
         forks: 0
       }
@@ -65,4 +65,5 @@ it('builds the English profile page from the intro', () => {
   expect(home).not.toContain('Focused on AI')
   expect(home).toContain('simpleicons.dev')
   expect(home).toContain('Showcase your skills')
+  expect(home).toContain('>Writing</h2>')
 })

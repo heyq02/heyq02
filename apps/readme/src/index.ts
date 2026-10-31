@@ -10,19 +10,18 @@ const out = resolve(import.meta.dirname, '../../../README.md')
 const templatePath = resolve(import.meta.dirname, 'README.ejs')
 
 export function skillsPicture() {
-  const { alt, src } = skillIconsPicture(intro.skills.map(skill => skill.name))
-  return { alt, base: src.replace(/&theme=light$/, '') }
+  return skillIconsPicture(intro.skills.map(skill => skill.name))
 }
 
 export async function renderReadme(): Promise<string> {
-  const { alt, base } = skillsPicture()
+  const { alt, src } = skillsPicture()
   const template = await readFile(templatePath, 'utf8')
   return ejs.render(template, {
     name: intro.name,
     sections: intro.sections,
     experiences: intro.experiences,
     skillsAlt: alt,
-    skillsSrc: `${base}&theme=light`
+    skillsSrc: src
   })
 }
 

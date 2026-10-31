@@ -25,9 +25,6 @@ export interface Contact {
 
 export interface Intro {
   name: string
-  names: string[]
-  degree: string
-  city: string
   tags: string[]
   bio: string
   kaomoji: string
@@ -41,6 +38,7 @@ export interface Intro {
     experience: string
     skills: string
     openSource: string
+    writing: string
   }
   places: Place[]
   experiences: Experience[]

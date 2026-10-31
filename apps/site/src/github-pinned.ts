@@ -5,7 +5,6 @@ export interface PinnedProject {
   href: string
   summary: string
   language: string
-  languageColor: string
   stars: number
   forks: number
 }
@@ -17,7 +16,7 @@ interface GraphQlRepository {
   description: string | null
   stargazerCount: number
   forkCount: number
-  primaryLanguage: { name: string; color: string | null } | null
+  primaryLanguage: { name: string } | null
   owner: { login: string }
 }
 
@@ -45,7 +44,6 @@ const pinnedQuery = `query($login: String!) {
           forkCount
           primaryLanguage {
             name
-            color
           }
           owner {
             login
@@ -77,7 +75,6 @@ export function mapPinnedRepository(repo: GraphQlRepository, login: string): Pin
     href: repo.url,
     summary: repo.description ?? '',
     language: repo.primaryLanguage?.name ?? 'Unknown',
-    languageColor: repo.primaryLanguage?.color ?? '#8b949e',
     stars: repo.stargazerCount,
     forks: repo.forkCount
   }

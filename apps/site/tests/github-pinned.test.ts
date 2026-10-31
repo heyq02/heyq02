@@ -19,7 +19,7 @@ const pinnedResponse = Response.json({
             description: 'Showcase skills',
             stargazerCount: 172,
             forkCount: 0,
-            primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
+            primaryLanguage: { name: 'TypeScript' },
             owner: { login: 'heyq02' }
           }
         ]
@@ -52,7 +52,7 @@ it('uses the short name for own repos and nameWithOwner otherwise', () => {
         description: 'Showcase skills',
         stargazerCount: 172,
         forkCount: 0,
-        primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
+        primaryLanguage: { name: 'TypeScript' },
         owner: { login: 'heyq02' }
       },
       'heyq02'
@@ -94,7 +94,6 @@ it('loads pinned repositories from GitHub GraphQL', async () => {
       href: 'https://github.com/heyq02/simpleicons.dev',
       summary: 'Showcase skills',
       language: 'TypeScript',
-      languageColor: '#3178c6',
       stars: 172,
       forks: 0
     }

@@ -39,8 +39,7 @@ export const brandSlugs: Record<string, string> = {
   Bluesky: 'bluesky',
   Twitter: 'x',
   WeChat: 'wechat',
-  Bilibili: 'bilibili',
-  Juejin: 'juejin'
+  Bilibili: 'bilibili'
 }
 
 /** Names that should still match labels but have no simple-icons slug. */

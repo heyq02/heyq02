@@ -8,9 +8,11 @@ parent: architecture
 
 ## Responsibility
 
-Typed API over the English profile in `static/data/intro.json`. Callers get the intro fields, places and skills with relative links absolutized, a terminal-oriented `profile` view, and `formatCount` / `fullName` / `absoluteHref`.
+Typed API over the English profile in `static/data/intro.json`. Callers get the intro fields, places and skills with relative links absolutized, `formatCount` / `fullName` / `absoluteHref`, and a convenience `profile` object for tests and local inspection.
 
-It does not render or choose icons. It does not translate. It does not list open-source projects; the site loads pinned GitHub repositories at prepare time.
+It does not render or choose icons. It does not translate. It does not list open-source projects; the site loads pinned GitHub repositories at prepare time. The published CLI does not import this package; it prints the GitHub README (`architecture`, `cli`).
+
+`bio` / `kaomoji` / `contact` stay in the JSON as identity facts. The site homepage does not render them; the navbar omits email and phone.
 
 ## Boundary
 

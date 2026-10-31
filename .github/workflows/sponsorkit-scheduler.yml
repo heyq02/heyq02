@@ -14,9 +14,9 @@ jobs:
   update-sponsors:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
-      - uses: voidzero-dev/setup-vp@v1.21.2
+      - uses: voidzero-dev/setup-vp@v1.22.0
         with:
           node-version: 'lts'
           cache: true
@@ -28,7 +28,7 @@ jobs:
           SPONSORKIT_KOFI_VERIFICATION_TOKEN: ${{ secrets.SPONSORKIT_KOFI_VERIFICATION_TOKEN }}
 
       - name: Commit
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@v11
         with:
           author_name: GitHub Actions
           author_email: 41898282+github-actions[bot]@users.noreply.github.com

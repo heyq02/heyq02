@@ -8,12 +8,12 @@ import intro from '../../../static/data/intro.json' with { type: 'json' }
 
 it('builds the skills picture URL from brand slugs', async () => {
   const { skillsPicture } = await import('../src/index.ts')
-  const { alt, base } = skillsPicture()
+  const { alt, src } = skillsPicture()
 
   expect(alt).toContain('Vue')
   expect(alt).toContain('Docker')
-  expect(base).toMatch(/^https:\/\/simpleicons\.dev\/icons\?icons=.+&perline=\d+$/)
-  expect(base).toContain('vuedotjs')
+  expect(src).toMatch(/^https:\/\/simpleicons\.dev\/icons\?icons=.+&perline=\d+&theme=light$/)
+  expect(src).toContain('vuedotjs')
 })
 
 it('keeps a usable picture URL when no skill has a brand slug', async () => {
@@ -25,9 +25,9 @@ it('keeps a usable picture URL when no skill has a brand slug', async () => {
     })
   }))
   const { skillsPicture } = await import('../src/index.ts')
-  const { alt, base } = skillsPicture()
+  const { alt, src } = skillsPicture()
   expect(alt).toBe('')
-  expect(base).toContain('perline=1')
+  expect(src).toContain('perline=1')
   vi.doUnmock('@heyq02/brands')
   vi.resetModules()
 })

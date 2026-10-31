@@ -2,7 +2,7 @@ import { expect, it } from 'vite-plus/test'
 
 import { socialLinks, socialLinksFrom } from '../src/social-links.ts'
 
-it('puts contact links in the navbar social list', () => {
+it('puts social links in the navbar list', () => {
   const links = socialLinks()
   expect(links.find(link => link.icon === 'github')).toMatchObject({
     mode: 'link',

@@ -1,4 +1,4 @@
-/** Shared intro SSOT from `static/data/intro.json` for site, cli, and readme. */
+/** Shared intro SSOT from `static/data/intro.json`. Site runtime imports this package; readme and rspress config may read the JSON file directly. The CLI does not. */
 
 import raw from '../../../static/data/intro.json' with { type: 'json' }
 import type { Intro, Place, Skill } from './types.ts'
@@ -26,9 +26,6 @@ export const skills: Skill[] = intro.skills.map(skill => ({
 
 export const {
   name,
-  names,
-  degree,
-  city,
   tags,
   bio,
   kaomoji,
@@ -54,11 +51,9 @@ export function fullName(role = ''): string {
   return `${intro.name}${role}`
 }
 
-/** Terminal-oriented view of the same intro. */
+/** Convenience view of the same intro for tests and local inspection. */
 export const profile = {
   name: intro.name,
-  givenNames: intro.names as unknown as readonly [string, ...string[]],
-  role: '',
   bio: `${intro.tags.join(' / ')}. ${intro.bio} ${intro.kaomoji}`,
   phone: intro.contact.phone,
   email: intro.contact.email,

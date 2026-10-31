@@ -7,6 +7,7 @@ import type { PinnedProject } from './github-pinned.ts'
 
 export interface ProfilePage {
   name: string
+  kicker: string
   tags: string[]
   avatar: string
   sections: Intro['sections']
@@ -25,6 +26,7 @@ export interface ProfilePage {
 export function profilePage(projects: PinnedProject[] = []): ProfilePage {
   return {
     name: intro.name,
+    kicker: intro.kicker,
     tags: intro.tags,
     avatar: intro.avatar,
     sections: intro.sections,
@@ -129,7 +131,7 @@ import { Badge } from '@rspress/core/theme'
 <header className="profile-hero">
 <img className="profile-avatar" src=${yamlString(page.avatar)} alt="" width="112" height="112" />
 <div className="profile-hero-copy">
-<p className="profile-kicker">Profile</p>
+<p className="profile-kicker">${escapeHtml(page.kicker)}</p>
 <h1>${escapeHtml(page.name)}</h1>
 <p className="profile-meta">${tags}</p>
 </div>
@@ -156,7 +158,7 @@ ${projects}
 </section>
 
 <section className="profile-section profile-writing">
-<h2>Writing</h2>
+<h2>${escapeHtml(page.sections.writing)}</h2>
 
 ${renderWriting(posts)}
 </section>

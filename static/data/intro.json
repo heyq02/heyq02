@@ -1,14 +1,11 @@
 {
   "name": "Yongqi He",
-  "names": ["Yongqi He", "Developer"],
-  "degree": "Bachelor",
-  "city": "China",
   "tags": ["Full-stack engineer", "Open-source enthusiast", "Blogger on career"],
   "bio": "Focused on AI that speeds up development and ships in real products",
   "kaomoji": "(๑•̀ㅂ•́)و",
   "avatar": "https://avatars.githubusercontent.com/u/206218794?v=4",
   "site": "https://heyq02.com",
-  "kicker": "PROFILE",
+  "kicker": "Profile",
   "title": "Yongqi He",
   "description": "Yongqi He. Full-stack engineer, open-source enthusiast, and blogger on career. Focused on AI that speeds up development and ships in real products.",
   "contact": {
@@ -18,7 +15,8 @@
   "sections": {
     "experience": "Experience",
     "skills": "Skills",
-    "openSource": "Open source"
+    "openSource": "Open source",
+    "writing": "Writing"
   },
   "places": [
     {
@@ -40,11 +38,6 @@
       "label": "Bilibili",
       "href": "https://space.bilibili.com/3493273159075938",
       "detail": "全栈糕手Ari"
-    },
-    {
-      "label": "Juejin",
-      "href": "https://juejin.cn/user/708557910842296",
-      "detail": "编程糕手Ari"
     },
     {
       "label": "WeChat",
