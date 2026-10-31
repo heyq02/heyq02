@@ -3,7 +3,7 @@
 import raw from '../../../static/data/intro.json' with { type: 'json' }
 import type { Intro, Place, Skill } from './types.ts'
 
-export type { Contact, Experience, Intro, Place, Skill } from './types.ts'
+export type { Contact, Education, Experience, Intro, Place, Skill } from './types.ts'
 
 export const intro = raw satisfies Intro
 
@@ -36,6 +36,7 @@ export const {
   description,
   contact,
   sections,
+  education,
   experiences
 } = intro
 
@@ -59,6 +60,7 @@ export const profile = {
   email: intro.contact.email,
   site: intro.site,
   places,
+  education: intro.education,
   experiences: intro.experiences,
   skills
 }

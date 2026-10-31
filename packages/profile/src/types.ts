@@ -12,6 +12,14 @@ export interface Experience {
   points: string[]
 }
 
+export interface Education {
+  school: string
+  major: string
+  degree: string
+  start: string
+  end: string
+}
+
 export interface Skill {
   name: string
   /** Simple-icons slug used by the shared skills picture. */
@@ -37,12 +45,14 @@ export interface Intro {
   description: string
   contact: Contact
   sections: {
+    education: string
     experience: string
     skills: string
     openSource: string
     writing: string
   }
   places: Place[]
+  education: Education[]
   experiences: Experience[]
   skills: Skill[]
 }

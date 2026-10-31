@@ -224,6 +224,13 @@ html.dark .rspress-logo {
   white-space: nowrap;
 }
 
+.profile-edu-meta {
+  margin: 0.55rem 0 0;
+  color: var(--rp-c-text-2);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 .profile ul {
   margin: 0.7rem 0 0;
   padding-left: 1.25rem;

@@ -11,6 +11,7 @@ export interface ProfilePage {
   tags: string[]
   avatar: string
   sections: Intro['sections']
+  education: Intro['education']
   experiences: Intro['experiences']
   skills: { alt: string; src: string }
   projects: {
@@ -30,6 +31,7 @@ export function profilePage(projects: PinnedProject[] = []): ProfilePage {
     tags: intro.tags,
     avatar: intro.avatar,
     sections: intro.sections,
+    education: intro.education,
     experiences: intro.experiences,
     skills: skillIconsPicture(intro.skills),
     projects: projects.map(project => ({
@@ -96,6 +98,17 @@ export function renderHomeMdx(posts: BlogPost[] = [], pinned: PinnedProject[] = 
   const tags = page.tags
     .map(tag => `<Badge text=${yamlString(tag)} type="info" outline />`)
     .join(' ')
+  const schools = page.education
+    .map(
+      item => `<article className="profile-job profile-edu">
+<div className="profile-job-head">
+<h3>${escapeHtml(item.school)}</h3>
+<p className="profile-when">${escapeHtml(item.start)} – ${escapeHtml(item.end)}</p>
+</div>
+<p className="profile-edu-meta">${escapeHtml(item.degree)} · ${escapeHtml(item.major)}</p>
+</article>`
+    )
+    .join('\n\n')
   const jobs = page.experiences
     .map(job => {
       const points = job.points.map(point => `<li>${escapeHtml(point)}</li>`).join('\n')
@@ -144,6 +157,12 @@ import { Badge } from '@rspress/core/theme'
 <p className="profile-meta">${tags}</p>
 </div>
 </header>
+
+<section className="profile-section">
+<h2>${escapeHtml(page.sections.education)}</h2>
+
+${schools}
+</section>
 
 <section className="profile-section">
 <h2>${escapeHtml(page.sections.experience)}</h2>
