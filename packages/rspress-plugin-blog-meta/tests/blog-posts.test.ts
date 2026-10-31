@@ -9,10 +9,14 @@ const sitePostsDir = resolve(import.meta.dirname, '../../../apps/site/blogs/blog
 it('lists markdown posts under apps/site blogs/blog/posts', async () => {
   const posts = await listBlogPosts(sitePostsDir)
   expect(posts.length).toBeGreaterThan(0)
-  expect(posts[0]?.slug).toBe('macos-disable-ime-switching')
-  expect(posts[0]?.href).toBe('/blog/posts/macos-disable-ime-switching/')
-  expect(posts[0]?.title).toContain('macOS')
-  expect(posts[0]?.date).toBe('2026-10-31')
+  expect(posts.map(post => post.slug)).toEqual([
+    'webpack-import-path-variables',
+    'macos-disable-ime-switching'
+  ])
+  expect(posts[0]?.href).toBe('/blog/posts/webpack-import-path-variables/')
+  expect(posts[0]?.title).toContain('Webpack')
+  expect(posts[0]?.date).toBe('2026-11-01')
+  expect(posts[1]?.date).toBe('2026-10-31')
 })
 
 it('renders blog sidebar meta with Overview first', () => {
