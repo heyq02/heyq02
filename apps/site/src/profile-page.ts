@@ -50,35 +50,56 @@ function yamlString(value: string) {
   return JSON.stringify(value)
 }
 
-/** Rspress homepage frontmatter: built-in hero and feature cards. */
+/** Doc page that uses Rspress doc components, not the built-in homepage. */
 export function renderHomeMdx(): string {
   const page = profilePage()
-  const features = page.projects
+  const steps = page.experiences
+    .map(job => {
+      const points = job.points.map(point => `- ${point}`).join('\n')
+      return `### [${job.company}](${job.href})\n\n${job.start} – ${job.end}\n\n${points}`
+    })
+    .join('\n\n')
+  const projects = page.projects
     .map(
-      project => `  - title: ${yamlString(project.name)}
-    details: ${yamlString(`${project.summary} · ${project.language} · ${project.stars} stars`)}
-    icon: "📦"
-    link: ${yamlString(project.href)}
-    span: 6`
+      project =>
+        `### [${project.name}](${project.href})\n\n${project.summary}\n\n<Badge text=${yamlString(project.language)} /> <Badge text=${yamlString(`${project.stars} stars`)} /> <Badge text=${yamlString(`${project.forks} forks`)} />`
     )
-    .join('\n')
+    .join('\n\n')
 
   return `---
-pageType: home
+pageType: doc-wide
 title: ${yamlString(page.name)}
-hero:
-  name: ${yamlString(page.name)}
-  text: ${yamlString(`${page.degree} · ${page.city}`)}
-  tagline: ${yamlString(`${page.bio} ${page.kaomoji}`)}
-  image:
-    src: ${yamlString(page.avatar)}
-    alt: ${yamlString(page.name)}
-  actions:
-    - theme: brand
-      text: Blog
-      link: /blog/
-features:
-${features}
+sidebar: false
+outline: false
+footer: false
 ---
+
+import { Badge, Callout, Steps } from '@rspress/core/theme'
+
+<img src=${yamlString(page.avatar)} alt="" width="96" height="96" />
+
+# ${page.name}
+
+<Badge text=${yamlString(page.degree)} /> <Badge text=${yamlString(page.city)} />
+
+<Callout type="info">
+${page.bio} ${page.kaomoji}
+</Callout>
+
+## ${page.sections.experience}
+
+<Steps>
+
+${steps}
+
+</Steps>
+
+## ${page.sections.skills}
+
+![${page.skills.alt}](${page.skills.src})
+
+## ${page.sections.openSource}
+
+${projects}
 `
 }
