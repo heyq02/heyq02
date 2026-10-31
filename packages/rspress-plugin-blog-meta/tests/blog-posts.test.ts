@@ -10,7 +10,6 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
   const posts = await listBlogPosts(sitePostsDir)
   expect(posts.length).toBeGreaterThan(0)
   expect(posts.map(post => post.slug)).toEqual([
-    'python-tkinter-radix-converter',
     'npm-download-daily-report',
     'macos-disable-ime-switching',
     'webpack-import-path-variables',
@@ -18,15 +17,15 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
     'weixin-homepage-ui-recreation',
     'anaconda-vscode-encoding-bug',
     'vue-router-hash-external-listen',
-    'iframe-child-route-state'
+    'iframe-child-route-state',
+    'python-tkinter-radix-converter'
   ])
-  expect(posts[0]?.href).toBe('/blog/posts/python-tkinter-radix-converter/')
+  expect(posts[0]?.href).toBe('/blog/posts/npm-download-daily-report/')
   expect(posts[0]?.date).toBe('2026-11-01')
-  expect(posts.find(post => post.slug === 'vue-router-hash-external-listen')?.date).toBe(
-    '2023-12-25'
+  expect(posts.find(post => post.slug === 'python-tkinter-radix-converter')?.date).toBe(
+    '2023-02-26'
   )
-  expect(posts.find(post => post.slug === 'iframe-child-route-state')?.date).toBe('2023-12-19')
-  expect(posts.at(-1)?.slug).toBe('iframe-child-route-state')
+  expect(posts.at(-1)?.slug).toBe('python-tkinter-radix-converter')
 })
 
 it('renders blog sidebar meta with Overview first', () => {

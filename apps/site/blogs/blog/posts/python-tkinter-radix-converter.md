@@ -1,7 +1,7 @@
 ---
 title: Python 进制转换 GUI（tkinter）
 description: 用 tkinter 做一个可输入小数的二 / 八进制转换小工具，适合练手界面与进制算法。
-date: 2026-11-01
+date: 2023-02-26
 ---
 
 # Python 进制转换 GUI（tkinter）
