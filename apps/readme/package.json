@@ -8,7 +8,7 @@
     "test": "vp run ctest"
   },
   "dependencies": {
-    "@heyq02/brands": "workspace:*",
+    "@heyq02/shared": "workspace:*",
     "ejs": "^7.0.2"
   },
   "devDependencies": {

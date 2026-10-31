@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { ReactElement } from 'react'
 
-import { intro } from '../src/intro.ts'
+import { intro } from '../src/site-intro.ts'
 
 interface ProfilePlayProps {
   tags: ReactElement

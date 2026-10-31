@@ -1,10 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
-import { skillIconsPicture } from '@heyq02/brands'
+import { intro, skillIconsPicture } from '@heyq02/shared'
 import ejs from 'ejs'
-
-import intro from '../../../static/data/intro.json' with { type: 'json' }
 
 const out = resolve(import.meta.dirname, '../../../README.md')
 const templatePath = resolve(import.meta.dirname, 'README.ejs')

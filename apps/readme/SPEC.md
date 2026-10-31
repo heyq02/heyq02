@@ -4,7 +4,7 @@ type: module-design
 status: draft
 title: README generator
 parent: architecture
-depends-on: [brands]
+depends-on: [shared]
 ---
 
 ## Responsibility
@@ -15,7 +15,7 @@ It does not emit places, pinned projects, writing, bio, or Chinese. The release 
 
 ## Boundary
 
-- May depend on `brands` and `ejs`, and may read `static/data/intro.json` directly. Must not import `site`.
+- May depend on `shared` and `ejs`. Must not import `site`.
 - The Markdown layout lives in an EJS template. This app fills it; it does not assemble the README string in code. `<%-` is used so intro text is not HTML-escaped.
-- This app reads `intro.json` directly: its build is `node --experimental-strip-types`.
-- Skill badges use `skillIconsPicture` with each skill's `icon` slug. A skill with an empty `icon` is left out of the picture.
+- Identity facts and the skills picture come from `shared` (`intro`, `skillIconsPicture`). Build is `node --experimental-strip-types`.
+- A skill with an empty `icon` is left out of the picture.

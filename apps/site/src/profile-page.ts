@@ -1,9 +1,8 @@
-import { skillIconsPicture } from '@heyq02/brands'
+import { formatCount, intro, skillIconsPicture } from '@heyq02/shared'
+import type { Intro } from '@heyq02/shared'
 
 import type { BlogPost } from './blog-posts.ts'
 import type { PinnedProject } from './github-pinned.ts'
-import { formatCount, intro } from './intro.ts'
-import type { Intro } from './intro.ts'
 
 export interface ProfilePage {
   name: string

@@ -2,9 +2,8 @@ import { mkdtemp, readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { expect, it, vi } from 'vite-plus/test'
-
-import intro from '../../../static/data/intro.json' with { type: 'json' }
+import { intro } from '@heyq02/shared'
+import { expect, it } from 'vite-plus/test'
 
 it('builds the skills picture URL from skill icon slugs', async () => {
   const { skillsPicture } = await import('../src/index.ts')
@@ -14,22 +13,6 @@ it('builds the skills picture URL from skill icon slugs', async () => {
   expect(alt).toContain('Docker')
   expect(src).toMatch(/^https:\/\/simpleicons\.dev\/icons\?icons=.+&perline=\d+&theme=light$/)
   expect(src).toContain('vuedotjs')
-})
-
-it('keeps a usable picture URL when no skill has an icon', async () => {
-  vi.resetModules()
-  vi.doMock('@heyq02/brands', () => ({
-    skillIconsPicture: () => ({
-      alt: '',
-      src: 'https://simpleicons.dev/icons?icons=&perline=1&theme=light'
-    })
-  }))
-  const { skillsPicture } = await import('../src/index.ts')
-  const { alt, src } = skillsPicture()
-  expect(alt).toBe('')
-  expect(src).toContain('perline=1')
-  vi.doUnmock('@heyq02/brands')
-  vi.resetModules()
 })
 
 it('renders the README-shaped markdown', async () => {

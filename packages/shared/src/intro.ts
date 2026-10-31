@@ -1,4 +1,4 @@
-/** Typed SSOT over `static/data/intro.json` for site runtime and theme. */
+/** Typed SSOT over `static/data/intro.json` for apps that share identity facts. */
 import raw from '../../../static/data/intro.json' with { type: 'json' }
 
 export interface Place {

@@ -4,7 +4,7 @@ type: module-design
 status: draft
 title: Profile site
 parent: architecture
-depends-on: [brands]
+depends-on: [shared]
 ---
 
 ## Responsibility
@@ -17,8 +17,8 @@ The shell title and description come from the English intro. The homepage sets `
 
 ## Boundary
 
-- May depend on `brands` and `@rspress/core`, and may read `static/data/intro.json` / `friends.json`. Must not read `readme` or `cli`, and must not render `sponsorkit/` art.
-- Typed intro access lives in `src/intro.ts` (`intro`, `Intro`, `formatCount`). `rspress.config.ts` and `social-links.ts` may still read `intro.json` directly for HTML meta / navbar (`architecture`: app configs must not import `@heyq02/*`).
+- May depend on `shared` and `@rspress/core`, and may read `static/data/intro.json` / `friends.json`. Must not read `readme` or `cli`, and must not render `sponsorkit/` art.
+- Typed intro and `skillIconsPicture` come from `shared`. Theme imports intro through `src/site-intro.ts` because Rspress theme cannot resolve `@heyq02/*` bare imports. `rspress.config.ts` and `social-links.ts` may still read `intro.json` directly for HTML meta / navbar (`architecture`: app configs must not import `@heyq02/*`).
 - Theme CSS styles the homepage column and hides doc chrome there. A custom `Layout` mounts Rspress `HomeFooter` on every page via the `bottom` slot (built-in home footer only runs for `pageType: home`). The footer message is copyright plus the 萌ICP备 link. Homepage frontmatter still sets `footer: false` so doc edit/prev-next chrome stays off.
 - The skills picture comes from `skillIconsPicture` and each skill's `icon` slug. The site does not keep its own icon set.
 - Favicons and the navbar signature both use `static/signature/full-nobg` (`favicon.ico` / `favicon.png` / `signature.png`). That PNG is sized for the navbar; the ICO keeps 16/32/48. `CNAME` is copied into the Rspress output. `outDir` stays `dist` so the Pages job does not change its artifact path.
