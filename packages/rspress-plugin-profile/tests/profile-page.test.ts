@@ -47,7 +47,7 @@ it('builds the English profile page from the intro', () => {
     ],
     { profilePlayModule: '@theme/ProfilePlay' }
   )
-  expect(home).toContain('pageType: doc')
+  expect(home).toContain('pageType: doc-wide')
   expect(home).not.toContain('pageType: home')
   expect(home).toContain('rp-not-doc')
   expect(home).not.toContain('Callout')

@@ -9,18 +9,6 @@ html.dark .rspress-logo {
   justify-content: center;
 }
 
-.rp-doc-layout__container:has(.profile) .rp-doc-layout__sidebar-placeholder,
-.rp-doc-layout__container:has(.profile) .rp-doc-layout__outline,
-.rp-doc-layout__container:has(.profile) .rp-doc-layout__outline-placeholder,
-.rp-doc-layout__container:has(.friends) .rp-doc-layout__sidebar-placeholder,
-.rp-doc-layout__container:has(.friends) .rp-doc-layout__outline,
-.rp-doc-layout__container:has(.friends) .rp-doc-layout__outline-placeholder {
-  display: none;
-  width: 0;
-  min-width: 0;
-  margin: 0;
-}
-
 .rp-doc-layout__container:has(.profile) .rp-doc-layout__doc {
   flex: 0 1 44rem;
   width: 100%;

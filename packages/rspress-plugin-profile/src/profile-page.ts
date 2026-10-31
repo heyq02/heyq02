@@ -167,7 +167,7 @@ ${points}
     .join('\n\n')
 
   return `---
-pageType: doc
+pageType: doc-wide
 title: ${yamlString(page.name)}
 titleSuffix: ${yamlString(documentTitleSuffix(page))}
 sidebar: false
