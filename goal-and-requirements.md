@@ -17,7 +17,7 @@ People who open heyq02.com, run the `heyq02` command, or read the GitHub profile
 
 - **Site.** heyq02.com is an English Rspress site. The homepage is identity, experience, skills, and open-source projects, laid out with theme components. Contacts sit in the navbar. Posts live in `blogs`. There is no language switch.
 - **CLI.** The published `heyq02` package fetches the GitHub README and prints it rendered in the terminal. Arguments are ignored. There is no help or version command.
-- **README.** A generator writes the GitHub profile README (greeting, experience, skill icons, writing links) from the English profile document and site blog posts.
+- **README.** A generator writes the GitHub profile README (greeting, experience, skill icons) from the English profile document.
 - **Sponsor art.** A scheduled job regenerates sponsor images and commits them in the repo. They are not shown on the site or in the README.
 
 ## Non-goals

@@ -43,15 +43,12 @@ it('renders the README-shaped markdown', async () => {
   expect(text).toContain(intro.tags.join(' · '))
   expect(text).toContain(`## ${intro.sections.experience}`)
   expect(text).toContain(`## ${intro.sections.skills}`)
-  expect(text).toContain(`## ${intro.sections.writing}`)
+  expect(text).not.toContain(`## ${intro.sections.writing}`)
   expect(text).toContain(`### [${intro.experiences[0]?.company}](${intro.experiences[0]?.href})`)
   expect(text).toContain(`- ${intro.experiences[0]?.points[0]}`)
   expect(text).toContain(`![`)
   expect(text).toContain('theme=light')
   expect(text).not.toContain('prefers-color-scheme')
-  expect(text).toContain(`${intro.site}/blog/posts/`)
-  expect(text).toMatch(/^### \[/m)
-  expect(text).toContain('macOS')
 })
 
 it('writes the rendered README to disk', async () => {
