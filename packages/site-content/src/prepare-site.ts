@@ -8,12 +8,14 @@ import type { PinnedProject } from './github-pinned.ts'
 import { renderHomeMdx } from './profile-page.ts'
 
 export interface PrepareSiteOptions {
-  /** Site package root (`apps/site`). */
-  siteRoot?: string
+  /** Absolute path to the site package root (`apps/site`). Required. */
+  siteRoot: string
   /** Run `vp fmt` on generated files (CLI/manual only; skip in the Rspress plugin). */
   format?: boolean
   /** Override pinned fetch (tests). */
   fetchProjects?: () => Promise<PinnedProject[]>
+  /** MDX import path for ProfilePlay, relative to `blogs/index.mdx`. */
+  profilePlayModule?: string
 }
 
 async function writeIfChanged(path: string, content: string): Promise<boolean> {
@@ -46,10 +48,10 @@ async function formatGenerated(site: string, files: string[]) {
 
 /**
  * Copy public assets and regenerate homepage MDX + blog `_meta.json` snapshots.
- * Called from the Rspress plugin `config` hook (before route scan) and the CLI.
+ * Called from the site Rspress plugin `config` hook and the site CLI.
  */
-export async function prepareSite(options: PrepareSiteOptions = {}): Promise<void> {
-  const site = options.siteRoot ?? resolve(import.meta.dirname, '..')
+export async function prepareSite(options: PrepareSiteOptions): Promise<void> {
+  const site = options.siteRoot
   const publicDir = resolve(site, 'blogs/public')
   const blogDir = resolve(site, 'blogs/blog')
   const postsDir = resolve(blogDir, 'posts')
@@ -67,8 +69,11 @@ export async function prepareSite(options: PrepareSiteOptions = {}): Promise<voi
     resolve(publicDir, 'signature.png')
   )
   await cp(resolve(site, 'public/wechat.jpg'), resolve(publicDir, 'wechat.jpg'))
+  const home = renderHomeMdx(posts, projects, {
+    profilePlayModule: options.profilePlayModule ?? '../theme/ProfilePlay'
+  })
   const changed = [
-    await writeIfChanged(homeMdx, renderHomeMdx(posts, projects)),
+    await writeIfChanged(homeMdx, home),
     await writeIfChanged(blogMeta, renderBlogMetaJson()),
     await writeIfChanged(postsMeta, renderPostsMetaJson(posts))
   ].some(Boolean)
@@ -80,7 +85,7 @@ export async function prepareSite(options: PrepareSiteOptions = {}): Promise<voi
 let prepareOnce: Promise<void> | undefined
 
 /** Idempotent prepare for the Rspress plugin (one run per process). */
-export function prepareSiteOnce(options: PrepareSiteOptions = {}): Promise<void> {
+export function prepareSiteOnce(options: PrepareSiteOptions): Promise<void> {
   prepareOnce ??= prepareSite({ ...options, format: options.format ?? false })
   return prepareOnce
 }

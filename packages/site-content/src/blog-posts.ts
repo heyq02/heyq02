@@ -35,9 +35,7 @@ function titleFromBody(body: string) {
     .trim()
 }
 
-export async function listBlogPosts(
-  postsDir = resolve(import.meta.dirname, '../blogs/blog/posts')
-): Promise<BlogPost[]> {
+export async function listBlogPosts(postsDir: string): Promise<BlogPost[]> {
   let files: string[]
   try {
     files = await readdir(postsDir)

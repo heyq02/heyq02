@@ -1,13 +1,14 @@
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 
-import { prepareSite } from '../src/prepare-site.ts'
+import { prepareSite } from '@heyq02/site-content'
 
 /** Manual / CI helper to refresh committed generated snapshots with formatting. */
 export async function prepareSiteCli() {
   await prepareSite({
     siteRoot: resolve(import.meta.dirname, '..'),
-    format: true
+    format: true,
+    profilePlayModule: '../theme/ProfilePlay'
   })
 }
 

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@heyq02/shared": "workspace:*",
-    "@octokit/graphql": "^9.0.5",
+    "@heyq02/site-content": "workspace:*",
     "@rspress/core": "^2.0.23",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"

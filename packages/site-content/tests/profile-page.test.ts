@@ -44,7 +44,8 @@ it('builds the English profile page from the intro', () => {
         stars: 172,
         forks: 0
       }
-    ]
+    ],
+    { profilePlayModule: '../theme/ProfilePlay' }
   )
   expect(home).toContain('pageType: doc')
   expect(home).not.toContain('pageType: home')
@@ -52,6 +53,7 @@ it('builds the English profile page from the intro', () => {
   expect(home).not.toContain('Callout')
   expect(home).not.toContain('Steps')
   expect(home).toContain('Badge')
+  expect(home).toContain("from '../theme/ProfilePlay'")
   expect(home).toContain('ProfilePlay')
   expect(home).toContain('profile-project')
   expect(home).toContain('profile-writing')

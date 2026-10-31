@@ -1,9 +1,13 @@
+import { resolve } from 'node:path'
+
 import { expect, it } from 'vite-plus/test'
 
 import { listBlogPosts, renderBlogMetaJson, renderPostsMetaJson } from '../src/blog-posts.ts'
 
-it('lists markdown posts under blogs/blog/posts', async () => {
-  const posts = await listBlogPosts()
+const sitePostsDir = resolve(import.meta.dirname, '../../../apps/site/blogs/blog/posts')
+
+it('lists markdown posts under apps/site blogs/blog/posts', async () => {
+  const posts = await listBlogPosts(sitePostsDir)
   expect(posts.length).toBeGreaterThan(0)
   expect(posts[0]?.slug).toBe('macos-disable-ime-switching')
   expect(posts[0]?.href).toBe('/blog/posts/macos-disable-ime-switching/')

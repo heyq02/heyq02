@@ -27,6 +27,7 @@ it('writes homepage MDX and blog meta from posts and pinned projects', async () 
     await prepareSite({
       siteRoot: site,
       format: false,
+      profilePlayModule: '../theme/ProfilePlay',
       fetchProjects: () =>
         Promise.resolve([
           {
@@ -42,6 +43,7 @@ it('writes homepage MDX and blog meta from posts and pinned projects', async () 
 
     const home = await readFile(join(site, 'blogs/index.mdx'), 'utf8')
     expect(home).toContain('ProfilePlay')
+    expect(home).toContain("from '../theme/ProfilePlay'")
     expect(home).toContain('simpleicons.dev')
     expect(home).toContain('Demo')
     expect(await readFile(join(site, 'blogs/blog/_meta.json'), 'utf8')).toBe(renderBlogMetaJson())

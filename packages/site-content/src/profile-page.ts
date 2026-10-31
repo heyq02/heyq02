@@ -22,6 +22,11 @@ interface ProfilePage {
   }[]
 }
 
+export interface RenderHomeMdxOptions {
+  /** MDX import path for ProfilePlay, relative to `blogs/index.mdx`. */
+  profilePlayModule?: string
+}
+
 export function profilePage(projects: PinnedProject[] = []): ProfilePage {
   return {
     name: intro.name,
@@ -90,7 +95,12 @@ ${items}
 }
 
 /** Doc page of Rspress theme components, not the built-in homepage. */
-export function renderHomeMdx(posts: BlogPost[] = [], pinned: PinnedProject[] = []): string {
+export function renderHomeMdx(
+  posts: BlogPost[] = [],
+  pinned: PinnedProject[] = [],
+  options: RenderHomeMdxOptions = {}
+): string {
+  const profilePlayModule = options.profilePlayModule ?? '../theme/ProfilePlay'
   const page = profilePage(pinned)
   const tags = page.tags
     .map(tag => `<Badge text=${yamlString(tag)} type="info" outline />`)
@@ -143,7 +153,7 @@ footer: false
 ---
 
 import { Badge } from '@rspress/core/theme'
-import { ProfilePlay } from '../theme/ProfilePlay'
+import { ProfilePlay } from '${profilePlayModule}'
 
 <div className="profile rp-not-doc">
 
