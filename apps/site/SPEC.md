@@ -9,7 +9,7 @@ depends-on: [profile, brands]
 
 ## Responsibility
 
-English Rspress site for heyq02.com. The home page is the profile: name, degree and city, bio, experience, the same skills picture as the README, and project cards. It does not repeat contact links. GitHub, Bluesky, Twitter, Xiaohongshu, Bilibili, CSDN, and WeChat sit only in the navbar's social links, which the theme renders at the top right. Email and phone do not. A blog nav item lists posts from `blogs`. With no posts, that page says there are none.
+English Rspress site for heyq02.com. The home page uses Rspress's built-in homepage: a hero for the name, degree, city, and bio, and feature cards for projects. Experience and the README skills picture sit under the hero. It does not repeat contact links. GitHub, Bluesky, Twitter, Xiaohongshu, Bilibili, CSDN, and WeChat sit only in the navbar's social links, which the theme renders at the top right. Email and phone do not. A blog nav item lists posts from `blogs`. With no posts, that page says there are none.
 
 There is no Chinese locale and no language switch. The theme stays light; the dark-mode toggle is hidden. The shell title and description come from the English intro.
 

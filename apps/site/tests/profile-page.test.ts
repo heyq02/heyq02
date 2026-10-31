@@ -1,6 +1,6 @@
 import { expect, it } from 'vite-plus/test'
 
-import { profilePage } from '../src/profile-page.ts'
+import { profilePage, renderHomeMdx } from '../src/profile-page.ts'
 import { socialLinks, socialLinksFrom } from '../src/social-links.ts'
 
 it('builds the English profile page from the intro', () => {
@@ -14,6 +14,11 @@ it('builds the English profile page from the intro', () => {
   expect(page.skills.alt).toContain('Vue')
   expect(page.skills.src).toContain('vuedotjs')
   expect(page.skills.src).toContain('theme=light')
+  const home = renderHomeMdx()
+  expect(home).toContain('pageType: home')
+  expect(home).toContain('Yongqi He')
+  expect(home).toContain('jd-opensource/taro-ui')
+  expect(home).toContain('link: /blog/')
 })
 
 it('puts contact links in the navbar social list', () => {

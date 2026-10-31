@@ -45,3 +45,40 @@ export function profilePage(): ProfilePage {
     emptyBlog: 'No posts yet.'
   }
 }
+
+function yamlString(value: string) {
+  return JSON.stringify(value)
+}
+
+/** Rspress homepage frontmatter: built-in hero and feature cards. */
+export function renderHomeMdx(): string {
+  const page = profilePage()
+  const features = page.projects
+    .map(
+      project => `  - title: ${yamlString(project.name)}
+    details: ${yamlString(`${project.summary} · ${project.language} · ${project.stars} stars`)}
+    icon: "📦"
+    link: ${yamlString(project.href)}
+    span: 6`
+    )
+    .join('\n')
+
+  return `---
+pageType: home
+title: ${yamlString(page.name)}
+hero:
+  name: ${yamlString(page.name)}
+  text: ${yamlString(`${page.degree} · ${page.city}`)}
+  tagline: ${yamlString(`${page.bio} ${page.kaomoji}`)}
+  image:
+    src: ${yamlString(page.avatar)}
+    alt: ${yamlString(page.name)}
+  actions:
+    - theme: brand
+      text: Blog
+      link: /blog/
+features:
+${features}
+---
+`
+}
