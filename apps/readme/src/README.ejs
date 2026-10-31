@@ -1,9 +1,13 @@
 # Hello, I'm <%- name %>
 
+<%- tags.join(' · ') %>
+
 ## <%- sections.experience %>
 
 <% for (const job of experiences) { -%>
-**[<%- job.company %>](<%- job.href %>)** · <%- job.start %> – <%- job.end %>
+### [<%- job.company %>](<%- job.href %>)
+
+<%- job.start %> – <%- job.end %>
 
 <% for (const point of job.points) { -%>
 - <%- point %>
@@ -13,3 +17,20 @@
 ## <%- sections.skills %>
 
 ![<%- skillsAlt %>](<%- skillsSrc %>)
+
+## <%- sections.writing %>
+
+<% if (posts.length === 0) { -%>
+_Essays and notes will show up [on the site](<%- site %>/blog/)._
+<% } else { -%>
+<% for (const post of posts) { -%>
+### [<%- post.title %>](<%- post.href %>)
+
+<% if (post.date) { -%>
+<%- post.date %><% if (post.description) { %> · <%- post.description %><% } %>
+<% } else if (post.description) { -%>
+<%- post.description %>
+<% } -%>
+
+<% } -%>
+<% } -%>

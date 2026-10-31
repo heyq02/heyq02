@@ -29,7 +29,7 @@ flowchart LR
   brands --> readme
 ```
 
-`profile` is the typed API over the English file. The site runtime reads it. The CLI does not. Every invocation fetches the published README from GitHub `main` and renders it in the terminal (`cli`). The site Rspress config reads `intro.json` for the shell, because app configs must not import `@heyq02/*`. The README generator reads that same file (`readme`). `brands` maps display names to simple-icons slugs and builds the shared skills picture URL. The README and the site both render that picture. `brands` depends on neither package. Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
+`profile` is the typed API over the English file. The site runtime reads it. The CLI does not. Every invocation fetches the published README from GitHub `main` and renders it in the terminal (`cli`). The site Rspress config reads `intro.json` for the shell, because app configs must not import `@heyq02/*`. The README generator reads that same file and the site blog posts for Writing links (`readme`). `brands` maps display names to simple-icons slugs and builds the shared skills picture URL. The README and the site both render that picture. `brands` depends on neither package. Sponsor art is outside this graph: generated under `sponsorkit/`, not imported by any app.
 
 ## Decisions
 
