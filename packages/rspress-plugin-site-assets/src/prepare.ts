@@ -5,7 +5,7 @@ export interface PrepareSiteAssetsOptions {
   siteRoot: string
 }
 
-/** Copy favicon, signature, and WeChat QR into `blogs/public`. */
+/** Copy favicon, signature, WeChat QR, and watermark into `blogs/public`. */
 export async function prepareSiteAssets(options: PrepareSiteAssetsOptions): Promise<void> {
   const site = options.siteRoot
   const publicDir = resolve(site, 'blogs/public')
@@ -17,6 +17,7 @@ export async function prepareSiteAssets(options: PrepareSiteAssetsOptions): Prom
     resolve(publicDir, 'signature.png')
   )
   await cp(resolve(site, 'public/wechat.jpg'), resolve(publicDir, 'wechat.jpg'))
+  await cp(resolve(site, 'public/wuxian-jinbu.png'), resolve(publicDir, 'wuxian-jinbu.png'))
 }
 
 let prepareOnce: Promise<void> | undefined

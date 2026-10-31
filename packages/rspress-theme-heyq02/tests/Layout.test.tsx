@@ -17,10 +17,11 @@ vi.mock('@rspress/core/theme-original', () => ({
 
 afterEach(cleanup)
 
-it('mounts SiteEasterEgg and HomeFooter in Layout', async () => {
+it('mounts watermark, SiteEasterEgg and HomeFooter in Layout', async () => {
   const info = vi.spyOn(console, 'info').mockImplementation(() => {})
   const { Layout } = await import('../index.tsx')
-  render(<Layout />)
+  const { container } = render(<Layout />)
+  expect(container.querySelector('.site-watermark')).toBeTruthy()
   expect(screen.getByTestId('basic-layout')).toBeTruthy()
   expect(screen.getByTestId('home-footer')).toBeTruthy()
   expect(info).toHaveBeenCalled()

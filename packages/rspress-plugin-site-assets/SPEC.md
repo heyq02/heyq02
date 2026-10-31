@@ -8,11 +8,11 @@ parent: architecture
 
 ## Responsibility
 
-Copy signature favicons and the WeChat QR into `blogs/public` before Rspress serves/builds.
+Copy signature favicons, the WeChat QR, and the page watermark into `blogs/public` before Rspress serves/builds.
 
 ## Boundary
 
-- Reads `static/signature/` (relative to the monorepo via `siteRoot`) and `apps/site/public/wechat.jpg`. Does not generate MDX or meta JSON.
+- Reads `static/signature/` (relative to the monorepo via `siteRoot`) plus `apps/site/public/wechat.jpg` and `apps/site/public/wuxian-jinbu.png`. Does not generate MDX or meta JSON.
 
 ## Testing
 

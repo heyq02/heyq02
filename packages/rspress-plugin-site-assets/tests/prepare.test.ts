@@ -6,7 +6,7 @@ import { expect, it } from 'vite-plus/test'
 
 import { prepareSiteAssets } from '../src/prepare.ts'
 
-it('copies favicon, signature, and wechat into blogs/public', async () => {
+it('copies favicon, signature, wechat, and watermark into blogs/public', async () => {
   const root = await mkdtemp(join(tmpdir(), 'heyq02-assets-'))
   const site = join(root, 'apps/site')
   const staticSig = join(root, 'static/signature')
@@ -15,6 +15,7 @@ it('copies favicon, signature, and wechat into blogs/public', async () => {
     await mkdir(join(site, 'public'), { recursive: true })
     await mkdir(staticSig, { recursive: true })
     await writeFile(join(site, 'public/wechat.jpg'), 'wechat')
+    await writeFile(join(site, 'public/wuxian-jinbu.png'), 'watermark')
     await writeFile(join(staticSig, 'full-nobg.ico'), 'ico')
     await writeFile(join(staticSig, 'full-nobg.png'), 'png')
 
@@ -24,6 +25,7 @@ it('copies favicon, signature, and wechat into blogs/public', async () => {
     expect(await readFile(join(site, 'blogs/public/favicon.png'), 'utf8')).toBe('png')
     expect(await readFile(join(site, 'blogs/public/signature.png'), 'utf8')).toBe('png')
     expect(await readFile(join(site, 'blogs/public/wechat.jpg'), 'utf8')).toBe('wechat')
+    expect(await readFile(join(site, 'blogs/public/wuxian-jinbu.png'), 'utf8')).toBe('watermark')
   } finally {
     await rm(root, { recursive: true, force: true })
   }
