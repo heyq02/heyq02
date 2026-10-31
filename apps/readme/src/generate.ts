@@ -28,7 +28,7 @@ export function renderReadme(): string {
 
   const { alt, base } = skillsPicture()
 
-  return `<h1>Hello, I'm ${intro.name}</h1>
+  return `# Hello, I'm ${intro.name}
 
 ## ${intro.sections.experience}
 
@@ -36,10 +36,7 @@ ${experience}
 
 ## ${intro.sections.skills}
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="${base}&theme=dark" />
-  <img width="100%" alt="${alt}" src="${base}&theme=light" />
-</picture>
+![${alt}](${base}&theme=light)
 `
 }
 

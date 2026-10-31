@@ -10,15 +10,6 @@ export function errorText(error: unknown): string {
 
 const marked = new Marked(markedTerminal())
 
-export function previewSource(markdown: string): string {
-  return markdown
-    .replaceAll(/<h1>([\s\S]*?)<\/h1>/gi, (_, text: string) => `# ${text.trim()}`)
-    .replaceAll(/<picture>[\s\S]*?<\/picture>/gi, block => {
-      const alt = /alt="([^"]*)"/.exec(block)?.[1]
-      return alt ? `\n${alt}\n` : ''
-    })
-}
-
 export async function fetchReadme(
   fetchImpl: typeof fetch = globalThis.fetch,
   url = README_URL
@@ -36,6 +27,6 @@ export async function fetchReadme(
 }
 
 export async function renderPreview(markdown: string): Promise<string> {
-  const rendered = await marked.parse(previewSource(markdown))
+  const rendered = await marked.parse(markdown)
   return `${rendered.trimEnd()}\n`
 }

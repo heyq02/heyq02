@@ -1,9 +1,9 @@
 import { expect, it, vi } from 'vite-plus/test'
 
 import { main } from '../src/main.ts'
-import { errorText, fetchReadme, previewSource, renderPreview } from '../src/readme.ts'
+import { errorText, fetchReadme, renderPreview } from '../src/readme.ts'
 
-const sample = `<h1>Hello, I'm Ari He</h1>
+const sample = `# Hello, I'm Ari He
 
 ## Experience
 
@@ -13,23 +13,12 @@ const sample = `<h1>Hello, I'm Ari He</h1>
 
 ## Skills
 
-<picture>
-  <img alt="Vue, React" src="https://example.com/icons" />
-</picture>
+![Vue, React](https://example.com/icons)
 `
 
 it('formats unknown errors as text', () => {
   expect(errorText(new Error('offline'))).toBe('offline')
   expect(errorText('offline')).toBe('offline')
-})
-
-it('turns the README heading and picture into terminal markdown', () => {
-  const source = previewSource(sample)
-  expect(source).toContain("# Hello, I'm Ari He")
-  expect(source).not.toContain('<h1>')
-  expect(source).toContain('Vue, React')
-  expect(source).not.toContain('<picture>')
-  expect(previewSource('<picture></picture>')).not.toContain('picture')
 })
 
 it('renders a terminal preview', async () => {

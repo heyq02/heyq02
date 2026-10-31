@@ -9,7 +9,7 @@ depends-on: [brands]
 
 ## Responsibility
 
-Write the repository `README.md`: an h1 greeting, the experience section (linked company, dates, bullets), and a skills picture that switches simple-icons theme with `prefers-color-scheme`.
+Write the repository `README.md` as Markdown the terminal can render directly: a heading greeting, the experience section (linked company, dates, bullets), and one skills image. It does not use HTML, so it does not switch that image with `prefers-color-scheme`.
 
 It does not emit places, projects, bio, or Chinese. The release workflow runs this against `main` and commits only `README.md` (`architecture`).
 

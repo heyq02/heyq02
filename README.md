@@ -1,4 +1,4 @@
-<h1>Hello, I'm Ari He</h1>
+# Hello, I'm Ari He
 
 ## Experience
 
@@ -10,7 +10,4 @@
 
 ## Skills
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=dark" />
-  <img width="100%" alt="Vue, React, Next, Rolldown, Vite, Oxc, Spring, Redis, RabbitMQ, Nginx, Docker" src="https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light" />
-</picture>
+![Vue, React, Next, Rolldown, Vite, Oxc, Spring, Redis, RabbitMQ, Nginx, Docker](https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light)

@@ -31,14 +31,17 @@ it('renders the README-shaped markdown', async () => {
   const { renderReadme } = await import('../src/generate.ts')
   const text = renderReadme()
 
-  expect(text).toContain(`<h1>Hello, I'm ${intro.name}</h1>`)
+  expect(text).toContain(`# Hello, I'm ${intro.name}`)
+  expect(text).not.toContain('<h1>')
+  expect(text).not.toContain('<picture>')
   expect(text).not.toContain('你好，我是')
   expect(text).toContain(`## ${intro.sections.experience}`)
   expect(text).toContain(`## ${intro.sections.skills}`)
   expect(text).toContain(`**[${intro.experiences[0]?.company}](${intro.experiences[0]?.href})**`)
   expect(text).toContain(`- ${intro.experiences[0]?.points[0]}`)
-  expect(text).toContain('prefers-color-scheme: dark')
+  expect(text).toContain(`![`)
   expect(text).toContain('theme=light')
+  expect(text).not.toContain('prefers-color-scheme')
 })
 
 it('writes the rendered README to disk', async () => {
