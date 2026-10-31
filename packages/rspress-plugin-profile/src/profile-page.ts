@@ -11,8 +11,12 @@ import {
   profileCounts,
   profileEduMeta,
   profileGrid,
+  profileH2,
+  profileH3,
   profileJob,
   profileJobHead,
+  profileLink,
+  profileList,
   profilePlaceholder,
   profilePost,
   profileRoot,
@@ -87,7 +91,7 @@ function escapeHtml(value: string) {
 
 function renderWriting(posts: BlogPost[]): string {
   if (posts.length === 0) {
-    return `<p className=${yamlString(profilePlaceholder)}>Essays and notes will show up here. For now, the <a href="/blog/">blog</a> is a quiet shelf.</p>`
+    return `<p className=${yamlString(profilePlaceholder)}>Essays and notes will show up here. For now, the <a className=${yamlString(profileLink)} href="/blog/">blog</a> is a quiet shelf.</p>`
   }
 
   const items = posts
@@ -128,7 +132,7 @@ export function renderHomeMdx(
     .map(
       item => `<article className=${yamlString(`${profileJob} profile-edu`)}>
 <div className=${yamlString(profileJobHead)}>
-<h3>${escapeHtml(item.school)}</h3>
+<h3 className=${yamlString(profileH3)}>${escapeHtml(item.school)}</h3>
 <p className=${yamlString(profileWhen)}>${escapeHtml(item.start)} – ${escapeHtml(item.end)}</p>
 </div>
 <p className=${yamlString(profileEduMeta)}>${escapeHtml(item.degree)} · ${escapeHtml(item.major)}</p>
@@ -140,10 +144,10 @@ export function renderHomeMdx(
       const points = job.points.map(point => `<li>${escapeHtml(point)}</li>`).join('\n')
       return `<article className=${yamlString(profileJob)}>
 <div className=${yamlString(profileJobHead)}>
-<h3><a href=${yamlString(job.href)}>${escapeHtml(job.company)}</a></h3>
+<h3 className=${yamlString(profileH3)}><a className=${yamlString(profileLink)} href=${yamlString(job.href)}>${escapeHtml(job.company)}</a></h3>
 <p className=${yamlString(profileWhen)}>${escapeHtml(job.start)} – ${escapeHtml(job.end)}</p>
 </div>
-<ul>
+<ul className=${yamlString(profileList)}>
 ${points}
 </ul>
 </article>`
@@ -179,19 +183,19 @@ import { ProfilePlay } from '${profilePlayModule}'
 <ProfilePlay tags={<>${tags}</>} />
 
 <section className=${yamlString(profileSection)}>
-<h2>${escapeHtml(page.sections.education)}</h2>
+<h2 className=${yamlString(profileH2)}>${escapeHtml(page.sections.education)}</h2>
 
 ${schools}
 </section>
 
 <section className=${yamlString(profileSection)}>
-<h2>${escapeHtml(page.sections.experience)}</h2>
+<h2 className=${yamlString(profileH2)}>${escapeHtml(page.sections.experience)}</h2>
 
 ${jobs}
 </section>
 
 <section className=${yamlString(profileSection)}>
-<h2>${escapeHtml(page.sections.openSource)}</h2>
+<h2 className=${yamlString(profileH2)}>${escapeHtml(page.sections.openSource)}</h2>
 
 <div className=${yamlString(`profile-projects ${profileGrid}`)}>
 ${projects}
@@ -199,13 +203,13 @@ ${projects}
 </section>
 
 <section className=${yamlString(profileSection)}>
-<h2>${escapeHtml(page.sections.skills)}</h2>
+<h2 className=${yamlString(profileH2)}>${escapeHtml(page.sections.skills)}</h2>
 
 <p className=${yamlString(profileSkills)}><img className=${yamlString(profileSkillsImg)} src=${yamlString(page.skills.src)} alt=${yamlString(page.skills.alt)} /></p>
 </section>
 
 <section className=${yamlString(profileWriting)}>
-<h2>${escapeHtml(page.sections.writing)}</h2>
+<h2 className=${yamlString(profileH2)}>${escapeHtml(page.sections.writing)}</h2>
 
 ${renderWriting(posts)}
 </section>

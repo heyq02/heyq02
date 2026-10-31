@@ -3,6 +3,17 @@
 export const profileRoot =
   'profile rp-not-doc font-[family-name:var(--rp-font-family-base)] text-[var(--rp-c-text-1)]'
 
+export const profileH2 =
+  "m-0 mb-4 text-[1.25rem] font-[650] leading-[1.3] text-[var(--rp-c-text-1)] after:mt-2 after:block after:h-0.5 after:w-8 after:bg-[var(--rp-c-brand)] after:content-['']"
+
+export const profileH3 = 'm-0 text-[1.05rem] font-semibold leading-[1.4]'
+
+export const profileLink =
+  'font-semibold text-inherit no-underline hover:text-[var(--rp-c-link)] hover:underline hover:underline-offset-[3px]'
+
+export const profileList =
+  'mt-[0.7rem] mb-0 list-disc pl-5 leading-[1.7] text-[var(--rp-c-text-2)] [&_li+li]:mt-[0.35rem]'
+
 export const profileSection = 'profile-section mt-10'
 
 export const profileWriting = `${profileSection} profile-writing`
@@ -20,10 +31,10 @@ export const profileEduMeta =
   'profile-edu-meta mt-[0.55rem] mb-0 text-[0.95rem] leading-relaxed text-[var(--rp-c-text-2)]'
 
 export const profileCard =
-  'profile-project group grid gap-[0.55rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline'
+  'profile-project group grid gap-[0.55rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline [&_.rp-badge]:no-underline'
 
 export const profilePost =
-  'profile-post group grid gap-[0.55rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline'
+  'profile-post group grid gap-[0.55rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline [&_.rp-badge]:no-underline'
 
 export const profileCardTop = 'grid gap-2'
 

@@ -24,6 +24,15 @@ function subscribeNever(): () => void {
 const avatarClass =
   'block size-12 shrink-0 rounded-full border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg)] object-cover'
 
+const headingClass =
+  'm-0 text-[clamp(2.1rem,5.5vw,2.75rem)] font-bold leading-[1.15] tracking-[-0.02em] text-[var(--rp-c-text-1)]'
+
+const sectionHeadingClass =
+  "m-0 mb-[0.85rem] text-[1.25rem] font-[650] leading-[1.3] text-[var(--rp-c-text-1)] after:mt-2 after:block after:h-0.5 after:w-8 after:bg-[var(--rp-c-brand)] after:content-['']"
+
+const linkClass =
+  'font-semibold text-inherit no-underline hover:text-[var(--rp-c-link)] hover:underline hover:underline-offset-[3px]'
+
 const cardClass =
   'group flex h-full items-center gap-[0.85rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-4 py-[0.9rem] font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline'
 
@@ -93,7 +102,7 @@ export function FriendsPage({
         <p className='mb-[0.35rem] font-[family-name:var(--rp-font-family-mono)] text-[0.72rem] font-medium leading-none tracking-[0.14em] text-[var(--rp-c-brand)] uppercase'>
           {kicker}
         </p>
-        {ssgMd ? null : <h1>{title}</h1>}
+        {ssgMd ? null : <h1 className={headingClass}>{title}</h1>}
         <p className='mt-3 mb-0 text-base leading-relaxed text-[var(--rp-c-text-2)]'>{intro}</p>
         {ssgMd ? null : (
           <p className='mt-[0.45rem] mb-0 font-[family-name:var(--rp-font-family-mono)] text-[0.78rem] tracking-[0.02em] text-[var(--rp-c-text-2)]'>
@@ -115,16 +124,22 @@ export function FriendsPage({
       )}
 
       <section className='friends-exchange mt-11 border-t border-[var(--rp-c-divider-light)] pt-8'>
-        <h2>{exchange.title}</h2>
+        <h2 className={sectionHeadingClass}>{exchange.title}</h2>
         <p className='m-0 leading-[1.7] text-[var(--rp-c-text-2)]'>{exchange.body}</p>
         {ssgMd ? (
           <ul>
             <li>{`Name: ${exchange.self.name}`}</li>
             <li>
-              Site: <a href={exchange.self.url}>{exchange.self.url}</a>
+              Site:{' '}
+              <a className={linkClass} href={exchange.self.url}>
+                {exchange.self.url}
+              </a>
             </li>
             <li>
-              Avatar: <a href={exchange.self.avatar}>{exchange.self.avatar}</a>
+              Avatar:{' '}
+              <a className={linkClass} href={exchange.self.avatar}>
+                {exchange.self.avatar}
+              </a>
             </li>
             <li>{`Blurb: ${exchange.self.desc}`}</li>
           </ul>
@@ -153,7 +168,9 @@ export function FriendsPage({
                   Site
                 </dt>
                 <dd className='m-0 text-[0.92rem] leading-normal text-[var(--rp-c-text-1)] wrap-anywhere'>
-                  <a href={exchange.self.url}>{exchange.self.url}</a>
+                  <a className={linkClass} href={exchange.self.url}>
+                    {exchange.self.url}
+                  </a>
                 </dd>
               </div>
               <div className='grid grid-cols-1 items-baseline gap-x-3 gap-y-[0.15rem] sm:grid-cols-[4.5rem_1fr] sm:gap-y-2'>
@@ -161,7 +178,9 @@ export function FriendsPage({
                   Avatar
                 </dt>
                 <dd className='m-0 text-[0.92rem] leading-normal text-[var(--rp-c-text-1)] wrap-anywhere'>
-                  <a href={exchange.self.avatar}>{exchange.self.avatar}</a>
+                  <a className={linkClass} href={exchange.self.avatar}>
+                    {exchange.self.avatar}
+                  </a>
                 </dd>
               </div>
               <div className='grid grid-cols-1 items-baseline gap-x-3 gap-y-[0.15rem] sm:grid-cols-[4.5rem_1fr] sm:gap-y-2'>

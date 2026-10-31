@@ -57,7 +57,9 @@ export function ProfilePlay({
         />
       </button>
       <div className='min-w-0'>
-        <h1>{intro.name}</h1>
+        <h1 className='m-0 text-[clamp(2.1rem,5.5vw,2.75rem)] font-bold leading-[1.15] tracking-[-0.02em] text-[var(--rp-c-text-1)]'>
+          {intro.name}
+        </h1>
         <button
           type='button'
           className='mt-[0.45rem] inline-flex cursor-pointer rounded-[var(--rp-radius-small)] border-0 bg-transparent px-[0.35rem] py-[0.15rem] font-[family-name:var(--rp-font-family-mono)] text-[1.05rem] leading-[1.3] text-[var(--rp-c-text-2)] transition-[color,background-color,transform] duration-200 hover:-translate-y-px hover:bg-[var(--rp-c-bg-soft)] hover:text-[var(--rp-c-brand)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--rp-c-brand)]'
