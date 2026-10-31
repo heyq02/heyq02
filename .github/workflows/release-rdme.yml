@@ -3,8 +3,8 @@ name: Release README
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - '**'
   workflow_dispatch:
 
 concurrency:
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      # Tag pushes check out a detached HEAD; commit/push must land on main.
+      # Branch pushes must not commit on the pushed ref; README lands on main.
       - name: Checkout
         uses: actions/checkout@v7
         with:
