@@ -1,7 +1,7 @@
 ---
 title: Webpack 中 import 加载路径变量
 description: 动态 import 路径在 Webpack 里为何打不进包，以及怎样留下静态目录和后缀让打包器收齐候选文件。
-date: 2026-11-01
+date: 2026-06-22
 ---
 
 # Webpack 中 import 加载路径变量

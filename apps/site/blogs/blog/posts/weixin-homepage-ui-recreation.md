@@ -1,7 +1,7 @@
 ---
 title: 趣味项目：UI 复现微信官网首页
 description: 用 Vite + React + Tailwind / SCSS 复刻 weixin.qq.com 首页布局，并部署到 GitHub Pages。
-date: 2026-11-01
+date: 2024-09-17
 ---
 
 # 趣味项目：UI 复现微信官网首页

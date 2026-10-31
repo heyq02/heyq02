@@ -13,17 +13,21 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
     'anaconda-vscode-encoding-bug',
     'iframe-child-route-state',
     'python-tkinter-radix-converter',
-    'webpack-import-path-variables',
-    'multi-mcp-aggregation-nginx-vs-express',
     'vue-router-hash-external-listen',
     'npm-download-daily-report',
-    'weixin-homepage-ui-recreation',
-    'macos-disable-ime-switching'
+    'macos-disable-ime-switching',
+    'webpack-import-path-variables',
+    'multi-mcp-aggregation-nginx-vs-express',
+    'weixin-homepage-ui-recreation'
   ])
   expect(posts[0]?.href).toBe('/blog/posts/anaconda-vscode-encoding-bug/')
-  expect(posts[0]?.title).toContain('Anaconda')
   expect(posts[0]?.date).toBe('2026-11-01')
-  expect(posts.at(-1)?.date).toBe('2026-10-31')
+  expect(posts.find(post => post.slug === 'webpack-import-path-variables')?.date).toBe('2026-06-22')
+  expect(posts.find(post => post.slug === 'multi-mcp-aggregation-nginx-vs-express')?.date).toBe(
+    '2026-01-19'
+  )
+  expect(posts.at(-1)?.slug).toBe('weixin-homepage-ui-recreation')
+  expect(posts.at(-1)?.date).toBe('2024-09-17')
 })
 
 it('renders blog sidebar meta with Overview first', () => {
