@@ -1,6 +1,7 @@
 node_modules
 dist
 coverage
+apps/site/blogs/public
 .rsdoctor
 .vite-hooks/_
 *.tgz
