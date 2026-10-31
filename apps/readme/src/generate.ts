@@ -1,11 +1,13 @@
-import { writeFile } from 'node:fs/promises'
+import { readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
 import { brandSlug } from '@heyq02/brands'
+import ejs from 'ejs'
 
 import intro from '../../../static/data/intro.json' with { type: 'json' }
 
 const out = resolve(import.meta.dirname, '../../../README.md')
+const templatePath = resolve(import.meta.dirname, 'README.ejs')
 
 export function skillsPicture() {
   const named = intro.skills.flatMap(skill => {
@@ -18,28 +20,19 @@ export function skillsPicture() {
   return { alt, base }
 }
 
-export function renderReadme(): string {
-  const experience = intro.experiences
-    .map(job => {
-      const points = job.points.map(point => `- ${point}`).join('\n')
-      return `**[${job.company}](${job.href})** · ${job.start} – ${job.end}\n\n${points}`
-    })
-    .join('\n\n')
-
+export async function renderReadme(): Promise<string> {
   const { alt, base } = skillsPicture()
-
-  return `# Hello, I'm ${intro.name}
-
-## ${intro.sections.experience}
-
-${experience}
-
-## ${intro.sections.skills}
-
-![${alt}](${base}&theme=light)
-`
+  const template = await readFile(templatePath, 'utf8')
+  return ejs.render(template, {
+    name: intro.name,
+    sections: intro.sections,
+    experiences: intro.experiences,
+    skillsAlt: alt,
+    skillsSrc: `${base}&theme=light`
+  })
 }
 
 export async function writeReadme(path = out): Promise<void> {
-  await writeFile(path, `${renderReadme().trimEnd()}\n`)
+  const markdown = await renderReadme()
+  await writeFile(path, `${markdown.trimEnd()}\n`)
 }

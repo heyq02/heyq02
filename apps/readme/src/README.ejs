@@ -1,0 +1,15 @@
+# Hello, I'm <%- name %>
+
+## <%- sections.experience %>
+
+<% for (const job of experiences) { -%>
+**[<%- job.company %>](<%- job.href %>)** · <%- job.start %> – <%- job.end %>
+
+<% for (const point of job.points) { -%>
+- <%- point %>
+<% } -%>
+
+<% } -%>
+## <%- sections.skills %>
+
+![<%- skillsAlt %>](<%- skillsSrc %>)

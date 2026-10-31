@@ -29,7 +29,7 @@ it('keeps a usable picture URL when no skill has a brand slug', async () => {
 
 it('renders the README-shaped markdown', async () => {
   const { renderReadme } = await import('../src/generate.ts')
-  const text = renderReadme()
+  const text = await renderReadme()
 
   expect(text).toContain(`# Hello, I'm ${intro.name}`)
   expect(text).not.toContain('<h1>')
@@ -51,7 +51,7 @@ it('writes the rendered README to disk', async () => {
 
   try {
     await writeReadme(path)
-    expect(await readFile(path, 'utf8')).toBe(`${renderReadme().trimEnd()}\n`)
+    expect(await readFile(path, 'utf8')).toBe(`${(await renderReadme()).trimEnd()}\n`)
   } finally {
     await rm(dir, { recursive: true, force: true })
   }
