@@ -122,5 +122,3 @@ h  -338.624
 
 将模块重新进行组合
 ![](https://i-blog.csdnimg.cn/blog_migrate/cf13e5618c9bd95fbd530a580a1eb19e.png)
-
-> 原文：[SVG 源码修改指南](https://blog.csdn.net/m0_66681776/article/details/129328671?spm=1011.2415.3001.5331) · 作者 m0_66681776

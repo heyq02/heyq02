@@ -770,5 +770,3 @@ switch (true) {
 ```
 
 ## 3.7 函数
-
-> 原文：[【JavaScript红宝书】第三章 语法基础](https://blog.csdn.net/m0_66681776/article/details/127682734?spm=1011.2415.3001.5331) · 作者 m0_66681776

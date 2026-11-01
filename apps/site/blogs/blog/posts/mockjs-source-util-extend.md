@@ -223,5 +223,3 @@ console.log(Test)
 ```
 
 成功增强了构造函数Test
-
-> 原文：[【Mockjs】源码分析1-Util.extend](https://blog.csdn.net/m0_66681776/article/details/129269196?spm=1011.2415.3001.5331) · 作者 m0_66681776

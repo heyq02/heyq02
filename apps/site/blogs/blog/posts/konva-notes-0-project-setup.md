@@ -146,5 +146,3 @@ npm run serve
 可以在输入地址 http://localhost:8080/ 看到最终结果
 
 ![](https://i-blog.csdnimg.cn/blog_migrate/304f7ac2cfbc40a258cec915a5618a23.png)
-
-> 原文：[Konva学习笔记0-创建项目](https://blog.csdn.net/m0_66681776/article/details/132490884?spm=1011.2415.3001.5331) · 作者 m0_66681776

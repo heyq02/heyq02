@@ -209,5 +209,3 @@ Page({
   font-size: 90rpx;
 }
 ```
-
-> 原文：[小贺同学的进制转换器-微信小程序](https://blog.csdn.net/m0_66681776/article/details/124806765?spm=1011.2415.3001.5331) · 作者 m0_66681776

@@ -16,5 +16,3 @@ declare module '*.vue' {
   export default component
 }
 ```
-
-> 原文：[解决npm init vue@next创建项目Vue: Cannot find module ./App.vue or its corresponding type declaratio](https://blog.csdn.net/m0_66681776/article/details/133021078?spm=1011.2415.3001.5331) · 作者 m0_66681776

@@ -229,5 +229,3 @@ some more text
 ## 结语
 
 我会持续优化更新美赛 Demo，想要第一手的模板资料记得关注，也欢迎提建议，会及时采纳。
-
-> 原文：[LaTeX 美赛模板【Demo 修正版】- ICMDemo2.0](https://blog.csdn.net/m0_66681776/article/details/122797387?spm=1011.2415.3001.5331) · 作者 m0_66681776

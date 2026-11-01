@@ -28,5 +28,3 @@ date: 2025-05-29
 ## 再次重启 IDEA，创建一个测试
 
 ![](https://i-blog.csdnimg.cn/direct/5c050f7e1ee24aa5ae01a85f2b924c40.png)
-
-> 原文：[【开发技巧指北】IDEA修改默认绑定Maven的仓库地址](https://blog.csdn.net/m0_66681776/article/details/148294789?spm=1011.2415.3001.5331) · 作者 m0_66681776

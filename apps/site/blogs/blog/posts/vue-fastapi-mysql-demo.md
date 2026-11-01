@@ -143,5 +143,3 @@ insert into user(id,username) values(3,'kf');
 insert into user(id,username) values(4,'ld');
 insert into user(id,username) values(5,'nx');
 ```
-
-> 原文：[【Vue+FastAPI+MySQL的迷你 Demo】](https://blog.csdn.net/m0_66681776/article/details/128414059?spm=1011.2415.3001.5331) · 作者 m0_66681776

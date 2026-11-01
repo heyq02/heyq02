@@ -47,5 +47,3 @@ date: 2022-02-06
 **YC74H-FGF92-081VZ-R5QNG-P6RY4 YC34H-6WWDK-085MQ-JYPNX-NZRA2**
 
 12、虚拟机【VMware Workstation Pro15】安装激活完成，点击【完成】。
-
-> 原文：[VMware Workstation Pro 15.5.0虚拟机安装教程](https://blog.csdn.net/m0_66681776/article/details/122796862?spm=1011.2415.3001.5331) · 作者 m0_66681776

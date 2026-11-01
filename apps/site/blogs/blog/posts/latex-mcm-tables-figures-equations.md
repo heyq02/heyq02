@@ -87,5 +87,3 @@ date: 2023-02-26
 首先也是添加宏包 `\usepackage{amsmath, amsfonts}`。
 
 公式环境 `equation` 已经处理好了格式，关键是大括号里的公式怎么写。这里推荐一篇写得很详细的博文：[LaTeX数学公式-详细教程_NSJim的博客-CSDN博客_latex数学公式](https://blog.csdn.net/NSJim/article/details/109045914)
-
-> 原文：[美赛 LaTeX 关键操作讲解](https://blog.csdn.net/m0_66681776/article/details/122970975?spm=1011.2415.3001.5331) · 作者 m0_66681776

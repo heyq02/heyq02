@@ -25,5 +25,3 @@ date: 2023-11-12
 ![](https://i-blog.csdnimg.cn/blog_migrate/2ef175e5106224b9e1bf70304efd4448.png)
 
 一种取巧的方式。
-
-> 原文：[React中使用路径别名引用资源设置背景图](https://blog.csdn.net/m0_66681776/article/details/134362826?spm=1011.2415.3001.5331) · 作者 m0_66681776

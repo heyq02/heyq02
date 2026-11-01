@@ -31,5 +31,3 @@ date: 2023-06-09
 这样子就实现了对组件库样式的覆盖。
 
 ![](https://i-blog.csdnimg.cn/blog_migrate/f863d37ef56962a6abb1cbcf010845d2.png)
-
-> 原文：[【实习】修改组件库的默认样式](https://blog.csdn.net/m0_66681776/article/details/131126081?spm=1011.2415.3001.5331) · 作者 m0_66681776

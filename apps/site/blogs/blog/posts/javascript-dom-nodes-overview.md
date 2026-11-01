@@ -310,5 +310,3 @@ splitText()是和normalize()相反的方法，接受一个参数offset，从offs
 > 参考书籍：
 > Matt Frisbie 《JavaScript高级程序设计》（第四版）
 > Jeremy Keith&Jeffrey Sambells 《JavaScript DOM编程艺术》（第二版）
-
-> 原文：[【JS学习笔记】DOM节点综述](https://blog.csdn.net/m0_66681776/article/details/127726018?spm=1011.2415.3001.5331) · 作者 m0_66681776

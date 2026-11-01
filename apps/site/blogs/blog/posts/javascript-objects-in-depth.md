@@ -1043,5 +1043,3 @@ son.sayHi()
 // HYQ
 // Hi!
 ```
-
-> 原文：[【深入剖析JavaScript中的对象】](https://blog.csdn.net/m0_66681776/article/details/127935901?spm=1011.2415.3001.5331) · 作者 m0_66681776
