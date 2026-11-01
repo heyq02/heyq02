@@ -53,7 +53,6 @@ export interface Intro {
     experience: string
     skills: string
     openSource: string
-    writing: string
   }
   places: Place[]
   education: Education[]

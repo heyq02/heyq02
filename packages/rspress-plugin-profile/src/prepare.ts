@@ -2,7 +2,6 @@ import { resolve } from 'node:path'
 
 import { formatGenerated, writeIfChanged } from '@heyq02/shared/fs'
 import type { SpawnFn } from '@heyq02/shared/fs'
-import { listBlogPosts } from 'rspress-plugin-blog-meta'
 import { fetchPinnedProjects } from 'rspress-plugin-github-pins'
 import type { PinnedProject } from 'rspress-plugin-github-pins'
 
@@ -18,14 +17,12 @@ export interface PrepareProfileOptions {
   spawnFn?: SpawnFn
 }
 
-/** Regenerate `blogs/index.mdx` from posts + pinned projects. */
+/** Regenerate `blogs/index.mdx` from intro + pinned projects. */
 export async function prepareProfile(options: PrepareProfileOptions): Promise<void> {
   const site = options.siteRoot
-  const postsDir = resolve(site, 'blogs/blog/posts')
   const homeMdx = resolve(site, 'blogs/index.mdx')
-  const posts = await listBlogPosts(postsDir)
   const projects = await (options.fetchProjects ?? fetchPinnedProjects)()
-  const home = renderHomeMdx(posts, projects, {
+  const home = renderHomeMdx(projects, {
     profilePlayModule: options.profilePlayModule ?? '@theme/ProfilePlay'
   })
   const changed = await writeIfChanged(homeMdx, home)

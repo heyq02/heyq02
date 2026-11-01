@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -11,11 +11,7 @@ it('exposes pluginProfile that writes homepage MDX via config hook', async () =>
   const site = join(root, 'apps/site')
 
   try {
-    await mkdir(join(site, 'blogs/blog/posts'), { recursive: true })
-    await writeFile(
-      join(site, 'blogs/blog/posts/demo.mdx'),
-      `---\ntitle: Demo\ndate: 2026-10-31\n---\n\n# Demo\n`
-    )
+    await mkdir(join(site, 'blogs'), { recursive: true })
 
     const plugin = pluginProfile({
       siteRoot: site,

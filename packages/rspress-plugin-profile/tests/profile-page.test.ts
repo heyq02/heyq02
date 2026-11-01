@@ -17,7 +17,7 @@ it('builds the English profile page from the intro', () => {
   expect(page.tags).toEqual(['Full-stack engineer', 'Open-source enthusiast', 'Blogger on career'])
   expect(page.sections.education).toBe('Education')
   expect(page.sections.experience).toBe('Experience')
-  expect(page.sections.writing).toBe('Writing')
+  expect(page.sections.openSource).toBe('Open source')
   expect(page.education[0]?.school).toContain('Nanjing')
   expect(page.experiences[0]?.company).toBe('JD.com, Inc.')
   expect(page.projects[0]?.stars).toBe('172')
@@ -26,15 +26,6 @@ it('builds the English profile page from the intro', () => {
   expect(page.skills.src).toContain('theme=light')
 
   const home = renderHomeMdx(
-    [
-      {
-        slug: 'demo',
-        href: '/blog/demo/',
-        title: 'Demo post',
-        description: 'A short note',
-        date: '2026-10-31'
-      }
-    ],
     [
       {
         name: 'simpleicons.dev',
@@ -56,10 +47,9 @@ it('builds the English profile page from the intro', () => {
   expect(home).toContain("from '@theme/ProfilePlay'")
   expect(home).toContain('ProfilePlay')
   expect(home).toContain('profile-project')
-  expect(home).toContain('profile-writing')
-  expect(home).toContain('profile-post')
-  expect(home).toContain('Demo post')
-  expect(home).not.toContain('quiet shelf')
+  expect(home).not.toContain('profile-writing')
+  expect(home).not.toContain('profile-post')
+  expect(home).not.toContain('>Writing</h2>')
   expect(home).toContain('Ari He｜阿瑞')
   expect(home).not.toContain('Yongqi He')
   expect(home).not.toContain('阿瑞oxo')
@@ -77,25 +67,9 @@ it('builds the English profile page from the intro', () => {
   )
   expect(home).toContain('simpleicons.dev')
   expect(home).toContain('Showcase your skills')
-  expect(home).toContain('>Writing</h2>')
   const projectCard = /<a className=\{?[^>]*profile-project[\s\S]*?<\/a>/.exec(home)?.[0]
   expect(projectCard).toBeTruthy()
   expect(projectCard).toMatchSnapshot('open-source-card.mdx')
-})
-
-it('renders the quiet-shelf placeholder when there are no posts', () => {
-  const home = renderHomeMdx()
-  expect(home).toContain('quiet shelf')
-  expect(home).toContain('@theme/ProfilePlay')
-})
-
-it('omits post date and summary when blank', () => {
-  const home = renderHomeMdx([
-    { slug: 'x', href: '/blog/posts/x/', title: 'Bare', description: '', date: '' }
-  ])
-  expect(home).toContain('Bare')
-  expect(home).not.toContain('profile-post-summary')
-  expect(home).not.toContain('dateTime=')
 })
 
 it('builds title suffix from an empty tags page', () => {
@@ -106,11 +80,12 @@ it('builds title suffix from an empty tags page', () => {
 it('escapes HTML in rendered MDX', () => {
   const home = renderHomeMdx([
     {
-      slug: 'x',
-      href: '/blog/posts/x/',
-      title: 'A & B <C>',
-      description: 'say "hi"',
-      date: '2026-01-01'
+      name: 'A & B <C>',
+      href: 'https://example.com',
+      summary: 'say "hi"',
+      language: 'TypeScript',
+      stars: 1,
+      forks: 0
     }
   ])
   expect(home).toContain('A &amp; B &lt;C&gt;')

@@ -76,7 +76,7 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
   expect(posts.at(-1)?.slug).toBe('install-guide-vmware-workstation-15')
 })
 
-it('lists interview notes newest-first without mixing into Writing posts', async () => {
+it('lists interview notes newest-first separately from posts', async () => {
   const notes = await listInterviewNotes(siteInterviewDir)
   expect(notes.length).toBe(28)
   expect(notes[0]?.slug).toBe('daily-frontend-interview-2024-03-18-pause')

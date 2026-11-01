@@ -1,6 +1,5 @@
 import { formatCount, intro, skillIconsPicture } from '@heyq02/shared'
 import type { Intro } from '@heyq02/shared'
-import type { BlogPost } from 'rspress-plugin-blog-meta'
 import type { PinnedProject } from 'rspress-plugin-github-pins'
 
 import {
@@ -17,14 +16,11 @@ import {
   profileJobHead,
   profileLink,
   profileList,
-  profilePlaceholder,
-  profilePost,
   profileRoot,
   profileSection,
   profileSkills,
   profileSkillsImg,
-  profileWhen,
-  profileWriting
+  profileWhen
 } from './profile-classes.ts'
 
 interface ProfilePage {
@@ -89,37 +85,8 @@ function escapeHtml(value: string) {
     .replaceAll('"', '&quot;')
 }
 
-function renderWriting(posts: BlogPost[]): string {
-  if (posts.length === 0) {
-    return `<p className=${yamlString(profilePlaceholder)}>Essays and notes will show up here. For now, the <a className=${yamlString(profileLink)} href="/blog/">blog</a> is a quiet shelf.</p>`
-  }
-
-  const items = posts
-    .map(post => {
-      const when = post.date
-        ? `<time className=${yamlString(profileWhen)} dateTime=${yamlString(post.date)}>${escapeHtml(post.date)}</time>`
-        : ''
-      const summary = post.description
-        ? `<span className=${yamlString(`profile-post-summary ${profileCardSummary}`)}>${escapeHtml(post.description)}</span>`
-        : ''
-      return `<a className=${yamlString(profilePost)} href=${yamlString(post.href)} data-card="">
-<span className=${yamlString(`profile-post-top ${profileCardTop}`)}>
-<span className=${yamlString(`profile-post-title ${profileCardName}`)}>${escapeHtml(post.title)}</span>
-${when}
-</span>
-${summary}
-</a>`
-    })
-    .join('\n\n')
-
-  return `<div className=${yamlString(`profile-posts ${profileGrid}`)}>
-${items}
-</div>`
-}
-
 /** Doc page of Rspress theme components, not the built-in homepage. */
 export function renderHomeMdx(
-  posts: BlogPost[] = [],
   pinned: PinnedProject[] = [],
   options: RenderHomeMdxOptions = {}
 ): string {
@@ -206,12 +173,6 @@ ${projects}
 <h2 className=${yamlString(profileH2)}>${escapeHtml(page.sections.skills)}</h2>
 
 <p className=${yamlString(profileSkills)}><img className=${yamlString(profileSkillsImg)} src=${yamlString(page.skills.src)} alt=${yamlString(page.skills.alt)} /></p>
-</section>
-
-<section className=${yamlString(profileWriting)}>
-<h2 className=${yamlString(profileH2)}>${escapeHtml(page.sections.writing)}</h2>
-
-${renderWriting(posts)}
 </section>
 
 </div>

@@ -1,6 +1,6 @@
 /** Marker-prefixed class strings for generated homepage MDX (tokens from `@heyq02/shared`). */
 
-import { siteCardChrome, siteEmpty, sitePageRoot, siteWhen } from '@heyq02/shared'
+import { siteCardChrome, sitePageRoot, siteWhen } from '@heyq02/shared'
 
 export {
   siteCardName as profileCardName,
@@ -18,8 +18,6 @@ export const profileList =
 
 export const profileSection = 'profile-section mt-10'
 
-export const profileWriting = `${profileSection} profile-writing`
-
 export const profileWhen = `profile-when ${siteWhen}`
 
 export const profileJob =
@@ -33,8 +31,6 @@ export const profileEduMeta =
 
 export const profileCard = `profile-project group grid gap-[0.55rem] ${siteCardChrome} [&_.rp-badge]:no-underline`
 
-export const profilePost = `profile-post group grid gap-[0.55rem] ${siteCardChrome} [&_.rp-badge]:no-underline`
-
 export const profileCardTop = 'grid gap-2'
 
 export const profileCounts = 'profile-counts m-0 flex flex-wrap gap-[0.35rem]'
@@ -44,5 +40,3 @@ export const profileGrid = 'grid gap-3'
 export const profileSkills = 'profile-skills m-0'
 
 export const profileSkillsImg = 'block h-auto max-w-full dark:invert'
-
-export const profilePlaceholder = `profile-placeholder ${siteEmpty}`

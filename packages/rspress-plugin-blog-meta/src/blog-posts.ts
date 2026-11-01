@@ -72,12 +72,12 @@ async function listMarkdownEntries(dir: string, hrefPrefix: string): Promise<Blo
   )
 }
 
-/** Homepage Writing + `/blog/posts/` sidebar entries. */
+/** `/blog/posts/` sidebar entries (newest first). */
 export async function listBlogPosts(postsDir: string): Promise<BlogPost[]> {
   return listMarkdownEntries(postsDir, '/blog/posts/')
 }
 
-/** `/blog/interview/` sidebar entries (not shown on homepage Writing). */
+/** `/blog/interview/` sidebar entries (newest first). */
 export async function listInterviewNotes(interviewDir: string): Promise<BlogPost[]> {
   return listMarkdownEntries(interviewDir, '/blog/interview/')
 }

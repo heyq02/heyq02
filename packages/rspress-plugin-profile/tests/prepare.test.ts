@@ -6,16 +6,12 @@ import { expect, it } from 'vite-plus/test'
 
 import { prepareProfile, prepareProfileOnce } from '../src/prepare.ts'
 
-it('writes homepage MDX from posts and pinned projects', async () => {
+it('writes homepage MDX from pinned projects', async () => {
   const root = await mkdtemp(join(tmpdir(), 'heyq02-profile-'))
   const site = join(root, 'apps/site')
 
   try {
-    await mkdir(join(site, 'blogs/blog/posts'), { recursive: true })
-    await writeFile(
-      join(site, 'blogs/blog/posts/demo.mdx'),
-      `---\ntitle: Demo\ndescription: Note\ndate: 2026-10-31\n---\n\n# Demo\n`
-    )
+    await mkdir(join(site, 'blogs'), { recursive: true })
 
     await prepareProfile({
       siteRoot: site,
@@ -38,7 +34,7 @@ it('writes homepage MDX from posts and pinned projects', async () => {
     expect(home).toContain('ProfilePlay')
     expect(home).toContain("from '@theme/ProfilePlay'")
     expect(home).toContain('simpleicons.dev')
-    expect(home).toContain('Demo')
+    expect(home).not.toContain('profile-writing')
 
     const { EventEmitter } = await import('node:events')
     let formatted = false
@@ -69,10 +65,7 @@ it('writes homepage MDX from posts and pinned projects', async () => {
     })
     expect(formatted).toBe(false)
 
-    await writeFile(
-      join(site, 'blogs/blog/posts/demo.mdx'),
-      `---\ntitle: Demo 2\ndate: 2026-10-31\n---\n\n# Demo 2\n`
-    )
+    await writeFile(join(site, 'blogs/index.mdx'), `${home}\n`)
     await prepareProfile({
       siteRoot: site,
       format: true,

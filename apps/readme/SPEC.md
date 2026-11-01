@@ -11,7 +11,7 @@ depends-on: [shared]
 
 Write the repository `README.md` as Markdown the terminal can render directly: a heading greeting with role tags, experience (`###` company links, dates, bullets), and one skills image. It does not use HTML, so it does not switch that image with `prefers-color-scheme`.
 
-It does not emit places, pinned projects, writing, bio, or Chinese. The release workflow runs this against `main` and commits only `README.md` (`architecture`).
+It does not emit places, pinned projects, bio, or Chinese. The release workflow runs this against `main` and commits only `README.md` (`architecture`).
 
 ## Boundary
 

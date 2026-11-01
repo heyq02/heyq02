@@ -83,7 +83,7 @@ ${pages || '- (no additional pages yet)'}
       feed: {
         id: 'blog',
         test: '/blog/posts/',
-        title: `${intro.name} · ${intro.sections.writing}`,
+        title: `${intro.name} · Blog`,
         description: intro.description,
         language: 'zh-CN',
         copyright: `© ${new Date().getFullYear()} ${intro.name}`

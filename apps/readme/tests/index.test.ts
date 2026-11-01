@@ -28,7 +28,7 @@ it('renders the README-shaped markdown', async () => {
   expect(text).toContain(intro.tags.join(' · '))
   expect(text).toContain(`## ${intro.sections.experience}`)
   expect(text).toContain(`## ${intro.sections.skills}`)
-  expect(text).not.toContain(`## ${intro.sections.writing}`)
+  expect(text).not.toContain('## Writing')
   expect(text).toContain(`### [${intro.experiences[0]?.company}](${intro.experiences[0]?.href})`)
   expect(text).toContain(`- ${intro.experiences[0]?.points[0]}`)
   expect(text).toContain(`![`)

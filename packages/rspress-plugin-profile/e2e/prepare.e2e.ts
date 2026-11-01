@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -10,11 +10,7 @@ it('profile e2e: writes homepage MDX with theme import and pins', async () => {
   const root = await mkdtemp(join(tmpdir(), 'heyq02-e2e-profile-'))
   const site = join(root, 'apps/site')
   try {
-    await mkdir(join(site, 'blogs/blog/posts'), { recursive: true })
-    await writeFile(
-      join(site, 'blogs/blog/posts/e2e.mdx'),
-      `---\ntitle: E2E\ndate: 2026-10-31\n---\n\n# E2E\n`
-    )
+    await mkdir(join(site, 'blogs'), { recursive: true })
     await prepareProfile({
       siteRoot: site,
       format: false,
@@ -33,7 +29,7 @@ it('profile e2e: writes homepage MDX with theme import and pins', async () => {
     const home = await readFile(join(site, 'blogs/index.mdx'), 'utf8')
     expect(home).toContain('@theme/ProfilePlay')
     expect(home).toContain('e2e-repo')
-    expect(home).toContain('E2E')
+    expect(home).not.toContain('profile-writing')
   } finally {
     await rm(root, { recursive: true, force: true })
   }
