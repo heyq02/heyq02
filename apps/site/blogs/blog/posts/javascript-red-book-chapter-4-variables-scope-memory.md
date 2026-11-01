@@ -19,12 +19,12 @@ date: 2023-02-25
 原始值型的初始化必须使用原始值字面量的形式。如果使用的是new的方法，则会创建一个Object类型的实例，但其行为类似原始值
 
 ```javascript
-let name1 = "Nico";
-let name2 = new String("Mark");
-name1.age = 27;
-name2.age = 28;
-console.log(name1.age);             // undefined
-console.log(name2.age);             // 28
+let name1 = 'Nico'
+let name2 = new String('Mark')
+name1.age = 27
+name2.age = 28
+console.log(name1.age) // undefined
+console.log(name2.age) // 28
 ```
 
 ### 4.1.2 复制值
@@ -32,19 +32,19 @@ console.log(name2.age);             // 28
 在通过变量把一个原始值赋值给另一个变量时，原始值会被复制到新变量的位置
 
 ```javascript
-let num1 = 5;
-let num2 = num1;
-num2++;
-console.log(num1);		// 5
+let num1 = 5
+let num2 = num1
+num2++
+console.log(num1) // 5
 ```
 
 而如果是引用值从一个变量赋值给另一个变量，那么这个复制的值实际上是一个指针，两个变量其实指的是同一个对象。
 
 ```javascript
-const obj1 = new Object();
-const obj2 = obj1;
-obj2.le = "12";
-console.log(obj1.le);               // 12
+const obj1 = new Object()
+const obj2 = obj1
+obj2.le = '12'
+console.log(obj1.le) // 12
 ```
 
 ### 4.1.3 传递参数
@@ -55,11 +55,11 @@ console.log(obj1.le);               // 12
 
 ```javascript
 function test(objjj) {
-    objjj.name = "hyq";
+  objjj.name = 'hyq'
 }
-let obj3 = new Object();
-test(obj3);
-console.log(obj3.name);
+let obj3 = new Object()
+test(obj3)
+console.log(obj3.name)
 ```
 
 ### 4.1.4 确定类型
@@ -67,8 +67,8 @@ console.log(obj3.name);
 instanceof可以判断变量是否为某类型的对象
 
 ```javascript
-let color = new Array();
-console.log(color instanceof Array);		// true
+let color = new Array()
+console.log(color instanceof Array) // true
 ```
 
 ## 4.2 执行上下文与作用域
@@ -113,24 +113,24 @@ IE7后，JS的垃圾回收机制调整为动态改变分配变量、字面量或
 运行期间，V8会将创建的对象与隐藏类关联起来，以跟踪它们的属性特征。建议在构造函数中一次性声明所有变量，防止动态补充属性多次触发回收阈值，提升性能
 
 ```javascript
-function Arct (op ) {
-    this.name = "heyq";
-    this.age = op;
+function Arct(op) {
+  this.name = 'heyq'
+  this.age = op
 }
-let Arct1 = new Arct(15);
-let Arct2 = new Arct(14);
+let Arct1 = new Arct(15)
+let Arct2 = new Arct(14)
 ```
 
 这样，两个实例就基本一样了，可以带来潜在的性能提升。不过，delete会导致生成相同的隐藏类片段
 
 ```javascript
-function Arct (op ) {
-    this.name = "heyq";
-    this.age = op;
+function Arct(op) {
+  this.name = 'heyq'
+  this.age = op
 }
-let Arct1 = new Arct(15);
-let Arct2 = new Arct(14);
-delete Arct2.name;
+let Arct1 = new Arct(15)
+let Arct2 = new Arct(14)
+delete Arct2.name
 ```
 
 在代码结束后，即使两个值使用了同一个构造函数，也不会共享一个隐藏类。最佳实践是把不想要的属性设置为null。

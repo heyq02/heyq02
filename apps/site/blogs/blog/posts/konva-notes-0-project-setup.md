@@ -55,15 +55,15 @@ npm i konva
 
 ```json
 {
-    "compilerOptions": {
-        "allowSyntheticDefaultImports": true,
-        "noImplicitAny": true,
-        "module": "es6",
-        "target": "es5",
-        "allowJs": true,
-        "lib": [ "es6", "dom" ],
-        "moduleResolution": "node"
-    }
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true,
+    "lib": ["es6", "dom"],
+    "moduleResolution": "node"
+  }
 }
 ```
 
@@ -74,67 +74,67 @@ npm i konva
 ```html
 <!DOCTYPE html>
 <html>
- <head>
-     <meta charset="utf-8" />
-     <title>Webpack App</title>
- </head>
- <body>
-     <div id="container"></div>
- </body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Webpack App</title>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
 </html>
 ```
 
 修改 src/index.ts
 
 ```ts
-import Konva from "konva";
+import Konva from 'konva'
 
-const width = window.innerWidth;
-const height = window.innerHeight;
+const width = window.innerWidth
+const height = window.innerHeight
 
 const stage = new Konva.Stage({
-   container: 'container',
-   width: width,
-   height: height
-});
+  container: 'container',
+  width: width,
+  height: height
+})
 
-const layer = new Konva.Layer();
+const layer = new Konva.Layer()
 
 const rect1 = new Konva.Rect({
-   x: 20,
-   y: 20,
-   width: 100,
-   height: 50,
-   fill: 'green',
-   stroke: 'black',
-   strokeWidth: 4
-});
+  x: 20,
+  y: 20,
+  width: 100,
+  height: 50,
+  fill: 'green',
+  stroke: 'black',
+  strokeWidth: 4
+})
 // add the shape to the layer
-layer.add(rect1);
+layer.add(rect1)
 
 const rect2 = new Konva.Rect({
-   x: 150,
-   y: 40,
-   width: 100,
-   height: 50,
-   fill: 'red',
-   shadowBlur: 10,
-   cornerRadius: 10
-});
-layer.add(rect2);
+  x: 150,
+  y: 40,
+  width: 100,
+  height: 50,
+  fill: 'red',
+  shadowBlur: 10,
+  cornerRadius: 10
+})
+layer.add(rect2)
 
 const rect3 = new Konva.Rect({
-   x: 50,
-   y: 120,
-   width: 100,
-   height: 100,
-   fill: 'blue',
-   cornerRadius: [0, 10, 20, 30]
-});
-layer.add(rect3);
+  x: 50,
+  y: 120,
+  width: 100,
+  height: 100,
+  fill: 'blue',
+  cornerRadius: [0, 10, 20, 30]
+})
+layer.add(rect3)
 
 // add the layer to the stage
-stage.add(layer);
+stage.add(layer)
 ```
 
 最后运行

@@ -19,9 +19,9 @@ util.extend 存在于 /src/mock/util.js，接收 >= 两个参数，分别为待�
 ```javascript
 // 构造函数
 function ext() {
-    this.name = {
-        na: '123'
-    }
+  this.name = {
+    na: '123'
+  }
 }
 // ext实例
 var te = new ext()
@@ -44,11 +44,14 @@ console.log(te)
 ### 2.1 初始化部分
 
 ```javascript
-    var target = arguments[0] || {},
-        i = 1,
-        length = arguments.length,
-        // options, name, src, copy, clone
-        options, name, src, copy
+var target = arguments[0] || {},
+  i = 1,
+  length = arguments.length,
+  // options, name, src, copy, clone
+  options,
+  name,
+  src,
+  copy
 ```
 
 - target存储的是待增强对象
@@ -59,10 +62,10 @@ console.log(te)
 ### 2.2 迭代条件
 
 ```javascript
-    if (length === 1) {
-        target = this
-        i = 0
-    }
+if (length === 1) {
+  target = this
+  i = 0
+}
 ```
 
 当迭代到最后，参数中只剩下了需增强对象，而增强对象已经迭代完毕，则将target指向this，配合for条件终止迭代，逆向进行增强
@@ -70,27 +73,27 @@ console.log(te)
 ### 2.3 迭代体
 
 ```javascript
-    for (; i < length; i++) {
-        options = arguments[i]
-        if (!options) continue
+for (; i < length; i++) {
+  options = arguments[i]
+  if (!options) continue
 
-        for (name in options) {
-            src = target[name]
-            copy = options[name]
+  for (name in options) {
+    src = target[name]
+    copy = options[name]
 
-            if (target === copy) continue
-            if (copy === undefined) continue
+    if (target === copy) continue
+    if (copy === undefined) continue
 
-            if (Util.isArray(copy) || Util.isObject(copy)) {
-                if (Util.isArray(copy)) clone = src && Util.isArray(src) ? src : []
-                if (Util.isObject(copy)) clone = src && Util.isObject(src) ? src : {}
+    if (Util.isArray(copy) || Util.isObject(copy)) {
+      if (Util.isArray(copy)) clone = src && Util.isArray(src) ? src : []
+      if (Util.isObject(copy)) clone = src && Util.isObject(src) ? src : {}
 
-                target[name] = Util.extend(clone, copy)
-            } else {
-                target[name] = copy
-            }
-        }
+      target[name] = Util.extend(clone, copy)
+    } else {
+      target[name] = copy
     }
+  }
+}
 ```
 
 - i控制options依次取得增强对象
@@ -103,7 +106,7 @@ console.log(te)
 ### 2.4 返回值
 
 ```javascript
-    return target
+return target
 ```
 
 直接返回target即可
@@ -119,7 +122,7 @@ const Util = {}
  * @returns {boolean}
  */
 Util.isArray = obj => {
-    return obj instanceof Array ? true : false
+  return obj instanceof Array ? true : false
 }
 
 /**
@@ -128,7 +131,7 @@ Util.isArray = obj => {
  * @returns {boolean}
  */
 Util.isObject = obj => {
-    return obj instanceof Object ? true : false
+  return obj instanceof Object ? true : false
 }
 
 /**
@@ -136,79 +139,64 @@ Util.isObject = obj => {
  * @returns {any|{}}
  */
 Util.extend = function () {
+  let target = arguments[0] || {},
+    i = 1
+  const length = arguments.length
+  let options, name, src, copy, clone
 
-    let target = arguments[0] || {}, i = 1
-    const length = arguments.length
-    let options, name, src, copy, clone
+  if (length === 1) {
+    target = this
+    i = 0
+  }
 
-    if (length === 1) {
-        target = this
-        i = 0
+  for (; i < length; i++) {
+    options = arguments[i]
+
+    if (!options) continue
+
+    for (name in options) {
+      src = target[name]
+      copy = options[name]
+
+      if (target === copy) continue
+      if (copy === undefined) continue
+
+      if (Util.isArray(copy) || Util.isObject(copy)) {
+        if (Util.isArray(copy)) clone = src && Util.isArray(src) ? src : []
+        if (Util.isObject(copy)) clone = src && Util.isObject(src) ? src : {}
+
+        target[name] = Util.extend(clone, copy)
+      } else {
+        target[name] = copy
+      }
     }
+  }
 
-    for (; i < length; i++) {
-
-        options = arguments[i]
-
-        if (!options) continue
-
-        for (name in options) {
-
-            src = target[name]
-            copy = options[name]
-
-            if (target === copy) continue
-            if (copy === undefined) continue
-
-            if (Util.isArray(copy) || Util.isObject(copy)) {
-
-                if (Util.isArray(copy))
-                    clone = src && Util.isArray(src) ? src : []
-                if (Util.isObject(copy))
-                    clone = src && Util.isObject(src) ? src : {}
-
-                target[name] = Util.extend(clone, copy)
-
-            } else {
-
-                target[name] = copy
-
-            }
-        }
-    }
-
-    return target
-
+  return target
 }
 ```
 
 ```javascript
 // 初始化构造函数
 function Test() {
-    this.info = {
-        name: 'hh',
-        age: 18
-    }
+  this.info = {
+    name: 'hh',
+    age: 18
+  }
 }
 
 console.log(Test)
 
 // 增强对象1
 const enhance1 = {
-    nig: 'kk',
-    kids: [
-        'z3',
-        'l4'
-    ]
+  nig: 'kk',
+  kids: ['z3', 'l4']
 }
 
 // 增强对象2
 const enhance2 = {
-    nig2: 'kk',
-    kids2: [
-        'z3',
-        'l4'
-    ]
+  nig2: 'kk',
+  kids2: ['z3', 'l4']
 }
 
 // 增强构造函数

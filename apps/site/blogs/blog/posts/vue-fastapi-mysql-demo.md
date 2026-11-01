@@ -50,43 +50,43 @@ Demo:.
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demo</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <input type="text" v-model="username">
+      <input type="text" v-model="username" />
     </div>
     <script src="./lib/vue-2.6.12.js"></script>
     <script>
-        const vm = new Vue({
-            el: '#app',
-            data: {
-                username: 'hq',
-            },
-            watch: {
-                username(newValue, oldValue) {
-                    const xhr = new XMLHttpRequest();
-                    xhr.onreadystatechange = function () {
-                        if(xhr.readyState == 4 && xhr.status == 200) {
-                            const res = JSON.parse(xhr.responseText);
-                            if (res.exit) {
-                                console.log("已存在");
-                            } else {
-                                console.log("未存在");
-                            }
-                        }
-                    };
-                    xhr.open("get", "http://localhost:8000/test/?un=" + this.username, true);
-                    xhr.send();
-                },
-            },
-        });
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          username: 'hq'
+        },
+        watch: {
+          username(newValue, oldValue) {
+            const xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function () {
+              if (xhr.readyState == 4 && xhr.status == 200) {
+                const res = JSON.parse(xhr.responseText)
+                if (res.exit) {
+                  console.log('已存在')
+                } else {
+                  console.log('未存在')
+                }
+              }
+            }
+            xhr.open('get', 'http://localhost:8000/test/?un=' + this.username, true)
+            xhr.send()
+          }
+        }
+      })
     </script>
-</body>
+  </body>
 </html>
 ```
 

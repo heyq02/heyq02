@@ -31,7 +31,7 @@ date: 2023-03-13
 
    ```typescript
    let nums = reactive({
-       data: [3, 4, 15, 4, 1, 9]
+     data: [3, 4, 15, 4, 1, 9]
    })
    ```
 
@@ -45,28 +45,25 @@ date: 2023-03-13
 
    ```typescript
    function Bubble(arr: number[]): number[][] {
+     const process = []
 
-       const process = []
+     const nums = [...arr]
 
-       const nums = [...arr]
+     for (let i = nums.length; i > 0; i--) {
+       for (let j = 0; j + 1 < i; j++) {
+         if (nums[j] > nums[j + 1]) {
+           process.push([j, j + 1, 0])
 
-       for(let i = nums.length; i > 0; i--) {
-           for(let j = 0; j + 1 < i; j++) {
-
-               if(nums[j] > nums[j + 1]) {
-
-                   process.push([j, j + 1, 0])
-
-                   const temp = nums[j];
-                   nums[j] = nums[j + 1];
-                   nums[j + 1] = temp;
-               } else {
-                   process.push([j, j + 1])
-               }
-           }
+           const temp = nums[j]
+           nums[j] = nums[j + 1]
+           nums[j + 1] = temp
+         } else {
+           process.push([j, j + 1])
+         }
        }
+     }
 
-       return process
+     return process
    }
    ```
 
@@ -75,7 +72,7 @@ date: 2023-03-13
 1. `Index.vue` 中引入组件 `BarChat`，并传递 `nums` 和 `selected` 供其使用
 
    ```html
-   <BarChart :nums="nums.data" :selected="selected.data"/>
+   <BarChart :nums="nums.data" :selected="selected.data" />
    ```
 
 2. `BarChat` 中调用 echarts 组件（统一的初始化过程）
@@ -83,58 +80,59 @@ date: 2023-03-13
    ```typescript
    /**初始化设置`echarts` */
    // 引入柱状图图表，图表后缀都为 Chart
-   import { BarChart } from 'echarts/charts';
+   import { BarChart } from 'echarts/charts'
    // 引入提示框，标题，直角坐标系，数据集，内置数据转换器组件，组件后缀都为 Component
    import {
-       TitleComponent,
-       TooltipComponent,
-       GridComponent,
-       DatasetComponent,
-       TransformComponent
-   } from 'echarts/components';
+     TitleComponent,
+     TooltipComponent,
+     GridComponent,
+     DatasetComponent,
+     TransformComponent
+   } from 'echarts/components'
    // 标签自动布局、全局过渡动画等特性
-   import { LabelLayout, UniversalTransition } from 'echarts/features';
+   import { LabelLayout, UniversalTransition } from 'echarts/features'
    // 引入 Canvas 渲染器，注意引入 CanvasRenderer 或者 SVGRenderer 是必须的一步
-   import { CanvasRenderer } from 'echarts/renderers';
+   import { CanvasRenderer } from 'echarts/renderers'
    // 从上下文中引入echarts
-   const echarts = (getCurrentInstance() as ComponentInternalInstance).appContext.config.globalProperties.$echarts;
+   const echarts = (getCurrentInstance() as ComponentInternalInstance).appContext.config
+     .globalProperties.$echarts
    // 注册必须的组件
    echarts.use([
-       TitleComponent,
-       TooltipComponent,
-       GridComponent,
-       DatasetComponent,
-       TransformComponent,
-       BarChart,
-       LabelLayout,
-       UniversalTransition,
-       CanvasRenderer
-   ]);
+     TitleComponent,
+     TooltipComponent,
+     GridComponent,
+     DatasetComponent,
+     TransformComponent,
+     BarChart,
+     LabelLayout,
+     UniversalTransition,
+     CanvasRenderer
+   ])
    ```
 
 3. 定义 `Props` 接口并接收 `Index.vue` 传入的数据
 
    ```typescript
    /** 设置props传参规则和默认值*/
-   let props = withDefaults(defineProps<{
-       width: number,
-       height: number,
-       nums: number[],
+   let props = withDefaults(
+     defineProps<{
+       width: number
+       height: number
+       nums: number[]
        selected: number[]
-   }>(), {
+     }>(),
+     {
        width: 500,
        height: 500
-   });
+     }
+   )
    ```
 
 4. 动态生成 `x` 轴参数
 
    ```typescript
-   let i = 0;
-   const index = Array.from(
-       new Array(props.nums.length),
-       () => String(i++)
-   );
+   let i = 0
+   const index = Array.from(new Array(props.nums.length), () => String(i++))
    ```
 
 5. 根据初始的 `nums` 生成柱状体

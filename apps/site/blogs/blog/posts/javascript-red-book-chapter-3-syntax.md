@@ -12,10 +12,10 @@ date: 2023-02-25
 
 ```javascript
 {
-let test = "small";
-let Test = "big";
-console.log(test);                  // small
-console.log(Test);                  // big
+  let test = 'small'
+  let Test = 'big'
+  console.log(test) // small
+  console.log(Test) // big
 }
 ```
 
@@ -43,7 +43,7 @@ ECMAScript采用C语言风格注释
 ES5增加了严格模式的概念。它会对ES3的一些不规则写法进行处理。启用方法是在JS文件开头添加预处理指令
 
 ```javascript
-"use strict"
+'use strict'
 ```
 
 ### 3.1.5 语句
@@ -51,10 +51,10 @@ ES5增加了严格模式的概念。它会对ES3的一些不规则写法进行�
 ECMAScript的语句以分号结尾。省略分号意味着由解析器确定语句在哪里结尾
 
 ```javascript
-let sum = 1 + 2;                    // 加分号有效，推荐
-let diff = 1 - 2                    // 不加分号也有效，但不推荐
-console.log(sum);                   // 3
-console.log(diff)                   // -1
+let sum = 1 + 2 // 加分号有效，推荐
+let diff = 1 - 2 // 不加分号也有效，但不推荐
+console.log(sum) // 3
+console.log(diff) // -1
 ```
 
 即使语句的分号不是必需的，也应该加上
@@ -70,9 +70,9 @@ ECMAScript变量是松散型的，意思是变量可以用于保存任意类型�
 ### 3.3.1 var 关键字
 
 ```javascript
-var msg = "hello";                  // 推荐
-var message = "123";
-message = 76;                       // 合法，但不推荐
+var msg = 'hello' // 推荐
+var message = '123'
+message = 76 // 合法，但不推荐
 ```
 
 #### 3.3.1.1 var 作用域
@@ -81,12 +81,12 @@ message = 76;                       // 合法，但不推荐
 
 ```javascript
 function test() {
-    var test1 = 1;
-    test2 = 2;
+  var test1 = 1
+  test2 = 2
 }
-test();
-console.log(test2);                 // 2
-console.log(test1);                 // ! test1 is not defined
+test()
+console.log(test2) // 2
+console.log(test1) // ! test1 is not defined
 ```
 
 #### 3.3.1.2 var 声明提升
@@ -94,9 +94,9 @@ console.log(test1);                 // ! test1 is not defined
 使用var声明的变量会自动提升到函数作用域的顶部。此外，反复多次var声明同一个变量也没有问题
 
 ```javascript
-console.log(hello);
-var hello = "1212";                 // undefined
-console.log(hello);                 // 1212
+console.log(hello)
+var hello = '1212' // undefined
+console.log(hello) // 1212
 ```
 
 ### 3.3.2 let 声明
@@ -104,11 +104,11 @@ console.log(hello);                 // 1212
 let声明和var差不多，二者最大的区别是let的作用域是块作用域，而var的作用域是函数作用域
 
 ```javascript
-if(true) {
-    var name1 = "H1";
-    let name2 = "H2";
+if (true) {
+  var name1 = 'H1'
+  let name2 = 'H2'
 }
-console.log(name1);                 // H1
+console.log(name1) // H1
 // ! test1 is not defined
 // console.log(name2);
 ```
@@ -116,7 +116,7 @@ console.log(name1);                 // H1
 let声明不允许同一个块作用域中出现冗余声明，即使一个用var一个用let也无法避免。因为var和let声明的并不是不同类型的变量，它们只是指出了在相关作用域如何存在。
 
 ```javascript
-let xixi = 0;
+let xixi = 0
 // ! SyntaxError
 // let xixi = 1;
 // ! SyntaxError
@@ -132,10 +132,10 @@ let与var的另一个重要区别是let声明的变量不会在作用域中被�
 使用let在全局作用域中声明的变量不会成为window对象的属性
 
 ```javascript
-var happy = "1";
-let sad = "0";
-console.log(window.happy);
-console.log(window.sad);
+var happy = '1'
+let sad = '0'
+console.log(window.happy)
+console.log(window.sad)
 ```
 
 #### 3.3.2.3 条件声明
@@ -148,13 +148,13 @@ console.log(window.sad);
 
 ```javascript
 for (let i = 0; i < 5; i++) {
-    const element = array[i];
-    setTimeout(() => console.log(i), 0);
+  const element = array[i]
+  setTimeout(() => console.log(i), 0)
 }
 // & 输出：0 1 2 3 4
 for (var i = 0; i < 5; i++) {
-    const element = array[i];
-    setTimeout(() => console.log(i), 0);
+  const element = array[i]
+  setTimeout(() => console.log(i), 0)
 }
 // & 输出：5 5 5 5 5
 ```
@@ -199,11 +199,11 @@ Undefined 类型只有一个特殊值，就是undefined。当使用var或let声�
 // 未声明
 // let age1;
 // 声明未赋值
-let age2;
-console.log(age2);              // undefined
+let age2
+console.log(age2) // undefined
 // console.log(age1);           报错
-console.log(typeof age1);       // undefined
-console.log(typeof age2);       // undefined
+console.log(typeof age1) // undefined
+console.log(typeof age2) // undefined
 ```
 
 ### 3.4.3 Null 类型
@@ -218,12 +218,12 @@ undefined是由null派生而来，所以对二者进行==，那么会返回true�
 
 要将一个值转化为布尔型，可以使用Boolean()转型函数
 
-| 数据类型 | true | false |
-| --- | --- | --- |
-| String | 非空字符串 | “” |
-| Number | 非零值（包括无穷大） | 0 |
-| Object | 任意对象 | null |
-| Undefined | N/A（不存在） | undefined |
+| 数据类型  | true                 | false     |
+| --------- | -------------------- | --------- |
+| String    | 非空字符串           | “”        |
+| Number    | 非零值（包括无穷大） | 0         |
+| Object    | 任意对象             | null      |
+| Undefined | N/A（不存在）        | undefined |
 
 像if这样的流程控制语句会自动执行其他类型值转换为布尔值
 
@@ -254,7 +254,7 @@ NaN的含义是”不是数值“。例如，0除以0是NaN，任意值除以0�
 任意涉及NaN的值的操作返回的始终是NaN，其次NaN不等于包括NaN在内的任意值。
 
 ```javascript
-console.log(NaN == NaN);        // false
+console.log(NaN == NaN) // false
 ```
 
 可以用isNaN()函数测试某个变量是不是数值
@@ -278,21 +278,21 @@ console.log(NaN == NaN);        // false
 - 如果碰到非数值字符，则立刻停止转换，忽略后面的全部，返回已经转换完成的值
 
 ```javascript
-Number("   1234blue");		// 1234
-Number("  .");			// NaN
+Number('   1234blue') // 1234
+Number('  .') // NaN
 ```
 
 - parseInt可以识别不同进制的数，如果以0x开头，则识别是十六进制，如果以0开头紧跟着数值字符，则为八进制数
 
 ```javascript
-Number("0xa1");			// 161
-Number("011");			// 9
+Number('0xa1') // 161
+Number('011') // 9
 ```
 
 - parseInt也可以接受第二个参数，用于指定进制数
 
 ```javascript
-Number("a1",16);		// 161
+Number('a1', 16) // 161
 ```
 
 **parseFloat转换规则：**
@@ -304,25 +304,25 @@ Number("a1",16);		// 161
 
 #### 3.4.6.1 字符字面量
 
-| 字面量 | 含义 |
-| --- | --- |
-| \n | 换行 |
-| \t | 制表 |
-| \b | 退格 |
-| \r | 回车 |
-| \f | 换页 |
-| \\ | 反斜杠\ |
-| \ ’ | 单引号‘ |
-| \ " | 双引号“ |
-| \ ` | 反引号` |
-| \xnn | 以十六进制编码nn的字符 |
+| 字面量 | 含义                            |
+| ------ | ------------------------------- |
+| \n     | 换行                            |
+| \t     | 制表                            |
+| \b     | 退格                            |
+| \r     | 回车                            |
+| \f     | 换页                            |
+| \\     | 反斜杠\                         |
+| \ ’    | 单引号‘                         |
+| \ "    | 双引号“                         |
+| \ `    | 反引号`                         |
+| \xnn   | 以十六进制编码nn的字符          |
 | \unnnn | 以十六进制编码nnnn的Unicode字符 |
 
 字符字面量可以作为单个字符解释
 
 ```javascript
-let text = "12345678\\";
-console.log(text.length);       // 9
+let text = '12345678\\'
+console.log(text.length) // 9
 ```
 
 #### 3.4.6.2 字符串的特点
@@ -330,8 +330,8 @@ console.log(text.length);       // 9
 ECMAS中的字符串是 `不可变`的。要修改，必须先销毁原来的字符串，然后包含新值的另一个字符串保存到该变量
 
 ```javascript
-let sen = "java";
-sen = "java" + "script";
+let sen = 'java'
+sen = 'java' + 'script'
 ```
 
 #### 3.4.6.3 转换为字符串
@@ -343,11 +343,11 @@ sen = "java" + "script";
 toString()可以接受一个参数，用来指定数值转换的进制，
 
 ```javascript
-const num = 20;
-console.log(num.toString());            // 20
-console.log(num.toString(2));           // 10100
-console.log(num.toString(8));           // 24
-console.log(num.toString(16));          // 14
+const num = 20
+console.log(num.toString()) // 20
+console.log(num.toString(2)) // 10100
+console.log(num.toString(8)) // 24
+console.log(num.toString(16)) // 14
 ```
 
 如果值有该方法，则调用并返回
@@ -363,8 +363,8 @@ console.log(num.toString(16));          // 14
 ```javascript
 const mod = `<div>
     <p>
-</div>`;
-console.log(mod);
+</div>`
+console.log(mod)
 /*
 <div>
     <p>
@@ -379,10 +379,10 @@ console.log(mod);
 在插值表达式中可以调用函数的和方法
 
 ```javascript
-const value = 5;
-let exp1 = `second`;
-let res = `${value} ro as ${exp1} ss ${value*value} 12c ${exp1.length}`;
-console.log(res);                       // 5 ro as second ss 25 12c 6
+const value = 5
+let exp1 = `second`
+let res = `${value} ro as ${exp1} ss ${value * value} 12c ${exp1.length}`
+console.log(res) // 5 ro as second ss 25 12c 6
 ```
 
 #### 3.4.6.6 模板字面量标签函数
@@ -392,36 +392,35 @@ console.log(res);                       // 5 ro as second ss 25 12c 6
 标签函数本身是一个常规函数，通过前缀到模板字面量来应用自定义行为。标签函数接收到的参数依次是原始字符串和每个表达式求值的结果
 
 ```javascript
-const a = 6;
-const b = 7;
+const a = 6
+const b = 7
 function simp(strings, summ, diff) {
-    console.log(strings);                   // [ '', ' and ', '' ]
-    console.log(summ);                      // 13
-    console.log(diff);                      // -1
-    return summ+diff;
+  console.log(strings) // [ '', ' and ', '' ]
+  console.log(summ) // 13
+  console.log(diff) // -1
+  return summ + diff
 }
-let senc = `${a + b} and ${a - b}`;
-let res = simp`${a + b} and ${a - b}`;
-console.log(senc);                          // 13 and -1
-console.log(res);                           // 12
+let senc = `${a + b} and ${a - b}`
+let res = simp`${a + b} and ${a - b}`
+console.log(senc) // 13 and -1
+console.log(res) // 12
 ```
 
 因为表达式中的参数的数量是可变的，所以应该使用剩余操作符将他们收集到一个数组中。
 
 ```javascript
-const a = 10;
-const b = 11;
+const a = 10
+const b = 11
 function simpp(strings, ...expressions) {
-    console.log(strings);
-    for(let i = 0; i < expressions.length; i++) {
-        console.log(expressions[i]);
-    }
-
+  console.log(strings)
+  for (let i = 0; i < expressions.length; i++) {
+    console.log(expressions[i])
+  }
 }
-let senc = `${a} and ${b} and ${a+b} aa ${a-b}`;
-let res = simpp`${a} and ${b} and ${a+b} aa ${a-b}`;
-console.log(senc);
-console.log(res);
+let senc = `${a} and ${b} and ${a + b} aa ${a - b}`
+let res = simpp`${a} and ${b} and ${a + b} aa ${a - b}`
+console.log(senc)
+console.log(res)
 ```
 
 #### 3.4.6.7 原始字符串
@@ -431,33 +430,33 @@ console.log(res);
 可以使用默认的String.raw标签函数
 
 ```javascript
-console.log(`12\t12`);		// 12       12
-console.log(String.raw`12\t12`);	// 12\t12
+console.log(`12\t12`) // 12       12
+console.log(String.raw`12\t12`) // 12\t12
 ```
 
 也可以通过标签函数第一个参数，字符串数组的.raw属性取得每个字符串的原始字符串
 
 ```javascript
 function test(strings) {
-    console.log("Actual");
-    for(const string of strings) {
-        console.log(string);
-    }
-    /*
+  console.log('Actual')
+  for (const string of strings) {
+    console.log(string)
+  }
+  /*
     Actual
     ©
         ©
     */
-    console.log("Raw");
-    for (const rawString of strings.raw) {
-        console.log(rawString);
-    }
-    /*
+  console.log('Raw')
+  for (const rawString of strings.raw) {
+    console.log(rawString)
+  }
+  /*
     \u00A9
     \t\u00A9
     */
 }
-test`\u00A9${'and'}\t\u00A9`;
+test`\u00A9${'and'}\t\u00A9`
 ```
 
 ### 3.4.7 Symbol 类型
@@ -491,11 +490,11 @@ valueof()：返回对象对应的字符串、数值或布尔值表示
 后缀版：先赋值，后递增
 
 ```javascript
-let num = 5;
-let res1 = num++;
-let res2 = ++num;
-console.log(res1);      // 5
-console.log(res2);      // 7
+let num = 5
+let res1 = num++
+let res2 = ++num
+console.log(res1) // 5
+console.log(res2) // 7
 ```
 
 #### 3.5.1.2 一元+/-符
@@ -513,8 +512,8 @@ console.log(res2);      // 7
 把负数输出为一个二进制串时，会得到一个加了符号的绝对值
 
 ```javascript
-let num = -18;
-console.log(num.toString(2));			// "-10010"
+let num = -18
+console.log(num.toString(2)) // "-10010"
 ```
 
 特殊值NaN和Infinity会被当做0来处理
@@ -570,10 +569,14 @@ console.log(num.toString(2));			// "-10010"
 如果操作数是字符串，则会比较ASCII编码
 
 ```javascript
-let res = "B" < "a";    console.log(res);                   // T
-let res2 = "B".toLowerCase() < "a";    console.log(res2);   // F
-let res3 = "21" < "3";    console.log(res3);                // T
-let res4 = "21" < Number("3");    console.log(res4);        // F
+let res = 'B' < 'a'
+console.log(res) // T
+let res2 = 'B'.toLowerCase() < 'a'
+console.log(res2) // F
+let res3 = '21' < '3'
+console.log(res3) // T
+let res4 = '21' < Number('3')
+console.log(res4) // F
 ```
 
 可以用toLowerCase()方法将大写都转为小写
@@ -581,8 +584,8 @@ let res4 = "21" < Number("3");    console.log(res4);        // F
 任何涉及NaN的比较都返回false
 
 ```javascript
-console.log(1 < NaN);       // F
-console.log(1 >= NaN);      // F
+console.log(1 < NaN) // F
+console.log(1 >= NaN) // F
 ```
 
 ### 3.5.8 相等操作符 ==/!=/===/!==
@@ -590,7 +593,7 @@ console.log(1 >= NaN);      // F
 ### 3.5.9 条件操作符
 
 ```javascript
-variable = boolean_expression ? true_val : false_val;
+variable = boolean_expression ? true_val : false_val
 ```
 
 ### 3.5.10 赋值操作符 =
@@ -602,10 +605,10 @@ variable = boolean_expression ? true_val : false_val;
 ### 3.6.1 if 语句
 
 ```javascript
-if(condition) {
-	statement1;
+if (condition) {
+  statement1
 } else {
-	statement2;
+  statement2
 }
 ```
 
@@ -613,23 +616,23 @@ if(condition) {
 
 ```javascript
 do {
-	statement;
-} while (expression);
+  statement
+} while (expression)
 ```
 
 ### 3.6.3 while 语句
 
 ```javascript
 while (expression) {
-	statement;
+  statement
 }
 ```
 
 ### 3.6.4 for 语句
 
 ```javascript
-for (initialization; expression; post-loop) {
-	statement;
+for (initialization; expression; post - loop) {
+  statement
 }
 ```
 
@@ -639,7 +642,7 @@ for (initialization; expression; post-loop) {
 
 ```javascript
 for (const propName in object) {
-	statements;
+  statements
 }
 ```
 
@@ -649,7 +652,7 @@ for (const propName in object) {
 
 ```javascript
 for (const property of expression) {
-	statements;
+  statements
 }
 ```
 
@@ -659,7 +662,7 @@ for (const property of expression) {
 
 ```javascript
 start: for (let i = 0; i < 5; i++) {
-	console.log(i);
+  console.log(i)
 }
 ```
 
@@ -670,17 +673,16 @@ start: for (let i = 0; i < 5; i++) {
 强制退出上一级循环，可以和标签语句一起使用，表示返回到代码中的特定位置，并执行下一条语句
 
 ```javascript
-let num = 0;
-outermost:
-for (let i = 0; i < 10; i++) {
-    for (let j = 0; j < 10; j++) {
-        if (i == 5 && j == 5) {
-            break outermost;
-        }
-        num++;
+let num = 0
+outermost: for (let i = 0; i < 10; i++) {
+  for (let j = 0; j < 10; j++) {
+    if (i == 5 && j == 5) {
+      break outermost
     }
+    num++
+  }
 }
-console.log(num);                   // 55
+console.log(num) // 55
 ```
 
 #### 3.6.8.2 continue
@@ -688,17 +690,16 @@ console.log(num);                   // 55
 结束当前次循环，并立刻进入下一次循环，也可以与标签语句一起使用，但会循环重复指向
 
 ```javascript
-let num = 0;
-outermost:
-for (let i = 0; i < 10; i++) {
-    for (let j = 0; j < 10; j++) {
-        if (i == 5 && j == 5) {
-            continue outermost;
-        }
-        num++;
+let num = 0
+outermost: for (let i = 0; i < 10; i++) {
+  for (let j = 0; j < 10; j++) {
+    if (i == 5 && j == 5) {
+      continue outermost
     }
+    num++
+  }
 }
-console.log(num);                   // 95
+console.log(num) // 95
 ```
 
 ### 3.6.9 with 语句
@@ -707,7 +708,7 @@ console.log(num);                   // 95
 
 ```javascript
 with (expression) {
-	statement;
+  statement
 }
 ```
 
@@ -716,16 +717,16 @@ with (expression) {
 例如对于对象location，如果不用with
 
 ```javascript
-let qs = location.hostname;
-let url = location.href;
+let qs = location.hostname
+let url = location.href
 ```
 
 但在with内
 
 ```javascript
 with (location) {
-	let qs = hostname;
-	let url = location.href;
+  let qs = hostname
+  let url = location.href
 }
 ```
 
@@ -733,37 +734,37 @@ with (location) {
 
 ```javascript
 switch (expression) {
-	case value:
-		statement;
-	case value2:
-		statement;
-	default:
-		statement;
+  case value:
+    statement
+  case value2:
+    statement
+  default:
+    statement
 }
 ```
 
 如果表达式的值等于case内的值，则执行下面的语句，并继续匹配下一个条件。不只是数值，字符串、布尔值也是可以的
 
 ```javascript
-switch ("hello world") {
-    case "hello" + " world":
-        console.log("T");
-        break;
-    case "hello":
-        console.log("T");
-        break;
+switch ('hello world') {
+  case 'hello' + ' world':
+    console.log('T')
+    break
+  case 'hello':
+    console.log('T')
+    break
 }
 // T
 ```
 
 ```javascript
 switch (true) {
-    case 1>2:
-        console.log("1>2");
-        break;
-    case 1<2:
-        console.log("1<2");
-        break;
+  case 1 > 2:
+    console.log('1>2')
+    break
+  case 1 < 2:
+    console.log('1<2')
+    break
 }
 // 1<2
 ```

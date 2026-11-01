@@ -15,11 +15,11 @@ date: 2023-02-26
 ```html
 <!--index.wxml-->
 <!-- 结果展示栏 -->
-<view id='display'>
+<view id="display">
   <view class="point_red">当前进制：{{system}}</view>
   <view class="point_blue">与君共勉</view>
   <view class="input_num1 re">={{result}}</view>
-  <input class="input_num1" placeholder='最大输入12位' maxlength="12" bindinput="bindKeyInput"/>
+  <input class="input_num1" placeholder="最大输入12位" maxlength="12" bindinput="bindKeyInput" />
 </view>
 <view id="choose">
   <button class="left" bindtap="clickKeyBoard" data-con="2">二进制</button>
@@ -44,70 +44,70 @@ Page({
     two: '',
     eight: '',
     ten: '',
-    sixteen: '',
-    },
-  bindKeyInput: function (e) {
-    if(this.data.system === '10进制'){
-      var ten_num = Number(e.detail.value);
-      var two_num = ten_num.toString(2);
-      var eight_num = ten_num.toString(8);
-      var sixteen_num = ten_num.toString(16);
-      this.change_num(ten_num, two_num, eight_num, sixteen_num);
-    };
-    if(this.data.system === '2进制'){
-      var two_num = e.detail.value;
-      var ten_num = Number(parseInt(two_num, 2));
-      var eight_num = ten_num.toString(8);
-      var sixteen_num = ten_num.toString(16);
-      this.change_num(ten_num, two_num, eight_num, sixteen_num);
-    };
-    if(this.data.system === '8进制'){
-      var eight_num = e.detail.value;
-      var ten_num = Number(parseInt(eight_num, 8));
-      var two_num = ten_num.toString(2);
-      var sixteen_num = ten_num.toString(16);
-      this.change_num(ten_num, two_num, eight_num, sixteen_num);
-    };
-    if(this.data.system === '16进制'){
-      var sixteen_num = e.detail.value;
-      var ten_num = Number(parseInt(sixteen_num, 16));
-      var eight_num = ten_num.toString(8);
-      var two_num = ten_num.toString(2);
-      this.change_num(ten_num, two_num, eight_num, sixteen_num);
-    };
+    sixteen: ''
   },
-  clickKeyBoard(e){
-    let that = this;
-    let input = e.currentTarget.dataset.con;
-    that.handleInfo(input);
-    if(this.data.system === '10进制'){
+  bindKeyInput: function (e) {
+    if (this.data.system === '10进制') {
+      var ten_num = Number(e.detail.value)
+      var two_num = ten_num.toString(2)
+      var eight_num = ten_num.toString(8)
+      var sixteen_num = ten_num.toString(16)
+      this.change_num(ten_num, two_num, eight_num, sixteen_num)
+    }
+    if (this.data.system === '2进制') {
+      var two_num = e.detail.value
+      var ten_num = Number(parseInt(two_num, 2))
+      var eight_num = ten_num.toString(8)
+      var sixteen_num = ten_num.toString(16)
+      this.change_num(ten_num, two_num, eight_num, sixteen_num)
+    }
+    if (this.data.system === '8进制') {
+      var eight_num = e.detail.value
+      var ten_num = Number(parseInt(eight_num, 8))
+      var two_num = ten_num.toString(2)
+      var sixteen_num = ten_num.toString(16)
+      this.change_num(ten_num, two_num, eight_num, sixteen_num)
+    }
+    if (this.data.system === '16进制') {
+      var sixteen_num = e.detail.value
+      var ten_num = Number(parseInt(sixteen_num, 16))
+      var eight_num = ten_num.toString(8)
+      var two_num = ten_num.toString(2)
+      this.change_num(ten_num, two_num, eight_num, sixteen_num)
+    }
+  },
+  clickKeyBoard(e) {
+    let that = this
+    let input = e.currentTarget.dataset.con
+    that.handleInfo(input)
+    if (this.data.system === '10进制') {
       this.setData({
         result: this.data.ten
       })
-    };
-    if(this.data.system === '2进制'){
+    }
+    if (this.data.system === '2进制') {
       this.setData({
         result: this.data.two
       })
-    };
-    if(this.data.system === '8进制'){
+    }
+    if (this.data.system === '8进制') {
       this.setData({
         result: this.data.eight
       })
-    };
-    if(this.data.system === '16进制'){
+    }
+    if (this.data.system === '16进制') {
       this.setData({
         result: this.data.sixteen
       })
-    };
+    }
   },
-  handleInfo(input){
-    this.system_temp = input + '进制';
+  handleInfo(input) {
+    this.system_temp = input + '进制'
     this.setData({
       system: this.system_temp
     })
   },
-  change_num(a, b, c, d){
+  change_num(a, b, c, d) {
     this.setData({
       ten: a,
       two: b,
@@ -132,7 +132,7 @@ Page({
   border-color: black;
 }
 /*进制提示*/
-#display .point_red{
+#display .point_red {
   width: 45%;
   height: 40rpx;
   float: left;
@@ -144,7 +144,7 @@ Page({
   border-color: black;
 }
 /*语录展示*/
-#display .point_blue{
+#display .point_blue {
   width: 45%;
   height: 40rpx;
   float: right;
@@ -155,7 +155,7 @@ Page({
   text-align: right;
 }
 /*结果显示框*/
-#display .input_num{
+#display .input_num {
   width: 100%;
   height: 120rpx;
   float: right;
@@ -166,7 +166,7 @@ Page({
   border-bottom: black;
 }
 /*数字输入框*/
-#display .input_num1{
+#display .input_num1 {
   width: 100%;
   height: 120rpx;
   float: right;
@@ -176,7 +176,7 @@ Page({
   font-size: 100rpx;
 }
 /*结果显示框*/
-#display .re{
+#display .re {
   background-color: white;
 }
 #choose {
@@ -188,7 +188,7 @@ Page({
   border-color: black;
 }
 /*进制提示*/
-#choose .left{
+#choose .left {
   width: 45%;
   height: 281rpx;
   float: left;
@@ -201,11 +201,11 @@ Page({
   border-color: black;
 }
 /*语录展示*/
-#choose .right{
+#choose .right {
   float: right;
   margin-right: 1%;
 }
-#choose .sixteen{
+#choose .sixteen {
   font-size: 90rpx;
 }
 ```

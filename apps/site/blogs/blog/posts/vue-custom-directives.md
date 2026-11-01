@@ -34,14 +34,15 @@ date: 2023-02-25
 
 ```javascript
 import { createApp } from 'vue'
+
 import App from './App.vue'
 
 const app = createApp(App)
 
-app.directive("global", {
+app.directive('global', {
   mounted() {
-    console.log("Global Hello");
-  },
+    console.log('Global Hello')
+  }
 })
 
 app.mount('#app')
@@ -57,16 +58,16 @@ app.mount('#app')
 </template>
 
 <script>
-export default {
-  name: 'TempTest',
-  directives: {
-    local: {
-      mounted() {
-        console.log("Local Hello");
-      },
+  export default {
+    name: 'TempTest',
+    directives: {
+      local: {
+        mounted() {
+          console.log('Local Hello')
+        }
+      }
     }
   }
-}
 </script>
 ```
 
@@ -108,9 +109,9 @@ myDirective: {
 ### 3.2 参数
 
 - el：
-指令绑定到的元素。这可以用于直接操作 DOM。
+  指令绑定到的元素。这可以用于直接操作 DOM。
 - binding：
-一个对象，包含以下属性。
+  一个对象，包含以下属性。
   - value：传递给指令的值。例如在 v-my-directive=“1 + 1” 中，值是 2。
   - oldValue：之前的值，仅在 beforeUpdate 和 updated 中可用。无论值是否更改，它都可用。
   - arg：传递给指令的参数 (如果有的话)。例如在 v-my-directive:foo 中，参数是 “foo”。
@@ -118,9 +119,9 @@ myDirective: {
   - instance：使用该指令的组件实例。
   - dir：指令的定义对象。
 - vnode：
-代表绑定元素的底层 VNode。
+  代表绑定元素的底层 VNode。
 - prevNode：
-之前的渲染中代表指令所绑定元素的 VNode。仅在 beforeUpdate 和 updated 钩子中可用。
+  之前的渲染中代表指令所绑定元素的 VNode。仅在 beforeUpdate 和 updated 钩子中可用。
 
 ```html
 <template>
@@ -130,30 +131,29 @@ myDirective: {
 </template>
 
 <script>
-export default {
-  name: 'TempTest',
-  directives: {
-    test: {
-      mounted(el, binging, vnode) {
+  export default {
+    name: 'TempTest',
+    directives: {
+      test: {
+        mounted(el, binging, vnode) {
+          console.log(el.innerText)
+          console.log(el.innerHTML)
+          // 测试自定义指令的参数
+          // <h2>测试自定义指令的参数</h2>
 
-        console.log(el.innerText);
-        console.log(el.innerHTML);
-        // 测试自定义指令的参数
-        // <h2>测试自定义指令的参数</h2>
+          console.log(binging.value)
+          console.log(binging.arg)
+          console.log(binging.modifiers)
+          // VALUE
+          // ARG
+          // {a: true, b: true}
 
-        console.log(binging.value);
-        console.log(binging.arg);
-        console.log(binging.modifiers);
-        // VALUE
-        // ARG
-        // {a: true, b: true}
-
-        console.log(vnode);
-        // { __v_isVNode: true, __v_skip: true, type: "div", props: null}
+          console.log(vnode)
+          // { __v_isVNode: true, __v_skip: true, type: "div", props: null}
+        }
       }
     }
   }
-}
 </script>
 ```
 
@@ -165,21 +165,21 @@ export default {
 </template>
 
 <script>
-export default {
-  name: 'TempTest',
-  data() {
-    return {
-      num: 11
-    }
-  },
-  directives: {
-    test: {
-      mounted(el, binding) {
-        console.log(el, binding);
-      },
+  export default {
+    name: 'TempTest',
+    data() {
+      return {
+        num: 11
+      }
+    },
+    directives: {
+      test: {
+        mounted(el, binding) {
+          console.log(el, binding)
+        }
+      }
     }
   }
-}
 </script>
 ```
 

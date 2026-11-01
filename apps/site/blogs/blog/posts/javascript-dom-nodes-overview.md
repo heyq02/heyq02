@@ -14,24 +14,24 @@ date: 2023-02-25
 
 任何都可以用DOM表示为一个由节点Node构成的层级结构。没一个Node节点都有一个nodeType属性，包含了全部12种节点的类型
 
-| 节点类型 | 数值常量 |
-| --- | --- |
-| ELEMENT_NODE | 1 |
-| ATTRIBUTE_NODE | 2 |
-| TEXT_NODE | 3 |
-| CDATA_SECTION_NODE | 4 |
-| ENTITY_REFERENCE_NODE | 5 |
-| BNTITY_NODE | 6 |
-| PROCESSING_INSTRUCTION_NODE | 7 |
-| COMMENT_NODE | 8 |
-| DOCUMENT_NODE | 9 |
-| DOCUMENT_TYPE_NODE | 10 |
-| DOCUMENT_FRAGMENT_NODE | 11 |
-| NOTATION_NODE | 12 |
+| 节点类型                    | 数值常量 |
+| --------------------------- | -------- |
+| ELEMENT_NODE                | 1        |
+| ATTRIBUTE_NODE              | 2        |
+| TEXT_NODE                   | 3        |
+| CDATA_SECTION_NODE          | 4        |
+| ENTITY_REFERENCE_NODE       | 5        |
+| BNTITY_NODE                 | 6        |
+| PROCESSING_INSTRUCTION_NODE | 7        |
+| COMMENT_NODE                | 8        |
+| DOCUMENT_NODE               | 9        |
+| DOCUMENT_TYPE_NODE          | 10       |
+| DOCUMENT_FRAGMENT_NODE      | 11       |
+| NOTATION_NODE               | 12       |
 
 ```javascript
-const judge = (document.nodeType == Node.DOCUMENT_NODE) ? "":"not ";
-console.log(`The document.nodeType is ${judge}Node.DOCUMENT_NODE`);
+const judge = document.nodeType == Node.DOCUMENT_NODE ? '' : 'not '
+console.log(`The document.nodeType is ${judge}Node.DOCUMENT_NODE`)
 ```
 
 Node的属性nodeName、nodeType完全取决于节点类型。在使用该属性前，最好先检验节点类型
@@ -41,58 +41,58 @@ Node的属性nodeName、nodeType完全取决于节点类型。在使用该属性
 每个Node都有一个childNodes属性，其中包含一个NodeList实例。它是一个类数组，可以length查看长度，也可以[]输入索引号。但这个类数组不是Array的实例，会动态地随着DOM的变化而发生改变
 
 ```javascript
-const boxChildNodes = document.querySelector("#box").childNodes;
-    for (let i = 0; i < boxChildNodes.length; i++) {
-        console.log(boxChildNodes[i]);
-    }
+const boxChildNodes = document.querySelector('#box').childNodes
+for (let i = 0; i < boxChildNodes.length; i++) {
+  console.log(boxChildNodes[i])
+}
 ```
 
 使用Array.proptotype.slice()/Array.from()可以把NodeList转化为数组对象
 
 ```javascript
-const boxChildNodes = document.querySelector("#box").childNodes;
-console.log(boxChildNodes instanceof Array);
-const boxChildNodesArray1 = Array.prototype.slice(boxChildNodes);
-console.log(boxChildNodesArray1 instanceof Array);
-const boxChildNodesArray2 = Array.from(boxChildNodes);
-console.log(boxChildNodesArray2 instanceof Array);
+const boxChildNodes = document.querySelector('#box').childNodes
+console.log(boxChildNodes instanceof Array)
+const boxChildNodesArray1 = Array.prototype.slice(boxChildNodes)
+console.log(boxChildNodesArray1 instanceof Array)
+const boxChildNodesArray2 = Array.from(boxChildNodes)
+console.log(boxChildNodesArray2 instanceof Array)
 ```
 
 每个节点都有一个parentNode、previousSibling和nextSibling，分别指向父节点，上一个兄弟节点和下一个兄弟节点
 
 ```javascript
-const boxChildNodes = document.querySelector("#box").childNodes;
-    for (let i = 1; i <= 3; i++) {
-        console.log(boxChildNodes[i])
-    }
-    console.log(boxChildNodes[2].previousSibling);
-    console.log(boxChildNodes[2]);
-    console.log(boxChildNodes[2].nextSibling);
-    console.log(boxChildNodes[2].parentNode);
+const boxChildNodes = document.querySelector('#box').childNodes
+for (let i = 1; i <= 3; i++) {
+  console.log(boxChildNodes[i])
+}
+console.log(boxChildNodes[2].previousSibling)
+console.log(boxChildNodes[2])
+console.log(boxChildNodes[2].nextSibling)
+console.log(boxChildNodes[2].parentNode)
 ```
 
 firstChild和lastChild分别指向ChildNode的第一个和最后一个子节点
 
 ```javascript
-const box = document.querySelector("#box");
-console.log(box.firstChild.nextSibling);
-console.log(box.lastChild.previousSibling);
+const box = document.querySelector('#box')
+console.log(box.firstChild.nextSibling)
+console.log(box.lastChild.previousSibling)
 ```
 
 可以用hasChildNodes()方法测试节点是否有1个/多个子节点
 
 ```javascript
-const box = document.querySelector("#box");
-const child = box.childNodes[2];
-console.log(box.hasChildNodes());
-console.log(child.hasChildNodes());
+const box = document.querySelector('#box')
+const child = box.childNodes[2]
+console.log(box.hasChildNodes())
+console.log(child.hasChildNodes())
 ```
 
 每个节点都有owenrDocument属性，指向整个页面的文档节点
 
 ```javascript
-const box = document.querySelector("#box");
-console.log(box.ownerDocument);
+const box = document.querySelector('#box')
+console.log(box.ownerDocument)
 ```
 
 #### 1.1.3 操纵节点
@@ -100,34 +100,34 @@ console.log(box.ownerDocument);
 可以用appendChild()在当前元素添加最后一个子节点，该方法的返回值是新添加的那个节点。
 
 ```javascript
-const box = document.querySelector("#box");
-    const secondChild = box.childNodes[1];
-    box.appendChild(secondChild);
+const box = document.querySelector('#box')
+const secondChild = box.childNodes[1]
+box.appendChild(secondChild)
 ```
 
 如果想把节点放在指定位置，可以用insertBefore()方法。该方法接受两个参数，分别是要插入的节点和节点位置。
 
 ```javascript
-const box = document.querySelector("#box");
-    const secondChild = box.childNodes[1];
-    const forthChild = box.childNodes[3];
-    box.insertBefore(forthChild, secondChild);
+const box = document.querySelector('#box')
+const secondChild = box.childNodes[1]
+const forthChild = box.childNodes[3]
+box.insertBefore(forthChild, secondChild)
 ```
 
 replaceChild()接受两个参数：要插入的节点和要替换的节点。要替换的节点会被返回并从文档中完全移除，所有的关系指针都会被替换的节点复制过来
 
 ```javascript
-const box = document.querySelector("#box");
-    for (const child of box.childNodes) {
-        console.log(child);
-    }
-    const newNode = document.createElement("p");
-    newNode.innerText = "插入段";
-    box.replaceChild(newNode, box.childNodes[1]);
-    console.log("替换后");
-    for (const child of box.childNodes) {
-        console.log(child);
-    }
+const box = document.querySelector('#box')
+for (const child of box.childNodes) {
+  console.log(child)
+}
+const newNode = document.createElement('p')
+newNode.innerText = '插入段'
+box.replaceChild(newNode, box.childNodes[1])
+console.log('替换后')
+for (const child of box.childNodes) {
+  console.log(child)
+}
 ```
 
 removeChild()接受一个参数，直接移除该节点并返回
@@ -137,9 +137,9 @@ removeChild()接受一个参数，直接移除该节点并返回
 所有节点还共享了一个cloneNode()方法，会返回和调用它的节点一模一样的节点。接受一个布尔参数，true表示深复制，会复制整个节点及其DOM树，false表示浅复制，只复制调用该方法的节点。复制完成的节点是孤儿节点，没有父元素，可以用上述方法将其添加父元素
 
 ```javascript
-const box = document.querySelector("#box");
-    const box_cp = box.cloneNode(true);
-    box.parentNode.appendChild(box_cp);
+const box = document.querySelector('#box')
+const box_cp = box.cloneNode(true)
+box.parentNode.appendChild(box_cp)
 ```
 
 ### 1.2 Document类型
@@ -180,20 +180,20 @@ document作为文档节点，还有一些其他节点没有是属性，包括tit
 document的getElementById()方法，可以通过id定位第一个匹配的节点
 
 ```javascript
-const ps = document.getElementsByTagName("p");
-    for (const p of ps) {
-        console.log(p);
-    }
-    console.log(ps["second"]);
+const ps = document.getElementsByTagName('p')
+for (const p of ps) {
+  console.log(p)
+}
+console.log(ps['second'])
 ```
 
 documen的getElementsByTagName()方法，可以返回一个HTMLCollection（类似NodeList）。但是HTMLCollection还有额外的一种方法，可以通过标签的name属性索引元素
 
 ```javascript
-const ps = document.getElementsByName("second");
-    for (const p of ps) {
-        console.log(p);
-    }
+const ps = document.getElementsByName('second')
+for (const p of ps) {
+  console.log(p)
+}
 ```
 
 #### 1.2.3 特殊属性
@@ -228,9 +228,9 @@ Element类型标识HTML中的元素，对外暴露出访问元素标签名，子
 可以通过nodeName和tagName来获取元素标签名，二者等价。
 
 ```javascript
-const box = document.getElementById("box");
-    console.log(box.nodeName);
-    console.log(box.nodeName === box.tagName);
+const box = document.getElementById('box')
+console.log(box.nodeName)
+console.log(box.nodeName === box.tagName)
 ```
 
 HTMLElement直接继承了Element并添加了一些属性：
@@ -242,17 +242,17 @@ id、title、lang、dir（页面文本对齐方式）、className
 可以使用getAttribute()、setAttribute()和removeAttribute()操作元素的属性，包括自定义属性
 
 ```javascript
-const box = document.getElementById("box");
-    box.setAttribute("data-num", "11");
-    console.log(box.getAttribute("data-num"));
+const box = document.getElementById('box')
+box.setAttribute('data-num', '11')
+console.log(box.getAttribute('data-num'))
 ```
 
 HTMLElement还有一个很重要的属性，attribute。元素的所有属性都被保存在这个属性中，它是一个NameNodeMap，一个类似NodeList的集合。其中的方法有getNamedItem(name)，removeNamedItem(name)，setNamedItem(name)，item(pos)。最后一个是返回某属性的索引。
 
 ```javascript
-const box = document.getElementById("box");
-    const boxId = box.attributes.getNamedItem("id").nodeValue;
-    console.log(boxId);
+const box = document.getElementById('box')
+const boxId = box.attributes.getNamedItem('id').nodeValue
+console.log(boxId)
 ```
 
 #### 1.3.3 创建元素
@@ -260,11 +260,11 @@ const box = document.getElementById("box");
 document.createElement()方法可以用来创建元素（孤儿节点），可以先添加属性，然后加入到DOM书中。
 
 ```javascript
-const box = document.getElementById("box");
-    const newP = document.createElement("p");
-    newP.setAttribute("id", "new");
-    newP.innerText = "新加段";
-    box.appendChild(newP);
+const box = document.getElementById('box')
+const newP = document.createElement('p')
+newP.setAttribute('id', 'new')
+newP.innerText = '新加段'
+box.appendChild(newP)
 ```
 
 ### 1.4 Text 类型
@@ -295,14 +295,14 @@ document.createTextNode()可以用来创建新文本节点，接受一个参数�
 normalize() 是 Element 类型的一种方法，用于合并其相邻文本子节点
 
 ```javascript
-const p = document.getElementById("box").childNodes[1];
-    let text1 = document.createTextNode("text1");
-    let text2 = document.createTextNode("text2");
-    p.appendChild(text1);
-    p.appendChild(text2);
-    console.log(p.childNodes.length);
-    p.normalize();
-    console.log(p.childNodes.length);
+const p = document.getElementById('box').childNodes[1]
+let text1 = document.createTextNode('text1')
+let text2 = document.createTextNode('text2')
+p.appendChild(text1)
+p.appendChild(text2)
+console.log(p.childNodes.length)
+p.normalize()
+console.log(p.childNodes.length)
 ```
 
 splitText()是和normalize()相反的方法，接受一个参数offset，从offset位置将其拆分
