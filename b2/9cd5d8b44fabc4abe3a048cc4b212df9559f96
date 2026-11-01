@@ -1,0 +1,19 @@
+apps/site/blogs/blog/posts/Python实现二叉树.md
+  s_f87bfaaff830ef::t_3594b8221c4fbb 1-237
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "b29cd5d8b44fabc4abe3a048cc4b212df9559f96",
+  "prompts": {},
+  "sessions": {
+    "s_f87bfaaff830ef": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "c613b9f1-9889-4fcc-9a0e-71461838d732",
+        "model": "unknown"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
