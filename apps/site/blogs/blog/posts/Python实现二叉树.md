@@ -1,4 +1,6 @@
 ---
+title: Python 实现二叉树的基本操作
+description: 用节点类和树类模拟链表，实现二叉树的创建、插入以及层次、先序、中序、后序遍历。
 date: 2023-02-26
 ---
 
@@ -62,7 +64,7 @@ class Tree():
         if self.isEmpty():
             self.root = Node(value)
             return
-        
+
         # MODULE: 添加节点
         # 维护一个节点队列
         queue = deque()
@@ -87,7 +89,7 @@ class Tree():
             else:
                 queue.append(current.right)
         pass
-                
+
     # FUNCTION: 插入多个节点
     def addNodes(self, values: list) -> None:
 
@@ -124,7 +126,7 @@ class Tree():
             if current.right != None:
                 queue.append(current.right)
 
-        return res 
+        return res
         pass
 ```
 
@@ -132,26 +134,26 @@ class Tree():
 
 ```python
 # FUNCTION: 先序遍历
-    def initialTravel(self) -> deque: 
+    def initialTravel(self) -> deque:
 
         global res
 
         def iniT(node) -> None:
 
             global res
-            
+
             # MODULE: 递归终止
             if node == None:
                 return
-            
+
             # MODULE: 递归进行
             res.append(node.val)
             iniT(node.left)
             iniT(node.right)
-        
+
         iniT(self.root)
 
-        # MODULE: 清洗全局变量   
+        # MODULE: 清洗全局变量
         result = res
         res = deque()
 
@@ -163,10 +165,10 @@ class Tree():
 
 ```python
 # FUNCTION: 中序遍历
-    def middleTravel(self) -> deque:   
-       
+    def middleTravel(self) -> deque:
+
         global res
-        
+
         def midT(node) -> None:
 
             global res
@@ -174,12 +176,12 @@ class Tree():
             # MODULE: 递归终止
             if node == None:
                 return
-            
+
             # MODULE: 递归进行
             midT(node.left)
             res.append(node.val)
             midT(node.right)
-        
+
         midT(self.root)
 
         # MODULE: 清洗全局变量
@@ -202,19 +204,19 @@ class Tree():
         def finT(node) -> None:
 
             global res
-            
+
             # MODULE: 递归终止
             if node == None:
                 return
-            
+
             # MODULE: 递归进行
             finT(node.left)
             finT(node.right)
             res.append(node.val)
-        
+
         finT(self.root)
 
-        # MODULE: 清洗全局变量   
+        # MODULE: 清洗全局变量
         result = res
         res = deque()
 
@@ -226,10 +228,10 @@ class Tree():
 
 ```python
 if __name__ == "__main__":
-    
+
     t = Tree()
     t.addNodes([0,3,6,2,4,2])
-    
+
     print(t.levelTravel())
     print(t.initialTravel())
     print(t.middleTravel())
