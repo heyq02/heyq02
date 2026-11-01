@@ -1,0 +1,29 @@
+apps/site/blogs/blog/posts/LaTeX美赛模板【Demo修正版】-_ICMDemo2.0.md
+  s_f87bfaaff830ef::t_0a90a08a3876e0 2-3,7,9,19,27-28,40-47
+apps/site/blogs/blog/posts/Python3.7.0安装教程（32位&64位）.md
+  s_f87bfaaff830ef::t_0a90a08a3876e0 2-3,7,9
+apps/site/blogs/blog/posts/SVG源码修改指南.md
+  s_f87bfaaff830ef::t_0a90a08a3876e0 2-3,7-8,21-36,45,87,89,91,93,115,117,123,125
+apps/site/blogs/blog/posts/美赛LaTeX关键操作讲解--绘制表格，插入图片、公式、代码块.md
+  s_f87bfaaff830ef::t_0a90a08a3876e0 2-3,7,9-10
+apps/site/blogs/blog/posts/打印【大数字】、生成随机语句----课后习题（详解）.md
+  s_f87bfaaff830ef::t_0a90a08a3876e0 2-3,7-10,18,148,167,171,177,296,300,305,309,321,323-324,330,361,365,368,371,374,377,379,382,385,387,391,394,412,428,435,461,468,484,490,521,525,528,531,534,537,539,542,545,547,551,564,575,578,596
+apps/site/blogs/blog/posts/Python实现二叉树.md
+  s_f87bfaaff830ef::t_0a90a08a3876e0 2-3,67,92,129,137,144,148,153,156,168-169,171,179,184,207,211,216,219,231,234,239
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "1e4b0e29973217922194e7ccc8decf0c3171cbf3",
+  "prompts": {},
+  "sessions": {
+    "s_f87bfaaff830ef": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "c613b9f1-9889-4fcc-9a0e-71461838d732",
+        "model": "unknown"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
