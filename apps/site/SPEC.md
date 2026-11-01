@@ -18,7 +18,7 @@ depends-on:
 
 English Rspress site for heyq02.com. Thin composition root: content under `blogs/`, `rspress.config.ts` wiring, and deploy scripts. Behavior lives in `rspress-theme-heyq02` and `rspress-plugin-*` packages; navbar social links come from `shared.socialLinksFrom`. Tailwind CSS v4 is wired here (`tailwind.css` + `@rsbuild/plugin-tailwindcss`); theme/plugin sources are scanned via `@source`.
 
-Nav `activeMatch` patterns are exclusive (`Home` only `/` or `/index.html`; `Blog` / `Friends` only their path prefixes). `Travellings` is an external nav link (`https://www.travellings.cn/go.html`) with no `activeMatch`. Site chrome is English-only; there is no language switch. The navbar appearance switch follows the system theme by default.
+Nav `activeMatch` patterns are exclusive (`Home` only `/` or `/index.html`; `Blog` / `Friends` only their path prefixes). `Travelling` is an external nav link (`https://www.travellings.cn/go.html`) with no `activeMatch`. Site chrome is English-only; there is no language switch. The navbar appearance switch follows the system theme by default.
 
 The shell title and description come from the English intro. The homepage sets `titleSuffix` from the first tag plus `bio` so the tab reads `Ari He｜阿瑞 - Full-stack engineer, focused on…`.
 

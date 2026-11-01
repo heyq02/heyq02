@@ -37,8 +37,8 @@ it('highlights exactly one nav item per route', () => {
   ).toBe('Blog')
 })
 
-it('keeps Travellings as an external nav link', () => {
-  const travellings = nav.find(item => item.text === 'Travellings')
-  expect(travellings?.link).toBe('https://www.travellings.cn/go.html')
-  expect(travellings?.activeMatch).toBeUndefined()
+it('keeps Travelling as an external nav link', () => {
+  const travelling = nav.find(item => item.text === 'Travelling')
+  expect(travelling?.link).toBe('https://www.travellings.cn/go.html')
+  expect(travelling?.activeMatch).toBeUndefined()
 })
