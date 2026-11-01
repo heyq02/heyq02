@@ -1,0 +1,21 @@
+apps/site/tests/nav-active.test.ts
+  s_f87bfaaff830ef::t_626f9916f7d676 40-43
+apps/site/SPEC.md
+  s_f87bfaaff830ef::t_626f9916f7d676 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "2c214f6207084e65e1f708d41ebc6beeb646d031",
+  "prompts": {},
+  "sessions": {
+    "s_f87bfaaff830ef": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "c613b9f1-9889-4fcc-9a0e-71461838d732",
+        "model": "unknown"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
