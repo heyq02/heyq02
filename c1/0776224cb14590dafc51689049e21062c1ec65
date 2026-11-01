@@ -1,0 +1,32 @@
+packages/rspress-plugin-blog-meta/tests/blog-posts.test.ts
+  s_f87bfaaff830ef::t_07f03142676d77 51-52
+  s_f87bfaaff830ef::t_7ff5b5d78297f4 38-44
+apps/site/blogs/blog/posts/svg-source-editing-guide.md
+  s_f87bfaaff830ef::t_ad1fed837ff97b 9,11,17,30-32,37-38,40-41,43,45,53,57,61,63,76-80,119,121,124,126
+apps/site/blogs/blog/posts/python-big-digits-exercises.md
+  s_f87bfaaff830ef::t_ad1fed837ff97b 7,9,11,13,190,192,339,415,449-451,500,602,604,606
+apps/site/blogs/blog/posts/install-guide-python-370.md
+  s_f87bfaaff830ef::t_9cd4a9321cd673 9-11,13,15,17,19-28,30
+apps/site/blogs/blog/posts/latex-mcm-tables-figures-equations.md
+  s_f87bfaaff830ef::t_158f8a7fabcb25 9,11,13,15,32,36,38,40,42,44,46,48,57,61,63,65,67,71,73,75,81,85,87,89,91
+apps/site/blogs/blog/posts/latex-mcm-template-demo2.md
+  s_f87bfaaff830ef::t_34f7ec9b524097 9,13,15,17-23,27-29,31-37,39-40,44-131,133-134,136-141,143,145-227,231,233
+apps/site/blogs/blog/posts/python-binary-tree.md
+  s_f87bfaaff830ef::t_89b3e2f0ffc990 7,9,11,13,39,41,53,98,129,160,192,223
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "c10776224cb14590dafc51689049e21062c1ec65",
+  "prompts": {},
+  "sessions": {
+    "s_f87bfaaff830ef": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "c613b9f1-9889-4fcc-9a0e-71461838d732",
+        "model": "unknown"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
