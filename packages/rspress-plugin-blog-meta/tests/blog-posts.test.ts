@@ -35,14 +35,21 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
     'vue-router-hash-external-listen',
     'iframe-child-route-state',
     'git-operations-practice',
-    'python-tkinter-radix-converter'
+    'svg-source-editing-guide',
+    'latex-mcm-template-demo2',
+    'install-guide-python-370',
+    'python-binary-tree',
+    'python-tkinter-radix-converter',
+    'python-big-digits-exercises',
+    'latex-mcm-tables-figures-equations'
   ])
   expect(posts[0]?.href).toBe('/blog/posts/macos-disable-ime-switching/')
   expect(posts[0]?.date).toBe('2026-10-31')
   expect(posts.find(post => post.slug === 'building-personal-site-with-rspress')?.date).toBe(
     '2026-06-22'
   )
-  expect(posts.at(-1)?.slug).toBe('python-tkinter-radix-converter')
+  expect(posts.find(post => post.slug === 'svg-source-editing-guide')?.date).toBe('2023-03-03')
+  expect(posts.at(-1)?.slug).toBe('latex-mcm-tables-figures-equations')
 })
 
 it('lists interview notes newest-first without mixing into Writing posts', async () => {
