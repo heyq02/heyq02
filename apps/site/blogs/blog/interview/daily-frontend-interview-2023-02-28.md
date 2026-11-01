@@ -1,3 +1,8 @@
+---
+title: 每日前端面经 · 2023-02-28
+date: 2023-02-28
+---
+
 题目来源: [牛客](https://www.nowcoder.com/feed/main/detail/712fdb49a23a4d65ae6704407fb81349)
 
 ## 使用TS的目的

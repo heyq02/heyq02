@@ -34,7 +34,7 @@ The shell title and description come from the English intro. The homepage sets `
 
 ## Limitations
 
-Markdown under `blogs/blog/posts` becomes a post page. `/blog/` is Rspress Overview with sidebar Overview first, then Posts. Every `rspress dev` / `build` regenerates homepage MDX, Writing list, pinned cards, blog meta, and public assets via plugins before routes are scanned. Without a GitHub token the pins/profile step fails. `lastUpdated` needs full git history (`fetch-depth: 0` in Release Site).
+Markdown under `blogs/blog/posts` and `blogs/blog/interview` become doc pages. `/blog/` is Rspress Overview with sidebar Overview, then Posts, then Interview (both groups newest-first by frontmatter/`YYYY-MM-DD` in the slug). Homepage Writing lists **posts only**. Every `rspress dev` / `build` regenerates homepage MDX, Writing list, pinned cards, blog meta, and public assets via plugins before routes are scanned. Without a GitHub token the pins/profile step fails. `lastUpdated` needs full git history (`fetch-depth: 0` in Release Site).
 
 ## Testing
 

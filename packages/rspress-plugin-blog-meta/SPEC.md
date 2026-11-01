@@ -9,7 +9,7 @@ depends-on: [shared]
 
 ## Responsibility
 
-Scan Markdown posts and write Rspress sidebar `_meta.json` for `/blog/` and `/blog/posts/`. Also exports `listBlogPosts` for the profile homepage Writing section. Written `_meta.json` files are gitignored site outputs.
+Scan Markdown under `blog/posts/` and `blog/interview/`, and write Rspress sidebar `_meta.json` for `/blog/`, `/blog/posts/`, and `/blog/interview/` (date-desc). Exports `listBlogPosts` for the profile homepage Writing section (posts only — interview notes stay off the homepage). Written `_meta.json` files are gitignored site outputs.
 
 ## Boundary
 

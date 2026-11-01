@@ -4,7 +4,7 @@ import { join } from 'node:path'
 
 import { expect, it } from 'vite-plus/test'
 
-import { listBlogPosts } from '../src/blog-posts.ts'
+import { dateFromSlug, listBlogPosts, listInterviewNotes } from '../src/blog-posts.ts'
 
 it('returns empty list when posts dir is missing', async () => {
   const missing = join(tmpdir(), `heyq02-missing-posts-${Date.now()}`)
@@ -44,6 +44,19 @@ it('treats unclosed frontmatter as body', async () => {
     const posts = await listBlogPosts(root)
     expect(posts.find(p => p.slug === 'open')?.title).toBe('Still body')
     expect(posts.find(p => p.slug === 'empty')?.title).toBe('empty')
+  } finally {
+    await rm(root, { recursive: true, force: true })
+  }
+})
+
+it('falls back to YYYY-MM-DD in the slug when frontmatter date is missing', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'heyq02-interview-date-'))
+  try {
+    await writeFile(join(root, 'daily-frontend-interview-2024-03-09.md'), '# Notes\n')
+    const notes = await listInterviewNotes(root)
+    expect(notes[0]?.date).toBe('2024-03-09')
+    expect(notes[0]?.href).toBe('/blog/interview/daily-frontend-interview-2024-03-09/')
+    expect(dateFromSlug('no-date-here')).toBe('')
   } finally {
     await rm(root, { recursive: true, force: true })
   }

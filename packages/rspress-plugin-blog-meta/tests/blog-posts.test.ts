@@ -2,9 +2,16 @@ import { resolve } from 'node:path'
 
 import { expect, it } from 'vite-plus/test'
 
-import { listBlogPosts, renderBlogMetaJson, renderPostsMetaJson } from '../src/blog-posts.ts'
+import {
+  dateFromSlug,
+  listBlogPosts,
+  listInterviewNotes,
+  renderBlogMetaJson,
+  renderPostsMetaJson
+} from '../src/blog-posts.ts'
 
 const sitePostsDir = resolve(import.meta.dirname, '../../../apps/site/blogs/blog/posts')
+const siteInterviewDir = resolve(import.meta.dirname, '../../../apps/site/blogs/blog/interview')
 
 it('lists markdown posts under apps/site blogs/blog/posts', async () => {
   const posts = await listBlogPosts(sitePostsDir)
@@ -26,10 +33,22 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
   expect(posts.at(-1)?.slug).toBe('python-tkinter-radix-converter')
 })
 
-it('renders blog sidebar meta with Overview first', () => {
+it('lists interview notes newest-first without mixing into Writing posts', async () => {
+  const notes = await listInterviewNotes(siteInterviewDir)
+  expect(notes.length).toBe(28)
+  expect(notes[0]?.slug).toBe('daily-frontend-interview-2024-03-18-pause')
+  expect(notes[0]?.href).toBe('/blog/interview/daily-frontend-interview-2024-03-18-pause/')
+  expect(notes[0]?.date).toBe('2024-03-18')
+  expect(notes.at(-1)?.slug).toBe('daily-frontend-interview-2023-02-22')
+  expect(dateFromSlug('daily-frontend-interview-2024-03-01')).toBe('2024-03-01')
+  expect(dateFromSlug('jd-frontend-interview-1')).toBe('')
+})
+
+it('renders blog sidebar meta with Overview, Posts, and Interview', () => {
   expect(JSON.parse(renderBlogMetaJson())).toEqual([
     { type: 'file', name: 'index', label: 'Overview' },
-    { type: 'dir', name: 'posts', label: 'Posts' }
+    { type: 'dir', name: 'posts', label: 'Posts' },
+    { type: 'dir', name: 'interview', label: 'Interview' }
   ])
 })
 

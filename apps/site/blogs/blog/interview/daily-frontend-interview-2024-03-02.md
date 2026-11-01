@@ -1,3 +1,8 @@
+---
+title: 每日前端面经 · 2024-03-02
+date: 2024-03-02
+---
+
 题目来源: [牛客](https://www.nowcoder.com/feed/main/detail/ee3fbeb3caec428e8316d863fdbc657e?sourceSSR=users)
 
 ## 图片懒加载实现方式

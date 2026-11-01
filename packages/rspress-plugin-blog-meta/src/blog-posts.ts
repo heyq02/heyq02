@@ -35,10 +35,15 @@ function titleFromBody(body: string) {
     .trim()
 }
 
-export async function listBlogPosts(postsDir: string): Promise<BlogPost[]> {
+/** Prefer frontmatter date; otherwise pull YYYY-MM-DD from the slug/filename. */
+export function dateFromSlug(slug: string): string {
+  return /\d{4}-\d{2}-\d{2}/.exec(slug)?.[0] ?? ''
+}
+
+async function listMarkdownEntries(dir: string, hrefPrefix: string): Promise<BlogPost[]> {
   let files: string[]
   try {
-    files = await readdir(postsDir)
+    files = await readdir(dir)
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
       return []
@@ -51,15 +56,15 @@ export async function listBlogPosts(postsDir: string): Promise<BlogPost[]> {
     if (!/\.mdx?$/.test(file) || file === 'index.md' || file === 'index.mdx') {
       continue
     }
-    const raw = await readFile(resolve(postsDir, file), 'utf8')
+    const raw = await readFile(resolve(dir, file), 'utf8')
     const { data, body } = parseFrontmatter(raw)
     const slug = basename(file).replace(/\.mdx?$/, '')
     posts.push({
       slug,
-      href: `/blog/posts/${slug}/`,
+      href: `${hrefPrefix}${slug}/`,
       title: data.title || titleFromBody(body) || slug,
       description: data.description || '',
-      date: data.date || ''
+      date: data.date || dateFromSlug(slug)
     })
   }
   return posts.toSorted(
@@ -67,19 +72,30 @@ export async function listBlogPosts(postsDir: string): Promise<BlogPost[]> {
   )
 }
 
-/** Sidebar meta for `/blog/`: Overview first, then the Posts group. */
+/** Homepage Writing + `/blog/posts/` sidebar entries. */
+export async function listBlogPosts(postsDir: string): Promise<BlogPost[]> {
+  return listMarkdownEntries(postsDir, '/blog/posts/')
+}
+
+/** `/blog/interview/` sidebar entries (not shown on homepage Writing). */
+export async function listInterviewNotes(interviewDir: string): Promise<BlogPost[]> {
+  return listMarkdownEntries(interviewDir, '/blog/interview/')
+}
+
+/** Sidebar meta for `/blog/`: Overview, then Posts, then Interview. */
 export function renderBlogMetaJson(): string {
   return `${JSON.stringify(
     [
       { type: 'file', name: 'index', label: 'Overview' },
-      { type: 'dir', name: 'posts', label: 'Posts' }
+      { type: 'dir', name: 'posts', label: 'Posts' },
+      { type: 'dir', name: 'interview', label: 'Interview' }
     ],
     null,
     2
   )}\n`
 }
 
-/** Sidebar meta for `/blog/posts/`: one entry per post file. */
+/** Sidebar meta for a blog subsection: one entry per markdown file. */
 export function renderPostsMetaJson(posts: BlogPost[]): string {
   return `${JSON.stringify(
     posts.map(post => ({
