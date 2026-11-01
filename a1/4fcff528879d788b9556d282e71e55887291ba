@@ -1,0 +1,32 @@
+apps/cli/package.json
+  h_a57efa94f24ca5 3
+apps/readme/package.json
+  h_a57efa94f24ca5 3
+apps/site/package.json
+  h_a57efa94f24ca5 3
+package.json
+  h_a57efa94f24ca5 3
+packages/rspress-plugin-blog-meta/package.json
+  h_a57efa94f24ca5 3
+packages/rspress-plugin-github-pins/package.json
+  h_a57efa94f24ca5 3
+packages/rspress-plugin-profile/package.json
+  h_a57efa94f24ca5 3
+packages/rspress-plugin-site-assets/package.json
+  h_a57efa94f24ca5 3
+packages/rspress-theme-heyq02/package.json
+  h_a57efa94f24ca5 3
+packages/shared/package.json
+  h_a57efa94f24ca5 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "a14fcff528879d788b9556d282e71e55887291ba",
+  "prompts": {},
+  "humans": {
+    "h_a57efa94f24ca5": {
+      "author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
