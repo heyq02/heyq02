@@ -1,11 +1,16 @@
 ---
+title: 趣味项目：一键生成 LICENSE
 date: 2024-03-14
 ---
 
-# 【趣味项目】一键生成LICENSE
+# 趣味项目：一键生成 LICENSE
 
-项目地址：[GitHub](https://github.com/xxhls/get-license)(最新版本) | [GitCode](https://gitcode.com/m0_66681776/get-license)(旧版本)
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/ccefb18c60a164468cdbb0e0719bbb52.png)
+::: tip {title="项目链接"}
+- 仓库（最新）：[xxhls/get-license](https://github.com/xxhls/get-license)
+- 旧版：[GitCode get-license](https://gitcode.com/m0_66681776/get-license)
+:::
+
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/ccefb18c60a164468cdbb0e0719bbb52.png)
 
 ## 项目介绍
 
@@ -30,7 +35,7 @@ get-license --license=mit
 
 ## 代码分析
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/6b64204592ae2baa8cf401b5b5601051.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/6b64204592ae2baa8cf401b5b5601051.png)
 
 - bin: 存放可执行文件
 - dist: 存放打包后文件

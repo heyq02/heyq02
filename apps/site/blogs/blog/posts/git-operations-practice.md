@@ -1,16 +1,15 @@
 ---
+title: Git 操作实战
 date: 2023-03-20
 ---
 
-# Git操作实战
+# Git 操作实战
 
-本文主要从**建立仓库**:house_with_garden:、**仓库克隆**:eyes:、**多人协作**:sunglasses:、**分支管理**:ear_of_rice:、**提交规范**:balloon:五个方面，面向**实际使用**的角度总结了git操作，覆盖了绝大部分使用场景。
+::: info {title="覆盖范围"}
+从建立仓库、克隆、多人协作、分支管理到提交规范，按实际使用场景梳理常见 Git 操作。
+:::
 
-本文阅读完后可以应付绝大部分git操作，类似版本回退、多分支协作等一些不常用操作读者可以自行了解:v:
-
-本文以CSDN的GitCode为例进行**实操**:punch:讲解，仓库为公有，大家可以随意进行push、pull等git操作的联系
-
-浅浅求个关注:sparkles::sparkles::sparkles:
+以 GitCode 公有仓库为例实操讲解，可自行 push / pull 练习。
 
 ## 1. 建立仓库:house_with_garden:
 

@@ -19,17 +19,29 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
   expect(posts.map(post => post.slug)).toEqual([
     'macos-disable-ime-switching',
     'webpack-import-path-variables',
+    'building-personal-site-with-rspress',
     'multi-mcp-aggregation-nginx-vs-express',
     'weixin-homepage-ui-recreation',
+    'install-guide-idea',
+    'fun-project-vitepress-blog',
     'npm-download-daily-report',
+    'fun-project-image-transformer',
+    'fun-project-get-license-changelog',
+    'fun-project-get-license',
+    'fun-project-2048',
     'anaconda-vscode-encoding-bug',
+    'install-guide-anaconda',
+    'threejs-notes-1-geometries',
     'vue-router-hash-external-listen',
     'iframe-child-route-state',
+    'git-operations-practice',
     'python-tkinter-radix-converter'
   ])
   expect(posts[0]?.href).toBe('/blog/posts/macos-disable-ime-switching/')
   expect(posts[0]?.date).toBe('2026-10-31')
-  expect(posts.find(post => post.slug === 'npm-download-daily-report')?.date).toBe('2024-03-19')
+  expect(posts.find(post => post.slug === 'building-personal-site-with-rspress')?.date).toBe(
+    '2026-06-22'
+  )
   expect(posts.at(-1)?.slug).toBe('python-tkinter-radix-converter')
 })
 

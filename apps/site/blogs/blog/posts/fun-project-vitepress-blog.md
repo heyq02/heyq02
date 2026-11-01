@@ -1,16 +1,20 @@
 ---
+title: 趣味项目：VitePress 搭建个人博客
 date: 2024-03-22
 ---
 
-# 【趣味项目】vitepress创建个人博客
+# 趣味项目：VitePress 搭建个人博客
 
-项目地址：[GitHub](https://github.com/xxhls/blog)
-博客地址：[xxhls.tech](http://xxhls.tech)
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/6fa05c181964670534dcf146dbd48e43.png)
+::: tip {title="项目链接"}
+- 仓库：[xxhls/blog](https://github.com/xxhls/blog)
+- 站点：[xxhls.tech](http://xxhls.tech)
+:::
+
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/6fa05c181964670534dcf146dbd48e43.png)
 
 ## 项目介绍
 
-前段时间买了个服务器和域名，但是一直闲置者，这两天闲下来打算搞个个人网站。目前流向的有hexo、wordpress，但是我对vitepress的样式很是喜欢，就将其改装一下作为博客框架
+前段时间买了服务器和域名，一直闲置着；这两天打算搭个个人网站。当时流行的有 Hexo、WordPress，但我更喜欢 VitePress 的样式，就改装成博客框架。
 
 ## 使用方式
 

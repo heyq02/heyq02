@@ -1,11 +1,15 @@
 ---
+title: 趣味项目：命令行图片格式转换器
 date: 2024-03-18
 ---
 
-# 【趣味项目】命令行图片格式转换器
+# 趣味项目：命令行图片格式转换器
 
-项目地址：[GitHub](https://github.com/xxhls/image-transformer)
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/76c6e152500e035994999b4b31667de5.png)
+::: tip {title="项目链接"}
+仓库：[xxhls/image-transformer](https://github.com/xxhls/image-transformer)
+:::
+
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/76c6e152500e035994999b4b31667de5.png)
 
 ## 项目介绍
 
@@ -30,7 +34,7 @@ img-t --name='.*.tiff' --target='png' --path='./images' --recursion='true'
 
 ## 代码分析
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/152c49f876d38839b25f7990bb93b1a9.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/152c49f876d38839b25f7990bb93b1a9.png)
 
 - core: 转换器 Map
 - log: 日志工具

@@ -1,11 +1,16 @@
 ---
+title: 趣味项目：一键生成 LICENSE — 更新日志
 date: 2024-03-15
 ---
 
-# 【趣味项目】一键生成LICENSE—更新日志
+# 趣味项目：一键生成 LICENSE — 更新日志
 
-项目相关可以查看该文档 [【趣味项目】一键生成LICENSE](https://blog.csdn.net/m0_66681776/article/details/136719833?spm=1001.2014.3001.5501)，此文档主要介绍最新版的功能以及相较于上一版产生的新改动
-最新版本：[v1.7.2](https://www.npmjs.com/package/@xxhls/get-license?activeTab=readme)
+::: tip {title="相关链接"}
+- 主文：[趣味项目：一键生成 LICENSE](/blog/posts/fun-project-get-license/)
+- npm：[v1.7.2](https://www.npmjs.com/package/@xxhls/get-license?activeTab=readme)
+:::
+
+本文主要介绍最新版功能，以及相对上一版的改动。
 
 ## 使用
 

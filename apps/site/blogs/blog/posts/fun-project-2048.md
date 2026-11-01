@@ -1,10 +1,11 @@
 ---
+title: 趣味项目：2048 简单实现
 date: 2024-03-08
 ---
 
-# 【趣味项目】2048 简单实现
+# 趣味项目：2048 简单实现
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/fe891c3cfcf350678287a6921c506484.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/fe891c3cfcf350678287a6921c506484.png)
 
 ## 算法原理
 

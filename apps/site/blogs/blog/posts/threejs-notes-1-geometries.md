@@ -1,12 +1,13 @@
 ---
+title: Three.js 学习笔记（一）：几何体全家福
 date: 2024-01-04
 ---
 
-# 几何体
+# Three.js 学习笔记（一）：几何体全家福
 
-```
-摘录自官网https://threejs.org/，作为学习笔记增加了些个人的想法。
-```
+::: info {title="来源"}
+主要摘录自 [Three.js 官网](https://threejs.org/)，并补充了一些个人理解。
+:::
 
 ## 立方缓冲几何体
 
@@ -30,11 +31,11 @@ const cube = new THREE.Mesh(geometry, material)
 scene.add(cube)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/37a68032084c830624b34baed62bf7aa.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/37a68032084c830624b34baed62bf7aa.png)
 
 其中的*Segments就是指单个轴分成几份
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/600b1e67cda71a6ca21674bae7319dbf.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/600b1e67cda71a6ca21674bae7319dbf.png)
 
 ### 完整代码
 
@@ -120,15 +121,15 @@ const capsule = new THREE.Mesh(geometry, material)
 scene.add(capsule)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/eceefa5ed6146a61d20798a8ef6f892b.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/eceefa5ed6146a61d20798a8ef6f892b.png)
 
 其中的capSegments是指从顶部看去的多边形边数
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/a521dae91f75ed0b914e8ba66addb513.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/a521dae91f75ed0b914e8ba66addb513.png)
 
 其中的radialSegments可以理解成构造单个面的密度
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/10d963b7375e16ff36fe0087587cd12e.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/10d963b7375e16ff36fe0087587cd12e.png)
 
 ## 圆形缓冲几何体
 
@@ -150,13 +151,13 @@ const circle = new THREE.Mesh(geometry, material)
 scene.add(circle)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/dcb187b0d8d7742a980a1601fbdff28d.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/dcb187b0d8d7742a980a1601fbdff28d.png)
 
 其中segments是指多边形的条数
 
 其中thetaStart是指第一个分段与中间轴的偏移角度
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/ffa3c383cf181a583da2b5addefe2fa5.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/ffa3c383cf181a583da2b5addefe2fa5.png)
 
 其中thetaLength是指圆形总弧度
 
@@ -164,7 +165,7 @@ scene.add(circle)
 const geometry = new THREE.CircleGeometry(5, 10, 30, 1.5 * Math.PI)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/4cae66df3f14c718e71d4ee440ca4664.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/4cae66df3f14c718e71d4ee440ca4664.png)
 
 ## 圆锥缓冲几何体
 
@@ -189,27 +190,27 @@ const cone = new THREE.Mesh(geometry, material)
 scene.add(cone)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/a5cceabbc96cdf4bd3f1ede565329104.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/a5cceabbc96cdf4bd3f1ede565329104.png)
 
 其中radialSegments指顶部往下的多边形边数
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/eea53f67b6c1dd905957210ef9ab2671.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/eea53f67b6c1dd905957210ef9ab2671.png)
 
 其中heightSegments是指y轴分段数
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/f8a6a030a054554f46721367ee6ec41b.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/f8a6a030a054554f46721367ee6ec41b.png)
 
 其中openEnded是指底部是否封闭
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/fe87f4f8da49cd1e508f69c452a63c02.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/fe87f4f8da49cd1e508f69c452a63c02.png)
 
 其中thetaStart是指初始模型与y轴偏移角度
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/ac6ea123b2420efcaaab276aeed9545b.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/ac6ea123b2420efcaaab276aeed9545b.png)
 
 其中thetaLength是指圆锥弧度值
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/32ebc5bbffd9b6d4705915dbd1d0185f.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/32ebc5bbffd9b6d4705915dbd1d0185f.png)
 
 ## 圆柱缓冲几何体
 
@@ -235,7 +236,7 @@ const cylinder = new THREE.Mesh(geometry, material)
 scene.add(cylinder)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/4b0240dcb95cdc6ded4ea14fa6a0b842.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/4b0240dcb95cdc6ded4ea14fa6a0b842.png)
 
 其中的各个参数都已在上文写过，可以参照圆形/圆锥，此处不再赘述
 
@@ -257,7 +258,7 @@ const cube = new THREE.Mesh(geometry, material)
 scene.add(cube)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/c5aaca56980df1aa8078617aabcb3ca6.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/c5aaca56980df1aa8078617aabcb3ca6.png)
 
 ## 边缘几何体
 
@@ -277,7 +278,7 @@ const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 
 scene.add(line)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/e68c0b99865994392c6ede7c2ce762f8.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/e68c0b99865994392c6ede7c2ce762f8.png)
 
 ## 挤压缓冲几何体
 
@@ -327,15 +328,15 @@ const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/2f6b48ba27479d9686784e65704172be.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/2f6b48ba27479d9686784e65704172be.png)
 
 其中bevelThickness是指斜角与原来形状的垂直高度
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/79e440f75dad680c73cef3d2fd1f616b.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/79e440f75dad680c73cef3d2fd1f616b.png)
 
 其中bevelSize是指斜角边的距离
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/f337c4d963321fd3b5bdef307c6ba5cb.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/f337c4d963321fd3b5bdef307c6ba5cb.png)
 
 其中bevelOffset是指斜角与原来形状的偏移距离
 
@@ -375,7 +376,7 @@ cube.position.z = -0.5
 scene.add(cube)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/dab5fd5707beaea27aae9cb19adca3d9.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/dab5fd5707beaea27aae9cb19adca3d9.png)
 
 ## 二十面缓冲几何体
 
@@ -395,7 +396,7 @@ const cube = new THREE.Mesh(dodecahedron, material)
 scene.add(cube)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/d13e02de349ccdd46899727b272569f3.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/d13e02de349ccdd46899727b272569f3.png)
 
 ## 车削缓冲几何体
 
@@ -421,19 +422,19 @@ const lathe = new THREE.Mesh(geometry, material)
 scene.add(lathe)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/95130fd7becefa13f529ca61c8da4514.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/95130fd7becefa13f529ca61c8da4514.png)
 
 其中segments是指从上向下的多边形边数
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/f310303ec78dab6d81822f0962982bf2.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/f310303ec78dab6d81822f0962982bf2.png)
 
 其中phiStart是指起始角度
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/a6bd4d87cbadcdb23fee06416b0c49fe.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/a6bd4d87cbadcdb23fee06416b0c49fe.png)
 
 其中phiLength是指车削的弧度
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/aa7851dfc91e40fc83fec6fad0e60bc7.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/aa7851dfc91e40fc83fec6fad0e60bc7.png)
 
 ## 八面缓冲几何体
 
@@ -453,7 +454,7 @@ const cube = new THREE.Mesh(geometry, material)
 scene.add(cube)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/d96759c8f6f6e89e36d227e8297adfb3.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/d96759c8f6f6e89e36d227e8297adfb3.png)
 
 ## 平面缓冲几何体
 
@@ -475,7 +476,7 @@ const plane = new THREE.Mesh(geometry, material)
 scene.add(plane)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/4b9e69360ed8ada93273cd5a8336479c.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/4b9e69360ed8ada93273cd5a8336479c.png)
 
 ## 多面缓冲几何体
 
@@ -507,7 +508,7 @@ const cone = new THREE.Mesh(geometry, material)
 scene.add(cone)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/79784585302c4c401a77e9a1325f79ba.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/79784585302c4c401a77e9a1325f79ba.png)
 
 ## 形状缓冲几何体
 
@@ -540,7 +541,7 @@ const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/bea8e990fd6397c1696020d608bca99d.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/bea8e990fd6397c1696020d608bca99d.png)
 
 ## 球缓冲几何体
 
@@ -565,7 +566,7 @@ const sphere = new THREE.Mesh(geometry, material)
 scene.add(sphere)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/bfca87bc596ffbffc5aae4682aad8151.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/bfca87bc596ffbffc5aae4682aad8151.png)
 
 ## 四面缓冲几何体
 
@@ -585,7 +586,7 @@ const cube = new THREE.Mesh(geometry, material)
 scene.add(cube)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/2693fe522db562575e1935cdce400e72.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/2693fe522db562575e1935cdce400e72.png)
 
 ## 圆环缓冲几何体-3D
 
@@ -608,15 +609,15 @@ const torus = new THREE.Mesh(geometry, material)
 scene.add(torus)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/9a6d1e6cf79482ab2876d36d91d66ce8.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/9a6d1e6cf79482ab2876d36d91d66ce8.png)
 
 其中radialSegments是指正面看的分段数
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/7bf4849f96cd3331e6acc7017703b971.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/7bf4849f96cd3331e6acc7017703b971.png)
 
 其中tubularSegments是指擦面看的分段数
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/d882ec2e23b3b7615ac55a64e87edb82.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/d882ec2e23b3b7615ac55a64e87edb82.png)
 
 ## 圆环缓冲扭结几何体
 
@@ -640,7 +641,7 @@ const torusKnot = new THREE.Mesh(geometry, material)
 scene.add(torusKnot)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/2b61f322496eb5c1aab2c592833b30d2.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/2b61f322496eb5c1aab2c592833b30d2.png)
 
 ## 管道缓冲几何体
 
@@ -680,7 +681,7 @@ const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/a2cd80c7d4f1ab7bd5d50fe8947a9740.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/a2cd80c7d4f1ab7bd5d50fe8947a9740.png)
 
 ## 网格几何体
 
@@ -705,4 +706,4 @@ line.material.transparent = true
 scene.add(line)
 ```
 
-![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/0f35c2a807d198b9830d6568bf562034.png)
+![效果截图](https://i-blog.csdnimg.cn/blog_migrate/0f35c2a807d198b9830d6568bf562034.png)
