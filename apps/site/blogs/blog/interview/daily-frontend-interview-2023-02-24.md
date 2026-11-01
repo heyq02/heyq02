@@ -5,7 +5,7 @@ date: 2023-02-24
 
 题目来源: [牛客](https://www.nowcoder.com/feed/main/detail/7924cf3264ed4acdb633d751e769b6f0?sourceSSR=search)
 
-# 对Vue的理解
+## 对Vue的理解
 
 Vue是一款流行的JS前端框架，关注的核心是MVC模式的视图层，能够简化数据更新  
 Vue的核心是数据驱动、组件化和指令系统
@@ -14,7 +14,7 @@ Vue的核心是数据驱动、组件化和指令系统
 - 组件化: 可以把各种逻辑封装进统一组件进行复用
 - 指令系统: 当表达式产生改变时，响应式地对DOM产生作用
 
-# 如何实现一个v-model自定义组件
+## 如何实现一个v-model自定义组件
 
 v-model本质上就是一个v-bind和emit的语法糖
 
@@ -38,7 +38,7 @@ v-model本质上就是一个v-bind和emit的语法糖
 </script>
 ```
 
-# 组件通信
+## 组件通信
 
 - props/$emit
 - $parent/$children
@@ -49,11 +49,11 @@ v-model本质上就是一个v-bind和emit的语法糖
 - VueX
 - storage
 
-# 实现EventBus
+## 实现EventBus
 
 直接在全局实例挂载一个eventBus，通过$eventBus.$on监听事件，$eventBus.$emit触发事件
 
-# JS数据类型
+## JS数据类型
 
 - Number
 - String
@@ -64,7 +64,7 @@ v-model本质上就是一个v-bind和emit的语法糖
 - Symbol
 - BigInt
 
-# `==`是如何将空和0判断相等的
+## `==`是如何将空和0判断相等的
 
 JS会先进行类型转换，将空转换成0，这是两个类型相同，进行比较，结果为true
 
