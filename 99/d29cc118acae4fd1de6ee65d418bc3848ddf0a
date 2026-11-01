@@ -1,0 +1,19 @@
+apps/site/blogs/blog/posts/qixi-chat-robot.md
+  s_69a7edade3f7f4::t_2df3451f52c1c9 132
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "99d29cc118acae4fd1de6ee65d418bc3848ddf0a",
+  "prompts": {},
+  "sessions": {
+    "s_69a7edade3f7f4": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "aa624c71-a57b-4975-9e61-6de215fe89d1",
+        "model": "unknown"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
