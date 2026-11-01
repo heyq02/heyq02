@@ -1,92 +1,57 @@
 ---
-title: "Konva学习笔记0-创建项目"
-author: "Ari He"
-date: "于 2023-08-25 10:54:56 发布"
-source: "https://blog.csdn.net/m0_66681776/article/details/132490884?spm=1011.2415.3001.5331"
+title: Konva 学习笔记 0：创建项目
+description: 从 webpack 初始化项目到安装并配置 Konva，跑通第一个拖拽 Demo。
+date: 2023-08-25
 ---
 
-## Konva学习笔记0-创建
+# Konva 学习笔记 0：创建项目
 
-
-
-### 安装
-
-
+## 安装
 
 ```shell
 npm i webpack webpack-cli -g
 ```
 
-
-
-### 新建项目文件夹
-
-
+## 新建项目文件夹
 
 ```shell
 mkdir demo
 cd demo
 ```
 
-
-
-### 安装辅助框架
-
-
+## 安装辅助框架
 
 ```shell
 webpack-cli init
 ```
 
+此时会提醒是否安装 xx 包，输入 y+enter 即可开始安装
 
+![](https://i-blog.csdnimg.cn/blog_migrate/b93df6a43084c3b820d3fad04fc91c71.png)
 
-此时会提醒是否安装xx包，输入y+enter即可开始安装
+## 再次初始化项目
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/b93df6a43084c3b820d3fad04fc91c71.png)
-
-
-
-### 再次初始化项目
-
-
-
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/7c9d254ef590f02911ecd2398a822d4b.png)
-
-
+![](https://i-blog.csdnimg.cn/blog_migrate/7c9d254ef590f02911ecd2398a822d4b.png)
 
 安装完毕会报错，不理它，再次初始化
 
-
-
 ```shell
 webpack-cli init
 ```
 
-
-
-### 设置项目选项
-
-
+## 设置项目选项
 
 脚手架提供了一系列初始化选择，提供博主个人的选择，凭自主喜好即可
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/207957f9e8f5e9a283ce4dd25266620a.png)K
+![](https://i-blog.csdnimg.cn/blog_migrate/207957f9e8f5e9a283ce4dd25266620a.png)
 
-
-
-### 安装并配置Konva
-
-
+## 安装并配置 Konva
 
 ```shell
 npm i konva
 ```
 
-
-
-编辑tsconfig.，在compilerOptions节点中添加lib和moduleResolution
-
-
+编辑 tsconfig.json，在 compilerOptions 节点中添加 lib 和 moduleResolution
 
 ```json
 {
@@ -102,15 +67,9 @@ npm i konva
 }
 ```
 
+## 测试 Demo
 
-
-### 测试Demo
-
-
-
-修改index.
-
-
+修改 index.html。
 
 ```html
 <!DOCTYPE html>
@@ -125,11 +84,7 @@ npm i konva
 </html>
 ```
 
-
-
-修改src/index.ts
-
-
+修改 src/index.ts
 
 ```ts
 import Konva from "konva";
@@ -182,22 +137,14 @@ layer.add(rect3);
 stage.add(layer);
 ```
 
-
-
 最后运行
-
-
 
 ```shell
 npm run serve
 ```
 
+可以在输入地址 http://localhost:8080/ 看到最终结果
 
+![](https://i-blog.csdnimg.cn/blog_migrate/304f7ac2cfbc40a258cec915a5618a23.png)
 
-可以在输入地址 ://localhost:8080/ 看到最终结果
-
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/304f7ac2cfbc40a258cec915a5618a23.png)
-
----
-> 原文链接: [Konva学习笔记0-创建项目](https://blog.csdn.net/m0_66681776/article/details/132490884?spm=1011.2415.3001.5331)
-> 作者: Ari He
+> 原文：[Konva学习笔记0-创建项目](https://blog.csdn.net/m0_66681776/article/details/132490884?spm=1011.2415.3001.5331) · 作者 m0_66681776

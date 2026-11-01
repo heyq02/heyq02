@@ -1,33 +1,18 @@
 ---
-title: "小贺同学的进制转换器-微信小程序"
-author: "Ari He"
-date: "于 2023-02-26 07:01:19 发布"
-source: "https://blog.csdn.net/m0_66681776/article/details/124806765?spm=1011.2415.3001.5331"
+title: 小贺同学的进制转换器：微信小程序
+description: 把进制转换器搬进微信小程序：wxml 界面布局与 js 转换逻辑。
+date: 2023-02-26
 ---
 
-> 
+# 小贺同学的进制转换器：微信小程序
+
 > 小程序已上线：小贺同学的进制转换器
-> 
 
-
-
-
-## ![](https://i-blog.csdnimg.cn/blog_migrate/90bd25bf934228c71bcc8f3f961da5ac.jpeg)
-
-
-
-
-
-
-
-
+![](https://i-blog.csdnimg.cn/blog_migrate/90bd25bf934228c71bcc8f3f961da5ac.jpeg)
 
 ## index.wxml
 
-
-
-
-```js
+```html
 <!--index.wxml-->
 <!-- 结果展示栏 -->
 <view id='display'>
@@ -44,15 +29,9 @@ source: "https://blog.csdn.net/m0_66681776/article/details/124806765?spm=1011.24
 </view>
 ```
 
-
-
-
 ## index.js
 
-
-
-
-```js
+```javascript
 // index.js
 // 获取应用实例
 const app = getApp()
@@ -127,7 +106,7 @@ Page({
     this.setData({
       system: this.system_temp
     })
-  }, 
+  },
   change_num(a, b, c, d){
     this.setData({
       ten: a,
@@ -139,15 +118,9 @@ Page({
 })
 ```
 
+## index.wxss
 
-
-
-index.
-
-
-
-
-```js
+```css
 /**index.wxss**/
 /*结果展示框*/
 #display {
@@ -237,6 +210,4 @@ index.
 }
 ```
 
----
-> 原文链接: [小贺同学的进制转换器-微信小程序](https://blog.csdn.net/m0_66681776/article/details/124806765?spm=1011.2415.3001.5331)
-> 作者: Ari He
+> 原文：[小贺同学的进制转换器-微信小程序](https://blog.csdn.net/m0_66681776/article/details/124806765?spm=1011.2415.3001.5331) · 作者 m0_66681776
