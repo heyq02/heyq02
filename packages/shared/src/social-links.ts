@@ -4,16 +4,15 @@ interface PlaceLike {
 }
 
 export interface SocialLinkItem {
-  icon: 'github' | 'bluesky' | 'x' | 'bilibili' | 'wechat'
+  icon: 'github' | 'x' | 'bilibili' | 'wechat'
   mode: 'img' | 'link'
   content: string
 }
 
-const navbarOrder = ['GitHub', 'Bluesky', 'X', 'Bilibili', 'WeChat'] as const
+const navbarOrder = ['GitHub', 'X', 'Bilibili', 'WeChat'] as const
 
 const icons: Record<(typeof navbarOrder)[number], SocialLinkItem['icon']> = {
   GitHub: 'github',
-  Bluesky: 'bluesky',
   X: 'x',
   Bilibili: 'bilibili',
   WeChat: 'wechat'

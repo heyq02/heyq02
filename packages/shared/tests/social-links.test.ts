@@ -18,7 +18,6 @@ it('puts social links in the navbar list', () => {
   })
   expect(links.map(link => link.content)).toEqual([
     'https://github.com/heyq02',
-    'https://bsky.app/profile/heyq02.com',
     'https://x.com/heyq02',
     'https://space.bilibili.com/3493273159075938',
     '/wechat.jpg'
