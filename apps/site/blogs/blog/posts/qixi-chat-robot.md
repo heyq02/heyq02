@@ -129,7 +129,7 @@ class recoder():
         print('正在录音...')
 
         while time.time() < t + 10:  # 设置录音时间（秒）
-    	    #循环read，每次read 2000frames
+            #循环read，每次read 2000frames
             string_audio_data = stream.read(self.num_samples)
             my_buf.append(string_audio_data)
         print('录音结束.')
