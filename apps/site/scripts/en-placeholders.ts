@@ -112,3 +112,19 @@ export async function ensureEnglishPosts(options: EnsureEnglishOptions): Promise
   }
   return created
 }
+
+/** Marker line every generated placeholder carries. */
+export const PLACEHOLDER_MARKER = 'Translation pending'
+
+/** Relative paths of English pages that are still placeholders. */
+export async function findPlaceholders(options: EnsureEnglishOptions): Promise<string[]> {
+  const site = options.siteRoot
+  const targetRoot = resolve(site, 'blogs/en')
+  const pending: string[] = []
+  for (const file of await listMarkdown(targetRoot)) {
+    if ((await readFile(file, 'utf8')).includes(PLACEHOLDER_MARKER)) {
+      pending.push(relative(targetRoot, file).replaceAll('\\', '/'))
+    }
+  }
+  return pending
+}

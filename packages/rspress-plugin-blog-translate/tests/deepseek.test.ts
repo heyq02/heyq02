@@ -11,12 +11,16 @@ function requestAt(fetchFn: { mock: { calls: unknown[][] } }, index = 0) {
   return { url: String(call?.[0]), init: call?.[1] as RequestInit }
 }
 
-function requestBody(init: RequestInit): { model: string; messages: unknown[] } {
+function requestBody(init: RequestInit): {
+  model: string
+  messages: unknown[]
+  thinking?: { type: string }
+} {
   const raw = init.body
   if (typeof raw !== 'string') {
     throw new TypeError('expected a JSON string body')
   }
-  return JSON.parse(raw) as { model: string; messages: unknown[] }
+  return JSON.parse(raw) as { model: string; messages: unknown[]; thinking?: { type: string } }
 }
 
 it('posts the prompt to DeepSeek and returns the message content', async () => {
@@ -31,7 +35,10 @@ it('posts the prompt to DeepSeek and returns the message content', async () => {
   expect((init.headers as Record<string, string>).authorization).toBe('Bearer key')
   const body = requestBody(init)
   expect(body.model).toBe(DEFAULT_MODEL)
+  expect(DEFAULT_MODEL).toBe('deepseek-flash')
   expect(body.messages).toHaveLength(2)
+  // Translation is deterministic prose rewriting: thinking must stay off.
+  expect(body.thinking).toEqual({ type: 'disabled' })
 })
 
 it('honours baseUrl and model overrides and trims trailing slashes', async () => {

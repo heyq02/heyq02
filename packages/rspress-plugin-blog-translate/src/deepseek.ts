@@ -19,7 +19,7 @@ export type TranslateText = (text: string) => Promise<string>
 
 /** Default endpoint and model; overridable through env vars in CI. */
 export const DEFAULT_BASE_URL = 'https://api.deepseek.com'
-export const DEFAULT_MODEL = 'deepseek-chat'
+export const DEFAULT_MODEL = 'deepseek-flash'
 
 const SYSTEM_PROMPT = `You are a precise technical translator for a developer blog.
 Translate the user's Chinese Markdown into natural, concise English.
@@ -67,6 +67,9 @@ export function createDeepSeekTranslator(options: DeepSeekOptions): TranslateTex
       model,
       temperature: 0,
       stream: false,
+      // Translation needs deterministic text, not chain-of-thought.
+      // DeepSeek enables thinking by default: slower, costlier, truncation-prone.
+      thinking: { type: 'disabled' },
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
         { role: 'user', content: text }

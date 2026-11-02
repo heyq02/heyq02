@@ -17,7 +17,11 @@ export default liangmi({
   run: {
     tasks: {
       cbuild: {
-        command: 'node --experimental-strip-types ./scripts/build.ts'
+        command: 'node --experimental-strip-types ./scripts/build.ts',
+        cache: {
+          // Task env is isolated, so declare what the build needs to receive.
+          untrackedEnv: ['GITHUB_TOKEN', 'DEEPSEEK_API_KEY', 'DEEPSEEK_BASE_URL', 'DEEPSEEK_MODEL']
+        }
       },
       dev: {
         command:

@@ -4,7 +4,7 @@ import { join } from 'node:path'
 
 import { expect, it } from 'vite-plus/test'
 
-import { ensureEnglishPosts, placeholderFor } from '../scripts/en-placeholders.ts'
+import { ensureEnglishPosts, findPlaceholders, placeholderFor } from '../scripts/en-placeholders.ts'
 
 function site(root: string) {
   return join(root, 'apps/site')
@@ -162,6 +162,36 @@ it('rethrows when reading the Chinese tree fails for a reason other than a missi
     await mkdir(join(dir, 'blogs'), { recursive: true })
     await writeFile(join(dir, 'blogs/zh'), 'not a directory')
     await expect(ensureEnglishPosts({ siteRoot: dir })).rejects.toThrow(/ENOTDIR/)
+  } finally {
+    await rm(root, { recursive: true, force: true })
+  }
+})
+
+it('reports pages that are still placeholders', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'heyq02-en-placeholders-find-'))
+  const dir = site(root)
+  try {
+    await writeChromeTemplates(dir)
+    await mkdir(join(dir, 'blogs/zh/blog/posts'), { recursive: true })
+    await writeFile(join(dir, 'blogs/zh/blog/posts/pending.md'), '# 未翻译\n')
+    await writeFile(join(dir, 'blogs/zh/blog/posts/done.md'), '# 已翻译\n')
+
+    await ensureEnglishPosts({ siteRoot: dir })
+    await writeFile(join(dir, 'blogs/en/blog/posts/done.md'), '# Translated\n')
+
+    await expect(findPlaceholders({ siteRoot: dir })).resolves.toEqual(['blog/posts/pending.md'])
+  } finally {
+    await rm(root, { recursive: true, force: true })
+  }
+})
+
+it('reports nothing when every page is translated', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'heyq02-en-placeholders-clean-'))
+  const dir = site(root)
+  try {
+    await writeChromeTemplates(dir)
+    await ensureEnglishPosts({ siteRoot: dir })
+    await expect(findPlaceholders({ siteRoot: dir })).resolves.toEqual([])
   } finally {
     await rm(root, { recursive: true, force: true })
   }
