@@ -111,7 +111,7 @@ it('returns an empty result when the source tree is missing', async () => {
         targetRoot: join(root, 'en'),
         translate: fakeTranslate
       })
-    ).resolves.toEqual({ files: [], cache: {} })
+    ).resolves.toEqual({ files: [], cache: {}, failures: [] })
   } finally {
     await rm(root, { recursive: true, force: true })
   }
@@ -145,7 +145,7 @@ it('treats a directory-less source path as empty', async () => {
       targetRoot: join(root, 'en'),
       translate: fakeTranslate
     })
-    expect(result).toEqual({ files: [], cache: {} })
+    expect(result).toEqual({ files: [], cache: {}, failures: [] })
   } finally {
     await rm(root, { recursive: true, force: true })
   }
@@ -229,6 +229,104 @@ it('rethrows when a nested source entry cannot be read as a directory', async ()
     await expect(
       translateBlog({ sourceRoot, targetRoot: join(root, 'en'), translate: fakeTranslate })
     ).resolves.toMatchObject({ files: [] })
+  } finally {
+    await rm(root, { recursive: true, force: true })
+  }
+})
+
+it('retries a chunk that drops a code placeholder', async () => {
+  const calls: string[] = []
+  const translate = (text: string) => {
+    calls.push(text)
+    return Promise.resolve(calls.length === 1 ? '正文' : '正文 ⟦CODE_0⟧')
+  }
+  const output = await translateMarkdown('正文\n\n```js\n1\n```\n', translate)
+  expect(calls).toHaveLength(2)
+  expect(calls[1]).toContain('previous answer was wrong')
+  expect(output).toContain('```js')
+})
+
+it('fails when a chunk never keeps its placeholders', async () => {
+  const translate = () => Promise.resolve('no placeholders here')
+  await expect(translateMarkdown('正文\n\n```js\n1\n```\n', translate)).rejects.toThrow(
+    /dropping code placeholders/
+  )
+})
+
+it('keeps other files when one translation fails', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'heyq02-translate-partial-'))
+  const sourceRoot = join(root, 'zh')
+  const targetRoot = join(root, 'en')
+  try {
+    await mkdir(sourceRoot, { recursive: true })
+    await writeFile(join(sourceRoot, 'good.md'), '# 好\n')
+    await writeFile(join(sourceRoot, 'bad.md'), '正文\n\n```js\n1\n```\n')
+
+    const result = await translateBlog({
+      sourceRoot,
+      targetRoot,
+      translate: text => Promise.resolve(text.includes('⟦CODE_') ? 'dropped' : `EN:${text}`)
+    })
+
+    expect(result.files.map(file => file.path)).toEqual(['good.md'])
+    expect(result.failures).toHaveLength(1)
+    expect(result.failures[0]?.path).toBe('bad.md')
+  } finally {
+    await rm(root, { recursive: true, force: true })
+  }
+})
+
+it('retries when the model reorders placeholders', async () => {
+  const calls: string[] = []
+  const translate = (text: string) => {
+    calls.push(text)
+    return Promise.resolve(calls.length === 1 ? '⟦CODE_1⟧ ⟦CODE_0⟧' : '⟦CODE_0⟧ ⟦CODE_1⟧')
+  }
+  await translateMarkdown('a\n\n```js\n1\n```\n\nb\n\n```js\n2\n```\n', translate)
+  expect(calls).toHaveLength(2)
+})
+
+it('retries when the model invents an extra placeholder', async () => {
+  const calls: string[] = []
+  const translate = () => {
+    calls.push('x')
+    return Promise.resolve(calls.length === 1 ? '⟦CODE_0⟧ ⟦CODE_5⟧' : '⟦CODE_0⟧')
+  }
+  const output = await translateMarkdown('a\n\n```js\n1\n```\n', translate)
+  expect(calls).toHaveLength(2)
+  expect(output).toContain('```js')
+})
+
+it('uses maxFileBytes defaults when the option is omitted', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'heyq02-translate-default-limit-'))
+  const sourceRoot = join(root, 'zh')
+  try {
+    await mkdir(sourceRoot, { recursive: true })
+    await writeFile(join(sourceRoot, 'small.md'), '# 小\n')
+    const result = await translateBlog({
+      sourceRoot,
+      targetRoot: join(root, 'en'),
+      translate: fakeTranslate
+    })
+    expect(result.files[0]?.translated).toBe(true)
+  } finally {
+    await rm(root, { recursive: true, force: true })
+  }
+})
+
+it('reports a non-Error failure as a string message', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'heyq02-translate-throw-'))
+  const sourceRoot = join(root, 'zh')
+  try {
+    await mkdir(sourceRoot, { recursive: true })
+    await writeFile(join(sourceRoot, 'boom.md'), '# 炸\n')
+    const result = await translateBlog({
+      sourceRoot,
+      targetRoot: join(root, 'en'),
+      // oxlint-disable-next-line typescript/prefer-promise-reject-errors
+      translate: () => Promise.reject('nope')
+    })
+    expect(result.failures[0]).toEqual({ path: 'boom.md', message: 'nope' })
   } finally {
     await rm(root, { recursive: true, force: true })
   }

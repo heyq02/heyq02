@@ -46,7 +46,7 @@ it('treats a corrupt cache file as empty', async () => {
         cacheFile,
         translate: text => Promise.resolve(text)
       })
-    ).resolves.toEqual({ files: [], cache: {} })
+    ).resolves.toEqual({ files: [], cache: {}, failures: [] })
   } finally {
     await rm(root, { recursive: true, force: true })
   }

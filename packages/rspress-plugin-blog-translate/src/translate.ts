@@ -30,6 +30,8 @@ export interface TranslatedFile {
 export interface TranslateBlogResult {
   files: TranslatedFile[]
   cache: Record<string, string>
+  /** Files that could not be translated; they keep their placeholder page. */
+  failures: { path: string; message: string }[]
 }
 
 /** Stable, dependency-free content hash (FNV-1a, hex). */
@@ -79,10 +81,46 @@ export async function translateMarkdown(
   const chunks = chunkText(text, chunkBudget)
   const translatedChunks: string[] = []
   for (const chunk of chunks) {
-    translatedChunks.push(await translate(chunk))
+    translatedChunks.push(await translateChunk(chunk, translate))
   }
   const restored = restoreCodeBlocks(translatedChunks.join('\n\n'), blocks)
   return frontmatter ? `${frontmatter}\n\n${restored.trim()}\n` : `${restored.trim()}\n`
+}
+
+/** Placeholders present in a chunk, in order. */
+function placeholdersIn(chunk: string): string[] {
+  return chunk.match(/⟦CODE_\d+⟧/g) ?? []
+}
+
+/**
+ * Translate one chunk, retrying when the model drops or invents a code
+ * placeholder. A few retries usually recover; persistent failure is raised so
+ * the build stops instead of publishing a damaged page.
+ */
+async function translateChunk(chunk: string, translate: TranslateText): Promise<string> {
+  const expected = placeholdersIn(chunk)
+  let lastProblem = ''
+
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const translated = await translate(attempt === 0 ? chunk : repairPrompt(chunk, lastProblem))
+    const actual = placeholdersIn(translated)
+    // Code placeholders must survive exactly, once each, in the original order.
+    if (actual.join(' ') === expected.join(' ')) {
+      return translated
+    }
+    lastProblem = `expected ${expected.join(' ')} but got ${actual.join(' ') || 'none'}`
+  }
+
+  throw new Error(`Translation kept dropping code placeholders (${lastProblem})`)
+}
+
+/** Nudge the model back onto the placeholders it lost, keeping the chunk intact. */
+function repairPrompt(chunk: string, problem: string): string {
+  return `Your previous answer was wrong: ${problem}.
+Keep every ⟦CODE_n⟧ placeholder exactly once, in the same order, on its own line.
+Translate this again:
+
+${chunk}`
 }
 
 /** Split YAML frontmatter (kept verbatim) from the Markdown body. */
@@ -107,6 +145,7 @@ export function splitFrontmatter(markdown: string): { frontmatter: string; body:
 export async function translateBlog(options: TranslateBlogOptions): Promise<TranslateBlogResult> {
   const cache: Record<string, string> = { ...options.cache }
   const files: TranslatedFile[] = []
+  const failures: { path: string; message: string }[] = []
 
   for (const source of await listMarkdown(options.sourceRoot)) {
     const key = relative(options.sourceRoot, source).replaceAll('\\', '/')
@@ -121,14 +160,19 @@ export async function translateBlog(options: TranslateBlogOptions): Promise<Tran
       continue
     }
 
-    const result = await translateOrCopy(raw, options)
-    await mkdir(dirname(target), { recursive: true })
-    await writeFile(target, result.text, 'utf8')
-    cache[key] = hash
-    files.push({ path: key, hash, translated: result.didTranslate })
+    try {
+      const result = await translateOrCopy(raw, options)
+      await mkdir(dirname(target), { recursive: true })
+      await writeFile(target, result.text, 'utf8')
+      cache[key] = hash
+      files.push({ path: key, hash, translated: result.didTranslate })
+    } catch (error) {
+      // One stubborn post must not discard the translations already written.
+      failures.push({ path: key, message: error instanceof Error ? error.message : String(error) })
+    }
   }
 
-  return { files, cache }
+  return { files, cache, failures }
 }
 
 async function exists(path: string) {

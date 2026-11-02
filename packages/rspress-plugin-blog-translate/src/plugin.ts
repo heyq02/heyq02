@@ -27,6 +27,17 @@ export function pluginBlogTranslate(options: PluginBlogTranslateOptions): Rspres
       const translated = result.files.filter(file => file.translated).length
       // oxlint-disable-next-line no-console
       console.log(`[blog-translate] ${translated}/${result.files.length} files translated`)
+
+      // Already-translated posts are cached, so re-running only retries these.
+      if (result.failures.length > 0) {
+        const detail = result.failures
+          .slice(0, 5)
+          .map(failure => `${failure.path}: ${failure.message}`)
+          .join('; ')
+        throw new Error(
+          `[blog-translate] ${result.failures.length} file(s) failed to translate: ${detail}`
+        )
+      }
       return config
     }
   }

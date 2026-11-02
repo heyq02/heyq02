@@ -67,3 +67,31 @@ it('translates the blog when the key is present', async () => {
     await rm(root, { recursive: true, force: true })
   }
 })
+
+it('fails the build when a translation fails, keeping cached work', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'heyq02-translate-plugin-fail-'))
+  const site = join(root, 'apps/site')
+  const previous = process.env.DEEPSEEK_API_KEY
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(() => Promise.resolve(Response.json({ choices: [{ message: { content: 'dropped' } }] })))
+  )
+  try {
+    await mkdir(join(site, 'blogs/zh/blog/posts'), { recursive: true })
+    await writeFile(join(site, 'blogs/zh/blog/posts/bad.md'), '正文\n\n```js\n1\n```\n')
+    process.env.DEEPSEEK_API_KEY = 'test-key'
+
+    const plugin = pluginBlogTranslate({ siteRoot: site })
+    await expect(plugin.config?.({ root: site }, {} as never, false)).rejects.toThrow(
+      /failed to translate: blog\/posts\/bad\.md/
+    )
+  } finally {
+    vi.unstubAllGlobals()
+    if (previous === undefined) {
+      delete process.env.DEEPSEEK_API_KEY
+    } else {
+      process.env.DEEPSEEK_API_KEY = previous
+    }
+    await rm(root, { recursive: true, force: true })
+  }
+})

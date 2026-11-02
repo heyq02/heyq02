@@ -196,3 +196,22 @@ it('reports nothing when every page is translated', async () => {
     await rm(root, { recursive: true, force: true })
   }
 })
+
+it('keeps chrome templates in place when only some posts are translated', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'heyq02-en-placeholders-mixed-'))
+  const dir = site(root)
+  try {
+    await writeChromeTemplates(dir)
+    await mkdir(join(dir, 'blogs/zh/blog/posts'), { recursive: true })
+    await mkdir(join(dir, 'blogs/en/blog/posts'), { recursive: true })
+    await writeFile(join(dir, 'blogs/zh/blog/posts/a.md'), '# A\n')
+    await writeFile(join(dir, 'blogs/zh/blog/posts/b.md'), '# B\n')
+    await writeFile(join(dir, 'blogs/en/blog/posts/a.md'), '# translated A\n')
+
+    await expect(findPlaceholders({ siteRoot: dir })).resolves.toEqual([])
+    await ensureEnglishPosts({ siteRoot: dir })
+    await expect(findPlaceholders({ siteRoot: dir })).resolves.toEqual(['blog/posts/b.md'])
+  } finally {
+    await rm(root, { recursive: true, force: true })
+  }
+})
