@@ -331,3 +331,18 @@ it('reports a non-Error failure as a string message', async () => {
     await rm(root, { recursive: true, force: true })
   }
 })
+
+it('keeps a frontmatter-only page as-is without calling the model', async () => {
+  const calls: string[] = []
+  const source = '---\noverview: true\ntitle: Blog\n---\n'
+  const output = await translateMarkdown(source, text => {
+    calls.push(text)
+    return Promise.resolve('invented ⟦CODE_0⟧')
+  })
+  expect(calls).toHaveLength(0)
+  expect(output).toBe('---\noverview: true\ntitle: Blog\n---\n')
+})
+
+it('handles a completely empty document', async () => {
+  await expect(translateMarkdown('', fakeTranslate)).resolves.toBe('\n')
+})

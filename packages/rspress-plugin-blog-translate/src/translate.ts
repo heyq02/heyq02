@@ -77,7 +77,13 @@ export async function translateMarkdown(
   chunkBudget = 4000
 ): Promise<string> {
   const { frontmatter, body } = splitFrontmatter(markdown)
-  const { text, blocks } = protectCodeBlocks(body.trim())
+  const trimmed = body.trim()
+  // Frontmatter-only pages (overview indexes) have nothing to translate.
+  // Asking the model about them invites it to invent content.
+  if (!trimmed) {
+    return frontmatter || '\n'
+  }
+  const { text, blocks } = protectCodeBlocks(trimmed)
   const chunks = chunkText(text, chunkBudget)
   const translatedChunks: string[] = []
   for (const chunk of chunks) {
