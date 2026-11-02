@@ -1,0 +1,27 @@
+{
+  "name": "rspress-plugin-blog-translate",
+  "version": "1.0.7",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "vp run ctest",
+    "translate": "node --experimental-strip-types ./scripts/translate.ts"
+  },
+  "dependencies": {
+    "@heyq02/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@liangmi/vp-config": "catalog:",
+    "@rspress/core": "^2.1.0-beta.2",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "@rspress/core": "^2.1.0-beta.2"
+  }
+}

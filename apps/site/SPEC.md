@@ -10,15 +10,16 @@ depends-on:
     rspress-theme-heyq02,
     rspress-plugin-site-assets,
     rspress-plugin-blog-meta,
+    rspress-plugin-blog-translate,
     rspress-plugin-profile
   ]
 ---
 
 ## Responsibility
 
-English Rspress site for heyq02.com. Thin composition root: content under `blogs/`, `rspress.config.ts` wiring, and deploy scripts. Behavior lives in `rspress-theme-heyq02` and `rspress-plugin-*` packages; navbar social links come from `shared.socialLinksFrom`. Tailwind CSS v4 is wired here (`tailwind.css` + `@rsbuild/plugin-tailwindcss`); theme/plugin sources are scanned via `@source`.
+Rspress site for heyq02.com with English and Chinese locales. Thin composition root: content under `blogs/`, `rspress.config.ts` wiring, and deploy scripts. Behavior lives in `rspress-theme-heyq02` and `rspress-plugin-*` packages; navbar social links come from `shared.socialLinksFrom`. Tailwind CSS v4 is wired here (`tailwind.css` + `@rsbuild/plugin-tailwindcss`); theme/plugin sources are scanned via `@source`.
 
-Nav `activeMatch` patterns are exclusive (`Home` only `/` or `/index.html`; `Blog` / `Friends` only their path prefixes). `Travelling` is an external nav link (`https://www.travellings.cn/go.html`) with no `activeMatch`. Site chrome is English-only; there is no language switch. The navbar appearance switch follows the system theme by default.
+Nav `activeMatch` patterns are exclusive (`Home` only `/` or `/index.html`; `Blog` / `Friends` only their path prefixes). `Travellings` is an external nav link (`https://www.travellings.cn/go.html`) with no `activeMatch`. The navbar language switcher comes from `locales` (English default at unprefixed routes, Chinese under `/zh/`); `route.localeRedirect: 'never'` keeps explicit `/zh/` URLs from being redirected by browser language. The navbar appearance switch follows the system theme by default.
 
 The shell title and description come from the English intro. The homepage sets `titleSuffix` from the first tag plus `bio` so the tab reads `Ari He｜阿瑞 - Full-stack engineer, focused on…`.
 
@@ -26,15 +27,17 @@ The shell title and description come from the English intro. The homepage sets `
 
 - May depend on `shared`, the rspress theme/plugin packages, and `@rspress/core`, and may read `static/data/intro.json` for config meta. Must not read `readme` or `cli`, and must not render `sponsorkit/` art.
 - `rspress.config.ts` may import unscoped `rspress-plugin-*`, `@heyq02/shared` (`socialLinksFrom`), and resolve `themeDir` to the theme package path (`architecture`: app **Vite** configs must not import `@heyq02/*`).
-- Theme UI and friends data live in `rspress-theme-heyq02`. Homepage MDX, blog meta, pins (via profile → github-pins library), and public asset copy regenerate via plugins before route scan; `blogs/index.mdx` and blog `_meta.json` are gitignored.
-- `@rspress/plugin-rss` builds an Atom feed at `/rss/blog.xml` from `/blog/posts/`. Generation runs on `rspress build` only, not `dev`.
+- Theme UI and friends data live in `rspress-theme-heyq02`. Homepage MDX, blog meta, pins (via profile → github-pins library), and public asset copy regenerate via plugins before route scan; `blogs/*/index.mdx`, `blogs/en/**`, and blog `_meta.json` are gitignored.
+- `@rspress/plugin-rss` builds `/rss/blog.xml` from `/blog/posts/` and `/rss/blog.zh.xml` from `/zh/blog/posts/`. Generation runs on `rspress build` only, not `dev`.
 - Agent-friendly build: `llms` with custom `llmsTxt`; `webMcp: true`; `themeConfig.llmsUI` (`injectLlmsHint`, `viewOptions: false`); theme `chrome.css` hides `.rp-llms-container`; `fallbackHeadingTitle: false`; Open Graph/`head` meta; `editLink` + `lastUpdated`; Friends page includes a `Prompt` for link-exchange drafts; built-in `sitemap: true` emits `/sitemap.xml`.
 - GitHub Pages cannot honor `Accept: text/markdown`; agents use explicit `.md` / `llms.txt` URLs instead. `scripts/build.ts` post-processes SSG-MD via `absolutize-md-links.ts` and copies `CNAME` (e2e uses the same path).
 - Favicons and the navbar signature use `static/signature/full-nobg` via `rspress-plugin-site-assets`. `outDir` stays `dist`.
 
 ## Limitations
 
-Markdown under `blogs/blog/posts` and `blogs/blog/interview` become doc pages. `/blog/` is Rspress Overview with sidebar Overview, then Posts, then Interview (both groups newest-first by frontmatter/`YYYY-MM-DD` in the slug). The homepage does **not** list Writing; posts live under `/blog/`. Every `rspress dev` / `build` regenerates homepage MDX, pinned cards, blog meta, and public assets via plugins before routes are scanned. Without a GitHub token the pins/profile step fails. `lastUpdated` needs full git history (`fetch-depth: 0` in Release Site).
+Content splits by locale: `blogs/zh` is the only committed content (Chinese posts plus the Chinese nav/friends pages). `apps/site/i18n/en` holds the committed English chrome templates (`_nav.json`, `friends.mdx`, `blog/index.md`). Everything under `blogs/en` is build output and gitignored. Markdown under `<lang>/blog/posts` and `<lang>/blog/interview` become doc pages. `/blog/` and `/zh/blog/` are Rspress Overviews with sidebar Overview, then Posts, then Interview (both groups newest-first by frontmatter/`YYYY-MM-DD` in the slug). The homepage does **not** list Writing; posts live under `/blog/`. Every `rspress dev` / `build` regenerates homepage MDX, pinned cards, blog meta, and public assets via plugins before routes are scanned. Without a GitHub token the pins/profile step fails. `lastUpdated` needs full git history (`fetch-depth: 0` in Release Site).
+
+English posts are DeepSeek translations of `blogs/zh`, produced by `rspress-plugin-blog-translate` from `DEEPSEEK_API_KEY` (+ optional `DEEPSEEK_BASE_URL` / `DEEPSEEK_MODEL`); translations never enter git and only reach `dist`. Without the key (local dev, PR CI) `scripts/en-placeholders.ts` copies the `i18n/en` chrome and writes a placeholder per untranslated post, so both locales stay routable. `.translate-cache.json` is also build output; Release Site caches it so only new or edited Chinese posts cost tokens.
 
 ## Testing
 

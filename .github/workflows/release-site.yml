@@ -20,7 +20,7 @@ jobs:
   build:
     if: github.repository == 'heyq02/heyq02'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -34,9 +34,24 @@ jobs:
           node-version: lts
           cache: true
 
+      # DeepSeek output is build-only: keep last run's English tree so only new or
+      # edited Chinese posts are sent to the API.
+      - name: Cache blog translations
+        uses: actions/cache@v5
+        with:
+          path: |
+            apps/site/blogs/en/blog
+            apps/site/blogs/.translate-cache.json
+          key: blog-i18n-${{ hashFiles('apps/site/blogs/zh/**') }}
+          restore-keys: |
+            blog-i18n-
+
       - name: Build site
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_BASE_URL: ${{ vars.DEEPSEEK_BASE_URL }}
+          DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL }}
         run: vp run @heyq02/site#cbuild
 
       - name: Setup Pages

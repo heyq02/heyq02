@@ -4,8 +4,8 @@ export default liangmi({
   test: {
     include: ['tests/**/*.test.ts'],
     coverage: {
-      include: ['scripts/absolutize-md-links.ts'],
-      exclude: ['scripts/build.ts'],
+      include: ['scripts/absolutize-md-links.ts', 'scripts/en-placeholders.ts'],
+      exclude: ['scripts/build.ts', 'scripts/en-placeholders-cli.ts'],
       thresholds: {
         statements: 95,
         branches: 95,
@@ -20,7 +20,8 @@ export default liangmi({
         command: 'node --experimental-strip-types ./scripts/build.ts'
       },
       dev: {
-        command: 'pnpm exec rspress dev',
+        command:
+          'node --experimental-strip-types ./scripts/en-placeholders-cli.ts && pnpm exec rspress dev',
         cache: false
       }
     }

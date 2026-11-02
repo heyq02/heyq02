@@ -23,6 +23,9 @@ import {
   profileWhen
 } from './profile-classes.ts'
 
+/** Site languages; `en` keeps the unprefixed routes. */
+export type ProfileLang = 'en' | 'zh'
+
 interface ProfilePage {
   name: string
   tags: string[]
@@ -42,16 +45,29 @@ interface ProfilePage {
 }
 
 export interface RenderHomeMdxOptions {
-  /** MDX import path for ProfilePlay, relative to `blogs/index.mdx`. */
+  /** MDX import path for ProfilePlay, relative to `blogs/<lang>/index.mdx`. */
   profilePlayModule?: string
 }
 
-export function profilePage(projects: PinnedProject[] = []): ProfilePage {
+/** Chinese section headings for `/zh/`; English sections come from intro.json. */
+const ZH_SECTIONS: Record<keyof Intro['sections'], string> = {
+  education: '教育经历',
+  experience: '工作经历',
+  skills: '技能',
+  openSource: '开源项目'
+}
+
+/** Section headings for a language (identity facts stay English). */
+export function sectionsFor(lang: ProfileLang): Intro['sections'] {
+  return lang === 'zh' ? { ...intro.sections, ...ZH_SECTIONS } : intro.sections
+}
+
+export function profilePage(projects: PinnedProject[] = [], lang: ProfileLang = 'en'): ProfilePage {
   return {
     name: intro.name,
     tags: intro.tags,
     avatar: intro.avatar,
-    sections: intro.sections,
+    sections: sectionsFor(lang),
     education: intro.education,
     experiences: intro.experiences,
     skills: skillIconsPicture(intro.skills),
@@ -88,10 +104,10 @@ function escapeHtml(value: string) {
 /** Doc page of Rspress theme components, not the built-in homepage. */
 export function renderHomeMdx(
   pinned: PinnedProject[] = [],
-  options: RenderHomeMdxOptions = {}
+  options: RenderHomeMdxOptions & { lang?: ProfileLang } = {}
 ): string {
   const profilePlayModule = options.profilePlayModule ?? '@theme/ProfilePlay'
-  const page = profilePage(pinned)
+  const page = profilePage(pinned, options.lang ?? 'en')
   const tags = page.tags
     .map(tag => `<Badge text=${yamlString(tag)} type="info" outline />`)
     .join(' ')

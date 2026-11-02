@@ -11,9 +11,9 @@ it('exposes pluginBlogMeta that writes meta via config hook', async () => {
   const site = join(root, 'apps/site')
 
   try {
-    await mkdir(join(site, 'blogs/blog/posts'), { recursive: true })
+    await mkdir(join(site, 'blogs/en/blog/posts'), { recursive: true })
     await writeFile(
-      join(site, 'blogs/blog/posts/demo.mdx'),
+      join(site, 'blogs/en/blog/posts/demo.mdx'),
       `---\ntitle: Demo\ndate: 2026-10-31\n---\n\n# Demo\n`
     )
 
@@ -21,7 +21,12 @@ it('exposes pluginBlogMeta that writes meta via config hook', async () => {
     expect(plugin.name).toBe('rspress-plugin-blog-meta')
     const config = { root: site }
     await expect(plugin.config?.(config as never, {} as never, false)).resolves.toEqual(config)
-    expect(await readFile(join(site, 'blogs/blog/_meta.json'), 'utf8')).toBe(renderBlogMetaJson())
+    expect(await readFile(join(site, 'blogs/en/blog/_meta.json'), 'utf8')).toBe(
+      renderBlogMetaJson('en')
+    )
+    expect(await readFile(join(site, 'blogs/zh/blog/_meta.json'), 'utf8')).toBe(
+      renderBlogMetaJson('zh')
+    )
   } finally {
     await rm(root, { recursive: true, force: true })
   }

@@ -3,17 +3,19 @@ import { resolve } from 'node:path'
 import { expect, it } from 'vite-plus/test'
 
 import {
+  BLOG_LABELS,
   dateFromSlug,
+  langPrefix,
   listBlogPosts,
   listInterviewNotes,
   renderBlogMetaJson,
   renderPostsMetaJson
 } from '../src/blog-posts.ts'
 
-const sitePostsDir = resolve(import.meta.dirname, '../../../apps/site/blogs/blog/posts')
-const siteInterviewDir = resolve(import.meta.dirname, '../../../apps/site/blogs/blog/interview')
+const sitePostsDir = resolve(import.meta.dirname, '../../../apps/site/blogs/zh/blog/posts')
+const siteInterviewDir = resolve(import.meta.dirname, '../../../apps/site/blogs/zh/blog/interview')
 
-it('lists markdown posts under apps/site blogs/blog/posts', async () => {
+it('lists markdown posts under apps/site blogs/zh/blog/posts', async () => {
   const posts = await listBlogPosts(sitePostsDir)
   expect(posts.length).toBeGreaterThan(0)
   expect(posts.map(post => post.slug)).toEqual([
@@ -76,6 +78,13 @@ it('lists markdown posts under apps/site blogs/blog/posts', async () => {
   expect(posts.at(-1)?.slug).toBe('install-guide-vmware-workstation-15')
 })
 
+it('prefers the language prefix for English routes', async () => {
+  const [first] = await listBlogPosts(sitePostsDir, `${langPrefix('en')}/blog/posts/`)
+  expect(first.href).toBe('/blog/posts/macos-disable-ime-switching/')
+  const [zhFirst] = await listBlogPosts(sitePostsDir, `${langPrefix('zh')}/blog/posts/`)
+  expect(zhFirst.href).toBe('/zh/blog/posts/macos-disable-ime-switching/')
+})
+
 it('lists interview notes newest-first separately from posts', async () => {
   const notes = await listInterviewNotes(siteInterviewDir)
   expect(notes.length).toBe(28)
@@ -93,6 +102,12 @@ it('renders blog sidebar meta with Overview, Posts, and Interview', () => {
     { type: 'dir', name: 'posts', label: 'Posts' },
     { type: 'dir', name: 'interview', label: 'Interview' }
   ])
+  expect(JSON.parse(renderBlogMetaJson('zh'))).toEqual([
+    { type: 'file', name: 'index', label: '概览' },
+    { type: 'dir', name: 'posts', label: '文章' },
+    { type: 'dir', name: 'interview', label: '面经' }
+  ])
+  expect(BLOG_LABELS.zh.posts).toBe('文章')
 })
 
 it('renders posts sidebar meta from post slugs', () => {

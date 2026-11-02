@@ -44,3 +44,31 @@ test.describe('site routes', () => {
     expect(await cardDomSnapshot(friend)).toMatchSnapshot('friend-card-diygod.txt')
   })
 })
+
+test.describe('blog i18n', () => {
+  test('English is the default locale at unprefixed routes', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+    await page.goto('/blog/')
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+  })
+
+  test('Chinese blog lives under /zh/', async ({ page }) => {
+    await page.goto('/zh/blog/')
+    await expect(page.locator('html')).toHaveAttribute('lang', 'zh')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('博客')
+    await page.goto('/zh/blog/posts/macos-disable-ime-switching/')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('macOS')
+  })
+
+  test('the navbar language switcher links both locales', async ({ page }) => {
+    // Hover menus are flaky in headless Chromium; assert the rendered links instead.
+    await page.goto('/blog/')
+    const toChinese = page.locator('a[href="/zh/blog"][lang="zh"]').first()
+    await expect(toChinese).toHaveAttribute('aria-label', '简体中文')
+
+    await page.goto('/zh/blog/')
+    const toEnglish = page.locator('a[href="/blog"][lang="en"]').first()
+    await expect(toEnglish).toHaveAttribute('aria-label', 'English')
+  })
+})

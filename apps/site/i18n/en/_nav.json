@@ -1,0 +1,21 @@
+[
+  {
+    "text": "Home",
+    "link": "/",
+    "activeMatch": "^/(?:index\\.html)?$"
+  },
+  {
+    "text": "Blog",
+    "link": "/blog/",
+    "activeMatch": "^/blog(?:/|\\.html|$)"
+  },
+  {
+    "text": "Friends",
+    "link": "/friends/",
+    "activeMatch": "^/friends(?:/|\\.html|$)"
+  },
+  {
+    "text": "Travellings",
+    "link": "https://www.travellings.cn/go.html"
+  }
+]

@@ -11,7 +11,8 @@ it('exposes pluginProfile that writes homepage MDX via config hook', async () =>
   const site = join(root, 'apps/site')
 
   try {
-    await mkdir(join(site, 'blogs'), { recursive: true })
+    await mkdir(join(site, 'blogs/en'), { recursive: true })
+    await mkdir(join(site, 'blogs/zh'), { recursive: true })
 
     const plugin = pluginProfile({
       siteRoot: site,
@@ -32,7 +33,7 @@ it('exposes pluginProfile that writes homepage MDX via config hook', async () =>
     expect(plugin.name).toBe('rspress-plugin-profile')
     const config = { root: site }
     await expect(plugin.config?.(config as never, {} as never, false)).resolves.toEqual(config)
-    const home = await readFile(join(site, 'blogs/index.mdx'), 'utf8')
+    const home = await readFile(join(site, 'blogs/en/index.mdx'), 'utf8')
     expect(home).toContain('@theme/ProfilePlay')
     expect(home).toContain('simpleicons.dev')
   } finally {

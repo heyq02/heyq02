@@ -1,0 +1,21 @@
+[
+  {
+    "text": "首页",
+    "link": "/",
+    "activeMatch": "^/(?:index\\.html)?$"
+  },
+  {
+    "text": "博客",
+    "link": "/blog/",
+    "activeMatch": "^/blog(?:/|\\.html|$)"
+  },
+  {
+    "text": "友链",
+    "link": "/friends/",
+    "activeMatch": "^/friends(?:/|\\.html|$)"
+  },
+  {
+    "text": "Travellings",
+    "link": "https://www.travellings.cn/go.html"
+  }
+]

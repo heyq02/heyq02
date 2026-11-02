@@ -15,7 +15,7 @@ People who open heyq02.com, run the `heyq02` command, or read the GitHub profile
 
 ## Capabilities
 
-- **Site.** heyq02.com is an English Rspress site. The homepage is identity, experience, skills, and Open source projects, laid out with theme components. Contacts sit in the navbar. Posts live in `apps/site/blogs`. Site chrome is English-only; there is no language switch.
+- **Site.** heyq02.com is a bilingual (English default, Chinese under `/zh/`) Rspress site. Blog posts are authored in Chinese and translated to English with DeepSeek in CI; English output is build-only and never committed. The homepage is identity, experience, skills, and Open source projects, laid out with theme components. Contacts sit in the navbar. Posts live in `apps/site/blogs`. The navbar switches languages via Rspress `locales`.
 - **CLI.** The published `heyq02` package fetches the GitHub README and prints it rendered in the terminal. Arguments are ignored. There is no help or version command.
 - **README.** A generator writes the GitHub profile README (greeting, experience, skill icons) from the English profile document.
 - **Sponsor art.** A scheduled job regenerates sponsor images and commits them in the repo. They are not shown on the site or in the README.
