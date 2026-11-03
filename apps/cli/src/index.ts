@@ -1,6 +1,3 @@
 console.log('Token is all your need 💰')
-console.log('https://heyq02.com')
-console.log('https://github.com/heyq02')
-console.log('https://space.bilibili.com/3493273159075938')
-console.log('https://x.com/heyq02')
-console.log('https://qm.qq.com/q/BcL0zUOaxa')
+console.log('────────────────────────────────')
+console.log('www ᐧ GitHub ᐧ 哔哩哔哩 ᐧ X ᐧ QQ')
