@@ -1,7 +1,7 @@
 {
   "name": "heyq02",
   "version": "1.0.7",
-  "description": "Print the GitHub README.",
+  "description": "在终端打印 GitHub 主页 README。",
   "homepage": "https://heyq02.com",
   "bugs": {
     "url": "https://github.com/heyq02/heyq02/issues"

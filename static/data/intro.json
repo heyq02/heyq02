@@ -1,22 +1,22 @@
 {
   "name": "Ari He｜阿瑞",
-  "tags": ["Full-stack engineer", "Open-source enthusiast", "Blogger on career"],
-  "bio": "Focused on AI that speeds up development and ships in real products",
+  "tags": ["全栈工程师", "开源爱好者", "职业成长博主"],
+  "bio": "专注用 AI 加速开发，并真正落到产品里",
   "kaomoji": "(๑•̀ㅂ•́)و",
   "moods": ["(๑•̀ㅂ•́)و", "(｡•́︿•̀｡)", "(ﾉ´ヮ`)ﾉ*: ･ﾟ", "(￣▽￣)ノ", "ヽ(✿ﾟ▽ﾟ)ノ", "( •̀ ω •́ )✧"],
   "avatar": "https://avatars.githubusercontent.com/u/206218794?v=4",
   "site": "https://heyq02.com",
   "title": "Ari He｜阿瑞",
-  "description": "Ari He｜阿瑞. Full-stack engineer, Open-source enthusiast, and Blogger on career. Focused on AI that speeds up development and ships in real products.",
+  "description": "Ari He｜阿瑞。全栈工程师、开源爱好者、职业成长博主。专注用 AI 加速开发，并真正落到产品里。",
   "contact": {
     "phone": "+86 135****8086",
     "email": "hello@heyq02.com"
   },
   "sections": {
-    "experience": "Experience",
-    "skills": "Skills",
-    "openSource": "Open source",
-    "education": "Education"
+    "experience": "工作经历",
+    "skills": "技能",
+    "openSource": "开源项目",
+    "education": "教育经历"
   },
   "places": [
     {
@@ -37,27 +37,27 @@
     {
       "label": "WeChat",
       "href": "/wechat.jpg",
-      "detail": "Scan to add"
+      "detail": "扫码添加"
     }
   ],
   "experiences": [
     {
-      "company": "JD.com, Inc.",
+      "company": "京东集团",
       "href": "https://www.jd.com/",
       "start": "2024.06",
-      "end": "Present",
+      "end": "至今",
       "points": [
-        "Owned iterations for JD Takeout across the mini program, H5, and admin console",
-        "Upgraded the admin console off its legacy architecture and improved TP95",
-        "Built C3-level AI Infra for Local Life product and engineering, improving R&D efficiency"
+        "负责京东外卖小程序、H5 与管理后台的迭代",
+        "推动管理后台完成架构升级，TP95 明显改善",
+        "为本地生活搭建 C3 级 AI Infra，提升研发效率"
       ]
     }
   ],
   "education": [
     {
-      "school": "Nanjing University of Posts and Telecommunications",
-      "major": "Biomedical Engineering",
-      "degree": "Bachelor of Engineering",
+      "school": "南京邮电大学",
+      "major": "生物医学工程",
+      "degree": "工学学士",
       "start": "2020.09",
       "end": "2024.06"
     }
@@ -67,67 +67,71 @@
       "name": "Vue",
       "icon": "vuedotjs",
       "href": "https://vuejs.org/",
-      "summary": "Progressive JavaScript framework for building web UIs"
+      "summary": "渐进式 JavaScript 框架，用于构建 Web 界面"
     },
     {
       "name": "React",
       "icon": "react",
       "href": "https://react.dev/",
-      "summary": "The library for web and native user interfaces"
+      "summary": "构建 Web 与原生界面的 UI 库"
     },
     {
       "name": "Next",
       "icon": "nextdotjs",
       "href": "https://nextjs.org/",
-      "summary": "The React framework for the web"
+      "summary": "面向 Web 的 React 框架"
     },
     {
       "name": "Rolldown",
       "icon": "rolldown",
       "href": "https://rolldown.rs/",
-      "summary": "Rust-based JavaScript bundler with a Rollup-compatible API"
+      "summary": "Rust 编写、兼容 Rollup API 的 JavaScript 打包器"
     },
     {
       "name": "Vite",
       "icon": "vite",
       "href": "https://vite.dev/",
-      "summary": "Frontend build tool for the web"
+      "summary": "面向 Web 的前端构建工具"
     },
     {
       "name": "Oxc",
       "icon": "oxc",
       "href": "https://oxc.rs/",
-      "summary": "High-performance JavaScript tools written in Rust"
+      "summary": "Rust 编写的高性能 JavaScript 工具集"
     },
     {
       "name": "Spring",
       "icon": "spring",
       "href": "https://spring.io/",
-      "summary": "Framework for creating Java enterprise applications"
+      "summary": "构建 Java 企业级应用的框架"
     },
     {
       "name": "Redis",
       "icon": "redis",
       "href": "https://redis.io/",
-      "summary": "In-memory store for databases, cache, and messaging"
+      "summary": "面向数据库、缓存与消息的内存存储"
     },
     {
       "name": "RabbitMQ",
       "icon": "rabbitmq",
       "href": "https://www.rabbitmq.com/",
-      "summary": "Open-source messaging and streaming broker"
+      "summary": "开源的消息与流处理中间件"
     },
     {
       "name": "Nginx",
       "icon": "nginx",
       "href": "https://nginx.org/",
-      "summary": "HTTP server, reverse proxy, and load balancer"
+      "summary": "HTTP 服务器、反向代理与负载均衡"
     },
     {
       "name": "Docker",
       "icon": "docker",
       "href": "https://www.docker.com/",
-      "summary": "Open platform for building, shipping, and running apps"
+      "summary": "构建、分发与运行应用的开放平台"
     }
-  ]
+  ],
+  "projectSummaries": {
+    "simpleicons.dev": "轻松在 GitHub README 或简历上展示你的技能图标。",
+    "keyboard-source-locker": "macOS 菜单栏小工具，把当前输入法锁定在你指定的那一个。"
+  }
 }

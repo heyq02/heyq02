@@ -16,8 +16,8 @@ export function normalizeDomSnapshot(html: string): string {
       ].toSorted()
       return `class="${sorted.join(' ')}"`
     })
-    .replaceAll(/>\d+ stars</g, '>N stars<')
-    .replaceAll(/>\d+ forks</g, '>N forks<')
+    .replaceAll(/>\d+ 星标</g, '>N 星标<')
+    .replaceAll(/>\d+ 派生</g, '>N 派生<')
     .replaceAll(/\s*\/>/g, '>')
     .replaceAll(/\s+/g, ' ')
     .replaceAll('> <', '><')

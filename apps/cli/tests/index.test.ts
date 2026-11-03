@@ -7,15 +7,15 @@ import { expect, it, vi } from 'vite-plus/test'
 
 import { errorText, fetchReadme, isCliEntry, renderPreview, run, start } from '../src/index.ts'
 
-const sample = `# Hello, I'm Ari He｜阿瑞
+const sample = `# 你好，我是 Ari He｜阿瑞
 
-## Experience
+## 工作经历
 
-**[JD.com, Inc.](https://www.jd.com/)** · 2024.06 – Present
+**[京东集团](https://www.jd.com/)** · 2024.06 – 至今
 
-- Owned iterations
+- 负责京东外卖的迭代
 
-## Skills
+## 技能
 
 ![Vue, React](https://example.com/icons)
 `
@@ -45,9 +45,9 @@ it('recognizes only this file as the CLI entry', async () => {
 
 it('renders a terminal preview', async () => {
   const text = await renderPreview(sample)
-  expect(text).toContain("Hello, I'm Ari He｜阿瑞")
-  expect(text).toContain('Experience')
-  expect(text).toContain('JD.com, Inc.')
+  expect(text).toContain('你好，我是 Ari He｜阿瑞')
+  expect(text).toContain('工作经历')
+  expect(text).toContain('京东集团')
 })
 
 it('fetches the raw README and fails closed', async () => {
@@ -90,12 +90,12 @@ it('prints the README and ignores arguments', async () => {
   try {
     fetchImpl.mockImplementation(() => Promise.resolve(new Response(sample, { status: 200 })))
     await run()
-    expect(written).toContain("Hello, I'm Ari He｜阿瑞")
+    expect(written).toContain('你好，我是 Ari He｜阿瑞')
     expect(fetchImpl).toHaveBeenCalled()
 
     written = ''
     await start(indexPath)
-    expect(written).toContain("Hello, I'm Ari He｜阿瑞")
+    expect(written).toContain('你好，我是 Ari He｜阿瑞')
 
     await start('/not-the-cli.ts')
     expect(fetchImpl.mock.calls.length).toBe(2)

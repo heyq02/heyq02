@@ -18,18 +18,19 @@ it('builds the skills picture URL from skill icon slugs', () => {
   expect(src).toContain('vuedotjs')
 })
 
-it('renders the README-shaped markdown', async () => {
+it('renders the README-shaped markdown in Chinese', async () => {
   const text = await renderReadme()
 
-  expect(text).toContain(`# Hello, I'm ${intro.name}`)
+  expect(text).toContain(`# 你好，我是 ${intro.name}`)
   expect(text).not.toContain('<h1>')
   expect(text).not.toContain('<picture>')
-  expect(text).not.toContain('你好，我是')
+  expect(text).not.toContain("Hello, I'm")
   expect(text).toContain(intro.tags.join(' · '))
   expect(text).toContain(`## ${intro.sections.experience}`)
   expect(text).toContain(`## ${intro.sections.skills}`)
   expect(text).not.toContain('## Writing')
   expect(text).toContain(`### [${intro.experiences[0]?.company}](${intro.experiences[0]?.href})`)
+  expect(text).toContain(`${intro.experiences[0]?.start} – ${intro.experiences[0]?.end}`)
   expect(text).toContain(`- ${intro.experiences[0]?.points[0]}`)
   expect(text).toContain(`![`)
   expect(text).toContain('theme=light')
