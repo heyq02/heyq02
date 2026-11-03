@@ -2,12 +2,12 @@
 id: goal
 type: goal-and-requirements
 status: draft
-title: Ari He｜阿瑞 个人主页
+title: 永琪 个人主页
 ---
 
 ## Goal
 
-本仓库是 Ari He｜阿瑞的公开主页：一个中文个人站点、一个打印 GitHub README 的 CLI，以及一个生成的 GitHub README。共享事实来自单一中文简介文档（`static/data/intro.json`）；CLI 打印已发布的 README，而不是读取该文件。
+本仓库是永琪的公开主页：一个中文个人站点、一个打印 GitHub README 的 CLI，以及一个生成的 GitHub README。共享事实来自单一中文简介文档（`static/data/intro.json`）；CLI 打印已发布的 README，而不是读取该文件。
 
 ## Audience
 

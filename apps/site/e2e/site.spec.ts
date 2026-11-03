@@ -22,7 +22,7 @@ test.describe('site routes', () => {
   test('home, blog, and friends render in Chinese', async ({ page }) => {
     await page.goto('/')
     await expect(page.locator('html')).toHaveAttribute('lang', 'zh')
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Ari')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('永琪')
     await expect(page.getByRole('button', { name: '戳一下头像' })).toBeVisible()
 
     await page.goto('/blog/')

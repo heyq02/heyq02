@@ -15,7 +15,7 @@ const pinned = [
 
 it('builds the Chinese profile page from the intro', () => {
   const page = profilePage(pinned)
-  expect(page.name).toBe('Ari He｜阿瑞')
+  expect(page.name).toBe('永琪')
   expect(page.tags).toEqual(['全栈工程师', '开源爱好者', '职业成长博主'])
   expect(page.sections.education).toBe('教育经历')
   expect(page.sections.experience).toBe('工作经历')
@@ -40,7 +40,7 @@ it('builds the Chinese profile page from the intro', () => {
   expect(home).toContain('profile-project')
   expect(home).not.toContain('profile-writing')
   expect(home).not.toContain('profile-post')
-  expect(home).toContain('Ari He｜阿瑞')
+  expect(home).toContain('永琪')
   expect(home).toContain('全栈工程师')
   expect(home).toContain('>教育经历</h2>')
   expect(home).toContain('工学学士')

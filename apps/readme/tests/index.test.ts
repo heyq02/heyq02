@@ -21,7 +21,7 @@ it('builds the skills picture URL from skill icon slugs', () => {
 it('renders the README-shaped markdown in Chinese', async () => {
   const text = await renderReadme()
 
-  expect(text).toContain(`# 你好，我是 ${intro.name}`)
+  expect(text).toContain(`# 你好，我是${intro.name}`)
   expect(text).not.toContain('<h1>')
   expect(text).not.toContain('<picture>')
   expect(text).not.toContain("Hello, I'm")

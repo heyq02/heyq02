@@ -26,5 +26,5 @@ it('cli e2e: prints README preview containing the intro name', async () => {
       reject(new Error(`cli exited ${code}: ${err || out}`))
     })
   })
-  expect(stdout).toContain('Ari')
+  expect(stdout).toContain('永琪')
 })

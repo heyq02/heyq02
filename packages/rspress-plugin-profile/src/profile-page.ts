@@ -67,7 +67,7 @@ export function profilePage(projects: PinnedProject[] = []): ProfilePage {
   }
 }
 
-/** Browser tab suffix after the name (`Ari He｜阿瑞 - …`). */
+/** Browser tab suffix after the name (`永琪 - …`). */
 export function documentTitleSuffix(page: Pick<ProfilePage, 'tags'> = profilePage()): string {
   return `${[...page.tags, intro.bio].join('，')}。`
 }

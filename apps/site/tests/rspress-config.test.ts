@@ -23,7 +23,7 @@ async function loadConfig() {
 /** Minimal `llms.txt` context; only the fields the renderer reads are filled in. */
 function llmsContext(overrides: Partial<LlmsTxtContext> = {}): LlmsTxtContext {
   return {
-    title: 'Ari He｜阿瑞',
+    title: '永琪',
     description: '简介',
     lang: 'zh',
     version: '1.0.0',
@@ -98,7 +98,7 @@ it('builds a Chinese llms.txt index', async () => {
     })
   )
 
-  expect(text).toContain('# Ari He｜阿瑞')
+  expect(text).toContain('# 永琪')
   expect(text).toContain('## 从这里开始')
   expect(text).toContain('## 页面')
   expect(text).toContain('[文章](https://heyq02.com/blog/posts/demo/)')

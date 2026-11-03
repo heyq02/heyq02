@@ -4,7 +4,7 @@ import { normalizeDomSnapshot } from '../../../e2e/dom-snapshot.ts'
 
 test('theme e2e: ProfilePlay poke and FriendsPage card DOM', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('heading', { name: 'Ari He｜阿瑞' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '永琪' })).toBeVisible()
   const poke = page.getByRole('button', { name: '戳一下头像' })
   await poke.click()
   await expect(poke).toHaveClass(/profile-avatar-button--spin/)

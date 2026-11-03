@@ -3,7 +3,7 @@ import { expect, it } from 'vite-plus/test'
 import { formatCount, intro, skillIconsPicture, socialLinksFrom } from '../src/index.ts'
 
 it('loads the Chinese intro SSOT', () => {
-  expect(intro.name).toBe('Ari He｜阿瑞')
+  expect(intro.name).toBe('永琪')
   expect(intro.title).toBe(intro.name)
   expect(intro.description.startsWith(`${intro.name}。`)).toBe(true)
   expect(intro.moods[0]).toBe(intro.kaomoji)

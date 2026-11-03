@@ -7,7 +7,7 @@ import { expect, it, vi } from 'vite-plus/test'
 
 import { errorText, fetchReadme, isCliEntry, renderPreview, run, start } from '../src/index.ts'
 
-const sample = `# 你好，我是 Ari He｜阿瑞
+const sample = `# 你好，我是永琪
 
 ## 工作经历
 
@@ -45,7 +45,7 @@ it('recognizes only this file as the CLI entry', async () => {
 
 it('renders a terminal preview', async () => {
   const text = await renderPreview(sample)
-  expect(text).toContain('你好，我是 Ari He｜阿瑞')
+  expect(text).toContain('你好，我是永琪')
   expect(text).toContain('工作经历')
   expect(text).toContain('京东集团')
 })
@@ -90,12 +90,12 @@ it('prints the README and ignores arguments', async () => {
   try {
     fetchImpl.mockImplementation(() => Promise.resolve(new Response(sample, { status: 200 })))
     await run()
-    expect(written).toContain('你好，我是 Ari He｜阿瑞')
+    expect(written).toContain('你好，我是永琪')
     expect(fetchImpl).toHaveBeenCalled()
 
     written = ''
     await start(indexPath)
-    expect(written).toContain('你好，我是 Ari He｜阿瑞')
+    expect(written).toContain('你好，我是永琪')
 
     await start('/not-the-cli.ts')
     expect(fetchImpl.mock.calls.length).toBe(2)
