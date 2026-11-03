@@ -1,6 +1,6 @@
 {
   "name": "@heyq02/shared",
-  "version": "1.0.7",
+  "version": "2.0.0-beta.1",
   "private": true,
   "type": "module",
   "exports": {
