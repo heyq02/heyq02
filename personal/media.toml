@@ -10,14 +10,6 @@ id = "heyq02"
 visible = true
 desc = "代码仓库、开源项目"
 
-[[media_group.item]]
-name = "npm"
-aliases = []
-url = "https://www.npmjs.com/~heyq02"
-id = "heyq02"
-visible = true
-desc = "Node.js 包发布"
-
 [[media_group]]
 group_name = "技术博客社区"
 group_name_en = "Tech Blog Community"
@@ -42,47 +34,15 @@ id = "3493273159075938"
 visible = true
 desc = "视频投稿"
 
-[[media_group.item]]
-name = "小红书"
-aliases = []
-url = "https://www.xiaohongshu.com/user/profile/你的id"
-id = "你的id"
-visible = false
-desc = "图文笔记"
-
-[[media_group.item]]
-name = "抖音"
-aliases = []
-url = "https://www.douyin.com/user/heyq020814"
-id = "heyq020814"
-visible = false
-desc = "短视频"
-
 [[media_group]]
 group_name = "即时通讯与协作"
 group_name_en = "IM & Collaboration"
-
-[[media_group.item]]
-name = "微信"
-aliases = ["WeChat"]
-url = ""
-id = "bjmhe02"
-visible = false
-desc = "即时通讯"
 
 [[media_group.item]]
 name = "QQ"
 aliases = []
 url = ""
 id = "2025206734"
-visible = false
-desc = "即时通讯"
-
-[[media_group.item]]
-name = "Telegram"
-aliases = ["TG"]
-url = "https://t.me/heyq02"
-id = "heyq02"
 visible = false
 desc = "即时通讯"
 
@@ -97,12 +57,3 @@ url = "https://x.com/heyq02"
 id = "heyq02"
 visible = true
 desc = "社交"
-
-[[media_group.item]]
-name = "Bluesky"
-aliases = []
-url = "https://bsky.app/profile/heyq02.bsky.social"
-id = "heyq02.bsky.social"
-visible = true
-desc = "社交"
-
