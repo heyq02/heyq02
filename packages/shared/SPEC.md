@@ -2,25 +2,25 @@
 id: shared
 type: module-design
 status: draft
-title: Shared app helpers
+title: 跨 app 共享辅助
 parent: architecture
 ---
 
 ## Responsibility
 
-Cross-app helpers used by more than one workspace package. Typed access to `static/data/intro.json` (`intro`, `Intro`, `formatCount`), the shared simpleicons.dev skills picture URL (`skillIconsPicture`), navbar social-link mapping (`socialLinksFrom`), site UI Tailwind tokens (`siteH1` / `siteCardChrome` / …), and generated-file helpers (`formatGenerated`, `writeIfChanged`).
+被多个 workspace 包使用的共享辅助。对 `static/data/intro.json` 的类型化访问（`intro`、`Intro`、`formatCount`）、共享 simpleicons.dev 技能图 URL（`skillIconsPicture`）、导航栏社交链接映射（`socialLinksFrom`）、站点 UI Tailwind token（`siteH1` / `siteCardChrome` / …）以及生成文件辅助（`formatGenerated`、`writeIfChanged`）。
 
 ## Boundary
 
-- May read `static/data/intro.json`. No dependency on `site`, `readme`, `cli`, or `@rspress/core`.
-- `site` and `readme` both use `skillIconsPicture` and `intro`. Neither may build its own simpleicons.dev URL or keep a name→slug table.
-- A skill with an empty `icon` is left out of the picture.
-- `socialLinksFrom` maps intro `places` into navbar link items; the site Rspress config calls it with `intro.places` from JSON.
-- Theme and profile plugin consume the same `site-*` UI tokens; profile adds marker prefixes in `profile-classes.ts`.
-- Browser-safe public surface is `intro` / `Intro` / `formatCount` / `skillIconsPicture` / `socialLinksFrom` / `SocialLinkItem` / site UI tokens. Node-only `formatGenerated` / `writeIfChanged` / `SpawnFn` export from `@heyq02/shared/fs`.
-- Private workspace package. Source is the export; it is not packed to `dist/`.
+- 可读取 `static/data/intro.json`。不依赖 `site`、`readme`、`cli` 或 `@rspress/core`。
+- `site` 与 `readme` 都用 `skillIconsPicture` 与 `intro`。二者不得自行拼接 simpleicons.dev URL，也不得维护 name→slug 表。
+- `icon` 为空的技能不会出现在图里。
+- `socialLinksFrom` 把 intro 的 `places` 映射为导航栏链接项；站点 Rspress 配置用 JSON 中的 `intro.places` 调用它。
+- 主题与 profile 插件共用同一批 `site-*` UI token；profile 在 `profile-classes.ts` 中加上 marker 前缀。
+- 浏览器安全对外面：`intro` / `Intro` / `formatCount` / `skillIconsPicture` / `socialLinksFrom` / `SocialLinkItem` / 站点 UI token。仅 Node 可用的 `formatGenerated` / `writeIfChanged` / `SpawnFn` 从 `@heyq02/shared/fs` 导出。
+- 私有 workspace 包。源码即导出，不打包到 `dist/`。
 
 ## Testing
 
-- Unit coverage at least 95% (statements, branches, functions, lines).
-- Independent `e2e/` suite required; run via root `pnpm test:e2e`.
+- 单测覆盖率至少 95%（语句、分支、函数、行）。
+- 必须有独立的 `e2e/` 套件；通过根目录 `pnpm test:e2e` 运行。

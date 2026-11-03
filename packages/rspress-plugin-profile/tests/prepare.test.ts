@@ -18,14 +18,12 @@ const fetchProjects = () =>
     }
   ])
 
-it('writes homepage MDX for every language from pinned projects', async () => {
+it('writes the homepage MDX from pinned projects', async () => {
   const root = await mkdtemp(join(tmpdir(), 'heyq02-profile-'))
   const site = join(root, 'apps/site')
 
   try {
-    for (const lang of ['en', 'zh']) {
-      await mkdir(join(site, `blogs/${lang}`), { recursive: true })
-    }
+    await mkdir(join(site, 'blogs'), { recursive: true })
 
     await prepareProfile({
       siteRoot: site,
@@ -34,16 +32,14 @@ it('writes homepage MDX for every language from pinned projects', async () => {
       fetchProjects
     })
 
-    const en = await readFile(join(site, 'blogs/en/index.mdx'), 'utf8')
-    expect(en).toContain('ProfilePlay')
-    expect(en).toContain("from '@theme/ProfilePlay'")
-    expect(en).toContain('simpleicons.dev')
-    expect(en).toContain('>Education</h2>')
-    expect(en).not.toContain('profile-writing')
-
-    const zh = await readFile(join(site, 'blogs/zh/index.mdx'), 'utf8')
-    expect(zh).toContain('>教育经历</h2>')
-    expect(zh).toContain('simpleicons.dev')
+    const home = await readFile(join(site, 'blogs/index.mdx'), 'utf8')
+    expect(home).toContain('ProfilePlay')
+    expect(home).toContain("from '@theme/ProfilePlay'")
+    expect(home).toContain('simpleicons.dev')
+    expect(home).toContain('>教育经历</h2>')
+    expect(home).toContain('>工作经历</h2>')
+    expect(home).not.toContain('>Education</h2>')
+    expect(home).not.toContain('profile-writing')
 
     const { EventEmitter } = await import('node:events')
     let formatted = false
@@ -65,7 +61,7 @@ it('writes homepage MDX for every language from pinned projects', async () => {
     })
     expect(formatted).toBe(false)
 
-    await writeFile(join(site, 'blogs/en/index.mdx'), `${en}\n`)
+    await writeFile(join(site, 'blogs/index.mdx'), `${home}\n`)
     await prepareProfile({
       siteRoot: site,
       format: true,
@@ -87,12 +83,10 @@ it('defaults the ProfilePlay module and format flag', async () => {
   const root = await mkdtemp(join(tmpdir(), 'heyq02-profile-defaults-'))
   const site = join(root, 'apps/site')
   try {
-    for (const lang of ['en', 'zh']) {
-      await mkdir(join(site, `blogs/${lang}`), { recursive: true })
-    }
+    await mkdir(join(site, 'blogs'), { recursive: true })
     // No profilePlayModule and no format: both fall back to defaults.
     await prepareProfile({ siteRoot: site, fetchProjects })
-    const home = await readFile(join(site, 'blogs/en/index.mdx'), 'utf8')
+    const home = await readFile(join(site, 'blogs/index.mdx'), 'utf8')
     expect(home).toContain("from '@theme/ProfilePlay'")
   } finally {
     await rm(root, { recursive: true, force: true })

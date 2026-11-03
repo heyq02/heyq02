@@ -7,8 +7,7 @@
     "build": "vp run cbuild",
     "preview": "vp preview",
     "test": "vp run ctest",
-    "test:e2e": "playwright test --config=../../playwright.config.ts --project=site",
-    "translate": "pnpm --filter rspress-plugin-blog-translate run translate"
+    "test:e2e": "playwright test --config=../../playwright.config.ts --project=site"
   },
   "dependencies": {
     "@heyq02/shared": "workspace:*",
@@ -16,7 +15,6 @@
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "rspress-plugin-blog-meta": "workspace:*",
-    "rspress-plugin-blog-translate": "workspace:*",
     "rspress-plugin-profile": "workspace:*",
     "rspress-plugin-site-assets": "workspace:*",
     "rspress-theme-heyq02": "workspace:*"

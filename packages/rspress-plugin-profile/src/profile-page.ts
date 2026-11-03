@@ -23,9 +23,6 @@ import {
   profileWhen
 } from './profile-classes.ts'
 
-/** Site languages; `en` keeps the unprefixed routes. */
-export type ProfileLang = 'en' | 'zh'
-
 interface ProfilePage {
   name: string
   tags: string[]
@@ -45,36 +42,24 @@ interface ProfilePage {
 }
 
 export interface RenderHomeMdxOptions {
-  /** MDX import path for ProfilePlay, relative to `blogs/<lang>/index.mdx`. */
+  /** MDX import path for ProfilePlay, relative to `blogs/index.mdx`. */
   profilePlayModule?: string
 }
 
-/** Chinese section headings for `/zh/`; English sections come from intro.json. */
-const ZH_SECTIONS: Record<keyof Intro['sections'], string> = {
-  education: '教育经历',
-  experience: '工作经历',
-  skills: '技能',
-  openSource: '开源项目'
-}
-
-/** Section headings for a language (identity facts stay English). */
-export function sectionsFor(lang: ProfileLang): Intro['sections'] {
-  return lang === 'zh' ? { ...intro.sections, ...ZH_SECTIONS } : intro.sections
-}
-
-export function profilePage(projects: PinnedProject[] = [], lang: ProfileLang = 'en'): ProfilePage {
+export function profilePage(projects: PinnedProject[] = []): ProfilePage {
   return {
     name: intro.name,
     tags: intro.tags,
     avatar: intro.avatar,
-    sections: sectionsFor(lang),
+    sections: intro.sections,
     education: intro.education,
     experiences: intro.experiences,
     skills: skillIconsPicture(intro.skills),
     projects: projects.map(project => ({
       name: project.name,
       href: project.href,
-      summary: project.summary,
+      // Chinese blurb from intro when present; falls back to the GitHub description.
+      summary: intro.projectSummaries[project.name] ?? project.summary,
       language: project.language,
       stars: formatCount(project.stars),
       forks: formatCount(project.forks)
@@ -84,9 +69,7 @@ export function profilePage(projects: PinnedProject[] = [], lang: ProfileLang = 
 
 /** Browser tab suffix after the name (`Ari He｜阿瑞 - …`). */
 export function documentTitleSuffix(page: Pick<ProfilePage, 'tags'> = profilePage()): string {
-  const role = page.tags[0] ?? ''
-  const focus = intro.bio.replace(/^./, char => char.toLowerCase())
-  return `${role}, ${focus}.`
+  return `${[...page.tags, intro.bio].join('，')}。`
 }
 
 function yamlString(value: string) {
@@ -104,10 +87,10 @@ function escapeHtml(value: string) {
 /** Doc page of Rspress theme components, not the built-in homepage. */
 export function renderHomeMdx(
   pinned: PinnedProject[] = [],
-  options: RenderHomeMdxOptions & { lang?: ProfileLang } = {}
+  options: RenderHomeMdxOptions = {}
 ): string {
   const profilePlayModule = options.profilePlayModule ?? '@theme/ProfilePlay'
-  const page = profilePage(pinned, options.lang ?? 'en')
+  const page = profilePage(pinned)
   const tags = page.tags
     .map(tag => `<Badge text=${yamlString(tag)} type="info" outline />`)
     .join(' ')
@@ -142,7 +125,7 @@ ${points}
         `<a className=${yamlString(profileCard)} href=${yamlString(project.href)} data-card="">
 <span className=${yamlString(`profile-project-top ${profileCardTop}`)}>
 <span className=${yamlString(`profile-project-name ${profileCardName}`)}>${escapeHtml(project.name)}</span>
-<span className=${yamlString(profileCounts)}><Badge text=${yamlString(project.language)} type="info" /> <Badge text=${yamlString(`${project.stars} stars`)} type="info" /> <Badge text=${yamlString(`${project.forks} forks`)} type="info" /></span>
+<span className=${yamlString(profileCounts)}><Badge text=${yamlString(project.language)} type="info" /> <Badge text=${yamlString(`${project.stars} 星标`)} type="info" /> <Badge text=${yamlString(`${project.forks} 派生`)} type="info" /></span>
 </span>
 <span className=${yamlString(`profile-project-summary ${profileCardSummary}`)}>${escapeHtml(project.summary)}</span>
 </a>`

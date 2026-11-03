@@ -6,12 +6,11 @@ import { expect, it } from 'vite-plus/test'
 
 import { prepareProfile } from '../src/index.ts'
 
-it('profile e2e: writes both language homepages with theme import and pins', async () => {
+it('profile e2e: writes one Chinese homepage with theme import and pins', async () => {
   const root = await mkdtemp(join(tmpdir(), 'heyq02-e2e-profile-'))
   const site = join(root, 'apps/site')
   try {
-    await mkdir(join(site, 'blogs/en'), { recursive: true })
-    await mkdir(join(site, 'blogs/zh'), { recursive: true })
+    await mkdir(join(site, 'blogs'), { recursive: true })
     await prepareProfile({
       siteRoot: site,
       format: false,
@@ -27,13 +26,11 @@ it('profile e2e: writes both language homepages with theme import and pins', asy
           }
         ])
     })
-    const en = await readFile(join(site, 'blogs/en/index.mdx'), 'utf8')
-    const zh = await readFile(join(site, 'blogs/zh/index.mdx'), 'utf8')
-    expect(en).toContain('@theme/ProfilePlay')
-    expect(en).toContain('e2e-repo')
-    expect(zh).toContain('e2e-repo')
-    expect(zh).toContain('教育经历')
-    expect(en).not.toContain('profile-writing')
+    const home = await readFile(join(site, 'blogs/index.mdx'), 'utf8')
+    expect(home).toContain('@theme/ProfilePlay')
+    expect(home).toContain('e2e-repo')
+    expect(home).toContain('教育经历')
+    expect(home).not.toContain('profile-writing')
   } finally {
     await rm(root, { recursive: true, force: true })
   }

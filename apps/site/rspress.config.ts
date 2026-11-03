@@ -5,7 +5,6 @@ import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 import { pluginBlogMeta } from 'rspress-plugin-blog-meta'
-import { pluginBlogTranslate } from 'rspress-plugin-blog-translate'
 import { pluginProfile } from 'rspress-plugin-profile'
 import { pluginSiteAssets } from 'rspress-plugin-site-assets'
 
@@ -24,26 +23,8 @@ export default defineConfig({
     plugins: [pluginTailwindcss()]
   },
 
-  // Respect explicit `/zh/` URLs; do not auto-redirect by browser language.
-  route: {
-    localeRedirect: 'never'
-  },
-  // English is the default language, so its routes stay unprefixed; Chinese lives under `/zh/`.
-  lang: 'en',
-  locales: [
-    {
-      lang: 'en',
-      label: 'English',
-      title: intro.title,
-      description: intro.description
-    },
-    {
-      lang: 'zh',
-      label: '简体中文',
-      title: intro.title,
-      description: intro.description
-    }
-  ],
+  // Chinese only: content lives at unprefixed routes, no language switcher.
+  lang: 'zh',
   title: intro.title,
   description: intro.description,
   icon: '/favicon.ico',
@@ -58,7 +39,7 @@ export default defineConfig({
       const pages = sections
         .flatMap(section => section.pages)
         .map(page => {
-          const blurb = page.description ? `: ${page.description}` : ''
+          const blurb = page.description ? `：${page.description}` : ''
           return `- [${page.title}](${page.link})${blurb}`
         })
         .join('\n')
@@ -67,23 +48,23 @@ export default defineConfig({
 
 > ${description}
 
-Personal site for ${intro.name}. Tags: ${intro.tags.join(', ')}.
+${intro.name} 的个人站点。标签：${intro.tags.join('、')}。
 
-## Start here
+## 从这里开始
 
-- [Home (profile)](${origin}/index.md)
-- [Friends](${origin}/friends.md)
-- [Blog](${origin}/blog/index.md)
-- [Full Markdown bundle](${origin}/llms-full.txt)
+- [首页（个人简介）](${origin}/index.md)
+- [友链](${origin}/friends.md)
+- [博客](${origin}/blog/index.md)
+- [完整 Markdown 合集](${origin}/llms-full.txt)
 
-## Pages
+## 页面
 
-${pages || '- (no additional pages yet)'}
+${pages || '-（暂无其他页面）'}
 
-## Contact
+## 联系方式
 
-- Email: ${intro.contact.email}
-- GitHub: https://github.com/heyq02
+- 邮箱：${intro.contact.email}
+- GitHub：https://github.com/heyq02
 `
     }
   },
@@ -97,30 +78,17 @@ ${pages || '- (no additional pages yet)'}
   ],
   plugins: [
     pluginSiteAssets({ siteRoot }),
-    // Must run before blog meta so `_meta.json` reflects translated titles.
-    pluginBlogTranslate({ siteRoot }),
     pluginBlogMeta({ siteRoot }),
     pluginProfile({ siteRoot }),
     pluginRss({
-      feed: [
-        {
-          id: 'blog',
-          test: '/blog/posts/',
-          title: `${intro.name} · Blog`,
-          description: intro.description,
-          language: 'en',
-          copyright: `© ${new Date().getFullYear()} ${intro.name}`
-        },
-        {
-          id: 'blog-zh',
-          test: '/zh/blog/posts/',
-          title: `${intro.name} · 博客`,
-          description: intro.description,
-          language: 'zh-CN',
-          copyright: `© ${new Date().getFullYear()} ${intro.name}`,
-          output: { filename: 'blog.zh.xml' }
-        }
-      ]
+      feed: {
+        id: 'blog',
+        test: '/blog/posts/',
+        title: `${intro.name} · 博客`,
+        description: intro.description,
+        language: 'zh-CN',
+        copyright: `© ${new Date().getFullYear()} ${intro.name}`
+      }
     })
   ],
   themeConfig: {
@@ -142,14 +110,17 @@ ${pages || '- (no additional pages yet)'}
       message: `© ${new Date().getFullYear()} ${intro.name} · <a href="https://icp.gov.moe/?keyword=20260869" target="_blank" rel="noopener noreferrer">萌ICP备20260869号</a>`
     }
   },
-  i18nSource: {
+  // Chinese-only site: override just the two built-in Overview strings that
+  // Rspress defaults to API wording. `zh` is the only locale that renders.
+  i18nSource: value => ({
+    ...value,
     'overview.filterPlaceholderText': {
-      en: 'Search posts',
+      ...value['overview.filterPlaceholderText'],
       zh: '搜索文章'
     },
     'overview.filterNoResultText': {
-      en: 'No matching posts found',
+      ...value['overview.filterNoResultText'],
       zh: '没有匹配的文章'
     }
-  }
+  })
 })

@@ -113,14 +113,14 @@ export function FriendsPage({
         <p className={`mt-3 ${siteBody}`}>{intro}</p>
         {ssgMd ? null : (
           <p className='mt-[0.45rem] mb-0 font-[family-name:var(--rp-font-family-mono)] text-[0.78rem] font-medium tracking-[0.02em] text-[var(--rp-c-text-2)]'>
-            Shuffled on each visit — say hi in a new order.
+            每次访问都会重新排序，换个顺序打个招呼。
           </p>
         )}
       </header>
 
       {ordered.length === 0 ? (
         <p className={`friends-empty ${siteSection} ${siteEmpty}`}>
-          No friends listed yet. Check back after the first exchange.
+          还没有友链，等第一位朋友来交换。
         </p>
       ) : (
         <ul
@@ -139,20 +139,20 @@ export function FriendsPage({
         <p className={siteBody}>{exchange.body}</p>
         {ssgMd ? (
           <ul>
-            <li>{`Name: ${exchange.self.name}`}</li>
+            <li>{`名称：${exchange.self.name}`}</li>
             <li>
-              Site:{' '}
+              站点：
               <a className={siteLink} href={exchange.self.url}>
                 {exchange.self.url}
               </a>
             </li>
             <li>
-              Avatar:{' '}
+              头像：
               <a className={siteLink} href={exchange.self.avatar}>
                 {exchange.self.avatar}
               </a>
             </li>
-            <li>{`Blurb: ${exchange.self.desc}`}</li>
+            <li>{`简介：${exchange.self.desc}`}</li>
           </ul>
         ) : (
           <div className={exchangePanelClass}>
@@ -167,11 +167,11 @@ export function FriendsPage({
             />
             <dl className='m-0 grid min-w-0 gap-[0.55rem]'>
               <div className={fieldRowClass}>
-                <dt className={fieldLabelClass}>Name</dt>
+                <dt className={fieldLabelClass}>名称</dt>
                 <dd className={fieldValueClass}>{exchange.self.name}</dd>
               </div>
               <div className={fieldRowClass}>
-                <dt className={fieldLabelClass}>Site</dt>
+                <dt className={fieldLabelClass}>站点</dt>
                 <dd className={fieldValueClass}>
                   <a className={siteLink} href={exchange.self.url}>
                     {exchange.self.url}
@@ -179,7 +179,7 @@ export function FriendsPage({
                 </dd>
               </div>
               <div className={fieldRowClass}>
-                <dt className={fieldLabelClass}>Avatar</dt>
+                <dt className={fieldLabelClass}>头像</dt>
                 <dd className={fieldValueClass}>
                   <a className={siteLink} href={exchange.self.avatar}>
                     {exchange.self.avatar}
@@ -187,7 +187,7 @@ export function FriendsPage({
                 </dd>
               </div>
               <div className={fieldRowClass}>
-                <dt className={fieldLabelClass}>Blurb</dt>
+                <dt className={fieldLabelClass}>简介</dt>
                 <dd className={fieldValueClass}>{exchange.self.desc}</dd>
               </div>
             </dl>

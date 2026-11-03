@@ -1,8 +1,6 @@
 import { expect, it } from 'vite-plus/test'
 
-// English nav is a tracked template under i18n/; blogs/en itself is build output.
-import zhNav from '../blogs/zh/_nav.json' with { type: 'json' }
-import enNav from '../i18n/en/_nav.json' with { type: 'json' }
+import nav from '../blogs/_nav.json' with { type: 'json' }
 
 function isActive(activeMatch: string, pathname: string) {
   return new RegExp(activeMatch).test(pathname)
@@ -21,32 +19,30 @@ it('highlights exactly one nav item per route', () => {
   ]
 
   for (const pathname of paths) {
-    const active = enNav
+    const active = nav
       .filter(item => item.activeMatch && isActive(item.activeMatch, pathname))
       .map(item => item.text)
     expect(active).toHaveLength(1)
   }
 
-  expect(enNav.find(item => item.activeMatch && isActive(item.activeMatch, '/'))?.text).toBe('Home')
+  expect(nav.find(item => item.activeMatch && isActive(item.activeMatch, '/'))?.text).toBe('首页')
   expect(
-    enNav.find(item => item.activeMatch && isActive(item.activeMatch, '/index.html'))?.text
-  ).toBe('Home')
+    nav.find(item => item.activeMatch && isActive(item.activeMatch, '/index.html'))?.text
+  ).toBe('首页')
   expect(
-    enNav.find(item => item.activeMatch && isActive(item.activeMatch, '/friends.html'))?.text
-  ).toBe('Friends')
+    nav.find(item => item.activeMatch && isActive(item.activeMatch, '/friends.html'))?.text
+  ).toBe('友链')
   expect(
-    enNav.find(item => item.activeMatch && isActive(item.activeMatch, '/blog/index.html'))?.text
-  ).toBe('Blog')
+    nav.find(item => item.activeMatch && isActive(item.activeMatch, '/blog/index.html'))?.text
+  ).toBe('博客')
 })
 
-it('keeps Travellings as an external nav link', () => {
-  for (const nav of [enNav, zhNav]) {
-    const travellings = nav.find(item => item.text === 'Travellings')
-    expect(travellings?.link).toBe('https://www.travellings.cn/go.html')
-    expect(travellings?.activeMatch).toBeUndefined()
-  }
+it('keeps 开往 as an external nav link', () => {
+  const travellings = nav.find(item => item.text === '开往')
+  expect(travellings?.link).toBe('https://www.travellings.cn/go.html')
+  expect(travellings?.activeMatch).toBeUndefined()
 })
 
-it('translates the Chinese navbar labels', () => {
-  expect(zhNav.map(item => item.text)).toEqual(['首页', '博客', '友链', 'Travellings'])
+it('labels the navbar in Chinese', () => {
+  expect(nav.map(item => item.text)).toEqual(['首页', '博客', '友链', '开往'])
 })

@@ -2,19 +2,19 @@
 id: rspress-plugin-site-assets
 type: module-design
 status: draft
-title: Site public assets plugin
+title: 站点公共资源插件
 parent: architecture
 ---
 
 ## Responsibility
 
-Copy signature favicons, the WeChat QR, and the page watermark into `blogs/public` before Rspress serves/builds.
+在 Rspress 提供服务/构建前，把签名 favicon、微信二维码与页面水印拷贝到 `blogs/public`。
 
 ## Boundary
 
-- Reads `static/signature/` (relative to the monorepo via `siteRoot`) plus `apps/site/public/wechat.jpg` and `apps/site/public/wuxian-jinbu.png`. Does not generate MDX or meta JSON.
+- 读取 `static/signature/`（经 `siteRoot` 相对 monorepo 定位）以及 `apps/site/public/wechat.jpg`、`apps/site/public/wuxian-jinbu.png`。不生成 MDX 或 meta JSON。
 
 ## Testing
 
-- Unit coverage at least 95% (statements, branches, functions, lines).
-- Independent `e2e/` suite required; run via root `pnpm test:e2e`.
+- 单测覆盖率至少 95%（语句、分支、函数、行）。
+- 必须有独立的 `e2e/` 套件；通过根目录 `pnpm test:e2e` 运行。

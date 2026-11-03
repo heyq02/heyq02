@@ -19,16 +19,18 @@ async function cardDomSnapshot(locator: Locator) {
 }
 
 test.describe('site routes', () => {
-  test('home, blog, and friends render', async ({ page }) => {
+  test('home, blog, and friends render in Chinese', async ({ page }) => {
     await page.goto('/')
+    await expect(page.locator('html')).toHaveAttribute('lang', 'zh')
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Ari')
-    await expect(page.getByRole('button', { name: 'Poke the avatar' })).toBeVisible()
+    await expect(page.getByRole('button', { name: '戳一下头像' })).toBeVisible()
 
     await page.goto('/blog/')
-    await expect(page.locator('body')).toContainText(/Overview|Posts|macOS/i)
+    await expect(page.locator('body')).toContainText(/概览|文章|macOS/i)
 
     await page.goto('/friends/')
-    await expect(page.getByRole('heading', { name: 'Friends' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: '友链', exact: true })).toBeVisible()
+    await expect(page.getByRole('heading', { name: '交换友链' })).toBeVisible()
     await expect(page.locator('.friends-grid, .friends-empty').first()).toBeVisible()
   })
 
@@ -45,30 +47,24 @@ test.describe('site routes', () => {
   })
 })
 
-test.describe('blog i18n', () => {
-  test('English is the default locale at unprefixed routes', async ({ page }) => {
+test.describe('single locale', () => {
+  test('Chinese is the default locale at unprefixed routes', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+    await expect(page.locator('html')).toHaveAttribute('lang', 'zh')
     await page.goto('/blog/')
-    await expect(page.locator('html')).toHaveAttribute('lang', 'en')
-  })
-
-  test('Chinese blog lives under /zh/', async ({ page }) => {
-    await page.goto('/zh/blog/')
     await expect(page.locator('html')).toHaveAttribute('lang', 'zh')
     await expect(page.getByRole('heading', { level: 1 })).toContainText('博客')
-    await page.goto('/zh/blog/posts/macos-disable-ime-switching/')
+  })
+
+  test('blog posts render under /blog/posts/', async ({ page }) => {
+    await page.goto('/blog/posts/macos-disable-ime-switching/')
+    await expect(page.locator('html')).toHaveAttribute('lang', 'zh')
     await expect(page.getByRole('heading', { level: 1 })).toContainText('macOS')
   })
 
-  test('the navbar language switcher links both locales', async ({ page }) => {
-    // Hover menus are flaky in headless Chromium; assert the rendered links instead.
+  test('there is no language switcher or /zh/ tree', async ({ page }) => {
     await page.goto('/blog/')
-    const toChinese = page.locator('a[href="/zh/blog"][lang="zh"]').first()
-    await expect(toChinese).toHaveAttribute('aria-label', '简体中文')
-
-    await page.goto('/zh/blog/')
-    const toEnglish = page.locator('a[href="/blog"][lang="en"]').first()
-    await expect(toEnglish).toHaveAttribute('aria-label', 'English')
+    await expect(page.locator('a[href="/zh/blog"]')).toHaveCount(0)
+    await expect(page.locator('[class*="language"]')).toHaveCount(0)
   })
 })

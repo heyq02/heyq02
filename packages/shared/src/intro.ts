@@ -58,9 +58,11 @@ export interface Intro {
   education: Education[]
   experiences: Experience[]
   skills: Skill[]
+  /** Chinese blurbs keyed by pinned repo name; overrides the GitHub description. */
+  projectSummaries: Record<string, string>
 }
 
-export const intro = raw satisfies Intro
+export const intro: Intro = raw
 
 export function formatCount(count: number): string {
   if (count < 1000) {

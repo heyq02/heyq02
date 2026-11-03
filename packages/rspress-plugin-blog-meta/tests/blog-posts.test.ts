@@ -5,17 +5,16 @@ import { expect, it } from 'vite-plus/test'
 import {
   BLOG_LABELS,
   dateFromSlug,
-  langPrefix,
   listBlogPosts,
   listInterviewNotes,
   renderBlogMetaJson,
   renderPostsMetaJson
 } from '../src/blog-posts.ts'
 
-const sitePostsDir = resolve(import.meta.dirname, '../../../apps/site/blogs/zh/blog/posts')
-const siteInterviewDir = resolve(import.meta.dirname, '../../../apps/site/blogs/zh/blog/interview')
+const sitePostsDir = resolve(import.meta.dirname, '../../../apps/site/blogs/blog/posts')
+const siteInterviewDir = resolve(import.meta.dirname, '../../../apps/site/blogs/blog/interview')
 
-it('lists markdown posts under apps/site blogs/zh/blog/posts', async () => {
+it('lists markdown posts under apps/site/blogs/blog/posts', async () => {
   const posts = await listBlogPosts(sitePostsDir)
   expect(posts.length).toBeGreaterThan(0)
   expect(posts.map(post => post.slug)).toEqual([
@@ -71,18 +70,12 @@ it('lists markdown posts under apps/site blogs/zh/blog/posts', async () => {
   ])
   expect(posts[0]?.href).toBe('/blog/posts/macos-disable-ime-switching/')
   expect(posts[0]?.date).toBe('2026-10-31')
+  expect(posts[0]?.title).toContain('macOS')
   expect(posts.find(post => post.slug === 'building-personal-site-with-rspress')?.date).toBe(
     '2026-06-22'
   )
   expect(posts.find(post => post.slug === 'svg-source-editing-guide')?.date).toBe('2023-03-03')
   expect(posts.at(-1)?.slug).toBe('install-guide-vmware-workstation-15')
-})
-
-it('prefers the language prefix for English routes', async () => {
-  const [first] = await listBlogPosts(sitePostsDir, `${langPrefix('en')}/blog/posts/`)
-  expect(first.href).toBe('/blog/posts/macos-disable-ime-switching/')
-  const [zhFirst] = await listBlogPosts(sitePostsDir, `${langPrefix('zh')}/blog/posts/`)
-  expect(zhFirst.href).toBe('/zh/blog/posts/macos-disable-ime-switching/')
 })
 
 it('lists interview notes newest-first separately from posts', async () => {
@@ -96,18 +89,13 @@ it('lists interview notes newest-first separately from posts', async () => {
   expect(dateFromSlug('jd-frontend-interview-1')).toBe('')
 })
 
-it('renders blog sidebar meta with Overview, Posts, and Interview', () => {
+it('renders Chinese blog sidebar meta with 概览, 文章, and 面经', () => {
   expect(JSON.parse(renderBlogMetaJson())).toEqual([
-    { type: 'file', name: 'index', label: 'Overview' },
-    { type: 'dir', name: 'posts', label: 'Posts' },
-    { type: 'dir', name: 'interview', label: 'Interview' }
-  ])
-  expect(JSON.parse(renderBlogMetaJson('zh'))).toEqual([
     { type: 'file', name: 'index', label: '概览' },
     { type: 'dir', name: 'posts', label: '文章' },
     { type: 'dir', name: 'interview', label: '面经' }
   ])
-  expect(BLOG_LABELS.zh.posts).toBe('文章')
+  expect(BLOG_LABELS.posts).toBe('文章')
 })
 
 it('renders posts sidebar meta from post slugs', () => {
@@ -117,11 +105,11 @@ it('renders posts sidebar meta from post slugs', () => {
         {
           slug: 'demo',
           href: '/blog/posts/demo/',
-          title: 'Demo',
-          description: 'A note',
+          title: '示例',
+          description: '一段笔记',
           date: '2026-10-31'
         }
       ])
     )
-  ).toEqual([{ type: 'file', name: 'demo', label: 'Demo', overviewHeaders: [2] }])
+  ).toEqual([{ type: 'file', name: 'demo', label: '示例', overviewHeaders: [2] }])
 })

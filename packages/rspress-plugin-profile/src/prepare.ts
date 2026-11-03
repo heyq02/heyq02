@@ -6,7 +6,6 @@ import { fetchPinnedProjects } from 'rspress-plugin-github-pins'
 import type { PinnedProject } from 'rspress-plugin-github-pins'
 
 import { renderHomeMdx } from './profile-page.ts'
-import type { ProfileLang } from './profile-page.ts'
 
 export interface PrepareProfileOptions {
   siteRoot: string
@@ -18,28 +17,17 @@ export interface PrepareProfileOptions {
   spawnFn?: SpawnFn
 }
 
-/** Languages that get a generated homepage (matches `locales` in rspress.config). */
-export const PROFILE_LANGS: readonly ProfileLang[] = ['en', 'zh']
-
-/** Regenerate `blogs/<lang>/index.mdx` from intro + pinned projects. */
+/** Regenerate `blogs/index.mdx` from intro + pinned projects. */
 export async function prepareProfile(options: PrepareProfileOptions): Promise<void> {
-  const site = options.siteRoot
+  const homeMdx = resolve(options.siteRoot, 'blogs', 'index.mdx')
   const projects = await (options.fetchProjects ?? fetchPinnedProjects)()
-  const written: string[] = []
-  let changed = false
+  const home = renderHomeMdx(projects, {
+    profilePlayModule: options.profilePlayModule ?? '@theme/ProfilePlay'
+  })
 
-  for (const lang of PROFILE_LANGS) {
-    const homeMdx = resolve(site, 'blogs', lang, 'index.mdx')
-    const home = renderHomeMdx(projects, {
-      profilePlayModule: options.profilePlayModule ?? '@theme/ProfilePlay',
-      lang
-    })
-    written.push(homeMdx)
-    changed = (await writeIfChanged(homeMdx, home)) || changed
-  }
-
+  const changed = await writeIfChanged(homeMdx, home)
   if (options.format && changed) {
-    await formatGenerated(site, written, options.spawnFn)
+    await formatGenerated(options.siteRoot, [homeMdx], options.spawnFn)
   }
 }
 

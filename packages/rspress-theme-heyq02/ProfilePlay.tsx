@@ -48,8 +48,8 @@ export function ProfilePlay({
         onAnimationEnd={() => {
           setSpinning(false)
         }}
-        aria-label='Poke the avatar'
-        title='Poke me'
+        aria-label='戳一下头像'
+        title='戳我'
       >
         <img
           className={`block size-28 rounded-[var(--rp-radius)] border border-[var(--rp-c-divider-light)] object-cover shadow-[var(--rp-shadow-2)] transition-shadow duration-200 hover:shadow-[var(--rp-shadow-1)]${spinning ? ' animate-avatar-wobble' : ''}`}
@@ -66,8 +66,8 @@ export function ProfilePlay({
           type='button'
           className='mt-[0.45rem] inline-flex cursor-pointer rounded-[var(--rp-radius-small)] border-0 bg-transparent px-[0.35rem] py-[0.15rem] font-[family-name:var(--rp-font-family-mono)] text-[1.05rem] leading-[1.3] text-[var(--rp-c-text-2)] transition-[color,background-color,transform] duration-200 hover:-translate-y-px hover:bg-[var(--rp-c-bg-soft)] hover:text-[var(--rp-c-brand)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--rp-c-brand)]'
           onClick={poke}
-          aria-label='Change mood'
-          title='Click for another face'
+          aria-label='换一个表情'
+          title='点一下换个表情'
         >
           {face}
         </button>

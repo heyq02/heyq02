@@ -5,13 +5,11 @@ import { formatGenerated, writeIfChanged } from '@heyq02/shared/fs'
 import type { SpawnFn } from '@heyq02/shared/fs'
 
 import {
-  langPrefix,
   listBlogPosts,
   listInterviewNotes,
   renderBlogMetaJson,
   renderPostsMetaJson
 } from './blog-posts.ts'
-import type { BlogLang } from './blog-posts.ts'
 
 export interface PrepareBlogMetaOptions {
   siteRoot: string
@@ -20,46 +18,36 @@ export interface PrepareBlogMetaOptions {
   spawnFn?: SpawnFn
 }
 
-/** Languages that get sidebar meta (each has its own `<lang>/blog` tree). */
-export const BLOG_LANGS: readonly BlogLang[] = ['en', 'zh']
-
-/** Absolute path of a language's blog directory. */
-export function blogDirOf(siteRoot: string, lang: BlogLang): string {
-  return resolve(siteRoot, 'blogs', lang, 'blog')
+/** Absolute path of the blog directory. */
+export function blogDirOf(siteRoot: string): string {
+  return resolve(siteRoot, 'blogs', 'blog')
 }
 
-/** Write `_meta.json` for every language's `blog/`, `posts/`, and `interview/`. */
+/** Write `_meta.json` for `blog/`, `posts/`, and `interview/`. */
 export async function prepareBlogMeta(options: PrepareBlogMetaOptions): Promise<void> {
-  const site = options.siteRoot
-  const changedFiles: string[] = []
-  let changed = false
+  const blogDir = blogDirOf(options.siteRoot)
+  const postsDir = resolve(blogDir, 'posts')
+  const interviewDir = resolve(blogDir, 'interview')
+  await mkdir(postsDir, { recursive: true })
+  await mkdir(interviewDir, { recursive: true })
 
-  for (const lang of BLOG_LANGS) {
-    const blogDir = blogDirOf(site, lang)
-    const postsDir = resolve(blogDir, 'posts')
-    const interviewDir = resolve(blogDir, 'interview')
-    await mkdir(postsDir, { recursive: true })
-    await mkdir(interviewDir, { recursive: true })
+  const posts = await listBlogPosts(postsDir)
+  const interviews = await listInterviewNotes(interviewDir)
 
-    const prefix = langPrefix(lang)
-    const posts = await listBlogPosts(postsDir, `${prefix}/blog/posts/`)
-    const interviews = await listInterviewNotes(interviewDir, `${prefix}/blog/interview/`)
-
-    const blogMeta = resolve(blogDir, '_meta.json')
-    const postsMeta = resolve(postsDir, '_meta.json')
-    const interviewMeta = resolve(interviewDir, '_meta.json')
-    changedFiles.push(blogMeta, postsMeta, interviewMeta)
-
-    const results = [
-      await writeIfChanged(blogMeta, renderBlogMetaJson(lang)),
-      await writeIfChanged(postsMeta, renderPostsMetaJson(posts)),
-      await writeIfChanged(interviewMeta, renderPostsMetaJson(interviews))
-    ]
-    changed = results.some(Boolean) || changed
+  const files = {
+    blog: resolve(blogDir, '_meta.json'),
+    posts: resolve(postsDir, '_meta.json'),
+    interview: resolve(interviewDir, '_meta.json')
   }
 
-  if (options.format && changed) {
-    await formatGenerated(site, changedFiles, options.spawnFn)
+  const results = [
+    await writeIfChanged(files.blog, renderBlogMetaJson()),
+    await writeIfChanged(files.posts, renderPostsMetaJson(posts)),
+    await writeIfChanged(files.interview, renderPostsMetaJson(interviews))
+  ]
+
+  if (options.format && results.some(Boolean)) {
+    await formatGenerated(options.siteRoot, Object.values(files), options.spawnFn)
   }
 }
 

@@ -2,26 +2,26 @@
 id: readme
 type: module-design
 status: draft
-title: README generator
+title: README 生成器
 parent: architecture
 depends-on: [shared]
 ---
 
 ## Responsibility
 
-Write the repository `README.md` as Markdown the terminal can render directly: a heading greeting with role tags, experience (`###` company links, dates, bullets), and one skills image. It does not use HTML, so it does not switch that image with `prefers-color-scheme`.
+把仓库 `README.md` 写为终端可直接渲染的 Markdown：中文问候标题、角色标签、工作经历（`###` 公司链接、起止时间、要点列表）和一张技能图。不使用 HTML，因此该图也不会随 `prefers-color-scheme` 切换。
 
-It does not emit places, pinned projects, bio, or Chinese. The release workflow runs this against `main` and commits only `README.md` (`architecture`).
+不输出 places、置顶项目、bio。发布流水线在 `main` 上运行它，只提交 `README.md`（`architecture`）。
 
 ## Boundary
 
-- May depend on `shared` and `ejs`. Must not import `site`.
-- The Markdown layout lives in an EJS template. This app fills it; it does not assemble the README string in code. `<%-` is used so intro text is not HTML-escaped.
-- Identity facts and the skills picture come from `shared` (`intro`, `skillIconsPicture`). Build is `node --experimental-strip-types`.
-- A skill with an empty `icon` is left out of the picture.
-- The committed root `README.md` must match `renderReadme()`; the readme tests lock that.
+- 可依赖 `shared` 与 `ejs`。不得导入 `site`。
+- Markdown 版式放在 EJS 模板里，本 app 只负责填充，不在代码里拼字符串。使用 `<%-` 以免简介文本被 HTML 转义。
+- 身份事实与技能图来自 `shared`（`intro`、`skillIconsPicture`）。构建命令是 `node --experimental-strip-types`。
+- `icon` 为空的技能不会出现在图里。
+- 提交到根目录的 `README.md` 必须与 `renderReadme()` 一致，由 readme 测试锁定。
 
 ## Testing
 
-- Unit coverage at least 95% (statements, branches, functions, lines).
-- Independent `e2e/` suite required; run via root `pnpm test:e2e`.
+- 单测覆盖率至少 95%（语句、分支、函数、行）。
+- 必须有独立的 `e2e/` 套件；通过根目录 `pnpm test:e2e` 运行。

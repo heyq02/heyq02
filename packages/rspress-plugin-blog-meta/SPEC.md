@@ -2,20 +2,21 @@
 id: rspress-plugin-blog-meta
 type: module-design
 status: draft
-title: Blog sidebar meta plugin
+title: 博客侧边栏 meta 插件
 parent: architecture
 depends-on: [shared]
 ---
 
 ## Responsibility
 
-Scan Markdown under `blog/posts/` and `blog/interview/`, and write Rspress sidebar `_meta.json` for `/blog/`, `/blog/posts/`, and `/blog/interview/` (date-desc). Exports `listBlogPosts` / `listInterviewNotes` for callers that need those lists. Written `_meta.json` files are gitignored site outputs.
+扫描 `blog/posts/` 与 `blog/interview/` 下的 Markdown，为 `/blog/`、`/blog/posts/`、`/blog/interview/` 写入 Rspress 侧边栏 `_meta.json`（按日期倒序）。同时导出 `listBlogPosts` / `listInterviewNotes` 供需要这些列表的调用方使用。写出的 `_meta.json` 是被 gitignore 的站点产物。侧边栏标签为中文：概览、文章、面经。
 
 ## Boundary
 
-- May depend on `@heyq02/shared` (`formatGenerated`, `writeIfChanged`). Must not render homepage MDX or call GitHub.
+- 可依赖 `@heyq02/shared`（`formatGenerated`、`writeIfChanged`）。不得渲染首页 MDX，也不调用 GitHub。
+- 只处理单一日志树 `apps/site/blogs/blog`，没有语言参数。
 
 ## Testing
 
-- Unit coverage at least 95% (statements, branches, functions, lines).
-- Independent `e2e/` suite required; run via root `pnpm test:e2e`.
+- 单测覆盖率至少 95%（语句、分支、函数、行）。
+- 必须有独立的 `e2e/` 套件；通过根目录 `pnpm test:e2e` 运行。

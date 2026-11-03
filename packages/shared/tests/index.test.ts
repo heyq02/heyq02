@@ -1,13 +1,31 @@
 import { expect, it } from 'vite-plus/test'
 
-import { formatCount, intro, skillIconsPicture } from '../src/index.ts'
+import { formatCount, intro, skillIconsPicture, socialLinksFrom } from '../src/index.ts'
 
-it('loads the English intro SSOT', () => {
+it('loads the Chinese intro SSOT', () => {
   expect(intro.name).toBe('Ari He｜阿瑞')
   expect(intro.title).toBe(intro.name)
-  expect(intro.description.startsWith(`${intro.name}.`)).toBe(true)
+  expect(intro.description.startsWith(`${intro.name}。`)).toBe(true)
   expect(intro.moods[0]).toBe(intro.kaomoji)
   expect(intro.contact.email).toContain('@')
+})
+
+it('keeps identity copy in Chinese', () => {
+  expect(intro.tags).toEqual(['全栈工程师', '开源爱好者', '职业成长博主'])
+  expect(intro.sections).toEqual({
+    experience: '工作经历',
+    skills: '技能',
+    openSource: '开源项目',
+    education: '教育经历'
+  })
+  expect(intro.experiences[0]?.company).toBe('京东集团')
+  expect(intro.experiences[0]?.end).toBe('至今')
+  expect(intro.education[0]?.school).toBe('南京邮电大学')
+  expect(intro.places.find(place => place.label === 'WeChat')?.detail).toBe('扫码添加')
+})
+
+it('carries Chinese project blurbs keyed by repo name', () => {
+  expect(intro.projectSummaries['simpleicons.dev']).toContain('技能图标')
 })
 
 it('formats counts under and over one thousand', () => {
@@ -29,4 +47,9 @@ it('builds the shared skills picture URL from icon slugs', () => {
   expect(picture.src).toContain('perline=2')
   expect(picture.src).toContain('theme=light')
   expect(skillIconsPicture([]).src).toContain('perline=1')
+})
+
+it('exposes the social navbar mapping from intro places', () => {
+  const links = socialLinksFrom(intro.places)
+  expect(links.map(link => link.icon)).toEqual(['github', 'x', 'bilibili', 'wechat'])
 })

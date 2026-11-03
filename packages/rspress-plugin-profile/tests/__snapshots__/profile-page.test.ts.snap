@@ -1,11 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`builds the English profile page from the intro > open-source-card.mdx 1`] = `
+exports[`builds the Chinese profile page from the intro > open-source-card.mdx 1`] = `
 "<a className="profile-project group grid gap-[0.55rem] rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] px-[1.05rem] py-4 font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg)] hover:text-inherit hover:shadow-[var(--rp-shadow-1)] hover:!no-underline [&_.rp-badge]:no-underline" href="https://github.com/heyq02/simpleicons.dev" data-card="">
 <span className="profile-project-top grid gap-2">
 <span className="profile-project-name text-[1.02rem] font-[650] leading-[1.35] text-[var(--rp-c-text-1)] transition-colors duration-200 group-hover:text-[var(--rp-c-brand)]">simpleicons.dev</span>
-<span className="profile-counts m-0 flex flex-wrap gap-[0.35rem]"><Badge text="TypeScript" type="info" /> <Badge text="172 stars" type="info" /> <Badge text="0 forks" type="info" /></span>
+<span className="profile-counts m-0 flex flex-wrap gap-[0.35rem]"><Badge text="TypeScript" type="info" /> <Badge text="172 星标" type="info" /> <Badge text="0 派生" type="info" /></span>
 </span>
-<span className="profile-project-summary text-[0.95rem] font-normal leading-relaxed text-[var(--rp-c-text-2)]">Showcase your skills</span>
+<span className="profile-project-summary text-[0.95rem] font-normal leading-relaxed text-[var(--rp-c-text-2)]">轻松在 GitHub README 或简历上展示你的技能图标。</span>
 </a>"
 `;

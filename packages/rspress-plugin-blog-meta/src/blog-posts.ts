@@ -73,44 +73,29 @@ async function listMarkdownEntries(dir: string, hrefPrefix: string): Promise<Blo
 }
 
 /** `/blog/posts/` sidebar entries (newest first). */
-export async function listBlogPosts(
-  postsDir: string,
-  hrefPrefix = '/blog/posts/'
-): Promise<BlogPost[]> {
-  return listMarkdownEntries(postsDir, hrefPrefix)
+export async function listBlogPosts(postsDir: string): Promise<BlogPost[]> {
+  return listMarkdownEntries(postsDir, '/blog/posts/')
 }
 
 /** `/blog/interview/` sidebar entries (newest first). */
-export async function listInterviewNotes(
-  interviewDir: string,
-  hrefPrefix = '/blog/interview/'
-): Promise<BlogPost[]> {
-  return listMarkdownEntries(interviewDir, hrefPrefix)
+export async function listInterviewNotes(interviewDir: string): Promise<BlogPost[]> {
+  return listMarkdownEntries(interviewDir, '/blog/interview/')
 }
 
-/** Site languages; `en` is the default and keeps the unprefixed routes. */
-export type BlogLang = 'en' | 'zh'
+/** Sidebar labels for the `/blog/` overview page. */
+export const BLOG_LABELS = {
+  overview: '概览',
+  posts: '文章',
+  interview: '面经'
+} as const
 
-/** Sidebar labels for the `/blog/` overview page, per language. */
-export const BLOG_LABELS: Record<BlogLang, { overview: string; posts: string; interview: string }> =
-  {
-    en: { overview: 'Overview', posts: 'Posts', interview: 'Interview' },
-    zh: { overview: '概览', posts: '文章', interview: '面经' }
-  }
-
-/** Route prefix for a language directory (`''` for the default language). */
-export function langPrefix(lang: BlogLang): string {
-  return lang === 'en' ? '' : `/${lang}`
-}
-
-/** Sidebar meta for `/blog/`: Overview, then Posts, then Interview. */
-export function renderBlogMetaJson(lang: BlogLang = 'en'): string {
-  const labels = BLOG_LABELS[lang]
+/** Sidebar meta for `/blog/`: 概览, then 文章, then 面经. */
+export function renderBlogMetaJson(): string {
   return `${JSON.stringify(
     [
-      { type: 'file', name: 'index', label: labels.overview },
-      { type: 'dir', name: 'posts', label: labels.posts },
-      { type: 'dir', name: 'interview', label: labels.interview }
+      { type: 'file', name: 'index', label: BLOG_LABELS.overview },
+      { type: 'dir', name: 'posts', label: BLOG_LABELS.posts },
+      { type: 'dir', name: 'interview', label: BLOG_LABELS.interview }
     ],
     null,
     2

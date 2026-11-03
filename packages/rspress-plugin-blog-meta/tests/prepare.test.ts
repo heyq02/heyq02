@@ -7,37 +7,29 @@ import { expect, it } from 'vite-plus/test'
 import { renderBlogMetaJson } from '../src/blog-posts.ts'
 import { prepareBlogMeta, prepareBlogMetaOnce } from '../src/prepare.ts'
 
-it('writes blog, posts, and interview _meta.json for both languages', async () => {
+it('writes blog, posts, and interview _meta.json', async () => {
   const root = await mkdtemp(join(tmpdir(), 'heyq02-blog-meta-'))
   const site = join(root, 'apps/site')
 
   try {
-    for (const lang of ['en', 'zh']) {
-      await mkdir(join(site, `blogs/${lang}/blog/posts`), { recursive: true })
-      await mkdir(join(site, `blogs/${lang}/blog/interview`), { recursive: true })
-      await writeFile(
-        join(site, `blogs/${lang}/blog/posts/demo.mdx`),
-        `---\ntitle: Demo ${lang}\ndescription: Note\ndate: 2026-10-31\n---\n\n# Demo\n`
-      )
-      await writeFile(
-        join(site, `blogs/${lang}/blog/interview/daily-frontend-interview-2024-03-01.md`),
-        `---\ntitle: Daily ${lang}\ndate: 2024-03-01\n---\n\n# Daily\n`
-      )
-    }
+    await mkdir(join(site, 'blogs/blog/posts'), { recursive: true })
+    await mkdir(join(site, 'blogs/blog/interview'), { recursive: true })
+    await writeFile(
+      join(site, 'blogs/blog/posts/demo.mdx'),
+      `---\ntitle: 示例文章\ndescription: 笔记\ndate: 2026-10-31\n---\n\n# 示例\n`
+    )
+    await writeFile(
+      join(site, 'blogs/blog/interview/daily-frontend-interview-2024-03-01.md'),
+      `---\ntitle: 每日面经\ndate: 2024-03-01\n---\n\n# 每日\n`
+    )
 
     await prepareBlogMeta({ siteRoot: site, format: false })
 
-    for (const lang of ['en', 'zh']) {
-      expect(await readFile(join(site, `blogs/${lang}/blog/_meta.json`), 'utf8')).toBe(
-        renderBlogMetaJson(lang as 'en' | 'zh')
-      )
-      expect(await readFile(join(site, `blogs/${lang}/blog/posts/_meta.json`), 'utf8')).toContain(
-        `Demo ${lang}`
-      )
-      expect(
-        await readFile(join(site, `blogs/${lang}/blog/interview/_meta.json`), 'utf8')
-      ).toContain(`Daily ${lang}`)
-    }
+    expect(await readFile(join(site, 'blogs/blog/_meta.json'), 'utf8')).toBe(renderBlogMetaJson())
+    expect(await readFile(join(site, 'blogs/blog/posts/_meta.json'), 'utf8')).toContain('示例文章')
+    expect(await readFile(join(site, 'blogs/blog/interview/_meta.json'), 'utf8')).toContain(
+      '每日面经'
+    )
 
     const { EventEmitter } = await import('node:events')
     let formatted = false
@@ -57,8 +49,8 @@ it('writes blog, posts, and interview _meta.json for both languages', async () =
     expect(formatted).toBe(false)
 
     await writeFile(
-      join(site, 'blogs/en/blog/posts/demo.mdx'),
-      `---\ntitle: Demo 2\ndate: 2026-10-31\n---\n\n# Demo 2\n`
+      join(site, 'blogs/blog/posts/demo.mdx'),
+      `---\ntitle: 示例 2\ndate: 2026-10-31\n---\n\n# 示例 2\n`
     )
     await prepareBlogMeta({
       siteRoot: site,
@@ -86,9 +78,7 @@ it('defaults the format flag when omitted', async () => {
   const site = join(root, 'apps/site')
   try {
     await prepareBlogMeta({ siteRoot: site })
-    expect(await readFile(join(site, 'blogs/zh/blog/_meta.json'), 'utf8')).toBe(
-      renderBlogMetaJson('zh')
-    )
+    expect(await readFile(join(site, 'blogs/blog/_meta.json'), 'utf8')).toBe(renderBlogMetaJson())
   } finally {
     await rm(root, { recursive: true, force: true })
   }

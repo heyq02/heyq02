@@ -4,8 +4,8 @@ export default liangmi({
   test: {
     include: ['tests/**/*.test.ts'],
     coverage: {
-      include: ['scripts/absolutize-md-links.ts', 'scripts/en-placeholders.ts'],
-      exclude: ['scripts/build.ts', 'scripts/en-placeholders-cli.ts'],
+      include: ['scripts/absolutize-md-links.ts'],
+      exclude: ['scripts/build.ts'],
       thresholds: {
         statements: 95,
         branches: 95,
@@ -20,12 +20,11 @@ export default liangmi({
         command: 'node --experimental-strip-types ./scripts/build.ts',
         cache: {
           // Task env is isolated, so declare what the build needs to receive.
-          untrackedEnv: ['GITHUB_TOKEN', 'DEEPSEEK_API_KEY', 'DEEPSEEK_BASE_URL', 'DEEPSEEK_MODEL']
+          untrackedEnv: ['GITHUB_TOKEN']
         }
       },
       dev: {
-        command:
-          'node --experimental-strip-types ./scripts/en-placeholders-cli.ts && pnpm exec rspress dev',
+        command: 'pnpm exec rspress dev',
         cache: false
       }
     }
