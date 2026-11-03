@@ -26,7 +26,6 @@
     "@vitest/coverage-v8": "5.0.5",
     "bumpp": "^12.3.0",
     "serve": "^14.2.4",
-    "sponsorkit": "19.0.0",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plus": "catalog:"

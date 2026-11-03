@@ -8,7 +8,6 @@ export default liangmi({
     preview: './apps/site'
   },
   lint: [
-    { ignores: ['sponsorkit/**'] },
     // Motion JSX props are intentionally ephemeral objects and callbacks.
     {
       files: ['apps/site/**', 'packages/rspress-theme-heyq02/**'],
@@ -31,9 +30,6 @@ export default liangmi({
       }
     }
   ],
-  fmt: {
-    ignorePatterns: ['sponsorkit/**']
-  },
   test: {
     environmentMatchGlobs: [['packages/rspress-theme-heyq02/tests/**', 'jsdom']],
     exclude: ['**/e2e/**', '**/node_modules/**'],
@@ -58,20 +54,6 @@ export default liangmi({
         branches: 95,
         functions: 95,
         lines: 95
-      }
-    }
-  },
-  run: {
-    tasks: {
-      sponsorkit: {
-        command: 'vpx sponsorkit',
-        cache: {
-          env: [
-            'SPONSORKIT_GITHUB_TOKEN',
-            'SPONSORKIT_GITHUB_LOGIN',
-            'SPONSORKIT_KOFI_VERIFICATION_TOKEN'
-          ]
-        }
       }
     }
   }
