@@ -1,44 +1,21 @@
-[[media_group]]
-group_name = "代码与包平台"
-group_name_en = "Code & Registry"
+# media.toml
+[website]
+name = "www"
+aliases = []
+url = "https://heyq02.com"
+id = "heyq02"
+visible = true
+desc = "个人技术博客"
 
-[[media_group.item]]
+[github]
 name = "GitHub"
 aliases = []
 url = "https://github.com/heyq02"
 id = "heyq02"
 visible = true
-desc = "代码仓库、开源项目"
+desc = "开源仓库"
 
-[[media_group]]
-group_name = "社交平台"
-group_name_en = "Social Platform"
-
-[[media_group.item]]
-name = "X"
-aliases = ["Twitter"]
-url = "https://x.com/heyq02"
-id = "heyq02"
-visible = true
-desc = "社交"
-
-[[media_group]]
-group_name = "技术博客社区"
-group_name_en = "Tech Blog Community"
-
-[[media_group.item]]
-name = "CSDN"
-aliases = []
-url = "https://blog.csdn.net/m0_66681776"
-id = "m0_66681776"
-visible = true
-desc = "技术博客"
-
-[[media_group]]
-group_name = "图文视频平台"
-group_name_en = "Video & Image Platform"
-
-[[media_group.item]]
+[bilibili]
 name = "哔哩哔哩"
 aliases = ["bilibili", "B站"]
 url = "https://space.bilibili.com/3493273159075938"
@@ -46,15 +23,18 @@ id = "3493273159075938"
 visible = true
 desc = "视频投稿"
 
-[[media_group]]
-group_name = "即时通讯与协作"
-group_name_en = "IM & Collaboration"
+[x]
+name = "X"
+aliases = ["Twitter"]
+url = "https://x.com/heyq02"
+id = "heyq02"
+visible = true
+desc = "社交动态"
 
-[[media_group.item]]
+[qq]
 name = "QQ"
 aliases = []
 url = ""
 id = "2025206734"
 visible = false
 desc = "即时通讯"
-

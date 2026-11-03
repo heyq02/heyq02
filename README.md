@@ -1,17 +1,11 @@
-# 你好，我是永琪
-
-全栈工程师 · 开源爱好者 · 职业成长博主
-
-## 工作经历
-
-### [京东集团](https://www.jd.com/)
-
-2024.06 – 至今
-
-- 负责京东外卖小程序、H5 与管理后台的迭代
-- 推动管理后台完成架构升级，TP95 明显改善
-- 为本地生活搭建 C3 级 AI Infra，提升研发效率
-
-## 技能
-
-![Vue, React, Next, Rolldown, Vite, Oxc, Spring, Redis, RabbitMQ, Nginx, Docker](https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light)
+<p align="center">
+  <samp>
+    Token is all your need 💰
+    <br/>
+    <a href="https://heyq02.com">www</a> ᐧ
+    <a href="https://github.com/heyq02">GitHub</a> ᐧ
+    <a href="https://space.bilibili.com/3493273159075938">哔哩哔哩</a> ᐧ
+    <a href="https://x.com/heyq02">X</a> ᐧ
+    <a href="https://qm.qq.com/q/BcL0zUOaxa">QQ</a>
+  </samp>
+</p>
