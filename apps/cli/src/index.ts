@@ -1,6 +1,9 @@
-/** OSC 8 hyperlink: clickable in most terminals, plain label elsewhere. */
+/**
+ * OSC 8 hyperlink, so links are clickable. Skipped when stdout is not a
+ * terminal, keeping piped or redirected output plain text.
+ */
 const link = (label: string, url: string): string =>
-  `\u001B]8;;${url}\u001B\\${label}\u001B]8;;\u001B\\`
+  process.stdout.isTTY ? `\u001B]8;;${url}\u001B\\${label}\u001B]8;;\u001B\\` : label
 
 const links = [
   ['www', 'https://heyq02.com'],
