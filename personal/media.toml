@@ -11,6 +11,18 @@ visible = true
 desc = "代码仓库、开源项目"
 
 [[media_group]]
+group_name = "社交平台"
+group_name_en = "Social Platform"
+
+[[media_group.item]]
+name = "X"
+aliases = ["Twitter"]
+url = "https://x.com/heyq02"
+id = "heyq02"
+visible = true
+desc = "社交"
+
+[[media_group]]
 group_name = "技术博客社区"
 group_name_en = "Tech Blog Community"
 
@@ -46,14 +58,3 @@ id = "2025206734"
 visible = false
 desc = "即时通讯"
 
-[[media_group]]
-group_name = "社交平台"
-group_name_en = "Social Platform"
-
-[[media_group.item]]
-name = "X"
-aliases = ["Twitter"]
-url = "https://x.com/heyq02"
-id = "heyq02"
-visible = true
-desc = "社交"
