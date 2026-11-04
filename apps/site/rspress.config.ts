@@ -22,19 +22,7 @@ export default defineConfig({
   themeDir,
   globalStyles: resolve(dir, 'tailwind.css'),
   builderConfig: {
-    plugins: [pluginTailwindcss()],
-    html: {
-      // Primer light tokens only apply under these html attributes — set before paint.
-      tags: [
-        {
-          tag: 'script',
-          children:
-            "(function(){var r=document.documentElement;r.setAttribute('data-color-mode','light');r.setAttribute('data-light-theme','light');r.setAttribute('data-dark-theme','dark')})()",
-          head: true,
-          append: false
-        }
-      ]
-    }
+    plugins: [pluginTailwindcss()]
   },
 
   // Chinese only: content lives at unprefixed routes, no language switcher.

@@ -25,7 +25,9 @@
   --color-rp-faint: var(--rp-c-text-3);
   --color-rp-brand: var(--rp-c-brand);
   --color-rp-brand-light: var(--rp-c-brand-light);
+  --color-rp-brand-lighter: var(--rp-c-brand-lighter);
   --color-rp-brand-dark: var(--rp-c-brand-dark);
+  --color-rp-brand-darker: var(--rp-c-brand-darker);
   --color-rp-brand-tint: var(--rp-c-brand-tint);
   --color-rp-divider: var(--rp-c-divider);
   --color-rp-divider-light: var(--rp-c-divider-light);

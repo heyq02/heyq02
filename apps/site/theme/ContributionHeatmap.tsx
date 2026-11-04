@@ -3,13 +3,13 @@ import type { ReactElement } from 'react'
 
 import type { ContributionCalendar, ContributionDay, ContributionLevel } from './profile-data.ts'
 
-/** Primer contribution scale (`--contribution-default-bgColor-*`). */
+/** Contribution intensity on Rspress brand / surface tokens. */
 const LEVEL_CLASS: Record<ContributionLevel, string> = {
-  0: 'bg-[var(--contribution-default-bgColor-0)]',
-  1: 'bg-[var(--contribution-default-bgColor-1)]',
-  2: 'bg-[var(--contribution-default-bgColor-2)]',
-  3: 'bg-[var(--contribution-default-bgColor-3)]',
-  4: 'bg-[var(--contribution-default-bgColor-4)]'
+  0: 'bg-rp-mute',
+  1: 'bg-rp-brand-tint',
+  2: 'bg-rp-brand-lighter',
+  3: 'bg-rp-brand-light',
+  4: 'bg-rp-brand'
 }
 
 function summarize(days: ContributionDay[]) {

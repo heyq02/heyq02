@@ -1,7 +1,5 @@
-/* GitHub Primer semantic colors → Rspress --rp-c-* */
+/* Site chrome on Rspress CSS tokens (--rp-c-*). */
 /* 字体：京东朗正体 https://github.com/heyq02/JINGDONGLangZhengTi */
-
-@import '@primer/primitives/dist/css/functional/themes/light.css';
 
 @import '@fontsource/dm-sans/400.css';
 @import '@fontsource/dm-sans/500.css';
@@ -48,22 +46,6 @@
 }
 
 :root {
-  --rp-c-bg: var(--bgColor-default);
-  --rp-c-bg-soft: var(--bgColor-muted);
-  --rp-c-bg-mute: var(--bgColor-inset);
-  --rp-c-bg-alt: var(--bgColor-muted);
-  --rp-c-text-1: var(--fgColor-default);
-  --rp-c-text-2: var(--fgColor-muted);
-  --rp-c-text-3: var(--fgColor-disabled);
-  --rp-c-brand: var(--fgColor-accent);
-  --rp-c-brand-light: var(--bgColor-accent-emphasis);
-  --rp-c-brand-dark: var(--bgColor-accent-emphasis);
-  --rp-c-brand-tint: var(--bgColor-accent-muted);
-  --rp-c-divider: var(--borderColor-default);
-  --rp-c-divider-light: var(--borderColor-muted);
-  --rp-c-link: var(--fgColor-link);
-  --rp-c-gray: var(--fgColor-muted);
-
   --rp-font-family-base:
     'JINGDONGLangZhengTi', 'DM Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC',
     'Microsoft YaHei', sans-serif;

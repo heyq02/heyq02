@@ -15,7 +15,6 @@
     "@heyq02/rspress-plugin-watermark": "workspace:*",
     "@heyq02/rspress-site-content": "workspace:*",
     "@heyq02/rspress-theme-ui": "workspace:*",
-    "@primer/primitives": "^11.10.0",
     "@rspress/core": "^2.1.0-beta.2",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
