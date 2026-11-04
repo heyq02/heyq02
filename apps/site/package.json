@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "build": "vp run cbuild",
-    "dev": "astro dev",
     "preview": "astro preview",
     "test": "vp run ctest",
     "test:e2e": "playwright test --config=../../playwright.config.ts --project=site"
