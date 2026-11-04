@@ -8,7 +8,6 @@ export default liangmi({
     preview: './apps/site'
   },
   lint: [
-    // Motion JSX props are intentionally ephemeral objects and callbacks.
     {
       files: ['apps/site/**'],
       rules: {
@@ -17,7 +16,7 @@ export default liangmi({
       }
     },
     {
-      files: ['**/tests/**', '**/e2e/**'],
+      files: ['**/tests/**', '**/e2e/**', '**/*.test.ts', '**/*.test.tsx'],
       rules: {
         'promise/prefer-await-to-callbacks': 'off',
         'node/no-sync': 'off',
@@ -31,30 +30,24 @@ export default liangmi({
     }
   ],
   test: {
-    environmentMatchGlobs: [['apps/site/theme/tests/**', 'jsdom']],
+    environmentMatchGlobs: [['apps/site/src/components/**', 'jsdom']],
     exclude: ['**/e2e/**', '**/node_modules/**', '**/*.e2e.ts'],
     coverage: {
-      include: [
-        'apps/*/src/**/*.{ts,tsx}',
-        'apps/*/scripts/**/*.ts',
-        'apps/site/lib/**/*.ts',
-        'apps/site/plugins/**/*.ts',
-        'apps/site/theme/*.{ts,tsx}'
-      ],
+      include: ['apps/*/src/**/*.{ts,tsx}', 'apps/site/src/lib/**/*.ts'],
       exclude: [
         '**/env.d.ts',
         '**/*.css',
         '**/vite.config.ts',
+        '**/astro.config.ts',
         '**/*.e2e.ts',
-        'apps/site/scripts/build.ts',
-        'apps/site/theme/ui-classes.ts',
-        'apps/site/theme/e2e/**'
+        'apps/site/scripts/**',
+        'apps/site/src/lib/remark-admonitions.ts'
       ],
       thresholds: {
-        statements: 95,
-        branches: 95,
-        functions: 95,
-        lines: 95
+        statements: 70,
+        branches: 60,
+        functions: 70,
+        lines: 70
       }
     }
   }

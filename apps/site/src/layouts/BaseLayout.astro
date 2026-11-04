@@ -1,0 +1,50 @@
+---
+import SiteEasterEgg from '../components/SiteEasterEgg.tsx'
+import SiteWatermark from '../components/SiteWatermark.astro'
+import SiteFooter from '../components/SiteFooter.astro'
+import SiteNav from '../components/SiteNav.astro'
+import ThemeInit from '../components/ThemeInit.astro'
+import { intro } from '../lib/intro.ts'
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+  wide?: boolean
+}
+
+const { title, description = intro.description, wide = false } = Astro.props
+const pageTitle = title ? `${title} · ${intro.name}` : `${intro.name} · ${intro.bio}`
+---
+
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content={intro.name} />
+    <meta name="description" content={description} />
+    <meta property="og:site_name" content={intro.title} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={intro.avatar} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content={intro.avatar} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="alternate" type="application/rss+xml" title={`${intro.name} · 博客`} href="/blog/rss.xml" />
+    <title>{pageTitle}</title>
+    <ThemeInit />
+  </head>
+  <body>
+    <SiteWatermark />
+    <SiteEasterEgg client:load />
+    <div class="site-shell min-h-screen">
+      <SiteNav currentPath={Astro.url.pathname} />
+      <main class:list={['px-6 py-10 sm:px-8 sm:py-12', wide ? '' : '']}>
+        <slot />
+      </main>
+      <SiteFooter />
+    </div>
+  </body>
+</html>

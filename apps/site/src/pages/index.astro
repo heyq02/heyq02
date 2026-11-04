@@ -1,0 +1,110 @@
+---
+import ProfilePlay from '../components/ProfilePlay.tsx'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { fetchPinnedProjects } from '../lib/github-pinned.ts'
+import { formatCount, intro } from '../lib/intro.ts'
+import { skillIconsPicture } from '../lib/skills-picture.ts'
+import {
+  badgeClass,
+  profileCard,
+  profileCardTop,
+  profileCounts,
+  profileEduMeta,
+  profileGrid,
+  profileH3,
+  profileJob,
+  profileJobHead,
+  profileList,
+  profileSection,
+  profileSkills,
+  profileSkillsImg,
+  siteCardName,
+  siteCardSummary,
+  siteH2,
+  siteLink,
+  sitePageRoot,
+  siteWhen
+} from '../lib/site-ui.ts'
+
+const projects = await fetchPinnedProjects()
+const skills = skillIconsPicture(intro.skills)
+const titleSuffix = `${[...intro.tags, intro.bio].join('，')}。`
+---
+
+<BaseLayout title={intro.name} description={`${intro.name}。${titleSuffix}`}>
+  <div class={`profile ${sitePageRoot}`}>
+    <ProfilePlay client:load tags={intro.tags} />
+
+    <section class={profileSection}>
+      <h2 class={siteH2}>{intro.sections.education}</h2>
+      {
+        intro.education.map(item => (
+          <article class={`${profileJob} profile-edu`}>
+            <div class={profileJobHead}>
+              <h3 class={profileH3}>{item.school}</h3>
+              <p class={siteWhen}>
+                {item.start} – {item.end}
+              </p>
+            </div>
+            <p class={profileEduMeta}>
+              {item.degree} · {item.major}
+            </p>
+          </article>
+        ))
+      }
+    </section>
+
+    <section class={profileSection}>
+      <h2 class={siteH2}>{intro.sections.experience}</h2>
+      {
+        intro.experiences.map(job => (
+          <article class={profileJob}>
+            <div class={profileJobHead}>
+              <h3 class={profileH3}>
+                <a class={siteLink} href={job.href}>
+                  {job.company}
+                </a>
+              </h3>
+              <p class={siteWhen}>
+                {job.start} – {job.end}
+              </p>
+            </div>
+            <ul class={profileList}>
+              {job.points.map(point => (
+                <li>{point}</li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </section>
+
+    <section class={profileSection}>
+      <h2 class={siteH2}>{intro.sections.openSource}</h2>
+      <div class={`profile-projects ${profileGrid}`}>
+        {
+          projects.map(project => (
+            <a class={profileCard} href={project.href} data-card="">
+              <span class={`profile-project-top ${profileCardTop}`}>
+                <span class={`profile-project-name ${siteCardName}`}>{project.name}</span>
+                <span class={profileCounts}>
+                  <span class={badgeClass}>{project.language}</span>
+                  <span class={badgeClass}>{formatCount(project.stars)} 星标</span>
+                  <span class={badgeClass}>{formatCount(project.forks)} 派生</span>
+                </span>
+              </span>
+              <span class={`profile-project-summary ${siteCardSummary}`}>{project.summary}</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class={profileSection}>
+      <h2 class={siteH2}>{intro.sections.skills}</h2>
+      <p class={profileSkills}>
+        <img class={profileSkillsImg} src={skills.src} alt={skills.alt} />
+      </p>
+    </section>
+  </div>
+</BaseLayout>

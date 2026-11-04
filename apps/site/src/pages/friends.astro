@@ -1,0 +1,9 @@
+---
+import FriendsGrid from '../components/FriendsGrid.tsx'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { friendsData } from '../lib/friends.ts'
+---
+
+<BaseLayout title={friendsData.title}>
+  <FriendsGrid client:load data={friendsData} />
+</BaseLayout>

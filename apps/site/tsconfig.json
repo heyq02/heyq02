@@ -1,22 +1,14 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "lib": ["es2023", "dom", "dom.iterable"],
     "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "types": ["node"],
-    "moduleResolution": "bundler",
-    "module": "esnext",
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "include": [
-    "env.d.ts",
-    "tests",
-    "vite.config.ts",
-    "rspress.config.ts",
-    "scripts",
-    "lib",
-    "plugins",
-    "theme"
-  ]
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }

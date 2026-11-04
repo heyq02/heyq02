@@ -1,0 +1,153 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source '../components';
+@source '../layouts';
+@source '../pages';
+@source '../lib';
+
+:root {
+  --site-font: 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+  --site-mono: ui-monospace, 'SFMono-Regular', menlo, monaco, consolas, monospace;
+  --site-bg: #ffffff;
+  --site-bg-soft: #f6f7f9;
+  --site-text-1: #213547;
+  --site-text-2: #3c3c43cc;
+  --site-brand: #0095ff;
+  --site-link: #0095ff;
+  --site-divider: #e2e4e9;
+  --site-divider-light: #eef0f3;
+  --site-radius: 0.75rem;
+  --site-radius-small: 0.5rem;
+  --site-shadow-1: 0 1px 2px rgb(0 0 0 / 6%), 0 4px 12px rgb(0 0 0 / 4%);
+  color-scheme: light;
+}
+
+html.dark {
+  --site-bg: #121212;
+  --site-bg-soft: #1b1b1b;
+  --site-text-1: #f3f4f6;
+  --site-text-2: #a1a1aa;
+  --site-brand: #4db8ff;
+  --site-link: #4db8ff;
+  --site-divider: #2a2a2a;
+  --site-divider-light: #232323;
+  --site-shadow-1: 0 1px 2px rgb(0 0 0 / 35%), 0 8px 24px rgb(0 0 0 / 28%);
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--site-bg);
+  color: var(--site-text-1);
+  font-family: var(--site-font);
+}
+
+a {
+  color: inherit;
+}
+
+@theme {
+  --animate-avatar-wobble: avatar-wobble 0.4s ease;
+}
+
+@keyframes avatar-wobble {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-8deg);
+  }
+  55% {
+    transform: rotate(6deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+}
+
+.site-watermark {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.site-watermark__mark {
+  width: min(180vw, 110rem);
+  max-width: none;
+  height: auto;
+  opacity: 0.02;
+  transform: rotate(-24deg) scale(2.5);
+}
+
+html.dark .site-watermark__mark {
+  filter: invert(1);
+  opacity: 0.03;
+}
+
+.site-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.prose-site {
+  --tw-prose-body: var(--site-text-2);
+  --tw-prose-headings: var(--site-text-1);
+  --tw-prose-links: var(--site-link);
+  --tw-prose-bold: var(--site-text-1);
+  --tw-prose-quotes: var(--site-text-1);
+  --tw-prose-code: var(--site-text-1);
+  --tw-prose-hr: var(--site-divider);
+  --tw-prose-th-borders: var(--site-divider);
+  --tw-prose-td-borders: var(--site-divider-light);
+}
+
+/* Posts keep an H1 in the markdown body; layout already renders the title. */
+.prose-site > h1:first-child {
+  display: none;
+}
+
+.admonition {
+  margin: 1.25rem 0;
+  border: 1px solid var(--site-divider-light);
+  border-left-width: 4px;
+  border-radius: var(--site-radius-small);
+  background: var(--site-bg-soft);
+  padding: 0.85rem 1rem;
+}
+
+.admonition-tip,
+.admonition-info,
+.admonition-note {
+  border-left-color: var(--site-brand);
+}
+
+.admonition-warning,
+.admonition-caution {
+  border-left-color: #d97706;
+}
+
+.admonition-danger {
+  border-left-color: #dc2626;
+}
+
+.admonition-title {
+  margin: 0 0 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--site-text-1);
+}
+
+.admonition p:last-child {
+  margin-bottom: 0;
+}
