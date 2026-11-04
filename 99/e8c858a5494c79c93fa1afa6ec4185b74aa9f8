@@ -1,0 +1,26 @@
+apps/site/plugins/tests/site-plugins.test.ts
+  s_9e4cc396e9a614::t_e22e6fac248abb 1-31,36-61
+  s_9e4cc396e9a614::t_bee735538d7d5b 32-35
+apps/site/plugins/tests/about-profile.test.ts
+  s_9e4cc396e9a614::t_6c2b516fab861a 43-48
+  s_9e4cc396e9a614::t_c55ddf1afc79d0 4
+  s_9e4cc396e9a614::t_19c7a7640b5bb0 34-38,40
+  s_9e4cc396e9a614::t_598d5c80182b74 39
+  s_9e4cc396e9a614::t_6ac3d9dba7332d 41-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "99e8c858a5494c79c93fa1afa6ec4185b74aa9f8",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
