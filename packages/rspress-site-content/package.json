@@ -1,6 +1,6 @@
 {
   "name": "@heyq02/rspress-site-content",
-  "version": "2.0.0-beta.7",
+  "version": "2.0.0-beta.8",
   "private": true,
   "description": "Shared site content contracts for heyq02 (intro / friends / likes)",
   "type": "module",
