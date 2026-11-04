@@ -1,18 +1,20 @@
 import type { RspressPlugin } from '@rspress/core'
 
-import type { Intro } from './intro.ts'
 import { prepareProfileOnce } from './prepare-profile.ts'
+import type { PrepareProfileOptions } from './prepare-profile.ts'
+
+export type { Intro } from '@heyq02/rspress-site-content'
 
 export {
   fetchPinnedProjects,
   githubLogin,
   githubToken,
   mapPinnedRepository,
-  PINNED_TIMEOUT_MS
+  PINNED_TIMEOUT_MS,
+  profileStubEnabled,
+  STUB_PINNED_PROJECTS
 } from './github-pinned.ts'
 export type { GraphqlClient, PinnedProject } from './github-pinned.ts'
-export { formatCount } from './intro.ts'
-export type { Contact, Education, Experience, Intro, Place, Skill } from './intro.ts'
 export { prepareProfile, prepareProfileOnce } from './prepare-profile.ts'
 export type { PrepareProfileOptions } from './prepare-profile.ts'
 export {
@@ -21,31 +23,24 @@ export {
   renderHomeMdx,
   renderProfileDataModule
 } from './profile-page.ts'
-export type { ProfilePageView, ProfileProjectView } from './profile-page.ts'
+export type { ProfilePageView, ProfileProjectView, ProfileSkillsPicture } from './profile-page.ts'
 export { skillIconsPicture } from './skills-picture.ts'
 export type { SkillIcon } from './skills-picture.ts'
 
-export interface PluginProfileOptions {
-  /** Absolute path of the site app root (contains `blogs/`). */
-  siteRoot: string
-  /** Profile identity SSOT (typically `static/data/intro.json`). */
-  intro: Intro
-}
+export type PluginProfileOptions = PrepareProfileOptions
 
 /** Fetch pinned repos and regenerate homepage data before Rspress scans routes. */
 export function pluginProfile(options: PluginProfileOptions): RspressPlugin {
-  if (!options.siteRoot) {
-    throw new Error('@heyq02/rspress-plugin-profile: `siteRoot` is required')
+  if (!options.homeMdxPath || !options.profileDataPath) {
+    throw new Error(
+      '@heyq02/rspress-plugin-profile: `homeMdxPath` and `profileDataPath` are required'
+    )
   }
 
   return {
     name: '@heyq02/rspress-plugin-profile',
     async config(config) {
-      await prepareProfileOnce({
-        siteRoot: options.siteRoot,
-        intro: options.intro,
-        format: false
-      })
+      await prepareProfileOnce({ ...options, format: false })
       return config
     }
   }

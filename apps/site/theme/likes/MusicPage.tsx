@@ -1,22 +1,22 @@
 import {
+  Progress,
+  SoftBadge,
   siteCardName,
   siteCardSummary,
   siteDisplay,
   siteH2,
   siteMeta,
   siteMediaLink,
-  siteProgressFill,
-  siteProgressTrack,
   siteRow,
   siteSection,
   siteTile,
   siteWhen
-} from '@heyq02/site-ui'
+} from '@heyq02/rspress-theme-ui'
 import type { ReactElement } from 'react'
 
 import { likesData } from '../likes-data.ts'
 import type { MusicPlaylist, MusicTrack } from '../likes-data.ts'
-import { BackLink, ItemLink, PageShell, badgeClass } from './shared.tsx'
+import { BackLink, ItemLink, LikesShell } from './shared.tsx'
 
 /** Player-style page: featured #1, ranked bars, playlist cover wall. */
 export function MusicPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
@@ -27,7 +27,7 @@ export function MusicPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
   if (ssgMd) {
     return (
-      <PageShell title={title} intro={intro} ssgMd tone='likes-music'>
+      <LikesShell title={title} intro={intro} ssgMd tone='likes-music'>
         <BackLink />
         <h2 className={siteH2}>{listening.title}</h2>
         <ul>
@@ -51,12 +51,12 @@ export function MusicPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
             </li>
           ))}
         </ul>
-      </PageShell>
+      </LikesShell>
     )
   }
 
   return (
-    <PageShell title={title} intro={intro} ssgMd={false} tone='likes-music'>
+    <LikesShell title={title} intro={intro} ssgMd={false} tone='likes-music'>
       <p className={`-mt-rp-6 mb-0 ${siteMeta}`}>
         {listening.period} · 更新于 {listening.updatedAt}
       </p>
@@ -88,7 +88,7 @@ export function MusicPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
           ))}
         </ul>
       </section>
-    </PageShell>
+    </LikesShell>
   )
 }
 
@@ -106,23 +106,20 @@ function FeaturedTrack({ track }: { track: MusicTrack }): ReactElement {
         height={160}
       />
       <span className='gap-rp-2 grid content-center'>
-        <span className={badgeClass}>
+        <SoftBadge>
           #{track.rank} · {track.plays} 次
-        </span>
+        </SoftBadge>
         <span className={siteDisplay}>{track.title}</span>
         <span className={siteCardSummary}>
           {track.artist} · {track.album}
         </span>
-        <span className={`mt-rp-1 h-1.5 max-w-sm ${siteProgressTrack}`}>
-          <span className={`${siteProgressFill} w-[92%]`} />
-        </span>
+        <Progress className='mt-rp-1 h-1.5 max-w-sm' fillClassName='w-[92%]' />
       </span>
     </ItemLink>
   )
 }
 
 function RankRow({ track, maxPlays }: { track: MusicTrack; maxPlays: number }): ReactElement {
-  const width = `${Math.max(12, Math.round((track.plays / maxPlays) * 100))}%`
   return (
     <ItemLink
       href={track.href}
@@ -143,12 +140,11 @@ function RankRow({ track, maxPlays }: { track: MusicTrack; maxPlays: number }): 
           <span className={siteWhen}>{track.plays}</span>
         </span>
         <span className={`truncate ${siteCardSummary}`}>{track.artist}</span>
-        <span className={`h-1 ${siteProgressTrack}`}>
-          <span
-            className='block h-full rounded-full bg-[color-mix(in_oklab,var(--rp-c-brand)_75%,transparent)]'
-            style={{ width }}
-          />
-        </span>
+        <Progress
+          className='h-1'
+          value={Math.max(12, Math.round((track.plays / maxPlays) * 100))}
+          fillClassName='bg-[color-mix(in_oklab,var(--rp-c-brand)_75%,transparent)]'
+        />
       </span>
     </ItemLink>
   )

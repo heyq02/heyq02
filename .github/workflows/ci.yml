@@ -1,4 +1,4 @@
-# Lint and typecheck on pull requests and pushes to main.
+# Lint, typecheck, and site build on pull requests and pushes to main.
 name: CI
 
 on:
@@ -32,3 +32,9 @@ jobs:
 
       - name: Check
         run: vp run ccheck
+
+      # Offline pin fixture — avoids GitHub GraphQL in PR CI.
+      - name: Build site
+        env:
+          HEYQ02_PROFILE_STUB: '1'
+        run: vp run @heyq02/site#cbuild

@@ -1,34 +1,15 @@
 {
   "name": "@heyq02/rspress-plugin-site-assets",
   "version": "2.0.0-beta.4",
+  "private": true,
   "description": "Rspress plugin: copy site public assets (favicon, signature, WeChat QR, watermark) into blogs/public",
-  "homepage": "https://github.com/heyq02/heyq02/tree/main/packages/rspress-plugin-site-assets",
-  "bugs": {
-    "url": "https://github.com/heyq02/heyq02/issues"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/heyq02/heyq02.git",
-    "directory": "packages/rspress-plugin-site-assets"
-  },
-  "files": [
-    "dist",
-    "src"
-  ],
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
     "./package.json": "./package.json"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "build": "vp pack",
-    "check": "vp check",
-    "dev": "vp pack --watch",
-    "prepublishOnly": "vp run build"
+    "check": "vp check"
   },
   "devDependencies": {
     "@rspress/core": "^2.1.0-beta.2",

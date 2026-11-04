@@ -1,4 +1,4 @@
-import { siteH1, siteHeaderRule } from '@heyq02/site-ui'
+import { siteH1, siteHeaderRule } from '@heyq02/rspress-theme-ui'
 import { Badge } from '@rspress/core/theme'
 import { useState } from 'react'
 import type { ReactElement } from 'react'

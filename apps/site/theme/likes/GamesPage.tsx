@@ -8,12 +8,12 @@ import {
   siteSection,
   siteSurface,
   siteWhen
-} from '@heyq02/site-ui'
+} from '@heyq02/rspress-theme-ui'
 import type { ReactElement } from 'react'
 
 import { likesData } from '../likes-data.ts'
 import type { ShelfItem } from '../likes-data.ts'
-import { BackLink, ItemLink, PageShell, badgeClass } from './shared.tsx'
+import { BackLink, ItemLink, LikesShell, badgeClass } from './shared.tsx'
 
 const overlayChip = 'rounded-full bg-white/15 px-rp-2 py-rp-1 text-rp-xs backdrop-blur-sm'
 
@@ -25,7 +25,7 @@ export function GamesPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
   if (ssgMd) {
     return (
-      <PageShell title={shelf.title} intro={shelf.intro} ssgMd tone='likes-games'>
+      <LikesShell title={shelf.title} intro={shelf.intro} ssgMd tone='likes-games'>
         <BackLink />
         {shelf.sections.map(section => (
           <div key={section.id}>
@@ -40,12 +40,12 @@ export function GamesPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
             </ul>
           </div>
         ))}
-      </PageShell>
+      </LikesShell>
     )
   }
 
   return (
-    <PageShell title={shelf.title} intro={shelf.intro} ssgMd={false} tone='likes-games'>
+    <LikesShell title={shelf.title} intro={shelf.intro} ssgMd={false} tone='likes-games'>
       <BackLink />
 
       <section className={siteSection}>
@@ -67,7 +67,7 @@ export function GamesPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
           ))}
         </ul>
       </section>
-    </PageShell>
+    </LikesShell>
   )
 }
 

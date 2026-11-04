@@ -48,7 +48,8 @@ jobs:
 
       # `vp pm stage publish` does not take --no-git-checks (unlike `vp pm publish`).
       # sxzz/workflows@vp still passes that flag and fails under current vite-plus.
+      # Only the CLI is publishable; workspace site/plugin packages are private.
       - name: Publish to NPM
-        run: vp pm stage publish --access public -r
+        run: vp pm stage publish --access public --filter ./apps/cli
         env:
           NPM_CONFIG_PROVENANCE: true

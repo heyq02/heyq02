@@ -2,7 +2,7 @@ import { spawn } from 'node:child_process'
 import { cp } from 'node:fs/promises'
 import { resolve as resolvePath } from 'node:path'
 
-import intro from '../../../static/data/intro.json' with { type: 'json' }
+import intro from '../../../content/data/intro.json' with { type: 'json' }
 import { absolutizeMarkdownLinks } from './absolutize-md-links.ts'
 
 const site = resolvePath(import.meta.dirname, '..')

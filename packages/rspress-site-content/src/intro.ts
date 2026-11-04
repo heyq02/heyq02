@@ -1,4 +1,4 @@
-/** Profile intro SSOT shape (matches `static/data/intro.json`). */
+/** Profile intro SSOT shape (matches `content/data/intro.json`). */
 
 export interface Place {
   label: string

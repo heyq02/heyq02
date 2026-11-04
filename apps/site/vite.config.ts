@@ -7,7 +7,7 @@ export default liangmi({
         command: 'node --experimental-strip-types ./scripts/build.ts',
         cache: {
           // Task env is isolated, so declare what the build needs to receive.
-          untrackedEnv: ['GITHUB_TOKEN']
+          untrackedEnv: ['GITHUB_TOKEN', 'HEYQ02_PROFILE_STUB']
         }
       },
       dev: {

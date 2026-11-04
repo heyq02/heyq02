@@ -1,18 +1,18 @@
 import {
+  CardLink,
+  CardSummary,
+  CardTitle,
+  Section,
+  TextLink,
+  When,
   siteCardChrome,
-  siteCardName,
-  siteCardSummary,
-  siteH2,
-  siteLink,
-  sitePageRoot,
-  siteSection,
-  siteWhen
-} from '@heyq02/site-ui'
+  sitePageRoot
+} from '@heyq02/rspress-theme-ui'
 import { Badge } from '@rspress/core/theme'
 import type { ReactElement } from 'react'
 
 import { intro } from '../lib/intro.ts'
-import { pinnedProjects } from './profile-data.ts'
+import { pinnedProjects, skillsPicture } from './profile-data.ts'
 import type { ProfileProject } from './profile-data.ts'
 import { ProfilePlay } from './ProfilePlay.tsx'
 
@@ -28,32 +28,23 @@ const profileList = 'mt-rp-3 mb-0 list-disc pl-rp-5 leading-relaxed text-rp-mute
 
 const profileEduMeta = 'profile-edu-meta mt-rp-2 mb-0 text-rp-md leading-relaxed text-rp-muted'
 
-const profileCard = `profile-project group grid gap-rp-2 ${siteCardChrome} [&_.rp-badge]:no-underline`
-
-const skillsPicture = (() => {
-  const named = intro.skills.filter(skill => skill.icon)
-  const icons = named.map(skill => skill.icon).join(',')
-  const alt = named.map(skill => skill.name).join(', ')
-  const perline = Math.max(named.length, 1)
-  return {
-    alt,
-    src: `https://simpleicons.dev/icons?icons=${icons}&perline=${perline}&theme=light`
-  }
-})()
-
 function ProjectCard({ project }: { project: ProfileProject }): ReactElement {
   return (
-    <a className={profileCard} href={project.href} data-card=''>
+    <CardLink
+      href={project.href}
+      className={`profile-project gap-rp-2 grid ${siteCardChrome} [&_.rp-badge]:no-underline`}
+      external={false}
+    >
       <span className='profile-project-top gap-rp-2 grid'>
-        <span className={`profile-project-name ${siteCardName}`}>{project.name}</span>
+        <CardTitle className='profile-project-name'>{project.name}</CardTitle>
         <span className='profile-counts gap-rp-1 m-0 flex flex-wrap'>
           <Badge text={project.language} type='info' />
           <Badge text={`${project.stars} 星标`} type='info' />
           <Badge text={`${project.forks} 派生`} type='info' />
         </span>
       </span>
-      <span className={`profile-project-summary ${siteCardSummary}`}>{project.summary}</span>
-    </a>
+      <CardSummary className='profile-project-summary'>{project.summary}</CardSummary>
+    </CardLink>
   )
 }
 
@@ -99,36 +90,32 @@ export function ProfilePage({
     <div className={`profile ${sitePageRoot}`}>
       <ProfilePlay tags={intro.tags} />
 
-      <section className={`profile-section ${siteSection}`}>
-        <h2 className={siteH2}>{intro.sections.education}</h2>
+      <Section marker='profile-section' title={intro.sections.education}>
         {intro.education.map(item => (
           <article key={item.school} className={`${profileJob} profile-edu`}>
             <div className={profileJobHead}>
               <h3 className={profileH3}>{item.school}</h3>
-              <p className={`profile-when ${siteWhen}`}>
+              <When className='profile-when'>
                 {item.start} – {item.end}
-              </p>
+              </When>
             </div>
             <p className={profileEduMeta}>
               {item.degree} · {item.major}
             </p>
           </article>
         ))}
-      </section>
+      </Section>
 
-      <section className={`profile-section ${siteSection}`}>
-        <h2 className={siteH2}>{intro.sections.experience}</h2>
+      <Section marker='profile-section' title={intro.sections.experience}>
         {intro.experiences.map(job => (
           <article key={job.company} className={profileJob}>
             <div className={profileJobHead}>
               <h3 className={profileH3}>
-                <a className={siteLink} href={job.href}>
-                  {job.company}
-                </a>
+                <TextLink href={job.href}>{job.company}</TextLink>
               </h3>
-              <p className={`profile-when ${siteWhen}`}>
+              <When className='profile-when'>
                 {job.start} – {job.end}
-              </p>
+              </When>
             </div>
             <ul className={profileList}>
               {job.points.map(point => (
@@ -137,19 +124,17 @@ export function ProfilePage({
             </ul>
           </article>
         ))}
-      </section>
+      </Section>
 
-      <section className={`profile-section ${siteSection}`}>
-        <h2 className={siteH2}>{intro.sections.openSource}</h2>
+      <Section marker='profile-section' title={intro.sections.openSource}>
         <div className='profile-projects gap-rp-3 grid'>
           {pinnedProjects.map(project => (
             <ProjectCard key={project.href} project={project} />
           ))}
         </div>
-      </section>
+      </Section>
 
-      <section className={`profile-section ${siteSection}`}>
-        <h2 className={siteH2}>{intro.sections.skills}</h2>
+      <Section marker='profile-section' title={intro.sections.skills}>
         <p className='profile-skills m-0'>
           <img
             className='block h-auto max-w-full dark:invert'
@@ -157,7 +142,7 @@ export function ProfilePage({
             alt={skillsPicture.alt}
           />
         </p>
-      </section>
+      </Section>
     </div>
   )
 }

@@ -1,37 +1,19 @@
 {
   "name": "@heyq02/rspress-plugin-profile",
   "version": "2.0.0-beta.4",
+  "private": true,
   "description": "Rspress plugin: fetch GitHub pins and regenerate homepage data for the React profile page",
-  "homepage": "https://github.com/heyq02/heyq02/tree/main/packages/rspress-plugin-profile",
-  "bugs": {
-    "url": "https://github.com/heyq02/heyq02/issues"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/heyq02/heyq02.git",
-    "directory": "packages/rspress-plugin-profile"
-  },
-  "files": [
-    "dist",
-    "src"
-  ],
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
     "./package.json": "./package.json"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "build": "vp pack",
-    "check": "vp check",
-    "dev": "vp pack --watch",
-    "prepublishOnly": "vp run build"
+    "check": "vp check"
   },
   "dependencies": {
     "@heyq02/rspress-plugin-utils": "workspace:*",
+    "@heyq02/rspress-site-content": "workspace:*",
     "@octokit/graphql": "^9.0.5"
   },
   "devDependencies": {

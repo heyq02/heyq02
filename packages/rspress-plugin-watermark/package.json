@@ -1,36 +1,16 @@
 {
   "name": "@heyq02/rspress-plugin-watermark",
   "version": "2.0.0-beta.4",
+  "private": true,
   "description": "Rspress plugin: diagonal page watermark via globalUIComponents",
-  "homepage": "https://github.com/heyq02/heyq02/tree/main/packages/rspress-plugin-watermark",
-  "bugs": {
-    "url": "https://github.com/heyq02/heyq02/issues"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/heyq02/heyq02.git",
-    "directory": "packages/rspress-plugin-watermark"
-  },
-  "files": [
-    "dist",
-    "static",
-    "src"
-  ],
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
     "./Watermark": "./static/Watermark.tsx",
     "./package.json": "./package.json"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "build": "vp pack",
-    "check": "vp check",
-    "dev": "vp pack --watch",
-    "prepublishOnly": "vp run build"
+    "check": "vp check"
   },
   "devDependencies": {
     "@rspress/core": "^2.1.0-beta.2",

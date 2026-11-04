@@ -6,12 +6,12 @@ import {
   siteSection,
   siteTile,
   siteWhen
-} from '@heyq02/site-ui'
+} from '@heyq02/rspress-theme-ui'
 import type { ReactElement } from 'react'
 
 import { likesData } from '../likes-data.ts'
 import type { ShelfItem } from '../likes-data.ts'
-import { BackLink, ItemLink, PageShell } from './shared.tsx'
+import { BackLink, ItemLink, LikesShell } from './shared.tsx'
 
 /** Desk / toolkit layout: hero device + peripheral strip + app dock. */
 export function UsesPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
@@ -23,7 +23,7 @@ export function UsesPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
   if (ssgMd) {
     return (
-      <PageShell title={shelf.title} intro={shelf.intro} ssgMd tone='likes-uses'>
+      <LikesShell title={shelf.title} intro={shelf.intro} ssgMd tone='likes-uses'>
         <BackLink />
         <h2 className={siteH2}>设备</h2>
         <ul>
@@ -43,12 +43,12 @@ export function UsesPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
             </li>
           ))}
         </ul>
-      </PageShell>
+      </LikesShell>
     )
   }
 
   return (
-    <PageShell title={shelf.title} intro={shelf.intro} ssgMd={false} tone='likes-uses'>
+    <LikesShell title={shelf.title} intro={shelf.intro} ssgMd={false} tone='likes-uses'>
       <BackLink />
 
       <section className={siteSection}>
@@ -86,7 +86,7 @@ export function UsesPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
           ))}
         </ul>
       </section>
-    </PageShell>
+    </LikesShell>
   )
 }
 
