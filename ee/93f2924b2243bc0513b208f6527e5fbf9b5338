@@ -1,0 +1,78 @@
+packages/rspress-theme-about/tsconfig.json
+  s_9e4cc396e9a614::t_c5419a9490b189 2,4-6
+apps/site/tests/nav-active.test.ts
+  s_9e4cc396e9a614::t_363a8cb6960ef2 28-30
+  s_9e4cc396e9a614::t_4f849d67cb3162 14-15,39-42,50
+apps/site/plugins/tests/root-redirect.test.ts
+  s_9e4cc396e9a614::t_1cad31fb70c901 1-14
+packages/rspress-theme-about/vite.config.ts
+  s_9e4cc396e9a614::t_005e7f48bd738d 4-6
+apps/site/tests/rspress-config.test.ts
+  s_9e4cc396e9a614::t_4fcb43b520266b 7-8
+  s_9e4cc396e9a614::t_8273f5bdddb5ad 47
+  s_9e4cc396e9a614::t_92c0e4dbc93209 46
+packages/rspress-theme-about/tests/about.test.ts
+  s_9e4cc396e9a614::t_8e63c89a7b3e3b 53
+  s_9e4cc396e9a614::t_a103c3096867b9 75-83
+  s_9e4cc396e9a614::t_5bcdd88bf9abca 1-52,54-74,84-98,102
+  s_9e4cc396e9a614::t_70a412cd66a08e 99-101
+apps/site/plugins/about-profile.ts
+  s_9e4cc396e9a614::t_8f0345dd94c9c9 1-34,37-49
+  s_9e4cc396e9a614::t_ce58c76bb982e0 35-36
+apps/site/e2e/site.spec.ts
+  s_9e4cc396e9a614::t_15f807f4915ea8 4,6,9,11-22,35-36
+apps/site/plugins/tests/about-profile.test.ts
+  s_9e4cc396e9a614::t_6c2b516fab861a 33-34
+  s_9e4cc396e9a614::t_19c7a7640b5bb0 29,31-32
+  s_9e4cc396e9a614::t_69335f95c59b89 36
+  s_9e4cc396e9a614::t_6ac3d9dba7332d 1-28,30,35,37-45
+apps/site/blogs/index.mdx
+  s_9e4cc396e9a614::t_e11d34c47f840d 1-5,7-8
+  s_9e4cc396e9a614::t_acfe9c652e6cd4 6
+packages/rspress-theme-about/src/index.ts
+  s_9e4cc396e9a614::t_f47f88a111f0bd 1-36,38-48
+  s_9e4cc396e9a614::t_e4a3020850d613 37
+packages/rspress-theme-about/src/about.ts
+  s_9e4cc396e9a614::t_f9f4336dca5a0b 45-46
+  s_9e4cc396e9a614::t_fadf570d37c55d 139-141
+  s_9e4cc396e9a614::t_f0e42ec511f24e 1-44,47-138,142-160
+packages/rspress-theme-about/tests/plugin.test.ts
+  s_9e4cc396e9a614::t_8ecbd7259a87e5 1-30
+apps/site/plugins/index.ts
+  s_9e4cc396e9a614::t_f94309691d5b9a 4,43,63-64
+  s_9e4cc396e9a614::t_1cd0f446feb23f 56-57
+  s_9e4cc396e9a614::t_c55dcb69dd5282 1,5-7,21-39
+  s_9e4cc396e9a614::t_c02059ec6ae7bd 45-55,58-62,65-71,73,75
+  s_9e4cc396e9a614::t_40d8afa047edbb 40-42,44
+apps/site/blogs/_nav.json
+  s_9e4cc396e9a614::t_c9b55252f2a2a5 7-10
+  s_9e4cc396e9a614::t_8fc3538344f66b 11
+apps/site/rspress.config.ts
+  s_9e4cc396e9a614::t_e950fbe23bec3b 52
+  s_9e4cc396e9a614::t_6d96b905770d28 51
+  s_9e4cc396e9a614::t_acfe9c652e6cd4 12
+apps/site/package.json
+  s_9e4cc396e9a614::t_5b283e739aaa5e 16
+.gitignore
+  s_9e4cc396e9a614::t_d2708467cb5bef 6
+packages/rspress-theme-about/package.json
+  s_9e4cc396e9a614::t_cb2a1e7ea5b4e7 3-5,7,12-13,16-17,21,35-37,39-41
+pnpm-lock.yaml
+  s_9e4cc396e9a614::t_31c146b51835f4 250-252,381-383,385,388
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "ee93f2924b2243bc0513b208f6527e5fbf9b5338",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
