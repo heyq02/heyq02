@@ -1,0 +1,21 @@
+apps/site/theme/index.tsx
+  s_9e4cc396e9a614::t_caeb746253e9a3 11,15-23
+apps/site/theme/tests/Layout.test.tsx
+  s_9e4cc396e9a614::t_88bc5645d50fcf 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "2d2a549edfb4b4350c143781bdd9422eed2dd3e1",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
