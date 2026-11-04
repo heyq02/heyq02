@@ -43,7 +43,6 @@ export default liangmi({
       ],
       exclude: [
         '**/env.d.ts',
-        '**/css.d.ts',
         '**/*.css',
         '**/vite.config.ts',
         '**/*.e2e.ts',

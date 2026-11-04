@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { ReactElement } from 'react'
 
 import { intro } from '../lib/intro.ts'
-import { siteH1, siteHeaderRule } from './ui-classes.ts'
+import { siteH1, siteHeaderRule } from '../lib/site-ui.ts'
 
 interface ProfilePlayProps {
   tags: ReactElement

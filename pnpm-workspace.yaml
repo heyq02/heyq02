@@ -14,5 +14,3 @@ peerDependencyRules:
     typescript: '*'
 packages:
   - 'apps/*'
-minimumReleaseAgeExclude:
-  - marked-terminal@8.0.0
