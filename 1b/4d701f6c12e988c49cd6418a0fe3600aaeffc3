@@ -1,0 +1,33 @@
+packages/rspress-plugin-auto-meta/tests/plugin.test.ts
+  s_9e4cc396e9a614::t_348aea20eeda40 38,45,48-49,51-54
+packages/rspress-plugin-auto-meta/src/meta.ts
+  s_9e4cc396e9a614::t_1474830ba0b2ee 15-51,54
+apps/site/rspress.config.ts
+  s_9e4cc396e9a614::t_5570e9b5b67a82 52-66
+  s_9e4cc396e9a614::t_4fa5f5f4339bf9 3,12,16
+apps/site/tests/rspress-config.test.ts
+  s_9e4cc396e9a614::t_bcac41e89ea2ce 9-10
+  s_9e4cc396e9a614::t_d80d18e06960a7 46
+  s_9e4cc396e9a614::t_911c1b8d8f25b9 11
+packages/rspress-plugin-auto-meta/src/index.ts
+  s_9e4cc396e9a614::t_1478d2ac8addd6 10
+  s_9e4cc396e9a614::t_f089769d6588e1 27-28,41
+pnpm-lock.yaml
+  s_9e4cc396e9a614::t_af17b15d24092e 241-243
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "1b4d701f6c12e988c49cd6418a0fe3600aaeffc3",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
