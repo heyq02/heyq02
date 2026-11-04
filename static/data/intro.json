@@ -129,9 +129,5 @@
       "href": "https://www.docker.com/",
       "summary": "构建、分发与运行应用的开放平台"
     }
-  ],
-  "projectSummaries": {
-    "simpleicons.dev": "轻松在 GitHub README 或简历上展示你的技能图标。",
-    "keyboard-source-locker": "macOS 菜单栏小工具，把当前输入法锁定在你指定的那一个。"
-  }
+  ]
 }

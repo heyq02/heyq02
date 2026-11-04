@@ -24,8 +24,9 @@ it('keeps identity copy in Chinese', () => {
   expect(intro.places.find(place => place.label === 'WeChat')?.detail).toBe('扫码添加')
 })
 
-it('carries Chinese project blurbs keyed by repo name', () => {
-  expect(intro.projectSummaries['simpleicons.dev']).toContain('技能图标')
+it('no longer carries a parallel project summary table', () => {
+  // Project copy comes straight from GitHub; intro must not shadow it.
+  expect(intro).not.toHaveProperty('projectSummaries')
 })
 
 it('formats counts under and over one thousand', () => {

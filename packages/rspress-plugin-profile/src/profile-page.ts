@@ -58,8 +58,7 @@ export function profilePage(projects: PinnedProject[] = []): ProfilePage {
     projects: projects.map(project => ({
       name: project.name,
       href: project.href,
-      // Chinese blurb from intro when present; falls back to the GitHub description.
-      summary: intro.projectSummaries[project.name] ?? project.summary,
+      summary: project.summary,
       language: project.language,
       stars: formatCount(project.stars),
       forks: formatCount(project.forks)
