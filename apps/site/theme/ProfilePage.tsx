@@ -60,7 +60,7 @@ function ProjectCard({ project }: { project: ProfileProject }): ReactElement {
   )
 }
 
-/** Homepage profile — React page aligned with friends/likes shells. */
+/** Homepage profile — React page aligned with friends shell. */
 export function ProfilePage({
   ssgMd = Boolean(import.meta.env.SSG_MD)
 }: {

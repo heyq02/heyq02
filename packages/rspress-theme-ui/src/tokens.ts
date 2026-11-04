@@ -27,7 +27,7 @@ export const sitePanelChrome = `${siteSurface} px-rp-4 py-rp-4`
 /** Interactive card chrome shared by project/post/friend cards. */
 export const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-soft hover:text-inherit hover:!no-underline ${siteFocusRing}`
 
-/** Linkable soft tile without default padding (likes grids). */
+/** Linkable soft tile without default padding. */
 export const siteTile = `${siteSurface} no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-soft hover:!no-underline ${siteFocusRing}`
 
 /** Compact list row with soft hover (music ranks, book rows). */

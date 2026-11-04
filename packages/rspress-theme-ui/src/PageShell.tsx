@@ -16,7 +16,7 @@ export function PageShell({
   intro?: string
   children: ReactNode
   ssgMd?: boolean
-  /** Extra class on root for page-specific chrome hooks (e.g. `likes`, `friends`). */
+  /** Extra class on root for page-specific chrome hooks (e.g. `friends`). */
   tone?: string
   rootClassName?: string
   /** Optional mono tip under intro (hidden in SSG-MD). */

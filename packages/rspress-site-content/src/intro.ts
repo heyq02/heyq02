@@ -51,7 +51,6 @@ export interface Intro {
     about: string
     blog: string
     contributions: string
-    likes: string
     skills: string
     openSource: string
   }
