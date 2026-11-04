@@ -1,4 +1,4 @@
-import type { Intro, Place } from '@heyq02/content'
+import type { Intro, Place } from '@heyq02/rspress-site-content'
 import { graphql } from '@octokit/graphql'
 
 export interface PinnedProject {

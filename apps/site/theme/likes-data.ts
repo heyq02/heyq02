@@ -1,4 +1,4 @@
-import type { LikesCategoryId, LikesData, Shelf } from '@heyq02/content'
+import type { LikesCategoryId, LikesData, Shelf } from '@heyq02/rspress-site-content'
 
 import data from '../../../static/data/likes.json' with { type: 'json' }
 
@@ -12,7 +12,7 @@ export type {
   Shelf,
   ShelfItem,
   ShelfSection
-} from '@heyq02/content'
+} from '@heyq02/rspress-site-content'
 
 const raw = data satisfies LikesData
 

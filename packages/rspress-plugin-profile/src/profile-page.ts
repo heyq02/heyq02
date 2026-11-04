@@ -1,5 +1,5 @@
-import { formatCount } from '@heyq02/content'
-import type { Intro } from '@heyq02/content'
+import { formatCount } from '@heyq02/rspress-site-content'
+import type { Intro } from '@heyq02/rspress-site-content'
 
 import type { PinnedProject } from './github-pinned.ts'
 import { skillIconsPicture } from './skills-picture.ts'

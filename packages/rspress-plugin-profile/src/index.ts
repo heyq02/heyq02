@@ -3,7 +3,7 @@ import type { RspressPlugin } from '@rspress/core'
 import { prepareProfileOnce } from './prepare-profile.ts'
 import type { PrepareProfileOptions } from './prepare-profile.ts'
 
-export type { Intro } from '@heyq02/content'
+export type { Intro } from '@heyq02/rspress-site-content'
 
 export {
   fetchPinnedProjects,

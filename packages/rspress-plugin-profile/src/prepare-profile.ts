@@ -1,6 +1,6 @@
-import type { Intro } from '@heyq02/content'
 import { formatGenerated, writeIfChanged } from '@heyq02/rspress-plugin-utils'
 import type { SpawnFn } from '@heyq02/rspress-plugin-utils'
+import type { Intro } from '@heyq02/rspress-site-content'
 
 import { fetchPinnedProjects } from './github-pinned.ts'
 import type { PinnedProject } from './github-pinned.ts'

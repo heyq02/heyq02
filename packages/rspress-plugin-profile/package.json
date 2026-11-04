@@ -12,8 +12,8 @@
     "check": "vp check"
   },
   "dependencies": {
-    "@heyq02/content": "workspace:*",
     "@heyq02/rspress-plugin-utils": "workspace:*",
+    "@heyq02/rspress-site-content": "workspace:*",
     "@octokit/graphql": "^9.0.5"
   },
   "devDependencies": {
