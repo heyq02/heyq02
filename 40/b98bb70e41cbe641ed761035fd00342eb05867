@@ -1,0 +1,19 @@
+apps/site/plugins/tests/github-pinned.test.ts
+  s_9e4cc396e9a614::t_eb948f0bab8821 139-141,143
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "40b98bb70e41cbe641ed761035fd00342eb05867",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
