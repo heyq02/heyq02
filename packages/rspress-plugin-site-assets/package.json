@@ -1,6 +1,6 @@
 {
   "name": "@heyq02/rspress-plugin-site-assets",
-  "version": "2.0.0-beta.4",
+  "version": "2.0.0-beta.5",
   "private": true,
   "description": "Rspress plugin: prepare blogs/public assets and post-process production dist (SSG-MD links, CNAME)",
   "type": "module",
