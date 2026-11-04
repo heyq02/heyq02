@@ -244,6 +244,9 @@ importers:
       '@heyq02/rspress-plugin-watermark':
         specifier: workspace:*
         version: link:../../packages/rspress-plugin-watermark
+      '@heyq02/site-ui':
+        specifier: workspace:*
+        version: link:../../packages/site-ui
       '@rspress/core':
         specifier: ^2.1.0-beta.2
         version: 2.1.0-beta.2(@rspack/core@2.3.0(@swc/helpers@0.5.23))(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
@@ -286,6 +289,10 @@ importers:
         version: 1.4.0(@types/node@26.6.6)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(happy-dom@21.0.4)(jiti@2.7.0)(jsdom@27.4.0(supports-color@7.2.0))(playwright@1.64.1)(typescript@7.0.2)(yaml@2.9.1)
 
   packages/rspress-plugin-blog-meta:
+    dependencies:
+      '@heyq02/rspress-plugin-utils':
+        specifier: workspace:*
+        version: link:../rspress-plugin-utils
     devDependencies:
       '@rspress/core':
         specifier: ^2.1.0-beta.2
@@ -324,6 +331,9 @@ importers:
 
   packages/rspress-plugin-profile:
     dependencies:
+      '@heyq02/rspress-plugin-utils':
+        specifier: workspace:*
+        version: link:../rspress-plugin-utils
       '@octokit/graphql':
         specifier: ^9.0.5
         version: 9.0.5
@@ -356,6 +366,18 @@ importers:
         specifier: 'catalog:'
         version: 1.4.0(@types/node@26.6.6)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(happy-dom@21.0.4)(jiti@2.7.0)(jsdom@27.4.0(supports-color@7.2.0))(playwright@1.64.1)(typescript@7.0.2)(yaml@2.9.1)
 
+  packages/rspress-plugin-utils:
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.6.6
+      typescript:
+        specifier: 'catalog:'
+        version: 7.0.2
+      vite-plus:
+        specifier: 'catalog:'
+        version: 1.4.0(@types/node@26.6.6)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(happy-dom@21.0.4)(jiti@2.7.0)(jsdom@27.4.0(supports-color@7.2.0))(playwright@1.64.1)(typescript@7.0.2)(yaml@2.9.1)
+
   packages/rspress-plugin-watermark:
     devDependencies:
       '@rspress/core':
@@ -376,6 +398,15 @@ importers:
       react-dom:
         specifier: ^19.3.0
         version: 19.3.1(react@19.3.1)
+      typescript:
+        specifier: 'catalog:'
+        version: 7.0.2
+      vite-plus:
+        specifier: 'catalog:'
+        version: 1.4.0(@types/node@26.6.6)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(happy-dom@21.0.4)(jiti@2.7.0)(jsdom@27.4.0(supports-color@7.2.0))(playwright@1.64.1)(typescript@7.0.2)(yaml@2.9.1)
+
+  packages/site-ui:
+    devDependencies:
       typescript:
         specifier: 'catalog:'
         version: 7.0.2
@@ -4203,18 +4234,6 @@ snapshots:
       react: 19.3.1
       unhead: 2.1.17
 
-  '@vitest/browser-preview@5.0.5(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(typescript@7.0.2)(yaml@2.9.1))(vitest@5.0.5)':
-    dependencies:
-      '@testing-library/dom': 10.4.2
-      '@testing-library/user-event': 14.6.8(@testing-library/dom@10.4.2)
-      '@vitest/browser': 5.0.5(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(typescript@7.0.2)(yaml@2.9.1))(vitest@5.0.5)
-      vitest: 5.0.5(@types/node@26.6.6)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(typescript@7.0.2)(yaml@2.9.1))(happy-dom@21.0.4)(jsdom@27.4.0(supports-color@7.2.0))
-    transitivePeerDependencies:
-      - bufferutil
-      - msw
-      - utf-8-validate
-      - vite
-
   '@vitest/browser-preview@5.0.5(@voidzero-dev/vite-plus-core@1.4.0(@types/node@26.6.6)(jiti@2.7.0)(typescript@7.0.2)(yaml@2.9.1))(vitest@5.0.5)':
     dependencies:
       '@testing-library/dom': 10.4.2
@@ -6269,32 +6288,6 @@ snapshots:
       - utf-8-validate
       - vue-tsc
       - yaml
-
-  vitest@5.0.5(@types/node@26.6.6)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(typescript@7.0.2)(yaml@2.9.1))(happy-dom@21.0.4)(jsdom@27.4.0(supports-color@7.2.0)):
-    dependencies:
-      '@types/chai': 5.2.3
-      '@vitest/mocker': 5.0.5(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(typescript@7.0.2)(yaml@2.9.1))
-      chai: 6.3.0
-      es-module-lexer: 2.3.2
-      expect-type: 1.4.0
-      magic-string: 1.4.3
-      obug: 3.0.0
-      picomatch: 4.0.7
-      std-env: 4.3.0
-      tinybench: 6.2.2
-      tinyexec: 1.3.1
-      tinyglobby: 0.2.17
-      vite: '@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(typescript@7.0.2)(yaml@2.9.1)'
-      why-is-node-running: 3.2.1
-    optionalDependencies:
-      '@types/node': 26.6.6
-      '@vitest/browser-preview': 5.0.5(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(typescript@7.0.2)(yaml@2.9.1))(vitest@5.0.5)
-      '@vitest/coverage-v8': 5.0.5(@vitest/browser@5.0.5)(vitest@5.0.5)
-      '@vitest/ui': 5.0.5(vitest@5.0.5)
-      happy-dom: 21.0.4
-      jsdom: 27.4.0(supports-color@7.2.0)
-    transitivePeerDependencies:
-      - msw
 
   vitest@5.0.5(@types/node@26.6.6)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(@voidzero-dev/vite-plus-core@1.4.0(@types/node@26.6.6)(jiti@2.7.0)(typescript@7.0.2)(yaml@2.9.1))(happy-dom@21.0.4)(jsdom@27.4.0(supports-color@7.2.0)):
     dependencies:

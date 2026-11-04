@@ -1,7 +1,7 @@
 {
   "name": "@heyq02/rspress-plugin-profile",
   "version": "2.0.0-beta.4",
-  "description": "Rspress plugin: regenerate homepage index.mdx from intro SSOT and GitHub pinned repos",
+  "description": "Rspress plugin: fetch GitHub pins and regenerate homepage data for the React profile page",
   "homepage": "https://github.com/heyq02/heyq02/tree/main/packages/rspress-plugin-profile",
   "bugs": {
     "url": "https://github.com/heyq02/heyq02/issues"
@@ -31,6 +31,7 @@
     "prepublishOnly": "vp run build"
   },
   "dependencies": {
+    "@heyq02/rspress-plugin-utils": "workspace:*",
     "@octokit/graphql": "^9.0.5"
   },
   "devDependencies": {

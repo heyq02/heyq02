@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react'
-
 import {
   siteCardName,
   siteCardSummary,
@@ -10,7 +8,9 @@ import {
   siteSection,
   siteSurface,
   siteWhen
-} from '../../lib/site-ui.ts'
+} from '@heyq02/site-ui'
+import type { ReactElement } from 'react'
+
 import { likesData } from '../likes-data.ts'
 import type { ShelfItem } from '../likes-data.ts'
 import { BackLink, ItemLink, PageShell, badgeClass } from './shared.tsx'

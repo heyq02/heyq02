@@ -1,29 +1,18 @@
 import type { PinnedProject } from './github-pinned.ts'
 import type { Intro } from './intro.ts'
 import { formatCount } from './intro.ts'
-import {
-  profileCard,
-  profileCardName,
-  profileCardSummary,
-  profileCardTop,
-  profileCounts,
-  profileEduMeta,
-  profileGrid,
-  profileH2,
-  profileH3,
-  profileJob,
-  profileJobHead,
-  profileLink,
-  profileList,
-  profileRoot,
-  profileSection,
-  profileSkills,
-  profileSkillsImg,
-  profileWhen
-} from './profile-classes.ts'
 import { skillIconsPicture } from './skills-picture.ts'
 
-interface ProfilePage {
+export interface ProfileProjectView {
+  name: string
+  href: string
+  summary: string
+  language: string
+  stars: string
+  forks: string
+}
+
+export interface ProfilePageView {
   name: string
   tags: string[]
   avatar: string
@@ -31,22 +20,10 @@ interface ProfilePage {
   education: Intro['education']
   experiences: Intro['experiences']
   skills: { alt: string; src: string }
-  projects: {
-    name: string
-    href: string
-    summary: string
-    language: string
-    stars: string
-    forks: string
-  }[]
+  projects: ProfileProjectView[]
 }
 
-export interface RenderHomeMdxOptions {
-  /** MDX import path for ProfilePlay, relative to `blogs/index.mdx`. */
-  profilePlayModule?: string
-}
-
-export function profilePage(intro: Intro, projects: PinnedProject[] = []): ProfilePage {
+export function profilePage(intro: Intro, projects: PinnedProject[] = []): ProfilePageView {
   return {
     name: intro.name,
     tags: intro.tags,
@@ -69,72 +46,18 @@ export function profilePage(intro: Intro, projects: PinnedProject[] = []): Profi
 /** Browser tab suffix after the name (`永琪 - …`). */
 export function documentTitleSuffix(
   intro: Intro,
-  page: Pick<ProfilePage, 'tags'> = profilePage(intro)
+  page: Pick<ProfilePageView, 'tags'> = profilePage(intro)
 ): string {
   return `${[...page.tags, intro.bio].join('，')}。`
 }
 
-function yamlString(value: string) {
+function yamlString(value: string): string {
   return JSON.stringify(value)
 }
 
-function escapeHtml(value: string) {
-  return value
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-}
-
-/** Doc page of Rspress theme components, not the built-in homepage. */
-export function renderHomeMdx(
-  intro: Intro,
-  pinned: PinnedProject[] = [],
-  options: RenderHomeMdxOptions = {}
-): string {
-  const profilePlayModule = options.profilePlayModule ?? '@theme/ProfilePlay'
+/** Thin MDX shell — body UI lives in `@theme/ProfilePage`. */
+export function renderHomeMdx(intro: Intro, pinned: PinnedProject[] = []): string {
   const page = profilePage(intro, pinned)
-  const tags = page.tags
-    .map(tag => `<Badge text=${yamlString(tag)} type="info" outline />`)
-    .join(' ')
-  const schools = page.education
-    .map(
-      item => `<article className=${yamlString(`${profileJob} profile-edu`)}>
-<div className=${yamlString(profileJobHead)}>
-<h3 className=${yamlString(profileH3)}>${escapeHtml(item.school)}</h3>
-<p className=${yamlString(profileWhen)}>${escapeHtml(item.start)} – ${escapeHtml(item.end)}</p>
-</div>
-<p className=${yamlString(profileEduMeta)}>${escapeHtml(item.degree)} · ${escapeHtml(item.major)}</p>
-</article>`
-    )
-    .join('\n\n')
-  const jobs = page.experiences
-    .map(job => {
-      const points = job.points.map(point => `<li>${escapeHtml(point)}</li>`).join('\n')
-      return `<article className=${yamlString(profileJob)}>
-<div className=${yamlString(profileJobHead)}>
-<h3 className=${yamlString(profileH3)}><a className=${yamlString(profileLink)} href=${yamlString(job.href)}>${escapeHtml(job.company)}</a></h3>
-<p className=${yamlString(profileWhen)}>${escapeHtml(job.start)} – ${escapeHtml(job.end)}</p>
-</div>
-<ul className=${yamlString(profileList)}>
-${points}
-</ul>
-</article>`
-    })
-    .join('\n\n')
-  const projects = page.projects
-    .map(
-      project =>
-        `<a className=${yamlString(profileCard)} href=${yamlString(project.href)} data-card="">
-<span className=${yamlString(`profile-project-top ${profileCardTop}`)}>
-<span className=${yamlString(`profile-project-name ${profileCardName}`)}>${escapeHtml(project.name)}</span>
-<span className=${yamlString(profileCounts)}><Badge text=${yamlString(project.language)} type="info" /> <Badge text=${yamlString(`${project.stars} 星标`)} type="info" /> <Badge text=${yamlString(`${project.forks} 派生`)} type="info" /></span>
-</span>
-<span className=${yamlString(`profile-project-summary ${profileCardSummary}`)}>${escapeHtml(project.summary)}</span>
-</a>`
-    )
-    .join('\n\n')
-
   return `---
 pageType: doc-wide
 title: ${yamlString(page.name)}
@@ -144,39 +67,25 @@ outline: false
 footer: false
 ---
 
-import { Badge } from '@rspress/core/theme'
-import { ProfilePlay } from '${profilePlayModule}'
+import { ProfilePage } from '@theme/ProfilePage'
 
-<div className=${yamlString(profileRoot)}>
+<ProfilePage />
+`
+}
 
-<ProfilePlay tags={<>${tags}</>} />
+/** Generated module consumed by `@theme/ProfilePage`. */
+export function renderProfileDataModule(projects: ProfileProjectView[]): string {
+  return `/** Generated by @heyq02/rspress-plugin-profile — do not edit. */
 
-<section className=${yamlString(profileSection)}>
-<h2 className=${yamlString(profileH2)}>${escapeHtml(page.sections.education)}</h2>
+export interface ProfileProject {
+  name: string
+  href: string
+  summary: string
+  language: string
+  stars: string
+  forks: string
+}
 
-${schools}
-</section>
-
-<section className=${yamlString(profileSection)}>
-<h2 className=${yamlString(profileH2)}>${escapeHtml(page.sections.experience)}</h2>
-
-${jobs}
-</section>
-
-<section className=${yamlString(profileSection)}>
-<h2 className=${yamlString(profileH2)}>${escapeHtml(page.sections.openSource)}</h2>
-
-<div className=${yamlString(`profile-projects ${profileGrid}`)}>
-${projects}
-</div>
-</section>
-
-<section className=${yamlString(profileSection)}>
-<h2 className=${yamlString(profileH2)}>${escapeHtml(page.sections.skills)}</h2>
-
-<p className=${yamlString(profileSkills)}><img className=${yamlString(profileSkillsImg)} src=${yamlString(page.skills.src)} alt=${yamlString(page.skills.alt)} /></p>
-</section>
-
-</div>
+export const pinnedProjects: ProfileProject[] = ${JSON.stringify(projects, null, 2)}
 `
 }

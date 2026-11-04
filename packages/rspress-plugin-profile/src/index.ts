@@ -15,8 +15,13 @@ export { formatCount } from './intro.ts'
 export type { Contact, Education, Experience, Intro, Place, Skill } from './intro.ts'
 export { prepareProfile, prepareProfileOnce } from './prepare-profile.ts'
 export type { PrepareProfileOptions } from './prepare-profile.ts'
-export { documentTitleSuffix, profilePage, renderHomeMdx } from './profile-page.ts'
-export type { RenderHomeMdxOptions } from './profile-page.ts'
+export {
+  documentTitleSuffix,
+  profilePage,
+  renderHomeMdx,
+  renderProfileDataModule
+} from './profile-page.ts'
+export type { ProfilePageView, ProfileProjectView } from './profile-page.ts'
 export { skillIconsPicture } from './skills-picture.ts'
 export type { SkillIcon } from './skills-picture.ts'
 
@@ -27,7 +32,7 @@ export interface PluginProfileOptions {
   intro: Intro
 }
 
-/** Regenerate the homepage `index.mdx` before Rspress scans routes. */
+/** Fetch pinned repos and regenerate homepage data before Rspress scans routes. */
 export function pluginProfile(options: PluginProfileOptions): RspressPlugin {
   if (!options.siteRoot) {
     throw new Error('@heyq02/rspress-plugin-profile: `siteRoot` is required')

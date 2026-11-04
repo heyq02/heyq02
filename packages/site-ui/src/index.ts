@@ -1,4 +1,4 @@
-/** Shared class tokens — colors/type/radius/shadow from Rspress via Tailwind @theme. */
+/** Shared class tokens — colors/type/radius/shadow from Rspress via site Tailwind @theme. */
 
 export const sitePageRoot = 'rp-not-doc font-sans text-rp-text'
 
