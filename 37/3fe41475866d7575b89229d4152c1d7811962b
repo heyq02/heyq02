@@ -1,0 +1,14 @@
+personal/favorite_sites.toml
+  h_a57efa94f24ca5 1-99
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "373fe41475866d7575b89229d4152c1d7811962b",
+  "prompts": {},
+  "humans": {
+    "h_a57efa94f24ca5": {
+      "author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
