@@ -1,8 +1,6 @@
 import { useMemo, useSyncExternalStore } from 'react'
 import type { ReactElement } from 'react'
 
-import { friendsData } from './friends-page.ts'
-import type { FriendLink } from './friends-page.ts'
 import {
   siteBody,
   siteCardChrome,
@@ -16,7 +14,9 @@ import {
   sitePageRoot,
   sitePanelChrome,
   siteSection
-} from './ui-classes.ts'
+} from '../lib/site-ui.ts'
+import { friendsData } from './friends-page.ts'
+import type { FriendLink } from './friends-page.ts'
 
 function friendLabel(friend: FriendLink): string {
   return friend.desc ? `${friend.name} · ${friend.desc}` : friend.name

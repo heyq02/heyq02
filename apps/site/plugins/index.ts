@@ -4,32 +4,6 @@ import { prepareBlogMetaOnce } from './prepare-blog-meta.ts'
 import { prepareProfileOnce } from './prepare-profile.ts'
 import { prepareSiteAssetsOnce } from './prepare-site-assets.ts'
 
-export type { BlogPost } from './blog-posts.ts'
-export {
-  BLOG_LABELS,
-  dateFromSlug,
-  listBlogPosts,
-  listInterviewNotes,
-  renderBlogMetaJson,
-  renderPostsMetaJson
-} from './blog-posts.ts'
-export type { PinnedProject } from './github-pinned.ts'
-export {
-  PINNED_TIMEOUT_MS,
-  fetchPinnedProjects,
-  githubLogin,
-  githubToken,
-  mapPinnedRepository
-} from './github-pinned.ts'
-export type { PrepareBlogMetaOptions } from './prepare-blog-meta.ts'
-export { prepareBlogMeta, prepareBlogMetaOnce } from './prepare-blog-meta.ts'
-export type { PrepareProfileOptions } from './prepare-profile.ts'
-export { prepareProfile, prepareProfileOnce } from './prepare-profile.ts'
-export type { PrepareSiteAssetsOptions } from './prepare-site-assets.ts'
-export { prepareSiteAssets, prepareSiteAssetsOnce } from './prepare-site-assets.ts'
-export type { RenderHomeMdxOptions } from './profile-page.ts'
-export { documentTitleSuffix, profilePage, renderHomeMdx } from './profile-page.ts'
-
 /** Regenerate `blogs/public` assets before Rspress scans routes. */
 export function pluginSiteAssets(siteRoot: string): RspressPlugin {
   return {
