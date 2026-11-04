@@ -1,7 +1,7 @@
-import { siteLink } from '@heyq02/site-ui'
 import type { AnchorHTMLAttributes, ReactElement, ReactNode } from 'react'
 
 import { cx } from './cx.ts'
+import { siteLink } from './tokens.ts'
 
 export function TextLink({
   href,

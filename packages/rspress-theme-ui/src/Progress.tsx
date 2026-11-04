@@ -1,7 +1,7 @@
-import { siteProgressFill, siteProgressTrack } from '@heyq02/site-ui'
 import type { ReactElement } from 'react'
 
 import { cx } from './cx.ts'
+import { siteProgressFill, siteProgressTrack } from './tokens.ts'
 
 export function Progress({
   value,

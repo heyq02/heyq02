@@ -1,3 +1,6 @@
+import type { HTMLAttributes, ReactElement, ReactNode } from 'react'
+
+import { cx } from './cx.ts'
 import {
   siteBody,
   siteCardName,
@@ -5,10 +8,7 @@ import {
   siteDisplay,
   siteMeta,
   siteWhen
-} from '@heyq02/site-ui'
-import type { HTMLAttributes, ReactElement, ReactNode } from 'react'
-
-import { cx } from './cx.ts'
+} from './tokens.ts'
 
 type SpanProps = {
   children: ReactNode

@@ -1,25 +1,25 @@
 import type { RspressPlugin } from '@rspress/core'
 
 import { prepareSiteAssetsOnce } from './prepare-site-assets.ts'
+import type { PrepareSiteAssetsOptions } from './prepare-site-assets.ts'
 
 export { prepareSiteAssets, prepareSiteAssetsOnce } from './prepare-site-assets.ts'
 export type { PrepareSiteAssetsOptions } from './prepare-site-assets.ts'
 
-export interface PluginSiteAssetsOptions {
-  /** Absolute path of the site app root (contains `blogs/` and `public/`). */
-  siteRoot: string
-}
+export type PluginSiteAssetsOptions = PrepareSiteAssetsOptions
 
-/** Regenerate `blogs/public` assets before Rspress scans routes. */
+/** Regenerate public site assets before Rspress scans routes. */
 export function pluginSiteAssets(options: PluginSiteAssetsOptions): RspressPlugin {
-  if (!options.siteRoot) {
-    throw new Error('@heyq02/rspress-plugin-site-assets: `siteRoot` is required')
+  if (!options.outDir || !options.signaturePath || !options.wechatPath || !options.watermarkPath) {
+    throw new Error(
+      '@heyq02/rspress-plugin-site-assets: `outDir`, `signaturePath`, `wechatPath`, and `watermarkPath` are required'
+    )
   }
 
   return {
     name: '@heyq02/rspress-plugin-site-assets',
     async config(config) {
-      await prepareSiteAssetsOnce({ siteRoot: options.siteRoot })
+      await prepareSiteAssetsOnce(options)
       return config
     }
   }

@@ -1,7 +1,7 @@
-import { siteH2, siteSection } from '@heyq02/site-ui'
 import type { ReactElement, ReactNode } from 'react'
 
 import { cx } from './cx.ts'
+import { siteH2, siteSection } from './tokens.ts'
 
 export function Section({
   title,

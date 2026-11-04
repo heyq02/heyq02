@@ -1,5 +1,5 @@
 /** Typed SSOT over `static/data/intro.json` for the site's identity facts. */
-import type { Intro } from '@heyq02/rspress-plugin-profile'
+import type { Intro } from '@heyq02/content'
 
 import raw from '../../../static/data/intro.json' with { type: 'json' }
 
@@ -10,6 +10,6 @@ export type {
   Intro,
   Place,
   Skill
-} from '@heyq02/rspress-plugin-profile'
+} from '@heyq02/content'
 
 export const intro: Intro = raw

@@ -10,5 +10,29 @@ export { SoftBadge } from './SoftBadge.tsx'
 export { TextLink } from './TextLink.tsx'
 export { Body, CardSummary, CardTitle, Display, Meta, When } from './Text.tsx'
 
-/** Low-level Tailwind class tokens — prefer components above when possible. */
-export * from '@heyq02/site-ui'
+/** Low-level Tailwind class tokens. */
+export {
+  siteBadge,
+  siteBody,
+  siteCardChrome,
+  siteCardName,
+  siteCardSummary,
+  siteDisplay,
+  siteEmpty,
+  siteFocusRing,
+  siteH1,
+  siteH2,
+  siteHeaderRule,
+  siteLink,
+  siteMediaLink,
+  siteMeta,
+  sitePageRoot,
+  sitePanelChrome,
+  siteProgressFill,
+  siteProgressTrack,
+  siteRow,
+  siteSection,
+  siteSurface,
+  siteTile,
+  siteWhen
+} from './tokens.ts'

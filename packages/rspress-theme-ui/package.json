@@ -1,37 +1,15 @@
 {
   "name": "@heyq02/rspress-theme-ui",
   "version": "2.0.0-beta.4",
+  "private": true,
   "description": "Rspress-token React UI primitives for heyq02 site theme pages",
-  "homepage": "https://github.com/heyq02/heyq02/tree/main/packages/rspress-theme-ui",
-  "bugs": {
-    "url": "https://github.com/heyq02/heyq02/issues"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/heyq02/heyq02.git",
-    "directory": "packages/rspress-theme-ui"
-  },
-  "files": [
-    "dist",
-    "src"
-  ],
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
     "./package.json": "./package.json"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "build": "vp pack",
-    "check": "vp check",
-    "dev": "vp pack --watch",
-    "prepublishOnly": "vp run build"
-  },
-  "dependencies": {
-    "@heyq02/site-ui": "workspace:*"
+    "check": "vp check"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

@@ -1,6 +1,5 @@
+import type { Intro, Place } from '@heyq02/content'
 import { graphql } from '@octokit/graphql'
-
-import type { Intro, Place } from './intro.ts'
 
 export interface PinnedProject {
   name: string

@@ -1,7 +1,7 @@
-import { siteBadge } from '@heyq02/site-ui'
 import type { HTMLAttributes, ReactElement, ReactNode } from 'react'
 
 import { cx } from './cx.ts'
+import { siteBadge } from './tokens.ts'
 
 export function SoftBadge({
   children,

@@ -12,12 +12,13 @@ import { pluginRss } from '@rspress/plugin-rss'
 import intro from '../../static/data/intro.json' with { type: 'json' }
 
 const dir = import.meta.dirname
-const siteRoot = dir
+const blogsRoot = resolve(dir, 'blogs')
 const themeDir = resolve(dir, 'theme')
-const mediaPath = resolve(dir, '../../personal/media.toml')
+const personalRoot = resolve(dir, '../../personal')
+const sitePublic = resolve(dir, 'public')
 
 export default defineConfig({
-  root: resolve(dir, 'blogs'),
+  root: blogsRoot,
   outDir: resolve(dir, 'dist'),
   themeDir,
   globalStyles: resolve(dir, 'tailwind.css'),
@@ -79,10 +80,23 @@ ${pages || '-（暂无其他页面）'}
     ['meta', { name: 'twitter:image', content: intro.avatar }]
   ],
   plugins: [
-    pluginSiteAssets({ siteRoot }),
-    pluginBlogMeta({ siteRoot }),
-    pluginProfile({ siteRoot, intro }),
-    pluginMedia({ mediaPath }),
+    pluginSiteAssets({
+      outDir: resolve(blogsRoot, 'public'),
+      signaturePath: resolve(personalRoot, 'signature.png'),
+      wechatPath: resolve(sitePublic, 'wechat.jpg'),
+      watermarkPath: resolve(sitePublic, 'wuxian-jinbu.png')
+    }),
+    pluginBlogMeta({
+      blogDir: resolve(blogsRoot, 'blog'),
+      formatRoot: dir
+    }),
+    pluginProfile({
+      homeMdxPath: resolve(blogsRoot, 'index.mdx'),
+      profileDataPath: resolve(themeDir, 'profile-data.ts'),
+      intro,
+      formatRoot: dir
+    }),
+    pluginMedia({ mediaPath: resolve(personalRoot, 'media.toml') }),
     pluginWatermark({ src: '/wuxian-jinbu.png' }),
     pluginRss({
       feed: {

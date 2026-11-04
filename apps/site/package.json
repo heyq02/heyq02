@@ -8,6 +8,7 @@
     "preview": "vp preview"
   },
   "dependencies": {
+    "@heyq02/content": "workspace:*",
     "@heyq02/rspress-plugin-blog-meta": "workspace:*",
     "@heyq02/rspress-plugin-media": "workspace:*",
     "@heyq02/rspress-plugin-profile": "workspace:*",

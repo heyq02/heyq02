@@ -1,6 +1,7 @@
+import { formatCount } from '@heyq02/content'
+import type { Intro } from '@heyq02/content'
+
 import type { PinnedProject } from './github-pinned.ts'
-import type { Intro } from './intro.ts'
-import { formatCount } from './intro.ts'
 import { skillIconsPicture } from './skills-picture.ts'
 
 export interface ProfileProjectView {

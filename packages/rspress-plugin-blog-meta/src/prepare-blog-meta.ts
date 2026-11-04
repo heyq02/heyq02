@@ -12,19 +12,17 @@ import {
 } from './blog-posts.ts'
 
 export interface PrepareBlogMetaOptions {
-  siteRoot: string
+  /** Absolute path of the blog directory (`…/blogs/blog`). */
+  blogDir: string
+  /** Workspace cwd used when formatting generated `_meta.json` files. */
+  formatRoot?: string
   format?: boolean
   spawnFn?: SpawnFn
 }
 
-/** Absolute path of the blog directory. */
-export function blogDirOf(siteRoot: string): string {
-  return resolve(siteRoot, 'blogs', 'blog')
-}
-
 /** Write `_meta.json` for `blog/`, `posts/`, and `interview/`. */
 export async function prepareBlogMeta(options: PrepareBlogMetaOptions): Promise<void> {
-  const blogDir = blogDirOf(options.siteRoot)
+  const blogDir = options.blogDir
   const postsDir = resolve(blogDir, 'posts')
   const interviewDir = resolve(blogDir, 'interview')
   await mkdir(postsDir, { recursive: true })
@@ -45,8 +43,8 @@ export async function prepareBlogMeta(options: PrepareBlogMetaOptions): Promise<
     await writeIfChanged(files.interview, renderPostsMetaJson(interviews))
   ]
 
-  if (options.format && results.some(Boolean)) {
-    await formatGenerated(options.siteRoot, Object.values(files), options.spawnFn)
+  if (options.format && options.formatRoot && results.some(Boolean)) {
+    await formatGenerated(options.formatRoot, Object.values(files), options.spawnFn)
   }
 }
 

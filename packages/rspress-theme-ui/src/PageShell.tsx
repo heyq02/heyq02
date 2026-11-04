@@ -1,7 +1,7 @@
-import { siteBody, siteH1, siteHeaderRule, siteMeta, sitePageRoot } from '@heyq02/site-ui'
 import type { ReactElement, ReactNode } from 'react'
 
 import { cx } from './cx.ts'
+import { siteBody, siteH1, siteHeaderRule, siteMeta, sitePageRoot } from './tokens.ts'
 
 export function PageShell({
   title,
