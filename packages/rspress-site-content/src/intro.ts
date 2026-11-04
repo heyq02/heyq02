@@ -16,8 +16,14 @@ export interface Experience {
 
 export interface Education {
   school: string
+  /** English school name shown beside `school`. */
+  schoolEn: string
   major: string
+  /** English major shown beside `major`. */
+  majorEn: string
   degree: string
+  /** English degree shown beside `degree`. */
+  degreeEn: string
   start: string
   end: string
 }

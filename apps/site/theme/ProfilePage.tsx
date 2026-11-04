@@ -28,6 +28,8 @@ const profileList = 'mt-rp-3 mb-0 list-disc pl-rp-5 leading-relaxed text-rp-mute
 
 const profileEduMeta = 'profile-edu-meta mt-rp-2 mb-0 text-rp-md leading-relaxed text-rp-muted'
 
+const profileEduEn = 'text-rp-muted font-normal'
+
 function ProjectCard({ project }: { project: ProfileProject }): ReactElement {
   return (
     <CardLink
@@ -62,7 +64,7 @@ export function ProfilePage({
         {intro.education
           .map(
             item =>
-              `### ${item.school}\n\n${item.start} – ${item.end}\n\n${item.degree} · ${item.major}\n`
+              `### ${item.school} · ${item.schoolEn}\n\n${item.start} – ${item.end}\n\n${item.degree} ${item.degreeEn} · ${item.major} ${item.majorEn}\n`
           )
           .join('\n')}
         {`\n## ${intro.sections.experience}\n\n`}
@@ -94,13 +96,24 @@ export function ProfilePage({
         {intro.education.map(item => (
           <article key={item.school} className={`${profileJob} profile-edu`}>
             <div className={profileJobHead}>
-              <h3 className={profileH3}>{item.school}</h3>
+              <h3 className={`${profileH3} gap-x-rp-3 flex min-w-0 flex-wrap items-baseline`}>
+                <span>{item.school}</span>
+                <span className={`text-rp-md ${profileEduEn}`}>{item.schoolEn}</span>
+              </h3>
               <When className='profile-when'>
                 {item.start} – {item.end}
               </When>
             </div>
-            <p className={profileEduMeta}>
-              {item.degree} · {item.major}
+            <p className={`${profileEduMeta} gap-x-rp-2 flex flex-wrap items-baseline`}>
+              <span className='gap-x-rp-2 inline-flex flex-wrap items-baseline'>
+                <span>{item.degree}</span>
+                <span className={profileEduEn}>{item.degreeEn}</span>
+              </span>
+              <span aria-hidden='true'>·</span>
+              <span className='gap-x-rp-2 inline-flex flex-wrap items-baseline'>
+                <span>{item.major}</span>
+                <span className={profileEduEn}>{item.majorEn}</span>
+              </span>
             </p>
           </article>
         ))}
