@@ -21,10 +21,9 @@
     "email": "hello@heyq02.com"
   },
   "sections": {
-    "experience": "工作经历",
+    "contributions": "提交热力图",
     "skills": "技能",
-    "openSource": "开源项目",
-    "education": "教育经历"
+    "openSource": "开源项目"
   },
   "places": [
     {
@@ -46,31 +45,6 @@
       "label": "WeChat",
       "href": "/wechat.jpg",
       "detail": "扫码添加"
-    }
-  ],
-  "experiences": [
-    {
-      "company": "京东集团",
-      "href": "https://www.jd.com/",
-      "start": "2024.06",
-      "end": "至今",
-      "points": [
-        "负责京东外卖小程序、H5 与管理后台的迭代",
-        "推动管理后台完成架构升级，TP95 明显改善",
-        "为本地生活搭建 C3 级 AI Infra，提升研发效率"
-      ]
-    }
-  ],
-  "education": [
-    {
-      "school": "南京邮电大学",
-      "schoolEn": "Nanjing University of Posts and Telecommunications",
-      "major": "生物医学工程",
-      "majorEn": "Biomedical Engineering",
-      "degree": "工学学士",
-      "degreeEn": "Bachelor of Engineering",
-      "start": "2020.09",
-      "end": "2024.06"
     }
   ],
   "skills": [

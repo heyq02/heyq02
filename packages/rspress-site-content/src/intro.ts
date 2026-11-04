@@ -6,28 +6,6 @@ export interface Place {
   detail: string
 }
 
-export interface Experience {
-  company: string
-  href: string
-  start: string
-  end: string
-  points: string[]
-}
-
-export interface Education {
-  school: string
-  /** English school name shown beside `school`. */
-  schoolEn: string
-  major: string
-  /** English major shown beside `major`. */
-  majorEn: string
-  degree: string
-  /** English degree shown beside `degree`. */
-  degreeEn: string
-  start: string
-  end: string
-}
-
 export interface Skill {
   name: string
   /** Simple-icons slug used by the shared skills picture. */
@@ -68,14 +46,11 @@ export interface Intro {
   description: string
   contact: Contact
   sections: {
-    education: string
-    experience: string
+    contributions: string
     skills: string
     openSource: string
   }
   places: Place[]
-  education: Education[]
-  experiences: Experience[]
   skills: Skill[]
 }
 

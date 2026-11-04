@@ -6,6 +6,16 @@ import type { PrepareProfileOptions } from './prepare-profile.ts'
 export type { Intro } from '@heyq02/rspress-site-content'
 
 export {
+  fetchContributionCalendar,
+  mapContributionCalendar,
+  stubContributionCalendar
+} from './github-contributions.ts'
+export type {
+  ContributionCalendar,
+  ContributionDay,
+  ContributionLevel
+} from './github-contributions.ts'
+export {
   fetchPinnedProjects,
   githubLogin,
   githubToken,

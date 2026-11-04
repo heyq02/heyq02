@@ -3,14 +3,6 @@ import type { Intro } from '@heyq02/rspress-site-content'
 
 import raw from '../../../content/data/intro.json' with { type: 'json' }
 
-export type {
-  Contact,
-  Education,
-  Experience,
-  HomePlace,
-  Intro,
-  Place,
-  Skill
-} from '@heyq02/rspress-site-content'
+export type { Contact, HomePlace, Intro, Place, Skill } from '@heyq02/rspress-site-content'
 
 export const intro: Intro = raw
