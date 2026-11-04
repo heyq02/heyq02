@@ -1,0 +1,21 @@
+apps/site/lib/intro.ts
+  s_7f3749379effc6::t_22f97f4679bee3 6
+apps/site/theme/profile-data.ts
+  s_7f3749379effc6::t_22f97f4679bee3 14-19,22-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "4dc43fc3b68abc53cabe746a2f428ad7ba2d21bf",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
