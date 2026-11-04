@@ -9,6 +9,11 @@ export interface ProfileProject {
   forks: string
 }
 
+export interface ProfileSkillsPicture {
+  alt: string
+  src: string
+}
+
 export const pinnedProjects: ProfileProject[] = [
   {
     name: 'simpleicons.dev',
@@ -27,3 +32,8 @@ export const pinnedProjects: ProfileProject[] = [
     forks: '0'
   }
 ]
+
+export const skillsPicture: ProfileSkillsPicture = {
+  alt: 'Vue, React, Next, Rolldown, Vite, Oxc, Spring, Redis, RabbitMQ, Nginx, Docker',
+  src: 'https://simpleicons.dev/icons?icons=vuedotjs,react,nextdotjs,rolldown,vite,oxc,spring,redis,rabbitmq,nginx,docker&perline=11&theme=light'
+}
