@@ -1,0 +1,24 @@
+apps/site/theme/tests/SiteCard.test.tsx
+  s_9e4cc396e9a614::t_ecc472ffd3a5d7 79,81,83-84,87-88
+  s_9e4cc396e9a614::t_2da7ed524769e1 80,82,85-86
+apps/site/plugins/tests/github-pinned.test.ts
+  s_9e4cc396e9a614::t_4204b5f8664ddf 138-146
+apps/site/plugins/tests/prepare-blog-meta.test.ts
+  s_9e4cc396e9a614::t_63018e04e31003 86-97
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "17d666f9586b671f34dc72166bfd141c98814b13",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
