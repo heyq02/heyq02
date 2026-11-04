@@ -1,0 +1,20 @@
+apps/site/vite.config.ts
+  s_9e4cc396e9a614::t_f89a5138d0ee62 14
+  s_9e4cc396e9a614::t_1f4c768e568203 26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "0fe7c8f7ff28ac4af5b863aa5a63ed27568d17c9",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
