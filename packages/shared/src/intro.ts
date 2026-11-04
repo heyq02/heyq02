@@ -58,8 +58,6 @@ export interface Intro {
   education: Education[]
   experiences: Experience[]
   skills: Skill[]
-  /** Chinese blurbs keyed by pinned repo name; overrides the GitHub description. */
-  projectSummaries: Record<string, string>
 }
 
 export const intro: Intro = raw

@@ -23,7 +23,7 @@ it('builds the Chinese profile page from the intro', () => {
   expect(page.education[0]?.school).toBe('南京邮电大学')
   expect(page.experiences[0]?.company).toBe('京东集团')
   expect(page.projects[0]?.stars).toBe('172')
-  expect(page.projects[0]?.summary).toBe('轻松在 GitHub README 或简历上展示你的技能图标。')
+  expect(page.projects[0]?.summary).toBe('Showcase your skills')
   expect(page.skills.alt).toContain('Vue')
   expect(page.skills.src).toContain('vuedotjs')
   expect(page.skills.src).toContain('theme=light')
@@ -55,8 +55,8 @@ it('builds the Chinese profile page from the intro', () => {
     'titleSuffix: "全栈工程师，开源爱好者，职业成长博主，专注用 AI 加速开发，并真正落到产品里。"'
   )
   expect(home).toContain('simpleicons.dev')
-  expect(home).toContain('轻松在 GitHub README 或简历上展示你的技能图标。')
-  expect(home).not.toContain('Showcase your skills')
+  expect(home).toContain('Showcase your skills')
+  expect(home).not.toContain('技能图标')
   const projectCard = /<a className=\{?[^>]*profile-project[\s\S]*?<\/a>/.exec(home)?.[0]
   expect(projectCard).toBeTruthy()
   expect(projectCard).toMatchSnapshot('open-source-card.mdx')
