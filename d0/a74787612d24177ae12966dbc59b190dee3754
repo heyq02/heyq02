@@ -1,0 +1,62 @@
+apps/site/plugins/friends-page.ts
+  s_9e4cc396e9a614::t_545eb693f8b788 30-31
+  s_9e4cc396e9a614::t_13d8b8644a17f6 1
+  s_9e4cc396e9a614::t_e11a133545447b 19
+  s_9e4cc396e9a614::t_680c9c9316ff23 2-18,20-29,32-56
+apps/site/lib/favorite-sites.ts
+  s_9e4cc396e9a614::t_991f8bac437338 1-2
+.gitignore
+  s_9e4cc396e9a614::t_bc908afdfd304f 7
+apps/site/plugins/index.ts
+  s_9e4cc396e9a614::t_cf4a444fe3ce83 40-46
+  s_9e4cc396e9a614::t_6707f987b4be15 4
+  s_9e4cc396e9a614::t_bf73c25098c8cd 47-49
+apps/site/package.json
+  s_9e4cc396e9a614::t_1ac14616bba077 18-19
+apps/site/lib/load-favorite-sites.ts
+  s_9e4cc396e9a614::t_5f6a6d314618c1 1-20
+apps/site/plugins/tests/prepare-friends.test.ts
+  s_9e4cc396e9a614::t_0185563c25739e 1-2,5,9-12,14,27-36,47-50,52-53,58-68,70,72,75,77,81-84
+  s_9e4cc396e9a614::t_c1d8fe27940258 57,78-80
+  s_9e4cc396e9a614::t_622db51c9bc63c 3-4,6-8,13,15-26,37-46,54-56,85
+  s_9e4cc396e9a614::t_57aef5dedac653 69,71,73-74,76
+  s_9e4cc396e9a614::t_54b293f5dad5fe 51
+apps/site/plugins/tests/friends-page.test.ts
+  s_9e4cc396e9a614::t_3d963dae1e0c2b 1-50,52
+  s_9e4cc396e9a614::t_e11a133545447b 51
+apps/site/tests/rspress-config.test.ts
+  s_9e4cc396e9a614::t_3520735f491ce7 9-10
+  s_9e4cc396e9a614::t_8e4f6d7a15c6dd 81
+apps/site/e2e/site.spec.ts
+  s_9e4cc396e9a614::t_2a3cacf2775879 34,37
+apps/site/plugins/prepare-friends.ts
+  s_9e4cc396e9a614::t_e11a133545447b 5-6,47
+  s_9e4cc396e9a614::t_d547b20f05be2c 1-4,7-46,48-61
+apps/site/lib/tests/load-favorite-sites.test.ts
+  s_9e4cc396e9a614::t_e02a3e6ccea31c 1-56
+apps/site/rspress.config.ts
+  s_9e4cc396e9a614::t_162b9dbdc8b56e 83
+  s_9e4cc396e9a614::t_4217d018143995 10
+apps/site/theme/e2e/theme.spec.ts
+  s_9e4cc396e9a614::t_3e18c3f17b6fba 3
+apps/site/blogs/friends.mdx
+  s_9e4cc396e9a614::t_337c158034d6fa 3,13-30
+pnpm-lock.yaml
+  s_9e4cc396e9a614::t_86890af7d5ee07 259-261,358-369,4687,5129,5473
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "d0a74787612d24177ae12966dbc59b190dee3754",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
