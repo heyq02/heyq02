@@ -12,7 +12,7 @@ parent: architecture
 
 ## Boundary
 
-- 读取 `static/signature/`（经 `siteRoot` 相对 monorepo 定位）以及 `apps/site/public/wechat.jpg`、`apps/site/public/wuxian-jinbu.png`。不生成 MDX 或 meta JSON。
+- 读取 `personal/signature.png`（经 `siteRoot` 相对 monorepo 定位）以及 `apps/site/public/wechat.jpg`、`apps/site/public/wuxian-jinbu.png`。不生成 MDX 或 meta JSON。
 
 ## Testing
 

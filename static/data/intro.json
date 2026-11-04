@@ -18,6 +18,28 @@
     "openSource": "开源项目",
     "education": "教育经历"
   },
+  "places": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/heyq02",
+      "detail": "heyq02"
+    },
+    {
+      "label": "X",
+      "href": "https://x.com/heyq02",
+      "detail": "heyq02"
+    },
+    {
+      "label": "Bilibili",
+      "href": "https://space.bilibili.com/3493273159075938",
+      "detail": "heyq02"
+    },
+    {
+      "label": "WeChat",
+      "href": "/wechat.jpg",
+      "detail": "扫码添加"
+    }
+  ],
   "experiences": [
     {
       "company": "京东集团",
@@ -29,6 +51,15 @@
         "推动管理后台完成架构升级，TP95 明显改善",
         "为本地生活搭建 C3 级 AI Infra，提升研发效率"
       ]
+    }
+  ],
+  "education": [
+    {
+      "school": "南京邮电大学",
+      "major": "生物医学工程",
+      "degree": "工学学士",
+      "start": "2020.09",
+      "end": "2024.06"
     }
   ],
   "skills": [
@@ -98,5 +129,9 @@
       "href": "https://www.docker.com/",
       "summary": "构建、分发与运行应用的开放平台"
     }
-  ]
+  ],
+  "projectSummaries": {
+    "simpleicons.dev": "轻松在 GitHub README 或简历上展示你的技能图标。",
+    "keyboard-source-locker": "macOS 菜单栏小工具，把当前输入法锁定在你指定的那一个。"
+  }
 }
