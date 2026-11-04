@@ -1,18 +1,16 @@
 import { resolve } from 'node:path'
 
-import { socialLinksFrom } from '@heyq02/shared'
 import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
-import { pluginBlogMeta } from 'rspress-plugin-blog-meta'
-import { pluginProfile } from 'rspress-plugin-profile'
-import { pluginSiteAssets } from 'rspress-plugin-site-assets'
 
 import intro from '../../static/data/intro.json' with { type: 'json' }
+import { socialLinksFrom } from './lib/social-links.ts'
+import { pluginBlogMeta, pluginProfile, pluginSiteAssets } from './plugins/index.ts'
 
 const dir = import.meta.dirname
 const siteRoot = dir
-const themeDir = resolve(dir, '../../packages/rspress-theme-heyq02')
+const themeDir = resolve(dir, 'theme')
 
 export default defineConfig({
   root: resolve(dir, 'blogs'),
@@ -77,9 +75,9 @@ ${pages || '-（暂无其他页面）'}
     ['meta', { name: 'twitter:image', content: intro.avatar }]
   ],
   plugins: [
-    pluginSiteAssets({ siteRoot }),
-    pluginBlogMeta({ siteRoot }),
-    pluginProfile({ siteRoot }),
+    pluginSiteAssets(siteRoot),
+    pluginBlogMeta(siteRoot),
+    pluginProfile(siteRoot),
     pluginRss({
       feed: {
         id: 'blog',

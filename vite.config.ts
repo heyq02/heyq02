@@ -10,7 +10,7 @@ export default liangmi({
   lint: [
     // Motion JSX props are intentionally ephemeral objects and callbacks.
     {
-      files: ['apps/site/**', 'packages/rspress-theme-heyq02/**'],
+      files: ['apps/site/**'],
       rules: {
         'react-perf/jsx-no-new-object-as-prop': 'off',
         'react-perf/jsx-no-new-function-as-prop': 'off'
@@ -31,23 +31,25 @@ export default liangmi({
     }
   ],
   test: {
-    environmentMatchGlobs: [['packages/rspress-theme-heyq02/tests/**', 'jsdom']],
-    exclude: ['**/e2e/**', '**/node_modules/**'],
+    environmentMatchGlobs: [['apps/site/theme/tests/**', 'jsdom']],
+    exclude: ['**/e2e/**', '**/node_modules/**', '**/*.e2e.ts'],
     coverage: {
       include: [
         'apps/*/src/**/*.{ts,tsx}',
         'apps/*/scripts/**/*.ts',
-        'packages/*/src/**/*.ts',
-        'packages/rspress-theme-heyq02/*.{ts,tsx}',
-        'packages/rspress-theme-heyq02/friends-page.ts'
+        'apps/site/lib/**/*.ts',
+        'apps/site/plugins/**/*.ts',
+        'apps/site/theme/*.{ts,tsx}'
       ],
       exclude: [
         '**/env.d.ts',
         '**/css.d.ts',
         '**/*.css',
         '**/vite.config.ts',
+        '**/*.e2e.ts',
         'apps/site/scripts/build.ts',
-        'packages/rspress-theme-heyq02/ui-classes.ts'
+        'apps/site/theme/ui-classes.ts',
+        'apps/site/theme/e2e/**'
       ],
       thresholds: {
         statements: 95,

@@ -3,13 +3,9 @@ import { resolve } from 'node:path'
 import type { LlmsTxtContext, LlmsTxtPage, LlmsTxtRenderer } from '@rspress/core'
 import { expect, it, vi } from 'vite-plus/test'
 
-vi.mock('rspress-plugin-site-assets', () => ({
-  pluginSiteAssets: () => ({ name: 'rspress-plugin-site-assets' })
-}))
-vi.mock('rspress-plugin-blog-meta', () => ({
-  pluginBlogMeta: () => ({ name: 'rspress-plugin-blog-meta' })
-}))
-vi.mock('rspress-plugin-profile', () => ({
+vi.mock('../plugins/index.ts', () => ({
+  pluginSiteAssets: () => ({ name: 'rspress-plugin-site-assets' }),
+  pluginBlogMeta: () => ({ name: 'rspress-plugin-blog-meta' }),
   pluginProfile: () => ({ name: 'rspress-plugin-profile' })
 }))
 vi.mock('@rspress/plugin-rss', () => ({
@@ -55,9 +51,7 @@ function llmsTxtOf(config: Awaited<ReturnType<typeof loadConfig>>): LlmsTxtRende
 
 it('wires themeDir and compose plugins without side effects', async () => {
   const config = await loadConfig()
-  expect(config.themeDir).toBe(
-    resolve(import.meta.dirname, '../../../packages/rspress-theme-heyq02')
-  )
+  expect(config.themeDir).toBe(resolve(import.meta.dirname, '../theme'))
   expect(config.globalStyles).toBe(resolve(import.meta.dirname, '../tailwind.css'))
   expect(config.builderConfig?.plugins).toEqual(
     expect.arrayContaining([expect.objectContaining({ name: 'rsbuild:tailwindcss' })])
