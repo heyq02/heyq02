@@ -1,0 +1,21 @@
+apps/site/astro.config.mjs
+  s_9e4cc396e9a614::t_e9caaf29935334 28
+apps/site/src/styles/global.css
+  s_9e4cc396e9a614::t_2c5f22d0877fe8 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "0a551a9bb89b81758c6108b10e3c921019e47bee",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
