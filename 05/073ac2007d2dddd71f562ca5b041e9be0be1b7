@@ -1,0 +1,25 @@
+content/data/intro.json
+  s_7f3749379effc6::t_30cc4f879fb3d4 67,69,71
+apps/site/theme/ProfilePage.tsx
+  s_7f3749379effc6::t_bf3b78b144b551 67
+  s_7f3749379effc6::t_83bb702a474f69 31-32
+  s_7f3749379effc6::t_6fad5a7c6306a3 99-102,107-116
+packages/rspress-site-content/src/intro.ts
+  s_7f3749379effc6::t_f73c78094d9190 19-20,22-23,25-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "05073ac2007d2dddd71f562ca5b041e9be0be1b7",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
