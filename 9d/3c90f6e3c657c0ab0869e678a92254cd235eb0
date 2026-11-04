@@ -1,0 +1,45 @@
+apps/site/theme/likes/MusicPage.tsx
+  s_7f3749379effc6::t_1b3b7ab79aa5c8 9,12
+  s_7f3749379effc6::t_19a2cf30b1b2c2 129
+  s_7f3749379effc6::t_0324885f4e1b62 159
+apps/site/theme/likes/ReadingPage.tsx
+  s_7f3749379effc6::t_df105da0b8dbec 7,12
+  s_7f3749379effc6::t_b28665e6e8ff81 148
+  s_f12f4a87a714e6::t_27fc71fcdc9781 133
+apps/site/theme/likes/GamesPage.tsx
+  s_7f3749379effc6::t_09f8e8b40f9a65 7,9
+  s_7f3749379effc6::t_b8a41e59073e69 78
+  s_7f3749379effc6::t_a34b665a39a1f2 108
+apps/site/lib/site-ui.ts
+  s_7f3749379effc6::t_1580eefb731721 10-14,23,26-32
+apps/site/theme/likes/WatchingPage.tsx
+  s_7f3749379effc6::t_d94d4eedadf6f2 77
+  s_7f3749379effc6::t_a6e297ac7c3259 108
+  s_7f3749379effc6::t_776f3c5d55a7e4 7
+packages/rspress-plugin-profile/src/profile-classes.ts
+  s_7f3749379effc6::t_59249682e29243 8-11,15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "9d3c90f6e3c657c0ab0869e678a92254cd235eb0",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    },
+    "s_f12f4a87a714e6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "84c755bb-0bbd-4a9c-98ec-11119495a3e4",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
