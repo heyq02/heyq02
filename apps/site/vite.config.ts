@@ -2,10 +2,21 @@ import { liangmi } from '@liangmi/vp-config'
 
 export default liangmi({
   test: {
-    include: ['tests/**/*.test.ts'],
+    include: [
+      'tests/**/*.test.ts',
+      'lib/tests/**/*.test.ts',
+      'plugins/tests/**/*.test.ts',
+      'theme/tests/**/*.test.ts',
+      'theme/tests/**/*.test.tsx'
+    ],
     coverage: {
-      include: ['scripts/absolutize-md-links.ts'],
-      exclude: ['scripts/build.ts'],
+      include: [
+        'scripts/absolutize-md-links.ts',
+        'lib/**/*.ts',
+        'plugins/**/*.ts',
+        'theme/*.{ts,tsx}'
+      ],
+      exclude: ['scripts/build.ts', 'theme/ui-classes.ts', '**/tests/**'],
       thresholds: {
         statements: 95,
         branches: 95,

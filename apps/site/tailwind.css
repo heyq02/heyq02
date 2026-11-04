@@ -1,9 +1,9 @@
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
-/* Class strings live in shared tokens + theme/plugin consumers. */
-@source '../../packages/shared/src';
-@source '../../packages/rspress-theme-heyq02';
-@source '../../packages/rspress-plugin-profile/src';
+/* Class strings live in lib tokens + theme/plugin consumers. */
+@source './lib';
+@source './theme';
+@source './plugins';
 
 @theme {
   --animate-avatar-wobble: avatar-wobble 0.4s ease;

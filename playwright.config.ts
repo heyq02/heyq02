@@ -22,7 +22,7 @@ export default defineConfig({
     },
     {
       name: 'theme',
-      testMatch: 'packages/rspress-theme-heyq02/e2e/**/*.spec.ts',
+      testMatch: 'apps/site/theme/e2e/**/*.spec.ts',
       use: { baseURL: 'http://127.0.0.1:5179' }
     }
   ],
@@ -34,8 +34,7 @@ export default defineConfig({
       timeout: 120_000
     },
     {
-      command:
-        'node --experimental-strip-types ./packages/rspress-theme-heyq02/e2e/harness/serve.ts',
+      command: 'node --experimental-strip-types ./apps/site/theme/e2e/harness/serve.ts',
       url: 'http://127.0.0.1:5179',
       reuseExistingServer: !process.env.CI,
       timeout: 120_000
