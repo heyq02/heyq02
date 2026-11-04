@@ -77,7 +77,9 @@ ${pages || '-（暂无其他页面）'}
     ['meta', { property: 'og:site_name', content: intro.title }],
     ['meta', { property: 'og:image', content: intro.avatar }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
-    ['meta', { name: 'twitter:image', content: intro.avatar }]
+    ['meta', { name: 'twitter:image', content: intro.avatar }],
+    // Primer themes key off data-color-mode; keep in sync before paint with Rspress appearance.
+    `<script>(function(){var r=document.documentElement;r.setAttribute('data-light-theme','light');r.setAttribute('data-dark-theme','dark');function sync(){var d=r.classList.contains('dark')||r.classList.contains('rp-dark');if(!d){try{var s=localStorage.getItem('rspress-theme-appearance');d=s==='dark'||(s!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)}catch(e){}}r.setAttribute('data-color-mode',d?'dark':'light')}sync();new MutationObserver(sync).observe(r,{attributes:true,attributeFilter:['class']})})()</script>`
   ],
   plugins: [
     pluginSiteAssets({
@@ -90,6 +92,7 @@ ${pages || '-（暂无其他页面）'}
     }),
     pluginBlogMeta({
       blogDir: resolve(blogsRoot, 'blog'),
+      recentPostsPath: resolve(themeDir, 'recent-posts.ts'),
       formatRoot: dir
     }),
     pluginProfile({

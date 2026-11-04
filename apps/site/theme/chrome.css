@@ -1,4 +1,81 @@
-/* Minimal Rspress chrome: keep profile/friends/likes from looking like doc pages. */
+/* GitHub Primer semantic colors → Rspress --rp-c-* */
+/* 字体：京东朗正体 https://github.com/heyq02/JINGDONGLangZhengTi */
+
+@import '@primer/primitives/dist/css/functional/themes/light.css';
+@import '@primer/primitives/dist/css/functional/themes/dark.css';
+
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/dm-sans/700.css';
+
+@font-face {
+  font-family: 'JINGDONGLangZhengTi';
+  src: url('https://storage.360buyimg.com/hour-main-pro/JINGDONGLangZhengTi/JINGDONGLangZhengTi1-Light.ttf')
+    format('truetype');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JINGDONGLangZhengTi';
+  src: url('https://storage.360buyimg.com/hour-main-pro/JINGDONGLangZhengTi/JINGDONGLangZhengTi1-Semilight.ttf')
+    format('truetype');
+  font-weight: 350;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JINGDONGLangZhengTi';
+  src: url('https://storage.360buyimg.com/hour-main-pro/JINGDONGLangZhengTi/JINGDONGLangZhengTi1-Regular.ttf')
+    format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JINGDONGLangZhengTi';
+  src: url('https://storage.360buyimg.com/hour-main-pro/JINGDONGLangZhengTi/JINGDONGLangZhengTi1-Semibold.ttf')
+    format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JINGDONGLangZhengTi';
+  src: url('https://storage.360buyimg.com/hour-main-pro/JINGDONGLangZhengTi/JINGDONGLangZhengTi1-Bold.ttf')
+    format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --rp-c-bg: var(--bgColor-default);
+  --rp-c-bg-soft: var(--bgColor-muted);
+  --rp-c-bg-mute: var(--bgColor-inset);
+  --rp-c-bg-alt: var(--bgColor-muted);
+  --rp-c-text-1: var(--fgColor-default);
+  --rp-c-text-2: var(--fgColor-muted);
+  --rp-c-text-3: var(--fgColor-disabled);
+  --rp-c-brand: var(--fgColor-accent);
+  --rp-c-brand-light: var(--bgColor-accent-emphasis);
+  --rp-c-brand-dark: var(--bgColor-accent-emphasis);
+  --rp-c-brand-tint: var(--bgColor-accent-muted);
+  --rp-c-divider: var(--borderColor-default);
+  --rp-c-divider-light: var(--borderColor-muted);
+  --rp-c-link: var(--fgColor-link);
+  --rp-c-gray: var(--fgColor-muted);
+
+  --rp-font-family-base:
+    'JINGDONGLangZhengTi', 'DM Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC',
+    'Microsoft YaHei', sans-serif;
+  --rp-font-family-display: 'JINGDONGLangZhengTi', 'DM Sans', 'PingFang SC', sans-serif;
+  --rp-font-family-mono:
+    ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+}
+
+html {
+  background-color: var(--rp-c-bg);
+}
 
 html.dark .rspress-logo,
 html.rp-dark .rspress-logo {
@@ -29,4 +106,31 @@ html.rp-dark .rspress-logo {
 .rp-doc-layout__container:has(.friends) .rp-doc-layout__doc-container,
 .rp-doc-layout__container:has(.likes) .rp-doc-layout__doc-container {
   padding: var(--rp-content-padding-y) var(--rp-content-padding-x);
+}
+
+@keyframes hey-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.55rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hey-rise {
+  animation: hey-rise 0.55s ease both;
+}
+
+.hey-rise-delay-1 {
+  animation-delay: 0.06s;
+}
+
+.hey-rise-delay-2 {
+  animation-delay: 0.12s;
+}
+
+.hey-rise-delay-3 {
+  animation-delay: 0.18s;
 }

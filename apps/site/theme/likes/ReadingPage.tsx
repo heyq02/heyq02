@@ -19,12 +19,13 @@ import { likesData } from '../likes-data.ts'
 import type { ShelfItem } from '../likes-data.ts'
 import { BackLink, ItemLink, LikesShell, badgeClass } from './shared.tsx'
 
+/** Primer semantic emphasis fills for bookshelf spines. */
 const spineColors = [
-  'bg-[color-mix(in_oklab,var(--rp-c-brand)_55%,var(--rp-c-text-1))]',
-  'bg-[color-mix(in_oklab,var(--rp-c-link)_50%,var(--rp-c-text-1))]',
-  'bg-[color-mix(in_oklab,var(--rp-c-brand-dark)_45%,var(--rp-c-text-1))]',
-  'bg-[color-mix(in_oklab,var(--rp-c-brand-light)_50%,var(--rp-c-text-1))]',
-  'bg-[color-mix(in_oklab,var(--rp-c-gray)_45%,var(--rp-c-text-1))]'
+  'bg-[var(--bgColor-accent-emphasis)]',
+  'bg-[var(--bgColor-success-emphasis)]',
+  'bg-[var(--bgColor-done-emphasis)]',
+  'bg-[var(--bgColor-attention-emphasis)]',
+  'bg-[var(--bgColor-severe-emphasis)]'
 ]
 
 /** Bookshelf: open books with progress + spine rail for the rest. */

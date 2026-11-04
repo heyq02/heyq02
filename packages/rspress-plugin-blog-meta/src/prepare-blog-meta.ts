@@ -8,12 +8,17 @@ import {
   listBlogPosts,
   listInterviewNotes,
   renderBlogMetaJson,
-  renderPostsMetaJson
+  renderPostsMetaJson,
+  renderRecentPostsModule
 } from './blog-posts.ts'
 
 export interface PrepareBlogMetaOptions {
   /** Absolute path of the blog directory (`…/blogs/blog`). */
   blogDir: string
+  /** Absolute path of generated `theme/recent-posts.ts` for the homepage. */
+  recentPostsPath?: string
+  /** How many newest posts to expose on the homepage. */
+  recentLimit?: number
   /** Workspace cwd used when formatting generated `_meta.json` files. */
   formatRoot?: string
   format?: boolean
@@ -43,8 +48,18 @@ export async function prepareBlogMeta(options: PrepareBlogMetaOptions): Promise<
     await writeIfChanged(files.interview, renderPostsMetaJson(interviews))
   ]
 
+  const generatedPaths = Object.values(files)
+  if (options.recentPostsPath) {
+    const recentChanged = await writeIfChanged(
+      options.recentPostsPath,
+      renderRecentPostsModule(posts, options.recentLimit ?? 6)
+    )
+    results.push(recentChanged)
+    generatedPaths.push(options.recentPostsPath)
+  }
+
   if (options.format && options.formatRoot && results.some(Boolean)) {
-    await formatGenerated(options.formatRoot, Object.values(files), options.spawnFn)
+    await formatGenerated(options.formatRoot, generatedPaths, options.spawnFn)
   }
 }
 

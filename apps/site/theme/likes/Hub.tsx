@@ -3,22 +3,13 @@ import {
   CardSummary,
   CardTitle,
   Section,
-  siteTile,
+  siteFocusRing,
   siteWhen
 } from '@heyq02/rspress-theme-ui'
 import type { ReactElement } from 'react'
 
 import { likesData } from '../likes-data.ts'
 import { LikesShell } from './shared.tsx'
-
-const accents: Record<string, string> = {
-  uses: 'from-[color-mix(in_oklab,var(--rp-c-brand)_18%,transparent)] to-transparent',
-  music: 'from-[color-mix(in_oklab,var(--rp-c-brand-light)_22%,transparent)] to-transparent',
-  games: 'from-[color-mix(in_oklab,var(--rp-c-brand-dark)_20%,transparent)] to-transparent',
-  watching: 'from-[color-mix(in_oklab,var(--rp-c-brand-tint)_28%,transparent)] to-transparent',
-  visits: 'from-[color-mix(in_oklab,var(--rp-c-link)_20%,transparent)] to-transparent',
-  reading: 'from-[color-mix(in_oklab,var(--rp-c-gray)_22%,transparent)] to-transparent'
-}
 
 const glyphs: Record<string, string> = {
   uses: '⌘',
@@ -28,6 +19,8 @@ const glyphs: Record<string, string> = {
   visits: '⌖',
   reading: '¶'
 }
+
+const doorChrome = `relative overflow-hidden rounded-2xl border border-dashed border-rp-divider bg-rp-bg p-rp-4 no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-soft hover:!no-underline ${siteFocusRing}`
 
 /** Hub as a bento of differently weighted category doors. */
 export function Hub({ ssgMd }: { ssgMd: boolean }): ReactElement {
@@ -54,11 +47,10 @@ export function Hub({ ssgMd }: { ssgMd: boolean }): ReactElement {
                   href={category.href}
                   external={false}
                   className={[
-                    `p-rp-4 hover:shadow-rp relative overflow-hidden ${siteTile}`,
+                    doorChrome,
                     wide
                       ? 'sm:col-span-1 lg:col-span-3 min-h-[calc(var(--rp-radius-large)*6)]'
-                      : 'lg:col-span-2 min-h-[calc(var(--rp-radius-large)*5.5)]',
-                    `bg-gradient-to-br ${accents[category.id] ?? accents.uses}`
+                      : 'lg:col-span-2 min-h-[calc(var(--rp-radius-large)*5.5)]'
                   ].join(' ')}
                 >
                   <span className='top-rp-3 right-rp-3 text-rp-2xl text-rp-muted pointer-events-none absolute font-mono opacity-40 transition-opacity group-hover:opacity-70'>

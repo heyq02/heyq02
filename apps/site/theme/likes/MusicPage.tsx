@@ -143,7 +143,7 @@ function RankRow({ track, maxPlays }: { track: MusicTrack; maxPlays: number }): 
         <Progress
           className='h-1'
           value={Math.max(12, Math.round((track.plays / maxPlays) * 100))}
-          fillClassName='bg-[color-mix(in_oklab,var(--rp-c-brand)_75%,transparent)]'
+          fillClassName='bg-rp-brand'
         />
       </span>
     </ItemLink>

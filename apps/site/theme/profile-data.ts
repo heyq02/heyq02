@@ -32,7 +32,7 @@ export const pinnedProjects: ProfileProject[] = [
   {
     name: 'simpleicons.dev',
     href: 'https://github.com/heyq02/simpleicons.dev',
-    summary: 'Showcase your skills on your GitHub readme or resumé with ease.',
+    summary: '轻松在 GitHub README 或简历上展示你的技能图标。',
     language: 'TypeScript',
     stars: '171',
     forks: '0'
@@ -40,7 +40,7 @@ export const pinnedProjects: ProfileProject[] = [
   {
     name: 'keyboard-source-locker',
     href: 'https://github.com/heyq02/keyboard-source-locker',
-    summary: 'macOS menu-bar utility that locks the active keyboard input source to your choice',
+    summary: 'macOS 菜单栏小工具，把当前输入法锁定在你指定的那一个。',
     language: 'Swift',
     stars: '19',
     forks: '0'
@@ -53,7 +53,7 @@ export const skillsPicture: ProfileSkillsPicture = {
 }
 
 export const contributionCalendar: ContributionCalendar = {
-  total: 747,
+  total: 750,
   href: 'https://github.com/heyq02',
   weeks: [
     [
@@ -2003,7 +2003,7 @@ export const contributionCalendar: ContributionCalendar = {
       },
       {
         date: '2026-11-05',
-        count: 1,
+        count: 4,
         level: 1
       }
     ]

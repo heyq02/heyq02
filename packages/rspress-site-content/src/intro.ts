@@ -37,6 +37,8 @@ export interface Intro {
   home: HomePlace
   tags: string[]
   bio: string
+  /** Optional longer about paragraph shown under the hero. */
+  about: string
   kaomoji: string
   /** Click-to-cycle faces on the homepage hero; first entry should match `kaomoji`. */
   moods: string[]
@@ -46,12 +48,17 @@ export interface Intro {
   description: string
   contact: Contact
   sections: {
+    about: string
+    blog: string
     contributions: string
+    likes: string
     skills: string
     openSource: string
   }
   places: Place[]
   skills: Skill[]
+  /** Chinese blurbs keyed by pinned repo name; overrides the GitHub description. */
+  projectSummaries: Record<string, string>
 }
 
 export function formatCount(count: number): string {

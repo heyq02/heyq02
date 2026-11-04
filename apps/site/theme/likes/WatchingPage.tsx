@@ -84,7 +84,7 @@ function NowCard({ item }: { item: ShelfItem }): ReactElement {
             loading='lazy'
           />
         ) : null}
-        <span className='top-rp-2 left-rp-2 rounded-rp-sm bg-rp-brand px-rp-2 py-rp-1 text-rp-xs absolute font-semibold text-white'>
+        <span className='top-rp-2 left-rp-2 rounded-rp-sm bg-rp-brand px-rp-2 py-rp-1 text-rp-xs absolute font-semibold text-[var(--fgColor-onEmphasis)]'>
           NOW
         </span>
       </span>

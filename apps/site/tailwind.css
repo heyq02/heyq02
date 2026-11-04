@@ -10,8 +10,10 @@
  */
 @theme {
   --animate-avatar-wobble: avatar-wobble 0.4s ease;
+  --animate-hey-rise: hey-rise 0.55s ease both;
 
   --font-sans: var(--rp-font-family-base);
+  --font-display: var(--rp-font-family-display);
   --font-mono: var(--rp-font-family-mono);
 
   --color-rp-bg: var(--rp-c-bg);
@@ -80,5 +82,16 @@
   }
   75% {
     transform: rotate(-3deg);
+  }
+}
+
+@keyframes hey-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.55rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

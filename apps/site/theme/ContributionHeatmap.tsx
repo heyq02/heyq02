@@ -3,12 +3,13 @@ import type { ReactElement } from 'react'
 
 import type { ContributionCalendar, ContributionDay, ContributionLevel } from './profile-data.ts'
 
+/** Primer contribution scale (`--contribution-default-bgColor-*`). */
 const LEVEL_CLASS: Record<ContributionLevel, string> = {
-  0: 'bg-[#ebedf0] dark:bg-[#161b22]',
-  1: 'bg-[#9be9a8] dark:bg-[#0e4429]',
-  2: 'bg-[#40c463] dark:bg-[#006d32]',
-  3: 'bg-[#30a14e] dark:bg-[#26a641]',
-  4: 'bg-[#216e39] dark:bg-[#39d353]'
+  0: 'bg-[var(--contribution-default-bgColor-0)]',
+  1: 'bg-[var(--contribution-default-bgColor-1)]',
+  2: 'bg-[var(--contribution-default-bgColor-2)]',
+  3: 'bg-[var(--contribution-default-bgColor-3)]',
+  4: 'bg-[var(--contribution-default-bgColor-4)]'
 }
 
 function summarize(days: ContributionDay[]) {
@@ -42,7 +43,7 @@ function summarize(days: ContributionDay[]) {
   return { activeDays, longest, current }
 }
 
-/** GitHub-style contribution calendar with a compact side stats panel. */
+/** Contribution calendar with a compact side stats panel. */
 export function ContributionHeatmap({
   calendar
 }: {

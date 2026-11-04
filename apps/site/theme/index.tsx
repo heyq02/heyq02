@@ -2,6 +2,7 @@ import type { LayoutProps } from '@rspress/core/theme-original'
 import { HomeFooter, Layout as BasicLayout } from '@rspress/core/theme-original'
 import type { ReactElement } from 'react'
 
+import { PrimerColorMode } from './PrimerColorMode.tsx'
 import { SiteEasterEgg } from './SiteEasterEgg.tsx'
 
 import './chrome.css'
@@ -15,6 +16,7 @@ export function Layout(props: LayoutProps): ReactElement {
   const { bottom, ...rest } = props
   return (
     <>
+      <PrimerColorMode />
       <SiteEasterEgg />
       <BasicLayout
         {...rest}

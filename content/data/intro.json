@@ -10,6 +10,7 @@
   },
   "tags": ["双一流本科", "24届校招", "前端转全栈", "开源爱好者"],
   "bio": "专注用 AI 加速开发，并真正落到产品里",
+  "about": "双一流本科，24 届校招前端，正在往全栈挪。日常爱用 AI 把活干快一点，但只认真正落到产品里的结果。通州窗台边写代码，签名底下那句「无限进步」算是给自己的备注——进度条慢慢走就行。",
   "kaomoji": "(๑•̀ㅂ•́)و",
   "moods": ["(๑•̀ㅂ•́)و", "(｡•́︿•̀｡)", "(ﾉ´ヮ`)ﾉ*: ･ﾟ", "(￣▽￣)ノ", "ヽ(✿ﾟ▽ﾟ)ノ", "( •̀ ω •́ )✧"],
   "avatar": "https://avatars.githubusercontent.com/u/206218794?v=4",
@@ -21,9 +22,12 @@
     "email": "hello@heyq02.com"
   },
   "sections": {
+    "about": "关于",
+    "blog": "文章",
     "contributions": "提交热力图",
+    "likes": "兴趣速览",
     "skills": "技能",
-    "openSource": "开源项目"
+    "openSource": "项目"
   },
   "places": [
     {
@@ -114,5 +118,9 @@
       "href": "https://www.docker.com/",
       "summary": "构建、分发与运行应用的开放平台"
     }
-  ]
+  ],
+  "projectSummaries": {
+    "simpleicons.dev": "轻松在 GitHub README 或简历上展示你的技能图标。",
+    "keyboard-source-locker": "macOS 菜单栏小工具，把当前输入法锁定在你指定的那一个。"
+  }
 }

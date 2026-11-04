@@ -1,4 +1,4 @@
-import { siteH1, siteHeaderRule, siteMeta } from '@heyq02/rspress-theme-ui'
+import { siteBody, siteH1, siteMeta, TextLink } from '@heyq02/rspress-theme-ui'
 import { Badge } from '@rspress/core/theme'
 import { useState } from 'react'
 import type { ReactElement } from 'react'
@@ -12,7 +12,7 @@ interface ProfilePlayProps {
   ssgMd?: boolean
 }
 
-/** Hero avatar + greeting; second row is emoji · badge/zodiac · home weather. */
+/** Hero: copy left, large avatar right — layout inspired by diygod.cc. */
 export function ProfilePlay({
   tags,
   ssgMd = Boolean(import.meta.env.SSG_MD)
@@ -20,12 +20,14 @@ export function ProfilePlay({
   const faces = intro.moods
   const [mood, setMood] = useState(0)
   const [spinning, setSpinning] = useState(false)
+  const socials = intro.places.filter(place => place.label !== 'WeChat')
 
   if (ssgMd) {
     return (
       <>
         {`![${intro.name}](${intro.avatar})`}
         {`\n\n# ${intro.headline}\n\n${intro.kaomoji} · ${intro.badge} · ${intro.zodiac} · ${intro.home.label}\n\n`}
+        {`${intro.bio}\n\n${intro.about}\n\n`}
         {tags.map(tag => `\`${tag}\``).join(' ')}
         {'\n'}
       </>
@@ -40,31 +42,14 @@ export function ProfilePlay({
   const face = faces[mood % faces.length]
 
   return (
-    <header
-      className={`gap-x-rp-5 grid grid-cols-1 items-center ${siteHeaderRule} sm:grid-cols-[7rem_1fr]`}
-    >
-      <button
-        type='button'
-        className={`rounded-rp m-0 block cursor-pointer border-0 bg-transparent p-0 leading-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-rp-brand${spinning ? ' profile-avatar-button--spin' : ''}`}
-        onClick={poke}
-        onAnimationEnd={() => {
-          setSpinning(false)
-        }}
-        aria-label='戳一下头像'
-        title='戳我'
-      >
-        <img
-          className={`rounded-rp border-rp-divider-light shadow-rp-md block size-28 border object-cover transition-shadow duration-200 hover:shadow-rp${spinning ? ' animate-avatar-wobble' : ''}`}
-          src={intro.avatar}
-          alt={intro.name}
-          width={112}
-          height={112}
-          draggable={false}
-        />
-      </button>
-      <div className='min-w-0'>
+    <header className='hey-rise mt-rp-6 md:mt-rp-10 flex flex-col items-center md:flex-row md:items-start'>
+      <div className='relative w-full min-w-0 md:w-1/2'>
         <h1 className={siteH1}>{intro.headline}</h1>
-        <div className='mt-rp-3 gap-x-rp-4 gap-y-rp-2 flex flex-wrap items-baseline'>
+        <p className='text-rp-lg text-rp-text mt-rp-4 font-display mb-0 leading-snug font-bold'>
+          {intro.bio}
+        </p>
+        <p className={`${siteBody} mt-rp-4 max-w-xl`}>{intro.about}</p>
+        <div className='mt-rp-4 gap-x-rp-4 gap-y-rp-2 flex flex-wrap items-baseline'>
           <button
             type='button'
             className='rounded-rp-sm px-rp-1 py-rp-1 text-rp-lg text-rp-muted hover:bg-rp-soft hover:text-rp-brand focus-visible:outline-rp-brand inline-flex shrink-0 cursor-pointer border-0 bg-transparent font-mono leading-snug transition-[color,background-color,transform] duration-200 hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2'
@@ -84,6 +69,36 @@ export function ProfilePlay({
             <Badge key={tag} text={tag} type='info' outline />
           ))}
         </p>
+        <p className='mt-rp-5 gap-x-rp-4 gap-y-rp-2 text-rp-sm mb-0 flex flex-wrap'>
+          {socials.map(place => (
+            <TextLink key={place.label} href={place.href}>
+              {place.label}
+            </TextLink>
+          ))}
+          <TextLink href={`mailto:${intro.contact.email}`}>Email</TextLink>
+        </p>
+      </div>
+
+      <div className='mt-rp-8 md:pl-rp-8 relative flex w-full justify-center md:mt-0 md:w-1/2 md:translate-y-1 md:justify-end'>
+        <button
+          type='button'
+          className={`m-0 block max-w-xs cursor-pointer border-0 bg-transparent p-0 leading-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-rp-brand${spinning ? ' profile-avatar-button--spin' : ''}`}
+          onClick={poke}
+          onAnimationEnd={() => {
+            setSpinning(false)
+          }}
+          aria-label='戳一下头像'
+          title='戳我'
+        >
+          <img
+            className={`border-rp-divider-light shadow-rp-md block aspect-square w-full max-w-[20rem] rounded-3xl border object-cover transition-shadow duration-200 hover:shadow-rp${spinning ? ' animate-avatar-wobble' : ''}`}
+            src={intro.avatar}
+            alt={intro.name}
+            width={320}
+            height={320}
+            draggable={false}
+          />
+        </button>
       </div>
     </header>
   )

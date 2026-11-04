@@ -67,7 +67,7 @@ function Ticket({ item, upcoming }: { item: ShelfItem; upcoming: boolean }): Rea
         upcoming ? 'border-dashed' : ''
       ].join(' ')}
     >
-      <span className='gap-rp-1 border-rp-divider px-rp-3 py-rp-4 relative grid content-center border-b border-dashed bg-[color-mix(in_oklab,var(--rp-c-brand)_10%,var(--rp-c-bg-soft))] sm:border-r sm:border-b-0'>
+      <span className='gap-rp-1 border-rp-divider bg-rp-soft px-rp-3 py-rp-4 relative grid content-center border-b border-dashed sm:border-r sm:border-b-0'>
         <span className={`tracking-[0.14em] uppercase ${siteMeta}`}>
           {upcoming ? 'PLAN' : 'TICKET'}
         </span>

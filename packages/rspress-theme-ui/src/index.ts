@@ -22,6 +22,7 @@ export {
   siteFocusRing,
   siteH1,
   siteH2,
+  siteH2Plain,
   siteHeaderRule,
   siteLink,
   siteMediaLink,
