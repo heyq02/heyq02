@@ -1,6 +1,6 @@
 import { expect, it } from 'vite-plus/test'
 
-import { fetchPinnedProjects, githubToken } from '../index.ts'
+import { fetchPinnedProjects, githubToken } from '../github-pinned.ts'
 
 it('github-pins e2e: loads live pinned repos when a token is present', async () => {
   const token = githubToken()

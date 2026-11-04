@@ -16,7 +16,7 @@ export default liangmi({
         'plugins/**/*.ts',
         'theme/*.{ts,tsx}'
       ],
-      exclude: ['scripts/build.ts', 'theme/ui-classes.ts', '**/tests/**'],
+      exclude: ['scripts/build.ts', '**/tests/**'],
       thresholds: {
         statements: 95,
         branches: 95,
