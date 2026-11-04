@@ -1,0 +1,67 @@
+apps/site/src/lib/paths.ts
+  s_9e4cc396e9a614::t_b9665698c707b5 12
+  s_9e4cc396e9a614::t_81525a3be2275d 4-6
+apps/site/src/content/posts/daily-frontend-interview-2023-02-29.md
+  s_9e4cc396e9a614::t_d9c014074d7107 3
+  s_9e4cc396e9a614::t_7afbdd53d346a6 1-2,4-132
+.github/workflows/ci.yml
+  s_9e4cc396e9a614::t_cece1e6179f9e8 1,33-34,37,39,41-42
+apps/site/src/lib/social-icons.ts
+  s_9e4cc396e9a614::t_bd8b0776589f80 1
+apps/site/package.json
+  s_9e4cc396e9a614::t_adff95373e3f69 10-11
+apps/site/src/pages/blog/[slug].astro
+  s_9e4cc396e9a614::t_321371d83fd136 3
+apps/site/astro.config.mjs
+  s_9e4cc396e9a614::t_bcecf636c7ed25 9-10
+apps/site/src/lib/favorites.ts
+  s_9e4cc396e9a614::t_6c141d2df7a417 21-23
+apps/site/src/pages/friends.astro
+  s_9e4cc396e9a614::t_6fa79217d06c47 2
+apps/site/src/pages/404.astro
+  s_9e4cc396e9a614::t_3f42aa88ecd664 3,9
+  s_9e4cc396e9a614::t_5dafbf934b127f 2
+apps/site/src/pages/about.astro
+  s_9e4cc396e9a614::t_04e28b9cd5adf8 6-8
+  s_9e4cc396e9a614::t_151358af7f0d70 3
+vite.config.ts
+  s_9e4cc396e9a614::t_f0cebd3facc055 10-11,14-29
+  s_9e4cc396e9a614::t_1c5ce3270b363c 12
+  s_9e4cc396e9a614::t_bfbcdaa85f923d 13
+apps/site/src/lib/publication.ts
+  s_9e4cc396e9a614::t_2847de0a86788c 25-29
+apps/site/src/content.config.ts
+  s_9e4cc396e9a614::t_91425edd5a3274 1,3
+  s_9e4cc396e9a614::t_cdf0884c4ed4ac 5-6
+apps/site/tests/paths.test.ts
+  s_9e4cc396e9a614::t_99cbc8685d4d68 2,14
+  s_9e4cc396e9a614::t_400d2fff1a156b 1,3-13,15-16
+apps/site/src/pages/index.astro
+  s_9e4cc396e9a614::t_6cc4f88d6cb5f8 3
+.gitignore
+  s_9e4cc396e9a614::t_90c1f61edd1a5a 4
+apps/site/tests/publication.test.ts
+  s_9e4cc396e9a614::t_d588e454ab19c2 1-38
+.github/workflows/release-site.yml
+  s_9e4cc396e9a614::t_ef8d0a32aed362 36-37
+apps/site/tests/favorites.test.ts
+  s_9e4cc396e9a614::t_45a3863112b6b9 1-38
+pnpm-lock.yaml
+  s_9e4cc396e9a614::t_16d8f82b6c3d28 3370,3380,3390,3805,5236-5237
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "09eaae0e308aef4748c6b905c11852cd176a0455",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
