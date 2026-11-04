@@ -1,5 +1,6 @@
 import { resolve } from 'node:path'
 
+import { pluginWatermark } from '@heyq02/rspress-plugin-watermark'
 import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
@@ -78,6 +79,7 @@ ${pages || '-（暂无其他页面）'}
     pluginSiteAssets(siteRoot),
     pluginBlogMeta(siteRoot),
     pluginProfile(siteRoot),
+    pluginWatermark({ src: '/wuxian-jinbu.png' }),
     pluginRss({
       feed: {
         id: 'blog',

@@ -1,20 +1,9 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["es2023"],
-    "moduleDetection": "force",
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "resolveJsonModule": true,
-    "types": ["node"],
-    "strict": true,
-    "noUnusedLocals": true,
-    "declaration": true,
-    "noEmit": true,
-    "allowImportingTsExtensions": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "verbatimModuleSyntax": true,
-    "skipLibCheck": true
-  }
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "jsx": "react-jsx",
+    "types": ["node"]
+  },
+  "include": ["env.d.ts", "src", "static", "tests", "vite.config.ts"]
 }

@@ -1,23 +1,26 @@
 {
   "name": "@heyq02/rspress-plugin-watermark",
-  "version": "0.0.0",
-  "description": "A starter for creating a TypeScript package.",
-  "homepage": "https://github.com/author/library#readme",
+  "version": "2.0.0-beta.2",
+  "description": "Rspress plugin: diagonal page watermark via globalUIComponents",
+  "homepage": "https://github.com/heyq02/heyq02/tree/main/packages/rspress-plugin-watermark",
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/heyq02/heyq02/issues"
   },
   "license": "MIT",
-  "author": "Author Name <author.name@mail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/heyq02/heyq02.git",
+    "directory": "packages/rspress-plugin-watermark"
   },
   "files": [
-    "dist"
+    "dist",
+    "static",
+    "src"
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": "./src/index.ts",
+    "./Watermark": "./static/Watermark.tsx",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -31,8 +34,19 @@
     "test": "vp test"
   },
   "devDependencies": {
-    "@types/node": "^26.6.5",
-    "typescript": "^7.0.2",
+    "@rspress/core": "^2.1.0-beta.2",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "catalog:",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "jsdom": "^27.0.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "catalog:",
     "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "@rspress/core": "^2.1.0-beta.2",
+    "react": "^19.0.0"
   }
 }

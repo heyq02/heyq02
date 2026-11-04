@@ -1,0 +1,32 @@
+/* Diagonal watermark — fixed under chrome, never interactive. */
+.rp-plugin-watermark {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.rp-plugin-watermark__mark {
+  width: min(180vw, 110rem);
+  max-width: none;
+  height: auto;
+  opacity: 0.02;
+  transform: rotate(-24deg) scale(2.5);
+}
+
+html.dark .rp-plugin-watermark__mark {
+  filter: invert(1);
+  opacity: 0.03;
+}
+
+/* Keep interactive chrome above the watermark layer. */
+.rp-nav,
+.rp-sidebar,
+.rp-toc,
+.rspress-nav {
+  z-index: 2;
+}
