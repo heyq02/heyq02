@@ -10,7 +10,7 @@ export async function formatGenerated(
   spawnFn: SpawnFn = spawn
 ): Promise<void> {
   await new Promise<void>((resolve, reject) => {
-    const child: ChildProcess = spawnFn('pnpm', ['exec', 'vp', 'fmt', ...files], {
+    const child: ChildProcess = spawnFn('vp', ['fmt', ...files], {
       cwd: site,
       stdio: 'inherit'
     })

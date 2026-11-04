@@ -22,7 +22,6 @@
   },
   "scripts": {
     "build": "vp run cpack",
-    "dev": "vp pack --watch",
     "prepublishOnly": "vp run -t build"
   },
   "devDependencies": {

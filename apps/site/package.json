@@ -4,8 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vp run cbuild",
-    "preview": "vp preview"
+    "build": "vp run cbuild"
   },
   "dependencies": {
     "@heyq02/rspress-plugin-blog-meta": "workspace:*",

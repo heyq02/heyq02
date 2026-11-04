@@ -10,9 +10,10 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "check": "vp check"
+    "check": "vp run ccheck"
   },
   "devDependencies": {
+    "@liangmi/vp-config": "catalog:",
     "@rspress/core": "^2.1.0-beta.2",
     "@types/node": "catalog:",
     "@types/react": "^19.3.0",

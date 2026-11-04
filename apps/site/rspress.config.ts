@@ -84,7 +84,9 @@ ${pages || '-（暂无其他页面）'}
       outDir: resolve(blogsRoot, 'public'),
       signaturePath: resolve(brandRoot, 'signature.png'),
       wechatPath: resolve(sitePublic, 'wechat.jpg'),
-      watermarkPath: resolve(sitePublic, 'wuxian-jinbu.png')
+      watermarkPath: resolve(sitePublic, 'wuxian-jinbu.png'),
+      siteOrigin: intro.site,
+      cnamePath: resolve(dir, 'CNAME')
     }),
     pluginBlogMeta({
       blogDir: resolve(blogsRoot, 'blog'),
