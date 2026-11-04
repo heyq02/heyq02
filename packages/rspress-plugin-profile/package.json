@@ -1,6 +1,6 @@
 {
   "name": "@heyq02/rspress-plugin-profile",
-  "version": "2.0.0-beta.5",
+  "version": "2.0.0-beta.6",
   "private": true,
   "description": "Rspress plugin: fetch GitHub pins and regenerate homepage data for the React profile page",
   "type": "module",
