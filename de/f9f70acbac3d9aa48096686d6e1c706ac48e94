@@ -1,0 +1,62 @@
+packages/rspress-plugin-profile/src/profile-classes.ts
+  s_7f3749379effc6::t_f5716e8b80c243 1,3,6,9,11,13,16,18,20,29,32,34,39,42,45,47,49,51,53
+apps/site/theme/likes/GamesPage.tsx
+  s_7f3749379effc6::t_9cd814492e9212 3-11,16-17,51,60,76,87-89
+  s_f12f4a87a714e6::t_ce68084909feed 91,94,97-98,106-107,117,122,124
+apps/site/theme/FriendsPage.tsx
+  s_7f3749379effc6::t_287b2c875b0d3c 14,40,42,44,46,48,51,84,113,115,125
+  s_f12f4a87a714e6::t_81430913e94caf 134,166
+apps/site/theme/likes/UsesPage.tsx
+  s_7f3749379effc6::t_66e2b6e92d4fda 3-11,56,58,70,75,77,80-81,88,100,102,106-107,118,120,123-124
+  s_7f3749379effc6::t_fbe65c322f54ee 108
+apps/site/theme/likes/shared.tsx
+  s_7f3749379effc6::t_0b311d144748ff 25,34
+  s_7f3749379effc6::t_1f86b5a144739b 5
+  s_f12f4a87a714e6::t_481f90676f6000 6
+apps/site/theme/chrome.css
+  s_7f3749379effc6::t_2e99ead221d480 1,3-4,21,23,28,30,37
+apps/site/lib/site-ui.ts
+  s_7f3749379effc6::t_399218c4836418 13-14,17,22-23,31-32,46,48,50
+  s_7f3749379effc6::t_31cda6636ccf51 1,3,5,8,11,20,26,28,30,35-44
+  s_f12f4a87a714e6::t_19df1566119694 12,21
+apps/site/tailwind.css
+  s_7f3749379effc6::t_95c403d656b68d 2,8-11,14-68
+  s_7f3749379effc6::t_0fa9db66a532ad 6
+apps/site/theme/likes/VisitsPage.tsx
+  s_7f3749379effc6::t_74216504ddf4ba 3-11,47,49-50,66,70-71,74,80,83,86,92-93,99
+apps/site/theme/likes/Hub.tsx
+  s_7f3749379effc6::t_94f5e6980a1cc0 10,18-22,53,62,64-65,69,72-73,86
+  s_7f3749379effc6::t_49ad5f9a9b81f1 75
+apps/site/theme/likes/MusicPage.tsx
+  s_7f3749379effc6::t_f7df2d69ee0bf7 3-14,58,70,81,83,97,100,106,110,114-115,127,129,131,138-139,144,157,159,164
+apps/site/theme/likes/ReadingPage.tsx
+  s_7f3749379effc6::t_370bfe77210220 3-15,21-25,61,70-71,78,81,98,100-101,105-107,112-113,117-118,131,135,146,148,154
+apps/site/theme/likes/WatchingPage.tsx
+  s_7f3749379effc6::t_c26a7b63cf2fd8 3-10,48,50-53,62,76-77,86,90,92,107-108,118,123-124
+apps/site/theme/ProfilePlay.tsx
+  s_7f3749379effc6::t_a29585ecef91a0 42,46,55,67,74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "def9f70acbac3d9aa48096686d6e1c706ac48e94",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    },
+    "s_f12f4a87a714e6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "84c755bb-0bbd-4a9c-98ec-11119495a3e4",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
