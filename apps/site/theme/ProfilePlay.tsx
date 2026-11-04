@@ -1,9 +1,10 @@
-import { siteH1, siteHeaderRule } from '@heyq02/rspress-theme-ui'
+import { siteH1, siteHeaderRule, siteMeta } from '@heyq02/rspress-theme-ui'
 import { Badge } from '@rspress/core/theme'
 import { useState } from 'react'
 import type { ReactElement } from 'react'
 
 import { intro } from '../lib/intro.ts'
+import { HomeWeather } from './HomeWeather.tsx'
 
 interface ProfilePlayProps {
   tags: string[]
@@ -11,7 +12,7 @@ interface ProfilePlayProps {
   ssgMd?: boolean
 }
 
-/** Hero avatar + kaomoji: poke to wobble and cycle moods. */
+/** Hero avatar + greeting; second row is emoji · badge/zodiac · home weather. */
 export function ProfilePlay({
   tags,
   ssgMd = Boolean(import.meta.env.SSG_MD)
@@ -24,7 +25,7 @@ export function ProfilePlay({
     return (
       <>
         {`![${intro.name}](${intro.avatar})`}
-        {`\n\n# ${intro.name}\n\n${intro.kaomoji}\n\n`}
+        {`\n\n# ${intro.headline}\n\n${intro.kaomoji} · ${intro.badge} · ${intro.zodiac} · ${intro.home.label}\n\n`}
         {tags.map(tag => `\`${tag}\``).join(' ')}
         {'\n'}
       </>
@@ -62,16 +63,22 @@ export function ProfilePlay({
         />
       </button>
       <div className='min-w-0'>
-        <h1 className={siteH1}>{intro.name}</h1>
-        <button
-          type='button'
-          className='mt-rp-2 rounded-rp-sm px-rp-1 py-rp-1 text-rp-lg text-rp-muted hover:bg-rp-soft hover:text-rp-brand focus-visible:outline-rp-brand inline-flex cursor-pointer border-0 bg-transparent font-mono leading-snug transition-[color,background-color,transform] duration-200 hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2'
-          onClick={poke}
-          aria-label='换一个表情'
-          title='点一下换个表情'
-        >
-          {face}
-        </button>
+        <h1 className={siteH1}>{intro.headline}</h1>
+        <div className='mt-rp-3 gap-x-rp-4 gap-y-rp-2 flex flex-wrap items-baseline'>
+          <button
+            type='button'
+            className='rounded-rp-sm px-rp-1 py-rp-1 text-rp-lg text-rp-muted hover:bg-rp-soft hover:text-rp-brand focus-visible:outline-rp-brand inline-flex shrink-0 cursor-pointer border-0 bg-transparent font-mono leading-snug transition-[color,background-color,transform] duration-200 hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2'
+            onClick={poke}
+            aria-label='换一个表情'
+            title='点一下换个表情'
+          >
+            {face}
+          </button>
+          <span className={`shrink-0 ${siteMeta}`}>
+            {intro.badge}、{intro.zodiac}
+          </span>
+          <HomeWeather home={intro.home} />
+        </div>
         <p className='mt-rp-3 gap-rp-1 mb-0 flex flex-wrap'>
           {tags.map(tag => (
             <Badge key={tag} text={tag} type='info' outline />

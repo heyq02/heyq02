@@ -35,8 +35,22 @@ export interface Contact {
   email: string
 }
 
+export interface HomePlace {
+  /** Display label, e.g. 通州区. */
+  label: string
+  latitude: number
+  longitude: number
+}
+
 export interface Intro {
   name: string
+  /** Homepage hero greeting (may differ from `name` / site title). */
+  headline: string
+  /** Short badge next to the kaomoji, e.g. `02`. */
+  badge: string
+  zodiac: string
+  /** Hometown / live-weather anchor for the hero strip. */
+  home: HomePlace
   tags: string[]
   bio: string
   kaomoji: string

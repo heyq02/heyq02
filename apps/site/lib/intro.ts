@@ -7,6 +7,7 @@ export type {
   Contact,
   Education,
   Experience,
+  HomePlace,
   Intro,
   Place,
   Skill
