@@ -1,0 +1,79 @@
+---
+import { intro } from '../lib/intro.ts'
+import { badgeClass, siteH1, siteHeaderRule } from '../lib/site-ui.ts'
+
+interface Props {
+  tags: string[]
+}
+
+const { tags } = Astro.props
+const moodsJson = JSON.stringify(intro.moods)
+---
+
+<header
+  class:list={[
+    'grid grid-cols-1 items-center gap-x-5 sm:grid-cols-[7rem_1fr]',
+    siteHeaderRule
+  ]}
+  data-profile-play
+  data-moods={moodsJson}
+>
+  <button
+    type="button"
+    class="profile-avatar m-0 block cursor-pointer rounded-[var(--site-radius)] border-0 bg-transparent p-0 leading-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--site-brand)]"
+    aria-label="戳一下头像"
+    title="戳我"
+    data-poke
+  >
+    <img
+      class="profile-avatar-img block size-28 rounded-[var(--site-radius)] border border-[var(--site-divider-light)] object-cover shadow-[var(--site-shadow-1)]"
+      src={intro.avatar}
+      alt={intro.name}
+      width="112"
+      height="112"
+      draggable="false"
+      data-avatar
+    />
+  </button>
+  <div class="min-w-0">
+    <h1 class={siteH1}>{intro.name}</h1>
+    <button
+      type="button"
+      class="mt-[0.45rem] inline-flex cursor-pointer rounded-[var(--site-radius-small)] border-0 bg-transparent px-[0.35rem] py-[0.15rem] font-[family-name:var(--site-mono)] text-[1.05rem] leading-[1.3] text-[var(--site-text-2)] transition-[color,background-color,transform] duration-200 hover:-translate-y-px hover:bg-[var(--site-bg-soft)] hover:text-[var(--site-brand)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--site-brand)]"
+      aria-label="换一个表情"
+      title="点一下换个表情"
+      data-mood
+      data-poke
+    >
+      {intro.kaomoji}
+    </button>
+    <p class="mt-[0.65rem] mb-0 flex flex-wrap gap-[0.4rem]">
+      {tags.map(tag => <span class={badgeClass}>{tag}</span>)}
+    </p>
+  </div>
+</header>
+
+<script>
+  const root = document.querySelector('[data-profile-play]')
+  if (root instanceof HTMLElement) {
+    const moods = JSON.parse(root.dataset.moods || '[]') as string[]
+    const moodEl = root.querySelector('[data-mood]')
+    const avatar = root.querySelector('[data-avatar]')
+    let index = 0
+
+    const poke = () => {
+      if (!moods.length) return
+      index = (index + 1) % moods.length
+      if (moodEl) moodEl.textContent = moods[index] ?? ''
+      if (avatar instanceof HTMLElement) {
+        avatar.classList.remove('animate-avatar-wobble')
+        void avatar.offsetWidth
+        avatar.classList.add('animate-avatar-wobble')
+      }
+    }
+
+    root.querySelectorAll('[data-poke]').forEach(el => {
+      el.addEventListener('click', poke)
+    })
+  }
+</script>

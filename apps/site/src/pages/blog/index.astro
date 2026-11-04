@@ -8,7 +8,6 @@ import {
   siteCardName,
   siteCardSummary,
   siteH1,
-  siteH2,
   siteHeaderRule,
   sitePageRoot,
   siteSection,
@@ -16,9 +15,6 @@ import {
 } from '../../lib/site-ui.ts'
 
 const posts = (await getCollection('posts')).toSorted(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-)
-const interviews = (await getCollection('interview')).toSorted(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 )
 
@@ -31,39 +27,15 @@ function formatDate(date: Date) {
   <div class={sitePageRoot}>
     <header class={siteHeaderRule}>
       <h1 class={siteH1}>博客</h1>
-      <p class={`mt-3 ${siteBody}`}>技术文章、开发笔记与面经整理。</p>
+      <p class:list={['mt-3', siteBody]}>精选技术笔记与项目记录。</p>
     </header>
 
     <section class={siteSection}>
-      <h2 class={siteH2}>文章</h2>
       <ul class="m-0 grid list-none gap-3 p-0">
         {
           posts.map(post => (
             <li>
-              <a class={`group grid gap-1 ${siteCardChrome}`} href={`/blog/posts/${post.id}/`}>
-                <span class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                  <span class={siteCardName}>{post.data.title}</span>
-                  <time class={siteWhen} datetime={post.data.date.toISOString()}>
-                    {formatDate(post.data.date)}
-                  </time>
-                </span>
-                {post.data.description ? (
-                  <span class={siteCardSummary}>{post.data.description}</span>
-                ) : null}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-
-    <section class={siteSection}>
-      <h2 class={siteH2}>面经</h2>
-      <ul class="m-0 grid list-none gap-3 p-0">
-        {
-          interviews.map(post => (
-            <li>
-              <a class={`group grid gap-1 ${siteCardChrome}`} href={`/blog/interview/${post.id}/`}>
+              <a class:list={['group grid gap-1', siteCardChrome]} href={`/blog/posts/${post.id}/`}>
                 <span class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                   <span class={siteCardName}>{post.data.title}</span>
                   <time class={siteWhen} datetime={post.data.date.toISOString()}>

@@ -1,0 +1,30 @@
+<button
+  type="button"
+  class="rounded-[var(--site-radius-small)] border border-[var(--site-divider-light)] bg-[var(--site-bg-soft)] px-2.5 py-1 text-[0.8rem] text-[var(--site-text-2)] transition-colors hover:text-[var(--site-brand)]"
+  data-theme-toggle
+  aria-label="切换浅色 / 深色模式"
+>
+  深色
+</button>
+
+<script>
+  const key = 'heyq02-theme'
+  const button = document.querySelector('[data-theme-toggle]')
+
+  const sync = () => {
+    const dark = document.documentElement.classList.contains('dark')
+    if (button) {
+      button.textContent = dark ? '浅色' : '深色'
+      button.setAttribute('aria-label', dark ? '切换到浅色模式' : '切换到深色模式')
+      button.setAttribute('title', dark ? '浅色' : '深色')
+    }
+  }
+
+  sync()
+  button?.addEventListener('click', () => {
+    const next = !document.documentElement.classList.contains('dark')
+    document.documentElement.classList.toggle('dark', next)
+    localStorage.setItem(key, next ? 'dark' : 'light')
+    sync()
+  })
+</script>

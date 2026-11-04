@@ -6,14 +6,14 @@ date: 2026-01-19
 
 # 单实例多 MCP 聚合服务：两种实现方案对比
 
-::: tip {title="仓库"}
-- 方案1（Nginx）：[betterhyq/honeycomb-nginx](https://github.com/betterhyq/honeycomb-nginx/)
-- 方案2（Express）：[betterhyq/honeycomb](https://github.com/betterhyq/honeycomb/)
-:::
+> **仓库**
+>
+> - 方案1（Nginx）：[betterhyq/honeycomb-nginx](https://github.com/betterhyq/honeycomb-nginx/)
+> - 方案2（Express）：[betterhyq/honeycomb](https://github.com/betterhyq/honeycomb/)
 
-::: info {title="你会得到什么"}
-弄清单实例多 MCP 聚合的两种路线：物理隔离的 Nginx 反代，以及逻辑隔离的 Express 统一服务，并按场景选型。
-:::
+> **你会得到什么**
+>
+> 弄清单实例多 MCP 聚合的两种路线：物理隔离的 Nginx 反代，以及逻辑隔离的 Express 统一服务，并按场景选型。
 
 ## 1. 引言
 

@@ -9,18 +9,10 @@ export default liangmi({
   },
   lint: [
     {
-      files: ['apps/site/**'],
-      rules: {
-        'react-perf/jsx-no-new-object-as-prop': 'off',
-        'react-perf/jsx-no-new-function-as-prop': 'off'
-      }
-    },
-    {
-      files: ['**/tests/**', '**/e2e/**', '**/*.test.ts', '**/*.test.tsx'],
+      files: ['**/tests/**', '**/*.test.ts', '**/*.test.tsx'],
       rules: {
         'promise/prefer-await-to-callbacks': 'off',
         'node/no-sync': 'off',
-        'react-perf/jsx-no-jsx-as-prop': 'off',
         'unicorn/prefer-event-target': 'off',
         'unicorn/max-nested-calls': 'off',
         'unicorn/consistent-function-scoping': 'off',
@@ -30,8 +22,7 @@ export default liangmi({
     }
   ],
   test: {
-    environmentMatchGlobs: [['apps/site/src/components/**', 'jsdom']],
-    exclude: ['**/e2e/**', '**/node_modules/**', '**/*.e2e.ts'],
+    exclude: ['**/node_modules/**'],
     coverage: {
       include: ['apps/*/src/**/*.{ts,tsx}', 'apps/site/src/lib/**/*.ts'],
       exclude: [
@@ -39,9 +30,7 @@ export default liangmi({
         '**/*.css',
         '**/vite.config.ts',
         '**/astro.config.ts',
-        '**/*.e2e.ts',
-        'apps/site/scripts/**',
-        'apps/site/src/lib/remark-admonitions.ts'
+        'apps/site/scripts/**'
       ],
       thresholds: {
         statements: 70,

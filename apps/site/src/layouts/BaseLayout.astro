@@ -1,8 +1,7 @@
 ---
-import SiteEasterEgg from '../components/SiteEasterEgg.tsx'
-import SiteWatermark from '../components/SiteWatermark.astro'
 import SiteFooter from '../components/SiteFooter.astro'
 import SiteNav from '../components/SiteNav.astro'
+import SiteWatermark from '../components/SiteWatermark.astro'
 import ThemeInit from '../components/ThemeInit.astro'
 import { intro } from '../lib/intro.ts'
 import '../styles/global.css'
@@ -10,10 +9,9 @@ import '../styles/global.css'
 interface Props {
   title?: string
   description?: string
-  wide?: boolean
 }
 
-const { title, description = intro.description, wide = false } = Astro.props
+const { title, description = intro.description } = Astro.props
 const pageTitle = title ? `${title} · ${intro.name}` : `${intro.name} · ${intro.bio}`
 ---
 
@@ -32,19 +30,31 @@ const pageTitle = title ? `${title} · ${intro.name}` : `${intro.name} · ${intr
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:image" content={intro.avatar} />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="alternate" type="application/rss+xml" title={`${intro.name} · 博客`} href="/blog/rss.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${intro.name} · 博客`}
+      href="/blog/rss.xml"
+    />
     <title>{pageTitle}</title>
     <ThemeInit />
   </head>
   <body>
     <SiteWatermark />
-    <SiteEasterEgg client:load />
     <div class="site-shell min-h-screen">
       <SiteNav currentPath={Astro.url.pathname} />
-      <main class:list={['px-6 py-10 sm:px-8 sm:py-12', wide ? '' : '']}>
+      <main class="px-6 py-10 sm:px-8 sm:py-12">
         <slot />
       </main>
       <SiteFooter />
     </div>
+    <script define:vars={{ name: intro.name, bio: intro.bio, site: intro.site, kaomoji: intro.kaomoji }}>
+      console.info(
+        `%c${kaomoji}  你好，我是${name}\n%c${bio}\n%c→ ${site}`,
+        'font-size:18px;font-weight:700',
+        'color:#888',
+        'color:#0095ff'
+      )
+    </script>
   </body>
 </html>
