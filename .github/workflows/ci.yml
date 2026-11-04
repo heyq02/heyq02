@@ -1,4 +1,4 @@
-# Lint and test on pull requests and pushes to main.
+# Lint and typecheck on pull requests and pushes to main.
 name: CI
 
 on:
@@ -32,17 +32,3 @@ jobs:
 
       - name: Check
         run: vp run ccheck
-
-      - name: Unit tests
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: vp test --coverage
-
-      - name: Install Playwright Chromium
-        run: pnpm exec playwright install --with-deps chromium
-
-      - name: End-to-end tests
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm test:e2e

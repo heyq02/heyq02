@@ -20,5 +20,3 @@ apps/site/blogs/blog/interview/_meta.json
 .env
 .env.*
 !.env.example
-test-results/
-playwright-report/

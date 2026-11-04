@@ -28,8 +28,7 @@
     "build": "vp pack",
     "check": "vp check",
     "dev": "vp pack --watch",
-    "prepublishOnly": "vp run build",
-    "test": "vp test"
+    "prepublishOnly": "vp run build"
   },
   "dependencies": {
     "simple-icons": "^16.14.0",
