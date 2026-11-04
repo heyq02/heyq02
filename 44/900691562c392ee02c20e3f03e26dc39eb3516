@@ -1,0 +1,87 @@
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-09.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,83,87,118,343,347,360,370,383,399,401,406,417,431,467
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-17.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5,7-9,24,67,69,73,97,129,133,146,182,186,212,244,259,286,290,308,330,347,362,377
+apps/site/blogs/blog/interview/daily-frontend-interview-2023-02-25.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,11,15,24,28,32,58,122
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-12.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,31,45,50,54,92,127,137,164,179,194
+apps/site/blogs/blog/interview/jd-frontend-interview-2.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,11,15,17,19,21,23,25,29,33,35,37,41,47,49,51,57,65,74,86,92,97,101,105,111,113,117,119,121
+apps/site/blogs/blog/interview/daily-frontend-interview-2023-02-24.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,18,42,53,57,68
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-15.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,27,124,128,134,140,248,257,263,273,281
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-05.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,35,39,46,60,62,69,75,79,86,99,104,116,120
+apps/site/blogs/blog/interview/daily-frontend-interview-2023-02-26.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,15,19,23,30,37,51,55,63,71,78,88,93,97,101,105,111
+apps/site/blogs/blog/interview/daily-frontend-interview-2023-02-29.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,13,20,24,28,35,52,60,65,72,77,81,86,90,95
+apps/site/blogs/blog/interview/daily-frontend-interview-2023-02-22.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,11,25,40,42,51,60,83,85,92,117,129,133,138,168,170,195,211,215,219,223,231,257,270,288,293,298,302,307,316,321,353,355,369,384,386,395,404,427,429,436,461,473,477,482,512,514,539,555,559,563,567,575,601,614,632,637,642,646,651,660,665
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-04.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,146,154,240,246,256,270,287,296
+apps/site/blogs/blog/interview/daily-frontend-interview-2023-02-23.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,19,28,42,72,93,97,107,111,115,127,132,136,140,144,146,166,172,176,183,185,190,194,203,207,214,216,220,237,239,247
+apps/site/blogs/blog/interview/daily-frontend-interview-2023-02-28.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,15,20,30,45,56,91,99,103,107,113
+apps/site/blogs/blog/interview/jd-frontend-interview-1.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,11,27,65,67,71,80,86,92,97,101,191,273,277,285,289,296,305,309
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-14.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,24,45,51,87,95,103,110,150,164,261
+apps/site/plugins/blog-posts.ts
+  s_9e4cc396e9a614::t_d663173a244e1d 52,61,63
+  s_9e4cc396e9a614::t_04520f07ef41a2 97-102
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-10.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,29,31,36,47,61,80,84,140,148,156,166
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-07.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,26,32,52,61,86,117,121,130,134,141,156,170,178,192,200
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-18-pause.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-16.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5,7-9,26,37,39,70,118,178,246,282,323,354
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-02.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,25,29,40,42,56,71,85,92,97
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-11.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,110,124,131,141,147,161,171,179,191,200
+apps/site/plugins/tests/plugin-blog-meta.test.ts
+  s_9e4cc396e9a614::t_9fd070e671a88c 27
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-01.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,17,28,34,38,48,58,62,66,73,84
+apps/site/plugins/tests/blog-posts.test.ts
+  s_9e4cc396e9a614::t_30a6986084d086 112-113
+  s_9e4cc396e9a614::t_ac5993f749fe09 23,50-52,54,58-60,63,66-67
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-08.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,29,39,83,87,94,104,112
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-13.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,24,29,31,35,39,58,60,67,75,83,102,116
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-06.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-7,13,20,34,41,97
+apps/site/blogs/blog/interview/daily-frontend-interview-2023-02-27.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,13,29,40,53,93,107,114
+apps/site/plugins/tests/prepare-blog-meta.test.ts
+  s_9e4cc396e9a614::t_d9eaf71f217563 29,31
+  s_9e4cc396e9a614::t_4f2d6151781f4b 51,53-54
+apps/site/blogs/blog/interview/daily-frontend-interview-2024-03-03.md
+  s_9e4cc396e9a614::t_af87dcbf8db819 5-6,9,23,25,32,57,59,73,88,92,96,102,106
+apps/site/plugins/tests/blog-posts-edges.test.ts
+  s_9e4cc396e9a614::t_b3861fe26e8522 14,28
+  s_9e4cc396e9a614::t_f301cd27c41f29 44-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "44900691562c392ee02c20e3f03e26dc39eb3516",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
