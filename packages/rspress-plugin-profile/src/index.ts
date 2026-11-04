@@ -23,11 +23,7 @@ export {
   renderHomeMdx,
   renderProfileDataModule
 } from './profile-page.ts'
-export type {
-  ProfilePageView,
-  ProfileProjectView,
-  ProfileSkillsPicture
-} from './profile-page.ts'
+export type { ProfilePageView, ProfileProjectView, ProfileSkillsPicture } from './profile-page.ts'
 export { skillIconsPicture } from './skills-picture.ts'
 export type { SkillIcon } from './skills-picture.ts'
 
