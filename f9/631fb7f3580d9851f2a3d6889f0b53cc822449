@@ -1,0 +1,19 @@
+packages/rspress-theme-friends/README.md
+  s_9e4cc396e9a614::t_556be5d6458212 40-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "f9631fb7f3580d9851f2a3d6889f0b53cc822449",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
