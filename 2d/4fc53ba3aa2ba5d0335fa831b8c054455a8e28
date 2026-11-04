@@ -1,0 +1,88 @@
+packages/rspress-theme-ui/tsconfig.json
+  s_7f3749379effc6::t_b118ac383c9514 1-9
+apps/site/theme/likes/VisitsPage.tsx
+  s_7f3749379effc6::t_f9dc777fcc5881 9,14,22,37,42,57
+packages/rspress-theme-ui/src/PageShell.tsx
+  s_7f3749379effc6::t_4f83791c3df542 1,13,22-23,30
+  s_7f3749379effc6::t_973b459deb0057 12
+  s_7f3749379effc6::t_aa3171f31d99cd 2-11,14-21,24-29,31-35
+packages/rspress-theme-ui/src/SoftBadge.tsx
+  s_7f3749379effc6::t_3972555318768a 1-19
+apps/site/theme/likes/WatchingPage.tsx
+  s_7f3749379effc6::t_f9dc777fcc5881 9,14,24,39,44,71
+apps/site/theme/FriendsPage.tsx
+  s_7f3749379effc6::t_03e28e0a2f4730 2-9,12,60,63,78-79,81,101-105,107,109,111,118-121,129,133,156,162,170,172-173
+  s_7f3749379effc6::t_f9dc777fcc5881 13
+  s_7f3749379effc6::t_69cf23ad3d272f 106
+  s_7f3749379effc6::t_4356930606270d 62,138
+apps/site/theme/likes/ReadingPage.tsx
+  s_7f3749379effc6::t_f9dc777fcc5881 15,20,38,53,58,90
+packages/rspress-theme-ui/src/Text.tsx
+  s_7f3749379effc6::t_4ac8682a689d83 1-69
+packages/rspress-theme-ui/src/Panel.tsx
+  s_7f3749379effc6::t_f5634ed7f32168 1-19
+packages/rspress-theme-ui/src/Section.tsx
+  s_7f3749379effc6::t_b4a16ac5b49677 1-26
+apps/site/theme/likes/Hub.tsx
+  s_7f3749379effc6::t_f15eb6f1a97412 37,39-46,52,55,57,69-70,74,79
+  s_7f3749379effc6::t_fcbda70ebbabc2 2-5
+  s_7f3749379effc6::t_f9dc777fcc5881 8,12,36,80
+packages/rspress-theme-ui/src/Progress.tsx
+  s_7f3749379effc6::t_c899903faa1a4f 1,3-17,19-20,24-26
+  s_7f3749379effc6::t_9709e1ca502118 2,18,21-23
+apps/site/tailwind.css
+  s_7f3749379effc6::t_438bab6a8b3ebf 6
+packages/rspress-theme-ui/package.json
+  s_7f3749379effc6::t_2d0dc43bb0b621 1-48
+packages/rspress-theme-ui/src/CardLink.tsx
+  s_7f3749379effc6::t_c25bb8a18743be 1-6,8-20,30-32,36,39-46,48-50
+  s_7f3749379effc6::t_362f98b84b8c81 7,21-29,33-35,37-38,47
+apps/site/theme/likes/GamesPage.tsx
+  s_7f3749379effc6::t_f9dc777fcc5881 11,16,28,43,48,70
+apps/site/theme/likes/shared.tsx
+  s_7f3749379effc6::t_b5e9c2a34d228d 6,27,33-34,36-37
+  s_7f3749379effc6::t_70a05c7777883b 20-25
+  s_7f3749379effc6::t_330ca59d6f21a2 1,4
+apps/site/theme/ProfilePage.tsx
+  s_7f3749379effc6::t_b46037ce4b99e7 2-7,9,44-48,50,57-58,104,109,111,118,120,125,127,129,138,140,146,148,156
+  s_7f3749379effc6::t_f9dc777fcc5881 10
+apps/site/theme/likes/UsesPage.tsx
+  s_7f3749379effc6::t_f9dc777fcc5881 9,14,26,46,51,89
+apps/site/theme/likes/MusicPage.tsx
+  s_7f3749379effc6::t_7d687f9726aca6 143-147
+  s_7f3749379effc6::t_6864d58719391e 19
+  s_7f3749379effc6::t_f9dc777fcc5881 14,30,54,59,91
+  s_7f3749379effc6::t_8fa3010d8f4a77 109,111,116
+  s_7f3749379effc6::t_d33831583dde4a 2-3
+apps/site/package.json
+  s_7f3749379effc6::t_e46c81d3437c4e 16
+packages/rspress-theme-ui/src/cx.ts
+  s_7f3749379effc6::t_6dd653118eb201 1-4
+packages/rspress-theme-ui/src/index.ts
+  s_7f3749379effc6::t_9147de9ffd29e1 1-14
+packages/rspress-theme-ui/src/TextLink.tsx
+  s_7f3749379effc6::t_0b154033969be2 1-30
+  s_7f3749379effc6::t_283ae981b1b0c4 31-33
+apps/site/theme/ProfilePlay.tsx
+  s_7f3749379effc6::t_f9dc777fcc5881 1
+packages/rspress-theme-ui/src/Empty.tsx
+  s_7f3749379effc6::t_79ee84e6cb45f2 1-19
+pnpm-lock.yaml
+  s_7f3749379effc6::t_5a4d19d876fa1e 247,249,398-422
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "2d4fc53ba3aa2ba5d0335fa831b8c054455a8e28",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
