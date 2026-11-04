@@ -1,0 +1,19 @@
+static/data/likes.json
+  s_7f3749379effc6::t_4933fdc10cd24f 50,59,66,73,79,98,104,111,131,138,159,169,184,192,209,230,239,263,272,290,308,318,326,355,369,377,380,508,519,530,538,541,544,548,554,567,578
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "3508f603da928ce71ebf98249daa7ea0474107e1",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
