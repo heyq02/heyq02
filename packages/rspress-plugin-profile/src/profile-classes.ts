@@ -5,12 +5,14 @@ const sitePageRoot = 'rp-not-doc font-sans text-rp-text'
 const siteH2 =
   "m-0 mb-rp-4 text-rp-xl font-[650] leading-snug text-rp-text after:mt-rp-2 after:block after:h-0.5 after:w-8 after:bg-rp-brand after:content-['']"
 
-const siteLink =
-  'font-semibold text-inherit no-underline hover:text-rp-link hover:underline hover:underline-offset-[3px]'
+const siteFocusRing =
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rp-brand'
+
+const siteLink = `font-semibold text-inherit no-underline hover:text-rp-link hover:underline hover:underline-offset-[3px] ${siteFocusRing}`
 
 const sitePanelChrome = 'rounded-rp-sm border border-rp-divider-light bg-rp-soft px-rp-4 py-rp-4'
 
-const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-rp-brand hover:bg-rp-bg hover:text-inherit hover:shadow-rp hover:!no-underline`
+const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-rp-brand hover:bg-rp-bg hover:text-inherit hover:shadow-rp hover:!no-underline ${siteFocusRing}`
 
 const siteCardName =
   'text-rp-lg font-[650] leading-snug text-rp-text transition-colors duration-200 group-hover:text-rp-brand'
