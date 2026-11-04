@@ -1,0 +1,44 @@
+apps/site/lib/tests/site-ui.test.ts
+  s_9e4cc396e9a614::t_e6c72c70ca057e 3-12,19-22
+apps/site/theme/tests/SiteCard.test.tsx
+  s_9e4cc396e9a614::t_2cfb4c8c4fc76e 3
+  s_9e4cc396e9a614::t_ed06763717a57f 1-2,4-73
+apps/site/theme/FriendsPage.tsx
+  s_9e4cc396e9a614::t_25a56e4b1e6109 19,41-43,55,58,60-63,66-80,120
+apps/site/lib/site-ui.ts
+  s_9e4cc396e9a614::t_4db8b39ab9515c 19,22-26
+  s_9e4cc396e9a614::t_6e4d7af3b0e0aa 27
+apps/site/plugins/profile-page.ts
+  s_9e4cc396e9a614::t_7c3cbc613adf0b 122-124,127-131
+  s_9e4cc396e9a614::t_a39f2a2149c66d 125-126
+  s_9e4cc396e9a614::t_a17304274cb79f 146
+apps/site/plugins/profile-classes.ts
+  s_9e4cc396e9a614::t_91ad62312ac514 3
+  s_9e4cc396e9a614::t_13a0272095a1a1 31
+apps/site/theme/SiteCard.tsx
+  s_9e4cc396e9a614::t_ed2b81e6e09dee 1-2,4-29,31-81
+  s_9e4cc396e9a614::t_09110f9bda4690 3
+  s_9e4cc396e9a614::t_454e97cf85bc53 30
+apps/site/plugins/tests/profile-page.test.ts
+  s_9e4cc396e9a614::t_757bf17b0998a8 40
+  s_9e4cc396e9a614::t_b73e7d00df6171 60
+  s_9e4cc396e9a614::t_48836a278e7de3 62-63
+apps/site/plugins/tests/__snapshots__/profile-page.test.ts.snap
+  s_9e4cc396e9a614::t_10610e4b5a0dc0 4-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "3512a7cb0d03b97933f8e7139605e6b0e0d8b3c8",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
