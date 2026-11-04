@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react'
 
 import type { LikesCategoryId } from './likes-data.ts'
-import { GamesPage } from './likes/GamesPage.tsx'
 import { Hub } from './likes/Hub.tsx'
 import { MusicPage } from './likes/MusicPage.tsx'
 import { ReadingPage } from './likes/ReadingPage.tsx'
@@ -23,9 +22,6 @@ export function LikesPage({
     }
     case 'music': {
       return <MusicPage ssgMd={ssgMd} />
-    }
-    case 'games': {
-      return <GamesPage ssgMd={ssgMd} />
     }
     case 'watching': {
       return <WatchingPage ssgMd={ssgMd} />

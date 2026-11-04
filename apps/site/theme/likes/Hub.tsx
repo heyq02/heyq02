@@ -14,7 +14,6 @@ import { LikesShell } from './shared.tsx'
 const glyphs: Record<string, string> = {
   uses: '⌘',
   music: '♪',
-  games: '▶',
   watching: '▣',
   visits: '⌖',
   reading: '¶'

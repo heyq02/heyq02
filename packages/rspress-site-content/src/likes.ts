@@ -18,8 +18,6 @@ export interface ShelfItem {
   tags?: string[]
   /** Uses: monogram on the desk card. */
   mark?: string
-  /** Games: rough hours played. */
-  hours?: number
   /** Reading: 0–100 progress for current books. */
   progress?: number
   /** Visits: venue city / host. */
@@ -75,11 +73,10 @@ export interface LikesData {
   intro: string
   categories: LikesCategory[]
   uses: Shelf
-  games: Shelf
   watching: Shelf
   reading: Shelf
   visits: Shelf
   music: MusicShelf
 }
 
-export type LikesCategoryId = 'uses' | 'games' | 'watching' | 'reading' | 'visits' | 'music'
+export type LikesCategoryId = 'uses' | 'watching' | 'reading' | 'visits' | 'music'

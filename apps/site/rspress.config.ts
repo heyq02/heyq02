@@ -56,7 +56,6 @@ ${intro.name} 的个人站点。标签：${intro.tags.join('、')}。
 ## 从这里开始
 
 - [首页（个人简介）](${origin}/index.md)
-- [游戏](${origin}/games.md)
 - [友链](${origin}/friends.md)
 - [博客](${origin}/blog/index.md)
 - [完整 Markdown 合集](${origin}/llms-full.txt)
