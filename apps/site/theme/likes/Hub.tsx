@@ -1,11 +1,9 @@
 import type { ReactElement } from 'react'
 
 import {
-  siteBody,
   siteCardName,
   siteCardSummary,
   siteH2,
-  sitePanelChrome,
   siteSection,
   siteTile,
   siteWhen
@@ -82,12 +80,6 @@ export function Hub({ ssgMd }: { ssgMd: boolean }): ReactElement {
           </div>
         )}
       </section>
-      {ssgMd ? null : (
-        <p className={`mt-rp-8 ${sitePanelChrome} ${siteBody}`}>
-          每一类都有自己的版式：工作台、播放器、游戏库、海报墙、票根时间线、书架。数据在{' '}
-          <code>static/data/likes.json</code>。
-        </p>
-      )}
     </PageShell>
   )
 }
