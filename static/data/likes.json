@@ -1,0 +1,555 @@
+{
+  "title": "兴趣",
+  "intro": "工具、游戏、影视、听歌，以及科技馆这类会专门跑一趟的地方。不做旅行打卡。",
+  "categories": [
+    {
+      "id": "uses",
+      "title": "在用",
+      "desc": "日常设备和软件，工程师最常被问的那一页",
+      "href": "/likes/uses/",
+      "countLabel": "11 项"
+    },
+    {
+      "id": "music",
+      "title": "听歌",
+      "desc": "最近常听，和几张常开的歌单",
+      "href": "/likes/music/",
+      "countLabel": "TOP 10"
+    },
+    {
+      "id": "games",
+      "title": "游戏",
+      "desc": "会反复打开的，和偶尔肝一把的",
+      "href": "/likes/games/",
+      "countLabel": "6 款"
+    },
+    {
+      "id": "watching",
+      "title": "影视",
+      "desc": "电影和动画合在一起，只留愿意二刷的",
+      "href": "/likes/watching/",
+      "countLabel": "8 部"
+    },
+    {
+      "id": "visits",
+      "title": "逛展",
+      "desc": "科技馆、展览和会专门跑一趟的地方——不是旅行",
+      "href": "/likes/visits/",
+      "countLabel": "6 站"
+    },
+    {
+      "id": "reading",
+      "title": "在读",
+      "desc": "技术、职业成长，和几本不想装作读过的",
+      "href": "/likes/reading/",
+      "countLabel": "7 本"
+    }
+  ],
+  "uses": {
+    "title": "在用",
+    "intro": "被问「你电脑装了啥」时可以直接丢这页。条目是假数据，按真实配置改就行。",
+    "sections": [
+      {
+        "id": "devices",
+        "title": "设备",
+        "items": [
+          {
+            "title": "MacBook Pro 14\"",
+            "label": "主力本",
+            "note": "写代码、开会、出片都靠它。假数据型号，换成你的即可。",
+            "href": "https://www.apple.com/macbook-pro/"
+          },
+          {
+            "title": "iPhone",
+            "label": "手机",
+            "note": "拍截图、收验证码、刷 B 站。（假数据）",
+            "href": "https://www.apple.com/iphone/"
+          },
+          {
+            "title": "机械键盘",
+            "label": "外设",
+            "note": "轴体随缘，关键是别在深夜吵醒室友。（假数据）"
+          },
+          {
+            "title": "显示器 × 1",
+            "label": "外设",
+            "note": "笔记本外接一块就够用，再多会分心。（假数据）"
+          }
+        ]
+      },
+      {
+        "id": "software",
+        "title": "软件",
+        "items": [
+          {
+            "title": "Cursor",
+            "label": "编辑器",
+            "note": "日常写代码和改仓库的主阵地。",
+            "href": "https://cursor.com/"
+          },
+          {
+            "title": "Warp / 终端",
+            "label": "终端",
+            "note": "命令行还是要快，提示别太吵。（假数据）"
+          },
+          {
+            "title": "Raycast",
+            "label": "启动器",
+            "note": "剪贴板、窗口和快捷脚本。（假数据）",
+            "href": "https://www.raycast.com/"
+          },
+          {
+            "title": "Notion / Obsidian",
+            "label": "笔记",
+            "note": "职业成长向的摘录和周复盘。（假数据）"
+          },
+          {
+            "title": "Figma",
+            "label": "设计",
+            "note": "看稿和偶尔自己拉一下布局。",
+            "href": "https://www.figma.com/"
+          },
+          {
+            "title": "Docker Desktop",
+            "label": "开发",
+            "note": "本地起依赖时省事。",
+            "href": "https://www.docker.com/"
+          },
+          {
+            "title": "1Password",
+            "label": "安全",
+            "note": "密码别再记在备忘录里。（假数据）",
+            "href": "https://1password.com/"
+          },
+          {
+            "title": "网易云 / Apple Music",
+            "label": "听歌",
+            "note": "常开。详细榜单和歌单见「听歌」页。（假数据）",
+            "href": "/likes/music/"
+          }
+        ]
+      }
+    ]
+  },
+  "games": {
+    "title": "游戏",
+    "intro": "玩得少但会认真玩。有一篇王者皮肤识别的趣味项目，这里也留一点游戏痕迹。",
+    "sections": [
+      {
+        "id": "playing",
+        "title": "在玩",
+        "items": [
+          {
+            "title": "王者荣耀",
+            "cover": "https://picsum.photos/seed/heyq02-wzry/400/240",
+            "label": "手游",
+            "score": 4,
+            "note": "偶尔排位。以前还拿皮肤图训过 CNN。（半真半假）",
+            "href": "https://pvp.qq.com/"
+          },
+          {
+            "title": "塞尔达传说：王国之泪",
+            "cover": "https://picsum.photos/seed/heyq02-totk/400/240",
+            "label": "主机",
+            "score": 5,
+            "year": 2023,
+            "note": "建造和探索停不下来。（假数据）",
+            "href": "https://zh.wikipedia.org/wiki/塞尔达传说_王国之泪"
+          }
+        ]
+      },
+      {
+        "id": "paused",
+        "title": "搁置 / 通关过",
+        "items": [
+          {
+            "title": "原神",
+            "cover": "https://picsum.photos/seed/heyq02-genshin/400/240",
+            "label": "手游",
+            "score": 3.5,
+            "note": "风景好看，体力系统劝退。（假数据）"
+          },
+          {
+            "title": "Minecraft",
+            "cover": "https://picsum.photos/seed/heyq02-mc/400/240",
+            "label": "沙盒",
+            "score": 5,
+            "note": "和朋友开服挖挖挖。（假数据）"
+          },
+          {
+            "title": "2048",
+            "cover": "https://picsum.photos/seed/heyq02-2048/400/240",
+            "label": "小品",
+            "note": "自己实现过一版，属于会写也会玩。",
+            "href": "/blog/posts/fun-project-2048/"
+          },
+          {
+            "title": "双人成行",
+            "cover": "https://picsum.photos/seed/heyq02-ittakestwo/400/240",
+            "label": "合作",
+            "score": 4.5,
+            "year": 2021,
+            "note": "适合找个人一起气对方。（假数据）"
+          }
+        ]
+      }
+    ]
+  },
+  "watching": {
+    "title": "影视",
+    "intro": "电影和动画不拆开——没有在追五十部番，只留几部愿意安利或重看的。",
+    "sections": [
+      {
+        "id": "now",
+        "title": "正在看",
+        "items": [
+          {
+            "title": "葬送的芙莉莲",
+            "cover": "https://picsum.photos/seed/heyq02-frieren/300/450",
+            "label": "动画",
+            "score": 5,
+            "year": 2023,
+            "note": "节奏慢，但很干净。（假数据）",
+            "href": "https://zh.wikipedia.org/wiki/葬送的芙莉莲"
+          },
+          {
+            "title": "沙丘：第二部",
+            "cover": "https://picsum.photos/seed/heyq02-dune2/300/450",
+            "label": "电影",
+            "score": 4.5,
+            "year": 2024,
+            "note": "大场面和政治线都压得住。（假数据）",
+            "href": "https://zh.wikipedia.org/wiki/沙丘：第二部"
+          }
+        ]
+      },
+      {
+        "id": "favorites",
+        "title": "常安利",
+        "items": [
+          {
+            "title": "我不是药神",
+            "cover": "https://picsum.photos/seed/heyq02-dying/300/450",
+            "label": "电影",
+            "score": 5,
+            "year": 2018,
+            "note": "市井笑完，后劲很大。",
+            "href": "https://zh.wikipedia.org/wiki/我不是药神"
+          },
+          {
+            "title": "赛博朋克：边缘行者",
+            "cover": "https://picsum.photos/seed/heyq02-edgerunners/300/450",
+            "label": "动画",
+            "score": 5,
+            "year": 2022,
+            "note": "短、狠、适合一口气看完。（假数据）",
+            "href": "https://zh.wikipedia.org/wiki/赛博浪客"
+          },
+          {
+            "title": "你的名字。",
+            "cover": "https://picsum.photos/seed/heyq02-your-name/300/450",
+            "label": "动画电影",
+            "score": 5,
+            "year": 2016,
+            "note": "新海诚里最完整的一部。（假数据）",
+            "href": "https://zh.wikipedia.org/wiki/你的名字。"
+          },
+          {
+            "title": "星际穿越",
+            "cover": "https://picsum.photos/seed/heyq02-interstellar/300/450",
+            "label": "电影",
+            "score": 5,
+            "year": 2014,
+            "note": "科幻壳，父女线是芯。",
+            "href": "https://zh.wikipedia.org/wiki/星际穿越"
+          },
+          {
+            "title": "雾山五行",
+            "cover": "https://picsum.photos/seed/heyq02-fog-hill/300/450",
+            "label": "国漫",
+            "score": 5,
+            "year": 2020,
+            "note": "水墨打戏，几乎不靠台词。（假数据）",
+            "href": "https://zh.wikipedia.org/wiki/雾山五行"
+          },
+          {
+            "title": "奥本海默",
+            "cover": "https://picsum.photos/seed/heyq02-oppenheimer/300/450",
+            "label": "电影",
+            "score": 4.5,
+            "year": 2023,
+            "note": "造出东西的人，也被东西反压住。",
+            "href": "https://zh.wikipedia.org/wiki/奥本海默_(电影)"
+          }
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "title": "在读",
+    "intro": "职业成长博主总得读书。技术书和软技能混着列，进度是假的。",
+    "sections": [
+      {
+        "id": "current",
+        "title": "正在读",
+        "items": [
+          {
+            "title": "AI Engineering",
+            "subtitle": "Chip Huyen",
+            "label": "技术",
+            "note": "把「会调 API」推进到「能上线」。（假数据）",
+            "href": "https://www.oreilly.com/"
+          },
+          {
+            "title": "程序员的职业素养",
+            "subtitle": "Robert C. Martin",
+            "label": "职业",
+            "note": "老书，但写代码态度那几章仍值得重读。（假数据）"
+          }
+        ]
+      },
+      {
+        "id": "queue",
+        "title": "想读 / 读过",
+        "items": [
+          {
+            "title": "设计数据密集型应用",
+            "subtitle": "Martin Kleppmann",
+            "label": "技术",
+            "score": 5,
+            "note": "分布式和存储的地图，不是手册。",
+            "href": "https://dataintensive.net/"
+          },
+          {
+            "title": "精益创业",
+            "subtitle": "Eric Ries",
+            "label": "产品",
+            "score": 4,
+            "note": "验证比空想重要——和「落到产品里」同频。"
+          },
+          {
+            "title": "软技能：代码之外的生存指南",
+            "subtitle": "John Sonmez",
+            "label": "职业",
+            "score": 3.5,
+            "note": "有些鸡汤，但求职和影响力章节实用。（假数据）"
+          },
+          {
+            "title": "人月神话",
+            "subtitle": "Frederick P. Brooks Jr.",
+            "label": "经典",
+            "score": 5,
+            "note": "加人不能线性加速——开会时偶尔想起。"
+          },
+          {
+            "title": "原则",
+            "subtitle": "Ray Dalio",
+            "label": "思维",
+            "score": 3.5,
+            "note": "体系很重，挑着看决策部分就够。（假数据）"
+          }
+        ]
+      }
+    ]
+  },
+  "music": {
+    "title": "听歌",
+    "intro": "会认真听，也愿意维护一张常听榜。次数与封面是假数据，之后可换成网易云 / Last.fm。",
+    "listening": {
+      "title": "最近常听 TOP10",
+      "period": "过去 7 天 · 假数据",
+      "updatedAt": "2026-11-04",
+      "tracks": [
+        {
+          "rank": 1,
+          "title": "夜空中最亮的星",
+          "artist": "逃跑计划",
+          "album": "世界",
+          "cover": "https://picsum.photos/seed/heyq02-track-1/120/120",
+          "plays": 48,
+          "href": "https://music.163.com/"
+        },
+        {
+          "rank": 2,
+          "title": "起风了",
+          "artist": "买辣椒也用券",
+          "album": "起风了",
+          "cover": "https://picsum.photos/seed/heyq02-track-2/120/120",
+          "plays": 41,
+          "href": "https://music.163.com/"
+        },
+        {
+          "rank": 3,
+          "title": "理想三旬",
+          "artist": "陈鸿宇",
+          "album": "浓烟下的诗歌电台",
+          "cover": "https://picsum.photos/seed/heyq02-track-3/120/120",
+          "plays": 36,
+          "href": "https://music.163.com/"
+        },
+        {
+          "rank": 4,
+          "title": "Southern Cross",
+          "artist": "Aimer",
+          "album": "Penny Rain",
+          "cover": "https://picsum.photos/seed/heyq02-track-4/120/120",
+          "plays": 33,
+          "href": "https://music.163.com/"
+        },
+        {
+          "rank": 5,
+          "title": "一如年少模样",
+          "artist": "陈鸿宇",
+          "album": "浓烟下的诗歌电台",
+          "cover": "https://picsum.photos/seed/heyq02-track-5/120/120",
+          "plays": 29,
+          "href": "https://music.163.com/"
+        },
+        {
+          "rank": 6,
+          "title": "Blinding Lights",
+          "artist": "The Weeknd",
+          "album": "After Hours",
+          "cover": "https://picsum.photos/seed/heyq02-track-6/120/120",
+          "plays": 27,
+          "href": "https://music.163.com/"
+        },
+        {
+          "rank": 7,
+          "title": "光年之外",
+          "artist": "G.E.M. 邓紫棋",
+          "album": "光年之外",
+          "cover": "https://picsum.photos/seed/heyq02-track-7/120/120",
+          "plays": 24,
+          "href": "https://music.163.com/"
+        },
+        {
+          "rank": 8,
+          "title": "平凡之路",
+          "artist": "朴树",
+          "album": "猎户星座",
+          "cover": "https://picsum.photos/seed/heyq02-track-8/120/120",
+          "plays": 22,
+          "href": "https://music.163.com/"
+        },
+        {
+          "rank": 9,
+          "title": "残酷天使的行动纲领",
+          "artist": "高橋洋子",
+          "album": "NEON GENESIS EVANGELION",
+          "cover": "https://picsum.photos/seed/heyq02-track-9/120/120",
+          "plays": 19,
+          "href": "https://music.163.com/"
+        },
+        {
+          "rank": 10,
+          "title": "Shape of You",
+          "artist": "Ed Sheeran",
+          "album": "÷ (Deluxe)",
+          "cover": "https://picsum.photos/seed/heyq02-track-10/120/120",
+          "plays": 17,
+          "href": "https://music.163.com/"
+        }
+      ]
+    },
+    "playlists": [
+      {
+        "title": "深夜写代码",
+        "desc": "节奏稳一点，不抢注意力。",
+        "cover": "https://picsum.photos/seed/heyq02-pl-code/300/300",
+        "trackCount": 52,
+        "href": "https://music.163.com/"
+      },
+      {
+        "title": "周末随便听",
+        "desc": "通勤和摸鱼时往前翻。",
+        "cover": "https://picsum.photos/seed/heyq02-pl-weekend/300/300",
+        "trackCount": 38,
+        "href": "https://music.163.com/"
+      },
+      {
+        "title": "动画 OST",
+        "desc": "追番留下的主题曲和插曲。",
+        "cover": "https://picsum.photos/seed/heyq02-pl-ost/300/300",
+        "trackCount": 44,
+        "href": "https://music.163.com/"
+      },
+      {
+        "title": "下雨天",
+        "desc": "慢歌和一点人声，适合发呆。",
+        "cover": "https://picsum.photos/seed/heyq02-pl-rain/300/300",
+        "trackCount": 27,
+        "href": "https://music.163.com/"
+      }
+    ]
+  },
+  "visits": {
+    "title": "逛展",
+    "intro": "不爱旅行打卡，但会专门去科技馆、展览和能动手的地方。地点是假数据。",
+    "sections": [
+      {
+        "id": "been",
+        "title": "去过",
+        "items": [
+          {
+            "title": "中国科学技术馆",
+            "subtitle": "北京 · 2024",
+            "cover": "https://picsum.photos/seed/heyq02-cast/400/260",
+            "label": "科技馆",
+            "note": "常设展看一遍，互动区比讲解牌有意思。（假数据）",
+            "tags": ["科普", "互动"],
+            "href": "https://cstm.cdstm.cn/"
+          },
+          {
+            "title": "上海天文馆",
+            "subtitle": "上海 · 2023",
+            "cover": "https://picsum.photos/seed/heyq02-astro/400/260",
+            "label": "天文馆",
+            "note": "建筑本身就值得看，球幕也值回票价。（假数据）",
+            "tags": ["天文", "建筑"],
+            "href": "https://www.astronomyuseum.org.cn/"
+          },
+          {
+            "title": "优设 / 独立开发者展",
+            "subtitle": "活动 · 假数据",
+            "cover": "https://picsum.photos/seed/heyq02-indie/400/260",
+            "label": "行业展",
+            "note": "逛摊位比听 Keynote 收获大。（假数据）",
+            "tags": ["产品", "独立开发"]
+          },
+          {
+            "title": "本地 Maker 开放日",
+            "subtitle": "社区 · 假数据",
+            "cover": "https://picsum.photos/seed/heyq02-maker/400/260",
+            "label": "动手",
+            "note": "焊一会儿、看别人的小项目，比旅游团轻松。",
+            "tags": ["创客", "硬件"]
+          }
+        ]
+      },
+      {
+        "id": "want",
+        "title": "想去",
+        "items": [
+          {
+            "title": "广东科学中心",
+            "subtitle": "广州 · 想去",
+            "cover": "https://picsum.photos/seed/heyq02-gsc/400/260",
+            "label": "科技馆",
+            "note": "听说互动展项密度很高。（假数据）",
+            "tags": ["科普"],
+            "href": "https://www.gdsc.cn/"
+          },
+          {
+            "title": "奇点 / AI 相关特展",
+            "subtitle": "不定期 · 想去",
+            "cover": "https://picsum.photos/seed/heyq02-ai-exhibit/400/260",
+            "label": "特展",
+            "note": "和本职相关的展览会优先排期。（假数据）",
+            "tags": ["AI", "特展"]
+          }
+        ]
+      }
+    ]
+  }
+}

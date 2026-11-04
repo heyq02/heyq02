@@ -10,7 +10,8 @@ html.dark .rspress-logo {
 }
 
 .rp-doc-layout__container:has(.profile),
-.rp-doc-layout__container:has(.friends) {
+.rp-doc-layout__container:has(.friends),
+.rp-doc-layout__container:has(.likes) {
   justify-content: center;
 }
 
@@ -22,7 +23,15 @@ html.dark .rspress-logo {
   margin-inline: auto;
 }
 
+.rp-doc-layout__container:has(.likes) .rp-doc-layout__doc {
+  flex: 0 1 52rem;
+  width: 100%;
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
 .rp-doc-layout__container:has(.profile) .rp-doc-layout__doc-container,
-.rp-doc-layout__container:has(.friends) .rp-doc-layout__doc-container {
+.rp-doc-layout__container:has(.friends) .rp-doc-layout__doc-container,
+.rp-doc-layout__container:has(.likes) .rp-doc-layout__doc-container {
   padding: 3rem 1.5rem 4rem;
 }

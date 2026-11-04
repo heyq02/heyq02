@@ -10,6 +10,11 @@
     "activeMatch": "^/blog(?:/|\\.html|$)"
   },
   {
+    "text": "兴趣",
+    "link": "/likes/",
+    "activeMatch": "^/likes(?:/|\\.html|$)"
+  },
+  {
     "text": "友链",
     "link": "/friends/",
     "activeMatch": "^/friends(?:/|\\.html|$)"
