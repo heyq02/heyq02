@@ -18,6 +18,16 @@ export interface ShelfItem {
   label?: string
   note?: string
   tags?: string[]
+  /** Uses: monogram on the desk card. */
+  mark?: string
+  /** Games: rough hours played. */
+  hours?: number
+  /** Reading: 0–100 progress for current books. */
+  progress?: number
+  /** Visits: venue city / host. */
+  place?: string
+  /** Visits: ticket date label. */
+  date?: string
 }
 
 export interface ShelfSection {

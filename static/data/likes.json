@@ -57,23 +57,27 @@
             "title": "MacBook Pro 14\"",
             "label": "主力本",
             "note": "写代码、开会、出片都靠它。假数据型号，换成你的即可。",
-            "href": "https://www.apple.com/macbook-pro/"
+            "href": "https://www.apple.com/macbook-pro/",
+            "mark": "MB"
           },
           {
             "title": "iPhone",
             "label": "手机",
             "note": "拍截图、收验证码、刷 B 站。（假数据）",
-            "href": "https://www.apple.com/iphone/"
+            "href": "https://www.apple.com/iphone/",
+            "mark": "PH"
           },
           {
             "title": "机械键盘",
             "label": "外设",
-            "note": "轴体随缘，关键是别在深夜吵醒室友。（假数据）"
+            "note": "轴体随缘，关键是别在深夜吵醒室友。（假数据）",
+            "mark": "KB"
           },
           {
             "title": "显示器 × 1",
             "label": "外设",
-            "note": "笔记本外接一块就够用，再多会分心。（假数据）"
+            "note": "笔记本外接一块就够用，再多会分心。（假数据）",
+            "mark": "DP"
           }
         ]
       },
@@ -85,47 +89,55 @@
             "title": "Cursor",
             "label": "编辑器",
             "note": "日常写代码和改仓库的主阵地。",
-            "href": "https://cursor.com/"
+            "href": "https://cursor.com/",
+            "mark": "CU"
           },
           {
             "title": "Warp / 终端",
             "label": "终端",
-            "note": "命令行还是要快，提示别太吵。（假数据）"
+            "note": "命令行还是要快，提示别太吵。（假数据）",
+            "mark": "TR"
           },
           {
             "title": "Raycast",
             "label": "启动器",
             "note": "剪贴板、窗口和快捷脚本。（假数据）",
-            "href": "https://www.raycast.com/"
+            "href": "https://www.raycast.com/",
+            "mark": "RC"
           },
           {
             "title": "Notion / Obsidian",
             "label": "笔记",
-            "note": "职业成长向的摘录和周复盘。（假数据）"
+            "note": "职业成长向的摘录和周复盘。（假数据）",
+            "mark": "NO"
           },
           {
             "title": "Figma",
             "label": "设计",
             "note": "看稿和偶尔自己拉一下布局。",
-            "href": "https://www.figma.com/"
+            "href": "https://www.figma.com/",
+            "mark": "FG"
           },
           {
             "title": "Docker Desktop",
             "label": "开发",
             "note": "本地起依赖时省事。",
-            "href": "https://www.docker.com/"
+            "href": "https://www.docker.com/",
+            "mark": "DK"
           },
           {
             "title": "1Password",
             "label": "安全",
             "note": "密码别再记在备忘录里。（假数据）",
-            "href": "https://1password.com/"
+            "href": "https://1password.com/",
+            "mark": "1P"
           },
           {
             "title": "网易云 / Apple Music",
             "label": "听歌",
             "note": "常开。详细榜单和歌单见「听歌」页。（假数据）",
-            "href": "/likes/music/"
+            "href": "/likes/music/",
+            "mark": "MU"
           }
         ]
       }
@@ -145,7 +157,8 @@
             "label": "手游",
             "score": 4,
             "note": "偶尔排位。以前还拿皮肤图训过 CNN。（半真半假）",
-            "href": "https://pvp.qq.com/"
+            "href": "https://pvp.qq.com/",
+            "hours": 860
           },
           {
             "title": "塞尔达传说：王国之泪",
@@ -154,7 +167,8 @@
             "score": 5,
             "year": 2023,
             "note": "建造和探索停不下来。（假数据）",
-            "href": "https://zh.wikipedia.org/wiki/塞尔达传说_王国之泪"
+            "href": "https://zh.wikipedia.org/wiki/塞尔达传说_王国之泪",
+            "hours": 120
           }
         ]
       },
@@ -167,21 +181,24 @@
             "cover": "https://picsum.photos/seed/heyq02-genshin/400/240",
             "label": "手游",
             "score": 3.5,
-            "note": "风景好看，体力系统劝退。（假数据）"
+            "note": "风景好看，体力系统劝退。（假数据）",
+            "hours": 40
           },
           {
             "title": "Minecraft",
             "cover": "https://picsum.photos/seed/heyq02-mc/400/240",
             "label": "沙盒",
             "score": 5,
-            "note": "和朋友开服挖挖挖。（假数据）"
+            "note": "和朋友开服挖挖挖。（假数据）",
+            "hours": 200
           },
           {
             "title": "2048",
             "cover": "https://picsum.photos/seed/heyq02-2048/400/240",
             "label": "小品",
             "note": "自己实现过一版，属于会写也会玩。",
-            "href": "/blog/posts/fun-project-2048/"
+            "href": "/blog/posts/fun-project-2048/",
+            "hours": 8
           },
           {
             "title": "双人成行",
@@ -189,7 +206,8 @@
             "label": "合作",
             "score": 4.5,
             "year": 2021,
-            "note": "适合找个人一起气对方。（假数据）"
+            "note": "适合找个人一起气对方。（假数据）",
+            "hours": 16
           }
         ]
       }
@@ -298,13 +316,15 @@
             "subtitle": "Chip Huyen",
             "label": "技术",
             "note": "把「会调 API」推进到「能上线」。（假数据）",
-            "href": "https://www.oreilly.com/"
+            "href": "https://www.oreilly.com/",
+            "progress": 42
           },
           {
             "title": "程序员的职业素养",
             "subtitle": "Robert C. Martin",
             "label": "职业",
-            "note": "老书，但写代码态度那几章仍值得重读。（假数据）"
+            "note": "老书，但写代码态度那几章仍值得重读。（假数据）",
+            "progress": 18
           }
         ]
       },
@@ -498,7 +518,9 @@
             "label": "科技馆",
             "note": "常设展看一遍，互动区比讲解牌有意思。（假数据）",
             "tags": ["科普", "互动"],
-            "href": "https://cstm.cdstm.cn/"
+            "href": "https://cstm.cdstm.cn/",
+            "place": "北京",
+            "date": "2024"
           },
           {
             "title": "上海天文馆",
@@ -507,7 +529,9 @@
             "label": "天文馆",
             "note": "建筑本身就值得看，球幕也值回票价。（假数据）",
             "tags": ["天文", "建筑"],
-            "href": "https://www.astronomyuseum.org.cn/"
+            "href": "https://www.astronomyuseum.org.cn/",
+            "place": "上海",
+            "date": "2023"
           },
           {
             "title": "优设 / 独立开发者展",
@@ -515,7 +539,9 @@
             "cover": "https://picsum.photos/seed/heyq02-indie/400/260",
             "label": "行业展",
             "note": "逛摊位比听 Keynote 收获大。（假数据）",
-            "tags": ["产品", "独立开发"]
+            "tags": ["产品", "独立开发"],
+            "place": "活动",
+            "date": "假数据"
           },
           {
             "title": "本地 Maker 开放日",
@@ -523,7 +549,9 @@
             "cover": "https://picsum.photos/seed/heyq02-maker/400/260",
             "label": "动手",
             "note": "焊一会儿、看别人的小项目，比旅游团轻松。",
-            "tags": ["创客", "硬件"]
+            "tags": ["创客", "硬件"],
+            "place": "社区",
+            "date": "假数据"
           }
         ]
       },
@@ -538,7 +566,9 @@
             "label": "科技馆",
             "note": "听说互动展项密度很高。（假数据）",
             "tags": ["科普"],
-            "href": "https://www.gdsc.cn/"
+            "href": "https://www.gdsc.cn/",
+            "place": "广州",
+            "date": "想去"
           },
           {
             "title": "奇点 / AI 相关特展",
@@ -546,7 +576,9 @@
             "cover": "https://picsum.photos/seed/heyq02-ai-exhibit/400/260",
             "label": "特展",
             "note": "和本职相关的展览会优先排期。（假数据）",
-            "tags": ["AI", "特展"]
+            "tags": ["AI", "特展"],
+            "place": "不定期",
+            "date": "想去"
           }
         ]
       }
