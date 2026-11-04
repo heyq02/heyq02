@@ -11,6 +11,7 @@ import {
   siteH2,
   siteHeaderRule,
   siteLink,
+  siteMeta,
   sitePageRoot,
   sitePanelChrome,
   siteSection
@@ -36,19 +37,18 @@ function subscribeNever(): () => void {
 }
 
 const avatarClass =
-  'block size-12 shrink-0 rounded-full border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg)] object-cover'
+  'block size-12 shrink-0 rounded-full border border-rp-divider-light bg-rp-bg object-cover'
 
-const friendCardClass = `group flex h-full items-center gap-[0.85rem] ${siteCardChrome}`
+const friendCardClass = `group flex h-full items-center gap-rp-3 ${siteCardChrome}`
 
-const exchangePanelClass = `mt-5 flex flex-col items-start gap-4 ${sitePanelChrome} sm:flex-row`
+const exchangePanelClass = `mt-rp-5 flex flex-col items-start gap-rp-4 ${sitePanelChrome} sm:flex-row`
 
-const fieldLabelClass =
-  'm-0 font-[family-name:var(--rp-font-family-mono)] text-[0.72rem] font-medium tracking-[0.06em] text-[var(--rp-c-text-2)] uppercase'
+const fieldLabelClass = `m-0 uppercase ${siteMeta}`
 
-const fieldValueClass = 'm-0 text-[0.95rem] leading-normal text-[var(--rp-c-text-1)] wrap-anywhere'
+const fieldValueClass = 'm-0 text-rp-md leading-normal text-rp-text wrap-anywhere'
 
 const fieldRowClass =
-  'grid grid-cols-1 items-baseline gap-x-3 gap-y-[0.15rem] sm:grid-cols-[4.5rem_1fr] sm:gap-y-2'
+  'grid grid-cols-1 items-baseline gap-x-rp-3 gap-y-rp-1 sm:grid-cols-[4.5rem_1fr] sm:gap-y-rp-2'
 
 function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): ReactElement {
   // Prefer readable link text for SSG-MD Agents over avatar+span chrome.
@@ -81,7 +81,7 @@ function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): 
           loading='lazy'
           decoding='async'
         />
-        <span className='grid min-w-0 gap-1'>
+        <span className='gap-rp-1 grid min-w-0'>
           <span className={`truncate ${siteCardName}`}>{friend.name}</span>
           {friend.desc ? (
             <span className={`line-clamp-2 ${siteCardSummary}`}>{friend.desc}</span>
@@ -110,11 +110,9 @@ export function FriendsPage({
     <div className={`friends ${sitePageRoot}`}>
       <header className={siteHeaderRule}>
         {ssgMd ? null : <h1 className={siteH1}>{title}</h1>}
-        <p className={`mt-3 ${siteBody}`}>{intro}</p>
+        <p className={`mt-rp-3 ${siteBody}`}>{intro}</p>
         {ssgMd ? null : (
-          <p className='mt-[0.45rem] mb-0 font-[family-name:var(--rp-font-family-mono)] text-[0.78rem] font-medium tracking-[0.02em] text-[var(--rp-c-text-2)]'>
-            每次访问都会重新排序，换个顺序打个招呼。
-          </p>
+          <p className={`mt-rp-2 mb-0 ${siteMeta}`}>每次访问都会重新排序，换个顺序打个招呼。</p>
         )}
       </header>
 
@@ -124,7 +122,7 @@ export function FriendsPage({
         </p>
       ) : (
         <ul
-          className={`friends-grid ${siteSection} mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] gap-3 p-0`}
+          className={`friends-grid ${siteSection} gap-rp-3 mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] p-0`}
         >
           {ordered.map(friend => (
             <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />
@@ -133,7 +131,7 @@ export function FriendsPage({
       )}
 
       <section
-        className={`friends-exchange ${siteSection} border-t border-[var(--rp-c-divider-light)] pt-8`}
+        className={`friends-exchange ${siteSection} border-rp-divider-light pt-rp-8 border-t`}
       >
         <h2 className={siteH2}>{exchange.title}</h2>
         <p className={siteBody}>{exchange.body}</p>
@@ -165,7 +163,7 @@ export function FriendsPage({
               loading='lazy'
               decoding='async'
             />
-            <dl className='m-0 grid min-w-0 gap-[0.55rem]'>
+            <dl className='gap-rp-2 m-0 grid min-w-0'>
               <div className={fieldRowClass}>
                 <dt className={fieldLabelClass}>名称</dt>
                 <dd className={fieldValueClass}>{exchange.self.name}</dd>

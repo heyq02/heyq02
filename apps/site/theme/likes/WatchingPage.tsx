@@ -1,6 +1,13 @@
 import type { ReactElement } from 'react'
 
-import { siteCardName, siteCardSummary, siteH2, siteSection, siteWhen } from '../../lib/site-ui.ts'
+import {
+  siteCardName,
+  siteCardSummary,
+  siteH2,
+  siteSection,
+  siteSurface,
+  siteWhen
+} from '../../lib/site-ui.ts'
 import { likesData } from '../likes-data.ts'
 import type { ShelfItem } from '../likes-data.ts'
 import { BackLink, ItemLink, PageShell, badgeClass } from './shared.tsx'
@@ -38,9 +45,12 @@ export function WatchingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
       <section className={siteSection}>
         <h2 className={siteH2}>正在看</h2>
-        <ul className='m-0 flex list-none gap-4 overflow-x-auto p-0 pb-2'>
+        <ul className='gap-rp-4 pb-rp-2 m-0 flex list-none overflow-x-auto p-0'>
           {now.map(item => (
-            <li key={item.title} className='m-0 w-[14rem] shrink-0 sm:w-[16rem]'>
+            <li
+              key={item.title}
+              className='m-0 w-[calc(var(--rp-radius-large)*9)] shrink-0 sm:w-[calc(var(--rp-radius-large)*10)]'
+            >
               <NowCard item={item} />
             </li>
           ))}
@@ -49,7 +59,7 @@ export function WatchingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
       <section className={siteSection}>
         <h2 className={siteH2}>常安利海报墙</h2>
-        <ul className='m-0 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3 md:grid-cols-6'>
+        <ul className='gap-rp-3 m-0 grid list-none grid-cols-2 p-0 sm:grid-cols-3 md:grid-cols-6'>
           {favorites.map(item => (
             <li key={item.title} className='m-0 min-w-0'>
               <Poster item={item} />
@@ -63,8 +73,8 @@ export function WatchingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
 function NowCard({ item }: { item: ShelfItem }): ReactElement {
   return (
-    <ItemLink href={item.href} className='group grid gap-2.5 no-underline hover:!no-underline'>
-      <span className='relative block aspect-[2/3] overflow-hidden rounded-[var(--rp-radius-small)] border border-[var(--rp-c-brand)] shadow-[var(--rp-shadow-1)]'>
+    <ItemLink href={item.href} className='group gap-rp-2 grid no-underline hover:!no-underline'>
+      <span className='rounded-rp-sm border-rp-brand shadow-rp relative block aspect-[2/3] overflow-hidden border'>
         {item.cover ? (
           <img
             className='size-full object-cover transition-transform duration-300 group-hover:scale-[1.04]'
@@ -73,13 +83,13 @@ function NowCard({ item }: { item: ShelfItem }): ReactElement {
             loading='lazy'
           />
         ) : null}
-        <span className='absolute top-2 left-2 rounded bg-[var(--rp-c-brand)] px-2 py-0.5 text-[0.7rem] font-semibold text-white'>
+        <span className='top-rp-2 left-rp-2 rounded-rp-sm bg-rp-brand px-rp-2 py-rp-1 text-rp-xs absolute font-semibold text-white'>
           NOW
         </span>
       </span>
-      <span className='grid gap-1'>
+      <span className='gap-rp-1 grid'>
         <span className={siteCardName}>{item.title}</span>
-        <span className='flex flex-wrap gap-1.5'>
+        <span className='gap-rp-1 flex flex-wrap'>
           {item.label ? <span className={badgeClass}>{item.label}</span> : null}
           {typeof item.year === 'number' ? <span className={siteWhen}>{item.year}</span> : null}
           {typeof item.score === 'number' ? (
@@ -94,8 +104,8 @@ function NowCard({ item }: { item: ShelfItem }): ReactElement {
 
 function Poster({ item }: { item: ShelfItem }): ReactElement {
   return (
-    <ItemLink href={item.href} className='group grid gap-2 no-underline hover:!no-underline'>
-      <span className='relative block aspect-[2/3] overflow-hidden rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)]'>
+    <ItemLink href={item.href} className='group gap-rp-2 grid no-underline hover:!no-underline'>
+      <span className={`relative block aspect-[2/3] overflow-hidden ${siteSurface}`}>
         {item.cover ? (
           <img
             className='size-full object-cover transition-transform duration-200 group-hover:scale-[1.05]'
@@ -105,13 +115,13 @@ function Poster({ item }: { item: ShelfItem }): ReactElement {
           />
         ) : null}
         {typeof item.score === 'number' ? (
-          <span className='absolute right-1.5 bottom-1.5 rounded bg-black/70 px-1.5 py-0.5 font-[family-name:var(--rp-font-family-mono)] text-[0.68rem] text-white'>
+          <span className='right-rp-1 bottom-rp-1 rounded-rp-sm px-rp-1 py-rp-1 text-rp-xs absolute bg-black/70 font-mono text-white'>
             {item.score.toFixed(1)}
           </span>
         ) : null}
       </span>
-      <span className='grid gap-0.5'>
-        <span className={`line-clamp-2 text-[0.92rem] ${siteCardName}`}>{item.title}</span>
+      <span className='gap-rp-1 grid'>
+        <span className={`line-clamp-2 ${siteCardName}`}>{item.title}</span>
         <span className={siteWhen}>{[item.label, item.year].filter(Boolean).join(' · ')}</span>
       </span>
     </ItemLink>

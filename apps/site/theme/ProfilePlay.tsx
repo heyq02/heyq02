@@ -39,11 +39,11 @@ export function ProfilePlay({
 
   return (
     <header
-      className={`grid grid-cols-1 items-center gap-x-5 ${siteHeaderRule} sm:grid-cols-[7rem_1fr]`}
+      className={`gap-x-rp-5 grid grid-cols-1 items-center ${siteHeaderRule} sm:grid-cols-[7rem_1fr]`}
     >
       <button
         type='button'
-        className={`m-0 block cursor-pointer rounded-[var(--rp-radius)] border-0 bg-transparent p-0 leading-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--rp-c-brand)]${spinning ? ' profile-avatar-button--spin' : ''}`}
+        className={`rounded-rp m-0 block cursor-pointer border-0 bg-transparent p-0 leading-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-rp-brand${spinning ? ' profile-avatar-button--spin' : ''}`}
         onClick={poke}
         onAnimationEnd={() => {
           setSpinning(false)
@@ -52,7 +52,7 @@ export function ProfilePlay({
         title='戳我'
       >
         <img
-          className={`block size-28 rounded-[var(--rp-radius)] border border-[var(--rp-c-divider-light)] object-cover shadow-[var(--rp-shadow-2)] transition-shadow duration-200 hover:shadow-[var(--rp-shadow-1)]${spinning ? ' animate-avatar-wobble' : ''}`}
+          className={`rounded-rp border-rp-divider-light shadow-rp-md block size-28 border object-cover transition-shadow duration-200 hover:shadow-rp${spinning ? ' animate-avatar-wobble' : ''}`}
           src={intro.avatar}
           alt={intro.name}
           width={112}
@@ -64,14 +64,14 @@ export function ProfilePlay({
         <h1 className={siteH1}>{intro.name}</h1>
         <button
           type='button'
-          className='mt-[0.45rem] inline-flex cursor-pointer rounded-[var(--rp-radius-small)] border-0 bg-transparent px-[0.35rem] py-[0.15rem] font-[family-name:var(--rp-font-family-mono)] text-[1.05rem] leading-[1.3] text-[var(--rp-c-text-2)] transition-[color,background-color,transform] duration-200 hover:-translate-y-px hover:bg-[var(--rp-c-bg-soft)] hover:text-[var(--rp-c-brand)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--rp-c-brand)]'
+          className='mt-rp-2 rounded-rp-sm px-rp-1 py-rp-1 text-rp-lg text-rp-muted hover:bg-rp-soft hover:text-rp-brand focus-visible:outline-rp-brand inline-flex cursor-pointer border-0 bg-transparent font-mono leading-snug transition-[color,background-color,transform] duration-200 hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2'
           onClick={poke}
           aria-label='换一个表情'
           title='点一下换个表情'
         >
           {face}
         </button>
-        <p className='mt-[0.65rem] mb-0 flex flex-wrap gap-[0.4rem]'>{tags}</p>
+        <p className='mt-rp-3 gap-rp-1 mb-0 flex flex-wrap'>{tags}</p>
       </div>
     </header>
   )

@@ -1,16 +1,28 @@
 import type { ReactElement } from 'react'
 
-import { siteCardName, siteCardSummary, siteH2, siteSection, siteWhen } from '../../lib/site-ui.ts'
+import {
+  siteCardName,
+  siteCardSummary,
+  siteDisplay,
+  siteH2,
+  siteMeta,
+  siteProgressFill,
+  siteProgressTrack,
+  siteSection,
+  siteSurface,
+  siteTile,
+  siteWhen
+} from '../../lib/site-ui.ts'
 import { likesData } from '../likes-data.ts'
 import type { ShelfItem } from '../likes-data.ts'
 import { BackLink, ItemLink, PageShell, badgeClass } from './shared.tsx'
 
 const spineColors = [
-  'bg-[color-mix(in_oklab,var(--rp-c-brand)_55%,#1f2937)]',
-  'bg-[color-mix(in_oklab,#2563eb_50%,#111827)]',
-  'bg-[color-mix(in_oklab,#7c3aed_45%,#111827)]',
-  'bg-[color-mix(in_oklab,#0f766e_50%,#111827)]',
-  'bg-[color-mix(in_oklab,#b45309_45%,#111827)]'
+  'bg-[color-mix(in_oklab,var(--rp-c-brand)_55%,var(--rp-c-text-1))]',
+  'bg-[color-mix(in_oklab,var(--rp-c-link)_50%,var(--rp-c-text-1))]',
+  'bg-[color-mix(in_oklab,var(--rp-c-brand-dark)_45%,var(--rp-c-text-1))]',
+  'bg-[color-mix(in_oklab,var(--rp-c-brand-light)_50%,var(--rp-c-text-1))]',
+  'bg-[color-mix(in_oklab,var(--rp-c-gray)_45%,var(--rp-c-text-1))]'
 ]
 
 /** Bookshelf: open books with progress + spine rail for the rest. */
@@ -46,7 +58,7 @@ export function ReadingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
       <section className={siteSection}>
         <h2 className={siteH2}>摊开在读</h2>
-        <div className='grid gap-3'>
+        <div className='gap-rp-3 grid'>
           {current.map(item => (
             <OpenBook key={item.title} item={item} />
           ))}
@@ -55,18 +67,18 @@ export function ReadingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
       <section className={siteSection}>
         <h2 className={siteH2}>书架</h2>
-        <div className='overflow-x-auto rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] p-4'>
-          <ul className='m-0 flex h-[13.5rem] list-none items-end gap-2 p-0'>
+        <div className={`p-rp-4 overflow-x-auto ${siteSurface}`}>
+          <ul className='gap-rp-2 m-0 flex h-[calc(var(--rp-radius-large)*8.5)] list-none items-end p-0'>
             {queue.map((item, index) => (
               <li key={item.title} className='m-0'>
                 <Spine item={item} color={spineColors[index % spineColors.length]} />
               </li>
             ))}
           </ul>
-          <p className={`mt-3 mb-0 ${siteWhen}`}>横滑看脊背；点开看作者和短评。</p>
+          <p className={`mt-rp-3 mb-0 ${siteWhen}`}>横滑看脊背；点开看作者和短评。</p>
         </div>
 
-        <ul className='mt-4 mb-0 grid list-none gap-2 p-0'>
+        <ul className='mt-rp-4 gap-rp-2 mb-0 grid list-none p-0'>
           {queue.map(item => (
             <li key={`detail-${item.title}`} className='m-0'>
               <BookRow item={item} />
@@ -83,32 +95,27 @@ function OpenBook({ item }: { item: ShelfItem }): ReactElement {
   return (
     <ItemLink
       href={item.href}
-      className='group grid gap-3 rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] p-4 no-underline hover:border-[var(--rp-c-brand)] hover:!no-underline sm:grid-cols-[auto_minmax(0,1fr)]'
+      className={`group gap-rp-3 p-rp-4 grid sm:grid-cols-[auto_minmax(0,1fr)] ${siteTile}`}
     >
-      <span className='flex h-[8.5rem] w-[6rem] items-end justify-center rounded-sm border border-[var(--rp-c-divider)] bg-[var(--rp-c-bg)] px-2 py-3 shadow-[var(--rp-shadow-1)]'>
-        <span className='line-clamp-4 text-center text-[0.78rem] leading-snug font-semibold text-[var(--rp-c-text-1)]'>
+      <span className='rounded-rp-sm border-rp-divider bg-rp-bg px-rp-2 py-rp-3 shadow-rp flex h-[calc(var(--rp-radius-large)*5.5)] w-[calc(var(--rp-radius-large)*4)] items-end justify-center border'>
+        <span className='text-rp-sm text-rp-text line-clamp-4 text-center leading-snug font-semibold'>
           {item.title}
         </span>
       </span>
-      <span className='grid content-center gap-2'>
-        <span className='flex flex-wrap items-baseline justify-between gap-2'>
-          <span className='text-[1.15rem] font-bold tracking-[-0.01em] text-[var(--rp-c-text-1)]'>
-            {item.title}
-          </span>
+      <span className='gap-rp-2 grid content-center'>
+        <span className='gap-rp-2 flex flex-wrap items-baseline justify-between'>
+          <span className={siteDisplay}>{item.title}</span>
           {item.label ? <span className={badgeClass}>{item.label}</span> : null}
         </span>
         {item.subtitle ? <span className={siteWhen}>{item.subtitle}</span> : null}
         <span className={siteCardSummary}>{item.note}</span>
-        <span className='grid gap-1'>
-          <span className='flex justify-between font-[family-name:var(--rp-font-family-mono)] text-[0.72rem] text-[var(--rp-c-text-2)]'>
+        <span className='gap-rp-1 grid'>
+          <span className={`flex justify-between ${siteMeta}`}>
             <span>进度</span>
             <span>{progress}%</span>
           </span>
-          <span className='h-2 overflow-hidden rounded-full bg-[var(--rp-c-divider-light)]'>
-            <span
-              className='block h-full rounded-full bg-[var(--rp-c-brand)]'
-              style={{ width: `${progress}%` }}
-            />
+          <span className={`h-2 ${siteProgressTrack}`}>
+            <span className={siteProgressFill} style={{ width: `${progress}%` }} />
           </span>
         </span>
       </span>
@@ -121,11 +128,11 @@ function Spine({ item, color }: { item: ShelfItem; color: string }): ReactElemen
     <ItemLink
       href={item.href}
       className={[
-        'group flex h-[12rem] w-[2.55rem] items-center justify-center rounded-sm border border-black/10 px-1 py-2 text-white no-underline shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:!no-underline',
+        'group flex h-[calc(var(--rp-radius-large)*8)] w-[calc(var(--rp-radius-small)*5)] items-center justify-center rounded-rp-sm border border-black/10 px-rp-1 py-rp-2 text-white no-underline shadow-rp transition-transform duration-200 hover:-translate-y-1 hover:!no-underline',
         color
       ].join(' ')}
     >
-      <span className='line-clamp-1 max-h-full rotate-180 text-[0.72rem] font-semibold tracking-wide [writing-mode:vertical-rl]'>
+      <span className='text-rp-xs line-clamp-1 max-h-full rotate-180 font-semibold tracking-wide [writing-mode:vertical-rl]'>
         {item.title}
       </span>
     </ItemLink>
@@ -136,15 +143,15 @@ function BookRow({ item }: { item: ShelfItem }): ReactElement {
   return (
     <ItemLink
       href={item.href}
-      className='group grid gap-1 rounded-[var(--rp-radius-small)] border border-transparent px-2 py-2 no-underline hover:border-[var(--rp-c-divider-light)] hover:bg-[var(--rp-c-bg-soft)] hover:!no-underline sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline'
+      className='group gap-rp-1 rounded-rp-sm px-rp-2 py-rp-2 hover:border-rp-divider-light hover:bg-rp-soft grid border border-transparent no-underline hover:!no-underline sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline'
     >
-      <span className='grid min-w-0 gap-0.5'>
+      <span className='gap-rp-1 grid min-w-0'>
         <span className={`truncate ${siteCardName}`}>{item.title}</span>
         <span className={`truncate ${siteCardSummary}`}>
           {[item.subtitle, item.note].filter(Boolean).join(' · ')}
         </span>
       </span>
-      <span className='flex flex-wrap gap-1.5'>
+      <span className='gap-rp-1 flex flex-wrap'>
         {item.label ? <span className={badgeClass}>{item.label}</span> : null}
         {typeof item.score === 'number' ? (
           <span className={siteWhen}>{item.score.toFixed(1)}</span>

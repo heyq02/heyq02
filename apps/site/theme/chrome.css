@@ -1,6 +1,7 @@
-/* Minimal Rspress chrome: keep profile/friends from looking like doc pages. */
+/* Minimal Rspress chrome: keep profile/friends/likes from looking like doc pages. */
 
-html.dark .rspress-logo {
+html.dark .rspress-logo,
+html.rp-dark .rspress-logo {
   filter: invert(1);
 }
 
@@ -17,21 +18,21 @@ html.dark .rspress-logo {
 
 .rp-doc-layout__container:has(.profile) .rp-doc-layout__doc,
 .rp-doc-layout__container:has(.friends) .rp-doc-layout__doc {
-  flex: 0 1 44rem;
+  flex: 0 1 min(44rem, var(--rp-content-max-width));
   width: 100%;
-  max-width: 44rem;
+  max-width: min(44rem, var(--rp-content-max-width));
   margin-inline: auto;
 }
 
 .rp-doc-layout__container:has(.likes) .rp-doc-layout__doc {
-  flex: 0 1 52rem;
+  flex: 0 1 var(--rp-content-max-width);
   width: 100%;
-  max-width: 52rem;
+  max-width: var(--rp-content-max-width);
   margin-inline: auto;
 }
 
 .rp-doc-layout__container:has(.profile) .rp-doc-layout__doc-container,
 .rp-doc-layout__container:has(.friends) .rp-doc-layout__doc-container,
 .rp-doc-layout__container:has(.likes) .rp-doc-layout__doc-container {
-  padding: 3rem 1.5rem 4rem;
+  padding: var(--rp-content-padding-y) var(--rp-content-padding-x);
 }

@@ -7,6 +7,7 @@ import {
   siteH2,
   sitePanelChrome,
   siteSection,
+  siteTile,
   siteWhen
 } from '../../lib/site-ui.ts'
 import { likesData } from '../likes-data.ts'
@@ -14,11 +15,11 @@ import { PageShell } from './shared.tsx'
 
 const accents: Record<string, string> = {
   uses: 'from-[color-mix(in_oklab,var(--rp-c-brand)_18%,transparent)] to-transparent',
-  music: 'from-[color-mix(in_oklab,#7c6af2_22%,transparent)] to-transparent',
-  games: 'from-[color-mix(in_oklab,#2bb673_20%,transparent)] to-transparent',
-  watching: 'from-[color-mix(in_oklab,#e8a317_20%,transparent)] to-transparent',
-  visits: 'from-[color-mix(in_oklab,#3b82f6_20%,transparent)] to-transparent',
-  reading: 'from-[color-mix(in_oklab,#a855f7_18%,transparent)] to-transparent'
+  music: 'from-[color-mix(in_oklab,var(--rp-c-brand-light)_22%,transparent)] to-transparent',
+  games: 'from-[color-mix(in_oklab,var(--rp-c-brand-dark)_20%,transparent)] to-transparent',
+  watching: 'from-[color-mix(in_oklab,var(--rp-c-brand-tint)_28%,transparent)] to-transparent',
+  visits: 'from-[color-mix(in_oklab,var(--rp-c-link)_20%,transparent)] to-transparent',
+  reading: 'from-[color-mix(in_oklab,var(--rp-c-gray)_22%,transparent)] to-transparent'
 }
 
 const glyphs: Record<string, string> = {
@@ -49,7 +50,7 @@ export function Hub({ ssgMd }: { ssgMd: boolean }): ReactElement {
             </ul>
           </>
         ) : (
-          <div className='grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-6'>
+          <div className='gap-rp-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6'>
             {categories.map((category, index) => {
               const wide = index === 0 || index === 1
               return (
@@ -58,20 +59,20 @@ export function Hub({ ssgMd }: { ssgMd: boolean }): ReactElement {
                   href={category.href}
                   data-card=''
                   className={[
-                    'group relative overflow-hidden rounded-[var(--rp-radius-small)] border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg-soft)] p-4 no-underline transition-[border-color,box-shadow,transform] duration-200 hover:border-[var(--rp-c-brand)] hover:shadow-[var(--rp-shadow-1)] hover:!no-underline',
+                    `group p-rp-4 hover:shadow-rp relative overflow-hidden ${siteTile}`,
                     wide
-                      ? 'sm:col-span-1 lg:col-span-3 min-h-[9.5rem]'
-                      : 'lg:col-span-2 min-h-[8.5rem]',
+                      ? 'sm:col-span-1 lg:col-span-3 min-h-[calc(var(--rp-radius-large)*6)]'
+                      : 'lg:col-span-2 min-h-[calc(var(--rp-radius-large)*5.5)]',
                     `bg-gradient-to-br ${accents[category.id] ?? accents.uses}`
                   ].join(' ')}
                 >
-                  <span className='pointer-events-none absolute top-3 right-3 font-[family-name:var(--rp-font-family-mono)] text-3xl text-[var(--rp-c-text-2)] opacity-40 transition-opacity group-hover:opacity-70'>
+                  <span className='top-rp-3 right-rp-3 text-rp-2xl text-rp-muted pointer-events-none absolute font-mono opacity-40 transition-opacity group-hover:opacity-70'>
                     {glyphs[category.id] ?? '·'}
                   </span>
-                  <span className='grid h-full content-between gap-3'>
-                    <span className='grid gap-1'>
+                  <span className='gap-rp-3 grid h-full content-between'>
+                    <span className='gap-rp-1 grid'>
                       <span className={siteCardName}>{category.title}</span>
-                      <span className={`max-w-[18rem] ${siteCardSummary}`}>{category.desc}</span>
+                      <span className={`max-w-xs ${siteCardSummary}`}>{category.desc}</span>
                     </span>
                     <span className={siteWhen}>{category.countLabel}</span>
                   </span>
@@ -82,7 +83,7 @@ export function Hub({ ssgMd }: { ssgMd: boolean }): ReactElement {
         )}
       </section>
       {ssgMd ? null : (
-        <p className={`mt-8 ${sitePanelChrome} ${siteBody}`}>
+        <p className={`mt-rp-8 ${sitePanelChrome} ${siteBody}`}>
           每一类都有自己的版式：工作台、播放器、游戏库、海报墙、票根时间线、书架。数据在{' '}
           <code>static/data/likes.json</code>。
         </p>
