@@ -1,0 +1,37 @@
+packages/rspress-site-content/src/index.ts
+  s_7f3749379effc6::t_aea474b60e6665 2
+content/data/intro.json
+  s_7f3749379effc6::t_c7e188a956321b 3-10
+packages/rspress-site-content/src/intro.ts
+  s_7f3749379effc6::t_e314dbf2ae15dc 38-44,47-53
+apps/site/theme/HomeWeather.tsx
+  s_7f3749379effc6::t_eef9ec9854228f 2-34,38-53,55-65,67-69,75-77,79-81,86-88,90-92,94-99,101-102,106-108
+  s_7f3749379effc6::t_7c483dff188a84 35-37,71-73,78,82-85
+  s_7f3749379effc6::t_a869b2763cbf93 105
+  s_7f3749379effc6::t_7a44f01f352090 66,70,74,89
+  s_7f3749379effc6::t_3cacbe5289545f 1,103
+  s_7f3749379effc6::t_1f555b77f22299 54
+  s_7f3749379effc6::t_77d0c62b886fe1 93
+  s_7f3749379effc6::t_91dd58d664cbbd 100
+  s_7f3749379effc6::t_a6b00da7b3e256 104
+apps/site/theme/ProfilePlay.tsx
+  s_7f3749379effc6::t_bd507d5479da47 1,7,15,28,66-81
+apps/site/lib/intro.ts
+  s_7f3749379effc6::t_6f9a238874def4 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "8c385d52e4560cb76f5b991d6372d74deffae8e4",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
