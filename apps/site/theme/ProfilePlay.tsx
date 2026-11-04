@@ -1,11 +1,12 @@
+import { siteH1, siteHeaderRule } from '@heyq02/site-ui'
+import { Badge } from '@rspress/core/theme'
 import { useState } from 'react'
 import type { ReactElement } from 'react'
 
 import { intro } from '../lib/intro.ts'
-import { siteH1, siteHeaderRule } from '../lib/site-ui.ts'
 
 interface ProfilePlayProps {
-  tags: ReactElement
+  tags: string[]
   /** Override for tests; defaults to Rspress SSG-MD env. */
   ssgMd?: boolean
 }
@@ -24,7 +25,7 @@ export function ProfilePlay({
       <>
         {`![${intro.name}](${intro.avatar})`}
         {`\n\n# ${intro.name}\n\n${intro.kaomoji}\n\n`}
-        {tags}
+        {tags.map(tag => `\`${tag}\``).join(' ')}
         {'\n'}
       </>
     )
@@ -71,7 +72,11 @@ export function ProfilePlay({
         >
           {face}
         </button>
-        <p className='mt-rp-3 gap-rp-1 mb-0 flex flex-wrap'>{tags}</p>
+        <p className='mt-rp-3 gap-rp-1 mb-0 flex flex-wrap'>
+          {tags.map(tag => (
+            <Badge key={tag} text={tag} type='info' outline />
+          ))}
+        </p>
       </div>
     </header>
   )

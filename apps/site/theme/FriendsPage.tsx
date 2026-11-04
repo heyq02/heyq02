@@ -1,6 +1,3 @@
-import { useMemo, useSyncExternalStore } from 'react'
-import type { ReactElement } from 'react'
-
 import {
   siteBody,
   siteCardChrome,
@@ -15,7 +12,10 @@ import {
   sitePageRoot,
   sitePanelChrome,
   siteSection
-} from '../lib/site-ui.ts'
+} from '@heyq02/site-ui'
+import { useMemo, useSyncExternalStore } from 'react'
+import type { ReactElement } from 'react'
+
 import { friendsData } from './friends-page.ts'
 import type { FriendLink } from './friends-page.ts'
 

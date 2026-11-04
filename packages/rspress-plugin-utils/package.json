@@ -1,0 +1,38 @@
+{
+  "name": "@heyq02/rspress-plugin-utils",
+  "version": "2.0.0-beta.4",
+  "description": "Shared helpers for heyq02 Rspress plugins (write-if-changed, format generated files)",
+  "homepage": "https://github.com/heyq02/heyq02/tree/main/packages/rspress-plugin-utils",
+  "bugs": {
+    "url": "https://github.com/heyq02/heyq02/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heyq02/heyq02.git",
+    "directory": "packages/rspress-plugin-utils"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "check": "vp check",
+    "dev": "vp pack --watch",
+    "prepublishOnly": "vp run build"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
+  }
+}

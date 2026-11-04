@@ -1,34 +1,33 @@
 import { resolve } from 'node:path'
 
-import { formatGenerated } from './format-generated.ts'
-import type { SpawnFn } from './format-generated.ts'
+import { formatGenerated, writeIfChanged } from '@heyq02/rspress-plugin-utils'
+import type { SpawnFn } from '@heyq02/rspress-plugin-utils'
+
 import { fetchPinnedProjects } from './github-pinned.ts'
 import type { PinnedProject } from './github-pinned.ts'
 import type { Intro } from './intro.ts'
-import { renderHomeMdx } from './profile-page.ts'
-import { writeIfChanged } from './write-if-changed.ts'
+import { profilePage, renderHomeMdx, renderProfileDataModule } from './profile-page.ts'
 
 export interface PrepareProfileOptions {
   siteRoot: string
   intro: Intro
   format?: boolean
   fetchProjects?: () => Promise<PinnedProject[]>
-  /** MDX import path for ProfilePlay (default `@theme/ProfilePlay`). */
-  profilePlayModule?: string
   spawnFn?: SpawnFn
 }
 
-/** Regenerate `blogs/index.mdx` from intro + pinned projects. */
+/** Regenerate homepage shell + pinned-project data for `@theme/ProfilePage`. */
 export async function prepareProfile(options: PrepareProfileOptions): Promise<void> {
   const homeMdx = resolve(options.siteRoot, 'blogs', 'index.mdx')
+  const profileData = resolve(options.siteRoot, 'theme', 'profile-data.ts')
   const projects = await (options.fetchProjects ?? (() => fetchPinnedProjects(options.intro)))()
-  const home = renderHomeMdx(options.intro, projects, {
-    profilePlayModule: options.profilePlayModule ?? '@theme/ProfilePlay'
-  })
+  const page = profilePage(options.intro, projects)
 
-  const changed = await writeIfChanged(homeMdx, home)
-  if (options.format && changed) {
-    await formatGenerated(options.siteRoot, [homeMdx], options.spawnFn)
+  const homeChanged = await writeIfChanged(homeMdx, renderHomeMdx(options.intro, projects))
+  const dataChanged = await writeIfChanged(profileData, renderProfileDataModule(page.projects))
+
+  if (options.format && (homeChanged || dataChanged)) {
+    await formatGenerated(options.siteRoot, [homeMdx, profileData], options.spawnFn)
   }
 }
 

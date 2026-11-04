@@ -30,6 +30,9 @@
     "dev": "vp pack --watch",
     "prepublishOnly": "vp run build"
   },
+  "dependencies": {
+    "@heyq02/rspress-plugin-utils": "workspace:*"
+  },
   "devDependencies": {
     "@rspress/core": "^2.1.0-beta.2",
     "@types/node": "catalog:",

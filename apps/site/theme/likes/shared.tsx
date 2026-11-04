@@ -1,8 +1,7 @@
+import { siteBody, siteH1, siteHeaderRule, siteLink, sitePageRoot } from '@heyq02/site-ui'
 import type { ReactElement, ReactNode } from 'react'
 
-import { siteBody, siteH1, siteHeaderRule, siteLink, sitePageRoot } from '../../lib/site-ui.ts'
-
-export { siteBadge as badgeClass } from '../../lib/site-ui.ts'
+export { siteBadge as badgeClass } from '@heyq02/site-ui'
 
 export function PageShell({
   title,
