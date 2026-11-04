@@ -1,0 +1,85 @@
+apps/site/src/content/posts/install-guide-idea.md
+  s_dd36768f078731::t_de2d87842cf8d6 8-11
+apps/site/vite.config.ts
+  s_dd36768f078731::t_a0527e70263649 20
+apps/site/src/content/posts/python-tkinter-radix-converter.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-10
+apps/site/src/content/posts/install-guide-anaconda.md
+  s_dd36768f078731::t_de2d87842cf8d6 8-12
+apps/site/src/pages/index.astro
+  s_dd36768f078731::t_42b48719808ac3 29
+  s_dd36768f078731::t_3dfa53aadca348 5
+apps/site/src/content/posts/macos-disable-ime-switching.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-10,12-13,15-16,75-76,80-89
+apps/site/scripts/refresh-pinned.ts
+  s_dd36768f078731::t_93a572be974fce 1-84
+apps/site/src/content/posts/threejs-notes-1-geometries.md
+  s_dd36768f078731::t_de2d87842cf8d6 8-9
+apps/site/src/content/posts/fun-project-image-transformer.md
+  s_dd36768f078731::t_de2d87842cf8d6 8-9
+apps/site/src/content/posts/install-guide-python-370.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-10
+apps/site/src/content/posts/webpack-import-path-variables.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-10,12-13,54-55,81-82
+apps/site/src/content/posts/fun-project-get-license.md
+  s_dd36768f078731::t_de2d87842cf8d6 8-10
+apps/site/src/content/posts/anaconda-vscode-encoding-bug.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-13,15-16,106-107
+apps/site/src/content/posts/install-guide-vmware-workstation-15.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-10
+apps/site/src/layouts/BaseLayout.astro
+  s_dd36768f078731::t_440a39cbf603ea 7,40-49
+apps/site/package.json
+  s_dd36768f078731::t_7a611c6b4b642e 9,16,20
+apps/site/src/content/posts/weixin-homepage-ui-recreation.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-15
+apps/site/src/lib/pinned.test.ts
+  s_dd36768f078731::t_47e8ab1b8bc989 1-16
+apps/site/src/lib/pinned.ts
+  s_dd36768f078731::t_af5596ebf1c6a4 1-13
+static/data/pinned.json
+  s_dd36768f078731::t_de2d87842cf8d6 1-4,6,8-12,14,16-18
+  s_dd36768f078731::t_32aa2c0c5f1eaa 5,7,13,15
+vite.config.ts
+  s_dd36768f078731::t_343dfb2970caaa 33-34
+apps/site/src/content/posts/npm-download-daily-report.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-10,12-13
+apps/site/src/components/ThemeToggle.astro
+  s_dd36768f078731::t_2db09c206e8926 15-18
+apps/site/src/content/posts/multi-mcp-aggregation-nginx-vs-express.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-11,13-14
+apps/site/src/content/posts/fun-project-vitepress-blog.md
+  s_dd36768f078731::t_de2d87842cf8d6 8-10
+apps/site/src/content/posts/iframe-child-route-state.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-10,12-13
+apps/site/src/content/posts/vue-router-hash-external-listen.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-10
+apps/site/src/content/posts/fun-project-get-license-changelog.md
+  s_dd36768f078731::t_de2d87842cf8d6 8-10
+apps/site/src/content/posts/git-operations-practice.md
+  s_dd36768f078731::t_de2d87842cf8d6 8-9
+apps/site/src/content/posts/install-guide-mathematica-12.md
+  s_dd36768f078731::t_de2d87842cf8d6 9-10
+apps/site/astro.config.ts
+  s_dd36768f078731::t_b50af40375ebff 4,13
+apps/site/src/styles/global.css
+  s_dd36768f078731::t_aa3da1f14d61e6 120-121,124,127
+pnpm-lock.yaml
+  s_dd36768f078731::t_2ffaa805262806 241-243,248-250,3283-3286,4934-4945,6673-6676
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "5d8fb276f2e333f167895b219257a8ed983b218d",
+  "prompts": {},
+  "sessions": {
+    "s_dd36768f078731": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6f7ded30-647e-49b8-b039-2830323f5de5",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
