@@ -1,20 +1,19 @@
 import { mkdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
-import { formatGenerated } from '../lib/format-generated.ts'
-import type { SpawnFn } from '../lib/format-generated.ts'
-import { writeIfChanged } from '../lib/write-if-changed.ts'
 import {
   listBlogPosts,
   listInterviewNotes,
   renderBlogMetaJson,
   renderPostsMetaJson
 } from './blog-posts.ts'
+import { formatGenerated } from './format-generated.ts'
+import type { SpawnFn } from './format-generated.ts'
+import { writeIfChanged } from './write-if-changed.ts'
 
 export interface PrepareBlogMetaOptions {
   siteRoot: string
   format?: boolean
-  /** Test seam for `vp fmt`. */
   spawnFn?: SpawnFn
 }
 

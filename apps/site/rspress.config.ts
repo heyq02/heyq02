@@ -1,13 +1,15 @@
 import { resolve } from 'node:path'
 
+import { pluginBlogMeta } from '@heyq02/rspress-plugin-blog-meta'
 import { pluginMedia } from '@heyq02/rspress-plugin-media'
+import { pluginProfile } from '@heyq02/rspress-plugin-profile'
+import { pluginSiteAssets } from '@heyq02/rspress-plugin-site-assets'
 import { pluginWatermark } from '@heyq02/rspress-plugin-watermark'
 import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 
 import intro from '../../static/data/intro.json' with { type: 'json' }
-import { pluginBlogMeta, pluginProfile, pluginSiteAssets } from './plugins/index.ts'
 
 const dir = import.meta.dirname
 const siteRoot = dir
@@ -77,9 +79,9 @@ ${pages || '-（暂无其他页面）'}
     ['meta', { name: 'twitter:image', content: intro.avatar }]
   ],
   plugins: [
-    pluginSiteAssets(siteRoot),
-    pluginBlogMeta(siteRoot),
-    pluginProfile(siteRoot),
+    pluginSiteAssets({ siteRoot }),
+    pluginBlogMeta({ siteRoot }),
+    pluginProfile({ siteRoot, intro }),
     pluginMedia({ mediaPath }),
     pluginWatermark({ src: '/wuxian-jinbu.png' }),
     pluginRss({
