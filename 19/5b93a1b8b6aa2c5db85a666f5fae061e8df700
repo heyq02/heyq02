@@ -1,0 +1,21 @@
+apps/site/src/content/pages/home.md
+  s_9e4cc396e9a614::t_0459b890faea5a 1
+apps/site/src/pages/index.astro
+  s_9e4cc396e9a614::t_3c9542489078b1 16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "195b93a1b8b6aa2c5db85a666f5fae061e8df700",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
