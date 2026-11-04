@@ -1,0 +1,25 @@
+apps/site/plugins/tests/about-profile.test.ts
+  s_9e4cc396e9a614::t_571544e732aa1a 43-48
+apps/site/blogs/index.mdx
+  s_9e4cc396e9a614::t_547bbfdaa11805 6
+apps/site/plugins/tests/github-pinned.test.ts
+  s_9e4cc396e9a614::t_c8ed57e9d6bbcc 147-151
+  s_9e4cc396e9a614::t_155598ab2bcd51 152-153
+  s_9e4cc396e9a614::t_e9d4c050d9fc30 154-160
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "1eb480366ce28aa022aef016e0ca0d9979d14427",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
