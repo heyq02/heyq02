@@ -17,13 +17,7 @@ html.rp-dark .rspress-logo {
 }
 
 .rp-doc-layout__container:has(.profile) .rp-doc-layout__doc,
-.rp-doc-layout__container:has(.friends) .rp-doc-layout__doc {
-  flex: 0 1 min(44rem, var(--rp-content-max-width));
-  width: 100%;
-  max-width: min(44rem, var(--rp-content-max-width));
-  margin-inline: auto;
-}
-
+.rp-doc-layout__container:has(.friends) .rp-doc-layout__doc,
 .rp-doc-layout__container:has(.likes) .rp-doc-layout__doc {
   flex: 0 1 var(--rp-content-max-width);
   width: 100%;
