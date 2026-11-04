@@ -1,0 +1,58 @@
+apps/site/src/components/ThemeInit.astro
+  s_dd36768f078731::t_0cbea1308cd419 6
+apps/site/src/pages/index.astro
+  s_dd36768f078731::t_4461a5269d772d 2,35-36,42,84,88-89,96-98
+apps/site/src/pages/friends.astro
+  s_dd36768f078731::t_939a53b5514e02 2,8
+apps/site/astro.config.ts
+  s_dd36768f078731::t_4aea3630405780 10
+apps/site/src/components/ProfilePlay.astro
+  s_dd36768f078731::t_7f46005a0fb26a 1-79
+apps/site/src/components/FriendsGrid.astro
+  s_dd36768f078731::t_0d33fe8c8c6cfa 140,143,145
+  s_dd36768f078731::t_06418cd59cba89 1-139,141-142,144,146-147
+apps/site/src/content/posts/macos-disable-ime-switching.md
+  s_dd36768f078731::t_d5bd5cc40fdd3f 9-11,13-15,17-19,78-80,84-94
+apps/site/src/layouts/BaseLayout.astro
+  s_dd36768f078731::t_1825257d88ac13 4,14,33-38,46,51-58
+vite.config.ts
+  s_dd36768f078731::t_f990411d2ba9e3 12,25,33
+apps/site/src/content/posts/multi-mcp-aggregation-nginx-vs-express.md
+  s_dd36768f078731::t_d5bd5cc40fdd3f 9-12,14-16
+package.json
+  s_dd36768f078731::t_ccb86fc913fed3 14
+apps/site/src/components/ThemeToggle.astro
+  s_dd36768f078731::t_efcc6737ffc94a 1-30
+apps/site/src/pages/blog/index.astro
+  s_dd36768f078731::t_bae08922ecb7d9 30,38
+apps/site/src/content/posts/npm-download-daily-report.md
+  s_dd36768f078731::t_d5bd5cc40fdd3f 9-11,13-15
+apps/site/package.json
+  s_dd36768f078731::t_0d53e7918609ea 9,15
+apps/site/src/content.config.ts
+  s_dd36768f078731::t_cb1dec4601e810 6-10,13
+apps/site/src/components/SiteNav.astro
+  s_dd36768f078731::t_477d0a1cd5213d 2,22-24,41-43,60,64-65,73
+apps/site/src/pages/blog/posts/[...slug].astro
+  s_dd36768f078731::t_c1f157084ed605 23-26
+apps/site/vite.config.ts
+  s_dd36768f078731::t_7008263cd3a695 10-13
+pnpm-lock.yaml
+  s_dd36768f078731::t_46289aaef94f40 5745-5746,6561-6562,6567,6860
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "c6a1a3fb9da01151c76fcfe1b51935bee5b80bd4",
+  "prompts": {},
+  "sessions": {
+    "s_dd36768f078731": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6f7ded30-647e-49b8-b039-2830323f5de5",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
