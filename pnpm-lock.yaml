@@ -253,6 +253,9 @@ importers:
       '@rspress/core':
         specifier: ^2.1.0-beta.2
         version: 2.1.0-beta.2(@rspack/core@2.3.0(@swc/helpers@0.5.23))(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@7.2.0))(supports-color@7.2.0)
+      lxgw-wenkai-webfont:
+        specifier: ^1.7.0
+        version: 1.7.0
       react:
         specifier: ^19.3.0
         version: 19.3.1
@@ -2511,6 +2514,9 @@ packages:
   lru-cache@11.5.3:
     resolution: {integrity: sha512-U4N8FgzmWxc8k1VH8Kr6lQg18U7Fjvby6wXHVRX/ZZ7IwWbRMgrRbP0Wrb5q5NVinryp4SQampHKdvtecItxUg==}
     engines: {node: 20 || >=22}
+
+  lxgw-wenkai-webfont@1.7.0:
+    resolution: {integrity: sha512-kVJmT4xMAyOLhG6q0w63wJkVU7RP8UMQRGoAWj9tnpzL7sWFFYiEHBdUQyW9myqBQFa5SQfWfa2VLYF4IJBL5g==}
 
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
@@ -5194,6 +5200,8 @@ snapshots:
 
   lru-cache@11.5.3:
     optional: true
+
+  lxgw-wenkai-webfont@1.7.0: {}
 
   lz-string@1.5.0: {}
 

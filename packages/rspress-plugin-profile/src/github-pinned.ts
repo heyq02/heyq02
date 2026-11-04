@@ -76,7 +76,7 @@ export const STUB_PINNED_PROJECTS: PinnedProject[] = [
   {
     name: 'simpleicons.dev',
     href: 'https://github.com/heyq02/simpleicons.dev',
-    summary: 'Showcase your skills on your GitHub readme or resumé with ease.',
+    summary: '在 GitHub README 或简历上，轻松挂上一排技能图标。',
     language: 'TypeScript',
     stars: 171,
     forks: 0
@@ -84,7 +84,7 @@ export const STUB_PINNED_PROJECTS: PinnedProject[] = [
   {
     name: 'keyboard-source-locker',
     href: 'https://github.com/heyq02/keyboard-source-locker',
-    summary: 'macOS menu-bar utility that locks the active keyboard input source to your choice',
+    summary: 'macOS 菜单栏小工具：把输入法锁在你指定的那一个。',
     language: 'Swift',
     stars: 19,
     forks: 0

@@ -46,11 +46,15 @@ export interface Intro {
   description: string
   contact: Contact
   sections: {
+    about: string
     contributions: string
-    skills: string
     openSource: string
+    interests: string
+    skills: string
   }
   places: Place[]
+  /** Chinese blurbs keyed by pinned repo name; overrides the GitHub description. */
+  projectSummaries: Record<string, string>
   skills: Skill[]
 }
 

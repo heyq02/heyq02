@@ -1,4 +1,95 @@
-/* Minimal Rspress chrome: keep profile/friends/likes from looking like doc pages. */
+/* 通州窗台 — cool paper, ink type, amber accent (狮子座). */
+
+@import './fonts.css';
+@import 'lxgw-wenkai-webfont/lxgwwenkai-regular.css';
+
+:root {
+  --hey-ink: #1a2430;
+  --hey-ink-soft: #3a4654;
+  --hey-ink-faint: #6b7785;
+  --hey-paper: #eef3f6;
+  --hey-paper-soft: #e2eaf0;
+  --hey-paper-mute: #d5e0e8;
+  --hey-amber: #c47a1a;
+  --hey-amber-light: #e09a3a;
+  --hey-amber-dark: #8f5610;
+  --hey-amber-tint: color-mix(in oklab, #c47a1a 16%, transparent);
+  --hey-sky: #2f5f7a;
+
+  --rp-c-bg: var(--hey-paper);
+  --rp-c-bg-soft: var(--hey-paper-soft);
+  --rp-c-bg-mute: var(--hey-paper-mute);
+  --rp-c-bg-alt: #f5f8fa;
+  --rp-c-text-1: var(--hey-ink);
+  --rp-c-text-2: var(--hey-ink-soft);
+  --rp-c-text-3: var(--hey-ink-faint);
+  --rp-c-brand: var(--hey-amber);
+  --rp-c-brand-light: var(--hey-amber-light);
+  --rp-c-brand-dark: var(--hey-amber-dark);
+  --rp-c-brand-tint: var(--hey-amber-tint);
+  --rp-c-divider: color-mix(in oklab, var(--hey-ink) 14%, transparent);
+  --rp-c-divider-light: color-mix(in oklab, var(--hey-ink) 8%, transparent);
+  --rp-c-link: var(--hey-sky);
+  --rp-c-gray: #7a8794;
+
+  --rp-font-family-base: 'DM Sans', 'LXGW WenKai', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', sans-serif;
+  --rp-font-family-mono: 'DM Sans', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --hey-font-display: 'LXGW WenKai', 'DM Sans', 'PingFang SC', 'Hiragino Sans GB', serif;
+}
+
+html.dark,
+html.rp-dark {
+  --hey-ink: #e8eef2;
+  --hey-ink-soft: #b7c2cc;
+  --hey-ink-faint: #84919e;
+  --hey-paper: #121820;
+  --hey-paper-soft: #1a222c;
+  --hey-paper-mute: #232c38;
+  --hey-amber: #e09a3a;
+  --hey-amber-light: #f0b45c;
+  --hey-amber-dark: #c47a1a;
+  --hey-amber-tint: color-mix(in oklab, #e09a3a 18%, transparent);
+  --hey-sky: #7eb6d4;
+
+  --rp-c-bg-alt: #0e1319;
+}
+
+html {
+  background-color: var(--rp-c-bg);
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 12% -10%, color-mix(in oklab, var(--hey-amber) 10%, transparent), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, color-mix(in oklab, var(--hey-sky) 12%, transparent), transparent 55%),
+    linear-gradient(180deg, var(--rp-c-bg-alt), var(--rp-c-bg) 28%, var(--rp-c-bg));
+  background-attachment: fixed;
+}
+
+/* Soft grain so the paper doesn't read as flat SaaS white. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+html.dark body::before,
+html.rp-dark body::before {
+  opacity: 0.07;
+}
+
+.rp-nav,
+.rp-doc-layout,
+.rspress-nav {
+  position: relative;
+  z-index: 1;
+}
 
 html.dark .rspress-logo,
 html.rp-dark .rspress-logo {
@@ -29,4 +120,31 @@ html.rp-dark .rspress-logo {
 .rp-doc-layout__container:has(.friends) .rp-doc-layout__doc-container,
 .rp-doc-layout__container:has(.likes) .rp-doc-layout__doc-container {
   padding: var(--rp-content-padding-y) var(--rp-content-padding-x);
+}
+
+@keyframes hey-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hey-rise {
+  animation: hey-rise 0.55s ease both;
+}
+
+.hey-rise-delay-1 {
+  animation-delay: 0.08s;
+}
+
+.hey-rise-delay-2 {
+  animation-delay: 0.16s;
+}
+
+.hey-rise-delay-3 {
+  animation-delay: 0.24s;
 }

@@ -3,12 +3,13 @@ import type { ReactElement } from 'react'
 
 import type { ContributionCalendar, ContributionDay, ContributionLevel } from './profile-data.ts'
 
+/** Ink → amber scale (通州窗台 brand), not stock GitHub green. */
 const LEVEL_CLASS: Record<ContributionLevel, string> = {
-  0: 'bg-[#ebedf0] dark:bg-[#161b22]',
-  1: 'bg-[#9be9a8] dark:bg-[#0e4429]',
-  2: 'bg-[#40c463] dark:bg-[#006d32]',
-  3: 'bg-[#30a14e] dark:bg-[#26a641]',
-  4: 'bg-[#216e39] dark:bg-[#39d353]'
+  0: 'bg-[color-mix(in_oklab,var(--rp-c-text-1)_8%,var(--rp-c-bg))]',
+  1: 'bg-[color-mix(in_oklab,var(--rp-c-brand)_28%,var(--rp-c-bg))]',
+  2: 'bg-[color-mix(in_oklab,var(--rp-c-brand)_48%,var(--rp-c-bg))]',
+  3: 'bg-[color-mix(in_oklab,var(--rp-c-brand)_72%,var(--rp-c-bg))]',
+  4: 'bg-rp-brand'
 }
 
 function summarize(days: ContributionDay[]) {
@@ -27,22 +28,20 @@ function summarize(days: ContributionDay[]) {
   }
 
   for (let index = days.length - 1; index >= 0; index -= 1) {
-    const day = days[index]
+    const day = days[index]!
     if (day.count > 0) {
       current += 1
       continue
     }
     // Today with 0 still allows an open streak ending yesterday.
-    if (index === days.length - 1) {
-      continue
-    }
+    if (index === days.length - 1) continue
     break
   }
 
   return { activeDays, longest, current }
 }
 
-/** GitHub-style contribution calendar with a compact side stats panel. */
+/** Contribution calendar with a compact side stats panel. */
 export function ContributionHeatmap({
   calendar
 }: {
@@ -54,7 +53,7 @@ export function ContributionHeatmap({
   return (
     <div className='profile-contributions gap-rp-3 flex w-full flex-col sm:flex-row sm:items-center'>
       <div
-        className='flex w-full min-w-0 flex-1'
+        className='flex min-w-0 w-full flex-1'
         role='img'
         aria-label={`近一年 ${calendar.total} 次 GitHub 贡献`}
       >
@@ -75,12 +74,12 @@ export function ContributionHeatmap({
       </div>
 
       <aside
-        className={`${sitePanelChrome} gap-rp-4 px-rp-3 py-rp-2 sm:gap-rp-1 flex w-full shrink-0 items-center sm:w-auto sm:min-w-[11rem] sm:flex-col sm:items-start`}
+        className={`${sitePanelChrome} flex w-full shrink-0 items-center gap-rp-4 px-rp-3 py-rp-2 sm:w-auto sm:min-w-[11rem] sm:flex-col sm:items-start sm:gap-rp-1`}
       >
-        <div className='gap-rp-2 flex min-w-0 items-baseline'>
+        <div className='flex min-w-0 items-baseline gap-rp-2'>
           <TextLink
             href={calendar.href}
-            className='text-rp-text hover:text-rp-brand m-0 text-[1.35rem] leading-none font-bold tabular-nums !no-underline'
+            className='m-0 text-[1.35rem] font-bold leading-none text-rp-text tabular-nums !no-underline hover:text-rp-brand'
           >
             {calendar.total.toLocaleString('zh-CN')}
           </TextLink>

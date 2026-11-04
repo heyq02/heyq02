@@ -10,9 +10,11 @@
  */
 @theme {
   --animate-avatar-wobble: avatar-wobble 0.4s ease;
+  --animate-hey-rise: hey-rise 0.55s ease both;
 
   --font-sans: var(--rp-font-family-base);
   --font-mono: var(--rp-font-family-mono);
+  --font-display: var(--hey-font-display);
 
   --color-rp-bg: var(--rp-c-bg);
   --color-rp-soft: var(--rp-c-bg-soft);
@@ -51,7 +53,7 @@
   --text-rp-lg: 1.125rem;
   --text-rp-xl: 1.25rem;
   --text-rp-2xl: 1.5rem;
-  --text-rp-hero: clamp(2.1rem, 5.5vw, 2.75rem);
+  --text-rp-hero: clamp(2.15rem, 5.8vw, 3rem);
 
   /* Spacing rhythm: multiples of --rp-radius-small (0.5rem). */
   --spacing-rp-1: calc(var(--rp-radius-small) / 2);

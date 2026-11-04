@@ -9,21 +9,23 @@
     "longitude": 116.6583
   },
   "tags": ["双一流本科", "24届校招", "前端转全栈", "开源爱好者"],
-  "bio": "专注用 AI 加速开发，并真正落到产品里",
+  "bio": "在通州写前端，正往全栈挪。喜欢用 AI 把想法尽快落到能点开的产品里，也爱把好玩的小工具开源出去。\n\n口号是「无限进步」：今天比昨天清楚一点、顺手一点就行。博客记踩坑，兴趣页记生活，友链留给愿意聊天的人。",
   "kaomoji": "(๑•̀ㅂ•́)و",
   "moods": ["(๑•̀ㅂ•́)و", "(｡•́︿•̀｡)", "(ﾉ´ヮ`)ﾉ*: ･ﾟ", "(￣▽￣)ノ", "ヽ(✿ﾟ▽ﾟ)ノ", "( •̀ ω •́ )✧"],
   "avatar": "https://avatars.githubusercontent.com/u/206218794?v=4",
   "site": "https://heyq02.com",
   "title": "永琪",
-  "description": "永琪。双一流本科、24届校招、前端转全栈、开源爱好者。专注用 AI 加速开发，并真正落到产品里。",
+  "description": "永琪。双一流本科、24届校招、前端转全栈、开源爱好者。用 AI 加速开发，并真正落到产品里。",
   "contact": {
     "phone": "+86 135****8086",
     "email": "hello@heyq02.com"
   },
   "sections": {
+    "about": "关于",
     "contributions": "提交热力图",
-    "skills": "技能",
-    "openSource": "开源项目"
+    "openSource": "开源项目",
+    "interests": "兴趣速览",
+    "skills": "顺手工具"
   },
   "places": [
     {
@@ -47,6 +49,10 @@
       "detail": "扫码添加"
     }
   ],
+  "projectSummaries": {
+    "simpleicons.dev": "在 GitHub README 或简历上，轻松挂上一排技能图标。",
+    "keyboard-source-locker": "macOS 菜单栏小工具：把输入法锁在你指定的那一个。"
+  },
   "skills": [
     {
       "name": "Vue",

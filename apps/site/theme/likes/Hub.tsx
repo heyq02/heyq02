@@ -54,14 +54,14 @@ export function Hub({ ssgMd }: { ssgMd: boolean }): ReactElement {
                   href={category.href}
                   external={false}
                   className={[
-                    `p-rp-4 hover:shadow-rp relative overflow-hidden ${siteTile}`,
+                    `group p-rp-4 relative overflow-hidden ${siteTile}`,
                     wide
                       ? 'sm:col-span-1 lg:col-span-3 min-h-[calc(var(--rp-radius-large)*6)]'
                       : 'lg:col-span-2 min-h-[calc(var(--rp-radius-large)*5.5)]',
                     `bg-gradient-to-br ${accents[category.id] ?? accents.uses}`
                   ].join(' ')}
                 >
-                  <span className='top-rp-3 right-rp-3 text-rp-2xl text-rp-muted pointer-events-none absolute font-mono opacity-40 transition-opacity group-hover:opacity-70'>
+                  <span className='top-rp-3 right-rp-3 text-rp-2xl text-rp-muted pointer-events-none absolute font-mono opacity-40 transition-opacity duration-200 group-hover:opacity-75 group-hover:text-rp-brand'>
                     {glyphs[category.id] ?? '·'}
                   </span>
                   <span className='gap-rp-3 grid h-full content-between'>

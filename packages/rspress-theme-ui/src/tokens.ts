@@ -2,10 +2,11 @@
 
 export const sitePageRoot = 'rp-not-doc font-sans text-rp-text'
 
-export const siteH1 = 'm-0 text-rp-hero font-bold leading-tight tracking-tight text-rp-text'
+export const siteH1 =
+  'm-0 font-display text-rp-hero font-bold leading-[1.15] tracking-tight text-rp-text'
 
 export const siteH2 =
-  "m-0 mb-rp-4 text-rp-xl font-[650] leading-snug text-rp-text after:mt-rp-2 after:block after:h-0.5 after:w-8 after:bg-rp-brand after:content-['']"
+  "m-0 mb-rp-4 font-display text-rp-xl font-[650] leading-snug text-rp-text after:mt-rp-2 after:block after:h-0.5 after:w-8 after:bg-rp-brand after:content-['']"
 
 /** Keyboard focus ring — every interactive control should include this. */
 export const siteFocusRing =
@@ -13,17 +14,18 @@ export const siteFocusRing =
 
 export const siteLink = `font-semibold text-inherit no-underline hover:text-rp-link hover:underline hover:underline-offset-[3px] ${siteFocusRing}`
 
-/** Soft surface shell (radius + border + fill). */
-export const siteSurface = 'rounded-rp-sm border border-rp-divider-light bg-rp-soft'
+/** Soft surface shell — light paper edge, no glassy card stack. */
+export const siteSurface =
+  'rounded-rp-sm border border-rp-divider-light bg-[color-mix(in_oklab,var(--rp-c-bg)_88%,transparent)]'
 
 /** Static soft panel (exchange block, empty states share padding/radius). */
 export const sitePanelChrome = `${siteSurface} px-rp-4 py-rp-4`
 
 /** Interactive card chrome shared by project/post/friend cards. */
-export const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-rp-brand hover:bg-rp-bg hover:text-inherit hover:shadow-rp hover:!no-underline ${siteFocusRing}`
+export const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-bg hover:text-inherit hover:!no-underline ${siteFocusRing}`
 
 /** Linkable soft tile without default padding (likes grids). */
-export const siteTile = `${siteSurface} no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-rp-brand hover:!no-underline ${siteFocusRing}`
+export const siteTile = `${siteSurface} no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:!no-underline ${siteFocusRing}`
 
 /** Compact list row with soft hover (music ranks, book rows). */
 export const siteRow = `rounded-rp-sm border border-transparent no-underline transition-[border-color,background-color] duration-200 hover:border-rp-divider-light hover:bg-rp-soft hover:!no-underline ${siteFocusRing}`
@@ -32,7 +34,7 @@ export const siteRow = `rounded-rp-sm border border-transparent no-underline tra
 export const siteMediaLink = `group grid gap-rp-2 rounded-rp-sm no-underline hover:!no-underline ${siteFocusRing}`
 
 export const siteCardName =
-  'text-rp-lg font-[650] leading-snug text-rp-text transition-colors duration-200 group-hover:text-rp-brand'
+  'font-display text-rp-lg font-[650] leading-snug text-rp-text transition-colors duration-200 group-hover:text-rp-brand'
 
 export const siteCardSummary = 'text-rp-md font-normal leading-relaxed text-rp-muted'
 
@@ -50,9 +52,9 @@ export const siteHeaderRule = 'border-b border-rp-divider-light pb-rp-8'
 export const siteBody = 'm-0 text-rp-md leading-relaxed text-rp-muted'
 
 export const siteBadge =
-  'inline-flex items-center rounded-full border border-rp-divider-light bg-rp-bg px-rp-2 py-px text-rp-xs leading-none text-rp-muted'
+  'inline-flex items-center rounded-full border border-rp-divider-light bg-rp-bg/80 px-rp-2 py-px text-rp-xs leading-none text-rp-muted'
 
-export const siteDisplay = 'font-bold tracking-tight text-rp-text text-rp-2xl'
+export const siteDisplay = 'font-display font-bold tracking-tight text-rp-text text-rp-2xl'
 
 export const siteProgressTrack = 'overflow-hidden rounded-full bg-rp-divider-light'
 

@@ -1,4 +1,4 @@
-import { siteH1, siteHeaderRule, siteMeta } from '@heyq02/rspress-theme-ui'
+import { siteBody, siteH1, siteHeaderRule, siteMeta, TextLink } from '@heyq02/rspress-theme-ui'
 import { Badge } from '@rspress/core/theme'
 import { useState } from 'react'
 import type { ReactElement } from 'react'
@@ -12,6 +12,8 @@ interface ProfilePlayProps {
   ssgMd?: boolean
 }
 
+const socialOrder = ['GitHub', 'X', 'Bilibili'] as const
+
 /** Hero avatar + greeting; second row is emoji · badge/zodiac · home weather. */
 export function ProfilePlay({
   tags,
@@ -20,12 +22,14 @@ export function ProfilePlay({
   const faces = intro.moods
   const [mood, setMood] = useState(0)
   const [spinning, setSpinning] = useState(false)
+  const lead = intro.bio.split(/\n\n/)[0] ?? intro.bio
 
   if (ssgMd) {
     return (
       <>
         {`![${intro.name}](${intro.avatar})`}
         {`\n\n# ${intro.headline}\n\n${intro.kaomoji} · ${intro.badge} · ${intro.zodiac} · ${intro.home.label}\n\n`}
+        {`${lead}\n\n`}
         {tags.map(tag => `\`${tag}\``).join(' ')}
         {'\n'}
       </>
@@ -38,10 +42,13 @@ export function ProfilePlay({
   }
 
   const face = faces[mood % faces.length]
+  const socials = socialOrder
+    .map(label => intro.places.find(place => place.label === label))
+    .filter((place): place is (typeof intro.places)[number] => Boolean(place))
 
   return (
     <header
-      className={`gap-x-rp-5 grid grid-cols-1 items-center ${siteHeaderRule} sm:grid-cols-[7rem_1fr]`}
+      className={`gap-x-rp-6 gap-y-rp-5 hey-rise grid grid-cols-1 items-center ${siteHeaderRule} sm:grid-cols-[8.5rem_1fr]`}
     >
       <button
         type='button'
@@ -54,15 +61,18 @@ export function ProfilePlay({
         title='戳我'
       >
         <img
-          className={`rounded-rp border-rp-divider-light shadow-rp-md block size-28 border object-cover transition-shadow duration-200 hover:shadow-rp${spinning ? ' animate-avatar-wobble' : ''}`}
+          className={`rounded-rp border-rp-divider-light shadow-rp-md block size-32 border object-cover transition-shadow duration-200 hover:shadow-rp${spinning ? ' animate-avatar-wobble' : ''}`}
           src={intro.avatar}
           alt={intro.name}
-          width={112}
-          height={112}
+          width={128}
+          height={128}
           draggable={false}
         />
       </button>
       <div className='min-w-0'>
+        <p className='text-rp-brand font-display mb-rp-2 text-rp-sm m-0 tracking-wide'>
+          {intro.name} · 无限进步
+        </p>
         <h1 className={siteH1}>{intro.headline}</h1>
         <div className='mt-rp-3 gap-x-rp-4 gap-y-rp-2 flex flex-wrap items-baseline'>
           <button
@@ -79,10 +89,27 @@ export function ProfilePlay({
           </span>
           <HomeWeather home={intro.home} />
         </div>
+        <p className={`${siteBody} mt-rp-4 max-w-2xl`}>{lead}</p>
         <p className='mt-rp-3 gap-rp-1 mb-0 flex flex-wrap'>
           {tags.map(tag => (
             <Badge key={tag} text={tag} type='info' outline />
           ))}
+        </p>
+        <p className='mt-rp-4 gap-x-rp-4 gap-y-rp-2 text-rp-sm mb-0 flex flex-wrap'>
+          {socials.map(place => (
+            <TextLink key={place.label} href={place.href} className='text-rp-link'>
+              {place.label}
+            </TextLink>
+          ))}
+          <TextLink href={`mailto:${intro.contact.email}`} className='text-rp-link'>
+            邮件
+          </TextLink>
+          <TextLink href='/likes/' className='text-rp-brand' external={false}>
+            兴趣 →
+          </TextLink>
+          <TextLink href='/blog/' className='text-rp-brand' external={false}>
+            博客 →
+          </TextLink>
         </p>
       </div>
     </header>

@@ -43,7 +43,7 @@ export function profilePage(
     projects: projects.map(project => ({
       name: project.name,
       href: project.href,
-      summary: project.summary,
+      summary: intro.projectSummaries[project.name] ?? project.summary,
       language: project.language,
       stars: formatCount(project.stars),
       forks: formatCount(project.forks)
