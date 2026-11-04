@@ -26,7 +26,7 @@ export async function prepareProfile(options: PrepareProfileOptions): Promise<vo
   const page = profilePage(intro, projects)
 
   const homeChanged = await writeIfChanged(homeMdxPath, renderHomeMdx(intro, projects))
-  const dataChanged = await writeIfChanged(profileDataPath, renderProfileDataModule(page.projects))
+  const dataChanged = await writeIfChanged(profileDataPath, renderProfileDataModule(page))
 
   if (options.format && options.formatRoot && (homeChanged || dataChanged)) {
     await formatGenerated(options.formatRoot, [homeMdxPath, profileDataPath], options.spawnFn)

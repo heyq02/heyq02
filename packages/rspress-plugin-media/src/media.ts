@@ -27,7 +27,7 @@ for (const value of Object.values(simpleIcons)) {
   iconBySlug.set(value.slug, value)
 }
 
-/** Parse a `personal/media.toml`-shaped document into keyed entries. */
+/** Parse a `content/brand/media.toml`-shaped document into keyed entries. */
 export function parseMediaToml(source: string): MediaTable {
   return parse(source) as unknown as MediaTable
 }

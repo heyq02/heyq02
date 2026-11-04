@@ -9,12 +9,12 @@ import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 
-import intro from '../../static/data/intro.json' with { type: 'json' }
+import intro from '../../content/data/intro.json' with { type: 'json' }
 
 const dir = import.meta.dirname
 const blogsRoot = resolve(dir, 'blogs')
 const themeDir = resolve(dir, 'theme')
-const personalRoot = resolve(dir, '../../personal')
+const brandRoot = resolve(dir, '../../content/brand')
 const sitePublic = resolve(dir, 'public')
 
 export default defineConfig({
@@ -82,7 +82,7 @@ ${pages || '-（暂无其他页面）'}
   plugins: [
     pluginSiteAssets({
       outDir: resolve(blogsRoot, 'public'),
-      signaturePath: resolve(personalRoot, 'signature.png'),
+      signaturePath: resolve(brandRoot, 'signature.png'),
       wechatPath: resolve(sitePublic, 'wechat.jpg'),
       watermarkPath: resolve(sitePublic, 'wuxian-jinbu.png')
     }),
@@ -96,7 +96,7 @@ ${pages || '-（暂无其他页面）'}
       intro,
       formatRoot: dir
     }),
-    pluginMedia({ mediaPath: resolve(personalRoot, 'media.toml') }),
+    pluginMedia({ mediaPath: resolve(brandRoot, 'media.toml') }),
     pluginWatermark({ src: '/wuxian-jinbu.png' }),
     pluginRss({
       feed: {
@@ -111,7 +111,7 @@ ${pages || '-（暂无其他页面）'}
   ],
   themeConfig: {
     darkMode: true,
-    // SocialLinks come from pluginMedia(personal/media.toml) via simple-icons SVGs.
+    // SocialLinks come from pluginMedia(content/brand/media.toml) via simple-icons SVGs.
     // Avoid Rspress injecting frontmatter title as a duplicate H1 on profile/friends.
     fallbackHeadingTitle: false,
     lastUpdated: true,

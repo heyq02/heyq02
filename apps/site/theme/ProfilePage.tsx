@@ -12,7 +12,7 @@ import { Badge } from '@rspress/core/theme'
 import type { ReactElement } from 'react'
 
 import { intro } from '../lib/intro.ts'
-import { pinnedProjects } from './profile-data.ts'
+import { pinnedProjects, skillsPicture } from './profile-data.ts'
 import type { ProfileProject } from './profile-data.ts'
 import { ProfilePlay } from './ProfilePlay.tsx'
 
@@ -27,17 +27,6 @@ const profileH3 = 'm-0 text-rp-lg font-semibold leading-snug'
 const profileList = 'mt-rp-3 mb-0 list-disc pl-rp-5 leading-relaxed text-rp-muted [&_li+li]:mt-rp-1'
 
 const profileEduMeta = 'profile-edu-meta mt-rp-2 mb-0 text-rp-md leading-relaxed text-rp-muted'
-
-const skillsPicture = (() => {
-  const named = intro.skills.filter(skill => skill.icon)
-  const icons = named.map(skill => skill.icon).join(',')
-  const alt = named.map(skill => skill.name).join(', ')
-  const perline = Math.max(named.length, 1)
-  return {
-    alt,
-    src: `https://simpleicons.dev/icons?icons=${icons}&perline=${perline}&theme=light`
-  }
-})()
 
 function ProjectCard({ project }: { project: ProfileProject }): ReactElement {
   return (

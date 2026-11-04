@@ -10,7 +10,9 @@ export {
   githubLogin,
   githubToken,
   mapPinnedRepository,
-  PINNED_TIMEOUT_MS
+  PINNED_TIMEOUT_MS,
+  profileStubEnabled,
+  STUB_PINNED_PROJECTS
 } from './github-pinned.ts'
 export type { GraphqlClient, PinnedProject } from './github-pinned.ts'
 export { prepareProfile, prepareProfileOnce } from './prepare-profile.ts'
@@ -21,7 +23,11 @@ export {
   renderHomeMdx,
   renderProfileDataModule
 } from './profile-page.ts'
-export type { ProfilePageView, ProfileProjectView } from './profile-page.ts'
+export type {
+  ProfilePageView,
+  ProfileProjectView,
+  ProfileSkillsPicture
+} from './profile-page.ts'
 export { skillIconsPicture } from './skills-picture.ts'
 export type { SkillIcon } from './skills-picture.ts'
 

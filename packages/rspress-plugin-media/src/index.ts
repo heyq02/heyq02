@@ -12,7 +12,7 @@ export {
 export type { MediaEntry, MediaTable } from './media.ts'
 
 export interface PluginMediaOptions {
-  /** Absolute path to `personal/media.toml`. */
+  /** Absolute path to `content/brand/media.toml`. */
   mediaPath: string
 }
 

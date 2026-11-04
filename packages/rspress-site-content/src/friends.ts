@@ -19,7 +19,7 @@ export interface FriendsData {
   friends: FriendLink[]
 }
 
-/** Raw `static/data/friends.json` before identity fields are filled from intro. */
+/** Raw `content/data/friends.json` before identity fields are filled from intro. */
 export interface FriendsJson {
   title: string
   intro: string

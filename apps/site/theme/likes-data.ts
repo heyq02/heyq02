@@ -1,6 +1,6 @@
 import type { LikesCategoryId, LikesData, Shelf } from '@heyq02/rspress-site-content'
 
-import data from '../../../static/data/likes.json' with { type: 'json' }
+import data from '../../../content/data/likes.json' with { type: 'json' }
 
 export type {
   LikesCategory,

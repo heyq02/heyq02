@@ -71,6 +71,30 @@ export function githubToken(env: NodeJS.ProcessEnv = process.env): string | unde
   return env.GITHUB_TOKEN ?? env.GH_TOKEN
 }
 
+/** Offline / CI fixture when `HEYQ02_PROFILE_STUB=1`. */
+export const STUB_PINNED_PROJECTS: PinnedProject[] = [
+  {
+    name: 'simpleicons.dev',
+    href: 'https://github.com/heyq02/simpleicons.dev',
+    summary: 'Showcase your skills on your GitHub readme or resumé with ease.',
+    language: 'TypeScript',
+    stars: 171,
+    forks: 0
+  },
+  {
+    name: 'keyboard-source-locker',
+    href: 'https://github.com/heyq02/keyboard-source-locker',
+    summary: 'macOS menu-bar utility that locks the active keyboard input source to your choice',
+    language: 'Swift',
+    stars: 19,
+    forks: 0
+  }
+]
+
+export function profileStubEnabled(env: NodeJS.ProcessEnv = process.env): boolean {
+  return env.HEYQ02_PROFILE_STUB === '1'
+}
+
 export function mapPinnedRepository(repo: GraphQlRepository, login: string): PinnedProject {
   return {
     name: repo.owner.login === login ? repo.name : repo.nameWithOwner,
@@ -90,10 +114,16 @@ export async function fetchPinnedProjects(
     graphql?: GraphqlClient
   } = {}
 ): Promise<PinnedProject[]> {
+  if (profileStubEnabled()) {
+    return STUB_PINNED_PROJECTS
+  }
+
   const login = githubLogin(intro.places)
   const token = options.token ?? githubToken()
   if (!token) {
-    throw new Error('Set GITHUB_TOKEN or GH_TOKEN to load pinned GitHub projects')
+    throw new Error(
+      'Set GITHUB_TOKEN or GH_TOKEN to load pinned GitHub projects (or HEYQ02_PROFILE_STUB=1 for offline CI)'
+    )
   }
 
   const client = options.graphql ?? graphql
