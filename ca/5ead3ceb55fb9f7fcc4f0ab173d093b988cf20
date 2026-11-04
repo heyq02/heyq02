@@ -1,0 +1,22 @@
+apps/cli/package.json
+  h_a57efa94f24ca5 3
+apps/site/package.json
+  h_a57efa94f24ca5 3
+package.json
+  h_a57efa94f24ca5 3
+packages/rspress-plugin-media/package.json
+  h_a57efa94f24ca5 3
+packages/rspress-plugin-watermark/package.json
+  h_a57efa94f24ca5 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "ca5ead3ceb55fb9f7fcc4f0ab173d093b988cf20",
+  "prompts": {},
+  "humans": {
+    "h_a57efa94f24ca5": {
+      "author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
