@@ -1,0 +1,19 @@
+packages/rspress-plugin-profile/src/index.ts
+  s_7f3749379effc6::t_49b3b2bb2792f7 26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "ccc767919c4a62e76aeb7f3c5e31576a13bfb62c",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
