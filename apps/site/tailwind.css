@@ -3,6 +3,7 @@
 /* Class strings live in shared tokens + theme consumers. */
 @source './theme';
 @source '../../packages/site-ui/src';
+@source '../../packages/rspress-theme-ui/src';
 
 /*
  * Map Tailwind theme keys onto Rspress design tokens.

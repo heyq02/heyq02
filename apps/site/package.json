@@ -13,7 +13,7 @@
     "@heyq02/rspress-plugin-profile": "workspace:*",
     "@heyq02/rspress-plugin-site-assets": "workspace:*",
     "@heyq02/rspress-plugin-watermark": "workspace:*",
-    "@heyq02/site-ui": "workspace:*",
+    "@heyq02/rspress-theme-ui": "workspace:*",
     "@rspress/core": "^2.1.0-beta.2",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"

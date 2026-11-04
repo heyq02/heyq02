@@ -6,12 +6,12 @@ import {
   siteSection,
   siteSurface,
   siteWhen
-} from '@heyq02/site-ui'
+} from '@heyq02/rspress-theme-ui'
 import type { ReactElement } from 'react'
 
 import { likesData } from '../likes-data.ts'
 import type { ShelfItem } from '../likes-data.ts'
-import { BackLink, ItemLink, PageShell, badgeClass } from './shared.tsx'
+import { BackLink, ItemLink, LikesShell, badgeClass } from './shared.tsx'
 
 /** Cinema layout: horizontal now-watching rail + dense poster wall. */
 export function WatchingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
@@ -21,7 +21,7 @@ export function WatchingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
   if (ssgMd) {
     return (
-      <PageShell title={shelf.title} intro={shelf.intro} ssgMd tone='likes-watching'>
+      <LikesShell title={shelf.title} intro={shelf.intro} ssgMd tone='likes-watching'>
         <BackLink />
         {shelf.sections.map(section => (
           <div key={section.id}>
@@ -36,12 +36,12 @@ export function WatchingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
             </ul>
           </div>
         ))}
-      </PageShell>
+      </LikesShell>
     )
   }
 
   return (
-    <PageShell title={shelf.title} intro={shelf.intro} ssgMd={false} tone='likes-watching'>
+    <LikesShell title={shelf.title} intro={shelf.intro} ssgMd={false} tone='likes-watching'>
       <BackLink />
 
       <section className={siteSection}>
@@ -68,7 +68,7 @@ export function WatchingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
           ))}
         </ul>
       </section>
-    </PageShell>
+    </LikesShell>
   )
 }
 

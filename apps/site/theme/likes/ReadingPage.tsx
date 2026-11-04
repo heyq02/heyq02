@@ -12,12 +12,12 @@ import {
   siteSurface,
   siteTile,
   siteWhen
-} from '@heyq02/site-ui'
+} from '@heyq02/rspress-theme-ui'
 import type { ReactElement } from 'react'
 
 import { likesData } from '../likes-data.ts'
 import type { ShelfItem } from '../likes-data.ts'
-import { BackLink, ItemLink, PageShell, badgeClass } from './shared.tsx'
+import { BackLink, ItemLink, LikesShell, badgeClass } from './shared.tsx'
 
 const spineColors = [
   'bg-[color-mix(in_oklab,var(--rp-c-brand)_55%,var(--rp-c-text-1))]',
@@ -35,7 +35,7 @@ export function ReadingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
   if (ssgMd) {
     return (
-      <PageShell title={shelf.title} intro={shelf.intro} ssgMd tone='likes-reading'>
+      <LikesShell title={shelf.title} intro={shelf.intro} ssgMd tone='likes-reading'>
         <BackLink />
         {shelf.sections.map(section => (
           <div key={section.id}>
@@ -50,12 +50,12 @@ export function ReadingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
             </ul>
           </div>
         ))}
-      </PageShell>
+      </LikesShell>
     )
   }
 
   return (
-    <PageShell title={shelf.title} intro={shelf.intro} ssgMd={false} tone='likes-reading'>
+    <LikesShell title={shelf.title} intro={shelf.intro} ssgMd={false} tone='likes-reading'>
       <BackLink />
 
       <section className={siteSection}>
@@ -87,7 +87,7 @@ export function ReadingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
           ))}
         </ul>
       </section>
-    </PageShell>
+    </LikesShell>
   )
 }
 

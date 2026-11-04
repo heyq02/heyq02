@@ -6,12 +6,12 @@ import {
   siteSection,
   siteTile,
   siteWhen
-} from '@heyq02/site-ui'
+} from '@heyq02/rspress-theme-ui'
 import type { ReactElement } from 'react'
 
 import { likesData } from '../likes-data.ts'
 import type { ShelfItem } from '../likes-data.ts'
-import { BackLink, ItemLink, PageShell, badgeClass } from './shared.tsx'
+import { BackLink, ItemLink, LikesShell, badgeClass } from './shared.tsx'
 
 /** Exhibition tickets on a timeline — not a travel photo dump. */
 export function VisitsPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
@@ -19,7 +19,7 @@ export function VisitsPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
   if (ssgMd) {
     return (
-      <PageShell title={shelf.title} intro={shelf.intro} ssgMd tone='likes-visits'>
+      <LikesShell title={shelf.title} intro={shelf.intro} ssgMd tone='likes-visits'>
         <BackLink />
         {shelf.sections.map(section => (
           <div key={section.id}>
@@ -34,12 +34,12 @@ export function VisitsPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
             </ul>
           </div>
         ))}
-      </PageShell>
+      </LikesShell>
     )
   }
 
   return (
-    <PageShell title={shelf.title} intro={shelf.intro} ssgMd={false} tone='likes-visits'>
+    <LikesShell title={shelf.title} intro={shelf.intro} ssgMd={false} tone='likes-visits'>
       <BackLink />
       {shelf.sections.map(section => (
         <section key={section.id} className={siteSection}>
@@ -54,7 +54,7 @@ export function VisitsPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
           </ol>
         </section>
       ))}
-    </PageShell>
+    </LikesShell>
   )
 }
 

@@ -1,18 +1,16 @@
 import {
+  CardLink,
+  CardSummary,
+  CardTitle,
+  Empty,
+  PageShell,
+  Panel,
+  Section,
+  TextLink,
   siteBody,
   siteCardChrome,
-  siteCardName,
-  siteCardSummary,
-  siteEmpty,
-  siteH1,
-  siteH2,
-  siteHeaderRule,
-  siteLink,
-  siteMeta,
-  sitePageRoot,
-  sitePanelChrome,
-  siteSection
-} from '@heyq02/site-ui'
+  siteMeta
+} from '@heyq02/rspress-theme-ui'
 import { useMemo, useSyncExternalStore } from 'react'
 import type { ReactElement } from 'react'
 
@@ -39,10 +37,6 @@ function subscribeNever(): () => void {
 const avatarClass =
   'block size-12 shrink-0 rounded-full border border-rp-divider-light bg-rp-bg object-cover'
 
-const friendCardClass = `group flex h-full items-center gap-rp-3 ${siteCardChrome}`
-
-const exchangePanelClass = `mt-rp-5 flex flex-col items-start gap-rp-4 ${sitePanelChrome} sm:flex-row`
-
 const fieldLabelClass = `m-0 uppercase ${siteMeta}`
 
 const fieldValueClass = 'm-0 text-rp-md leading-normal text-rp-text wrap-anywhere'
@@ -63,14 +57,13 @@ function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): 
 
   return (
     <li className='m-0 min-w-0'>
-      <a
-        className={friendCardClass}
+      <CardLink
         href={friend.url}
-        target='_blank'
+        className={`gap-rp-3 flex h-full items-center ${siteCardChrome}`}
+        external
         rel='noopener noreferrer friend'
         title={friend.name}
         aria-label={friendLabel(friend)}
-        data-card=''
       >
         <img
           className={avatarClass}
@@ -82,12 +75,10 @@ function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): 
           decoding='async'
         />
         <span className='gap-rp-1 grid min-w-0'>
-          <span className={`truncate ${siteCardName}`}>{friend.name}</span>
-          {friend.desc ? (
-            <span className={`line-clamp-2 ${siteCardSummary}`}>{friend.desc}</span>
-          ) : null}
+          <CardTitle className='truncate'>{friend.name}</CardTitle>
+          {friend.desc ? <CardSummary className='line-clamp-2'>{friend.desc}</CardSummary> : null}
         </span>
-      </a>
+      </CardLink>
     </li>
   )
 }
@@ -107,53 +98,44 @@ export function FriendsPage({
   const ordered = useMemo(() => (isClient ? shuffle(friends) : friends), [friends, isClient])
 
   return (
-    <div className={`friends ${sitePageRoot}`}>
-      <header className={siteHeaderRule}>
-        {ssgMd ? null : <h1 className={siteH1}>{title}</h1>}
-        <p className={`mt-rp-3 ${siteBody}`}>{intro}</p>
-        {ssgMd ? null : (
-          <p className={`mt-rp-2 mb-0 ${siteMeta}`}>每次访问都会重新排序，换个顺序打个招呼。</p>
-        )}
-      </header>
-
+    <PageShell
+      title={title}
+      intro={intro}
+      ssgMd={ssgMd}
+      tone='friends'
+      tip='每次访问都会重新排序，换个顺序打个招呼。'
+    >
       {ordered.length === 0 ? (
-        <p className={`friends-empty ${siteSection} ${siteEmpty}`}>
-          还没有友链，等第一位朋友来交换。
-        </p>
+        <Empty className='friends-empty mt-rp-10'>还没有友链，等第一位朋友来交换。</Empty>
       ) : (
-        <ul
-          className={`friends-grid ${siteSection} gap-rp-3 mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] p-0`}
-        >
+        <ul className='friends-grid mt-rp-10 gap-rp-3 mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] p-0'>
           {ordered.map(friend => (
             <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />
           ))}
         </ul>
       )}
 
-      <section
-        className={`friends-exchange ${siteSection} border-rp-divider-light pt-rp-8 border-t`}
+      <Section
+        marker='friends-exchange'
+        className='border-rp-divider-light pt-rp-8 border-t'
+        title={exchange.title}
       >
-        <h2 className={siteH2}>{exchange.title}</h2>
         <p className={siteBody}>{exchange.body}</p>
         {ssgMd ? (
           <ul>
             <li>{`名称：${exchange.self.name}`}</li>
             <li>
               站点：
-              <a className={siteLink} href={exchange.self.url}>
-                {exchange.self.url}
-              </a>
+              <TextLink href={exchange.self.url}>{exchange.self.url}</TextLink>
             </li>
             <li>
               头像：
-              <a className={siteLink} href={exchange.self.avatar}>
-                {exchange.self.avatar}
-              </a>
+              <TextLink href={exchange.self.avatar}>{exchange.self.avatar}</TextLink>
             </li>
             <li>{`简介：${exchange.self.desc}`}</li>
           </ul>
         ) : (
-          <div className={exchangePanelClass}>
+          <Panel className='mt-rp-5 gap-rp-4 flex flex-col items-start sm:flex-row'>
             <img
               className={avatarClass}
               src={exchange.self.avatar}
@@ -171,17 +153,13 @@ export function FriendsPage({
               <div className={fieldRowClass}>
                 <dt className={fieldLabelClass}>站点</dt>
                 <dd className={fieldValueClass}>
-                  <a className={siteLink} href={exchange.self.url}>
-                    {exchange.self.url}
-                  </a>
+                  <TextLink href={exchange.self.url}>{exchange.self.url}</TextLink>
                 </dd>
               </div>
               <div className={fieldRowClass}>
                 <dt className={fieldLabelClass}>头像</dt>
                 <dd className={fieldValueClass}>
-                  <a className={siteLink} href={exchange.self.avatar}>
-                    {exchange.self.avatar}
-                  </a>
+                  <TextLink href={exchange.self.avatar}>{exchange.self.avatar}</TextLink>
                 </dd>
               </div>
               <div className={fieldRowClass}>
@@ -189,9 +167,9 @@ export function FriendsPage({
                 <dd className={fieldValueClass}>{exchange.self.desc}</dd>
               </div>
             </dl>
-          </div>
+          </Panel>
         )}
-      </section>
-    </div>
+      </Section>
+    </PageShell>
   )
 }
