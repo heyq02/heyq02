@@ -1,0 +1,57 @@
+apps/site/theme/likes/Hub.tsx
+  s_7f3749379effc6::t_262245a7bedbb7 1-90
+  s_7f3749379effc6::t_35811f3ef1dd08 91-92
+apps/site/theme/likes/ReadingPage.tsx
+  s_7f3749379effc6::t_f34b300c9d03fa 1-5,7-28,37-85,87-88,90-155
+  s_7f3749379effc6::t_8c3a5aa70f589e 6
+  s_7f3749379effc6::t_878a37d97792c4 29-36
+  s_7f3749379effc6::t_9a40fd74c30f83 86
+  s_7f3749379effc6::t_7134379e748c9a 89
+static/data/likes.json
+  s_7f3749379effc6::t_e0fa65e44597b0 60-61,67-68,73-74,79-80,92-93,98-99,105-106,111-112,118-119,125-126,132-133,139-140,160-161,170-171,184-185,192-193,200-201,209-210,319-320,326-327,521-523,532-534,542-544,552-554,569-571,579-581
+apps/site/theme/likes-data.ts
+  s_7f3749379effc6::t_939b489fb46e30 21-30
+apps/site/theme/likes/shared.tsx
+  s_7f3749379effc6::t_263af976830459 3-9
+  s_7f3749379effc6::t_694438471ffd35 1-2,10-66
+apps/site/theme/likes/MusicPage.tsx
+  s_7f3749379effc6::t_a72260f96ad0e0 1-5,7-10,13-19,32,41-51,56-85,87-164
+  s_7f3749379effc6::t_7d59a123aab059 52-55
+  s_7f3749379effc6::t_daa9f9867d45c2 6,11-12,20-31,33-40
+  s_7f3749379effc6::t_9dc0c519c03d52 86
+apps/site/theme/likes/UsesPage.tsx
+  s_7f3749379effc6::t_f0fc1a4ba1ec98 13-14
+  s_7f3749379effc6::t_4881859bab6634 3,6,21-28,30-37,92
+  s_7f3749379effc6::t_bd657fb6af8806 1-2,4-5,7-12,15-20,29,38-48,50-91,93-126
+  s_7f3749379effc6::t_f93f49b33b78ef 49
+apps/site/theme/likes/WatchingPage.tsx
+  s_7f3749379effc6::t_747a3ab0d3d274 6,21-28
+  s_7f3749379effc6::t_7d6a6c125700ae 1-5,7-20,29-119
+apps/site/theme/likes/GamesPage.tsx
+  s_7f3749379effc6::t_0c6d0e27b320a5 1-5,7-20,29-65,67-132
+  s_7f3749379effc6::t_121d8c9129d1ed 6,21-28
+  s_7f3749379effc6::t_af3e5c4aac7fb6 66
+apps/site/theme/likes/VisitsPage.tsx
+  s_7f3749379effc6::t_039f2469d5dccc 6,19-26
+  s_7f3749379effc6::t_3f38295ac4b727 68,70-72
+  s_7f3749379effc6::t_4f126c8a58fb83 1-5,7-18,27-67,69,73-104
+apps/site/theme/LikesPage.tsx
+  s_7f3749379effc6::t_9f0793ebf11f7d 1-12,20-37,41
+  s_7f3749379effc6::t_22e3733262bfba 38-40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "d4a41ce0c57fc06791db5b82605bb4cb624ec60a",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
