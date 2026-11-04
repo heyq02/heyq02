@@ -1,0 +1,42 @@
+apps/site/theme/FriendGrid.tsx
+  s_9e4cc396e9a614::t_990585bbf92ae5 62
+  s_9e4cc396e9a614::t_c9659cc5c73267 1-61,63-70
+apps/site/theme/friends-page.ts
+  s_9e4cc396e9a614::t_04986461771bc8 17-18
+apps/site/plugins/profile-classes.ts
+  s_9e4cc396e9a614::t_ba1772a67e3a93 4
+apps/site/theme/e2e/harness/main.tsx
+  s_9e4cc396e9a614::t_8a16882825b298 3,15
+apps/site/theme/SiteCard.tsx
+  s_9e4cc396e9a614::t_3fec9d35007e83 9-10,32-34,44,67-77
+apps/site/theme/tests/FriendGrid.test.tsx
+  s_9e4cc396e9a614::t_865445fd2e90b5 5,7,9-10,22,27,34,41-42
+  s_9e4cc396e9a614::t_ef92c5477dcefa 6,8
+  s_9e4cc396e9a614::t_b9121725a1e950 1-4,11-21,23-26,28-33,35-40,43-45
+apps/site/theme/tests/SiteCard.test.tsx
+  s_9e4cc396e9a614::t_73340a99f18ced 34,47,51-53
+  s_9e4cc396e9a614::t_3cab97a3e89912 54-55
+apps/site/lib/site-ui.ts
+  s_9e4cc396e9a614::t_13fcd71683d6b9 1
+  s_9e4cc396e9a614::t_f9866002b5d54e 15
+apps/site/blogs/friends.mdx
+  s_9e4cc396e9a614::t_a9713555ade9e0 9,11-24
+apps/site/theme/tests/__snapshots__/FriendGrid.test.tsx.snap
+  s_9e4cc396e9a614::t_d5a1f01f79e8df 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "72f49d9dd2b60daebed3b83dab6b9112ca0a4d06",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
