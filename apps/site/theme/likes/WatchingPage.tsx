@@ -4,6 +4,7 @@ import {
   siteCardName,
   siteCardSummary,
   siteH2,
+  siteMediaLink,
   siteSection,
   siteSurface,
   siteWhen
@@ -73,7 +74,7 @@ export function WatchingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 
 function NowCard({ item }: { item: ShelfItem }): ReactElement {
   return (
-    <ItemLink href={item.href} className='group gap-rp-2 grid no-underline hover:!no-underline'>
+    <ItemLink href={item.href} className={siteMediaLink}>
       <span className='rounded-rp-sm border-rp-brand shadow-rp relative block aspect-[2/3] overflow-hidden border'>
         {item.cover ? (
           <img
@@ -104,7 +105,7 @@ function NowCard({ item }: { item: ShelfItem }): ReactElement {
 
 function Poster({ item }: { item: ShelfItem }): ReactElement {
   return (
-    <ItemLink href={item.href} className='group gap-rp-2 grid no-underline hover:!no-underline'>
+    <ItemLink href={item.href} className={siteMediaLink}>
       <span className={`relative block aspect-[2/3] overflow-hidden ${siteSurface}`}>
         {item.cover ? (
           <img

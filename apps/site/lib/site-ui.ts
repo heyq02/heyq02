@@ -7,8 +7,11 @@ export const siteH1 = 'm-0 text-rp-hero font-bold leading-tight tracking-tight t
 export const siteH2 =
   "m-0 mb-rp-4 text-rp-xl font-[650] leading-snug text-rp-text after:mt-rp-2 after:block after:h-0.5 after:w-8 after:bg-rp-brand after:content-['']"
 
-export const siteLink =
-  'font-semibold text-inherit no-underline hover:text-rp-link hover:underline hover:underline-offset-[3px]'
+/** Keyboard focus ring — every interactive control should include this. */
+export const siteFocusRing =
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rp-brand'
+
+export const siteLink = `font-semibold text-inherit no-underline hover:text-rp-link hover:underline hover:underline-offset-[3px] ${siteFocusRing}`
 
 /** Soft surface shell (radius + border + fill). */
 export const siteSurface = 'rounded-rp-sm border border-rp-divider-light bg-rp-soft'
@@ -17,10 +20,16 @@ export const siteSurface = 'rounded-rp-sm border border-rp-divider-light bg-rp-s
 export const sitePanelChrome = `${siteSurface} px-rp-4 py-rp-4`
 
 /** Interactive card chrome shared by project/post/friend cards. */
-export const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-rp-brand hover:bg-rp-bg hover:text-inherit hover:shadow-rp hover:!no-underline`
+export const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-rp-brand hover:bg-rp-bg hover:text-inherit hover:shadow-rp hover:!no-underline ${siteFocusRing}`
 
 /** Linkable soft tile without default padding (likes grids). */
-export const siteTile = `${siteSurface} no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-rp-brand hover:!no-underline`
+export const siteTile = `${siteSurface} no-underline transition-[border-color,background-color,box-shadow] duration-200 hover:border-rp-brand hover:!no-underline ${siteFocusRing}`
+
+/** Compact list row with soft hover (music ranks, book rows). */
+export const siteRow = `rounded-rp-sm border border-transparent no-underline transition-[border-color,background-color] duration-200 hover:border-rp-divider-light hover:bg-rp-soft hover:!no-underline ${siteFocusRing}`
+
+/** Media/cover link: rely on image motion + focus ring. */
+export const siteMediaLink = `group grid gap-rp-2 rounded-rp-sm no-underline hover:!no-underline ${siteFocusRing}`
 
 export const siteCardName =
   'text-rp-lg font-[650] leading-snug text-rp-text transition-colors duration-200 group-hover:text-rp-brand'

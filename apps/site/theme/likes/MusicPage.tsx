@@ -6,8 +6,10 @@ import {
   siteDisplay,
   siteH2,
   siteMeta,
+  siteMediaLink,
   siteProgressFill,
   siteProgressTrack,
+  siteRow,
   siteSection,
   siteTile,
   siteWhen
@@ -124,7 +126,7 @@ function RankRow({ track, maxPlays }: { track: MusicTrack; maxPlays: number }): 
   return (
     <ItemLink
       href={track.href}
-      className='group gap-rp-3 rounded-rp-sm px-rp-2 py-rp-2 hover:border-rp-divider-light hover:bg-rp-soft grid grid-cols-[2rem_3rem_minmax(0,1fr)_auto] items-center border border-transparent no-underline hover:!no-underline'
+      className={`group gap-rp-3 px-rp-2 py-rp-2 grid grid-cols-[2rem_3rem_minmax(0,1fr)_auto] items-center ${siteRow}`}
     >
       <span className='text-rp-muted text-center font-mono'>{track.rank}</span>
       <img
@@ -154,7 +156,7 @@ function RankRow({ track, maxPlays }: { track: MusicTrack; maxPlays: number }): 
 
 function PlaylistTile({ playlist }: { playlist: MusicPlaylist }): ReactElement {
   return (
-    <ItemLink href={playlist.href} className='group gap-rp-2 grid no-underline hover:!no-underline'>
+    <ItemLink href={playlist.href} className={siteMediaLink}>
       <img
         className='rounded-rp-sm shadow-rp aspect-square w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]'
         src={playlist.cover}

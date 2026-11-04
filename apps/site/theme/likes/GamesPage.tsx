@@ -4,7 +4,9 @@ import {
   siteCardName,
   siteCardSummary,
   siteDisplay,
+  siteFocusRing,
   siteH2,
+  siteMediaLink,
   siteSection,
   siteSurface,
   siteWhen
@@ -73,7 +75,7 @@ function NowPlaying({ item }: { item: ShelfItem }): ReactElement {
   return (
     <ItemLink
       href={item.href}
-      className='group rounded-rp-sm border-rp-divider-light hover:border-rp-brand relative grid min-h-[calc(var(--rp-radius-large)*7)] overflow-hidden border no-underline hover:!no-underline sm:min-h-[calc(var(--rp-radius-large)*8)]'
+      className={`group rounded-rp-sm border-rp-divider-light hover:border-rp-brand relative grid min-h-[calc(var(--rp-radius-large)*7)] overflow-hidden border no-underline transition-[border-color] duration-200 hover:!no-underline sm:min-h-[calc(var(--rp-radius-large)*8)] ${siteFocusRing}`}
     >
       {item.cover ? (
         <img
@@ -103,7 +105,7 @@ function NowPlaying({ item }: { item: ShelfItem }): ReactElement {
 
 function LibraryTile({ item }: { item: ShelfItem }): ReactElement {
   return (
-    <ItemLink href={item.href} className='group gap-rp-2 grid no-underline hover:!no-underline'>
+    <ItemLink href={item.href} className={siteMediaLink}>
       <span className={`relative block aspect-[16/10] overflow-hidden ${siteSurface}`}>
         {item.cover ? (
           <img

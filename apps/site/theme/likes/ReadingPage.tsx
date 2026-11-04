@@ -4,10 +4,12 @@ import {
   siteCardName,
   siteCardSummary,
   siteDisplay,
+  siteFocusRing,
   siteH2,
   siteMeta,
   siteProgressFill,
   siteProgressTrack,
+  siteRow,
   siteSection,
   siteSurface,
   siteTile,
@@ -128,7 +130,7 @@ function Spine({ item, color }: { item: ShelfItem; color: string }): ReactElemen
     <ItemLink
       href={item.href}
       className={[
-        'group flex h-[calc(var(--rp-radius-large)*8)] w-[calc(var(--rp-radius-small)*5)] items-center justify-center rounded-rp-sm border border-black/10 px-rp-1 py-rp-2 text-white no-underline shadow-rp transition-transform duration-200 hover:-translate-y-1 hover:!no-underline',
+        `group rounded-rp-sm px-rp-1 py-rp-2 shadow-rp flex h-[calc(var(--rp-radius-large)*8)] w-[calc(var(--rp-radius-small)*5)] items-center justify-center border border-black/10 text-white no-underline transition-transform duration-200 hover:-translate-y-1 hover:!no-underline ${siteFocusRing}`,
         color
       ].join(' ')}
     >
@@ -143,7 +145,7 @@ function BookRow({ item }: { item: ShelfItem }): ReactElement {
   return (
     <ItemLink
       href={item.href}
-      className='group gap-rp-1 rounded-rp-sm px-rp-2 py-rp-2 hover:border-rp-divider-light hover:bg-rp-soft grid border border-transparent no-underline hover:!no-underline sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline'
+      className={`group gap-rp-1 px-rp-2 py-rp-2 grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline ${siteRow}`}
     >
       <span className='gap-rp-1 grid min-w-0'>
         <span className={`truncate ${siteCardName}`}>{item.title}</span>
