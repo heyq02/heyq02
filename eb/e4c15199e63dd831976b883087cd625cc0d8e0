@@ -1,0 +1,22 @@
+apps/site/rspress.config.ts
+  s_9e4cc396e9a614::t_764532122736d6 37-38
+apps/site/tests/rspress-config.test.ts
+  s_9e4cc396e9a614::t_f375f7657a9f74 56-59
+  s_9e4cc396e9a614::t_c62a9fe4f0d05d 60-61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "ebe4c15199e63dd831976b883087cd625cc0d8e0",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
