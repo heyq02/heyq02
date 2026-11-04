@@ -1,0 +1,53 @@
+packages/rspress-plugin-profile/src/profile-page.ts
+  s_7f3749379effc6::t_c9b872d14657c6 16-20,28,83-85,97-104
+apps/site/theme/likes-data.ts
+  s_7f3749379effc6::t_d9982434956a0d 3
+apps/site/theme/friends-page.ts
+  s_7f3749379effc6::t_d9982434956a0d 4
+packages/rspress-plugin-profile/src/prepare-profile.ts
+  s_7f3749379effc6::t_acd592579e695b 29
+packages/rspress-site-content/src/friends.ts
+  s_7f3749379effc6::t_d9982434956a0d 22
+packages/rspress-plugin-media/src/index.ts
+  s_7f3749379effc6::t_d9982434956a0d 15
+apps/site/rspress.config.ts
+  s_7f3749379effc6::t_d9982434956a0d 12,17,85,99,114
+.github/workflows/ci.yml
+  s_7f3749379effc6::t_fe0cb6aca73a17 1,35-40
+packages/rspress-plugin-profile/src/github-pinned.ts
+  s_7f3749379effc6::t_27bb7771271e60 74-97
+  s_7f3749379effc6::t_795f8f7dbc6153 117-120,124-126
+apps/site/lib/intro.ts
+  s_7f3749379effc6::t_d9982434956a0d 1,4
+packages/rspress-plugin-media/package.json
+  s_7f3749379effc6::t_d9982434956a0d 5
+packages/rspress-plugin-profile/src/index.ts
+  s_7f3749379effc6::t_b1ced787c5a6ea 26-30
+  s_7f3749379effc6::t_b597c04994aa23 13-15
+apps/site/scripts/build.ts
+  s_7f3749379effc6::t_d9982434956a0d 5
+packages/rspress-site-content/src/intro.ts
+  s_7f3749379effc6::t_d9982434956a0d 1
+packages/rspress-plugin-media/src/media.ts
+  s_7f3749379effc6::t_d9982434956a0d 30
+apps/site/theme/ProfilePage.tsx
+  s_7f3749379effc6::t_6758c5d7af6cb4 15
+apps/site/vite.config.ts
+  s_7f3749379effc6::t_2f6d26cb91a799 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "9e72b553142496a62646719185cb3e49ba39d648",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
