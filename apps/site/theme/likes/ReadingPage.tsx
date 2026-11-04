@@ -77,7 +77,6 @@ export function ReadingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
               </li>
             ))}
           </ul>
-          <p className={`mt-rp-3 mb-0 ${siteWhen}`}>横滑看脊背；点开看作者和短评。</p>
         </div>
 
         <ul className='mt-rp-4 gap-rp-2 mb-0 grid list-none p-0'>

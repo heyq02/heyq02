@@ -85,9 +85,6 @@ export function UsesPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
             </li>
           ))}
         </ul>
-        <p className={`mt-rp-3 ${siteCardSummary}`}>
-          点开图标看备注；听歌客户端只作入口，完整榜单在「听歌」。
-        </p>
       </section>
     </PageShell>
   )
