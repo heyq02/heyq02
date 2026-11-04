@@ -18,14 +18,10 @@
   "title": "贺同学",
   "description": "贺同学。双一流本科、24届校招、开源爱好者。专注用 AI 加速开发，并真正落到产品里。",
   "contact": {
-    "phone": "+86 135****8086",
     "email": "hello@heyq02.com"
   },
   "sections": {
-    "about": "关于",
     "blog": "文章",
-    "contributions": "提交热力图",
-    "skills": "技能",
     "openSource": "项目"
   },
   "places": [
@@ -48,74 +44,6 @@
       "label": "WeChat",
       "href": "/wechat.jpg",
       "detail": "扫码添加"
-    }
-  ],
-  "skills": [
-    {
-      "name": "Vue",
-      "icon": "vuedotjs",
-      "href": "https://vuejs.org/",
-      "summary": "渐进式 JavaScript 框架，用于构建 Web 界面"
-    },
-    {
-      "name": "React",
-      "icon": "react",
-      "href": "https://react.dev/",
-      "summary": "构建 Web 与原生界面的 UI 库"
-    },
-    {
-      "name": "Next",
-      "icon": "nextdotjs",
-      "href": "https://nextjs.org/",
-      "summary": "面向 Web 的 React 框架"
-    },
-    {
-      "name": "Rolldown",
-      "icon": "rolldown",
-      "href": "https://rolldown.rs/",
-      "summary": "Rust 编写、兼容 Rollup API 的 JavaScript 打包器"
-    },
-    {
-      "name": "Vite",
-      "icon": "vite",
-      "href": "https://vite.dev/",
-      "summary": "面向 Web 的前端构建工具"
-    },
-    {
-      "name": "Oxc",
-      "icon": "oxc",
-      "href": "https://oxc.rs/",
-      "summary": "Rust 编写的高性能 JavaScript 工具集"
-    },
-    {
-      "name": "Spring",
-      "icon": "spring",
-      "href": "https://spring.io/",
-      "summary": "构建 Java 企业级应用的框架"
-    },
-    {
-      "name": "Redis",
-      "icon": "redis",
-      "href": "https://redis.io/",
-      "summary": "面向数据库、缓存与消息的内存存储"
-    },
-    {
-      "name": "RabbitMQ",
-      "icon": "rabbitmq",
-      "href": "https://www.rabbitmq.com/",
-      "summary": "开源的消息与流处理中间件"
-    },
-    {
-      "name": "Nginx",
-      "icon": "nginx",
-      "href": "https://nginx.org/",
-      "summary": "HTTP 服务器、反向代理与负载均衡"
-    },
-    {
-      "name": "Docker",
-      "icon": "docker",
-      "href": "https://www.docker.com/",
-      "summary": "构建、分发与运行应用的开放平台"
     }
   ],
   "projectSummaries": {

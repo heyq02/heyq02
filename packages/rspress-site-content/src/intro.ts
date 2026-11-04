@@ -6,16 +6,7 @@ export interface Place {
   detail: string
 }
 
-export interface Skill {
-  name: string
-  /** Simple-icons slug used by the shared skills picture. */
-  icon: string
-  href: string
-  summary: string
-}
-
 export interface Contact {
-  phone: string
   email: string
 }
 
@@ -48,14 +39,10 @@ export interface Intro {
   description: string
   contact: Contact
   sections: {
-    about: string
     blog: string
-    contributions: string
-    skills: string
     openSource: string
   }
   places: Place[]
-  skills: Skill[]
   /** Chinese blurbs keyed by pinned repo name; overrides the GitHub description. */
   projectSummaries: Record<string, string>
 }

@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@custom-variant dark (&:where(.dark, .dark *, .rp-dark, .rp-dark *));
 /* Class strings live in shared tokens + theme consumers. */
 @source './theme';
 @source '../../packages/rspress-theme-ui/src';
@@ -10,7 +9,6 @@
  */
 @theme {
   --animate-avatar-wobble: avatar-wobble 0.4s ease;
-  --animate-hey-rise: hey-rise 0.55s ease both;
 
   --font-sans: var(--rp-font-family-base);
   --font-display: var(--rp-font-family-display);
@@ -19,7 +17,6 @@
   --color-rp-bg: var(--rp-c-bg);
   --color-rp-soft: var(--rp-c-bg-soft);
   --color-rp-mute: var(--rp-c-bg-mute);
-  --color-rp-alt: var(--rp-c-bg-alt);
   --color-rp-text: var(--rp-c-text-1);
   --color-rp-muted: var(--rp-c-text-2);
   --color-rp-faint: var(--rp-c-text-3);
@@ -27,12 +24,10 @@
   --color-rp-brand-light: var(--rp-c-brand-light);
   --color-rp-brand-lighter: var(--rp-c-brand-lighter);
   --color-rp-brand-dark: var(--rp-c-brand-dark);
-  --color-rp-brand-darker: var(--rp-c-brand-darker);
   --color-rp-brand-tint: var(--rp-c-brand-tint);
   --color-rp-divider: var(--rp-c-divider);
   --color-rp-divider-light: var(--rp-c-divider-light);
   --color-rp-link: var(--rp-c-link);
-  --color-rp-gray: var(--rp-c-gray);
 
   --radius-sm: var(--rp-radius-small);
   --radius-md: var(--rp-radius);
@@ -84,16 +79,5 @@
   }
   75% {
     transform: rotate(-3deg);
-  }
-}
-
-@keyframes hey-rise {
-  from {
-    opacity: 0;
-    transform: translateY(0.55rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

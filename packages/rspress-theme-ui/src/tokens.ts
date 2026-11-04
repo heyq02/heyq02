@@ -8,17 +8,13 @@ export const siteH1 =
 export const siteH2 =
   "m-0 mb-rp-4 font-display text-rp-xl font-[650] leading-snug text-rp-text after:mt-rp-2 after:block after:h-0.5 after:w-8 after:bg-rp-brand after:content-['']"
 
-/** Section title without the brand underline — home / magazine-style pages. */
-export const siteH2Plain =
-  'm-0 mb-rp-4 font-display text-rp-2xl font-bold leading-10 tracking-tight text-rp-text'
-
 /** Keyboard focus ring — every interactive control should include this. */
 export const siteFocusRing =
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rp-brand'
 
 export const siteLink = `font-semibold text-inherit no-underline hover:text-rp-link hover:underline hover:underline-offset-[3px] ${siteFocusRing}`
 
-/** Soft surface shell — dashed Primer panel used across the site. */
+/** Soft surface shell — dashed panel used across the site. */
 export const siteSurface = 'rounded-2xl border border-dashed border-rp-divider bg-rp-bg'
 
 /** Static soft panel (empty states share padding/radius). */
@@ -26,15 +22,6 @@ export const sitePanelChrome = `${siteSurface} px-rp-4 py-rp-4`
 
 /** Interactive card chrome shared by project/post/friend cards. */
 export const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-soft hover:text-inherit hover:!no-underline ${siteFocusRing}`
-
-/** Linkable soft tile without default padding. */
-export const siteTile = `${siteSurface} no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-soft hover:!no-underline ${siteFocusRing}`
-
-/** Compact list row with soft hover (music ranks, book rows). */
-export const siteRow = `rounded-rp-sm border border-transparent no-underline transition-[border-color,background-color] duration-200 hover:border-rp-divider-light hover:bg-rp-soft hover:!no-underline ${siteFocusRing}`
-
-/** Media/cover link: rely on image motion + focus ring. */
-export const siteMediaLink = `group grid gap-rp-2 rounded-rp-sm no-underline hover:!no-underline ${siteFocusRing}`
 
 export const siteCardName =
   'font-display text-rp-lg font-[650] leading-snug text-rp-text transition-colors duration-200 group-hover:text-rp-brand'
@@ -53,12 +40,3 @@ export const siteSection = 'mt-rp-10'
 export const siteHeaderRule = 'border-b border-rp-divider-light pb-rp-8'
 
 export const siteBody = 'm-0 text-rp-md leading-relaxed text-rp-muted'
-
-export const siteBadge =
-  'inline-flex items-center rounded-full border border-rp-divider-light bg-rp-bg px-rp-2 py-px text-rp-xs leading-none text-rp-muted'
-
-export const siteDisplay = 'font-display font-bold tracking-tight text-rp-text text-rp-2xl'
-
-export const siteProgressTrack = 'overflow-hidden rounded-full bg-rp-divider-light'
-
-export const siteProgressFill = 'block h-full rounded-full bg-rp-brand'
