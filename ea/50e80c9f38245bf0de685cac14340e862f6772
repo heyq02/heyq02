@@ -1,0 +1,29 @@
+apps/site/src/pages/friends.astro
+  s_9e4cc396e9a614::t_3afb35eb062f1d 9
+apps/site/src/layouts/base.astro
+  s_9e4cc396e9a614::t_ca39642d6de0bb 3,13,37
+apps/site/src/pages/blog/[slug].astro
+  s_9e4cc396e9a614::t_8eb303d9d0f1de 17
+apps/site/src/components/chrome.astro
+  s_9e4cc396e9a614::t_ea936d7f2a5975 1-35
+apps/site/src/pages/about.astro
+  s_9e4cc396e9a614::t_568cb7c9f253b3 12
+apps/site/src/styles/global.css
+  s_9e4cc396e9a614::t_8c0fa988dc46e4 70
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "ea50e80c9f38245bf0de685cac14340e862f6772",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
