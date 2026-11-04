@@ -30,7 +30,8 @@ export default liangmi({
         '**/*.css',
         '**/vite.config.ts',
         '**/astro.config.ts',
-        'apps/site/scripts/**'
+        'apps/site/scripts/**',
+        'apps/site/src/lib/skills-picture.ts'
       ],
       thresholds: {
         statements: 70,

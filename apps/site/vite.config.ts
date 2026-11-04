@@ -17,10 +17,7 @@ export default liangmi({
   run: {
     tasks: {
       cbuild: {
-        command: 'node --experimental-strip-types ./scripts/build.ts',
-        cache: {
-          untrackedEnv: ['GITHUB_TOKEN', 'GH_TOKEN']
-        }
+        command: 'node --experimental-strip-types ./scripts/build.ts'
       },
       dev: {
         command: 'pnpm exec astro dev',

@@ -6,13 +6,11 @@ date: 2023-12-19
 
 # Iframe 父子页面消息传递实战
 
-::: tip {title="项目链接"}
-仓库：[xxhls/iframe-message](https://github.com/xxhls/iframe-message)
-:::
+> [!TIP] 项目链接
+> 仓库：[xxhls/iframe-message](https://github.com/xxhls/iframe-message)
 
-::: info {title="你会得到什么"}
-在 iframe 里跑 Hash 路由时，刷新后子路由会被重置；用父子 `postMessage` 把路由缓存到父页，刷新后再推回子页。
-:::
+> [!NOTE] 你会得到什么
+> 在 iframe 里跑 Hash 路由时，刷新后子路由会被重置；用父子 `postMessage` 把路由缓存到父页，刷新后再推回子页。
 
 ![Iframe 父子路由保持示意](https://i-blog.csdnimg.cn/blog_migrate/24a55f6d90a2f5d11146c239f7032861.png)
 

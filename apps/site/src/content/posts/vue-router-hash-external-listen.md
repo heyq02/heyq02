@@ -6,9 +6,8 @@ date: 2023-12-25
 
 # 探究对 Vue Router Hash 模式的外部监听（未实现）
 
-::: info {title="你会得到什么"}
-搞清 Vue Router Hash「看起来改了 hash，却不触发 `hashchange`」的原因，以及为何原生很难直接监听 `pushState` / `replaceState`。
-:::
+> [!NOTE] 你会得到什么
+> 搞清 Vue Router Hash「看起来改了 hash，却不触发 `hashchange`」的原因，以及为何原生很难直接监听 `pushState` / `replaceState`。
 
 常见印象是：Hash 模式靠 `hashchange` 切换组件。真实场景里却经常出现「`hashchange` 无效」——下面是一串排查实践。
 

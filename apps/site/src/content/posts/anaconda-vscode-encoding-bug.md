@@ -6,16 +6,14 @@ date: 2024-03-07
 
 # Anaconda + VSCode 编码错误
 
-::: info {title="环境"}
-- 平台：Windows 11 家庭版（v22621.3155）
-- 编辑器：Visual Studio Code（v1.87.0）
-- 插件：Python（v2024.2.1）
-- Conda：v24.1.2
-:::
+> [!NOTE] 环境
+> - 平台：Windows 11 家庭版（v22621.3155）
+> - 编辑器：Visual Studio Code（v1.87.0）
+> - 插件：Python（v2024.2.1）
+> - Conda：v24.1.2
 
-::: tip {title="现象一句话"}
-VSCode 自动配好 Conda 后，集成 PowerShell 激活环境报 `UnicodeEncodeError: 'gbk' codec can't encode character`，外部终端却正常。
-:::
+> [!TIP] 现象一句话
+> VSCode 自动配好 Conda 后，集成 PowerShell 激活环境报 `UnicodeEncodeError: 'gbk' codec can't encode character`，外部终端却正常。
 
 ## 1. 问题描述
 
@@ -105,8 +103,7 @@ def main_sourced(shell, *args, **kwargs):
     return 0
 ```
 
-::: warning {title="注意"}
-这是改本机 conda 安装目录源码的权宜之计；升级 conda 后可能被覆盖，生产环境更稳妥的做法是清理 PATH 中的异常 Unicode、或统一终端为 UTF-8。
-:::
+> [!WARNING] 注意
+> 这是改本机 conda 安装目录源码的权宜之计；升级 conda 后可能被覆盖，生产环境更稳妥的做法是清理 PATH 中的异常 Unicode、或统一终端为 UTF-8。
 
 ![修复后激活成功](https://i-blog.csdnimg.cn/blog_migrate/c0953412ff1f79c3295a9ac1d2647872.png)

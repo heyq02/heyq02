@@ -5,11 +5,10 @@ date: 2024-03-31
 
 # 软件安装教程：IDEA
 
-::: tip {title="环境信息"}
-- 系统：Windows 11 64 位
-- 版本：ideaIC-2023.3.6
-- 官网：[JetBrains IDEA](https://www.jetbrains.com.cn/idea/download/?section=windows)
-:::
+> [!TIP] 环境信息
+> - 系统：Windows 11 64 位
+> - 版本：ideaIC-2023.3.6
+> - 官网：[JetBrains IDEA](https://www.jetbrains.com.cn/idea/download/?section=windows)
 
 ## 下载
 

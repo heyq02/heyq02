@@ -5,10 +5,9 @@ date: 2024-03-14
 
 # 趣味项目：一键生成 LICENSE
 
-::: tip {title="项目链接"}
-- 仓库（最新）：[xxhls/get-license](https://github.com/xxhls/get-license)
-- 旧版：[GitCode get-license](https://gitcode.com/m0_66681776/get-license)
-:::
+> [!TIP] 项目链接
+> - 仓库（最新）：[xxhls/get-license](https://github.com/xxhls/get-license)
+> - 旧版：[GitCode get-license](https://gitcode.com/m0_66681776/get-license)
 
 ![效果截图](https://i-blog.csdnimg.cn/blog_migrate/ccefb18c60a164468cdbb0e0719bbb52.png)
 

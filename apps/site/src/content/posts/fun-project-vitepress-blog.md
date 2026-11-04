@@ -5,10 +5,9 @@ date: 2024-03-22
 
 # 趣味项目：VitePress 搭建个人博客
 
-::: tip {title="项目链接"}
-- 仓库：[xxhls/blog](https://github.com/xxhls/blog)
-- 站点：[xxhls.tech](http://xxhls.tech)
-:::
+> [!TIP] 项目链接
+> - 仓库：[xxhls/blog](https://github.com/xxhls/blog)
+> - 站点：[xxhls.tech](http://xxhls.tech)
 
 ![效果截图](https://i-blog.csdnimg.cn/blog_migrate/6fa05c181964670534dcf146dbd48e43.png)
 

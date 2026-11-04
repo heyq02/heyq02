@@ -1,8 +1,0 @@
-<script is:inline>
-  ;(() => {
-    const key = 'heyq02-theme'
-    const stored = localStorage.getItem(key)
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    document.documentElement.classList.toggle('dark', stored ? stored === 'dark' : prefersDark)
-  })()
-</script>

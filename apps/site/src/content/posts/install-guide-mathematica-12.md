@@ -6,9 +6,8 @@ date: 2022-02-06
 
 # Mathematica 12 安装教程（64 位）
 
-::: tip {title="安装包"}
-链接：<https://pan.baidu.com/s/1Bpa_lJx1ZBWD-icQHdLH-g> 提取码：0206
-:::
+> [!TIP] 安装包
+> 链接：<https://pan.baidu.com/s/1Bpa_lJx1ZBWD-icQHdLH-g> 提取码：0206
 
 ## 一、软件介绍
 

@@ -6,9 +6,8 @@ date: 2023-02-26
 
 # Python 3.7.0 安装教程（32 位 & 64 位）
 
-::: tip {title="安装包"}
-链接：<https://pan.baidu.com/s/13RLldV0EZOEckCXxOfb1iQ> 提取码：0206
-:::
+> [!TIP] 安装包
+> 链接：<https://pan.baidu.com/s/13RLldV0EZOEckCXxOfb1iQ> 提取码：0206
 
 ## 一、软件介绍
 

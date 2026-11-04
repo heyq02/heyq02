@@ -6,9 +6,8 @@ date: 2022-02-06
 
 # VMware Workstation Pro 15.5.0 虚拟机安装教程
 
-::: tip {title="安装包"}
-链接：<https://pan.baidu.com/s/1CbA6QYDEilhXBr3FQ8Lc1A> 提取码：0206
-:::
+> [!TIP] 安装包
+> 链接：<https://pan.baidu.com/s/1CbA6QYDEilhXBr3FQ8Lc1A> 提取码：0206
 
 ## 一、软件介绍
 

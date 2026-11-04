@@ -5,12 +5,11 @@ date: 2024-03-06
 
 # 软件安装教程：Anaconda
 
-::: tip {title="环境信息"}
-- 系统：Windows 11 64 位
-- 版本：Anaconda3-2024.02-1
-- 官网：[Anaconda](https://www.anaconda.com/)
-- 网盘：[百度网盘](https://pan.baidu.com/s/1wBsYno8MQuuRz6DAyu0tbg?pwd=zkgl)（提取码 `zkgl`）
-:::
+> [!TIP] 环境信息
+> - 系统：Windows 11 64 位
+> - 版本：Anaconda3-2024.02-1
+> - 官网：[Anaconda](https://www.anaconda.com/)
+> - 网盘：[百度网盘](https://pan.baidu.com/s/1wBsYno8MQuuRz6DAyu0tbg?pwd=zkgl)（提取码 `zkgl`）
 
 ## 下载
 

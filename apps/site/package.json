@@ -6,23 +6,21 @@
   "scripts": {
     "build": "vp run cbuild",
     "preview": "astro preview",
+    "refresh:pinned": "node --experimental-strip-types ./scripts/refresh-pinned.ts",
     "test": "vp run ctest"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
-    "@octokit/graphql": "^9.0.5",
     "astro": "^5.16.0",
-    "remark-directive": "^4.0.0",
-    "unist-util-visit": "^5.0.0"
+    "remark-github-blockquote-alert": "^2.1.0"
   },
   "devDependencies": {
     "@liangmi/vp-config": "catalog:",
+    "@octokit/graphql": "^9.0.5",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.3.3",
-    "@types/mdast": "^4.0.4",
     "@types/node": "catalog:",
-    "mdast-util-directive": "^3.0.0",
     "tailwindcss": "^4.3.3",
     "typescript": "catalog:",
     "vite-plus": "catalog:"

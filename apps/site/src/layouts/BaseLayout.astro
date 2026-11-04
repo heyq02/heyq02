@@ -2,9 +2,9 @@
 import SiteFooter from '../components/SiteFooter.astro'
 import SiteNav from '../components/SiteNav.astro'
 import SiteWatermark from '../components/SiteWatermark.astro'
-import ThemeInit from '../components/ThemeInit.astro'
 import { intro } from '../lib/intro.ts'
 import '../styles/global.css'
+import 'remark-github-blockquote-alert/alert.css'
 
 interface Props {
   title?: string
@@ -37,7 +37,16 @@ const pageTitle = title ? `${title} · ${intro.name}` : `${intro.name} · ${intr
       href="/blog/rss.xml"
     />
     <title>{pageTitle}</title>
-    <ThemeInit />
+    <script is:inline>
+      ;(() => {
+        const key = 'heyq02-theme'
+        const stored = localStorage.getItem(key)
+        const dark = stored
+          ? stored === 'dark'
+          : matchMedia('(prefers-color-scheme: dark)').matches
+        document.documentElement.classList.toggle('dark', dark)
+      })()
+    </script>
   </head>
   <body>
     <SiteWatermark />

@@ -1,8 +1,8 @@
 ---
 import ProfilePlay from '../components/ProfilePlay.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
-import { fetchPinnedProjects } from '../lib/github-pinned.ts'
 import { formatCount, intro } from '../lib/intro.ts'
+import { pinnedProjects } from '../lib/pinned.ts'
 import { skillIconsPicture } from '../lib/skills-picture.ts'
 import {
   badgeClass,
@@ -26,7 +26,7 @@ import {
   siteWhen
 } from '../lib/site-ui.ts'
 
-const projects = await fetchPinnedProjects()
+const projects = pinnedProjects
 const skills = skillIconsPicture(intro.skills)
 const titleSuffix = `${[...intro.tags, intro.bio].join('，')}。`
 ---

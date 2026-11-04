@@ -6,15 +6,13 @@ date: 2024-09-17
 
 # 趣味项目：UI 复现微信官网首页
 
-::: tip {title="项目链接"}
-- 仓库：[xxhls/weixin.qq.com](https://github.com/xxhls/weixin.qq.com)
-- 在线：[xxhls.github.io/weixin.qq.com](https://xxhls.github.io/weixin.qq.com/)
-- 视频：[Bilibili BV1batYeMEjY](https://www.bilibili.com/video/BV1batYeMEjY)
-:::
+> [!TIP] 项目链接
+> - 仓库：[xxhls/weixin.qq.com](https://github.com/xxhls/weixin.qq.com)
+> - 在线：[xxhls.github.io/weixin.qq.com](https://xxhls.github.io/weixin.qq.com/)
+> - 视频：[Bilibili BV1batYeMEjY](https://www.bilibili.com/video/BV1batYeMEjY)
 
-::: info {title="你会得到什么"}
-一份业余练手的微信官网首页 UI 复现：技术选型、目录与组件结构、数据与样式约定，以及 GitHub Pages 部署方式。
-:::
+> [!NOTE] 你会得到什么
+> 一份业余练手的微信官网首页 UI 复现：技术选型、目录与组件结构、数据与样式约定，以及 GitHub Pages 部署方式。
 
 ![微信官网首页 UI 复现效果](https://img-blog.csdnimg.cn/img_convert/9dfc4f3a0402345338b1cd7e79809a19.png)
 

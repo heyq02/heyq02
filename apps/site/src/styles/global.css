@@ -117,37 +117,13 @@ html.dark .site-watermark__mark {
   display: none;
 }
 
-.admonition {
-  margin: 1.25rem 0;
-  border: 1px solid var(--site-divider-light);
-  border-left-width: 4px;
+/* Tune GitHub alert colors to site tokens. */
+.markdown-alert {
   border-radius: var(--site-radius-small);
   background: var(--site-bg-soft);
-  padding: 0.85rem 1rem;
+  color: var(--site-text-2);
 }
 
-.admonition-tip,
-.admonition-info,
-.admonition-note {
-  border-left-color: var(--site-brand);
-}
-
-.admonition-warning,
-.admonition-caution {
-  border-left-color: #d97706;
-}
-
-.admonition-danger {
-  border-left-color: #dc2626;
-}
-
-.admonition-title {
-  margin: 0 0 0.4rem;
-  font-size: 0.85rem;
-  font-weight: 650;
+.markdown-alert .markdown-alert-title {
   color: var(--site-text-1);
-}
-
-.admonition p:last-child {
-  margin-bottom: 0;
 }

@@ -5,9 +5,8 @@ date: 2024-01-04
 
 # Three.js 学习笔记（一）：几何体全家福
 
-::: info {title="来源"}
-主要摘录自 [Three.js 官网](https://threejs.org/)，并补充了一些个人理解。
-:::
+> [!NOTE] 来源
+> 主要摘录自 [Three.js 官网](https://threejs.org/)，并补充了一些个人理解。
 
 ## 立方缓冲几何体
 

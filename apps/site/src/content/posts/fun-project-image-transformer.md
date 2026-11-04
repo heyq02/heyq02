@@ -5,9 +5,8 @@ date: 2024-03-18
 
 # 趣味项目：命令行图片格式转换器
 
-::: tip {title="项目链接"}
-仓库：[xxhls/image-transformer](https://github.com/xxhls/image-transformer)
-:::
+> [!TIP] 项目链接
+> 仓库：[xxhls/image-transformer](https://github.com/xxhls/image-transformer)
 
 ![效果截图](https://i-blog.csdnimg.cn/blog_migrate/76c6e152500e035994999b4b31667de5.png)
 
