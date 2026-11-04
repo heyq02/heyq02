@@ -14,6 +14,7 @@ url = "https://github.com/heyq02"
 id = "heyq02"
 visible = true
 desc = "开源仓库"
+simpleicon = "github"
 
 [bilibili]
 name = "哔哩哔哩"
@@ -22,6 +23,7 @@ url = "https://space.bilibili.com/3493273159075938"
 id = "3493273159075938"
 visible = true
 desc = "视频投稿"
+simpleicon = "bilibili"
 
 [x]
 name = "X"
@@ -30,6 +32,7 @@ url = "https://x.com/heyq02"
 id = "heyq02"
 visible = true
 desc = "社交动态"
+simpleicon = "x"
 
 [qq]
 name = "QQ"
@@ -38,3 +41,4 @@ url = ""
 id = "2025206734"
 visible = false
 desc = "即时通讯"
+simpleicon = "qq"
