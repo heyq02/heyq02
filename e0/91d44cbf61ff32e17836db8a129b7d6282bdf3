@@ -1,0 +1,25 @@
+apps/site/plugins/tests/about-profile.test.ts
+  s_9e4cc396e9a614::t_d83a4fd24557ad 4
+  s_9e4cc396e9a614::t_3093fe637d4daa 55-67
+apps/site/lib/tests/intro.e2e.ts
+  s_9e4cc396e9a614::t_0c61ae2ae65497 6
+apps/site/plugins/about-profile.ts
+  s_9e4cc396e9a614::t_be0a782cc90e87 7-17
+  s_9e4cc396e9a614::t_9ceaf109259605 18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "e091d44cbf61ff32e17836db8a129b7d6282bdf3",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
