@@ -3,7 +3,7 @@ import type { ChildProcess } from 'node:child_process'
 
 export type SpawnFn = typeof spawn
 
-/** Run `vp fmt` on generated files. Injectable spawn for unit tests. */
+/** Run `vp fmt` on generated files. */
 export async function formatGenerated(
   site: string,
   files: string[],

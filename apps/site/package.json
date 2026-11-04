@@ -8,9 +8,11 @@
     "preview": "vp preview"
   },
   "dependencies": {
+    "@heyq02/rspress-plugin-blog-meta": "workspace:*",
     "@heyq02/rspress-plugin-media": "workspace:*",
+    "@heyq02/rspress-plugin-profile": "workspace:*",
+    "@heyq02/rspress-plugin-site-assets": "workspace:*",
     "@heyq02/rspress-plugin-watermark": "workspace:*",
-    "@octokit/graphql": "^9.0.5",
     "@rspress/core": "^2.1.0-beta.2",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"

@@ -1,7 +1,6 @@
-import { formatCount, intro } from '../lib/intro.ts'
-import type { Intro } from '../lib/intro.ts'
-import { skillIconsPicture } from '../lib/skills-picture.ts'
 import type { PinnedProject } from './github-pinned.ts'
+import type { Intro } from './intro.ts'
+import { formatCount } from './intro.ts'
 import {
   profileCard,
   profileCardName,
@@ -22,6 +21,7 @@ import {
   profileSkillsImg,
   profileWhen
 } from './profile-classes.ts'
+import { skillIconsPicture } from './skills-picture.ts'
 
 interface ProfilePage {
   name: string
@@ -46,7 +46,7 @@ export interface RenderHomeMdxOptions {
   profilePlayModule?: string
 }
 
-export function profilePage(projects: PinnedProject[] = []): ProfilePage {
+export function profilePage(intro: Intro, projects: PinnedProject[] = []): ProfilePage {
   return {
     name: intro.name,
     tags: intro.tags,
@@ -67,7 +67,10 @@ export function profilePage(projects: PinnedProject[] = []): ProfilePage {
 }
 
 /** Browser tab suffix after the name (`永琪 - …`). */
-export function documentTitleSuffix(page: Pick<ProfilePage, 'tags'> = profilePage()): string {
+export function documentTitleSuffix(
+  intro: Intro,
+  page: Pick<ProfilePage, 'tags'> = profilePage(intro)
+): string {
   return `${[...page.tags, intro.bio].join('，')}。`
 }
 
@@ -85,11 +88,12 @@ function escapeHtml(value: string) {
 
 /** Doc page of Rspress theme components, not the built-in homepage. */
 export function renderHomeMdx(
+  intro: Intro,
   pinned: PinnedProject[] = [],
   options: RenderHomeMdxOptions = {}
 ): string {
   const profilePlayModule = options.profilePlayModule ?? '@theme/ProfilePlay'
-  const page = profilePage(pinned)
+  const page = profilePage(intro, pinned)
   const tags = page.tags
     .map(tag => `<Badge text=${yamlString(tag)} type="info" outline />`)
     .join(' ')
@@ -134,7 +138,7 @@ ${points}
   return `---
 pageType: doc-wide
 title: ${yamlString(page.name)}
-titleSuffix: ${yamlString(documentTitleSuffix(page))}
+titleSuffix: ${yamlString(documentTitleSuffix(intro, page))}
 sidebar: false
 outline: false
 footer: false

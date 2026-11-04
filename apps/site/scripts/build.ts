@@ -20,7 +20,7 @@ async function run(command: string, args: string[]) {
   })
 }
 
-// Homepage / meta / assets regenerate in the plugin config hooks (`plugins/index.ts`).
+// Homepage / meta / assets regenerate in the rspress-plugin-* config hooks.
 await run('pnpm', ['exec', 'rspress', 'build'])
 
 await absolutizeMarkdownLinks(resolvePath(site, 'dist'), intro.site)

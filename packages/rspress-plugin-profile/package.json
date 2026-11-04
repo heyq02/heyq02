@@ -1,0 +1,45 @@
+{
+  "name": "@heyq02/rspress-plugin-profile",
+  "version": "2.0.0-beta.3",
+  "description": "Rspress plugin: regenerate homepage index.mdx from intro SSOT and GitHub pinned repos",
+  "homepage": "https://github.com/heyq02/heyq02/tree/main/packages/rspress-plugin-profile",
+  "bugs": {
+    "url": "https://github.com/heyq02/heyq02/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heyq02/heyq02.git",
+    "directory": "packages/rspress-plugin-profile"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "check": "vp check",
+    "dev": "vp pack --watch",
+    "prepublishOnly": "vp run build"
+  },
+  "dependencies": {
+    "@octokit/graphql": "^9.0.5"
+  },
+  "devDependencies": {
+    "@rspress/core": "^2.1.0-beta.2",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "@rspress/core": "^2.1.0-beta.2"
+  }
+}

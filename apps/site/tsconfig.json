@@ -9,13 +9,5 @@
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true
   },
-  "include": [
-    "env.d.ts",
-    "vite.config.ts",
-    "rspress.config.ts",
-    "scripts",
-    "lib",
-    "plugins",
-    "theme"
-  ]
+  "include": ["env.d.ts", "vite.config.ts", "rspress.config.ts", "scripts", "lib", "theme"]
 }

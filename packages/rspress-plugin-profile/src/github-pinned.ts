@@ -1,6 +1,6 @@
 import { graphql } from '@octokit/graphql'
 
-import { intro } from '../lib/intro.ts'
+import type { Intro, Place } from './intro.ts'
 
 export interface PinnedProject {
   name: string
@@ -57,7 +57,7 @@ const pinnedQuery = `query($login: String!) {
 
 export type GraphqlClient = typeof graphql
 
-export function githubLogin(places = intro.places): string {
+export function githubLogin(places: Place[]): string {
   const place = places.find(item => item.label === 'GitHub')
   if (!place) {
     throw new Error('intro.places has no GitHub entry')
@@ -85,12 +85,13 @@ export function mapPinnedRepository(repo: GraphQlRepository, login: string): Pin
 
 /** Load profile pinned repositories via the GitHub GraphQL API. */
 export async function fetchPinnedProjects(
-  login = githubLogin(),
+  intro: Intro,
   options: {
     token?: string
     graphql?: GraphqlClient
   } = {}
 ): Promise<PinnedProject[]> {
+  const login = githubLogin(intro.places)
   const token = options.token ?? githubToken()
   if (!token) {
     throw new Error('Set GITHUB_TOKEN or GH_TOKEN to load pinned GitHub projects')
@@ -111,7 +112,6 @@ export async function fetchPinnedProjects(
     })
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : String(error)
-    // C8 ignore next
     throw new Error(`GitHub GraphQL request failed: ${message}`, { cause: error })
   }
 
