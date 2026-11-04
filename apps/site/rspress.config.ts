@@ -1,17 +1,18 @@
 import { resolve } from 'node:path'
 
+import { pluginMedia } from '@heyq02/rspress-plugin-media'
 import { pluginWatermark } from '@heyq02/rspress-plugin-watermark'
 import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 
 import intro from '../../static/data/intro.json' with { type: 'json' }
-import { socialLinksFrom } from './lib/social-links.ts'
 import { pluginBlogMeta, pluginProfile, pluginSiteAssets } from './plugins/index.ts'
 
 const dir = import.meta.dirname
 const siteRoot = dir
 const themeDir = resolve(dir, 'theme')
+const mediaPath = resolve(dir, '../../personal/media.toml')
 
 export default defineConfig({
   root: resolve(dir, 'blogs'),
@@ -79,6 +80,7 @@ ${pages || '-（暂无其他页面）'}
     pluginSiteAssets(siteRoot),
     pluginBlogMeta(siteRoot),
     pluginProfile(siteRoot),
+    pluginMedia({ mediaPath }),
     pluginWatermark({ src: '/wuxian-jinbu.png' }),
     pluginRss({
       feed: {
@@ -93,7 +95,7 @@ ${pages || '-（暂无其他页面）'}
   ],
   themeConfig: {
     darkMode: true,
-    socialLinks: socialLinksFrom(intro.places),
+    // SocialLinks come from pluginMedia(personal/media.toml) via simple-icons SVGs.
     // Avoid Rspress injecting frontmatter title as a duplicate H1 on profile/friends.
     fallbackHeadingTitle: false,
     lastUpdated: true,

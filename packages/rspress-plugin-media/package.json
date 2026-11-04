@@ -1,23 +1,24 @@
 {
   "name": "@heyq02/rspress-plugin-media",
-  "version": "0.0.0",
-  "description": "A starter for creating a TypeScript package.",
-  "homepage": "https://github.com/author/library#readme",
+  "version": "2.0.0-beta.2",
+  "description": "Rspress plugin: build themeConfig.socialLinks from personal/media.toml via simple-icons SVGs",
+  "homepage": "https://github.com/heyq02/heyq02/tree/main/packages/rspress-plugin-media",
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/heyq02/heyq02/issues"
   },
   "license": "MIT",
-  "author": "Author Name <author.name@mail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/heyq02/heyq02.git",
+    "directory": "packages/rspress-plugin-media"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": "./src/index.ts",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -30,9 +31,17 @@
     "prepublishOnly": "vp run build",
     "test": "vp test"
   },
+  "dependencies": {
+    "simple-icons": "^16.14.0",
+    "smol-toml": "^1.9.1"
+  },
   "devDependencies": {
-    "@types/node": "^26.6.5",
-    "typescript": "^7.0.2",
+    "@rspress/core": "^2.1.0-beta.2",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
     "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "@rspress/core": "^2.1.0-beta.2"
   }
 }

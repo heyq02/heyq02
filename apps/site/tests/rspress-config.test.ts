@@ -8,6 +8,9 @@ vi.mock('../plugins/index.ts', () => ({
   pluginBlogMeta: () => ({ name: 'rspress-plugin-blog-meta' }),
   pluginProfile: () => ({ name: 'rspress-plugin-profile' })
 }))
+vi.mock('@heyq02/rspress-plugin-media', () => ({
+  pluginMedia: () => ({ name: '@heyq02/rspress-plugin-media' })
+}))
 vi.mock('@heyq02/rspress-plugin-watermark', () => ({
   pluginWatermark: () => ({ name: '@heyq02/rspress-plugin-watermark' })
 }))
@@ -74,9 +77,11 @@ it('wires themeDir and compose plugins without side effects', async () => {
       'rspress-plugin-site-assets',
       'rspress-plugin-blog-meta',
       'rspress-plugin-profile',
+      '@heyq02/rspress-plugin-media',
       '@heyq02/rspress-plugin-watermark'
     ])
   )
+  expect(config.themeConfig?.socialLinks).toBeUndefined()
   expect(names).not.toContain('rspress-plugin-blog-translate')
   expect(names).not.toContain('rspress-plugin-github-pins')
   expect(names).not.toContain('@rspress/plugin-sitemap')

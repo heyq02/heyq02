@@ -2,7 +2,6 @@ import { expect, it } from 'vite-plus/test'
 
 import { formatCount, intro } from '../intro.ts'
 import { skillIconsPicture } from '../skills-picture.ts'
-import { socialLinksFrom } from '../social-links.ts'
 
 it('loads the Chinese intro SSOT', () => {
   expect(intro.name).toBe('永琪')
@@ -50,9 +49,4 @@ it('builds the shared skills picture URL from icon slugs', () => {
   expect(picture.src).toContain('perline=2')
   expect(picture.src).toContain('theme=light')
   expect(skillIconsPicture([]).src).toContain('perline=1')
-})
-
-it('exposes the social navbar mapping from intro places', () => {
-  const links = socialLinksFrom(intro.places)
-  expect(links.map(link => link.icon)).toEqual(['github', 'x', 'bilibili', 'wechat'])
 })

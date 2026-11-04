@@ -10,6 +10,7 @@
     "test:e2e": "playwright test --config=../../playwright.config.ts --project=site"
   },
   "dependencies": {
+    "@heyq02/rspress-plugin-media": "workspace:*",
     "@heyq02/rspress-plugin-watermark": "workspace:*",
     "@octokit/graphql": "^9.0.5",
     "@rspress/core": "^2.1.0-beta.2",
