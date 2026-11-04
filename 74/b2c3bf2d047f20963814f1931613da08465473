@@ -1,0 +1,23 @@
+apps/site/src/config.ts
+  s_9e4cc396e9a614::t_12294eb5f79b9a 15-16,34-38
+apps/site/src/layouts/base.astro
+  s_9e4cc396e9a614::t_8abbfc966caf4d 16,42-50
+apps/site/src/styles/global.css
+  s_9e4cc396e9a614::t_23120f6d382188 361-385
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "74b2c3bf2d047f20963814f1931613da08465473",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
