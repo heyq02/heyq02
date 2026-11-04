@@ -21,9 +21,9 @@ const glyphs: Record<string, string> = {
 
 /** Hub as a bento of differently weighted category doors. */
 export function Hub({ ssgMd }: { ssgMd: boolean }): ReactElement {
-  const { title, intro, categories } = likesData
+  const { title, categories } = likesData
   return (
-    <LikesShell title={title} intro={intro} ssgMd={ssgMd} tone='likes-hub'>
+    <LikesShell title={title} ssgMd={ssgMd} tone='likes-hub'>
       <Section title={ssgMd ? '分类' : undefined}>
         {ssgMd ? (
           <ul>

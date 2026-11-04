@@ -89,7 +89,7 @@ export function FriendsPage({
 }: {
   ssgMd?: boolean
 } = {}): ReactElement {
-  const { title, intro, exchange, friends } = friendsData
+  const { title, exchange, friends } = friendsData
   const isClient = useSyncExternalStore(
     subscribeNever,
     () => true,
@@ -98,13 +98,7 @@ export function FriendsPage({
   const ordered = useMemo(() => (isClient ? shuffle(friends) : friends), [friends, isClient])
 
   return (
-    <PageShell
-      title={title}
-      intro={intro}
-      ssgMd={ssgMd}
-      tone='friends'
-      tip='每次访问都会重新排序，换个顺序打个招呼。'
-    >
+    <PageShell title={title} ssgMd={ssgMd} tone='friends'>
       {ordered.length === 0 ? (
         <Empty className='friends-empty mt-rp-10'>还没有友链，等第一位朋友来交换。</Empty>
       ) : (

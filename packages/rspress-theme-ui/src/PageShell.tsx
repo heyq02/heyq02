@@ -13,7 +13,7 @@ export function PageShell({
   tip
 }: {
   title: string
-  intro: string
+  intro?: string
   children: ReactNode
   ssgMd?: boolean
   /** Extra class on root for page-specific chrome hooks (e.g. `likes`, `friends`). */
@@ -26,7 +26,7 @@ export function PageShell({
     <div className={cx(tone, sitePageRoot, rootClassName).trim()}>
       <header className={siteHeaderRule}>
         {ssgMd ? null : <h1 className={siteH1}>{title}</h1>}
-        <p className={cx('mt-rp-3', siteBody)}>{intro}</p>
+        {intro ? <p className={cx('mt-rp-3', siteBody)}>{intro}</p> : null}
         {tip && !ssgMd ? <p className={cx('mt-rp-2 mb-0', siteMeta)}>{tip}</p> : null}
       </header>
       {children}

@@ -11,7 +11,7 @@ export function LikesShell({
   tone = ''
 }: {
   title: string
-  intro: string
+  intro?: string
   children: ReactNode
   ssgMd: boolean
   tone?: string
