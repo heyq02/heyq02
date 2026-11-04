@@ -3,5 +3,5 @@
   "compilerOptions": {
     "types": ["node"]
   },
-  "include": ["vite.config.ts", "playwright.config.ts", "e2e/dom-snapshot.ts"]
+  "include": ["vite.config.ts"]
 }

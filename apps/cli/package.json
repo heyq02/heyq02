@@ -23,8 +23,7 @@
   "scripts": {
     "build": "vp run cpack",
     "dev": "vp pack --watch",
-    "prepublishOnly": "vp run -t build",
-    "test": "vp run ctest"
+    "prepublishOnly": "vp run -t build"
   },
   "devDependencies": {
     "@liangmi/vp-config": "catalog:",

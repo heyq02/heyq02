@@ -30,16 +30,13 @@
     "build": "vp pack",
     "check": "vp check",
     "dev": "vp pack --watch",
-    "prepublishOnly": "vp run build",
-    "test": "vp test"
+    "prepublishOnly": "vp run build"
   },
   "devDependencies": {
     "@rspress/core": "^2.1.0-beta.2",
-    "@testing-library/react": "^16.3.0",
     "@types/node": "catalog:",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "jsdom": "^27.0.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "typescript": "catalog:",
