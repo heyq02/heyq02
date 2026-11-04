@@ -1,0 +1,99 @@
+packages/content/src/index.ts
+  s_7f3749379effc6::t_50d3c765278bb7 1-17
+packages/rspress-theme-ui/src/Panel.tsx
+  s_7f3749379effc6::t_cbd2500b61b837 4
+packages/rspress-theme-ui/src/SoftBadge.tsx
+  s_7f3749379effc6::t_cbd2500b61b837 4
+packages/content/tsconfig.json
+  s_7f3749379effc6::t_3dcbc6519b0b78 1-4
+packages/rspress-theme-ui/src/index.ts
+  s_7f3749379effc6::t_c19a6a815ce74c 13-38
+packages/rspress-plugin-profile/package.json
+  s_7f3749379effc6::t_ccb50a02c6fbff 12,15
+apps/site/lib/intro.ts
+  s_7f3749379effc6::t_dd8e9ba7b1d866 13
+  s_7f3749379effc6::t_cdbbc206df3ee4 2
+packages/rspress-plugin-profile/src/index.ts
+  s_7f3749379effc6::t_b56563deeb5a0f 5-6
+  s_7f3749379effc6::t_c302f34cc87191 4,28,32-35,41
+packages/rspress-theme-ui/package.json
+  s_7f3749379effc6::t_1f9b995ea60c2f 4,12
+.github/workflows/release-cli.yml
+  s_7f3749379effc6::t_96951b4f237b21 51,53
+packages/content/package.json
+  s_7f3749379effc6::t_63bc8a296fd5f9 1-18
+packages/rspress-theme-ui/src/Text.tsx
+  s_7f3749379effc6::t_d0077eb88ecac9 11
+  s_7f3749379effc6::t_cbd2500b61b837 1-3
+packages/rspress-theme-ui/src/TextLink.tsx
+  s_7f3749379effc6::t_cbd2500b61b837 4
+packages/rspress-plugin-blog-meta/src/prepare-blog-meta.ts
+  s_7f3749379effc6::t_3c45370c5a889e 15-18,25,46-47
+apps/site/rspress.config.ts
+  s_7f3749379effc6::t_094559e2884f50 15,17-18,21,83-99
+packages/rspress-plugin-blog-meta/package.json
+  s_7f3749379effc6::t_ccb50a02c6fbff 12
+  s_7f3749379effc6::t_765417043cacbf 4
+packages/rspress-plugin-watermark/package.json
+  s_7f3749379effc6::t_ccb50a02c6fbff 13
+packages/content/src/intro.ts
+  s_7f3749379effc6::t_6af86d2160da0b 1-68
+packages/rspress-theme-ui/src/Empty.tsx
+  s_7f3749379effc6::t_cbd2500b61b837 4
+packages/content/src/likes.ts
+  s_7f3749379effc6::t_479a4e6f573602 1-85
+packages/rspress-plugin-profile/src/profile-page.ts
+  s_7f3749379effc6::t_080eeddaaa2880 1-3
+apps/site/package.json
+  s_7f3749379effc6::t_51aa4c11f05370 11
+packages/rspress-theme-ui/src/Section.tsx
+  s_7f3749379effc6::t_cbd2500b61b837 4
+packages/rspress-theme-ui/src/PageShell.tsx
+  s_7f3749379effc6::t_cbd2500b61b837 4
+packages/rspress-plugin-profile/src/prepare-profile.ts
+  s_7f3749379effc6::t_40fecc31a85135 10-13,15-16,24-26,28-29,31
+  s_7f3749379effc6::t_d60868415ac7da 32
+apps/site/theme/likes-data.ts
+  s_7f3749379effc6::t_e79a3a812ff781 3,5-14
+  s_7f3749379effc6::t_abfef0e7a9e4b8 1,15
+packages/rspress-theme-ui/src/CardLink.tsx
+  s_7f3749379effc6::t_cbd2500b61b837 4
+packages/rspress-plugin-site-assets/src/index.ts
+  s_7f3749379effc6::t_9facb19d0c8b8b 4,9,11,13-16,22
+packages/rspress-plugin-site-assets/package.json
+  s_7f3749379effc6::t_ccb50a02c6fbff 12
+packages/rspress-plugin-site-assets/src/prepare-site-assets.ts
+  s_7f3749379effc6::t_a782fc8d470ffb 17-20
+  s_7f3749379effc6::t_8616c67e37e99e 5-10,13,15-16
+packages/rspress-theme-ui/src/Progress.tsx
+  s_7f3749379effc6::t_cbd2500b61b837 4
+packages/rspress-plugin-blog-meta/src/index.ts
+  s_7f3749379effc6::t_e2fe7501a1b2a0 4,15,18,22-23,29
+apps/site/theme/friends-page.ts
+  s_7f3749379effc6::t_9e64515bddf153 2,7
+  s_7f3749379effc6::t_2190787cf6efcb 1,3,12
+packages/rspress-plugin-utils/package.json
+  s_7f3749379effc6::t_ccb50a02c6fbff 12
+packages/rspress-theme-ui/src/tokens.ts
+  s_7f3749379effc6::t_1af340e2e55d1c 1-59
+packages/rspress-plugin-media/package.json
+  s_7f3749379effc6::t_ccb50a02c6fbff 12
+packages/content/src/friends.ts
+  s_7f3749379effc6::t_de038fcb7e5c8b 1-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "1e28d211f64b93404ca5e11f00f210bb51a70c52",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
