@@ -1,0 +1,28 @@
+packages/rspress-plugin-media/.gitignore
+  h_a57efa94f24ca5 1-4
+packages/rspress-plugin-media/README.md
+  h_a57efa94f24ca5 1-23
+packages/rspress-plugin-media/package.json
+  h_a57efa94f24ca5 1-38
+packages/rspress-plugin-media/src/index.ts
+  h_a57efa94f24ca5 1-3
+packages/rspress-plugin-media/tests/index.test.ts
+  h_a57efa94f24ca5 1-7
+packages/rspress-plugin-media/tsconfig.json
+  h_a57efa94f24ca5 1-20
+packages/rspress-plugin-media/vite.config.ts
+  h_a57efa94f24ca5 1-10
+pnpm-lock.yaml
+  h_a57efa94f24ca5 297-308,4733-4744
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "88e57bac5c44611e71b73e3e695ccf04da921f0d",
+  "prompts": {},
+  "humans": {
+    "h_a57efa94f24ca5": {
+      "author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
