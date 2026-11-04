@@ -1,0 +1,48 @@
+packages/rspress-plugin-auto-meta/src/scan.ts
+  s_9e4cc396e9a614::t_9f80b3d6dabe9a 1-52
+packages/rspress-plugin-auto-meta/src/meta.ts
+  s_9e4cc396e9a614::t_6b0bb4b6b5ed94 1-6,8-49
+  s_9e4cc396e9a614::t_4ba0ee2084eb27 7
+packages/rspress-plugin-auto-meta/tests/generate.test.ts
+  s_9e4cc396e9a614::t_4ba0ee2084eb27 114
+  s_9e4cc396e9a614::t_a97424cec569f9 1-113,115-136
+packages/rspress-plugin-auto-meta/package.json
+  s_9e4cc396e9a614::t_04138f2a3422bb 3-5,7,12-13,16-17,21,35-37,39-41
+packages/rspress-plugin-auto-meta/tsconfig.json
+  s_9e4cc396e9a614::t_c299dfa9b8b30a 2,4-6
+packages/rspress-plugin-auto-meta/src/frontmatter.ts
+  s_9e4cc396e9a614::t_021126fd1010c7 1-31
+packages/rspress-plugin-auto-meta/src/generate.ts
+  s_9e4cc396e9a614::t_e1f881cc946e0b 2-79
+  s_9e4cc396e9a614::t_1c1b0230d09a41 1
+packages/rspress-plugin-auto-meta/tests/frontmatter.test.ts
+  s_9e4cc396e9a614::t_e44246178c19fa 1-29
+packages/rspress-plugin-auto-meta/src/index.ts
+  s_9e4cc396e9a614::t_af7000860cbb4b 32
+  s_9e4cc396e9a614::t_4aa4731cce81fd 1-31,33-34,36-49
+  s_9e4cc396e9a614::t_d9c9fe354a70bb 35
+packages/rspress-plugin-auto-meta/tests/plugin.test.ts
+  s_9e4cc396e9a614::t_4ba0ee2084eb27 52-53
+  s_9e4cc396e9a614::t_5c1515e1e04a3d 1-39,41-51,54-58
+  s_9e4cc396e9a614::t_8542922d9f6ee0 40
+packages/rspress-plugin-auto-meta/vite.config.ts
+  s_9e4cc396e9a614::t_bdfc83390135d9 4-6
+pnpm-lock.yaml
+  s_9e4cc396e9a614::t_b06439e2c0de53 305-307,309,312
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "6450a4e4380df45d5e230482e7ecb6f70c0e799f",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
