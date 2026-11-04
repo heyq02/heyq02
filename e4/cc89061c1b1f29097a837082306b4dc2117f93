@@ -1,0 +1,64 @@
+packages/rspress-plugin-site-assets/vite.config.ts
+  s_7f3749379effc6::t_6596b22a2daadb 1-3
+apps/site/package.json
+  s_7f3749379effc6::t_5e047c12ca1705 7
+packages/rspress-plugin-watermark/vite.config.ts
+  s_7f3749379effc6::t_6596b22a2daadb 1-3
+packages/rspress-theme-ui/package.json
+  s_7f3749379effc6::t_6596b22a2daadb 12,15
+apps/site/theme/profile-data.ts
+  s_7f3749379effc6::t_ef7a7655ac01de 19-24,27-32,37-38
+apps/site/scripts/build.ts
+  s_7f3749379effc6::t_f591e273066952 24
+packages/rspress-plugin-blog-meta/package.json
+  s_7f3749379effc6::t_6596b22a2daadb 12,18
+packages/rspress-plugin-media/package.json
+  s_7f3749379effc6::t_6596b22a2daadb 12,19
+packages/rspress-site-content/vite.config.ts
+  s_7f3749379effc6::t_6596b22a2daadb 1-3
+packages/rspress-plugin-utils/package.json
+  s_7f3749379effc6::t_6596b22a2daadb 12,15
+packages/rspress-plugin-utils/vite.config.ts
+  s_7f3749379effc6::t_6596b22a2daadb 1-3
+packages/rspress-plugin-media/vite.config.ts
+  s_7f3749379effc6::t_6596b22a2daadb 1-3
+packages/rspress-plugin-profile/vite.config.ts
+  s_7f3749379effc6::t_6596b22a2daadb 1-3
+packages/rspress-site-content/package.json
+  s_7f3749379effc6::t_6596b22a2daadb 12,15
+packages/rspress-theme-ui/vite.config.ts
+  s_7f3749379effc6::t_6596b22a2daadb 1-3
+packages/rspress-plugin-watermark/package.json
+  s_7f3749379effc6::t_6596b22a2daadb 13,16
+packages/rspress-plugin-site-assets/package.json
+  s_7f3749379effc6::t_6596b22a2daadb 12,15
+packages/rspress-plugin-utils/src/format-generated.ts
+  s_7f3749379effc6::t_a79d3dae7ac055 13
+packages/rspress-plugin-blog-meta/vite.config.ts
+  s_7f3749379effc6::t_6596b22a2daadb 1-3
+packages/rspress-plugin-profile/package.json
+  s_7f3749379effc6::t_6596b22a2daadb 12,20
+apps/cli/vite.config.ts
+  s_7f3749379effc6::t_97f040ec958f45 11
+  s_7f3749379effc6::t_4bbb80deb2a389 8-10,12-16
+apps/site/vite.config.ts
+  s_7f3749379effc6::t_e02f9930bc868a 14-18
+pnpm-lock.yaml
+  s_7f3749379effc6::t_4ccedccaa9145b 300-302,325-327,353-355,371-373,389-391,404-406,434-436,446-448
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "e4cc89061c1b1f29097a837082306b4dc2117f93",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
