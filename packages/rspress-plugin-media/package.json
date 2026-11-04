@@ -1,6 +1,6 @@
 {
   "name": "@heyq02/rspress-plugin-media",
-  "version": "2.0.0-beta.8",
+  "version": "2.0.0-beta.9",
   "private": true,
   "description": "Rspress plugin: build themeConfig.socialLinks from content/brand/media.toml via simple-icons SVGs",
   "type": "module",
