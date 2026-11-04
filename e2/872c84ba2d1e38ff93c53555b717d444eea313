@@ -1,0 +1,29 @@
+apps/site/src/pages/index.astro
+  s_9e4cc396e9a614::t_707c904eccad2f 26
+apps/site/src/pages/blog/[slug].astro
+  s_9e4cc396e9a614::t_5a5f778ffc28be 20-22
+apps/site/src/pages/friends.astro
+  s_9e4cc396e9a614::t_95e5e5111e38e0 11,20
+apps/site/src/config.ts
+  s_9e4cc396e9a614::t_09fea2abffcedc 18-19
+apps/site/src/components/chrome.astro
+  s_9e4cc396e9a614::t_7005318abf5dc7 22,31,34
+apps/site/src/styles/global.css
+  s_9e4cc396e9a614::t_a100f08c6dce94 1-2,6-21,25,31-41,47-49,54-56,60,63-65,68-70,77-79,81,87-90,94-95,100,110-112,115,122,126-127,133-137,141-142,144,148-152,158,163-164,169,173,177-182,195-210,216-218,222,226,229-236,240-244,252-253,255,264,269,273-277,281-283,288,294,304-305,307-308,312-313,315-318,324,331,336-337,341-346,349-358,362,368-387,392-402,406,409-419
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "e2872c84ba2d1e38ff93c53555b717d444eea313",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
