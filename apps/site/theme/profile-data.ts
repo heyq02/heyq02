@@ -11,19 +11,19 @@ export interface ProfileProject {
 
 export const pinnedProjects: ProfileProject[] = [
   {
-    "name": "simpleicons.dev",
-    "href": "https://github.com/heyq02/simpleicons.dev",
-    "summary": "Showcase your skills on your GitHub readme or resumé with ease.",
-    "language": "TypeScript",
-    "stars": "171",
-    "forks": "0"
+    name: 'simpleicons.dev',
+    href: 'https://github.com/heyq02/simpleicons.dev',
+    summary: 'Showcase your skills on your GitHub readme or resumé with ease.',
+    language: 'TypeScript',
+    stars: '171',
+    forks: '0'
   },
   {
-    "name": "keyboard-source-locker",
-    "href": "https://github.com/heyq02/keyboard-source-locker",
-    "summary": "macOS menu-bar utility that locks the active keyboard input source to your choice",
-    "language": "Swift",
-    "stars": "19",
-    "forks": "0"
+    name: 'keyboard-source-locker',
+    href: 'https://github.com/heyq02/keyboard-source-locker',
+    summary: 'macOS menu-bar utility that locks the active keyboard input source to your choice',
+    language: 'Swift',
+    stars: '19',
+    forks: '0'
   }
 ]

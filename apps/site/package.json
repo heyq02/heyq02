@@ -8,12 +8,12 @@
     "preview": "vp preview"
   },
   "dependencies": {
-    "@heyq02/rspress-site-content": "workspace:*",
     "@heyq02/rspress-plugin-blog-meta": "workspace:*",
     "@heyq02/rspress-plugin-media": "workspace:*",
     "@heyq02/rspress-plugin-profile": "workspace:*",
     "@heyq02/rspress-plugin-site-assets": "workspace:*",
     "@heyq02/rspress-plugin-watermark": "workspace:*",
+    "@heyq02/rspress-site-content": "workspace:*",
     "@heyq02/rspress-theme-ui": "workspace:*",
     "@rspress/core": "^2.1.0-beta.2",
     "react": "^19.3.0",
