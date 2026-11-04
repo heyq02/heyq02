@@ -2,7 +2,6 @@
 /* 字体：京东朗正体 https://github.com/heyq02/JINGDONGLangZhengTi */
 
 @import '@primer/primitives/dist/css/functional/themes/light.css';
-@import '@primer/primitives/dist/css/functional/themes/dark.css';
 
 @import '@fontsource/dm-sans/400.css';
 @import '@fontsource/dm-sans/500.css';
@@ -75,11 +74,6 @@
 
 html {
   background-color: var(--rp-c-bg);
-}
-
-html.dark .rspress-logo,
-html.rp-dark .rspress-logo {
-  filter: invert(1);
 }
 
 /* Rspress has no llmsUI flag for LlmsCopyButton alone (viewOptions only hides the menu). */

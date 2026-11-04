@@ -1,7 +1,6 @@
 import { resolve } from 'node:path'
 
 import { pluginBlogMeta } from '@heyq02/rspress-plugin-blog-meta'
-import { pluginMedia } from '@heyq02/rspress-plugin-media'
 import { pluginProfile } from '@heyq02/rspress-plugin-profile'
 import { pluginSiteAssets } from '@heyq02/rspress-plugin-site-assets'
 import { pluginWatermark } from '@heyq02/rspress-plugin-watermark'
@@ -78,8 +77,8 @@ ${pages || '-（暂无其他页面）'}
     ['meta', { property: 'og:image', content: intro.avatar }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
     ['meta', { name: 'twitter:image', content: intro.avatar }],
-    // Primer themes key off data-color-mode; keep in sync before paint with Rspress appearance.
-    `<script>(function(){var r=document.documentElement;r.setAttribute('data-light-theme','light');r.setAttribute('data-dark-theme','dark');function sync(){var d=r.classList.contains('dark')||r.classList.contains('rp-dark');if(!d){try{var s=localStorage.getItem('rspress-theme-appearance');d=s==='dark'||(s!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)}catch(e){}}r.setAttribute('data-color-mode',d?'dark':'light')}sync();new MutationObserver(sync).observe(r,{attributes:true,attributeFilter:['class']})})()</script>`
+    // Primer light theme only — no appearance toggle.
+    `<script>(function(){var r=document.documentElement;r.setAttribute('data-color-mode','light');r.setAttribute('data-light-theme','light');r.setAttribute('data-dark-theme','dark')})()</script>`
   ],
   plugins: [
     pluginSiteAssets({
@@ -101,7 +100,6 @@ ${pages || '-（暂无其他页面）'}
       intro,
       formatRoot: dir
     }),
-    pluginMedia({ mediaPath: resolve(brandRoot, 'media.toml') }),
     pluginWatermark({ src: '/wuxian-jinbu.png' }),
     pluginRss({
       feed: {
@@ -115,8 +113,8 @@ ${pages || '-（暂无其他页面）'}
     })
   ],
   themeConfig: {
-    darkMode: true,
-    // SocialLinks come from pluginMedia(content/brand/media.toml) via simple-icons SVGs.
+    darkMode: false,
+    socialLinks: [],
     // Avoid Rspress injecting frontmatter title as a duplicate H1 on profile/friends.
     fallbackHeadingTitle: false,
     lastUpdated: true,
