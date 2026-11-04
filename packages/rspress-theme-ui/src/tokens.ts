@@ -21,7 +21,7 @@ export const siteLink = `font-semibold text-inherit no-underline hover:text-rp-l
 /** Soft surface shell — dashed Primer panel used across the site. */
 export const siteSurface = 'rounded-2xl border border-dashed border-rp-divider bg-rp-bg'
 
-/** Static soft panel (exchange block, empty states share padding/radius). */
+/** Static soft panel (empty states share padding/radius). */
 export const sitePanelChrome = `${siteSurface} px-rp-4 py-rp-4`
 
 /** Interactive card chrome shared by project/post/friend cards. */

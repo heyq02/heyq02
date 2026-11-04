@@ -4,12 +4,7 @@ import {
   CardTitle,
   Empty,
   PageShell,
-  Panel,
-  Section,
-  TextLink,
-  siteBody,
-  siteCardChrome,
-  siteMeta
+  siteCardChrome
 } from '@heyq02/rspress-theme-ui'
 import { useMemo, useSyncExternalStore } from 'react'
 import type { ReactElement } from 'react'
@@ -36,13 +31,6 @@ function subscribeNever(): () => void {
 
 const avatarClass =
   'block size-12 shrink-0 rounded-full border border-rp-divider-light bg-rp-bg object-cover'
-
-const fieldLabelClass = `m-0 uppercase ${siteMeta}`
-
-const fieldValueClass = 'm-0 text-rp-md leading-normal text-rp-text wrap-anywhere'
-
-const fieldRowClass =
-  'grid grid-cols-1 items-baseline gap-x-rp-3 gap-y-rp-1 sm:grid-cols-[4.5rem_1fr] sm:gap-y-rp-2'
 
 function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): ReactElement {
   // Prefer readable link text for SSG-MD Agents over avatar+span chrome.
@@ -89,7 +77,7 @@ export function FriendsPage({
 }: {
   ssgMd?: boolean
 } = {}): ReactElement {
-  const { title, exchange, friends } = friendsData
+  const { title, friends } = friendsData
   const isClient = useSyncExternalStore(
     subscribeNever,
     () => true,
@@ -100,7 +88,7 @@ export function FriendsPage({
   return (
     <PageShell title={title} ssgMd={ssgMd} tone='friends'>
       {ordered.length === 0 ? (
-        <Empty className='friends-empty mt-rp-10'>还没有友链，等第一位朋友来交换。</Empty>
+        <Empty className='friends-empty mt-rp-10'>还没有友链。</Empty>
       ) : (
         <ul className='friends-grid mt-rp-10 gap-rp-3 mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] p-0'>
           {ordered.map(friend => (
@@ -108,62 +96,6 @@ export function FriendsPage({
           ))}
         </ul>
       )}
-
-      <Section
-        marker='friends-exchange'
-        className='border-rp-divider-light pt-rp-8 border-t'
-        title={exchange.title}
-      >
-        <p className={siteBody}>{exchange.body}</p>
-        {ssgMd ? (
-          <ul>
-            <li>{`名称：${exchange.self.name}`}</li>
-            <li>
-              站点：
-              <TextLink href={exchange.self.url}>{exchange.self.url}</TextLink>
-            </li>
-            <li>
-              头像：
-              <TextLink href={exchange.self.avatar}>{exchange.self.avatar}</TextLink>
-            </li>
-            <li>{`简介：${exchange.self.desc}`}</li>
-          </ul>
-        ) : (
-          <Panel className='mt-rp-5 gap-rp-4 flex flex-col items-start sm:flex-row'>
-            <img
-              className={avatarClass}
-              src={exchange.self.avatar}
-              alt=''
-              width={48}
-              height={48}
-              loading='lazy'
-              decoding='async'
-            />
-            <dl className='gap-rp-2 m-0 grid min-w-0'>
-              <div className={fieldRowClass}>
-                <dt className={fieldLabelClass}>名称</dt>
-                <dd className={fieldValueClass}>{exchange.self.name}</dd>
-              </div>
-              <div className={fieldRowClass}>
-                <dt className={fieldLabelClass}>站点</dt>
-                <dd className={fieldValueClass}>
-                  <TextLink href={exchange.self.url}>{exchange.self.url}</TextLink>
-                </dd>
-              </div>
-              <div className={fieldRowClass}>
-                <dt className={fieldLabelClass}>头像</dt>
-                <dd className={fieldValueClass}>
-                  <TextLink href={exchange.self.avatar}>{exchange.self.avatar}</TextLink>
-                </dd>
-              </div>
-              <div className={fieldRowClass}>
-                <dt className={fieldLabelClass}>简介</dt>
-                <dd className={fieldValueClass}>{exchange.self.desc}</dd>
-              </div>
-            </dl>
-          </Panel>
-        )}
-      </Section>
     </PageShell>
   )
 }

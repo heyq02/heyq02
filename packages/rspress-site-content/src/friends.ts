@@ -1,5 +1,3 @@
-import type { Intro } from './intro.ts'
-
 export interface FriendLink {
   name: string
   url: string
@@ -11,43 +9,21 @@ export interface FriendLink {
 export interface FriendsData {
   title: string
   intro: string
-  exchange: {
-    title: string
-    body: string
-    self: FriendLink
-  }
   friends: FriendLink[]
 }
 
-/** Raw `content/data/friends.json` before identity fields are filled from intro. */
+/** Raw `content/data/friends.json`. */
 export interface FriendsJson {
   title: string
   intro: string
-  exchange: {
-    title: string
-    /** May include `{email}`; filled from intro.contact.email. */
-    body: string
-    /** Blurb only; name/url/avatar come from intro. */
-    self: { desc: string }
-  }
   friends: FriendLink[]
 }
 
-/** Merge friends JSON with intro identity fields. */
-export function buildFriendsData(intro: Intro, raw: FriendsJson): FriendsData {
+/** Normalize friends JSON into page data. */
+export function buildFriendsData(raw: FriendsJson): FriendsData {
   return {
     title: raw.title,
     intro: raw.intro,
-    exchange: {
-      title: raw.exchange.title,
-      body: raw.exchange.body.replaceAll('{email}', intro.contact.email),
-      self: {
-        name: intro.name,
-        url: intro.site,
-        avatar: intro.avatar,
-        desc: raw.exchange.self.desc
-      }
-    },
     friends: raw.friends
   }
 }

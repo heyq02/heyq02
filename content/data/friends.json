@@ -1,13 +1,6 @@
 {
   "title": "友链",
   "intro": "",
-  "exchange": {
-    "title": "交换友链",
-    "body": "想互换友链？先把我加到你的友链页，然后发邮件到 {email}，附上站点名称、URL、头像（HTTPS、正方形）和一句话简介。",
-    "self": {
-      "desc": "Talk is cheap, show me the session."
-    }
-  },
   "friends": [
     {
       "name": "DIYgod",
