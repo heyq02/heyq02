@@ -1,112 +1,100 @@
 ---
-import ProfilePlay from '../components/ProfilePlay.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { formatCount, intro } from '../lib/intro.ts'
 import { pinnedProjects } from '../lib/pinned.ts'
 import { skillIconsPicture } from '../lib/skills-picture.ts'
-import {
-  badgeClass,
-  profileCard,
-  profileCardTop,
-  profileCounts,
-  profileEduMeta,
-  profileGrid,
-  profileH3,
-  profileJob,
-  profileJobHead,
-  profileList,
-  profileSection,
-  profileSkills,
-  profileSkillsImg,
-  siteCardName,
-  siteCardSummary,
-  siteH2,
-  siteLink,
-  sitePageRoot,
-  siteWhen
-} from '../lib/site-ui.ts'
 
-const projects = pinnedProjects
 const skills = skillIconsPicture(intro.skills)
-const titleSuffix = `${[...intro.tags, intro.bio].join('，')}。`
+const description = `${intro.name}。${[...intro.tags, intro.bio].join('，')}。`
 ---
 
-<BaseLayout title={intro.name} description={`${intro.name}。${titleSuffix}`}>
-  <div class:list={['profile', sitePageRoot]}>
-    <ProfilePlay tags={intro.tags} />
+<BaseLayout title={intro.name} description={description}>
+  <header class="hero">
+    <button type="button" class="poke" aria-label="戳一下头像" title="戳我" data-poke>
+      <img src={intro.avatar} alt={intro.name} width="88" height="88" draggable="false" />
+    </button>
+    <div>
+      <h1>{intro.name}</h1>
+      <p class="muted" data-mood>{intro.kaomoji}</p>
+      <p class="tags">{intro.tags.join(' · ')}</p>
+      <p class="muted">{intro.bio}</p>
+    </div>
+  </header>
 
-    <section class={profileSection}>
-      <h2 class={siteH2}>{intro.sections.education}</h2>
+  <section>
+    <h2>{intro.sections.education}</h2>
+    {
+      intro.education.map(item => (
+        <article class="job">
+          <h3>
+            {item.school}
+            <span class="meta">
+              {' '}
+              · {item.start} – {item.end}
+            </span>
+          </h3>
+          <p class="muted">
+            {item.degree} · {item.major}
+          </p>
+        </article>
+      ))
+    }
+  </section>
+
+  <section>
+    <h2>{intro.sections.experience}</h2>
+    {
+      intro.experiences.map(job => (
+        <article class="job">
+          <h3>
+            <a href={job.href}>{job.company}</a>
+            <span class="meta">
+              {' '}
+              · {job.start} – {job.end}
+            </span>
+          </h3>
+          <ul>
+            {job.points.map(point => (
+              <li>{point}</li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </section>
+
+  <section>
+    <h2>{intro.sections.openSource}</h2>
+    <ul class="plain-list">
       {
-        intro.education.map(item => (
-          <article class:list={[profileJob, 'profile-edu']}>
-            <div class={profileJobHead}>
-              <h3 class={profileH3}>{item.school}</h3>
-              <p class={siteWhen}>
-                {item.start} – {item.end}
-              </p>
-            </div>
-            <p class={profileEduMeta}>
-              {item.degree} · {item.major}
-            </p>
-          </article>
-        ))
-      }
-    </section>
-
-    <section class={profileSection}>
-      <h2 class={siteH2}>{intro.sections.experience}</h2>
-      {
-        intro.experiences.map(job => (
-          <article class={profileJob}>
-            <div class={profileJobHead}>
-              <h3 class={profileH3}>
-                <a class={siteLink} href={job.href}>
-                  {job.company}
-                </a>
-              </h3>
-              <p class={siteWhen}>
-                {job.start} – {job.end}
-              </p>
-            </div>
-            <ul class={profileList}>
-              {job.points.map(point => (
-                <li>{point}</li>
-              ))}
-            </ul>
-          </article>
-        ))
-      }
-    </section>
-
-    <section class={profileSection}>
-      <h2 class={siteH2}>{intro.sections.openSource}</h2>
-      <div class:list={['profile-projects', profileGrid]}>
-        {
-          projects.map(project => (
-            <a class={profileCard} href={project.href} data-card="">
-              <span class:list={['profile-project-top', profileCardTop]}>
-                <span class:list={['profile-project-name', siteCardName]}>{project.name}</span>
-                <span class={profileCounts}>
-                  <span class={badgeClass}>{project.language}</span>
-                  <span class={badgeClass}>{formatCount(project.stars)} 星标</span>
-                  <span class={badgeClass}>{formatCount(project.forks)} 派生</span>
-                </span>
+        pinnedProjects.map(project => (
+          <li>
+            <a href={project.href}>
+              <span class="title">{project.name}</span>
+              <span class="meta">
+                {' '}
+                · {project.language} · {formatCount(project.stars)}★
               </span>
-              <span class:list={['profile-project-summary', siteCardSummary]}>
-                {project.summary}
-              </span>
+              {project.summary ? <span class="desc">{project.summary}</span> : null}
             </a>
-          ))
-        }
-      </div>
-    </section>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 
-    <section class={profileSection}>
-      <h2 class={siteH2}>{intro.sections.skills}</h2>
-      <p class={profileSkills}>
-        <img class={profileSkillsImg} src={skills.src} alt={skills.alt} />
-      </p>
-    </section>
-  </div>
+  <section>
+    <h2>{intro.sections.skills}</h2>
+    <img class="skills" src={skills.src} alt={skills.alt} />
+  </section>
 </BaseLayout>
+
+<script define:vars={{ moods: intro.moods }}>
+  let index = 0
+  const mood = document.querySelector('[data-mood]')
+  document.querySelector('[data-poke]')?.addEventListener('click', () => {
+    if (!moods.length || !mood) return
+    index = (index + 1) % moods.length
+    mood.textContent = moods[index] ?? ''
+  })
+</script>

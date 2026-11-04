@@ -1,10 +1,7 @@
 ---
-import SiteFooter from '../components/SiteFooter.astro'
-import SiteNav from '../components/SiteNav.astro'
-import SiteWatermark from '../components/SiteWatermark.astro'
 import { intro } from '../lib/intro.ts'
+import { navItems } from '../lib/nav.ts'
 import '../styles/global.css'
-import 'remark-github-blockquote-alert/alert.css'
 
 interface Props {
   title?: string
@@ -13,6 +10,12 @@ interface Props {
 
 const { title, description = intro.description } = Astro.props
 const pageTitle = title ? `${title} · ${intro.name}` : `${intro.name} · ${intro.bio}`
+const path = Astro.url.pathname
+
+function current(href: string) {
+  if (href === '/') return path === '/' || path === '/index.html'
+  return path === href || path.startsWith(href)
+}
 ---
 
 <!doctype html>
@@ -28,7 +31,6 @@ const pageTitle = title ? `${title} · ${intro.name}` : `${intro.name} · ${intr
     <meta property="og:description" content={description} />
     <meta property="og:image" content={intro.avatar} />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:image" content={intro.avatar} />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link
       rel="alternate"
@@ -49,21 +51,70 @@ const pageTitle = title ? `${title} · ${intro.name}` : `${intro.name} · ${intr
     </script>
   </head>
   <body>
-    <SiteWatermark />
-    <div class="site-shell min-h-screen">
-      <SiteNav currentPath={Astro.url.pathname} />
-      <main class="px-6 py-10 sm:px-8 sm:py-12">
+    <div class="wrap">
+      <nav class="nav" aria-label="主导航">
+        <a class="nav-brand" href="/">{intro.name}</a>
+        {
+          navItems.map(item => {
+            const external = 'external' in item && item.external
+            return (
+              <a
+                href={item.href}
+                aria-current={!external && current(item.href) ? 'page' : undefined}
+                target={external ? '_blank' : undefined}
+                rel={external ? 'noopener noreferrer' : undefined}
+              >
+                {item.text}
+              </a>
+            )
+          })
+        }
+        <div class="nav-end">
+          {
+            intro.places.map(place => (
+              <a
+                href={place.href}
+                target={place.href.startsWith('/') ? undefined : '_blank'}
+                rel={place.href.startsWith('/') ? undefined : 'noopener noreferrer'}
+              >
+                {place.label}
+              </a>
+            ))
+          }
+          <button type="button" class="theme-btn" data-theme-toggle aria-label="切换浅色 / 深色">
+            深色
+          </button>
+        </div>
+      </nav>
+
+      <main>
         <slot />
       </main>
-      <SiteFooter />
+
+      <footer class="footer">
+        © {new Date().getFullYear()}
+        {intro.name} ·
+        <a href="https://icp.gov.moe/?keyword=20260869" target="_blank" rel="noopener noreferrer">
+          萌ICP备20260869号
+        </a>
+      </footer>
     </div>
-    <script define:vars={{ name: intro.name, bio: intro.bio, site: intro.site, kaomoji: intro.kaomoji }}>
-      console.info(
-        `%c${kaomoji}  你好，我是${name}\n%c${bio}\n%c→ ${site}`,
-        'font-size:18px;font-weight:700',
-        'color:#888',
-        'color:#0095ff'
-      )
+
+    <script>
+      const key = 'heyq02-theme'
+      const button = document.querySelector('[data-theme-toggle]')
+      const sync = () => {
+        const dark = document.documentElement.classList.contains('dark')
+        if (!button) return
+        button.textContent = dark ? '浅色' : '深色'
+      }
+      sync()
+      button?.addEventListener('click', () => {
+        const next = !document.documentElement.classList.contains('dark')
+        document.documentElement.classList.toggle('dark', next)
+        localStorage.setItem(key, next ? 'dark' : 'light')
+        sync()
+      })
     </script>
   </body>
 </html>

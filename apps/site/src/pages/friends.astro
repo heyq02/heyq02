@@ -1,9 +1,55 @@
 ---
-import FriendsGrid from '../components/FriendsGrid.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { friendsData } from '../lib/friends.ts'
+
+const { title, intro, exchange, friends } = friendsData
 ---
 
-<BaseLayout title={friendsData.title}>
-  <FriendsGrid data={friendsData} />
+<BaseLayout title={title}>
+  <h1>{title}</h1>
+  <p class="muted">{intro}</p>
+
+  {
+    friends.length === 0 ? (
+      <p class="muted">还没有友链。</p>
+    ) : (
+      <ul class="plain-list">
+        {friends.map(friend => (
+          <li>
+            <a href={friend.url} target="_blank" rel="noopener noreferrer friend">
+              <span class="title">{friend.name}</span>
+              {friend.desc ? <span class="desc">{friend.desc}</span> : null}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  <section>
+    <h2>{exchange.title}</h2>
+    <p class="muted">{exchange.body}</p>
+    <ul class="plain-list">
+      <li>
+        <span class="title">名称</span>
+        <span class="desc">{exchange.self.name}</span>
+      </li>
+      <li>
+        <span class="title">站点</span>
+        <span class="desc">
+          <a href={exchange.self.url}>{exchange.self.url}</a>
+        </span>
+      </li>
+      <li>
+        <span class="title">头像</span>
+        <span class="desc">
+          <a href={exchange.self.avatar}>{exchange.self.avatar}</a>
+        </span>
+      </li>
+      <li>
+        <span class="title">简介</span>
+        <span class="desc">{exchange.self.desc}</span>
+      </li>
+    </ul>
+  </section>
 </BaseLayout>
