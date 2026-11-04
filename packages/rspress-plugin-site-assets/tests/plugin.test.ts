@@ -9,15 +9,14 @@ import { pluginSiteAssets } from '../src/index.ts'
 it('exposes pluginSiteAssets that copies public assets via config hook', async () => {
   const root = await mkdtemp(join(tmpdir(), 'heyq02-assets-plugin-'))
   const site = join(root, 'apps/site')
-  const staticSig = join(root, 'static/signature')
+  const personalDir = join(root, 'personal')
 
   try {
     await mkdir(join(site, 'public'), { recursive: true })
-    await mkdir(staticSig, { recursive: true })
+    await mkdir(personalDir, { recursive: true })
     await writeFile(join(site, 'public/wechat.jpg'), 'wechat')
     await writeFile(join(site, 'public/wuxian-jinbu.png'), 'watermark')
-    await writeFile(join(staticSig, 'full-nobg.ico'), 'ico')
-    await writeFile(join(staticSig, 'full-nobg.png'), 'png')
+    await writeFile(join(personalDir, 'signature.png'), 'png')
 
     const plugin = pluginSiteAssets({ siteRoot: site })
     expect(plugin.name).toBe('rspress-plugin-site-assets')

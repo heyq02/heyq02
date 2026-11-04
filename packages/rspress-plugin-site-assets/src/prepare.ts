@@ -9,13 +9,10 @@ export interface PrepareSiteAssetsOptions {
 export async function prepareSiteAssets(options: PrepareSiteAssetsOptions): Promise<void> {
   const site = options.siteRoot
   const publicDir = resolve(site, 'blogs/public')
+  const signature = resolve(site, '../../personal/signature.png')
   await mkdir(publicDir, { recursive: true })
-  await cp(resolve(site, '../../static/signature/full-nobg.ico'), resolve(publicDir, 'favicon.ico'))
-  await cp(resolve(site, '../../static/signature/full-nobg.png'), resolve(publicDir, 'favicon.png'))
-  await cp(
-    resolve(site, '../../static/signature/full-nobg.png'),
-    resolve(publicDir, 'signature.png')
-  )
+  await cp(signature, resolve(publicDir, 'favicon.png'))
+  await cp(signature, resolve(publicDir, 'signature.png'))
   await cp(resolve(site, 'public/wechat.jpg'), resolve(publicDir, 'wechat.jpg'))
   await cp(resolve(site, 'public/wuxian-jinbu.png'), resolve(publicDir, 'wuxian-jinbu.png'))
 }

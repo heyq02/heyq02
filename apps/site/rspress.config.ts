@@ -27,7 +27,7 @@ export default defineConfig({
   lang: 'zh',
   title: intro.title,
   description: intro.description,
-  icon: '/favicon.ico',
+  icon: '/favicon.png',
   logo: '/signature.png',
   siteOrigin: intro.site,
   // Built-in in Rspress ≥2.1 (replaces @rspress/plugin-sitemap).
