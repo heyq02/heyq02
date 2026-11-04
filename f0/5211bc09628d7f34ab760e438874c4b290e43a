@@ -1,0 +1,19 @@
+pnpm-workspace.yaml
+  s_dd36768f078731::t_f659a327590f2d 17-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "f05211bc09628d7f34ab760e438874c4b290e43a",
+  "prompts": {},
+  "sessions": {
+    "s_dd36768f078731": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6f7ded30-647e-49b8-b039-2830323f5de5",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
