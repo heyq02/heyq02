@@ -1,0 +1,35 @@
+{
+  "title": "游戏",
+  "intro": "几款会反复打开的手游名片——最高段位、游戏 ID、区服，方便开黑对得上号。",
+  "tip": "段位会随赛季变，这里记的是历史最高。",
+  "profiles": [
+    {
+      "id": "wzry",
+      "name": "王者荣耀",
+      "platform": "手游",
+      "publisher": "天美 / 腾讯",
+      "gameId": "贺同学",
+      "server": "微信区",
+      "peakRank": "荣耀王者",
+      "peakDetail": "赛季最高",
+      "roles": ["打野", "中路"],
+      "note": "偶尔排位。以前还拿皮肤图训过 CNN。",
+      "href": "https://pvp.qq.com/",
+      "cover": "https://picsum.photos/seed/heyq02-wzry-card/640/360"
+    },
+    {
+      "id": "naruto",
+      "name": "火影忍者手游",
+      "platform": "手游",
+      "publisher": "腾讯",
+      "gameId": "贺同学",
+      "server": "安卓官服",
+      "peakRank": "影级",
+      "peakDetail": "历史最高段位",
+      "roles": ["决斗场", "秘境"],
+      "note": "搓连招和查忍具的时间，往往比排位还多。",
+      "href": "https://hn.qq.com/",
+      "cover": "https://picsum.photos/seed/heyq02-naruto-card/640/360"
+    }
+  ]
+}

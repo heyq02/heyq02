@@ -20,8 +20,8 @@
       "id": "games",
       "title": "游戏",
       "desc": "会反复打开的，和偶尔肝一把的",
-      "href": "/likes/games/",
-      "countLabel": "6 款"
+      "href": "/games/",
+      "countLabel": "名片"
     },
     {
       "id": "watching",

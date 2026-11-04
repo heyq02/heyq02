@@ -89,13 +89,15 @@ html.rp-dark .rspress-logo {
 
 .rp-doc-layout__container:has(.profile),
 .rp-doc-layout__container:has(.friends),
-.rp-doc-layout__container:has(.likes) {
+.rp-doc-layout__container:has(.likes),
+.rp-doc-layout__container:has(.games) {
   justify-content: center;
 }
 
 .rp-doc-layout__container:has(.profile) .rp-doc-layout__doc,
 .rp-doc-layout__container:has(.friends) .rp-doc-layout__doc,
-.rp-doc-layout__container:has(.likes) .rp-doc-layout__doc {
+.rp-doc-layout__container:has(.likes) .rp-doc-layout__doc,
+.rp-doc-layout__container:has(.games) .rp-doc-layout__doc {
   flex: 0 1 var(--rp-content-max-width);
   width: 100%;
   max-width: var(--rp-content-max-width);
@@ -104,7 +106,8 @@ html.rp-dark .rspress-logo {
 
 .rp-doc-layout__container:has(.profile) .rp-doc-layout__doc-container,
 .rp-doc-layout__container:has(.friends) .rp-doc-layout__doc-container,
-.rp-doc-layout__container:has(.likes) .rp-doc-layout__doc-container {
+.rp-doc-layout__container:has(.likes) .rp-doc-layout__doc-container,
+.rp-doc-layout__container:has(.games) .rp-doc-layout__doc-container {
   padding: var(--rp-content-padding-y) var(--rp-content-padding-x);
 }
 
