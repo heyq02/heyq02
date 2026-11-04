@@ -1,0 +1,41 @@
+apps/cli/package.json
+  s_7f3749379effc6::t_55f269c1b9ff47 26
+packages/rspress-plugin-watermark/package.json
+  s_7f3749379effc6::t_ebff0a665a0ab5 33
+apps/cli/tsconfig.json
+  s_7f3749379effc6::t_b0da7d34cc3b32 8
+package.json
+  s_7f3749379effc6::t_56511c45c1ce72 13
+vite.config.ts
+  s_7f3749379effc6::t_ff51064263d593 19
+packages/rspress-plugin-watermark/tsconfig.json
+  s_7f3749379effc6::t_2fcbce9244f15b 8
+apps/site/package.json
+  s_7f3749379effc6::t_f7c22cf3aa520a 8
+packages/rspress-plugin-media/tsconfig.json
+  s_7f3749379effc6::t_f925de5991c001 6
+.github/workflows/ci.yml
+  s_7f3749379effc6::t_402b66e3eadb5c 1
+packages/rspress-plugin-media/package.json
+  s_7f3749379effc6::t_ae668d8eba1989 31
+tsconfig.json
+  s_7f3749379effc6::t_be9e60c15011af 6
+pnpm-lock.yaml
+  s_7f3749379effc6::t_d3795f9d5da99c 3232-3233,3244,3253,3255-3256,3264-3265,3267,3269,3272,3274,3276,3278,3280,3282-3283,3285,3287,3289-3300,3302,3404-3405,3411,3419,3424,3429,3431-3432,3450-3451,4081,4168,4185,4204,4222,4225,4227-4228,4233,4243,4275,4419-4420,4454,4463,4469,4552,4560,4568,4576-4577,4607-4608,4725,4737-4738,4867,4877,4885,4913-4914,4918-4919,4954,5070-5071,5088,5282-5283,5711,5725-5726,5731,5749-5750,5928,6002,6004-6005,6024-6025,6030,6039,6044,6236,6273,6277-6278,6283-6284,6286-6287,6293,6309-6310,6312-6313
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "e30fe894f26e2426b61d58c5f4fc658ba845361d",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
