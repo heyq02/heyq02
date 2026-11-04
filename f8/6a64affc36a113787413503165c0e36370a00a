@@ -1,0 +1,24 @@
+apps/site/src/styles/global.css
+  s_9e4cc396e9a614::t_6e211dea674329 132-134,136,139-142,145,147,150
+apps/site/src/components/breadcrumb.astro
+  s_9e4cc396e9a614::t_e8ee3506564a88 63
+  s_9e4cc396e9a614::t_63a35717e61548 21,26,34,36-47,51,53-56,59-60,62,64-70
+apps/site/src/config.ts
+  s_9e4cc396e9a614::t_2367855c112c12 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "f86a64affc36a113787413503165c0e36370a00a",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
