@@ -3,7 +3,7 @@ import {
   CardSummary,
   CardTitle,
   Section,
-  siteBody,
+  siteCardChrome,
   siteCardSummary,
   siteFocusRing,
   sitePageRoot,
@@ -17,7 +17,7 @@ import { intro } from '../lib/intro.ts'
 import { ContributionHeatmap } from './ContributionHeatmap.tsx'
 import { JumpRail } from './JumpRail.tsx'
 import { likesData } from './likes-data.ts'
-import { contributionCalendar, pinnedProjects, skillsPicture } from './profile-data.ts'
+import { contributionCalendar, pinnedProjects } from './profile-data.ts'
 import type { ProfileProject } from './profile-data.ts'
 import { ProfilePlay } from './ProfilePlay.tsx'
 import { recentPosts } from './recent-posts.ts'
@@ -34,8 +34,6 @@ const likeGlyphs: Record<string, string> = {
 
 const peekIds = ['uses', 'music', 'games', 'visits'] as const
 
-const dashedCard = `relative rounded-2xl border border-dashed border-rp-divider bg-rp-bg px-rp-5 py-rp-4 no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-soft hover:!no-underline ${siteFocusRing}`
-
 function formatZhDate(iso: string): string {
   const match = /^(?<y>\d{4})-(?<m>\d{2})-(?<d>\d{2})$/.exec(iso)
   if (!match?.groups) {
@@ -46,7 +44,7 @@ function formatZhDate(iso: string): string {
 
 function PostCard({ post }: { post: RecentPost }): ReactElement {
   return (
-    <CardLink href={post.href} external={false} className={`group block ${dashedCard}`}>
+    <CardLink href={post.href} external={false} className={`group block ${siteCardChrome}`}>
       <CardTitle className='text-rp-lg'>{post.title}</CardTitle>
       {post.description ? (
         <CardSummary className='mt-rp-2 line-clamp-2'>{post.description}</CardSummary>
@@ -60,7 +58,7 @@ function ProjectCard({ project }: { project: ProfileProject }): ReactElement {
   return (
     <CardLink
       href={project.href}
-      className={`group gap-rp-2 relative flex h-full flex-col ${dashedCard} [&_.rp-badge]:no-underline`}
+      className={`group gap-rp-2 relative flex h-full flex-col ${siteCardChrome} [&_.rp-badge]:no-underline`}
       external={false}
     >
       <span className='gap-rp-2 flex flex-wrap items-baseline'>
@@ -97,9 +95,7 @@ export function ProfilePage({
     return (
       <>
         <ProfilePlay tags={intro.tags} ssgMd />
-        {`\n## ${intro.sections.skills}\n\n`}
-        {intro.skills.map(skill => `- [${skill.name}](${skill.href})`).join('\n')}
-        {`\n\n## ${intro.sections.openSource}\n\n`}
+        {`\n## ${intro.sections.openSource}\n\n`}
         {pinnedProjects
           .map(
             project =>
@@ -127,19 +123,9 @@ export function ProfilePage({
     <div className={`profile ${sitePageRoot}`}>
       <ProfilePlay tags={intro.tags} />
 
-      <Section marker='profile-section hey-rise hey-rise-delay-1'>
-        <p className={`${siteBody} profile-skills m-0 opacity-90`}>
-          <img
-            className='block h-auto max-w-full dark:invert'
-            src={skillsPicture.src}
-            alt={skillsPicture.alt}
-          />
-        </p>
-      </Section>
-
       <JumpRail label='我做的项目' />
 
-      <Section marker='profile-section' className='!mt-0'>
+      <Section marker='profile-section hey-rise hey-rise-delay-1' className='!mt-0'>
         <div className='profile-projects gap-rp-4 grid grid-cols-1 sm:grid-cols-2'>
           {pinnedProjects.map(project => (
             <ProjectCard key={project.href} project={project} />
@@ -177,7 +163,7 @@ export function ProfilePage({
               key={category.id}
               href={category.href}
               external={false}
-              className={`group relative overflow-hidden ${dashedCard}`}
+              className={`group relative overflow-hidden ${siteCardChrome}`}
             >
               <span className='top-rp-3 right-rp-3 text-rp-2xl text-rp-muted pointer-events-none absolute font-mono opacity-35 transition-opacity group-hover:opacity-70'>
                 {likeGlyphs[category.id] ?? '·'}

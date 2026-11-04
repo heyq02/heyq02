@@ -1,10 +1,11 @@
-import { siteBody, siteH1, siteMeta, TextLink } from '@heyq02/rspress-theme-ui'
+import { siteBody, siteH1, siteMeta } from '@heyq02/rspress-theme-ui'
 import { Badge } from '@rspress/core/theme'
 import { useState } from 'react'
 import type { ReactElement } from 'react'
 
 import { intro } from '../lib/intro.ts'
 import { HomeWeather } from './HomeWeather.tsx'
+import { SocialIcons } from './SocialIcons.tsx'
 
 interface ProfilePlayProps {
   tags: string[]
@@ -30,6 +31,8 @@ export function ProfilePlay({
         {`${intro.bio}\n\n${intro.about}\n\n`}
         {tags.map(tag => `\`${tag}\``).join(' ')}
         {'\n'}
+        {socials.map(place => `- [${place.label}](${place.href})`).join('\n')}
+        {`\n- [Email](mailto:${intro.contact.email})\n`}
       </>
     )
   }
@@ -64,19 +67,12 @@ export function ProfilePlay({
           </span>
           <HomeWeather home={intro.home} />
         </div>
-        <p className='mt-rp-3 gap-rp-1 mb-0 flex flex-wrap'>
+        <div className='mt-rp-3 gap-rp-2 mb-0 flex flex-wrap items-center'>
           {tags.map(tag => (
             <Badge key={tag} text={tag} type='info' outline />
           ))}
-        </p>
-        <p className='mt-rp-5 gap-x-rp-4 gap-y-rp-2 text-rp-sm mb-0 flex flex-wrap'>
-          {socials.map(place => (
-            <TextLink key={place.label} href={place.href}>
-              {place.label}
-            </TextLink>
-          ))}
-          <TextLink href={`mailto:${intro.contact.email}`}>Email</TextLink>
-        </p>
+          <SocialIcons className='ml-rp-1' />
+        </div>
       </div>
 
       <div className='mt-rp-8 md:pl-rp-8 relative flex w-full justify-center md:mt-0 md:w-1/2 md:translate-y-1 md:justify-end'>

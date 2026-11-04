@@ -3,7 +3,7 @@ import {
   CardSummary,
   CardTitle,
   Section,
-  siteFocusRing,
+  siteCardChrome,
   siteWhen
 } from '@heyq02/rspress-theme-ui'
 import type { ReactElement } from 'react'
@@ -19,8 +19,6 @@ const glyphs: Record<string, string> = {
   visits: '⌖',
   reading: '¶'
 }
-
-const doorChrome = `relative overflow-hidden rounded-2xl border border-dashed border-rp-divider bg-rp-bg p-rp-4 no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-soft hover:!no-underline ${siteFocusRing}`
 
 /** Hub as a bento of differently weighted category doors. */
 export function Hub({ ssgMd }: { ssgMd: boolean }): ReactElement {
@@ -47,7 +45,7 @@ export function Hub({ ssgMd }: { ssgMd: boolean }): ReactElement {
                   href={category.href}
                   external={false}
                   className={[
-                    doorChrome,
+                    `relative overflow-hidden ${siteCardChrome}`,
                     wide
                       ? 'sm:col-span-1 lg:col-span-3 min-h-[calc(var(--rp-radius-large)*6)]'
                       : 'lg:col-span-2 min-h-[calc(var(--rp-radius-large)*5.5)]'

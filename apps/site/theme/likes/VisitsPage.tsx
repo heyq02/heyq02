@@ -63,7 +63,7 @@ function Ticket({ item, upcoming }: { item: ShelfItem; upcoming: boolean }): Rea
     <ItemLink
       href={item.href}
       className={[
-        `group hover:shadow-rp grid overflow-hidden sm:grid-cols-[6.5rem_minmax(0,1fr)] ${siteTile}`,
+        `group grid overflow-hidden sm:grid-cols-[6.5rem_minmax(0,1fr)] ${siteTile}`,
         upcoming ? 'border-dashed' : ''
       ].join(' ')}
     >

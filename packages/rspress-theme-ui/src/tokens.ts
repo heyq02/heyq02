@@ -18,18 +18,17 @@ export const siteFocusRing =
 
 export const siteLink = `font-semibold text-inherit no-underline hover:text-rp-link hover:underline hover:underline-offset-[3px] ${siteFocusRing}`
 
-/** Soft surface shell (radius + border + fill). */
-export const siteSurface =
-  'rounded-rp-sm border border-rp-divider-light bg-[color-mix(in_oklab,var(--rp-c-bg)_78%,transparent)] backdrop-blur-[2px]'
+/** Soft surface shell — dashed Primer panel used across the site. */
+export const siteSurface = 'rounded-2xl border border-dashed border-rp-divider bg-rp-bg'
 
 /** Static soft panel (exchange block, empty states share padding/radius). */
 export const sitePanelChrome = `${siteSurface} px-rp-4 py-rp-4`
 
 /** Interactive card chrome shared by project/post/friend cards. */
-export const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,box-shadow,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-bg hover:text-inherit hover:shadow-rp hover:!no-underline ${siteFocusRing}`
+export const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-soft hover:text-inherit hover:!no-underline ${siteFocusRing}`
 
 /** Linkable soft tile without default padding (likes grids). */
-export const siteTile = `${siteSurface} no-underline transition-[border-color,background-color,box-shadow,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:!no-underline ${siteFocusRing}`
+export const siteTile = `${siteSurface} no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-soft hover:!no-underline ${siteFocusRing}`
 
 /** Compact list row with soft hover (music ranks, book rows). */
 export const siteRow = `rounded-rp-sm border border-transparent no-underline transition-[border-color,background-color] duration-200 hover:border-rp-divider-light hover:bg-rp-soft hover:!no-underline ${siteFocusRing}`
@@ -47,7 +46,7 @@ export const siteWhen = 'm-0 whitespace-nowrap font-mono text-rp-sm font-medium 
 export const siteMeta = 'font-mono text-rp-sm font-medium tracking-wide text-rp-muted'
 
 export const siteEmpty =
-  'm-0 rounded-rp-sm border border-dashed border-rp-divider bg-rp-soft px-rp-4 py-rp-4 leading-relaxed text-rp-muted'
+  'm-0 rounded-2xl border border-dashed border-rp-divider bg-rp-soft px-rp-4 py-rp-4 leading-relaxed text-rp-muted'
 
 export const siteSection = 'mt-rp-10'
 

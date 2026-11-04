@@ -94,7 +94,7 @@ function DeviceHero({ item }: { item: ShelfItem }): ReactElement {
   return (
     <ItemLink
       href={item.href}
-      className={`group p-rp-5 hover:shadow-rp relative grid min-h-[calc(var(--rp-radius-large)*9)] content-between overflow-hidden ${siteTile}`}
+      className={`group p-rp-5 relative grid min-h-[calc(var(--rp-radius-large)*9)] content-between overflow-hidden ${siteTile}`}
     >
       <span className='-right-rp-4 -bottom-rp-6 text-rp-brand absolute font-mono text-[7rem] leading-none opacity-[0.08]'>
         {item.mark ?? 'PC'}

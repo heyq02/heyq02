@@ -75,7 +75,7 @@ export function WatchingPage({ ssgMd }: { ssgMd: boolean }): ReactElement {
 function NowCard({ item }: { item: ShelfItem }): ReactElement {
   return (
     <ItemLink href={item.href} className={siteMediaLink}>
-      <span className='rounded-rp-sm border-rp-brand shadow-rp relative block aspect-[2/3] overflow-hidden border'>
+      <span className={`relative block aspect-[2/3] overflow-hidden ${siteSurface}`}>
         {item.cover ? (
           <img
             className='size-full object-cover transition-transform duration-300 group-hover:scale-[1.04]'

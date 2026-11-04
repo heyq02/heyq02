@@ -2,11 +2,11 @@ import {
   siteCardName,
   siteCardSummary,
   siteDisplay,
-  siteFocusRing,
   siteH2,
   siteMediaLink,
   siteSection,
   siteSurface,
+  siteTile,
   siteWhen
 } from '@heyq02/rspress-theme-ui'
 import type { ReactElement } from 'react'
@@ -75,7 +75,7 @@ function NowPlaying({ item }: { item: ShelfItem }): ReactElement {
   return (
     <ItemLink
       href={item.href}
-      className={`group rounded-rp-sm border-rp-divider-light hover:border-rp-brand relative grid min-h-[calc(var(--rp-radius-large)*7)] overflow-hidden border no-underline transition-[border-color] duration-200 hover:!no-underline sm:min-h-[calc(var(--rp-radius-large)*8)] ${siteFocusRing}`}
+      className={`group relative grid min-h-[calc(var(--rp-radius-large)*7)] overflow-hidden sm:min-h-[calc(var(--rp-radius-large)*8)] ${siteTile}`}
     >
       {item.cover ? (
         <img
