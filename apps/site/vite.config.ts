@@ -11,7 +11,11 @@ export default liangmi({
         }
       },
       dev: {
-        command: 'pnpm exec rspress dev',
+        command: 'vp exec rspress dev',
+        cache: false
+      },
+      preview: {
+        command: 'vp preview',
         cache: false
       }
     }

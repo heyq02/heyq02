@@ -9,9 +9,10 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "check": "vp check"
+    "check": "vp run ccheck"
   },
   "devDependencies": {
+    "@liangmi/vp-config": "catalog:",
     "typescript": "catalog:",
     "vite-plus": "catalog:"
   }
