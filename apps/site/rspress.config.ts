@@ -22,7 +22,19 @@ export default defineConfig({
   themeDir,
   globalStyles: resolve(dir, 'tailwind.css'),
   builderConfig: {
-    plugins: [pluginTailwindcss()]
+    plugins: [pluginTailwindcss()],
+    html: {
+      // Primer light tokens only apply under these html attributes — set before paint.
+      tags: [
+        {
+          tag: 'script',
+          children:
+            "(function(){var r=document.documentElement;r.setAttribute('data-color-mode','light');r.setAttribute('data-light-theme','light');r.setAttribute('data-dark-theme','dark')})()",
+          head: true,
+          append: false
+        }
+      ]
+    }
   },
 
   // Chinese only: content lives at unprefixed routes, no language switcher.
@@ -76,9 +88,7 @@ ${pages || '-（暂无其他页面）'}
     ['meta', { property: 'og:site_name', content: intro.title }],
     ['meta', { property: 'og:image', content: intro.avatar }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
-    ['meta', { name: 'twitter:image', content: intro.avatar }],
-    // Primer light theme only — no appearance toggle.
-    `<script>(function(){var r=document.documentElement;r.setAttribute('data-color-mode','light');r.setAttribute('data-light-theme','light');r.setAttribute('data-dark-theme','dark')})()</script>`
+    ['meta', { name: 'twitter:image', content: intro.avatar }]
   ],
   plugins: [
     pluginSiteAssets({

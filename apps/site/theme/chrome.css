@@ -73,6 +73,7 @@
 }
 
 html {
+  color-scheme: light;
   background-color: var(--rp-c-bg);
 }
 
