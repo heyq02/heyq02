@@ -1,0 +1,23 @@
+apps/site/theme/tests/FriendGrid.test.tsx
+  s_9e4cc396e9a614::t_f86b445845f570 46-54
+apps/site/theme/FriendGrid.tsx
+  s_9e4cc396e9a614::t_9c15185596bbe1 32-33,37-40,48-69,72-90
+apps/site/theme/e2e/theme.spec.ts
+  s_9e4cc396e9a614::t_9ad199d857e017 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "c597bf5d51fc1ce3a1b254f63e22cbf7d2c05bb5",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
