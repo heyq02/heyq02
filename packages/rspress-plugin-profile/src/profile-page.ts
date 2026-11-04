@@ -52,7 +52,7 @@ export function profilePage(
   }
 }
 
-/** Browser tab suffix after the name (`永琪 - …`). */
+/** Browser tab suffix after the name (`贺同学 - …`). */
 export function documentTitleSuffix(
   intro: Intro,
   page: Pick<ProfilePageView, 'tags'> = profilePage(intro)
