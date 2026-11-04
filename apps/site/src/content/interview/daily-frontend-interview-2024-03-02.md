@@ -1,0 +1,109 @@
+---
+title: 每日前端面经 · 2024-03-02
+date: 2024-03-02
+---
+
+题目来源: [牛客](https://www.nowcoder.com/feed/main/detail/ee3fbeb3caec428e8316d863fdbc657e?sourceSSR=users)
+
+## 图片懒加载实现方式
+
+添加页面滚动事件监听，判断图片位置和当前位置来给src赋值
+
+```js
+addEventListener('scroll', () => {
+  const image = document.querySelector('#image')
+  const offsetTop = image.offsetTop
+  const clientHeight = document.documentElement.clientHeight
+  const scrollTop = document.documentElement.scrollTop
+  if (offsetTop < clientHeight + scrollTop) {
+    image.setAttribute('src', image.getAttribute('data-src'))
+  }
+})
+```
+
+## 虚拟列表实现方式
+
+实现方式是只渲染当前可视区域内的数据部分，而非全部渲染数据，可以通过监听滚动事件，动态计算当前可视区域的起始索引和结束索引，并只渲染这一部分的数据
+
+## Vue组件通信
+
+- props/$emit
+- $parent/$children
+- $attrs/$listeners
+- provide/inject
+- ref/$refs
+- eventBus
+- VueX
+- storage
+
+## Vue生命周期
+
+## Vue2
+
+- beforeCreate: 组件初始化之后，进行数据侦听和事件/侦听器的配置之前执行
+- created: 组件创建完成之后立即同步执行，已配置数据侦听、计算属性、方法等回调函数
+- beforeMount: 挂载开始之前执行，相关的render函数首次被调用
+- mounted: 组件挂载后执行，不能保证所有的子组件也都被挂载完毕
+- beforeUpdate: 数据发生改变，DOM被更新之前执行
+- updated: 数据更改导致虚拟DOM重新渲染和更新完毕之后调用
+- activated: 被keep-alive缓存的组件激活时调用
+- deactivated: 被keep-alive缓存的组件失活时调用
+- beforeDestoryed: 组件销毁之前调用
+- destoryed: 组件销毁之后调用
+- errorCaptured: 捕获到后代组件的错误时调用
+
+## Vue3
+
+- onMounted: 组件挂载完毕后执行
+- onUpdated: 组件因为响应式状态变更而更新其DOM树后执行
+- onUnmounted: 组件卸载之后执行
+- onBeforeMount: 组件挂载之前执行
+- onBeforeUpdate: 组件因为响应式状态变更而更新其DOM树前执行
+- onBeforeUnmount: 组件卸载之前执行
+- onErrorCaptured: 捕获了后代组件传递的错误时执行
+- onRenderTracked: 组件渲染过程中追踪到响应式依赖时调用
+- onRenderTriggered: 组件响应式依赖的变更触发了组件渲染时调用
+- onActivated: 若组件是keepAlice缓存树的一部分，当组件被插入到DOM中执行
+- onDeactivated: 若组件是keepAlice缓存树的一部分，当组件被从DOM中移除执行
+- onServerPrefetch: 组件实例在服务器上被渲染之前调用
+
+## Vue2和Vue3的区别
+
+- 生命周期
+- 多根节点
+- 组合式API
+- 异步组件
+- Teleport: 可以将部分DOM移动到APP之外的位置
+- 响应式原理: Vue2的原理是Object.defineProperty；Vue3的原理是Proxy/Reflect
+- 虚拟DOM: 新增patchFlag字段，优化渲染
+- 事件缓存
+- Diff算法优化
+- 打包优化: 新增Tree-shaking
+- TypeScript支持
+
+## Vue-Router的原理
+
+路由描述的是URL与UI之间的映射关系，这种隐射是单向的，即URL变化引起UI变化（无需刷新页面）
+
+- hash模式: 通过hashchange事件监听URL的变化
+- history模式: 拦截pushState/replaceState的调用和标签的点击事件监听URL的变化
+
+## V-if和v-show的区别
+
+- v-if: 是真正的条件渲染，会确保子组件被适当的销毁和重建，具有惰性
+- v-show: 不管初始条件是什么，元素总会被渲染，并基于CSS进行切换
+
+## UI组件封装
+
+组件就是一个代码片段，可以实现某些特定的功能或渲染特定的展示效果
+
+- 单一性: 一个组件要有高内聚、低耦合的特征，尽量不要和其他组件有过多的双向交互和互相依赖关系
+- 复用性: 当组件封装好后，可以在类似的使用场景中直接调用
+
+[浅析图片懒加载(三种实现方法与两种优化方式)](https://blog.csdn.net/qq_42136832/article/details/124251410)  
+[前端进阶-个人笔记-组件的抽象与封装思想](https://blog.csdn.net/Amnesiac666/article/details/110606734)  
+[vue虚拟列表实现（简单详细）项目优化必备](https://blog.csdn.net/m0_68330110/article/details/130624136#:~:text=vue%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8%E5%AE%9E%E7%8E%B0%EF%BC%88%E7%AE%80%E5%8D%95%E8%AF%A6%E7%BB%86%EF%BC%89%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96%E5%BF%85%E5%A4%87%201%20%3C%20div%20%20class%3D%22list-container%22%3E%202%20%3C,7%20%3C%2F%20div%20%3E%208%20%3C%2F%20div%20%3E)
+
+```
+新人发文，礼貌求赞❤️
+```

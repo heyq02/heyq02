@@ -1,0 +1,138 @@
+---
+title: 每日前端面经 · 2024-03-05
+date: 2024-03-05
+---
+
+# 【每日前端面经】2024-03-04
+
+欢迎订阅我的前端面经专栏: [每日前端面经](https://blog.csdn.net/m0_66681776/category_12583217.html)
+
+本期题目来源: [牛客](https://www.nowcoder.com/feed/main/detail/9b060528b1bd41b18447c4edf124dd03)
+
+## HTML 的结构
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>标题</title>
+  </head>
+  <body>
+    <p>Hello, world!</p>
+  </body>
+</html>
+```
+
+- `<!DOCTYPE HTML>`: 文档声明，位于文档最前面的位置
+- `<html>`: 一个 HTML 页面的根元素
+- `<head>`: 包含关于页面的元信息
+- `<meta>`: 描述当前页面的特性
+- `<title>`: 指定该文档的标题
+- `<body>`: 包含页面所有可见内容
+
+## HTML 声明
+
+`<!DOCTYPE HTML>` 声明的目的是让浏览器能够正确地渲染页面。它告诉浏览器当前页面是使用 HTML5 规范编写，拥有更多的功能和优化
+
+## CSS 和 JS 写在哪里
+
+- CSS 放在 head 中
+- JS
+  - 调用执行: 放在 head 里
+  - 即刻执行: 放在 body 里
+
+## Vue2 和 Vue3 的区别
+
+- 性能: Vue3 在性能方面有了很大的提升，包括渲染速度和内存使用。它只会对渲染初始可见的部分数据创建观察者，以提高效率。此外，Vue3 还引入了变更通知的优化，只有依赖的属性的 watcher 才会重新运行，而不是所有 watcher
+- 语法: Vue3 使用了新的语法，如 Composition API 和 Fragments。Composition API 允许更灵活地组合组件逻辑，而 Fragments 允许在模板中返回多个元素。这使得 Vue3 在代码组织和可读性方面更加优秀
+- API: Vue3 的 API 与 Vue2 有所不同。Vue2 使用选项类型 API，而 Vue3 引入了 Composition API。这使得代码更加模块化，逻辑更加清晰
+- 生命周期函数钩子: Vue3 的生命周期函数钩子与 Vue2 有所不同。Vue3 增加了一些新的钩子函数，如 onRenderTracked 和 onRenderTriggered，并在调用前需要先引入
+- 数据双向绑定原理: Vue2 的双向数据绑定是利用 ES5 的 Object.defineProperty() 对数据进行劫持，结合发布订阅模式的方式来实现的。而 Vue3 则使用了 Proxy API 代理来实现数据双向绑定，这使得数据监听更加高效和全面
+- 定义变量和方法: Vue3 提供了 setup 方法，在组件初始化构造的时候触发。使用 reactive 方法来声明数据为响应性数据，并通过 setup 方法返回响应性数据，从而 template 可以获取这些响应式数据。这与 Vue2 中将数据放入 data 中并在 methods 中定义方法的方式有所不同
+- 指令和插槽的使用: Vue3 在指令和插槽的使用方面也有所变化，提供了更多的灵活性和功能
+- 是否支持碎片: Vue3 支持碎片（Fragments），意味着它可以拥有多个根节点。而 Vue2 则不支持碎片
+- 父子之间传参: Vue2 和 Vue3 在父子之间传参方面保持一致，都是使用 props 进行父传子，使用事件 Emitting Events 进行子传父
+- Main.js: Vue3 在 main.js 文件中的设置与 Vue2 有所不同，包括新的创建应用实例的方式和一些配置选项的变化
+- TS 和 PWA 支持程度: Vue3 新加入了 TypeScript 以及 PWA 支持，这使得开发者可以使用 TypeScript 编写更加严谨和可维护的代码，并且可以将 Vue 应用打包成 PWA 应用，提高应用的性能和用户体验
+
+## 如何实现响应式
+
+### Vue2
+
+- 基于 Object.defineProperty，不具备监听数组的能力，需要重新定义数组的原型来达到响应式
+- Object.defineProperty 无法检测到对象属性的添加和删除
+- 由于 Vue 会在初始化实例时对属性执行 getter/setter 转化，所有属性必须在 data 对象上存在才能让 Vue 将它转换成响应式
+- 深度监听需要一次性递归，对性能影响比较大
+
+### Vue3
+
+- 基于 Proxy 和 Reflect，可以原生监听数组，可以监听对象属性的添加和删除
+- 不需要一次性遍历 data 的属性，可以显著提高性能
+- 因为 Proxy 是 ES6 新增的属性，有些浏览器还不支持，只能兼容到 IE11
+
+## 从 A 文件引入的能在 B 文件直接修改吗
+
+不能，是单向数据流
+
+## 组件通信
+
+- props / emit
+- provide / inject
+- expose / ref
+- Pinia
+
+## VueX简单说下
+
+Vuex 是一个专门为 Vue 应用程序开发的状态管理模式和库。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 可以帮助我们更好地组织和管理 Vue 应用程序中的状态，使得应用程序的状态变化更加容易追踪和调试
+
+在一个 Vue 应用程序中，组件之间的状态通常是分散的，这样会导致状态管理变得困难，特别是在应用程序变得复杂时。Vuex 提供了一个集中式的状态管理机制，将所有组件的状态集中存储在一个单一的状态树中。这个状态树可以被所有组件访问和修改，从而实现了组件之间的状态共享和协作
+
+Vuex 的核心概念包括：
+
+- State：应用程序的状态，即存储在 Vuex 中的数据
+- Getter：从状态中派生出一些新的状态，类似于计算属性
+- Mutation：修改状态的唯一途径，必须是同步函数
+- Action：异步修改状态的途径，可以包含任意异步操作
+
+## Action 和 Mutation 的区别
+
+- action 主要处理的是异步的操作，mutation 必须同步执行，而 action 就不受这样的限制，也就是说 action 中我们既可以处理同步，也可以处理异步的操作
+- action 改变状态，最后是通过提交 mutation
+
+## JWT 的流程
+
+JWT 全程 JSON WEB TOKEN，是一个开放标准。它定义了一种紧凑的、自包含的方式用于作为 JSON 对象在各个方面之间安全地传输信息。该信息可以被验证和信任，因为它是数字签名的
+
+1. 登录（C）
+2. 验证通过，生成 JWT（S）
+3. 将 JWT 存储在本地（C）
+4. 携带 JWT 发起请求（C）
+5. 过滤请求验证 JWT（S）
+6. 返回数据（S）
+7. 接收数据（C）
+
+## Promise 有什么状态，能改么
+
+有 pending、resolve 和 reject 三个状态。可以通过 Promise.resole 和 Promise.reject 的 API 来直接修改 Promise 的状态
+
+## 路由模式
+
+- hash 模式: 使用 URL 的 hash 来模拟一个完整的 URL，当 URL 的 hash 值发生变化时，Vue Router 会监听到变化并进行相应的路由跳转。这种模式的好处是兼容性较好，但是会在 URL 中带有 # 符号
+- history 模式: 使用 H5 的 History API 来管理路由，通过修改 URL 的 path 部分来进行路由跳转。这种模式的好处是 URL 更加美观，但是需要服务器配置来支持
+- abstract 模式: 主要用于非浏览器环境，比如服务端渲染。它不会针对 URL 进行任何的修改，只是通过内存中的路由表来进行路由跳转
+
+[HTML基本结构](https://zhuanlan.zhihu.com/p/89452934)  
+[菜鸟教程](https://www.runoob.com)  
+[JS和CSS的引入/写入位置应该放在哪里？](https://blog.csdn.net/fragrant_no1/article/details/78222915)  
+[vue2和vue3的区别](https://blog.csdn.net/zzx262625/article/details/136424767)  
+[你真的了解vue2.0 和 vue3.0 响应式原理区别吗？](https://juejin.cn/post/6982001553540382733)  
+[vue-router路由有几种模式？说说它们的区别？](https://juejin.cn/post/7317494273828749366)  
+[Vue3 过10种组件通讯方式](https://juejin.cn/post/7069251532339806238#heading-3)  
+[五分钟带你了解啥是JWT](https://zhuanlan.zhihu.com/p/86937325)  
+[简单介绍一下Vuex](https://zhuanlan.zhihu.com/p/638203669)  
+[mutation和action 区别](https://blog.csdn.net/coolsheep_/article/details/114268511)
+
+```txt
+新人发文，礼貌求关❤️
+```

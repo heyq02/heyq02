@@ -6,13 +6,13 @@ date: 2024-03-19
 
 # 趣味项目：NPM 下载量日报
 
-> **项目链接**
->
-> 仓库：[xxhls/npm-radio](https://github.com/xxhls/npm-radio)
+::: tip {title="项目链接"}
+仓库：[xxhls/npm-radio](https://github.com/xxhls/npm-radio)
+:::
 
-> **你会得到什么**
->
-> 一套「查下载量 → 组邮件 → 定时发到 QQ 邮箱」的业余小工具：技术选型、执行流程，以及在云服务器上用 crontab 跑起来的大致步骤。
+::: info {title="你会得到什么"}
+一套「查下载量 → 组邮件 → 定时发到 QQ 邮箱」的业余小工具：技术选型、执行流程，以及在云服务器上用 crontab 跑起来的大致步骤。
+:::
 
 ![NPM 下载量日报邮件效果](https://i-blog.csdnimg.cn/blog_migrate/107dfafb435562c62d4b50fb98ada3d8.png)
 

@@ -1,0 +1,160 @@
+---
+title: 每日前端面经 · 2024-03-08
+date: 2024-03-08
+---
+
+# 【每日前端面经】2024-03-08
+
+欢迎订阅我的前端面经专栏: [每日前端面经](https://blog.csdn.net/m0_66681776/category_12583217.html)
+
+本期题目来源: [牛客](https://www.nowcoder.com/discuss/595293773639237632)
+
+## BFC
+
+BFC 即块级格式上下文，具有 BFC 特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且 BFC 具有普通容器所没有的一些特性。通俗而言，BFC 是一个封闭的大箱子，箱子内部的元素无论如何都不会影响到外部
+
+- html 根元素
+- flex 浮动定位
+- absolute | fixed 绝对定位
+- inline-block | table-cells | flex
+- hidden | auto | scroll
+
+特性:
+
+- 同一个 BFC 下外边距会发生折叠
+- BFC 可以包含浮动的元素（清除浮动）
+- BFC 可以阻止元素被浮动元素覆盖
+
+## 粘性定位原理
+
+粘性定位中有一个“流盒”（flow box）的概念，指的是粘性定位元素最近的可滚动元素（overflow属性值不是visible的元素）的尺寸盒子，如果没有可滚动元素，则表示浏览器视窗盒子
+
+粘性定位中还有一个名叫“粘性约束矩形”的概念，表示的是粘性定位元素的包含块在文档流中呈现的矩形区域和流盒的四个边缘在应用粘性定位元素的left、top、right、bottom属性的偏移计算值后的新矩形的交集
+
+由于滚动的时候，流盒不变，而粘性定位元素的包含块跟着滚动，因此粘性约束矩形随着滚动的进行是实时变化的
+
+假设我们的粘性定位元素只设置了top属性值，则粘贴定位元素碰到粘性约束矩形的顶部的时候开始向下移动，直到它完全包含在粘贴约束矩形中
+
+## 判断是否为数组
+
+- instanceof
+
+```js
+if (arr instanceof Array) console.log('is Array.')
+```
+
+- constructor
+
+```js
+if (arr.constructor === Array) console.log('is Array')
+```
+
+- Array.isArray()
+
+```js
+if (Array.isArray(arr)) console.log('is Array.')
+```
+
+- Object.prototype.toString.call()
+
+```js
+if (Object.prototype.toString.call(arr) === '[object Array]') console.log('is Array')
+```
+
+- prototype
+
+```js
+if (arr.__proto__ === Array.prototype) console.log('is Array')
+```
+
+- getPrototypeOf
+
+```js
+if (Object.getPrototypeOf(arr) === Array.prototype) console.log('is Array.')
+```
+
+- isPrototypeOf
+
+```js
+if (Array.prototype.isPrototypeOf(arr)) console.log('is Array.')
+```
+
+## new Set() 方法
+
+Set 是 es6 新增的数据结构，似于数组，但它的一大特性就是所有元素都是唯一的，没有重复的值，我们一般称为集合。Set本身是一个构造函数，用来生成 Set 数据结构
+
+## nextTick 原理
+
+nextTick 的实现原理是异步延迟执行。当调用 nextTick 时，它会将所有的 DOM
+更新操作放入一个回调函数中，然后异步执行这个回调函数。这样，在执行回调函数时，DOM 已经更新完毕，可以正确地操作 DOM 元素
+
+nextTick 使用 Promise 和 MutationObserver 实现异步延迟执行。在现代浏览器中，MutationObserver 是一个异步的 DOM 监听器，它可以监听 DOM 变化并在变化发生时触发回调函数。Promise 则用于在异步操作完成后执行回调函数
+
+## 微任务和宏任务
+
+JS 是一种单线程语言，简单的说就是：只有一条通道，那么在任务多的情况下，就会出现拥挤的情况，这种情况下就产生了伪多线程 ，但是这种伪多线程是通过单线程模仿的，也就是假的。那么就产生了同步任务和异步任务
+
+异步任务中分为宏任务和微任务。宏任务是由宿主发起的，而微任务由 JavaScript 自身发起
+
+1. 先执行同步代码，遇到异步宏任务则将异步宏任务放入宏任务队列中，遇到异步微任务则将异步微任务放入微任务队列中
+2. 当所有同步代码执行完毕后，再将异步微任务从队列中调入主线程执行
+3. 微任务执行完毕后再将异步宏任务从队列中调入主线程执行，一直循环直至所有任务执行完毕
+
+## Vite构建流程
+
+1. 启动开发服务器：通过运行 vite 命令，Vite 启动一个开发服务器
+2. 解析入口模块：当用户访问应用程序时，Vite 会解析入口模块（通常是 index.html）。它会分析该模块的依赖关系，并将其作为构建的起点
+3. 按需编译：Vite 会根据需要实时编译每个模块。当浏览器请求某个模块时，Vite 会检查该模块是否已经被编译，如果没有，它将根据模块的类型（如 .js、.vue）采取不同的编译策略。对于 JavaScript 文件，Vite 使用 esbuild 进行快速的原生 ES 模块转换，生成浏览器可直接执行的代码。对于 Vue 单文件组件（.vue 文件），Vite 使用 @vue/compiler-sfc 解析并编译它们成为 JavaScript 代码
+4. 提供虚拟模块：完成编译后，Vite 会将模块包裹在一个虚拟模块中，并将该模块作为一个请求的响应返回给浏览器。这样浏览器可以直接加载这些虚拟模块，无需打包成独立文件。处理静态资源：Vite 会对静态资源（如 CSS、图片等）进行特殊处理，并返回给浏览器以供使用
+5. 热模块替换（HMR）：Vite 内置了热模块替换功能，使得在开发过程中修改代码后，可以实时更新浏览器中的页面，而无需刷新整个页面
+
+## 性能优化
+
+- 浏览器
+  - 减少HTTP请求
+  - 使用HTTP2.0
+  - 设置浏览器缓存
+  - 白屏做加载动画
+- 资源
+  - 静态资源CDN
+  - 静态资源单独域名
+  - GZIP压缩
+  - 做服务端渲染
+  - 头部放置CSS，底部放置JS
+- 图片
+  - 字体图标代替图片图标
+  - 精灵图
+  - 图片懒加载
+  - 图片预加载
+  - 使用PNG格式的图片
+  - 图片转BASE64格式
+- 代码
+  - 慎用全局变量
+  - 缓存全局变量
+  - 减少回流与重绘
+  - 节流防抖
+  - 少用闭包
+  - 减少数据读取次数
+  - 文档碎片优化节点
+  - 减少判断层级
+  - 字面量与构造式
+- 项目
+  - 长列表优化
+  - web worker
+  - 避免iframe
+  - 打包
+  - 减少代码体积
+  - 按需加载
+  - 提取第三方库代码
+  - webpack dll优化
+
+[10 分钟理解 BFC 原理](https://zhuanlan.zhihu.com/p/25321647)  
+[深入理解position sticky粘性定位的计算规则](https://www.zhangxinxu.com/wordpress/2020/03/position-sticky-rules/)  
+[JavaScript 用七种方式教你判断一个变量是否为数组类型](https://blog.csdn.net/l_ppp/article/details/106341193)  
+[Vue.js 深度解析：nextTick 原理与应用](https://blog.csdn.net/weixin_42554191/article/details/136464823#:~:text=nextTick%20%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E6%98%AF%20%E5%BC%82%E6%AD%A5%E5%BB%B6%E8%BF%9F%E6%89%A7%E8%A1%8C%20%E3%80%82%20%E5%BD%93%E8%B0%83%E7%94%A8%20nextTick,%E6%97%B6%EF%BC%8C%E5%AE%83%E4%BC%9A%E5%B0%86%E6%89%80%E6%9C%89%E7%9A%84%20DOM%20%E6%9B%B4%E6%96%B0%E6%93%8D%E4%BD%9C%E6%94%BE%E5%85%A5%E4%B8%80%E4%B8%AA%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%AD%EF%BC%8C%E7%84%B6%E5%90%8E%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C%E8%BF%99%E4%B8%AA%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E3%80%82%20%E8%BF%99%E6%A0%B7%EF%BC%8C%E5%9C%A8%E6%89%A7%E8%A1%8C%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E6%97%B6%EF%BC%8CDOM%20%E5%B7%B2%E7%BB%8F%E6%9B%B4%E6%96%B0%E5%AE%8C%E6%AF%95%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%AD%A3%E7%A1%AE%E5%9C%B0%E6%93%8D%E4%BD%9C%20DOM%20%E5%85%83%E7%B4%A0%E3%80%82)  
+[vite 的构建流程](https://blog.csdn.net/weixin_43962020/article/details/135155012#:~:text=%E6%80%BB%E7%BB%93%E8%B5%B7%E6%9D%A5%EF%BC%8CVite%20%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B%E4%B8%BB%E8%A6%81%E6%98%AF%E5%9F%BA%E4%BA%8E%E5%8E%9F%E7%94%9F%20ES%20%E6%A8%A1%E5%9D%97%E7%9A%84%E6%8C%89%E9%9C%80%E7%BC%96%E8%AF%91%EF%BC%8C%E6%AF%8F%E4%B8%AA%E6%A8%A1%E5%9D%97%E9%83%BD%E8%A2%AB%E5%AE%9E%E6%97%B6%E7%BC%96%E8%AF%91%E5%B9%B6%E8%BF%94%E5%9B%9E%E7%BB%99%E6%B5%8F%E8%A7%88%E5%99%A8%E3%80%82,%E6%AD%A4%E5%A4%96%EF%BC%8CVite%20%E8%BF%98%E6%94%AF%E6%8C%81%E7%83%AD%E6%A8%A1%E5%9D%97%E6%9B%BF%E6%8D%A2%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%9C%A8%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%AE%9E%E6%97%B6%E6%9B%B4%E6%96%B0%E4%BB%A3%E7%A0%81%E3%80%82%20%E5%AE%8C%E6%88%90%E7%BC%96%E8%AF%91%E5%90%8E%EF%BC%8CVite%20%E4%BC%9A%E5%B0%86%E6%A8%A1%E5%9D%97%E5%8C%85%E8%A3%B9%E5%9C%A8%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E6%A8%A1%E5%9D%97%E4%B8%AD%EF%BC%8C%E5%B9%B6%E5%B0%86%E8%AF%A5%E6%A8%A1%E5%9D%97%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AA%E8%AF%B7%E6%B1%82%E7%9A%84%E5%93%8D%E5%BA%94%E8%BF%94%E5%9B%9E%E7%BB%99%E6%B5%8F%E8%A7%88%E5%99%A8%E3%80%82)  
+[什么是宏任务、微任务？宏任务、微任务有哪些？又是怎么执行的？](https://blog.csdn.net/NancyFyn/article/details/118407548)
+
+```txt
+新人发文，礼貌求关❤️
+```
