@@ -1,0 +1,35 @@
+apps/site/src/pages/blog/interview/[...slug].astro
+  s_dd36768f078731::t_7ea6b2713c3ba2 19-26
+apps/site/src/pages/index.astro
+  s_dd36768f078731::t_69c622a43239ab 8,11-22,24-42,44-64,66-76,78,80-84,86-89,91-100
+apps/site/src/styles/global.css
+  s_dd36768f078731::t_bc1d220e90cdf2 1,5-12,17-26,33-35,39-83,99,103,105-179,183-184,187-199,202-203,206-207,210-214,218-241,243-244,248-257
+  s_dd36768f078731::t_bbbc39a2ef9d13 84-98
+  s_dd36768f078731::t_3b9cb7a9389c7b 100-102,104
+apps/site/src/pages/blog/index.astro
+  s_dd36768f078731::t_972a2daf1ebe98 19-20,22-37,39-54
+vite.config.ts
+  s_dd36768f078731::t_97a1f52e049c8d 34-36
+apps/site/src/layouts/BaseLayout.astro
+  s_dd36768f078731::t_4c45c77b309685 3,13-18,54-90,93-100,102-117
+apps/site/src/pages/friends.astro
+  s_dd36768f078731::t_e08b24081ba9ba 4-5,8-54
+apps/site/src/pages/blog/posts/[...slug].astro
+  s_dd36768f078731::t_a350df27deadaa 19-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "a05282406deaec0e16c7923cd6c9a515e6929fbb",
+  "prompts": {},
+  "sessions": {
+    "s_dd36768f078731": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6f7ded30-647e-49b8-b039-2830323f5de5",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
