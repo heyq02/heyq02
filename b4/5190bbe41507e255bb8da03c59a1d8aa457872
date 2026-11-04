@@ -1,0 +1,45 @@
+apps/site/src/styles/primer.css
+  s_9e4cc396e9a614::t_10dfd65b38a77a 2-10
+  s_9e4cc396e9a614::t_cbf7e1e9132fe0 1
+apps/site/src/styles/global.css
+  s_9e4cc396e9a614::t_ca8310acd3e49e 1,171,174,176-177,180-181,184-193,196-202,205-208,211-212,215-222,225-226,229-231,234-235,238-241,244-250,253-259,262,264,267,269-271,275-278,281-283,286-297,303-305
+  s_9e4cc396e9a614::t_cd9e9a1bff0994 5-8,10-14,27-28,32,36,40-55,58-59,62-65,69,75-80,84-87,91,101-106,111-112,117-119,123-127,135,142-144,148,150,154,160-162,166-168,173,175,298-302,308-310,316,319,326-328,332-333,338,343-344,348-353,366,371,375-377,382,385,388
+  s_9e4cc396e9a614::t_c5d78df993e887 68
+apps/site/src/components/chrome.astro
+  s_9e4cc396e9a614::t_dae149717738e0 2,22
+apps/site/src/layouts/base.astro
+  s_9e4cc396e9a614::t_027f70dfd2d798 5,20,35-36
+apps/site/astro.config.mjs
+  s_9e4cc396e9a614::t_ec281fb52e04ad 1,6,22
+  s_9e4cc396e9a614::t_1a171e6cbd69a5 27-32,39
+apps/site/tsconfig.json
+  s_9e4cc396e9a614::t_5c9438b88df85e 8-9
+apps/site/src/components/SiteNav.tsx
+  s_9e4cc396e9a614::t_150e3a44367fc6 1-32
+apps/site/src/pages/blog/[slug].astro
+  s_9e4cc396e9a614::t_5818acb254f25b 18
+apps/site/src/pages/about.astro
+  s_9e4cc396e9a614::t_0d3d4c7e90cc5f 13
+apps/site/package.json
+  s_9e4cc396e9a614::t_764d65067bf3ff 22
+  s_9e4cc396e9a614::t_01e9bb4b0d66b8 14,18,20-21,27-28
+  s_9e4cc396e9a614::t_adf45cf7a69e7b 17
+pnpm-lock.yaml
+  s_9e4cc396e9a614::t_0990f7130d4940 226-228,235-240,244-252,260-265,365-377,629-634,812-817,828-830,1144-1175,1317-1325,1369-1376,1512-1527,2024-2026,2099-2101,2118-2121,2268-2270,2325-2330,2494-2499,2733-2746,2750-2756,2804-2806,3319-3354,3628-3631,3756-3759,3776-3777,3933-3971,4069-4076,4132-4139,4216-4220,4685-4686,4759-4760,4777-4778,4901-4902,4982-4987,5138-5141,5385-5395,5398-5401,5473-5474
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "b45190bbe41507e255bb8da03c59a1d8aa457872",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
