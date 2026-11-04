@@ -4,7 +4,7 @@ export default liangmi({
   run: {
     tasks: {
       cbuild: {
-        command: 'node --experimental-strip-types ./scripts/build.ts',
+        command: 'vp exec rspress build',
         cache: {
           // Task env is isolated, so declare what the build needs to receive.
           untrackedEnv: ['GITHUB_TOKEN', 'HEYQ02_PROFILE_STUB']

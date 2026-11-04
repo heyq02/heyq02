@@ -6,7 +6,7 @@ import { join } from 'node:path'
  * drop the fetch base URL. Rewrite them to absolute https links, preferring
  * the SSG-MD `.md` sibling when the target is a site page.
  */
-export async function absolutizeMarkdownLinks(dist: string, siteOrigin: string) {
+export async function absolutizeMarkdownLinks(dist: string, siteOrigin: string): Promise<void> {
   const origin = siteOrigin.replace(/\/$/, '')
   const files = await listMarkdownFiles(dist)
   const existing = new Set(
