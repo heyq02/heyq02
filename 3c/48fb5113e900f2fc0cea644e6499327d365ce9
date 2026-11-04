@@ -1,0 +1,29 @@
+apps/site/scripts/build.ts
+  s_9e4cc396e9a614::t_a588022d819317 22-23
+apps/site/plugins/prepare-profile.ts
+  s_9e4cc396e9a614::t_ed8c4aa6e3a440 3
+packages/rspress-plugin-auto-meta/tests/plugin.test.ts
+  s_9e4cc396e9a614::t_ed8c4aa6e3a440 48,52
+packages/rspress-plugin-auto-meta/src/index.ts
+  s_9e4cc396e9a614::t_f93f1e7ccbc315 4
+apps/site/plugins/tests/profile-page.test.ts
+  s_9e4cc396e9a614::t_d029b702e9cc19 63
+apps/site/plugins/tests/__snapshots__/profile-page.test.ts.snap
+  s_9e4cc396e9a614::t_2fc47a07ad25f5 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "3c48fb5113e900f2fc0cea644e6499327d365ce9",
+  "prompts": {},
+  "sessions": {
+    "s_9e4cc396e9a614": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "407192a6-8ec7-4625-8e22-c41be967554e",
+        "model": "deepseek-v41-flash-1017"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
