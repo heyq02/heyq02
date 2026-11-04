@@ -16,6 +16,7 @@ parent: architecture
 - `site` 与 `readme` 都用 `skillIconsPicture` 与 `intro`。二者不得自行拼接 simpleicons.dev URL，也不得维护 name→slug 表。
 - `icon` 为空的技能不会出现在图里。
 - `socialLinksFrom` 把 intro 的 `places` 映射为导航栏链接项；站点 Rspress 配置用 JSON 中的 `intro.places` 调用它。
+- intro 只放身份事实（姓名、经历、教育、技能、社交）；置顶项目的文案归 GitHub 仓库描述所有，不在此维护副本。
 - 主题与 profile 插件共用同一批 `site-*` UI token；profile 在 `profile-classes.ts` 中加上 marker 前缀。
 - 浏览器安全对外面：`intro` / `Intro` / `formatCount` / `skillIconsPicture` / `socialLinksFrom` / `SocialLinkItem` / 站点 UI token。仅 Node 可用的 `formatGenerated` / `writeIfChanged` / `SpawnFn` 从 `@heyq02/shared/fs` 导出。
 - 私有 workspace 包。源码即导出，不打包到 `dist/`。
