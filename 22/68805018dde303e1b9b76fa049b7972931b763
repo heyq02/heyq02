@@ -1,0 +1,20 @@
+apps/site/theme/ProfilePage.tsx
+  s_7f3749379effc6::t_167bb7a0cd5aec 31
+  s_7f3749379effc6::t_44ee71d3110253 101
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "2268805018dde303e1b9b76fa049b7972931b763",
+  "prompts": {},
+  "sessions": {
+    "s_7f3749379effc6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e720ad55-fa72-45ea-ba92-264964e0bdca",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
