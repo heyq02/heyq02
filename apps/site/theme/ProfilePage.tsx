@@ -28,7 +28,7 @@ const profileList = 'mt-rp-3 mb-0 list-disc pl-rp-5 leading-relaxed text-rp-mute
 
 const profileEduMeta = 'profile-edu-meta mt-rp-2 mb-0 text-rp-md leading-relaxed text-rp-muted'
 
-const profileEduEn = 'text-rp-muted font-normal'
+const profileEduEn = 'text-rp-sm font-normal text-rp-faint'
 
 function ProjectCard({ project }: { project: ProfileProject }): ReactElement {
   return (
@@ -98,7 +98,7 @@ export function ProfilePage({
             <div className={profileJobHead}>
               <h3 className={`${profileH3} gap-x-rp-3 flex min-w-0 flex-wrap items-baseline`}>
                 <span>{item.school}</span>
-                <span className={`text-rp-md ${profileEduEn}`}>{item.schoolEn}</span>
+                <span className={profileEduEn}>{item.schoolEn}</span>
               </h3>
               <When className='profile-when'>
                 {item.start} – {item.end}
