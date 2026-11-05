@@ -16,7 +16,14 @@ const PLACE_ICONS: Partial<Record<string, SimpleIcon>> = {
 
 function BrandIcon({ icon }: { icon: SimpleIcon }): ReactElement {
   return (
-    <svg className={iconClass} viewBox='0 0 24 24' role='img' aria-hidden>
+    <svg
+      className={iconClass}
+      viewBox='0 0 24 24'
+      role='img'
+      aria-hidden
+      // Simple Icons ships official brand hex — use it instead of theme text color.
+      style={{ color: `#${icon.hex}` }}
+    >
       <path fill='currentColor' d={icon.path} />
     </svg>
   )
@@ -38,19 +45,22 @@ function SocialIconLink({
   href,
   label,
   children,
-  external
+  external,
+  branded
 }: {
   href: string
   label: string
   children: ReactNode
   external?: boolean
+  /** Brand icons keep Simple Icons hex; only email uses theme text color. */
+  branded?: boolean
 }): ReactElement {
   return (
     <a
       href={href}
       aria-label={label}
       title={label}
-      className={`inline-flex items-center justify-center text-[var(--rp-c-text-2)] no-underline transition-[color,transform] duration-200 hover:-translate-y-px hover:text-[var(--rp-c-brand)] hover:no-underline ${siteFocusRing}`}
+      className={`inline-flex items-center justify-center no-underline transition-[color,opacity,transform] duration-200 hover:-translate-y-px hover:opacity-80 hover:no-underline ${branded ? '' : 'text-[var(--rp-c-text-2)] hover:text-[var(--rp-c-brand)]'} ${siteFocusRing}`}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
       {children}
@@ -74,7 +84,7 @@ export function SocialIcons({ places, email, className = '' }: SocialIconsProps)
           return null
         }
         return (
-          <SocialIconLink key={place.label} href={place.href} label={place.label} external>
+          <SocialIconLink key={place.label} href={place.href} label={place.label} external branded>
             <BrandIcon icon={icon} />
           </SocialIconLink>
         )
