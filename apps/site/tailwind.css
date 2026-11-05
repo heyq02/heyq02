@@ -1,4 +1,8 @@
-@import 'tailwindcss';
+/* Theme + utilities only — skip Tailwind Preflight so it does not fight Rspress base CSS. */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
 @source './theme';
 @source '../../packages/rspress-theme-ui/src';
 
@@ -57,7 +61,6 @@
   animation: hey-arrow-bob 1.4s ease-in-out infinite;
 }
 
-/* Screen-reader-only utility (also defined in chrome.css for non-Tailwind contexts). */
 @utility sr-only {
   position: absolute;
   width: 1px;
