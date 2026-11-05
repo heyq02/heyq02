@@ -61,29 +61,8 @@ html {
   scroll-behavior: smooth;
 }
 
-/*
- * Atmosphere: soft brand wash + paper grain instead of a flat fill.
- * Tokens only — tracks Rspress theme; avoids purple/cream AI defaults.
- */
 body {
   background-color: var(--rp-c-bg);
-  background-image:
-    radial-gradient(
-      ellipse 120% 70% at 50% -18%,
-      color-mix(in srgb, var(--rp-c-brand) 5%, transparent),
-      transparent 62%
-    ),
-    radial-gradient(
-      ellipse 55% 45% at 100% 8%,
-      color-mix(in srgb, var(--rp-c-brand-tint, var(--rp-c-brand)) 16%, transparent),
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 45% 35% at 0% 30%,
-      color-mix(in srgb, var(--rp-c-bg-soft) 70%, transparent),
-      transparent 65%
-    );
-  background-attachment: fixed;
 }
 
 body::before {
@@ -277,10 +256,6 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  body {
-    background-attachment: scroll;
   }
 
   .hey-rise,
