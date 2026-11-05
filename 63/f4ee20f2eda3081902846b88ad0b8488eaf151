@@ -1,0 +1,20 @@
+packages/rspress-theme-ui/src/widgets/SocialIcons.tsx
+  s_1463359ea2b6b7::t_a4f06cce983468 87
+  s_1463359ea2b6b7::t_775710cd777845 19-26,48-49,55-56,63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "63f4ee20f2eda3081902846b88ad0b8488eaf151",
+  "prompts": {},
+  "sessions": {
+    "s_1463359ea2b6b7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "db50ede7-489b-49d2-8a5f-0849c5e7be2f",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
