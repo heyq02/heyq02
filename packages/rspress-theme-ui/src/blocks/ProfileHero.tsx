@@ -88,7 +88,7 @@ export function ProfileHero({
         </div>
       </div>
 
-      <div className='relative mt-[calc(var(--rp-radius)*2)] flex w-full justify-center md:mt-0 md:w-1/2 md:translate-y-1 md:justify-end md:pl-[calc(var(--rp-radius)*2)]'>
+      <div className='hey-avatar-stage relative mt-[calc(var(--rp-radius)*2)] flex w-full justify-center md:mt-0 md:w-1/2 md:translate-y-1 md:justify-end md:pl-[calc(var(--rp-radius)*2)]'>
         <button
           type='button'
           className={`m-0 block max-w-xs cursor-pointer border-0 bg-transparent p-0 leading-none transition-transform duration-200 active:scale-[0.98] ${siteFocusRing}`}

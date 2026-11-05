@@ -42,8 +42,58 @@
 
 html {
   color-scheme: light;
-  background-color: var(--rp-c-bg);
   scroll-behavior: smooth;
+}
+
+/*
+ * Atmosphere: soft brand wash + paper grain instead of a flat fill.
+ * Tokens only — tracks Rspress theme; avoids purple/cream AI defaults.
+ */
+body {
+  background-color: var(--rp-c-bg);
+  background-image:
+    radial-gradient(
+      ellipse 120% 70% at 50% -18%,
+      color-mix(in srgb, var(--rp-c-brand) 14%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 100% 8%,
+      color-mix(in srgb, var(--rp-c-brand-tint, var(--rp-c-brand)) 55%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 45% 35% at 0% 30%,
+      color-mix(in srgb, var(--rp-c-bg-soft) 90%, transparent),
+      transparent 65%
+    );
+  background-attachment: fixed;
+}
+
+body::before {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
+}
+
+#root,
+.rspress-nav,
+.rp-nav,
+.rp-doc-layout,
+.rp-doc-layout__container,
+.rp-sidebar,
+.rp-local-nav,
+.rp-footer,
+.rp-home-footer {
+  position: relative;
+  z-index: 1;
 }
 
 .sr-only {
@@ -105,6 +155,34 @@ html {
   padding: var(--rp-content-padding-y) var(--rp-content-padding-x);
 }
 
+/* Soft halo behind the profile avatar — presence without stickers/overlays. */
+.hey-avatar-stage {
+  position: relative;
+  isolation: isolate;
+}
+
+.hey-avatar-stage::before {
+  content: '';
+  position: absolute;
+  inset: 8% 6% 4%;
+  z-index: -1;
+  border-radius: 2rem;
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    color-mix(in srgb, var(--rp-c-brand) 22%, transparent),
+    transparent 68%
+  );
+  filter: blur(18px);
+  opacity: 0.9;
+  transform: scale(1.04);
+  transition: opacity 0.35s ease;
+}
+
+.hey-avatar-stage:has(button:hover)::before,
+.hey-avatar-stage:has(button:focus-visible)::before {
+  opacity: 1;
+}
+
 @keyframes hey-rise {
   from {
     opacity: 0;
@@ -133,9 +211,17 @@ html {
     scroll-behavior: auto;
   }
 
+  body {
+    background-attachment: scroll;
+  }
+
   .hey-rise,
   .hey-rise-delay-1,
   .hey-rise-delay-2 {
     animation: none !important;
+  }
+
+  .hey-avatar-stage::before {
+    transition: none;
   }
 }
