@@ -90,18 +90,28 @@ export function HomeWeather({ home }: { home: HomePlace }): ReactElement {
 
   if (state.status === 'loading') {
     return (
-      <span className='text-rp-faint text-rp-sm font-mono' aria-live='polite'>
+      <span
+        className='font-mono text-[length:var(--rp-code-font-size)] text-[var(--rp-c-text-3)]'
+        aria-live='polite'
+      >
         {home.label} · 天气加载中…
       </span>
     )
   }
 
   if (state.status === 'error') {
-    return <span className='text-rp-muted text-rp-sm font-mono'>{home.label}</span>
+    return (
+      <span className='font-mono text-[length:var(--rp-code-font-size)] text-[var(--rp-c-text-2)]'>
+        {home.label}
+      </span>
+    )
   }
 
   return (
-    <span className='text-rp-muted text-rp-sm font-mono' title='数据来自 Open-Meteo'>
+    <span
+      className='font-mono text-[length:var(--rp-code-font-size)] text-[var(--rp-c-text-2)]'
+      title='数据来自 Open-Meteo'
+    >
       {home.label} · {state.label} {Math.round(state.temperature)}°C
     </span>
   )

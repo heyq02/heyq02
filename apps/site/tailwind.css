@@ -1,69 +1,14 @@
 @import 'tailwindcss';
-/* Class strings live in shared tokens + theme consumers. */
 @source './theme';
 @source '../../packages/rspress-theme-ui/src';
 
-/*
- * Map Tailwind theme keys onto Rspress design tokens.
- * Prefer these utilities over arbitrary rem/hex values in theme UI.
- */
+/* Font slots → Rspress families. Colors / spacing / radius / shadow use var(--rp-*) arbitrary values in class strings. */
 @theme {
   --animate-avatar-wobble: avatar-wobble 0.4s ease;
 
   --font-sans: var(--rp-font-family-base);
   --font-display: var(--rp-font-family-display);
   --font-mono: var(--rp-font-family-mono);
-
-  --color-rp-bg: var(--rp-c-bg);
-  --color-rp-soft: var(--rp-c-bg-soft);
-  --color-rp-mute: var(--rp-c-bg-mute);
-  --color-rp-text: var(--rp-c-text-1);
-  --color-rp-muted: var(--rp-c-text-2);
-  --color-rp-faint: var(--rp-c-text-3);
-  --color-rp-brand: var(--rp-c-brand);
-  --color-rp-brand-light: var(--rp-c-brand-light);
-  --color-rp-brand-lighter: var(--rp-c-brand-lighter);
-  --color-rp-brand-dark: var(--rp-c-brand-dark);
-  --color-rp-brand-tint: var(--rp-c-brand-tint);
-  --color-rp-divider: var(--rp-c-divider);
-  --color-rp-divider-light: var(--rp-c-divider-light);
-  --color-rp-link: var(--rp-c-link);
-
-  --radius-sm: var(--rp-radius-small);
-  --radius-md: var(--rp-radius);
-  --radius-lg: var(--rp-radius-large);
-  --radius-rp: var(--rp-radius);
-  --radius-rp-sm: var(--rp-radius-small);
-  --radius-rp-lg: var(--rp-radius-large);
-
-  --shadow-sm: var(--rp-shadow-1);
-  --shadow-md: var(--rp-shadow-2);
-  --shadow-lg: var(--rp-shadow-3);
-  --shadow-rp: var(--rp-shadow-1);
-  --shadow-rp-md: var(--rp-shadow-2);
-  --shadow-rp-lg: var(--rp-shadow-3);
-
-  /* Type scale anchored on Rspress code font size + 16px root. */
-  --text-rp-xs: 0.75rem;
-  --text-rp-sm: var(--rp-code-font-size);
-  --text-rp-md: 1rem;
-  --text-rp-lg: 1.125rem;
-  --text-rp-xl: 1.25rem;
-  --text-rp-2xl: 1.5rem;
-  --text-rp-hero: clamp(2.1rem, 5.5vw, 2.75rem);
-
-  /* Spacing rhythm: multiples of --rp-radius-small (0.5rem). */
-  --spacing-rp-1: calc(var(--rp-radius-small) / 2);
-  --spacing-rp-2: var(--rp-radius-small);
-  --spacing-rp-3: calc(var(--rp-radius-small) * 1.5);
-  --spacing-rp-4: var(--rp-radius);
-  --spacing-rp-5: calc(var(--rp-radius-small) * 2.5);
-  --spacing-rp-6: var(--rp-radius-large);
-  --spacing-rp-8: calc(var(--rp-radius) * 2);
-  --spacing-rp-10: calc(var(--rp-radius-small) * 5);
-  --spacing-rp-12: calc(var(--rp-radius-large) * 2);
-
-  --container-rp: var(--rp-content-max-width);
 }
 
 @keyframes avatar-wobble {

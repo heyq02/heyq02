@@ -1,42 +1,46 @@
-/** Shared class tokens — colors/type/radius/shadow from Rspress via site Tailwind @theme. */
+/** Shared class tokens — colors / type / radius / shadow via Rspress CSS vars. */
 
-export const sitePageRoot = 'rp-not-doc font-sans text-rp-text'
+export const sitePageRoot = 'rp-not-doc font-sans text-[var(--rp-c-text-1)]'
 
 export const siteH1 =
-  'm-0 font-display text-rp-hero font-bold leading-[1.15] tracking-tight text-rp-text'
+  'm-0 font-display text-[clamp(2.1rem,5.5vw,2.75rem)] font-bold leading-[1.15] tracking-tight text-[var(--rp-c-text-1)]'
 
 export const siteH2 =
-  "m-0 mb-rp-4 font-display text-rp-xl font-[650] leading-snug text-rp-text after:mt-rp-2 after:block after:h-0.5 after:w-8 after:bg-rp-brand after:content-['']"
+  "m-0 mb-[var(--rp-radius)] font-display text-[1.25rem] font-[650] leading-snug text-[var(--rp-c-text-1)] after:mt-[var(--rp-radius-small)] after:block after:h-0.5 after:w-8 after:bg-[var(--rp-c-brand)] after:content-['']"
 
 /** Keyboard focus ring — every interactive control should include this. */
 export const siteFocusRing =
-  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rp-brand'
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--rp-c-brand)]'
 
-export const siteLink = `font-semibold text-inherit no-underline hover:text-rp-link hover:underline hover:underline-offset-[3px] ${siteFocusRing}`
+export const siteLink = `font-semibold text-inherit no-underline hover:text-[var(--rp-c-link)] hover:underline hover:underline-offset-[3px] ${siteFocusRing}`
 
 /** Soft surface shell — dashed panel used across the site. */
-export const siteSurface = 'rounded-2xl border border-dashed border-rp-divider bg-rp-bg'
+export const siteSurface =
+  'rounded-2xl border border-dashed border-[var(--rp-c-divider)] bg-[var(--rp-c-bg)]'
 
 /** Static soft panel (empty states share padding/radius). */
-export const sitePanelChrome = `${siteSurface} px-rp-4 py-rp-4`
+export const sitePanelChrome = `${siteSurface} px-[var(--rp-radius)] py-[var(--rp-radius)]`
 
 /** Interactive card chrome shared by project/post/friend cards. */
-export const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rp-brand hover:bg-rp-soft hover:text-inherit hover:!no-underline ${siteFocusRing}`
+export const siteCardChrome = `${sitePanelChrome} font-normal text-inherit !no-underline transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-[var(--rp-c-brand)] hover:bg-[var(--rp-c-bg-soft)] hover:text-inherit hover:!no-underline ${siteFocusRing}`
 
 export const siteCardName =
-  'font-display text-rp-lg font-[650] leading-snug text-rp-text transition-colors duration-200 group-hover:text-rp-brand'
+  'font-display text-[1.125rem] font-[650] leading-snug text-[var(--rp-c-text-1)] transition-colors duration-200 group-hover:text-[var(--rp-c-brand)]'
 
-export const siteCardSummary = 'text-rp-md font-normal leading-relaxed text-rp-muted'
+export const siteCardSummary = 'text-[1rem] font-normal leading-relaxed text-[var(--rp-c-text-2)]'
 
-export const siteWhen = 'm-0 whitespace-nowrap font-mono text-rp-sm font-medium text-rp-muted'
+export const siteWhen =
+  'm-0 whitespace-nowrap font-mono text-[length:var(--rp-code-font-size)] font-medium text-[var(--rp-c-text-2)]'
 
-export const siteMeta = 'font-mono text-rp-sm font-medium tracking-wide text-rp-muted'
+export const siteMeta =
+  'font-mono text-[length:var(--rp-code-font-size)] font-medium tracking-wide text-[var(--rp-c-text-2)]'
 
 export const siteEmpty =
-  'm-0 rounded-2xl border border-dashed border-rp-divider bg-rp-soft px-rp-4 py-rp-4 leading-relaxed text-rp-muted'
+  'm-0 rounded-2xl border border-dashed border-[var(--rp-c-divider)] bg-[var(--rp-c-bg-soft)] px-[var(--rp-radius)] py-[var(--rp-radius)] leading-relaxed text-[var(--rp-c-text-2)]'
 
-export const siteSection = 'mt-rp-10'
+export const siteSection = 'mt-[calc(var(--rp-radius-small)*5)]'
 
-export const siteHeaderRule = 'border-b border-rp-divider-light pb-rp-8'
+export const siteHeaderRule =
+  'border-b border-[var(--rp-c-divider-light)] pb-[calc(var(--rp-radius)*2)]'
 
-export const siteBody = 'm-0 text-rp-md leading-relaxed text-rp-muted'
+export const siteBody = 'm-0 text-[1rem] leading-relaxed text-[var(--rp-c-text-2)]'

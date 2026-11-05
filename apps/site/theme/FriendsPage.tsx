@@ -30,7 +30,7 @@ function subscribeNever(): () => void {
 }
 
 const avatarClass =
-  'block size-12 shrink-0 rounded-full border border-rp-divider-light bg-rp-bg object-cover'
+  'block size-12 shrink-0 rounded-full border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg)] object-cover'
 
 function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): ReactElement {
   // Prefer readable link text for SSG-MD Agents over avatar+span chrome.
@@ -47,7 +47,7 @@ function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): 
     <li className='m-0 min-w-0'>
       <CardLink
         href={friend.url}
-        className={`gap-rp-3 flex h-full items-center ${siteCardChrome}`}
+        className={`flex h-full items-center gap-[calc(var(--rp-radius-small)*1.5)] ${siteCardChrome}`}
         external
         rel='noopener noreferrer friend'
         title={friend.name}
@@ -62,7 +62,7 @@ function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): 
           loading='lazy'
           decoding='async'
         />
-        <span className='gap-rp-1 grid min-w-0'>
+        <span className='grid min-w-0 gap-[calc(var(--rp-radius-small)/2)]'>
           <CardTitle className='truncate'>{friend.name}</CardTitle>
           {friend.desc ? <CardSummary className='line-clamp-2'>{friend.desc}</CardSummary> : null}
         </span>
@@ -88,9 +88,9 @@ export function FriendsPage({
   return (
     <PageShell title={title} ssgMd={ssgMd} tone='friends'>
       {ordered.length === 0 ? (
-        <Empty className='friends-empty mt-rp-10'>还没有友链。</Empty>
+        <Empty className='friends-empty mt-[calc(var(--rp-radius-small)*5)]'>还没有友链。</Empty>
       ) : (
-        <ul className='friends-grid mt-rp-10 gap-rp-3 mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] p-0'>
+        <ul className='friends-grid mt-[calc(var(--rp-radius-small)*5)] mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] gap-[calc(var(--rp-radius-small)*1.5)] p-0'>
           {ordered.map(friend => (
             <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />
           ))}

@@ -25,11 +25,15 @@ import type { RecentPost } from './recent-posts.ts'
 function PostCard({ post }: { post: RecentPost }): ReactElement {
   return (
     <CardLink href={post.href} external={false} className={`group block ${siteCardChrome}`}>
-      <CardTitle className='text-rp-lg'>{post.title}</CardTitle>
+      <CardTitle className='text-[1.125rem]'>{post.title}</CardTitle>
       {post.description ? (
-        <CardSummary className='mt-rp-2 line-clamp-2'>{post.description}</CardSummary>
+        <CardSummary className='mt-[var(--rp-radius-small)] line-clamp-2'>
+          {post.description}
+        </CardSummary>
       ) : null}
-      <p className={`mt-rp-3 mb-0 ${siteWhen}`}>{post.date ? formatZhDate(post.date) : null}</p>
+      <p className={`mt-[calc(var(--rp-radius-small)*1.5)] mb-0 ${siteWhen}`}>
+        {post.date ? formatZhDate(post.date) : null}
+      </p>
     </CardLink>
   )
 }
@@ -38,12 +42,12 @@ function ProjectCard({ project }: { project: ProfileProject }): ReactElement {
   return (
     <CardLink
       href={project.href}
-      className={`group gap-rp-2 relative flex h-full flex-col ${siteCardChrome} [&_.rp-badge]:no-underline`}
+      className={`group relative flex h-full flex-col gap-[var(--rp-radius-small)] ${siteCardChrome} [&_.rp-badge]:no-underline`}
       external={false}
     >
-      <span className='gap-rp-2 flex flex-wrap items-baseline'>
+      <span className='flex flex-wrap items-baseline gap-[var(--rp-radius-small)]'>
         <CardTitle className='profile-project-name'>{project.name}</CardTitle>
-        <span className='gap-rp-1 m-0 flex flex-wrap'>
+        <span className='m-0 flex flex-wrap gap-[calc(var(--rp-radius-small)/2)]'>
           <Badge text={project.language} type='info' />
           <Badge text={`${project.stars} 星标`} type='info' />
         </span>
@@ -95,12 +99,12 @@ export function ProfilePage({
       <JumpRail label={intro.sections.openSource} />
 
       <Section marker='profile-section hey-rise hey-rise-delay-1' className='!mt-0'>
-        <div className='profile-projects gap-rp-4 grid grid-cols-1 sm:grid-cols-2'>
+        <div className='profile-projects grid grid-cols-1 gap-[var(--rp-radius)] sm:grid-cols-2'>
           {pinnedProjects.map(project => (
             <ProjectCard key={project.href} project={project} />
           ))}
         </div>
-        <div className='mt-rp-6'>
+        <div className='mt-[var(--rp-radius-large)]'>
           <ContributionHeatmap calendar={contributionCalendar} />
         </div>
       </Section>
@@ -108,15 +112,15 @@ export function ProfilePage({
       <JumpRail label={intro.sections.blog} />
 
       <Section marker='profile-section' className='!mt-0'>
-        <div className='gap-rp-4 grid'>
+        <div className='grid gap-[var(--rp-radius)]'>
           {recentPosts.map(post => (
             <PostCard key={post.href} post={post} />
           ))}
         </div>
-        <p className='mt-rp-6 mb-0'>
+        <p className='mt-[var(--rp-radius-large)] mb-0'>
           <a
             href='/blog/'
-            className={`bg-rp-text text-rp-bg hover:bg-rp-brand inline-flex rounded-full px-4 py-2 text-sm font-medium no-underline transition-colors hover:no-underline ${siteFocusRing}`}
+            className={`inline-flex rounded-full bg-[var(--rp-c-text-1)] px-4 py-2 text-sm font-medium text-[var(--rp-c-bg)] no-underline transition-colors hover:bg-[var(--rp-c-brand)] hover:no-underline ${siteFocusRing}`}
           >
             查看所有文章
           </a>

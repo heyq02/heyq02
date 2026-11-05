@@ -5,11 +5,11 @@ import type { ContributionCalendar, ContributionDay, ContributionLevel } from '.
 
 /** Contribution intensity on Rspress brand / surface tokens. */
 const LEVEL_CLASS: Record<ContributionLevel, string> = {
-  0: 'bg-rp-mute',
-  1: 'bg-rp-brand-tint',
-  2: 'bg-rp-brand-lighter',
-  3: 'bg-rp-brand-light',
-  4: 'bg-rp-brand'
+  0: 'bg-[var(--rp-c-bg-mute)]',
+  1: 'bg-[var(--rp-c-brand-tint)]',
+  2: 'bg-[var(--rp-c-brand-lighter)]',
+  3: 'bg-[var(--rp-c-brand-light)]',
+  4: 'bg-[var(--rp-c-brand)]'
 }
 
 function summarize(days: ContributionDay[]) {
@@ -53,7 +53,7 @@ export function ContributionHeatmap({
   const { activeDays, longest, current } = summarize(days)
 
   return (
-    <div className='profile-contributions gap-rp-3 flex w-full flex-col sm:flex-row sm:items-center'>
+    <div className='profile-contributions flex w-full flex-col gap-[calc(var(--rp-radius-small)*1.5)] sm:flex-row sm:items-center'>
       <div
         className='flex w-full min-w-0 flex-1'
         role='img'
@@ -76,23 +76,26 @@ export function ContributionHeatmap({
       </div>
 
       <aside
-        className={`${sitePanelChrome} gap-rp-4 px-rp-3 py-rp-2 sm:gap-rp-1 flex w-full shrink-0 items-center sm:w-auto sm:min-w-[11rem] sm:flex-col sm:items-start`}
+        className={`${sitePanelChrome} flex w-full shrink-0 items-center gap-[var(--rp-radius)] px-[calc(var(--rp-radius-small)*1.5)] py-[var(--rp-radius-small)] sm:w-auto sm:min-w-[11rem] sm:flex-col sm:items-start sm:gap-[calc(var(--rp-radius-small)/2)]`}
       >
-        <div className='gap-rp-2 flex min-w-0 items-baseline'>
+        <div className='flex min-w-0 items-baseline gap-[var(--rp-radius-small)]'>
           <TextLink
             href={calendar.href}
-            className='text-rp-text hover:text-rp-brand m-0 text-[1.35rem] leading-none font-bold tabular-nums !no-underline'
+            className='m-0 text-[1.35rem] leading-none font-bold text-[var(--rp-c-text-1)] tabular-nums !no-underline hover:text-[var(--rp-c-brand)]'
           >
             {calendar.total.toLocaleString('zh-CN')}
           </TextLink>
-          <span className='text-rp-xs text-rp-muted whitespace-nowrap'>近一年贡献</span>
+          <span className='text-[0.75rem] whitespace-nowrap text-[var(--rp-c-text-2)]'>
+            近一年贡献
+          </span>
         </div>
-        <p className='text-rp-xs text-rp-muted m-0 leading-relaxed'>
-          <span className='text-rp-text font-medium tabular-nums'>{activeDays}</span> 活跃
-          <span className='mx-rp-1 text-rp-divider'>·</span>
-          <span className='text-rp-text font-medium tabular-nums'>{longest}</span> 最长
-          <span className='mx-rp-1 text-rp-divider'>·</span>
-          <span className='text-rp-text font-medium tabular-nums'>{current}</span> 当前
+        <p className='m-0 text-[0.75rem] leading-relaxed text-[var(--rp-c-text-2)]'>
+          <span className='font-medium text-[var(--rp-c-text-1)] tabular-nums'>{activeDays}</span>{' '}
+          活跃
+          <span className='mx-[calc(var(--rp-radius-small)/2)] text-[var(--rp-c-divider)]'>·</span>
+          <span className='font-medium text-[var(--rp-c-text-1)] tabular-nums'>{longest}</span> 最长
+          <span className='mx-[calc(var(--rp-radius-small)/2)] text-[var(--rp-c-divider)]'>·</span>
+          <span className='font-medium text-[var(--rp-c-text-1)] tabular-nums'>{current}</span> 当前
         </p>
       </aside>
     </div>

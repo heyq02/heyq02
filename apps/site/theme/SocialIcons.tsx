@@ -71,7 +71,7 @@ function SocialIconLink({
       href={href}
       aria-label={label}
       title={label}
-      className={`text-rp-muted hover:text-rp-brand inline-flex items-center justify-center no-underline transition-colors hover:no-underline ${siteFocusRing}`}
+      className={`inline-flex items-center justify-center text-[var(--rp-c-text-2)] no-underline transition-colors hover:text-[var(--rp-c-brand)] hover:no-underline ${siteFocusRing}`}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
       {children}
@@ -82,7 +82,9 @@ function SocialIconLink({
 /** Compact brand icons for the hero tag row. */
 export function SocialIcons({ className = '' }: { className?: string }): ReactElement {
   return (
-    <span className={`gap-rp-3 inline-flex items-center ${className}`.trim()}>
+    <span
+      className={`inline-flex items-center gap-[calc(var(--rp-radius-small)*1.5)] ${className}`.trim()}
+    >
       {intro.places.map(place => {
         const Icon = ICONS[place.label]
         if (!Icon) {
