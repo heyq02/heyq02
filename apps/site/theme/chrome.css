@@ -54,17 +54,17 @@ body {
   background-image:
     radial-gradient(
       ellipse 120% 70% at 50% -18%,
-      color-mix(in srgb, var(--rp-c-brand) 14%, transparent),
+      color-mix(in srgb, var(--rp-c-brand) 5%, transparent),
       transparent 62%
     ),
     radial-gradient(
       ellipse 55% 45% at 100% 8%,
-      color-mix(in srgb, var(--rp-c-brand-tint, var(--rp-c-brand)) 55%, transparent),
+      color-mix(in srgb, var(--rp-c-brand-tint, var(--rp-c-brand)) 16%, transparent),
       transparent 70%
     ),
     radial-gradient(
       ellipse 45% 35% at 0% 30%,
-      color-mix(in srgb, var(--rp-c-bg-soft) 90%, transparent),
+      color-mix(in srgb, var(--rp-c-bg-soft) 70%, transparent),
       transparent 65%
     );
   background-attachment: fixed;
@@ -169,11 +169,11 @@ body::before {
   border-radius: 2rem;
   background: radial-gradient(
     ellipse at 50% 40%,
-    color-mix(in srgb, var(--rp-c-brand) 22%, transparent),
+    color-mix(in srgb, var(--rp-c-brand) 10%, transparent),
     transparent 68%
   );
   filter: blur(18px);
-  opacity: 0.9;
+  opacity: 0.55;
   transform: scale(1.04);
   transition: opacity 0.35s ease;
 }
