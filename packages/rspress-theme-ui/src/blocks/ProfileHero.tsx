@@ -110,38 +110,38 @@ export function ProfileHero({
               <svg
                 className='hey-avatar-think__atom'
                 viewBox='0 0 16 16'
-                width={14}
-                height={14}
+                width={20}
+                height={20}
                 aria-hidden
               >
-                <circle cx='8' cy='8' r='1.35' fill='currentColor' />
+                <circle cx='8' cy='8' r='1.5' fill='currentColor' />
                 <ellipse
                   cx='8'
                   cy='8'
-                  rx='6.2'
-                  ry='2.35'
+                  rx='6.4'
+                  ry='2.45'
                   fill='none'
                   stroke='currentColor'
-                  strokeWidth='1.1'
+                  strokeWidth='1.25'
                 />
                 <ellipse
                   cx='8'
                   cy='8'
-                  rx='6.2'
-                  ry='2.35'
+                  rx='6.4'
+                  ry='2.45'
                   fill='none'
                   stroke='currentColor'
-                  strokeWidth='1.1'
+                  strokeWidth='1.25'
                   transform='rotate(60 8 8)'
                 />
                 <ellipse
                   cx='8'
                   cy='8'
-                  rx='6.2'
-                  ry='2.35'
+                  rx='6.4'
+                  ry='2.45'
                   fill='none'
                   stroke='currentColor'
-                  strokeWidth='1.1'
+                  strokeWidth='1.25'
                   transform='rotate(120 8 8)'
                 />
               </svg>
