@@ -1,0 +1,35 @@
+packages/rspress-theme-ui/src/layout/Section.tsx
+  s_d52d6cc0db761f::t_e2e0aa0a1be96d 3-4
+packages/rspress-theme-ui/src/primitives/Text.tsx
+  s_d52d6cc0db761f::t_0e7c21c0301c60 3-4
+packages/rspress-theme-ui/src/layout/PageShell.tsx
+  s_d52d6cc0db761f::t_95e33f7904a273 3-4
+packages/rspress-theme-ui/src/widgets/SocialIcons.tsx
+  s_d52d6cc0db761f::t_1f0d6b6c66eb57 6
+packages/rspress-theme-ui/src/widgets/ContributionHeatmap.tsx
+  s_d52d6cc0db761f::t_48f81e4bc15c3b 8-9
+packages/rspress-theme-ui/src/blocks/ProfileHero.tsx
+  s_d52d6cc0db761f::t_34e1e31737be16 6-8
+packages/rspress-theme-ui/src/primitives/TextLink.tsx
+  s_d52d6cc0db761f::t_cac40caa74f9e3 3-4
+packages/rspress-theme-ui/src/primitives/Empty.tsx
+  s_d52d6cc0db761f::t_076d1431ed1bff 3-4
+packages/rspress-theme-ui/src/primitives/CardLink.tsx
+  s_d52d6cc0db761f::t_6dd4b289849877 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "e4c90be827015bf39f00613cac0ad437fb707f28",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
