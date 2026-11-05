@@ -43,6 +43,43 @@
 html {
   color-scheme: light;
   background-color: var(--rp-c-bg);
+  scroll-behavior: smooth;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.hey-skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  border-radius: var(--rp-radius-small);
+  background: var(--rp-c-bg);
+  padding: 0.5rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--rp-c-text-1);
+  text-decoration: none;
+  box-shadow: var(--rp-shadow-2);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.hey-skip-link:focus,
+.hey-skip-link:focus-visible {
+  transform: translateY(0);
+  outline-color: var(--rp-c-brand);
 }
 
 /* Rspress has no llmsUI flag for LlmsCopyButton alone (viewOptions only hides the menu). */
@@ -92,6 +129,10 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .hey-rise,
   .hey-rise-delay-1,
   .hey-rise-delay-2 {

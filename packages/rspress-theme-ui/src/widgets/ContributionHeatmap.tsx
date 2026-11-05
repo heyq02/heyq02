@@ -73,6 +73,7 @@ export function ContributionHeatmap({
               <span
                 key={day.date}
                 title={`${day.date}: ${day.count} 次贡献`}
+                aria-hidden
                 className={`size-[9px] shrink-0 rounded-[2px] transition-transform duration-150 hover:z-10 hover:scale-150 sm:size-[10px] ${LEVEL_CLASS[day.level]}`}
               />
             ))}

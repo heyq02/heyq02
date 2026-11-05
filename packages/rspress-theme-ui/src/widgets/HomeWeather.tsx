@@ -111,6 +111,7 @@ export function HomeWeather({ home }: { home: HomePlace }): ReactElement {
     <span
       className='font-mono text-[length:var(--rp-code-font-size)] text-[var(--rp-c-text-2)]'
       title='数据来自 Open-Meteo'
+      aria-live='polite'
     >
       {home.label} · {state.label} {Math.round(state.temperature)}°C
     </span>

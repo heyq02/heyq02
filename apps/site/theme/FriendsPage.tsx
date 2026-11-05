@@ -99,34 +99,39 @@ export function FriendsPage({
   }, [])
 
   return (
-    <PageShell title={title} ssgMd={ssgMd} tone='friends'>
-      {ordered.length === 0 ? (
-        <Empty className='friends-empty mt-[calc(var(--rp-radius-small)*5)]'>还没有友链。</Empty>
-      ) : (
-        <>
-          {ssgMd ? null : (
-            <p className='mt-[calc(var(--rp-radius-small)*5)] mb-0 flex justify-end'>
-              <button
-                type='button'
-                onClick={reshuffle}
-                className={`cursor-pointer rounded-[var(--rp-radius-small)] border-0 bg-transparent px-[calc(var(--rp-radius-small)/2)] py-[calc(var(--rp-radius-small)/2)] ${siteMeta} transition-[color,transform] duration-200 hover:-translate-y-px hover:text-[var(--rp-c-brand)] active:scale-95 ${siteFocusRing}`}
-                aria-label='重新打乱友链顺序'
-                title='再洗一次'
-              >
-                换一批 ↻
-              </button>
-            </p>
-          )}
-          <ul
-            key={deal}
-            className={`friends-grid mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] gap-[calc(var(--rp-radius-small)*1.5)] p-0${ssgMd ? ' mt-[calc(var(--rp-radius-small)*5)]' : ' mt-[var(--rp-radius)]'}`}
-          >
-            {ordered.map(friend => (
-              <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />
-            ))}
-          </ul>
-        </>
-      )}
-    </PageShell>
+    <div id='hey-main' tabIndex={-1}>
+      <PageShell title={title} ssgMd={ssgMd} tone='friends'>
+        {ordered.length === 0 ? (
+          <Empty className='friends-empty mt-[calc(var(--rp-radius-small)*5)]'>还没有友链。</Empty>
+        ) : (
+          <>
+            {ssgMd ? null : (
+              <p className='mt-[calc(var(--rp-radius-small)*5)] mb-0 flex items-center justify-end gap-[var(--rp-radius)]'>
+                <span className='sr-only' aria-live='polite'>
+                  {deal === 0 ? '' : `已重新打乱，共 ${ordered.length} 个友链`}
+                </span>
+                <button
+                  type='button'
+                  onClick={reshuffle}
+                  className={`cursor-pointer rounded-[var(--rp-radius-small)] border-0 bg-transparent px-[calc(var(--rp-radius-small)/2)] py-[calc(var(--rp-radius-small)/2)] ${siteMeta} transition-[color,transform] duration-200 hover:-translate-y-px hover:text-[var(--rp-c-brand)] active:scale-95 ${siteFocusRing}`}
+                  aria-label='重新打乱友链顺序'
+                  title='再洗一次'
+                >
+                  换一批 ↻
+                </button>
+              </p>
+            )}
+            <ul
+              key={deal}
+              className={`friends-grid mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] gap-[calc(var(--rp-radius-small)*1.5)] p-0${ssgMd ? ' mt-[calc(var(--rp-radius-small)*5)]' : ' mt-[var(--rp-radius)]'}`}
+            >
+              {ordered.map(friend => (
+                <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />
+              ))}
+            </ul>
+          </>
+        )}
+      </PageShell>
+    </div>
   )
 }

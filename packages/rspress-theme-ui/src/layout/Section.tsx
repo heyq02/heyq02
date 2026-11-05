@@ -8,7 +8,9 @@ export function Section({
   children,
   className,
   titleClassName,
-  marker = ''
+  marker = '',
+  titleSrOnly = false,
+  id
 }: {
   title?: string
   children: ReactNode
@@ -16,10 +18,15 @@ export function Section({
   titleClassName?: string
   /** Extra class on section for page hooks (e.g. `profile-section`). */
   marker?: string
+  /** Keep heading for AT when the visual title lives elsewhere (e.g. JumpRail). */
+  titleSrOnly?: boolean
+  id?: string
 }): ReactElement {
   return (
-    <section className={cx(marker, siteSection, className)}>
-      {title ? <h2 className={cx(siteH2, titleClassName)}>{title}</h2> : null}
+    <section id={id} className={cx(marker, siteSection, className)}>
+      {title ? (
+        <h2 className={cx(titleSrOnly ? 'sr-only' : siteH2, titleClassName)}>{title}</h2>
+      ) : null}
       {children}
     </section>
   )

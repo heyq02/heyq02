@@ -62,11 +62,15 @@ export function ProfileHero({
             onClick={poke}
             aria-label='换一个表情'
             title='换一个表情'
+            aria-describedby='profile-mood-live'
           >
-            <span key={mood} className='hey-mood-pop inline-block'>
+            <span key={mood} className='hey-mood-pop inline-block' aria-hidden>
               {face}
             </span>
           </button>
+          <span id='profile-mood-live' className='sr-only' aria-live='polite'>
+            当前表情 {face}
+          </span>
           <span className={`shrink-0 ${siteMeta}`}>
             {intro.badge}、{intro.zodiac}
           </span>

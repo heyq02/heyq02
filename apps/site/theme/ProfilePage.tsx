@@ -93,19 +93,19 @@ export function ProfilePage({
   }
 
   return (
-    <div className={`profile ${sitePageRoot}`}>
+    <div id='hey-main' className={`profile ${sitePageRoot}`} tabIndex={-1}>
       <ProfileHero intro={intro} />
 
       <JumpRail label={intro.sections.openSource} targetId='profile-open-source' />
 
       <Section
+        id='profile-open-source'
+        title={intro.sections.openSource}
+        titleSrOnly
         marker='profile-section hey-rise hey-rise-delay-1'
         className='!mt-0 scroll-mt-[calc(var(--rp-radius-large)*2)]'
       >
-        <div
-          id='profile-open-source'
-          className='profile-projects grid grid-cols-1 gap-[var(--rp-radius)] sm:grid-cols-2'
-        >
+        <div className='profile-projects grid grid-cols-1 gap-[var(--rp-radius)] sm:grid-cols-2'>
           {pinnedProjects.map(project => (
             <ProjectCard key={project.href} project={project} />
           ))}
@@ -118,10 +118,13 @@ export function ProfilePage({
       <JumpRail label={intro.sections.blog} targetId='profile-blog' />
 
       <Section
+        id='profile-blog'
+        title={intro.sections.blog}
+        titleSrOnly
         marker='profile-section hey-rise hey-rise-delay-2'
         className='!mt-0 scroll-mt-[calc(var(--rp-radius-large)*2)]'
       >
-        <div id='profile-blog' className='grid gap-[var(--rp-radius)]'>
+        <div className='grid gap-[var(--rp-radius)]'>
           {recentPosts.map(post => (
             <PostCard key={post.href} post={post} />
           ))}
