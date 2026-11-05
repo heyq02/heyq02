@@ -1,3 +1,4 @@
+import Giscus from '@giscus/react'
 import {
   CardLink,
   CardSummary,
@@ -15,7 +16,6 @@ import {
 } from '@heyq02/rspress-theme-ui'
 import { useCallback, useMemo, useState, useSyncExternalStore } from 'react'
 import type { ReactElement, ReactNode } from 'react'
-import { Giscus } from 'rspress-plugin-giscus'
 
 import { friendsData } from '../lib/friends.ts'
 import type { FriendLink } from '../lib/friends.ts'

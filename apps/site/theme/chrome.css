@@ -142,9 +142,9 @@ body::before {
   padding: var(--rp-content-padding-y) var(--rp-content-padding-x);
 }
 
-/* Giscus iframe inherits site width; trim the plugin's default outer margin. */
-.friends-giscus .rspress-giscus-wrapper {
-  margin: 0 !important;
+/* Keep Giscus flush with the apply section; iframe fills content width. */
+.friends-giscus {
+  min-height: 12rem;
 }
 
 /* Soft halo behind the profile avatar — presence without stickers/overlays. */

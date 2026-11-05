@@ -1,5 +1,4 @@
-import type { ComponentProps } from 'react'
-import type { Giscus } from 'rspress-plugin-giscus'
+import type { GiscusProps } from '@giscus/react'
 
 /**
  * Giscus → GitHub Discussions on heyq02/heyq02.
@@ -18,4 +17,4 @@ export const friendsGiscus = {
   lang: 'zh-CN',
   loading: 'lazy',
   theme: 'noborder_light'
-} as const satisfies ComponentProps<typeof Giscus>
+} as const satisfies GiscusProps
