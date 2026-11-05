@@ -36,7 +36,7 @@ export function ProfileHero({
       <>
         {`![${intro.name}](${intro.avatar})`}
         {`\n\n# ${intro.headline}\n\n${intro.kaomoji} · ${intro.badge} · ${intro.zodiac} · ${intro.home.label}\n\n`}
-        {`${intro.bio}\n\n${intro.about}\n\n`}
+        {`${intro.about}\n\n`}
         {intro.tags.map(tag => `\`${tag}\``).join(' ')}
         {'\n'}
         {intro.places.map(place => `- [${place.label}](${place.href})`).join('\n')}
@@ -51,9 +51,6 @@ export function ProfileHero({
     <header className='hey-rise mt-[var(--hey-space-3xl)] flex flex-col items-center gap-[var(--hey-space-2xl)] md:flex-row md:items-start md:gap-[var(--hey-space-xl)]'>
       <div className='relative w-full min-w-0 flex-1'>
         <h1 className={siteH1}>{intro.headline}</h1>
-        <p className='font-display mt-[var(--hey-space-lg)] mb-0 text-[1.125rem] leading-snug font-bold text-[var(--rp-c-text-1)]'>
-          {intro.bio}
-        </p>
         <p className={`${siteBody} mt-[var(--hey-space-lg)] max-w-prose`}>{intro.about}</p>
         <div className='mt-[var(--hey-space-lg)] flex flex-wrap items-baseline gap-x-[var(--hey-space-lg)] gap-y-[var(--hey-space-sm)]'>
           <button
