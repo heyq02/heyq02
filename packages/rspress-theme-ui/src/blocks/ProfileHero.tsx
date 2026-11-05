@@ -89,7 +89,7 @@ export function ProfileHero({
       </div>
 
       {/* DeepSeek-inspired「深度思考」avatar frame — breathe + ripple. */}
-      <div className='hey-avatar-stage hey-avatar-think relative w-[min(100%,calc(var(--hey-avatar-size)+1.25rem))] shrink-0 pb-[1.6rem] md:pt-1'>
+      <div className='hey-avatar-stage hey-avatar-think relative w-[min(100%,calc(var(--hey-avatar-size)+1.25rem))] shrink-0 md:pt-1'>
         <div className='hey-avatar-think__frame relative mx-auto aspect-square w-[88%]'>
           <div className='hey-avatar-think__ripples' aria-hidden>
             <span className='hey-avatar-think__ripple' />
@@ -98,7 +98,7 @@ export function ProfileHero({
           </div>
           <div className='hey-avatar-think__pulse relative'>
             <img
-              className={`hey-avatar-think__photo block aspect-square w-full rounded-full object-cover${spinning ? ' animate-avatar-wobble' : ''}`}
+              className={`hey-avatar-think__photo block aspect-square w-full rounded-2xl object-cover${spinning ? ' animate-avatar-wobble' : ''}`}
               src={intro.avatar}
               alt={intro.name}
               width={216}
@@ -106,41 +106,6 @@ export function ProfileHero({
               draggable={false}
               onAnimationEnd={stopSpin}
             />
-            <span className='hey-avatar-think__badge'>
-              <svg className='hey-avatar-think__atom' viewBox='0 0 24 24' aria-hidden>
-                <circle cx='12' cy='12' r='2.2' fill='currentColor' />
-                <ellipse
-                  cx='12'
-                  cy='12'
-                  rx='9.6'
-                  ry='3.7'
-                  fill='none'
-                  stroke='currentColor'
-                  strokeWidth='1.7'
-                />
-                <ellipse
-                  cx='12'
-                  cy='12'
-                  rx='9.6'
-                  ry='3.7'
-                  fill='none'
-                  stroke='currentColor'
-                  strokeWidth='1.7'
-                  transform='rotate(60 12 12)'
-                />
-                <ellipse
-                  cx='12'
-                  cy='12'
-                  rx='9.6'
-                  ry='3.7'
-                  fill='none'
-                  stroke='currentColor'
-                  strokeWidth='1.7'
-                  transform='rotate(120 12 12)'
-                />
-              </svg>
-              深度思考
-            </span>
           </div>
         </div>
       </div>
