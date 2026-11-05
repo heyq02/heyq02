@@ -1,0 +1,29 @@
+AGENTS.md
+  s_d52d6cc0db761f::t_d2c71f4cc4e2a9 17,21
+apps/site/scripts/validate-content.ts
+  s_d52d6cc0db761f::t_dcd5d939261ae5 1-27
+.github/workflows/ci.yml
+  s_d52d6cc0db761f::t_91aae7f757d06a 39-42
+apps/site/package.json
+  s_d52d6cc0db761f::t_7954ad4aa853fe 9-10
+apps/site/theme/chrome.css
+  s_d52d6cc0db761f::t_ccd4bf1a2d160a 4-7
+apps/site/vite.config.ts
+  s_d52d6cc0db761f::t_35aae5df90ea17 15-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "df621fd79ffefbd767fa9ed8128110da2443540b",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
