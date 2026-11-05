@@ -15,16 +15,10 @@ const PLACE_ICONS: Partial<Record<string, SimpleIcon>> = {
 }
 
 function BrandIcon({ icon }: { icon: SimpleIcon }): ReactElement {
+  // Simple Icons ships official brand hex — use it instead of theme text color.
   return (
-    <svg
-      className={iconClass}
-      viewBox='0 0 24 24'
-      role='img'
-      aria-hidden
-      // Simple Icons ships official brand hex — use it instead of theme text color.
-      style={{ color: `#${icon.hex}` }}
-    >
-      <path fill='currentColor' d={icon.path} />
+    <svg className={iconClass} viewBox='0 0 24 24' role='img' aria-hidden>
+      <path fill={`#${icon.hex}`} d={icon.path} />
     </svg>
   )
 }
