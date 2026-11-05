@@ -1,0 +1,39 @@
+apps/cli/package.json
+  s_a04f66e204f4fc::t_0165dc4dfcc4cb 3
+apps/site/package.json
+  s_a04f66e204f4fc::t_ebeab03d7e5ce1 3
+package.json
+  s_a04f66e204f4fc::t_74534c34f3dac9 3
+packages/rspress-plugin-blog-meta/package.json
+  s_a04f66e204f4fc::t_260cb821ba387f 3
+packages/rspress-plugin-profile/package.json
+  s_a04f66e204f4fc::t_6d2bf9a8ca2b5b 3
+packages/rspress-plugin-site-assets/package.json
+  s_a04f66e204f4fc::t_a0d59097af4c91 3
+packages/rspress-plugin-site-dist/package.json
+  s_a04f66e204f4fc::t_00204569951233 3
+packages/rspress-plugin-utils/package.json
+  s_a04f66e204f4fc::t_b7baad5126227f 3
+packages/rspress-plugin-watermark/package.json
+  s_a04f66e204f4fc::t_31a1575dbd1ac3 3
+packages/rspress-site-content/package.json
+  s_a04f66e204f4fc::t_687baf6c5edb3e 3
+packages/rspress-theme-ui/package.json
+  s_a04f66e204f4fc::t_45bc2fbcf44452 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "b6f08773f606003f7e02c90d9d4749be378d38b1",
+  "prompts": {},
+  "sessions": {
+    "s_a04f66e204f4fc": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "2abd57a2-63a6-4bc4-8296-f0b6f872f341",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
