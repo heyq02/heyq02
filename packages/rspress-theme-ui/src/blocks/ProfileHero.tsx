@@ -48,13 +48,13 @@ export function ProfileHero({
   const face = faces[mood % faces.length]
 
   return (
-    <header className='hey-rise mt-[var(--rp-radius-large)] flex flex-col items-center md:mt-[calc(var(--rp-radius-small)*5)] md:flex-row md:items-start'>
-      <div className='relative w-full min-w-0 md:w-1/2'>
+    <header className='hey-rise mt-[var(--rp-radius-large)] flex flex-col items-center gap-[var(--rp-radius-large)] md:mt-[calc(var(--rp-radius-small)*5)] md:flex-row md:items-start md:gap-[calc(var(--rp-radius)*2)]'>
+      <div className='relative min-w-0 w-full flex-1'>
         <h1 className={siteH1}>{intro.headline}</h1>
         <p className='font-display mt-[var(--rp-radius)] mb-0 text-[1.125rem] leading-snug font-bold text-[var(--rp-c-text-1)]'>
           {intro.bio}
         </p>
-        <p className={`${siteBody} mt-[var(--rp-radius)] max-w-xl`}>{intro.about}</p>
+        <p className={`${siteBody} mt-[var(--rp-radius)] max-w-prose`}>{intro.about}</p>
         <div className='mt-[var(--rp-radius)] flex flex-wrap items-baseline gap-x-[var(--rp-radius)] gap-y-[var(--rp-radius-small)]'>
           <button
             type='button'
@@ -88,21 +88,21 @@ export function ProfileHero({
         </div>
       </div>
 
-      <div className='hey-avatar-stage relative mt-[calc(var(--rp-radius)*2)] flex w-full justify-center md:mt-0 md:w-1/2 md:translate-y-1 md:justify-end md:pl-[calc(var(--rp-radius)*2)]'>
+      <div className='hey-avatar-stage relative w-[min(100%,14rem)] shrink-0 md:w-[13.5rem] md:pt-1'>
         <button
           type='button'
-          className={`m-0 block max-w-xs cursor-pointer border-0 bg-transparent p-0 leading-none transition-transform duration-200 active:scale-[0.98] ${siteFocusRing}`}
+          className={`m-0 block w-full cursor-pointer border-0 bg-transparent p-0 leading-none transition-transform duration-200 active:scale-[0.98] ${siteFocusRing}`}
           onClick={poke}
           onAnimationEnd={stopSpin}
           aria-label='戳一下头像'
           title='戳我'
         >
           <img
-            className={`block aspect-square w-full max-w-[20rem] rounded-3xl border border-[var(--rp-c-divider-light)] object-cover shadow-[var(--rp-shadow-2)] transition-shadow duration-200 hover:shadow-[var(--rp-shadow-1)]${spinning ? ' animate-avatar-wobble' : ''}`}
+            className={`block aspect-square w-full rounded-[1.25rem] border border-[var(--rp-c-divider-light)] object-cover shadow-[var(--rp-shadow-2)] transition-shadow duration-200 hover:shadow-[var(--rp-shadow-1)]${spinning ? ' animate-avatar-wobble' : ''}`}
             src={intro.avatar}
             alt={intro.name}
-            width={320}
-            height={320}
+            width={216}
+            height={216}
             draggable={false}
           />
         </button>
