@@ -1,0 +1,44 @@
+apps/site/theme/FriendsPage.tsx
+  s_d52d6cc0db761f::t_fba21165c943d3 102-135
+apps/site/theme/chrome.css
+  s_d52d6cc0db761f::t_d815e40bf35eb7 46-82
+  s_d52d6cc0db761f::t_18afa7cd573e76 132-135
+apps/site/theme/ProfilePage.tsx
+  s_d52d6cc0db761f::t_f5ef2d518438ac 96,102-104,108,121-123,127
+packages/rspress-theme-ui/src/blocks/ProfileHero.tsx
+  s_d52d6cc0db761f::t_4365f1c3a3645a 65,67,71-73
+apps/site/theme/index.tsx
+  s_d52d6cc0db761f::t_9d036c8ea3210c 6
+  s_d52d6cc0db761f::t_d0d41955c3f6cd 5,24
+  s_d52d6cc0db761f::t_eb2b53a10eeb5d 15,19-23,25-27
+apps/site/theme/MainLandmark.tsx
+  s_d52d6cc0db761f::t_9d036c8ea3210c 12
+  s_d52d6cc0db761f::t_c025ba61ceeb7c 1-11,13-21
+packages/rspress-theme-ui/src/layout/JumpRail.tsx
+  s_d52d6cc0db761f::t_d67a85b3e63701 5,11,23-25,33-35,39,41
+  s_d52d6cc0db761f::t_9d036c8ea3210c 28-31
+packages/rspress-theme-ui/src/widgets/ContributionHeatmap.tsx
+  s_d52d6cc0db761f::t_fc709c3d0dd22d 76
+apps/site/tailwind.css
+  s_d52d6cc0db761f::t_5c9d6840b7bc00 60-72
+packages/rspress-theme-ui/src/widgets/HomeWeather.tsx
+  s_d52d6cc0db761f::t_6ccb7f7e0d8126 114
+packages/rspress-theme-ui/src/layout/Section.tsx
+  s_d52d6cc0db761f::t_6a3d80f911b656 11-13,21-23,26-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "ec0b7bd3589be911001ec83c0277b9928a6f1c54",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
