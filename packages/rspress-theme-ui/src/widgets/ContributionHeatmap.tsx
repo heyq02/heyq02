@@ -58,16 +58,16 @@ export function ContributionHeatmap({
   const { activeDays, longest, current } = summarize(days)
 
   return (
-    <div className='profile-contributions flex w-full flex-col gap-[var(--hey-space-md)] sm:flex-row sm:items-stretch'>
+    <div className='profile-contributions flex w-full min-w-0 flex-col gap-[var(--hey-space-md)] sm:flex-row sm:items-stretch'>
       <div
-        className='flex w-full min-w-0 flex-1'
+        className='flex w-full min-w-0 flex-1 overflow-x-auto overscroll-x-contain'
         role='img'
         aria-label={`近一年 ${calendar.total} 次 GitHub 贡献`}
       >
         {calendar.weeks.map(week => (
           <div
             key={week[0]?.date ?? week.length}
-            className='flex flex-1 flex-col items-center gap-px sm:gap-[2px]'
+            className='flex shrink-0 flex-col items-center gap-px sm:min-w-0 sm:flex-1 sm:gap-[2px]'
           >
             {week.map(day => (
               <span
