@@ -36,3 +36,5 @@ Do **not** add new workspace packages unless something cannot live in an existin
 | App | `@heyq02/site` | Pages, chrome, `lib/*` data adapters, Rspress config |
 
 `apps/site/theme` should stay thin (pages + Layout + chrome). Put reusable UI in `rspress-theme-ui`, not new site components.
+
+Brand files live in `content/brand/` (`signature.png` logo source, `favicon.png` 192×192). Regenerate favicon after changing the signature (e.g. `sips -z 192 192 content/brand/signature.png --out content/brand/favicon.png`).

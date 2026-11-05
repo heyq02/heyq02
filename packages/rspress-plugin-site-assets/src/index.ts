@@ -13,9 +13,15 @@ const prepareSiteAssetsOnce = createPrepareOnce(prepareSiteAssets)
 
 /** Copy brand / public assets into `blogs/public` before Rspress scans routes. */
 export function pluginSiteAssets(options: PluginSiteAssetsOptions): RspressPlugin {
-  if (!options.outDir || !options.signaturePath || !options.wechatPath || !options.watermarkPath) {
+  if (
+    !options.outDir ||
+    !options.faviconPath ||
+    !options.signaturePath ||
+    !options.wechatPath ||
+    !options.watermarkPath
+  ) {
     throw new Error(
-      '@heyq02/rspress-plugin-site-assets: `outDir`, `signaturePath`, `wechatPath`, and `watermarkPath` are required'
+      '@heyq02/rspress-plugin-site-assets: `outDir`, `faviconPath`, `signaturePath`, `wechatPath`, and `watermarkPath` are required'
     )
   }
 

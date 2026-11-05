@@ -86,6 +86,7 @@ ${pages || '-（暂无其他页面）'}
   plugins: [
     pluginSiteAssets({
       outDir: resolve(blogsRoot, 'public'),
+      faviconPath: resolve(brandRoot, 'favicon.png'),
       signaturePath: resolve(brandRoot, 'signature.png'),
       wechatPath: resolve(sitePublic, 'wechat.jpg'),
       watermarkPath: resolve(sitePublic, 'wuxian-jinbu.png')
