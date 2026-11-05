@@ -46,6 +46,7 @@ export function ProfileHero({
   }
 
   const face = faces[mood % faces.length]
+  const xPlace = intro.places.find(place => place.label === 'X')
 
   return (
     <header className='hey-rise mt-[var(--hey-space-3xl)] flex flex-col items-center gap-[var(--hey-space-2xl)] md:flex-row md:items-start md:gap-[var(--hey-space-xl)]'>
@@ -103,10 +104,19 @@ export function ProfileHero({
               draggable={false}
               onAnimationEnd={stopSpin}
             />
-            {/* 「加个好友」style mark — glass sheen sweeps L→R. */}
-            <span className='hey-avatar-add' aria-hidden>
-              <span className='hey-avatar-add__plus' />
-            </span>
+            {/* 「加个好友」mark — opens X; glass sheen sweeps L→R. */}
+            {xPlace ? (
+              <a
+                className={`hey-avatar-add ${siteFocusRing}`}
+                href={xPlace.href}
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='在 X 上加好友'
+                title='在 X 上加好友'
+              >
+                <span className='hey-avatar-add__plus' />
+              </a>
+            ) : null}
           </div>
         </div>
       </div>
