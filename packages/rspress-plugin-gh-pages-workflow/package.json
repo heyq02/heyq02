@@ -1,6 +1,6 @@
 {
   "name": "@heyq02/rspress-plugin-gh-pages-workflow",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "private": true,
   "description": "Rspress plugin + composite action contract for GitHub Actions Pages (not branch-push gh-pages)",
   "type": "module",
