@@ -18,7 +18,7 @@
     }
   ],
   "contributions": {
-    "total": 789,
+    "total": 790,
     "href": "https://github.com/heyq02",
     "weeks": [
       [
@@ -1932,7 +1932,7 @@
         {
           "date": "2026-10-29",
           "count": 11,
-          "level": 2
+          "level": 1
         },
         {
           "date": "2026-10-30",
@@ -1968,7 +1968,7 @@
         },
         {
           "date": "2026-11-05",
-          "count": 43,
+          "count": 44,
           "level": 4
         }
       ]
