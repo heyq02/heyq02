@@ -9,7 +9,7 @@ import {
   listInterviewNotes,
   renderBlogMetaJson,
   renderPostsMetaJson,
-  renderRecentPostsModule
+  renderRecentPostsJson
 } from './blog-posts.ts'
 import type { BlogSidebarLabels } from './blog-posts.ts'
 
@@ -19,7 +19,7 @@ export interface PrepareBlogMetaOptions {
   /** Sidebar labels for overview / posts / interview (site IA). */
   labels: BlogSidebarLabels
   /**
-   * Optional absolute path of generated `theme/recent-posts.ts`.
+   * Optional absolute path of generated `content/data/recent-posts.json`.
    * Explicit second output for the homepage — omit to skip.
    */
   recentPostsPath?: string
@@ -58,7 +58,7 @@ export async function prepareBlogMeta(options: PrepareBlogMetaOptions): Promise<
   if (options.recentPostsPath) {
     const recentChanged = await writeIfChanged(
       options.recentPostsPath,
-      renderRecentPostsModule(posts, options.recentLimit ?? 6)
+      renderRecentPostsJson(posts, options.recentLimit ?? 6)
     )
     results.push(recentChanged)
     generatedPaths.push(options.recentPostsPath)

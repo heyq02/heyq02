@@ -17,6 +17,7 @@ const description = siteDescription(intro)
 const dir = import.meta.dirname
 const blogsRoot = resolve(dir, 'blogs')
 const themeDir = resolve(dir, 'theme')
+const contentDataDir = resolve(dir, '../../content/data')
 const brandRoot = resolve(dir, '../../content/brand')
 const sitePublic = resolve(dir, 'public')
 
@@ -104,7 +105,7 @@ ${pages || '-（暂无其他页面）'}
         posts: '文章',
         interview: '面经'
       },
-      recentPostsPath: resolve(themeDir, 'recent-posts.ts'),
+      recentPostsPath: resolve(contentDataDir, 'recent-posts.json'),
       formatRoot: dir
     }),
     pluginWatermark({ src: '/wuxian-jinbu.png' }),

@@ -19,8 +19,8 @@ import { formatZhDate } from '../lib/format.ts'
 import { contributionCalendar, formatCount, pinnedProjects } from '../lib/github-profile.ts'
 import type { GithubPinnedProject } from '../lib/github-profile.ts'
 import { intro } from '../lib/intro.ts'
-import { recentPosts } from './recent-posts.ts'
-import type { RecentPost } from './recent-posts.ts'
+import { recentPosts } from '../lib/recent-posts.ts'
+import type { RecentPost } from '../lib/recent-posts.ts'
 
 function PostCard({ post }: { post: RecentPost }): ReactElement {
   return (

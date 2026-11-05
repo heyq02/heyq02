@@ -11,3 +11,5 @@ export type {
   GithubPinnedProject,
   GithubProfileData
 } from './github-profile.ts'
+
+export type { RecentPost } from './recent-posts.ts'

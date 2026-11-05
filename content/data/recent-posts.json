@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "macos-disable-ime-switching",
+    "href": "/blog/posts/macos-disable-ime-switching/",
+    "title": "macOS 禁止切换输入法实操教程",
+    "description": "输入法不再莫名其妙切到 ABC，稳定停在你真正要用的那一个。",
+    "date": "2026-10-31"
+  },
+  {
+    "slug": "building-personal-site-with-rspress",
+    "href": "/blog/posts/building-personal-site-with-rspress/",
+    "title": "用 Rspress 构建个人网站",
+    "description": "欢迎来到我的个人网站！",
+    "date": "2026-06-22"
+  },
+  {
+    "slug": "webpack-import-path-variables",
+    "href": "/blog/posts/webpack-import-path-variables/",
+    "title": "Webpack 中 import 加载路径变量",
+    "description": "动态 import 路径在 Webpack 里为何打不进包，以及怎样留下静态目录和后缀让打包器收齐候选文件。",
+    "date": "2026-06-22"
+  },
+  {
+    "slug": "multi-mcp-aggregation-nginx-vs-express",
+    "href": "/blog/posts/multi-mcp-aggregation-nginx-vs-express/",
+    "title": "单实例多 MCP 聚合服务：两种实现方案对比",
+    "description": "用 Nginx 反向代理或多端口服务，对照 Express 单端口内存映射，怎么在一个实例里聚合多个 MCP。",
+    "date": "2026-01-19"
+  },
+  {
+    "slug": "idea-change-maven-repository",
+    "href": "/blog/posts/idea-change-maven-repository/",
+    "title": "开发技巧指北：IDEA 修改默认绑定的 Maven 仓库地址",
+    "description": "改 IDEA 内置 Maven 的 settings.xml 并勾选重写，把默认仓库换成自定义地址。",
+    "date": "2025-05-29"
+  },
+  {
+    "slug": "weixin-homepage-ui-recreation",
+    "href": "/blog/posts/weixin-homepage-ui-recreation/",
+    "title": "趣味项目：UI 复现微信官网首页",
+    "description": "用 Vite + React + Tailwind / SCSS 复刻 weixin.qq.com 首页布局，并部署到 GitHub Pages。",
+    "date": "2024-09-17"
+  }
+]
