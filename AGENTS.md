@@ -13,5 +13,8 @@ This monorepo is Vite+ first. Prefer the `vp` CLI for installs, scripts, checks,
 | All packages | `vp run -r <task>` |
 | Format / lint / typecheck | `vp check` (or `vp check --fix`); package scripts use `vp run ccheck` |
 | Dev / build | `vp run @heyq02/site#dev`, `vp run -r build` |
+| Refresh homepage GitHub pins / heatmap | `vp run @heyq02/site#crefresh-profile` (needs `GITHUB_TOKEN`; writes `content/data/github-profile.json`) |
+
+`content/data/github-profile.json` is the committed GitHub snapshot (pins + contribution calendar). Site reads it at build time — Release Site refreshes, commits, then builds Pages.
 
 `packageManager` may still say `pnpm` under the hood — that is an implementation detail of Vite+. Agent-facing commands should still be `vp`.

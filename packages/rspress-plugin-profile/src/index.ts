@@ -20,26 +20,25 @@ export type {
   ContributionCalendar,
   ContributionDay,
   ContributionLevel
-} from './github-contributions.ts'
+} from '@heyq02/rspress-site-content'
 export { fetchPinnedProjects, mapPinnedRepository, STUB_PINNED_PROJECTS } from './github-pinned.ts'
 export type { PinnedProject } from './github-pinned.ts'
 export { prepareProfile, prepareProfileOnce } from './prepare-profile.ts'
 export type { PrepareProfileOptions } from './prepare-profile.ts'
-export { profilePage, renderProfileDataModule } from './profile-page.ts'
-export type { ProfilePageView, ProfileProjectView } from './profile-page.ts'
+export { profileData, renderProfileDataJson } from './profile-page.ts'
 
 export type PluginProfileOptions = PrepareProfileOptions
 
-/** Fetch pinned repos / contributions and regenerate `profile-data.ts` before route scan. */
+/** Optional: refresh `content/data/github-profile.json` during Rspress config (prefer CI script). */
 export function pluginProfile(options: PluginProfileOptions): RspressPlugin {
-  if (!options.profileDataPath) {
-    throw new Error('@heyq02/rspress-plugin-profile: `profileDataPath` is required')
+  if (!options.dataPath) {
+    throw new Error('@heyq02/rspress-plugin-profile: `dataPath` is required')
   }
 
   return {
     name: '@heyq02/rspress-plugin-profile',
     async config(config) {
-      await prepareProfileOnce({ ...options, format: false })
+      await prepareProfileOnce(options)
       return config
     }
   }

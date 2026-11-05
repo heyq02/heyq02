@@ -5,9 +5,13 @@ export default liangmi({
     tasks: {
       cbuild: {
         command: 'vp exec rspress build',
+        // Reads committed `content/data/github-profile.json`; build does not call GitHub.
+        cache: {}
+      },
+      'crefresh-profile': {
+        command: 'vpx scripts/refresh-profile.ts',
         cache: {
-          // Task env is isolated, so declare what the build needs to receive.
-          untrackedEnv: ['GITHUB_TOKEN', 'HEYQ02_PROFILE_STUB']
+          untrackedEnv: ['GITHUB_TOKEN', 'GH_TOKEN', 'HEYQ02_PROFILE_STUB']
         }
       },
       dev: {

@@ -2,7 +2,7 @@
   "name": "@heyq02/rspress-plugin-profile",
   "version": "2.0.0-beta.10",
   "private": true,
-  "description": "Rspress plugin: fetch GitHub pins/contributions and write theme/profile-data.ts",
+  "description": "Fetch GitHub pins/contributions into content/data/github-profile.json (CI refresh / optional plugin)",
   "type": "module",
   "exports": {
     ".": "./src/index.ts",

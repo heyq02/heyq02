@@ -13,11 +13,11 @@ import { Badge } from '@rspress/core/theme'
 import type { ReactElement } from 'react'
 
 import { formatZhDate } from '../lib/format.ts'
+import { contributionCalendar, formatCount, pinnedProjects } from '../lib/github-profile.ts'
+import type { GithubPinnedProject } from '../lib/github-profile.ts'
 import { intro } from '../lib/intro.ts'
 import { ContributionHeatmap } from './ContributionHeatmap.tsx'
 import { JumpRail } from './JumpRail.tsx'
-import { contributionCalendar, pinnedProjects } from './profile-data.ts'
-import type { ProfileProject } from './profile-data.ts'
 import { ProfilePlay } from './ProfilePlay.tsx'
 import { recentPosts } from './recent-posts.ts'
 import type { RecentPost } from './recent-posts.ts'
@@ -38,7 +38,7 @@ function PostCard({ post }: { post: RecentPost }): ReactElement {
   )
 }
 
-function ProjectCard({ project }: { project: ProfileProject }): ReactElement {
+function ProjectCard({ project }: { project: GithubPinnedProject }): ReactElement {
   return (
     <CardLink
       href={project.href}
@@ -49,7 +49,7 @@ function ProjectCard({ project }: { project: ProfileProject }): ReactElement {
         <CardTitle className='profile-project-name'>{project.name}</CardTitle>
         <span className='m-0 flex flex-wrap gap-[calc(var(--rp-radius-small)/2)]'>
           <Badge text={project.language} type='info' />
-          <Badge text={`${project.stars} 星标`} type='info' />
+          <Badge text={`${formatCount(project.stars)} 星标`} type='info' />
         </span>
       </span>
       <CardSummary className={siteCardSummary}>{project.summary}</CardSummary>
@@ -78,7 +78,7 @@ export function ProfilePage({
         {pinnedProjects
           .map(
             project =>
-              `- [${project.name}](${project.href}) — ${project.language} · ${project.stars} 星标 · ${project.forks} 派生\n  ${project.summary}\n`
+              `- [${project.name}](${project.href}) — ${project.language} · ${formatCount(project.stars)} 星标 · ${formatCount(project.forks)} 派生\n  ${project.summary}\n`
           )
           .join('\n')}
         {`\n近一年贡献：[${contributionCalendar.total} 次](${contributionCalendar.href})\n\n`}

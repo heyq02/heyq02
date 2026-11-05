@@ -1,7 +1,6 @@
 import { resolve } from 'node:path'
 
 import { pluginBlogMeta } from '@heyq02/rspress-plugin-blog-meta'
-import { pluginProfile } from '@heyq02/rspress-plugin-profile'
 import { pluginSiteAssets } from '@heyq02/rspress-plugin-site-assets'
 import { pluginSiteDist } from '@heyq02/rspress-plugin-site-dist'
 import { pluginWatermark } from '@heyq02/rspress-plugin-watermark'
@@ -106,11 +105,6 @@ ${pages || '-（暂无其他页面）'}
         interview: '面经'
       },
       recentPostsPath: resolve(themeDir, 'recent-posts.ts'),
-      formatRoot: dir
-    }),
-    pluginProfile({
-      profileDataPath: resolve(themeDir, 'profile-data.ts'),
-      intro,
       formatRoot: dir
     }),
     pluginWatermark({ src: '/wuxian-jinbu.png' }),

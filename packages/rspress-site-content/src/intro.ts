@@ -42,8 +42,6 @@ export interface Intro {
     openSource: string
   }
   places: Place[]
-  /** Chinese blurbs keyed by pinned repo name; overrides the GitHub description. */
-  projectSummaries: Record<string, string>
 }
 
 /** SEO / RSS / llms meta line — composed from name, tags, and bio. */

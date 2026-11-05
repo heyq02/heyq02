@@ -1,14 +1,20 @@
-# Build and deploy apps/site to GitHub Pages (heyq02.com).
+# Refresh GitHub profile data, commit it, then build & deploy apps/site to Pages.
 name: Release Site
 
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      # Bot commits that only refresh GitHub snapshot must not re-enter this workflow.
+      - 'content/data/github-pinned.json'
+  schedule:
+    # Keep pins / contribution heatmap fresh even without code pushes.
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -27,6 +33,8 @@ jobs:
         with:
           # lastUpdated reads git history for each page.
           fetch-depth: 0
+          # Allow the bot commit step to push back to main.
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Vite Plus
         uses: voidzero-dev/setup-vp@v1.22.0
@@ -34,9 +42,18 @@ jobs:
           node-version: lts
           cache: true
 
-      - name: Build site
+      - name: Refresh GitHub profile data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: vp run @heyq02/site#crefresh-profile
+
+      - name: Commit profile data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore(site): refresh GitHub profile data'
+          file_pattern: content/data/github-pinned.json
+
+      - name: Build site
         run: vp run @heyq02/site#cbuild
 
       - name: Setup Pages

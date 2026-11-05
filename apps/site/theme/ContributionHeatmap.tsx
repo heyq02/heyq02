@@ -1,7 +1,11 @@
 import { sitePanelChrome, TextLink } from '@heyq02/rspress-theme-ui'
 import type { ReactElement } from 'react'
 
-import type { ContributionCalendar, ContributionDay, ContributionLevel } from './profile-data.ts'
+import type {
+  ContributionCalendar,
+  ContributionDay,
+  ContributionLevel
+} from '../lib/github-profile.ts'
 
 /** Contribution intensity on Rspress brand / surface tokens. */
 const LEVEL_CLASS: Record<ContributionLevel, string> = {

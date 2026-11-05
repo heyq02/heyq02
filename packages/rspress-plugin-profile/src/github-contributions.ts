@@ -1,21 +1,12 @@
+import type {
+  ContributionCalendar,
+  ContributionDay,
+  ContributionLevel
+} from '@heyq02/rspress-site-content'
 import { graphql } from '@octokit/graphql'
 
 import { GITHUB_TIMEOUT_MS, profileStubEnabled, requireGithubToken } from './github-client.ts'
 import type { GraphqlClient } from './github-client.ts'
-
-export type ContributionLevel = 0 | 1 | 2 | 3 | 4
-
-export interface ContributionDay {
-  date: string
-  count: number
-  level: ContributionLevel
-}
-
-export interface ContributionCalendar {
-  total: number
-  href: string
-  weeks: ContributionDay[][]
-}
 
 type GithubContributionLevel =
   | 'NONE'

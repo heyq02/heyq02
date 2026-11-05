@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vp run cbuild"
+    "build": "vp run cbuild",
+    "refresh-profile": "vp run crefresh-profile"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.3.0",
