@@ -208,6 +208,86 @@ body::before {
     var(--rp-shadow-2);
 }
 
+/* 「加个好友」mark — glossy red + looping glass reflection L→R. */
+.hey-avatar-add {
+  --hey-add: #ff3b5c;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: linear-gradient(160deg, #ff6b84 0%, var(--hey-add) 48%, #e0183a 100%);
+  box-shadow:
+    0 2px 8px color-mix(in srgb, var(--hey-add) 45%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 55%, transparent);
+  transform: translate(-50%, 42%);
+  pointer-events: none;
+}
+
+.hey-avatar-add__plus {
+  position: relative;
+  z-index: 1;
+  width: 0.55rem;
+  height: 0.55rem;
+}
+
+.hey-avatar-add__plus::before,
+.hey-avatar-add__plus::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 1px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0.5px color-mix(in srgb, black 12%, transparent);
+}
+
+.hey-avatar-add__plus::before {
+  width: 100%;
+  height: 0.14rem;
+}
+
+.hey-avatar-add__plus::after {
+  width: 0.14rem;
+  height: 100%;
+}
+
+/* Diagonal glass sheen — continuous left → right loop. */
+.hey-avatar-add::after {
+  content: '';
+  position: absolute;
+  inset: -20% -40%;
+  z-index: 2;
+  background: linear-gradient(
+    105deg,
+    transparent 36%,
+    color-mix(in srgb, white 15%, transparent) 42%,
+    color-mix(in srgb, white 78%, transparent) 50%,
+    color-mix(in srgb, white 15%, transparent) 58%,
+    transparent 64%
+  );
+  transform: translateX(-130%) skewX(-18deg);
+  animation: hey-add-sheen 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hey-add-sheen {
+  0% {
+    transform: translateX(-130%) skewX(-18deg);
+  }
+  55%,
+  100% {
+    transform: translateX(130%) skewX(-18deg);
+  }
+}
+
 @keyframes hey-think-ripple {
   0% {
     opacity: 0.7;
@@ -253,7 +333,8 @@ body::before {
   .hey-rise,
   .hey-rise-delay-1,
   .hey-rise-delay-2,
-  .hey-avatar-think__ripple {
+  .hey-avatar-think__ripple,
+  .hey-avatar-add::after {
     animation: none !important;
   }
 
@@ -261,5 +342,10 @@ body::before {
     opacity: 0.28;
     transform: scale(1.08);
     border-radius: 1rem;
+  }
+
+  .hey-avatar-add::after {
+    transform: translateX(-10%) skewX(-18deg);
+    opacity: 0.55;
   }
 }

@@ -86,7 +86,7 @@ export function ProfileHero({
       </div>
 
       {/* DeepSeek-inspired「深度思考」avatar frame — breathe + ripple. */}
-      <div className='hey-avatar-stage hey-avatar-think relative w-[min(100%,calc(var(--hey-avatar-size)+1.25rem))] shrink-0 md:pt-1'>
+      <div className='hey-avatar-stage hey-avatar-think relative w-[min(100%,calc(var(--hey-avatar-size)+1.25rem))] shrink-0 pb-[0.85rem] md:pt-1'>
         <div className='hey-avatar-think__frame relative mx-auto aspect-square w-[88%]'>
           <div className='hey-avatar-think__ripples' aria-hidden>
             <span className='hey-avatar-think__ripple' />
@@ -103,6 +103,10 @@ export function ProfileHero({
               draggable={false}
               onAnimationEnd={stopSpin}
             />
+            {/* 「加个好友」style mark — glass sheen sweeps L→R. */}
+            <span className='hey-avatar-add' aria-hidden>
+              <span className='hey-avatar-add__plus' />
+            </span>
           </div>
         </div>
       </div>
