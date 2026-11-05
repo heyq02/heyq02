@@ -1,0 +1,47 @@
+packages/rspress-theme-ui/src/foundation/index.ts
+  s_d52d6cc0db761f::t_72a1d9bf8e3d18 7,17
+apps/site/theme/FriendsPage.tsx
+  s_d52d6cc0db761f::t_7a7f81c10e7c21 8
+  s_d52d6cc0db761f::t_769f50bc27544e 53,68
+  s_d52d6cc0db761f::t_7c6482bc76042d 106,110,117,127
+packages/rspress-theme-ui/src/layout/JumpRail.tsx
+  s_d52d6cc0db761f::t_0aba1cde8d13f8 24,27
+packages/rspress-theme-ui/src/widgets/ContributionHeatmap.tsx
+  s_d52d6cc0db761f::t_8f5f1b4b14d5ab 61,85,87,101,103
+apps/site/theme/ProfilePage.tsx
+  s_d52d6cc0db761f::t_81b1aefcc898fa 31,35
+  s_d52d6cc0db761f::t_ad1e2d841a4c5f 46,49,51
+  s_d52d6cc0db761f::t_8ee3d451593b2d 107,109,114,126,128,133,136
+  s_d52d6cc0db761f::t_6ba1d0f2936879 13
+packages/rspress-theme-ui/src/widgets/SocialIcons.tsx
+  s_d52d6cc0db761f::t_5d0982e30b3dba 70
+apps/site/theme/chrome.css
+  s_d52d6cc0db761f::t_47f089fa99c103 41-56
+packages/rspress-theme-ui/src/foundation/tokens.ts
+  s_d52d6cc0db761f::t_80b14c8e6a9390 1,9,22,39,41-42,45,48-54
+packages/rspress-theme-ui/src/blocks/ProfileHero.tsx
+  s_d52d6cc0db761f::t_253c0d8a697676 6
+  s_d52d6cc0db761f::t_65c7b2477984d7 51,54,57-58,61,79,84,91-92
+packages/rspress-theme-ui/src/index.ts
+  s_d52d6cc0db761f::t_9e82403ffc9bbf 18,28
+AGENTS.md
+  s_d52d6cc0db761f::t_cd6271d141d574 31-36
+packages/rspress-theme-ui/src/layout/PageShell.tsx
+  s_d52d6cc0db761f::t_915845ee62ff0b 26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "4d3fe8d64f921dfc4d0098d746350208cf9108d3",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
