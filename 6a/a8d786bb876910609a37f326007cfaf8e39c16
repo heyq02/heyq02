@@ -1,0 +1,50 @@
+packages/rspress-plugin-profile/src/index.ts
+  s_d52d6cc0db761f::t_06b0c55b7f99ad 25
+packages/rspress-plugin-blog-meta/src/blog-posts.test.ts
+  s_d52d6cc0db761f::t_ffe89542c86521 1-97
+.github/workflows/release-site.yml
+  s_d52d6cc0db761f::t_c435a40829d889 10
+  s_d52d6cc0db761f::t_398b14f47b1bfb 54
+packages/rspress-plugin-profile/src/profile-page.test.ts
+  s_d52d6cc0db761f::t_7417a97e87489c 1-36
+packages/rspress-site-content/src/github-profile.test.ts
+  s_d52d6cc0db761f::t_93dd25f8553cf7 1-16
+packages/rspress-plugin-profile/src/github-contributions.test.ts
+  s_d52d6cc0db761f::t_c1214c08ce14ba 1-53
+packages/rspress-plugin-profile/src/github-pinned.test.ts
+  s_d52d6cc0db761f::t_7a708356d66e61 1-66
+AGENTS.md
+  s_d52d6cc0db761f::t_2efbc177116ca5 15,22-34
+.github/workflows/ci.yml
+  s_d52d6cc0db761f::t_50e42d34460533 36-39
+packages/rspress-plugin-profile/package.json
+  s_d52d6cc0db761f::t_7da054bd7e9ae7 24-25
+pnpm-workspace.yaml
+  s_d52d6cc0db761f::t_9d959696344507 7
+packages/rspress-plugin-profile/src/github-pinned.ts
+  s_d52d6cc0db761f::t_1159204de60e7a 15-16
+package.json
+  s_d52d6cc0db761f::t_682850ee9b99c1 13-14
+packages/rspress-site-content/package.json
+  s_d52d6cc0db761f::t_93f8d93b8940b2 17-18
+packages/rspress-plugin-blog-meta/package.json
+  s_d52d6cc0db761f::t_f48ad024f71a74 22-23
+pnpm-lock.yaml
+  s_d52d6cc0db761f::t_ff180ec7d367ee 182-184,321-323,352-354,452-454,4390
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "6aa8d786bb876910609a37f326007cfaf8e39c16",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
