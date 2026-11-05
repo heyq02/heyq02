@@ -22,7 +22,7 @@ export type {
   ContributionLevel
 } from '@heyq02/rspress-site-content'
 export { fetchPinnedProjects, mapPinnedRepository, STUB_PINNED_PROJECTS } from './github-pinned.ts'
-export type { PinnedProject } from './github-pinned.ts'
+export type { GraphQlRepository, PinnedProject } from './github-pinned.ts'
 export { prepareProfile, prepareProfileOnce } from './prepare-profile.ts'
 export type { PrepareProfileOptions } from './prepare-profile.ts'
 export { profileData, renderProfileDataJson } from './profile-page.ts'

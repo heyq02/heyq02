@@ -33,6 +33,9 @@ jobs:
       - name: Check
         run: vp run ccheck
 
-      # Uses committed `content/data/github-pinned.json` — no live GitHub GraphQL in PR CI.
+      - name: Test
+        run: vp test
+
+      # Uses committed `content/data/github-profile.json` — no live GitHub GraphQL in PR CI.
       - name: Build site
         run: vp run @heyq02/site#cbuild

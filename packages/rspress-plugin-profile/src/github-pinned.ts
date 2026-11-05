@@ -12,7 +12,8 @@ export interface PinnedProject {
   forks: number
 }
 
-interface GraphQlRepository {
+/** GitHub GraphQL repository node used by pinned-items mapping. */
+export interface GraphQlRepository {
   name: string
   nameWithOwner: string
   url: string

@@ -10,7 +10,8 @@
     "format": "vp run cfmt",
     "lint": "vp run clint",
     "prepare": "vp config",
-    "release": "bumpp -r"
+    "release": "bumpp -r",
+    "test": "vp test"
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.4",

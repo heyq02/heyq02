@@ -7,7 +7,7 @@ on:
       - main
     paths-ignore:
       # Bot commits that only refresh GitHub snapshot must not re-enter this workflow.
-      - 'content/data/github-pinned.json'
+      - 'content/data/github-profile.json'
   schedule:
     # Keep pins / contribution heatmap fresh even without code pushes.
     - cron: '0 6 * * *'
@@ -51,7 +51,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore(site): refresh GitHub profile data'
-          file_pattern: content/data/github-pinned.json
+          file_pattern: content/data/github-profile.json
 
       - name: Build site
         run: vp run @heyq02/site#cbuild

@@ -12,9 +12,23 @@ This monorepo is Vite+ first. Prefer the `vp` CLI for installs, scripts, checks,
 | Filter packages                        | `vp run -F <filter> <task>` (e.g. `vp run -F @heyq02/site check`)                                        |
 | All packages                           | `vp run -r <task>`                                                                                       |
 | Format / lint / typecheck              | `vp check` (or `vp check --fix`); package scripts use `vp run ccheck`                                    |
+| Unit tests                             | `vp test`                                                                                                |
 | Dev / build                            | `vp run @heyq02/site#dev`, `vp run -r build`                                                             |
 | Refresh homepage GitHub pins / heatmap | `vp run @heyq02/site#crefresh-profile` (needs `GITHUB_TOKEN`; writes `content/data/github-profile.json`) |
 
 `content/data/` holds site data JSON: hand-authored (`intro.json`, `friends.json`) and generated (`github-profile.json` via `crefresh-profile`; `recent-posts.json` via `@heyq02/rspress-plugin-blog-meta` on site config). Site pages import through `apps/site/lib/*`.
 
 `packageManager` may still say `pnpm` under the hood — that is an implementation detail of Vite+. Agent-facing commands should still be `vp`.
+
+## Package boundaries (frozen)
+
+Do **not** add new workspace packages unless something cannot live in an existing one. Prefer extending:
+
+| Layer | Package | Owns |
+| --- | --- | --- |
+| Contracts | `@heyq02/rspress-site-content` | Shared types + pure content helpers |
+| UI | `@heyq02/rspress-theme-ui` | Presentational components (`foundation` → `primitives` → `layout` → `widgets` → `blocks`) |
+| Plugins | `@heyq02/rspress-plugin-*` | Build-time prepare / Rspress hooks (`utils` for shared FS helpers) |
+| App | `@heyq02/site` | Pages, chrome, `lib/*` data adapters, Rspress config |
+
+`apps/site/theme` should stay thin (pages + Layout + chrome). Put reusable UI in `rspress-theme-ui`, not new site components.
