@@ -1,0 +1,23 @@
+apps/site/theme/SocialIcons.tsx
+  s_d52d6cc0db761f::t_aa907dadc96f30 3-4,10-14,17,19-20,25,61,68-69,74
+apps/site/package.json
+  s_d52d6cc0db761f::t_3622b0974c04ac 21-22
+pnpm-lock.yaml
+  s_d52d6cc0db761f::t_c5c13e1476ba27 268-270,3047-3050,6082-6083
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "4cf770eadfff6efb8219401497a7508d80b5ebc5",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
