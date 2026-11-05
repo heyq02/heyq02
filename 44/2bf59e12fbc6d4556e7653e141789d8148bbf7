@@ -1,0 +1,24 @@
+apps/site/theme/chrome.css
+  s_1463359ea2b6b7::t_98c19c31387b30 252,254
+  s_1463359ea2b6b7::t_905ce7be34c7a9 210-218,220-222,226,230
+  s_1463359ea2b6b7::t_7c8c060c2e67ba 363
+  s_1463359ea2b6b7::t_0aa08fb91aeb27 291-292,294-295,299-316
+packages/rspress-theme-ui/src/blocks/ProfileHero.tsx
+  s_1463359ea2b6b7::t_8ce0f36064780d 113-114,117,121-122,125,130-131,134,140-141,144
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "442bf59e12fbc6d4556e7653e141789d8148bbf7",
+  "prompts": {},
+  "sessions": {
+    "s_1463359ea2b6b7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "db50ede7-489b-49d2-8a5f-0849c5e7be2f",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
