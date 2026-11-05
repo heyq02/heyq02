@@ -11,7 +11,6 @@ import { pluginGitDiff } from '@kazamori/rspress-plugin-git-diff'
 import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
-import { pluginChangelog } from 'rspress-plugin-changelog'
 import readingTime from 'rspress-plugin-reading-time'
 
 import { siteBlogMetaOptions } from './lib/blog-meta.ts'
@@ -112,27 +111,13 @@ ${pages || '-（暂无其他页面）'}
       // Keep ?diff= tags aligned with semver releases (avoids dumping every git tag).
       tagPattern: /^v\d/
     }),
-    pluginChangelog({
-      fetchOnDev: false,
-      routePrefix: '',
-      addSidebar: false,
-      items: [
-        {
-          type: 'github-releases',
-          routePath: 'changelog',
-          repo: 'heyq02/heyq02',
-          title: '更新日志'
-        }
-      ]
-    }),
     readingTime({ defaultLocale: 'zh-CN' }),
     pluginAnnotationWords({
       wordsMapPath: 'words-map.json',
       ignorePaths: [
         /^\/(?:index\.html)?$/,
         /^\/friends(?:\/|$|\.html)/,
-        /^\/changes(?:\/|$|\.html)/,
-        /^\/changelog(?:\/|$|\.html)/
+        /^\/changes(?:\/|$|\.html)/
       ]
     }),
     pluginGhPagesWorkflow({ outDir: resolve(dir, 'dist') }),
