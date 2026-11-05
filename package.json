@@ -1,6 +1,6 @@
 {
   "name": "heyq02",
-  "version": "2.0.0-beta.15",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "scripts": {

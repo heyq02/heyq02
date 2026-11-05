@@ -1,6 +1,6 @@
 {
   "name": "@heyq02/rspress-plugin-site-dist",
-  "version": "2.0.0-beta.15",
+  "version": "2.0.0",
   "private": true,
   "description": "Rspress plugin: production dist post-process (SSG-MD absolute links, optional CNAME)",
   "type": "module",
