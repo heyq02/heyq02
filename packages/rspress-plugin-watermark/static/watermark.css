@@ -1,8 +1,10 @@
-/* Diagonal watermark — fixed under chrome, never interactive. */
+/* Diagonal watermark — fixed under chrome, never interactive.
+ * Stay at z-index 0 so Rspress chrome keeps its own stack
+ * (nav 60 / sidebar 50 / aside 40). Do not override those. */
 .rp-plugin-watermark {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -16,12 +18,4 @@
   height: auto;
   opacity: 0.015;
   transform: rotate(-24deg) scale(2.2);
-}
-
-/* Keep interactive chrome above the watermark layer. */
-.rp-nav,
-.rp-sidebar,
-.rp-toc,
-.rspress-nav {
-  z-index: 2;
 }
