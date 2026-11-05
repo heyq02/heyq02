@@ -231,7 +231,10 @@ body::before {
 }
 
 .hey-avatar-think__pulse {
+  position: relative;
   border-radius: 50%;
+  /* Size badge / icon against the avatar diameter. */
+  container-type: inline-size;
 }
 
 .hey-avatar-think__photo {
@@ -241,39 +244,43 @@ body::before {
     var(--rp-shadow-2);
 }
 
+/* Pendant badge ≈ 84% avatar width, ~22% height — matches DeepSeek 头像挂件. */
 .hey-avatar-think__badge {
   position: absolute;
   left: 50%;
-  bottom: -0.4rem;
+  bottom: 0;
   z-index: 1;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  transform: translateX(-50%);
-  padding: 0.32rem 0.95rem 0.34rem 0.5rem;
+  justify-content: center;
+  gap: 0.35em;
+  box-sizing: border-box;
+  width: 84%;
+  transform: translate(-50%, 42%);
+  padding: 0.4em 0.7em 0.42em 0.55em;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, white 72%, var(--hey-think));
+  border: 1.5px solid color-mix(in srgb, white 78%, var(--hey-think));
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--hey-think) 82%, white),
-    color-mix(in srgb, var(--hey-think) 92%, #1a2a7a)
+    color-mix(in srgb, var(--hey-think) 78%, white),
+    color-mix(in srgb, var(--hey-think) 90%, #1a2a7a)
   );
   color: #fff;
-  font-size: 0.9rem;
-  font-weight: 650;
-  letter-spacing: 0.02em;
-  line-height: 1.15;
+  font-size: 12.5cqi;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
   white-space: nowrap;
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--hey-think) 25%, transparent),
-    0 4px 14px color-mix(in srgb, var(--hey-think) 28%, transparent);
+    0 4px 16px color-mix(in srgb, var(--hey-think) 30%, transparent);
 }
 
 .hey-avatar-think__atom {
   display: block;
   flex-shrink: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 1.35em;
+  height: 1.35em;
   color: #fff;
 }
 

@@ -89,7 +89,7 @@ export function ProfileHero({
       </div>
 
       {/* DeepSeek-inspired「深度思考」avatar frame — breathe + ripple. */}
-      <div className='hey-avatar-stage hey-avatar-think relative w-[min(100%,calc(var(--hey-avatar-size)+1.25rem))] shrink-0 md:pt-1'>
+      <div className='hey-avatar-stage hey-avatar-think relative w-[min(100%,calc(var(--hey-avatar-size)+1.25rem))] shrink-0 pb-[1.6rem] md:pt-1'>
         <div className='hey-avatar-think__frame relative mx-auto aspect-square w-[88%]'>
           <div className='hey-avatar-think__ripples' aria-hidden>
             <span className='hey-avatar-think__ripple' />
@@ -107,13 +107,7 @@ export function ProfileHero({
               onAnimationEnd={stopSpin}
             />
             <span className='hey-avatar-think__badge'>
-              <svg
-                className='hey-avatar-think__atom'
-                viewBox='0 0 24 24'
-                width={32}
-                height={32}
-                aria-hidden
-              >
+              <svg className='hey-avatar-think__atom' viewBox='0 0 24 24' aria-hidden>
                 <circle cx='12' cy='12' r='2.2' fill='currentColor' />
                 <ellipse
                   cx='12'
