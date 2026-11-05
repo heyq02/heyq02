@@ -1,6 +1,6 @@
 {
   "name": "@heyq02/rspress-plugin-blog-meta",
-  "version": "2.0.7",
+  "version": "2.1.0",
   "private": true,
   "description": "Rspress plugin: regenerate blog `_meta.json` sidebars (optional content/data/recent-posts.json)",
   "type": "module",
