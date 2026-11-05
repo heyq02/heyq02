@@ -1,0 +1,19 @@
+packages/rspress-theme-ui/src/blocks/ProfileHero.tsx
+  s_1463359ea2b6b7::t_57d0890c3b4858 39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "60d508b092ecf0cb2dbd0d77102620c8f83f07b8",
+  "prompts": {},
+  "sessions": {
+    "s_1463359ea2b6b7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "db50ede7-489b-49d2-8a5f-0849c5e7be2f",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
