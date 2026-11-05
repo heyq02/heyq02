@@ -1,0 +1,20 @@
+packages/rspress-theme-ui/src/widgets/ContributionHeatmap.tsx
+  s_1463359ea2b6b7::t_416c1df2cbe4ea 70
+  s_1463359ea2b6b7::t_ccac851eb34ff6 61,63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "a26513cdeba5d83c66d946ee75bcb9707a75f8a1",
+  "prompts": {},
+  "sessions": {
+    "s_1463359ea2b6b7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "db50ede7-489b-49d2-8a5f-0849c5e7be2f",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
