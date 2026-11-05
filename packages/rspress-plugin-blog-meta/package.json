@@ -2,7 +2,7 @@
   "name": "@heyq02/rspress-plugin-blog-meta",
   "version": "2.0.0-beta.9",
   "private": true,
-  "description": "Rspress plugin: regenerate blog `_meta.json` sidebars from markdown posts",
+  "description": "Rspress plugin: regenerate blog `_meta.json` sidebars (optional homepage recent-posts module)",
   "type": "module",
   "exports": {
     ".": "./src/index.ts",

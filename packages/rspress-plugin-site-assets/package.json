@@ -2,7 +2,7 @@
   "name": "@heyq02/rspress-plugin-site-assets",
   "version": "2.0.0-beta.9",
   "private": true,
-  "description": "Rspress plugin: prepare blogs/public assets and post-process production dist (SSG-MD links, CNAME)",
+  "description": "Rspress plugin: copy brand / public assets into blogs/public",
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
@@ -10,6 +10,9 @@
   },
   "scripts": {
     "check": "vp run ccheck"
+  },
+  "dependencies": {
+    "@heyq02/rspress-plugin-utils": "workspace:*"
   },
   "devDependencies": {
     "@liangmi/vp-config": "catalog:",

@@ -1,0 +1,24 @@
+{
+  "name": "@heyq02/rspress-plugin-site-dist",
+  "version": "2.0.0-beta.9",
+  "private": true,
+  "description": "Rspress plugin: production dist post-process (SSG-MD absolute links, optional CNAME)",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "check": "vp run ccheck"
+  },
+  "devDependencies": {
+    "@liangmi/vp-config": "catalog:",
+    "@rspress/core": "^2.1.0-beta.2",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "@rspress/core": "^2.1.0-beta.2"
+  }
+}

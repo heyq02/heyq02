@@ -19,10 +19,3 @@ export async function prepareSiteAssets(options: PrepareSiteAssetsOptions): Prom
   await cp(wechatPath, resolve(outDir, 'wechat.jpg'))
   await cp(watermarkPath, resolve(outDir, 'wuxian-jinbu.png'))
 }
-
-let prepareOnce: Promise<void> | undefined
-
-export function prepareSiteAssetsOnce(options: PrepareSiteAssetsOptions): Promise<void> {
-  prepareOnce ??= prepareSiteAssets(options)
-  return prepareOnce
-}

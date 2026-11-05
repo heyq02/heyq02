@@ -3,6 +3,7 @@ import { resolve } from 'node:path'
 import { pluginBlogMeta } from '@heyq02/rspress-plugin-blog-meta'
 import { pluginProfile } from '@heyq02/rspress-plugin-profile'
 import { pluginSiteAssets } from '@heyq02/rspress-plugin-site-assets'
+import { pluginSiteDist } from '@heyq02/rspress-plugin-site-dist'
 import { pluginWatermark } from '@heyq02/rspress-plugin-watermark'
 import { siteDescription } from '@heyq02/rspress-site-content'
 import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
@@ -10,6 +11,7 @@ import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 
 import intro from '../../content/data/intro.json' with { type: 'json' }
+import { pluginHomeShell } from './lib/home-shell.ts'
 
 const description = siteDescription(intro)
 
@@ -86,17 +88,27 @@ ${pages || '-（暂无其他页面）'}
       outDir: resolve(blogsRoot, 'public'),
       signaturePath: resolve(brandRoot, 'signature.png'),
       wechatPath: resolve(sitePublic, 'wechat.jpg'),
-      watermarkPath: resolve(sitePublic, 'wuxian-jinbu.png'),
+      watermarkPath: resolve(sitePublic, 'wuxian-jinbu.png')
+    }),
+    pluginSiteDist({
       siteOrigin: intro.site,
       cnamePath: resolve(dir, 'CNAME')
     }),
+    pluginHomeShell({
+      homeMdxPath: resolve(blogsRoot, 'index.mdx'),
+      intro
+    }),
     pluginBlogMeta({
       blogDir: resolve(blogsRoot, 'blog'),
+      labels: {
+        overview: '概览',
+        posts: '文章',
+        interview: '面经'
+      },
       recentPostsPath: resolve(themeDir, 'recent-posts.ts'),
       formatRoot: dir
     }),
     pluginProfile({
-      homeMdxPath: resolve(blogsRoot, 'index.mdx'),
       profileDataPath: resolve(themeDir, 'profile-data.ts'),
       intro,
       formatRoot: dir

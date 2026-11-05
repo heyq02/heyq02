@@ -1,8 +1,7 @@
-import type { Intro } from '@heyq02/rspress-site-content'
 import { graphql } from '@octokit/graphql'
 
-import { githubLogin, githubToken, PINNED_TIMEOUT_MS, profileStubEnabled } from './github-pinned.ts'
-import type { GraphqlClient } from './github-pinned.ts'
+import { GITHUB_TIMEOUT_MS, profileStubEnabled, requireGithubToken } from './github-client.ts'
+import type { GraphqlClient } from './github-client.ts'
 
 export type ContributionLevel = 0 | 1 | 2 | 3 | 4
 
@@ -117,24 +116,17 @@ export function mapContributionCalendar(
 
 /** Load the last-year GitHub contribution calendar via GraphQL. */
 export async function fetchContributionCalendar(
-  intro: Intro,
+  login: string,
   options: {
     token?: string
     graphql?: GraphqlClient
   } = {}
 ): Promise<ContributionCalendar> {
   if (profileStubEnabled()) {
-    return stubContributionCalendar(githubLogin(intro.places))
+    return stubContributionCalendar(login)
   }
 
-  const login = githubLogin(intro.places)
-  const token = options.token ?? githubToken()
-  if (!token) {
-    throw new Error(
-      'Set GITHUB_TOKEN or GH_TOKEN to load GitHub contributions (or HEYQ02_PROFILE_STUB=1 for offline CI)'
-    )
-  }
-
+  const token = options.token ?? requireGithubToken('GitHub contributions')
   const client = options.graphql ?? graphql
   let payload: ContributionQueryResult
   try {
@@ -145,7 +137,7 @@ export async function fetchContributionCalendar(
         'user-agent': 'heyq02-site'
       },
       request: {
-        signal: AbortSignal.timeout(PINNED_TIMEOUT_MS)
+        signal: AbortSignal.timeout(GITHUB_TIMEOUT_MS)
       }
     })
   } catch (error: unknown) {

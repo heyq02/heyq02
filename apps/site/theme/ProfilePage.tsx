@@ -1,4 +1,3 @@
-import { formatZhDate } from '@heyq02/rspress-site-content'
 import {
   CardLink,
   CardSummary,
@@ -13,6 +12,7 @@ import {
 import { Badge } from '@rspress/core/theme'
 import type { ReactElement } from 'react'
 
+import { formatZhDate } from '../lib/format.ts'
 import { intro } from '../lib/intro.ts'
 import { ContributionHeatmap } from './ContributionHeatmap.tsx'
 import { JumpRail } from './JumpRail.tsx'

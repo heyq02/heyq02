@@ -1,4 +1,3 @@
-import { documentTitleSuffix, formatCount } from '@heyq02/rspress-site-content'
 import type { Intro } from '@heyq02/rspress-site-content'
 
 import type { ContributionCalendar } from './github-contributions.ts'
@@ -22,6 +21,14 @@ export interface ProfilePageView {
   contributions: ContributionCalendar
 }
 
+function formatCount(count: number): string {
+  if (count < 1000) {
+    return String(count)
+  }
+  return `${(count / 1000).toFixed(1).replace(/\.0$/, '')}k`
+}
+
+/** Map GitHub fetch results + intro blurbs into the homepage data module shape. */
 export function profilePage(
   intro: Intro,
   projects: PinnedProject[] = [],
@@ -42,32 +49,6 @@ export function profilePage(
     })),
     contributions
   }
-}
-
-function yamlString(value: string): string {
-  return JSON.stringify(value)
-}
-
-/** Thin MDX shell — body UI lives in `@theme/ProfilePage`. */
-export function renderHomeMdx(
-  intro: Intro,
-  pinned: PinnedProject[] = [],
-  contributions?: ContributionCalendar
-): string {
-  const page = profilePage(intro, pinned, contributions)
-  return `---
-pageType: doc-wide
-title: ${yamlString(page.name)}
-titleSuffix: ${yamlString(documentTitleSuffix(intro))}
-sidebar: false
-outline: false
-footer: false
----
-
-import { ProfilePage } from '@theme/ProfilePage'
-
-<ProfilePage />
-`
 }
 
 /** Generated module consumed by `@theme/ProfilePage`. */

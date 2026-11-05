@@ -1,5 +1,7 @@
-import type { Intro, Place } from '@heyq02/rspress-site-content'
 import { graphql } from '@octokit/graphql'
+
+import { GITHUB_TIMEOUT_MS, profileStubEnabled, requireGithubToken } from './github-client.ts'
+import type { GraphqlClient } from './github-client.ts'
 
 export interface PinnedProject {
   name: string
@@ -29,8 +31,6 @@ interface PinnedQueryResult {
   } | null
 }
 
-export const PINNED_TIMEOUT_MS = 10_000
-
 const pinnedQuery = `query($login: String!) {
   user(login: $login) {
     pinnedItems(first: 6, types: REPOSITORY) {
@@ -54,24 +54,7 @@ const pinnedQuery = `query($login: String!) {
   }
 }`
 
-export type GraphqlClient = typeof graphql
-
-export function githubLogin(places: Place[]): string {
-  const place = places.find(item => item.label === 'GitHub')
-  if (!place) {
-    throw new Error('intro.places has no GitHub entry')
-  }
-  if (place.detail) {
-    return place.detail
-  }
-  return new URL(place.href).pathname.replaceAll(/^\/+|\/+$/g, '')
-}
-
-export function githubToken(env: NodeJS.ProcessEnv = process.env): string | undefined {
-  return env.GITHUB_TOKEN ?? env.GH_TOKEN
-}
-
-/** Offline / CI fixture when `HEYQ02_PROFILE_STUB=1`. */
+/** Offline fixture when `HEYQ02_PROFILE_STUB=1`. */
 export const STUB_PINNED_PROJECTS: PinnedProject[] = [
   {
     name: 'simpleicons.dev',
@@ -91,10 +74,6 @@ export const STUB_PINNED_PROJECTS: PinnedProject[] = [
   }
 ]
 
-export function profileStubEnabled(env: NodeJS.ProcessEnv = process.env): boolean {
-  return env.HEYQ02_PROFILE_STUB === '1'
-}
-
 export function mapPinnedRepository(repo: GraphQlRepository, login: string): PinnedProject {
   return {
     name: repo.owner.login === login ? repo.name : repo.nameWithOwner,
@@ -108,7 +87,7 @@ export function mapPinnedRepository(repo: GraphQlRepository, login: string): Pin
 
 /** Load profile pinned repositories via the GitHub GraphQL API. */
 export async function fetchPinnedProjects(
-  intro: Intro,
+  login: string,
   options: {
     token?: string
     graphql?: GraphqlClient
@@ -118,14 +97,7 @@ export async function fetchPinnedProjects(
     return STUB_PINNED_PROJECTS
   }
 
-  const login = githubLogin(intro.places)
-  const token = options.token ?? githubToken()
-  if (!token) {
-    throw new Error(
-      'Set GITHUB_TOKEN or GH_TOKEN to load pinned GitHub projects (or HEYQ02_PROFILE_STUB=1 for offline CI)'
-    )
-  }
-
+  const token = options.token ?? requireGithubToken('pinned GitHub projects')
   const client = options.graphql ?? graphql
   let payload: PinnedQueryResult
   try {
@@ -136,7 +108,7 @@ export async function fetchPinnedProjects(
         'user-agent': 'heyq02-site'
       },
       request: {
-        signal: AbortSignal.timeout(PINNED_TIMEOUT_MS)
+        signal: AbortSignal.timeout(GITHUB_TIMEOUT_MS)
       }
     })
   } catch (error: unknown) {

@@ -1,7 +1,7 @@
 import { mkdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
-import { formatGenerated, writeIfChanged } from '@heyq02/rspress-plugin-utils'
+import { createPrepareOnce, formatGenerated, writeIfChanged } from '@heyq02/rspress-plugin-utils'
 import type { SpawnFn } from '@heyq02/rspress-plugin-utils'
 
 import {
@@ -11,11 +11,17 @@ import {
   renderPostsMetaJson,
   renderRecentPostsModule
 } from './blog-posts.ts'
+import type { BlogSidebarLabels } from './blog-posts.ts'
 
 export interface PrepareBlogMetaOptions {
   /** Absolute path of the blog directory (`…/blogs/blog`). */
   blogDir: string
-  /** Absolute path of generated `theme/recent-posts.ts` for the homepage. */
+  /** Sidebar labels for overview / posts / interview (site IA). */
+  labels: BlogSidebarLabels
+  /**
+   * Optional absolute path of generated `theme/recent-posts.ts`.
+   * Explicit second output for the homepage — omit to skip.
+   */
   recentPostsPath?: string
   /** How many newest posts to expose on the homepage. */
   recentLimit?: number
@@ -25,7 +31,7 @@ export interface PrepareBlogMetaOptions {
   spawnFn?: SpawnFn
 }
 
-/** Write `_meta.json` for `blog/`, `posts/`, and `interview/`. */
+/** Write `_meta.json` for `blog/`, `posts/`, and `interview/` (+ optional recent-posts). */
 export async function prepareBlogMeta(options: PrepareBlogMetaOptions): Promise<void> {
   const blogDir = options.blogDir
   const postsDir = resolve(blogDir, 'posts')
@@ -43,7 +49,7 @@ export async function prepareBlogMeta(options: PrepareBlogMetaOptions): Promise<
   }
 
   const results = [
-    await writeIfChanged(files.blog, renderBlogMetaJson()),
+    await writeIfChanged(files.blog, renderBlogMetaJson(options.labels)),
     await writeIfChanged(files.posts, renderPostsMetaJson(posts)),
     await writeIfChanged(files.interview, renderPostsMetaJson(interviews))
   ]
@@ -63,9 +69,6 @@ export async function prepareBlogMeta(options: PrepareBlogMetaOptions): Promise<
   }
 }
 
-let prepareOnce: Promise<void> | undefined
-
-export function prepareBlogMetaOnce(options: PrepareBlogMetaOptions): Promise<void> {
-  prepareOnce ??= prepareBlogMeta({ ...options, format: options.format ?? false })
-  return prepareOnce
-}
+export const prepareBlogMetaOnce = createPrepareOnce((options: PrepareBlogMetaOptions) =>
+  prepareBlogMeta({ ...options, format: options.format ?? false })
+)

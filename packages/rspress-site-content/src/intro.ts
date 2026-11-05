@@ -55,20 +55,3 @@ export function siteDescription(intro: Pick<Intro, 'name' | 'tags' | 'bio'>): st
 export function documentTitleSuffix(intro: Pick<Intro, 'tags' | 'bio'>): string {
   return `${[...intro.tags, intro.bio].join('，')}。`
 }
-
-/** `2026-06-22` → `2026年6月22日`. */
-export function formatZhDate(iso: string): string {
-  const match = /^(?<y>\d{4})-(?<m>\d{2})-(?<d>\d{2})$/.exec(iso)
-  if (!match?.groups) {
-    return iso
-  }
-  return `${match.groups.y}年${Number(match.groups.m)}月${Number(match.groups.d)}日`
-}
-
-export function formatCount(count: number): string {
-  if (count < 1000) {
-    return String(count)
-  }
-
-  return `${(count / 1000).toFixed(1).replace(/\.0$/, '')}k`
-}

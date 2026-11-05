@@ -4,7 +4,6 @@ import { prepareBlogMetaOnce } from './prepare-blog-meta.ts'
 import type { PrepareBlogMetaOptions } from './prepare-blog-meta.ts'
 
 export {
-  BLOG_LABELS,
   dateFromSlug,
   listBlogPosts,
   listInterviewNotes,
@@ -12,13 +11,13 @@ export {
   renderPostsMetaJson,
   renderRecentPostsModule
 } from './blog-posts.ts'
-export type { BlogPost } from './blog-posts.ts'
+export type { BlogPost, BlogSidebarLabels } from './blog-posts.ts'
 export { prepareBlogMeta, prepareBlogMetaOnce } from './prepare-blog-meta.ts'
 export type { PrepareBlogMetaOptions } from './prepare-blog-meta.ts'
 
 export type PluginBlogMetaOptions = PrepareBlogMetaOptions
 
-/** Regenerate blog `_meta.json` sidebars before Rspress scans routes. */
+/** Regenerate blog `_meta.json` sidebars (and optional homepage recent-posts) before route scan. */
 export function pluginBlogMeta(options: PluginBlogMetaOptions): RspressPlugin {
   if (!options.blogDir) {
     throw new Error('@heyq02/rspress-plugin-blog-meta: `blogDir` is required')
