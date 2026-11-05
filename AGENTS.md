@@ -14,10 +14,11 @@ This monorepo is Vite+ first. Prefer the `vp` CLI for installs, scripts, checks,
 | Format / lint / typecheck              | `vp check` (or `vp check --fix`); package scripts use `vp run ccheck`                                    |
 | Unit tests                             | `vp test`                                                                                                |
 | Dev / build                            | `vp run @heyq02/site#dev`, `vp run -r build`                                                             |
+| Validate committed `content/data` JSON | `vp run @heyq02/site#cvalidate-content`                                                                  |
 | Regenerate `recent-posts.json`         | `vp run @heyq02/site#cprepare-content`                                                                   |
 | Refresh homepage GitHub pins / heatmap | `vp run @heyq02/site#crefresh-profile` (needs `GITHUB_TOKEN`; writes `content/data/github-profile.json`) |
 
-`content/data/` holds site data JSON: hand-authored (`intro.json`, `friends.json`) and generated (`github-profile.json` via `crefresh-profile`; `recent-posts.json` via `cprepare-content` / blog-meta). Site pages import through `apps/site/lib/*`, which runtime-validates shapes via `@heyq02/rspress-site-content` assert helpers.
+`content/data/` holds site data JSON: hand-authored (`intro.json`, `friends.json`) and generated (`github-profile.json` via `crefresh-profile`; `recent-posts.json` via `cprepare-content` / blog-meta). Site pages import through `apps/site/lib/*`, which runtime-validates shapes via `@heyq02/rspress-site-content` assert helpers. CI also runs `cvalidate-content` before build.
 
 After editing blog posts, run `cprepare-content` and commit `content/data/recent-posts.json` if it changed. CI fails on drift. Release Site prepares content + refreshes profile, then commits both generated JSON files before building Pages.
 

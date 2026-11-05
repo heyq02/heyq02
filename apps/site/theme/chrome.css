@@ -1,9 +1,10 @@
 /* Site chrome on Rspress CSS tokens (--rp-c-*). */
 /* 字体：京东朗正体 https://github.com/heyq02/JINGDONGLangZhengTi */
 
-@import '@fontsource/dm-sans/400.css';
-@import '@fontsource/dm-sans/500.css';
-@import '@fontsource/dm-sans/700.css';
+/* Latin fallback only — CJK comes from JINGDONGLangZhengTi / system fonts. */
+@import '@fontsource/dm-sans/latin-400.css';
+@import '@fontsource/dm-sans/latin-500.css';
+@import '@fontsource/dm-sans/latin-700.css';
 
 @font-face {
   font-family: 'JINGDONGLangZhengTi';

@@ -12,6 +12,10 @@ export default liangmi({
         command: 'vpx scripts/prepare-content.ts',
         cache: {}
       },
+      'cvalidate-content': {
+        command: 'vpx scripts/validate-content.ts',
+        cache: {}
+      },
       'crefresh-profile': {
         command: 'vpx scripts/refresh-profile.ts',
         cache: {

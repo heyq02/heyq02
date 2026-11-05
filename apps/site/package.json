@@ -6,7 +6,8 @@
   "scripts": {
     "build": "vp run cbuild",
     "prepare-content": "vp run cprepare-content",
-    "refresh-profile": "vp run crefresh-profile"
+    "refresh-profile": "vp run crefresh-profile",
+    "validate-content": "vp run cvalidate-content"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.3.0",

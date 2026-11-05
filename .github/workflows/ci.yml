@@ -36,6 +36,10 @@ jobs:
       - name: Test
         run: vp test
 
+      # Fail fast on corrupt committed content/data JSON (no site build required).
+      - name: Validate content
+        run: vp run @heyq02/site#cvalidate-content
+
       # Fail if markdown-derived `recent-posts.json` drifted from the committed snapshot.
       - name: Prepare content
         run: vp run @heyq02/site#cprepare-content
