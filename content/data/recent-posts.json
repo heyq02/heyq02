@@ -7,17 +7,17 @@
     "date": "2026-10-31"
   },
   {
-    "slug": "building-personal-site-with-rspress",
-    "href": "/blog/posts/building-personal-site-with-rspress/",
-    "title": "用 Rspress 构建个人网站",
-    "description": "欢迎来到我的个人网站！",
-    "date": "2026-06-22"
-  },
-  {
     "slug": "webpack-import-path-variables",
     "href": "/blog/posts/webpack-import-path-variables/",
     "title": "Webpack 中 import 加载路径变量",
     "description": "动态 import 路径在 Webpack 里为何打不进包，以及怎样留下静态目录和后缀让打包器收齐候选文件。",
+    "date": "2026-06-22"
+  },
+  {
+    "slug": "building-personal-site-with-rspress",
+    "href": "/blog/posts/building-personal-site-with-rspress/",
+    "title": "用 Rspress 构建个人网站",
+    "description": "欢迎来到我的个人网站！",
     "date": "2026-06-22"
   },
   {

@@ -6,8 +6,9 @@ on:
     branches:
       - main
     paths-ignore:
-      # Bot commits that only refresh GitHub snapshot must not re-enter this workflow.
+      # Bot commits that only refresh generated snapshots must not re-enter this workflow.
       - 'content/data/github-profile.json'
+      - 'content/data/recent-posts.json'
   schedule:
     # Keep pins / contribution heatmap fresh even without code pushes.
     - cron: '0 6 * * *'
@@ -42,16 +43,21 @@ jobs:
           node-version: lts
           cache: true
 
+      - name: Prepare content snapshots
+        run: vp run @heyq02/site#cprepare-content
+
       - name: Refresh GitHub profile data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: vp run @heyq02/site#crefresh-profile
 
-      - name: Commit profile data
+      - name: Commit generated content data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore(site): refresh GitHub profile data'
-          file_pattern: content/data/github-profile.json
+          commit_message: 'chore(site): refresh generated content data'
+          file_pattern: |
+            content/data/github-profile.json
+            content/data/recent-posts.json
 
       - name: Build site
         run: vp run @heyq02/site#cbuild

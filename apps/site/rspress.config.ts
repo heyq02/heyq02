@@ -10,6 +10,7 @@ import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 
 import intro from '../../content/data/intro.json' with { type: 'json' }
+import { siteBlogMetaOptions } from './lib/blog-meta.ts'
 import { pluginHomeShell } from './lib/home-shell.ts'
 
 const description = siteDescription(intro)
@@ -17,7 +18,6 @@ const description = siteDescription(intro)
 const dir = import.meta.dirname
 const blogsRoot = resolve(dir, 'blogs')
 const themeDir = resolve(dir, 'theme')
-const contentDataDir = resolve(dir, '../../content/data')
 const brandRoot = resolve(dir, '../../content/brand')
 const sitePublic = resolve(dir, 'public')
 
@@ -98,16 +98,7 @@ ${pages || '-（暂无其他页面）'}
       homeMdxPath: resolve(blogsRoot, 'index.mdx'),
       intro
     }),
-    pluginBlogMeta({
-      blogDir: resolve(blogsRoot, 'blog'),
-      labels: {
-        overview: '概览',
-        posts: '文章',
-        interview: '面经'
-      },
-      recentPostsPath: resolve(contentDataDir, 'recent-posts.json'),
-      formatRoot: dir
-    }),
+    pluginBlogMeta(siteBlogMetaOptions()),
     pluginWatermark({ src: '/wuxian-jinbu.png' }),
     pluginRss({
       feed: {

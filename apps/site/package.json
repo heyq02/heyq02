@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vp run cbuild",
+    "prepare-content": "vp run cprepare-content",
     "refresh-profile": "vp run crefresh-profile"
   },
   "dependencies": {

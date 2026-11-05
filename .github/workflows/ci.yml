@@ -36,6 +36,13 @@ jobs:
       - name: Test
         run: vp test
 
+      # Fail if markdown-derived `recent-posts.json` drifted from the committed snapshot.
+      - name: Prepare content
+        run: vp run @heyq02/site#cprepare-content
+
+      - name: Check generated content drift
+        run: git diff --exit-code -- content/data/recent-posts.json
+
       # Uses committed `content/data/github-profile.json` — no live GitHub GraphQL in PR CI.
       - name: Build site
         run: vp run @heyq02/site#cbuild

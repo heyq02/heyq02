@@ -8,6 +8,10 @@ export default liangmi({
         // Reads committed `content/data/github-profile.json`; build does not call GitHub.
         cache: {}
       },
+      'cprepare-content': {
+        command: 'vpx scripts/prepare-content.ts',
+        cache: {}
+      },
       'crefresh-profile': {
         command: 'vpx scripts/refresh-profile.ts',
         cache: {
