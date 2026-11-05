@@ -1,4 +1,4 @@
-import { formatCount } from '@heyq02/rspress-site-content'
+import { documentTitleSuffix, formatCount } from '@heyq02/rspress-site-content'
 import type { Intro } from '@heyq02/rspress-site-content'
 
 import type { ContributionCalendar } from './github-contributions.ts'
@@ -44,14 +44,6 @@ export function profilePage(
   }
 }
 
-/** Browser tab suffix after the name (`贺同学 - …`). */
-export function documentTitleSuffix(
-  intro: Intro,
-  page: Pick<ProfilePageView, 'tags'> = profilePage(intro)
-): string {
-  return `${[...page.tags, intro.bio].join('，')}。`
-}
-
 function yamlString(value: string): string {
   return JSON.stringify(value)
 }
@@ -66,7 +58,7 @@ export function renderHomeMdx(
   return `---
 pageType: doc-wide
 title: ${yamlString(page.name)}
-titleSuffix: ${yamlString(documentTitleSuffix(intro, page))}
+titleSuffix: ${yamlString(documentTitleSuffix(intro))}
 sidebar: false
 outline: false
 footer: false

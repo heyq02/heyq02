@@ -6,7 +6,6 @@ import type { PrepareBlogMetaOptions } from './prepare-blog-meta.ts'
 export {
   BLOG_LABELS,
   dateFromSlug,
-  formatZhDate,
   listBlogPosts,
   listInterviewNotes,
   renderBlogMetaJson,

@@ -1,3 +1,4 @@
+import { formatZhDate } from '@heyq02/rspress-site-content'
 import {
   CardLink,
   CardSummary,
@@ -20,14 +21,6 @@ import type { ProfileProject } from './profile-data.ts'
 import { ProfilePlay } from './ProfilePlay.tsx'
 import { recentPosts } from './recent-posts.ts'
 import type { RecentPost } from './recent-posts.ts'
-
-function formatZhDate(iso: string): string {
-  const match = /^(?<y>\d{4})-(?<m>\d{2})-(?<d>\d{2})$/.exec(iso)
-  if (!match?.groups) {
-    return iso
-  }
-  return `${match.groups.y}年${Number(match.groups.m)}月${Number(match.groups.d)}日`
-}
 
 function PostCard({ post }: { post: RecentPost }): ReactElement {
   return (
@@ -66,8 +59,6 @@ export function ProfilePage({
 }: {
   ssgMd?: boolean
 } = {}): ReactElement {
-  const socials = intro.places.filter(place => place.label !== 'WeChat')
-
   if (ssgMd) {
     const contributionLines = contributionCalendar.weeks
       .flat()
@@ -86,14 +77,12 @@ export function ProfilePage({
               `- [${project.name}](${project.href}) — ${project.language} · ${project.stars} 星标 · ${project.forks} 派生\n  ${project.summary}\n`
           )
           .join('\n')}
-        {`\n近一年 [${contributionCalendar.total} 次贡献](${contributionCalendar.href})\n\n`}
+        {`\n近一年贡献：[${contributionCalendar.total} 次](${contributionCalendar.href})\n\n`}
         {contributionLines ? `${contributionLines}\n` : ''}
         {`\n## ${intro.sections.blog}\n\n`}
         {recentPosts
           .map(post => `- [${post.title}](${post.href}) — ${post.date}\n  ${post.description}\n`)
           .join('\n')}
-        {'\n'}
-        {socials.map(place => `- [${place.label}](${place.href})`).join('\n')}
         {'\n'}
       </>
     )
@@ -103,7 +92,7 @@ export function ProfilePage({
     <div className={`profile ${sitePageRoot}`}>
       <ProfilePlay tags={intro.tags} />
 
-      <JumpRail label='我做的项目' />
+      <JumpRail label={intro.sections.openSource} />
 
       <Section marker='profile-section hey-rise hey-rise-delay-1' className='!mt-0'>
         <div className='profile-projects gap-rp-4 grid grid-cols-1 sm:grid-cols-2'>
@@ -116,7 +105,7 @@ export function ProfilePage({
         </div>
       </Section>
 
-      <JumpRail label='我写的文章' />
+      <JumpRail label={intro.sections.blog} />
 
       <Section marker='profile-section' className='!mt-0'>
         <div className='gap-rp-4 grid'>

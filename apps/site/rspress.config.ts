@@ -4,11 +4,14 @@ import { pluginBlogMeta } from '@heyq02/rspress-plugin-blog-meta'
 import { pluginProfile } from '@heyq02/rspress-plugin-profile'
 import { pluginSiteAssets } from '@heyq02/rspress-plugin-site-assets'
 import { pluginWatermark } from '@heyq02/rspress-plugin-watermark'
+import { siteDescription } from '@heyq02/rspress-site-content'
 import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 
 import intro from '../../content/data/intro.json' with { type: 'json' }
+
+const description = siteDescription(intro)
 
 const dir = import.meta.dirname
 const blogsRoot = resolve(dir, 'blogs')
@@ -28,7 +31,7 @@ export default defineConfig({
   // Chinese only: content lives at unprefixed routes, no language switcher.
   lang: 'zh',
   title: intro.title,
-  description: intro.description,
+  description,
   icon: '/favicon.png',
   logo: '/signature.png',
   siteOrigin: intro.site,
@@ -36,7 +39,7 @@ export default defineConfig({
   sitemap: true,
   // SSG-MD + browser WebMCP tools (Rspress ≥2.1).
   llms: {
-    llmsTxt: ({ title, description, siteOrigin, sections }) => {
+    llmsTxt: ({ title, description: siteDesc, siteOrigin, sections }) => {
       const origin = siteOrigin ?? intro.site
       const pages = sections
         .flatMap(section => section.pages)
@@ -48,9 +51,9 @@ export default defineConfig({
 
       return `# ${title}
 
-> ${description}
+> ${siteDesc}
 
-${intro.name} 的个人站点。标签：${intro.tags.join('、')}。
+${intro.name} 的个人站点。
 
 ## 从这里开始
 
@@ -104,7 +107,7 @@ ${pages || '-（暂无其他页面）'}
         id: 'blog',
         test: '/blog/posts/',
         title: `${intro.name} · 博客`,
-        description: intro.description,
+        description,
         language: 'zh-CN',
         copyright: `© ${new Date().getFullYear()} ${intro.name}`
       }

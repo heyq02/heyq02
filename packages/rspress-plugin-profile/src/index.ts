@@ -27,12 +27,8 @@ export {
 export type { GraphqlClient, PinnedProject } from './github-pinned.ts'
 export { prepareProfile, prepareProfileOnce } from './prepare-profile.ts'
 export type { PrepareProfileOptions } from './prepare-profile.ts'
-export {
-  documentTitleSuffix,
-  profilePage,
-  renderHomeMdx,
-  renderProfileDataModule
-} from './profile-page.ts'
+export { documentTitleSuffix } from '@heyq02/rspress-site-content'
+export { profilePage, renderHomeMdx, renderProfileDataModule } from './profile-page.ts'
 export type { ProfilePageView, ProfileProjectView } from './profile-page.ts'
 
 export type PluginProfileOptions = PrepareProfileOptions

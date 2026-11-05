@@ -21,7 +21,6 @@ export function ProfilePlay({
   const faces = intro.moods
   const [mood, setMood] = useState(0)
   const [spinning, setSpinning] = useState(false)
-  const socials = intro.places.filter(place => place.label !== 'WeChat')
 
   if (ssgMd) {
     return (
@@ -31,7 +30,7 @@ export function ProfilePlay({
         {`${intro.bio}\n\n${intro.about}\n\n`}
         {tags.map(tag => `\`${tag}\``).join(' ')}
         {'\n'}
-        {socials.map(place => `- [${place.label}](${place.href})`).join('\n')}
+        {intro.places.map(place => `- [${place.label}](${place.href})`).join('\n')}
         {`\n- [Email](mailto:${intro.contact.email})\n`}
       </>
     )
@@ -58,7 +57,7 @@ export function ProfilePlay({
             className='rounded-rp-sm px-rp-1 py-rp-1 text-rp-lg text-rp-muted hover:bg-rp-soft hover:text-rp-brand focus-visible:outline-rp-brand inline-flex shrink-0 cursor-pointer border-0 bg-transparent font-mono leading-snug transition-[color,background-color,transform] duration-200 hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2'
             onClick={poke}
             aria-label='换一个表情'
-            title='点一下换个表情'
+            title='换一个表情'
           >
             {face}
           </button>

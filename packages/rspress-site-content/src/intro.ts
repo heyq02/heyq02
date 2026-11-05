@@ -28,7 +28,7 @@ export interface Intro {
   home: HomePlace
   tags: string[]
   bio: string
-  /** Optional longer about paragraph shown under the hero. */
+  /** Longer about under the hero — should not restate `tags` or `bio`. */
   about: string
   kaomoji: string
   /** Click-to-cycle faces on the homepage hero; first entry should match `kaomoji`. */
@@ -36,7 +36,6 @@ export interface Intro {
   avatar: string
   site: string
   title: string
-  description: string
   contact: Contact
   sections: {
     blog: string
@@ -45,6 +44,25 @@ export interface Intro {
   places: Place[]
   /** Chinese blurbs keyed by pinned repo name; overrides the GitHub description. */
   projectSummaries: Record<string, string>
+}
+
+/** SEO / RSS / llms meta line — composed from name, tags, and bio. */
+export function siteDescription(intro: Pick<Intro, 'name' | 'tags' | 'bio'>): string {
+  return `${intro.name}。${intro.tags.join('、')}。${intro.bio}。`
+}
+
+/** Browser tab suffix after the name (`贺同学 - …`). */
+export function documentTitleSuffix(intro: Pick<Intro, 'tags' | 'bio'>): string {
+  return `${[...intro.tags, intro.bio].join('，')}。`
+}
+
+/** `2026-06-22` → `2026年6月22日`. */
+export function formatZhDate(iso: string): string {
+  const match = /^(?<y>\d{4})-(?<m>\d{2})-(?<d>\d{2})$/.exec(iso)
+  if (!match?.groups) {
+    return iso
+  }
+  return `${match.groups.y}年${Number(match.groups.m)}月${Number(match.groups.d)}日`
 }
 
 export function formatCount(count: number): string {

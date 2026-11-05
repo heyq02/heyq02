@@ -81,11 +81,9 @@ function SocialIconLink({
 
 /** Compact brand icons for the hero tag row. */
 export function SocialIcons({ className = '' }: { className?: string }): ReactElement {
-  const socials = intro.places.filter(place => place.label !== 'WeChat')
-
   return (
     <span className={`gap-rp-3 inline-flex items-center ${className}`.trim()}>
-      {socials.map(place => {
+      {intro.places.map(place => {
         const Icon = ICONS[place.label]
         if (!Icon) {
           return null

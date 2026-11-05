@@ -10,19 +10,18 @@
   },
   "tags": ["双一流本科", "24届校招", "开源爱好者"],
   "bio": "专注用 AI 加速开发，并真正落到产品里",
-  "about": "双一流本科，24 届校招前端，正在往全栈挪。日常爱用 AI 把活干快一点，但只认真正落到产品里的结果。通州窗台边写代码，签名底下那句「无限进步」算是给自己的备注——进度条慢慢走就行。",
+  "about": "前端出身，正在往全栈挪。通州窗台边写代码，签名底下那句「无限进步」算是给自己的备注——进度条慢慢走就行。",
   "kaomoji": "(๑•̀ㅂ•́)و",
   "moods": ["(๑•̀ㅂ•́)و", "(｡•́︿•̀｡)", "(ﾉ´ヮ`)ﾉ*: ･ﾟ", "(￣▽￣)ノ", "ヽ(✿ﾟ▽ﾟ)ノ", "( •̀ ω •́ )✧"],
   "avatar": "https://avatars.githubusercontent.com/u/206218794?v=4",
   "site": "https://heyq02.com",
   "title": "贺同学",
-  "description": "贺同学。双一流本科、24届校招、开源爱好者。专注用 AI 加速开发，并真正落到产品里。",
   "contact": {
     "email": "hello@heyq02.com"
   },
   "sections": {
-    "blog": "文章",
-    "openSource": "项目"
+    "blog": "我写的文章",
+    "openSource": "我做的项目"
   },
   "places": [
     {
@@ -39,11 +38,6 @@
       "label": "Bilibili",
       "href": "https://space.bilibili.com/3493273159075938",
       "detail": "heyq02"
-    },
-    {
-      "label": "WeChat",
-      "href": "/wechat.jpg",
-      "detail": "扫码添加"
     }
   ],
   "projectSummaries": {
