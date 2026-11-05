@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          # lastUpdated + git-diff read full history.
+          # lastUpdated reads full history.
           fetch-depth: 0
           # Allow the bot commit step to push back to main.
           token: ${{ secrets.GITHUB_TOKEN }}

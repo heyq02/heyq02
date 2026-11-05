@@ -7,7 +7,6 @@ import { pluginSiteAssets } from '@heyq02/rspress-plugin-site-assets'
 import { pluginSiteDist } from '@heyq02/rspress-plugin-site-dist'
 import { pluginWatermark } from '@heyq02/rspress-plugin-watermark'
 import { siteDescription } from '@heyq02/rspress-site-content'
-import { pluginGitDiff } from '@kazamori/rspress-plugin-git-diff'
 import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
@@ -107,18 +106,10 @@ ${pages || '-（暂无其他页面）'}
     }),
     pluginBlogMeta(siteBlogMetaOptions()),
     pluginWatermark({ src: '/wuxian-jinbu.png' }),
-    pluginGitDiff({
-      // Keep ?diff= tags aligned with semver releases (avoids dumping every git tag).
-      tagPattern: /^v\d/
-    }),
     readingTime({ defaultLocale: 'zh-CN' }),
     pluginAnnotationWords({
       wordsMapPath: 'words-map.json',
-      ignorePaths: [
-        /^\/(?:index\.html)?$/,
-        /^\/friends(?:\/|$|\.html)/,
-        /^\/changes(?:\/|$|\.html)/
-      ]
+      ignorePaths: [/^\/(?:index\.html)?$/, /^\/friends(?:\/|$|\.html)/]
     }),
     pluginGhPagesWorkflow({ outDir: resolve(dir, 'dist') }),
     pluginRss({
