@@ -58,7 +58,7 @@ export function ContributionHeatmap({
   const { activeDays, longest, current } = summarize(days)
 
   return (
-    <div className='profile-contributions flex w-full flex-col gap-[calc(var(--rp-radius-small)*1.5)] sm:flex-row sm:items-center'>
+    <div className='profile-contributions flex w-full flex-col gap-[calc(var(--rp-radius-small)*1.5)] sm:flex-row sm:items-stretch'>
       <div
         className='flex w-full min-w-0 flex-1'
         role='img'
@@ -81,7 +81,7 @@ export function ContributionHeatmap({
       </div>
 
       <aside
-        className={`${sitePanelChrome} flex w-full shrink-0 items-center gap-[var(--rp-radius)] px-[calc(var(--rp-radius-small)*1.5)] py-[var(--rp-radius-small)] sm:w-auto sm:min-w-[11rem] sm:flex-col sm:items-start sm:gap-[calc(var(--rp-radius-small)/2)]`}
+        className={`${sitePanelChrome} flex w-full shrink-0 items-center gap-[var(--rp-radius)] px-[calc(var(--rp-radius-small)*1.5)] py-[var(--rp-radius-small)] sm:w-auto sm:min-w-[11rem] sm:flex-col sm:items-start sm:justify-center sm:gap-[calc(var(--rp-radius-small)/2)]`}
       >
         <div className='flex min-w-0 items-baseline gap-[var(--rp-radius-small)]'>
           <TextLink
