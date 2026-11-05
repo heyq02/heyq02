@@ -60,7 +60,7 @@ export function ContributionHeatmap({
   return (
     <div className='profile-contributions flex w-full min-w-0 flex-col gap-[var(--hey-space-md)] sm:flex-row sm:items-stretch'>
       <div
-        className='flex w-full min-w-0 flex-1 overflow-x-auto overscroll-x-contain'
+        className='flex w-full min-w-0 flex-1 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden'
         role='img'
         aria-label={`近一年 ${calendar.total} 次 GitHub 贡献`}
       >
