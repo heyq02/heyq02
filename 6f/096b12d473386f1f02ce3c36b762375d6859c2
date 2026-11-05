@@ -1,0 +1,27 @@
+apps/site/rspress.config.ts
+  s_d52d6cc0db761f::t_0eb3fb527746c0 89
+packages/rspress-plugin-site-assets/src/prepare-site-assets.ts
+  s_d52d6cc0db761f::t_3da556015e658f 7-9,17,19
+apps/site/theme/chrome.css
+  s_d52d6cc0db761f::t_5a0677fe33f47e 9
+AGENTS.md
+  s_d52d6cc0db761f::t_4dedb3fe3048ae 39-40
+packages/rspress-plugin-site-assets/src/index.ts
+  s_d52d6cc0db761f::t_c9156fb7233393 16-22,24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "6f096b12d473386f1f02ce3c36b762375d6859c2",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
