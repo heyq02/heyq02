@@ -4,9 +4,11 @@ import {
   CardTitle,
   Empty,
   PageShell,
-  siteCardChrome
+  siteCardChrome,
+  siteFocusRing,
+  siteMeta
 } from '@heyq02/rspress-theme-ui'
-import { useMemo, useSyncExternalStore } from 'react'
+import { useCallback, useMemo, useState, useSyncExternalStore } from 'react'
 import type { ReactElement } from 'react'
 
 import { friendsData } from '../lib/friends.ts'
@@ -30,7 +32,7 @@ function subscribeNever(): () => void {
 }
 
 const avatarClass =
-  'block size-12 shrink-0 rounded-full border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg)] object-cover'
+  'block size-12 shrink-0 rounded-full border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg)] object-cover transition-transform duration-200 group-hover:scale-105'
 
 function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): ReactElement {
   // Prefer readable link text for SSG-MD Agents over avatar+span chrome.
@@ -44,7 +46,7 @@ function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): 
   }
 
   return (
-    <li className='m-0 min-w-0'>
+    <li className='hey-rise m-0 min-w-0'>
       <CardLink
         href={friend.url}
         className={`flex h-full items-center gap-[calc(var(--rp-radius-small)*1.5)] ${siteCardChrome}`}
@@ -78,23 +80,52 @@ export function FriendsPage({
   ssgMd?: boolean
 } = {}): ReactElement {
   const { title, friends } = friendsData
+  const [deal, setDeal] = useState(0)
   const isClient = useSyncExternalStore(
     subscribeNever,
     () => true,
     () => false
   )
-  const ordered = useMemo(() => (isClient ? shuffle(friends) : friends), [friends, isClient])
+  const ordered = useMemo(() => {
+    if (!isClient) {
+      return friends
+    }
+    // `deal` is the reshuffle token — bumping it must re-run shuffle.
+    return deal >= 0 ? shuffle(friends) : friends
+  }, [friends, isClient, deal])
+
+  const reshuffle = useCallback(() => {
+    setDeal(value => value + 1)
+  }, [])
 
   return (
     <PageShell title={title} ssgMd={ssgMd} tone='friends'>
       {ordered.length === 0 ? (
         <Empty className='friends-empty mt-[calc(var(--rp-radius-small)*5)]'>还没有友链。</Empty>
       ) : (
-        <ul className='friends-grid mt-[calc(var(--rp-radius-small)*5)] mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] gap-[calc(var(--rp-radius-small)*1.5)] p-0'>
-          {ordered.map(friend => (
-            <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />
-          ))}
-        </ul>
+        <>
+          {ssgMd ? null : (
+            <p className='mt-[calc(var(--rp-radius-small)*5)] mb-0 flex justify-end'>
+              <button
+                type='button'
+                onClick={reshuffle}
+                className={`cursor-pointer rounded-[var(--rp-radius-small)] border-0 bg-transparent px-[calc(var(--rp-radius-small)/2)] py-[calc(var(--rp-radius-small)/2)] ${siteMeta} transition-[color,transform] duration-200 hover:-translate-y-px hover:text-[var(--rp-c-brand)] active:scale-95 ${siteFocusRing}`}
+                aria-label='重新打乱友链顺序'
+                title='再洗一次'
+              >
+                换一批 ↻
+              </button>
+            </p>
+          )}
+          <ul
+            key={deal}
+            className={`friends-grid mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] gap-[calc(var(--rp-radius-small)*1.5)] p-0${ssgMd ? ' mt-[calc(var(--rp-radius-small)*5)]' : ' mt-[var(--rp-radius)]'}`}
+          >
+            {ordered.map(friend => (
+              <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />
+            ))}
+          </ul>
+        </>
       )}
     </PageShell>
   )

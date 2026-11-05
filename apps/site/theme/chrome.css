@@ -86,3 +86,15 @@ html {
 .hey-rise-delay-1 {
   animation-delay: 0.06s;
 }
+
+.hey-rise-delay-2 {
+  animation-delay: 0.12s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hey-rise,
+  .hey-rise-delay-1,
+  .hey-rise-delay-2 {
+    animation: none !important;
+  }
+}

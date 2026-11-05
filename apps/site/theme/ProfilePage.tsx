@@ -96,10 +96,16 @@ export function ProfilePage({
     <div className={`profile ${sitePageRoot}`}>
       <ProfileHero intro={intro} />
 
-      <JumpRail label={intro.sections.openSource} />
+      <JumpRail label={intro.sections.openSource} targetId='profile-open-source' />
 
-      <Section marker='profile-section hey-rise hey-rise-delay-1' className='!mt-0'>
-        <div className='profile-projects grid grid-cols-1 gap-[var(--rp-radius)] sm:grid-cols-2'>
+      <Section
+        marker='profile-section hey-rise hey-rise-delay-1'
+        className='!mt-0 scroll-mt-[calc(var(--rp-radius-large)*2)]'
+      >
+        <div
+          id='profile-open-source'
+          className='profile-projects grid grid-cols-1 gap-[var(--rp-radius)] sm:grid-cols-2'
+        >
           {pinnedProjects.map(project => (
             <ProjectCard key={project.href} project={project} />
           ))}
@@ -109,10 +115,13 @@ export function ProfilePage({
         </div>
       </Section>
 
-      <JumpRail label={intro.sections.blog} />
+      <JumpRail label={intro.sections.blog} targetId='profile-blog' />
 
-      <Section marker='profile-section' className='!mt-0'>
-        <div className='grid gap-[var(--rp-radius)]'>
+      <Section
+        marker='profile-section hey-rise hey-rise-delay-2'
+        className='!mt-0 scroll-mt-[calc(var(--rp-radius-large)*2)]'
+      >
+        <div id='profile-blog' className='grid gap-[var(--rp-radius)]'>
           {recentPosts.map(post => (
             <PostCard key={post.href} post={post} />
           ))}
@@ -120,7 +129,7 @@ export function ProfilePage({
         <p className='mt-[var(--rp-radius-large)] mb-0'>
           <a
             href='/blog/'
-            className={`inline-flex rounded-full bg-[var(--rp-c-text-1)] px-4 py-2 text-sm font-medium text-[var(--rp-c-bg)] no-underline transition-colors hover:bg-[var(--rp-c-brand)] hover:no-underline ${siteFocusRing}`}
+            className={`inline-flex rounded-full bg-[var(--rp-c-text-1)] px-4 py-2 text-sm font-medium text-[var(--rp-c-bg)] no-underline transition-[color,background-color,transform] duration-200 hover:-translate-y-px hover:bg-[var(--rp-c-brand)] hover:no-underline active:scale-[0.98] ${siteFocusRing}`}
           >
             查看所有文章
           </a>

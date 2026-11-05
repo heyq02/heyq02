@@ -26,3 +26,41 @@
     transform: rotate(-3deg);
   }
 }
+
+@keyframes hey-mood-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(0.2rem) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hey-arrow-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.2rem);
+  }
+}
+
+.hey-mood-pop {
+  animation: hey-mood-pop 0.28s ease both;
+}
+
+.hey-arrow-bob {
+  display: inline-block;
+  animation: hey-arrow-bob 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hey-mood-pop,
+  .hey-arrow-bob,
+  .animate-avatar-wobble {
+    animation: none !important;
+  }
+}

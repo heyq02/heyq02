@@ -50,7 +50,7 @@ function SocialIconLink({
       href={href}
       aria-label={label}
       title={label}
-      className={`inline-flex items-center justify-center text-[var(--rp-c-text-2)] no-underline transition-colors hover:text-[var(--rp-c-brand)] hover:no-underline ${siteFocusRing}`}
+      className={`inline-flex items-center justify-center text-[var(--rp-c-text-2)] no-underline transition-[color,transform] duration-200 hover:-translate-y-px hover:text-[var(--rp-c-brand)] hover:no-underline ${siteFocusRing}`}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
       {children}
