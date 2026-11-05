@@ -78,15 +78,12 @@ body::before {
   mix-blend-mode: multiply;
 }
 
-#root,
-.rspress-nav,
-.rp-nav,
-.rp-doc-layout,
-.rp-doc-layout__container,
-.rp-sidebar,
-.rp-local-nav,
-.rp-footer,
-.rp-home-footer {
+/*
+ * Lift page content above the paper-grain overlay.
+ * Do NOT force position on .rp-nav / .rp-sidebar — that overrides Rspress
+ * sticky/fixed and makes the chrome scroll away with the page.
+ */
+#root {
   position: relative;
   z-index: 1;
 }
