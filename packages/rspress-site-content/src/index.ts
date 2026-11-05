@@ -13,3 +13,10 @@ export type {
 } from './github-profile.ts'
 
 export type { RecentPost } from './recent-posts.ts'
+
+export {
+  assertFriendsData,
+  assertGithubProfileData,
+  assertIntro,
+  assertRecentPosts
+} from './validate.ts'

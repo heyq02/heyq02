@@ -6,7 +6,7 @@ import { resolve } from 'node:path'
 
 import { prepareProfile } from '@heyq02/rspress-plugin-profile'
 
-import intro from '../../../content/data/intro.json' with { type: 'json' }
+import { intro } from '../lib/intro.ts'
 
 const repoRoot = resolve(import.meta.dirname, '../../..')
 

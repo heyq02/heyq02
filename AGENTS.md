@@ -17,7 +17,7 @@ This monorepo is Vite+ first. Prefer the `vp` CLI for installs, scripts, checks,
 | Regenerate `recent-posts.json`         | `vp run @heyq02/site#cprepare-content`                                                                   |
 | Refresh homepage GitHub pins / heatmap | `vp run @heyq02/site#crefresh-profile` (needs `GITHUB_TOKEN`; writes `content/data/github-profile.json`) |
 
-`content/data/` holds site data JSON: hand-authored (`intro.json`, `friends.json`) and generated (`github-profile.json` via `crefresh-profile`; `recent-posts.json` via `cprepare-content` / blog-meta). Site pages import through `apps/site/lib/*`.
+`content/data/` holds site data JSON: hand-authored (`intro.json`, `friends.json`) and generated (`github-profile.json` via `crefresh-profile`; `recent-posts.json` via `cprepare-content` / blog-meta). Site pages import through `apps/site/lib/*`, which runtime-validates shapes via `@heyq02/rspress-site-content` assert helpers.
 
 After editing blog posts, run `cprepare-content` and commit `content/data/recent-posts.json` if it changed. CI fails on drift. Release Site prepares content + refreshes profile, then commits both generated JSON files before building Pages.
 

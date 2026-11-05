@@ -46,7 +46,8 @@ async function listMarkdownFiles(dir: string): Promise<string[]> {
   return files
 }
 
-function toAbsoluteMarkdownUrl(
+/** Resolve a root-relative path to an absolute URL (prefer `.md` sibling when present). */
+export function toAbsoluteMarkdownUrl(
   existing: Set<string>,
   origin: string,
   pathname: string

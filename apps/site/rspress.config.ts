@@ -9,9 +9,9 @@ import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
 
-import intro from '../../content/data/intro.json' with { type: 'json' }
 import { siteBlogMetaOptions } from './lib/blog-meta.ts'
 import { pluginHomeShell } from './lib/home-shell.ts'
+import { intro } from './lib/intro.ts'
 
 const description = siteDescription(intro)
 

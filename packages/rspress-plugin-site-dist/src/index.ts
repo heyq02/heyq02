@@ -5,7 +5,7 @@ import type { RspressPlugin } from '@rspress/core'
 
 import { absolutizeMarkdownLinks } from './absolutize-md-links.ts'
 
-export { absolutizeMarkdownLinks } from './absolutize-md-links.ts'
+export { absolutizeMarkdownLinks, toAbsoluteMarkdownUrl } from './absolutize-md-links.ts'
 
 export interface PluginSiteDistOptions {
   /** Absolute site origin for SSG-MD link rewriting (e.g. `https://heyq02.com`). */
