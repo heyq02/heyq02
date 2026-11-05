@@ -10,8 +10,6 @@ export interface FriendLink {
 export interface FriendsApply {
   title: string
   intro: string
-  /** Suggested comment body visitors can copy. */
-  template: string
 }
 
 export interface FriendsData {

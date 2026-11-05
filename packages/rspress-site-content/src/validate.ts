@@ -101,7 +101,6 @@ export function assertFriendsData(value: unknown): FriendsData {
     }
     expectString(value.apply.title, 'friends.apply.title')
     expectString(value.apply.intro, 'friends.apply.intro')
-    expectString(value.apply.template, 'friends.apply.template')
   }
   for (const [index, friend] of expectArray(value.friends, 'friends.friends').entries()) {
     if (!isRecord(friend)) {

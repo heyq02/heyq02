@@ -52,8 +52,7 @@ describe('assertFriendsData', () => {
         title: '友链',
         apply: {
           title: '申请友链',
-          intro: '留言即可',
-          template: '名称：'
+          intro: '留言即可'
         },
         friends: []
       }).apply?.title

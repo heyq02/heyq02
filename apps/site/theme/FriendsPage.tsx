@@ -90,7 +90,7 @@ function ApplySection({ ssgMd }: { ssgMd: boolean }): ReactNode {
   const discussionsUrl = `https://github.com/${friendsGiscus.repo}/discussions/categories/announcements`
 
   if (ssgMd) {
-    return `\n## ${apply.title}\n\n${apply.intro}\n\n本站：${intro.name} · ${intro.site} · ${intro.avatar} · ${intro.bio}\n\n申请模板：\n\n\`\`\`\n${apply.template}\n\`\`\`\n\n评论：${discussionsUrl}\n`
+    return `\n## ${apply.title}\n\n${apply.intro}\n\n本站：${intro.name} · ${intro.site} · ${intro.avatar} · ${intro.bio}\n\n评论：${discussionsUrl}\n`
   }
 
   return (
@@ -122,11 +122,6 @@ function ApplySection({ ssgMd }: { ssgMd: boolean }): ReactNode {
           <dd className='m-0 text-[var(--rp-c-text-2)]'>{intro.bio}</dd>
         </div>
       </dl>
-      <pre
-        className={`${sitePanelChrome} mt-[var(--hey-space-lg)] mb-0 overflow-x-auto font-mono text-[length:var(--rp-code-font-size)] leading-relaxed whitespace-pre-wrap text-[var(--rp-c-text-2)]`}
-      >
-        {apply.template}
-      </pre>
       <div className='friends-giscus mt-[var(--hey-space-xl)]'>
         <Giscus {...friendsGiscus} />
       </div>
