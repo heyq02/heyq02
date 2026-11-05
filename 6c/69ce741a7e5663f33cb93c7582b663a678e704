@@ -1,0 +1,72 @@
+apps/site/package.json
+  s_d52d6cc0db761f::t_0349719ef795c4 7-8
+apps/site/lib/github-profile.ts
+  s_d52d6cc0db761f::t_13f1a4426c0792 5,14-15
+  s_d52d6cc0db761f::t_ed9be2e457ab00 3
+  s_d52d6cc0db761f::t_5fb331b7a8f14e 1-2,4,6-13,16-18
+.github/workflows/ci.yml
+  s_d52d6cc0db761f::t_a873aef5d9632d 36
+packages/rspress-plugin-profile/src/index.ts
+  s_d52d6cc0db761f::t_378992079e73d9 23
+  s_d52d6cc0db761f::t_ed9be2e457ab00 32
+  s_d52d6cc0db761f::t_9b96606e3b0c82 28
+  s_d52d6cc0db761f::t_6d1d32823614bd 34-35,41
+packages/rspress-plugin-profile/src/profile-page.ts
+  s_d52d6cc0db761f::t_8f01975f9697b2 5-6,9,16-17,23-24
+  s_d52d6cc0db761f::t_8830d91d07000f 14
+  s_d52d6cc0db761f::t_79817af66cc349 1
+packages/rspress-site-content/src/github-profile.ts
+  s_d52d6cc0db761f::t_834909edbe225b 3,8-9,26-29,31-35
+  s_d52d6cc0db761f::t_ed9be2e457ab00 1
+packages/rspress-plugin-profile/package.json
+  s_d52d6cc0db761f::t_ed9be2e457ab00 5
+.github/workflows/release-site.yml
+  s_d52d6cc0db761f::t_17e9840ea84332 1,8,11-13,17,36-37,45,48-50,52-53,55-56
+  s_d52d6cc0db761f::t_4b862fe3f9b2f0 51
+  s_d52d6cc0db761f::t_6d8c95a3fe7ff2 9-10
+  s_d52d6cc0db761f::t_1681e383c0e5a1 54
+AGENTS.md
+  s_d52d6cc0db761f::t_ed9be2e457ab00 16,18
+  s_d52d6cc0db761f::t_179ba39caed426 17
+packages/rspress-plugin-profile/src/prepare-profile.ts
+  s_d52d6cc0db761f::t_33de8b19de275e 1,8,12,20,26,30
+  s_d52d6cc0db761f::t_ed3962ede5f4e9 2
+  s_d52d6cc0db761f::t_ed9be2e457ab00 11,18
+content/data/intro.json
+  s_d52d6cc0db761f::t_cad588e2e43775 42
+packages/rspress-plugin-profile/src/github-contributions.ts
+  s_d52d6cc0db761f::t_608aa039e6f2f2 1-5
+apps/site/vite.config.ts
+  s_d52d6cc0db761f::t_ed9be2e457ab00 8
+  s_d52d6cc0db761f::t_5e1dbdc1a0411d 9-12,14
+packages/rspress-site-content/src/index.ts
+  s_d52d6cc0db761f::t_1315f879ffddee 5-13
+apps/site/theme/ProfilePage.tsx
+  s_d52d6cc0db761f::t_ea61d11b6bd467 16-17
+  s_d52d6cc0db761f::t_7e183c065a3608 41,52,81
+apps/site/theme/ContributionHeatmap.tsx
+  s_d52d6cc0db761f::t_776e1d1498b9e8 4-8
+apps/site/scripts/refresh-profile.ts
+  s_d52d6cc0db761f::t_39aabd15cf581d 3,11,15
+  s_d52d6cc0db761f::t_f532e0f4407d5b 9
+  s_d52d6cc0db761f::t_fc502497a06f67 1,4-8,10,12-13,16
+  s_d52d6cc0db761f::t_ed9be2e457ab00 2,14
+content/data/github-profile.json
+  s_d52d6cc0db761f::t_f247c2d2a46506 1-1950
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "6c69ce741a7e5663f33cb93c7582b663a678e704",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
