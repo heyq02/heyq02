@@ -1,6 +1,6 @@
 {
   "name": "@heyq02/rspress-plugin-profile",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "description": "Fetch GitHub pins/contributions into content/data/github-profile.json (CI refresh / optional plugin)",
   "type": "module",
