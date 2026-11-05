@@ -14,7 +14,7 @@
   width: min(160vw, 96rem);
   max-width: none;
   height: auto;
-  opacity: 0.055;
+  opacity: 0.015;
   transform: rotate(-24deg) scale(2.2);
 }
 
