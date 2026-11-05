@@ -5,7 +5,7 @@ import { siBilibili, siGithub, siX } from 'simple-icons'
 
 import { siteFocusRing } from '../foundation/tokens.ts'
 
-const iconClass = 'block size-[1.05rem]'
+const iconClass = 'block size-4'
 
 /** Brand place label → Simple Icons entry. */
 const PLACE_ICONS: Partial<Record<string, SimpleIcon>> = {

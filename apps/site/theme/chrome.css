@@ -166,13 +166,13 @@ body::before {
   position: absolute;
   inset: 8% 6% 4%;
   z-index: -1;
-  border-radius: 2rem;
+  border-radius: 1rem;
   background: radial-gradient(
     ellipse at 50% 40%,
     color-mix(in srgb, var(--rp-c-brand) 10%, transparent),
     transparent 68%
   );
-  filter: blur(18px);
+  filter: blur(16px);
   opacity: 0.55;
   transform: scale(1.04);
   transition: opacity 0.35s ease;

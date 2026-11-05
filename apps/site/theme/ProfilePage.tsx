@@ -25,7 +25,7 @@ import type { RecentPost } from '../lib/recent-posts.ts'
 function PostCard({ post }: { post: RecentPost }): ReactElement {
   return (
     <CardLink href={post.href} external={false} className={`group block ${siteCardChrome}`}>
-      <CardTitle className='text-[1.125rem]'>{post.title}</CardTitle>
+      <CardTitle>{post.title}</CardTitle>
       {post.description ? (
         <CardSummary className='mt-[var(--rp-radius-small)] line-clamp-2'>
           {post.description}
@@ -132,7 +132,7 @@ export function ProfilePage({
         <p className='mt-[var(--rp-radius-large)] mb-0'>
           <a
             href='/blog/'
-            className={`inline-flex rounded-full bg-[var(--rp-c-text-1)] px-4 py-2 text-sm font-medium text-[var(--rp-c-bg)] no-underline transition-[color,background-color,transform] duration-200 hover:-translate-y-px hover:bg-[var(--rp-c-brand)] hover:no-underline active:scale-[0.98] ${siteFocusRing}`}
+            className={`inline-flex rounded-full bg-[var(--rp-c-text-1)] px-[var(--rp-radius)] py-[calc(var(--rp-radius-small)*0.75)] text-sm font-medium text-[var(--rp-c-bg)] no-underline transition-[color,background-color,transform] duration-200 hover:-translate-y-px hover:bg-[var(--rp-c-brand)] hover:no-underline active:scale-[0.98] ${siteFocusRing}`}
           >
             查看所有文章
           </a>

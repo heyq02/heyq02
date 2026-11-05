@@ -21,7 +21,7 @@ export function JumpRail({
   )
 
   const chrome =
-    'absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg)] px-3 py-1.5 text-[0.75rem] tracking-widest text-[var(--rp-c-text-2)] uppercase shadow-[var(--rp-shadow-1)]'
+    'absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-[calc(var(--rp-radius-small)/2)] rounded-full border border-[var(--rp-c-divider-light)] bg-[var(--rp-c-bg)] px-[var(--rp-radius)] py-[calc(var(--rp-radius-small)*0.75)] text-[0.75rem] tracking-widest text-[var(--rp-c-text-2)] uppercase shadow-[var(--rp-shadow-1)]'
 
   return (
     <div className='relative my-[calc(var(--rp-radius-large)*2)]'>

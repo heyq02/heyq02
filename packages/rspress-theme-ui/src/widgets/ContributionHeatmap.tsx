@@ -87,7 +87,7 @@ export function ContributionHeatmap({
         <div className='flex min-w-0 items-baseline gap-[var(--rp-radius-small)]'>
           <TextLink
             href={calendar.href}
-            className='m-0 text-[1.35rem] leading-none font-bold text-[var(--rp-c-text-1)] tabular-nums !no-underline hover:text-[var(--rp-c-brand)]'
+            className='m-0 text-[1.25rem] leading-none font-bold text-[var(--rp-c-text-1)] tabular-nums !no-underline hover:text-[var(--rp-c-brand)]'
           >
             {calendar.total.toLocaleString('zh-CN')}
           </TextLink>

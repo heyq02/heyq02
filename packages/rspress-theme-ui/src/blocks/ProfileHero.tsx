@@ -48,8 +48,8 @@ export function ProfileHero({
   const face = faces[mood % faces.length]
 
   return (
-    <header className='hey-rise mt-[var(--rp-radius-large)] flex flex-col items-center gap-[var(--rp-radius-large)] md:mt-[calc(var(--rp-radius-small)*5)] md:flex-row md:items-start md:gap-[calc(var(--rp-radius)*2)]'>
-      <div className='relative min-w-0 w-full flex-1'>
+    <header className='hey-rise mt-[calc(var(--rp-radius-small)*5)] flex flex-col items-center gap-[var(--rp-radius-large)] md:flex-row md:items-start md:gap-[calc(var(--rp-radius)*2)]'>
+      <div className='relative w-full min-w-0 flex-1'>
         <h1 className={siteH1}>{intro.headline}</h1>
         <p className='font-display mt-[var(--rp-radius)] mb-0 text-[1.125rem] leading-snug font-bold text-[var(--rp-c-text-1)]'>
           {intro.bio}
@@ -88,7 +88,8 @@ export function ProfileHero({
         </div>
       </div>
 
-      <div className='hey-avatar-stage relative w-[min(100%,14rem)] shrink-0 md:w-[13.5rem] md:pt-1'>
+      {/* ~216px: roughly matches left copy block height on desktop. */}
+      <div className='hey-avatar-stage relative w-[min(100%,13.5rem)] shrink-0 md:pt-1'>
         <button
           type='button'
           className={`m-0 block w-full cursor-pointer border-0 bg-transparent p-0 leading-none transition-transform duration-200 active:scale-[0.98] ${siteFocusRing}`}
@@ -98,7 +99,7 @@ export function ProfileHero({
           title='戳我'
         >
           <img
-            className={`block aspect-square w-full rounded-[1.25rem] border border-[var(--rp-c-divider-light)] object-cover shadow-[var(--rp-shadow-2)] transition-shadow duration-200 hover:shadow-[var(--rp-shadow-1)]${spinning ? ' animate-avatar-wobble' : ''}`}
+            className={`block aspect-square w-full rounded-2xl border border-[var(--rp-c-divider-light)] object-cover shadow-[var(--rp-shadow-2)] transition-shadow duration-200 hover:shadow-[var(--rp-shadow-1)]${spinning ? ' animate-avatar-wobble' : ''}`}
             src={intro.avatar}
             alt={intro.name}
             width={216}
