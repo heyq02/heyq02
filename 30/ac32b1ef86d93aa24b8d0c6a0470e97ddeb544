@@ -1,0 +1,44 @@
+apps/site/scripts/prepare-content.ts
+  s_d52d6cc0db761f::t_c03b2bbfc44a2b 1-10
+AGENTS.md
+  s_d52d6cc0db761f::t_f878813c51c987 17,20-22
+.github/workflows/release-site.yml
+  s_d52d6cc0db761f::t_15b991daf95897 46-48,54,57-60
+  s_d52d6cc0db761f::t_ed4faf6ed2160b 9,11
+apps/site/vite.config.ts
+  s_d52d6cc0db761f::t_51d4c1f233d367 11-14
+apps/site/lib/blog-meta.ts
+  s_d52d6cc0db761f::t_3c047836cd97f5 1-23
+packages/rspress-plugin-utils/src/write-if-changed.test.ts
+  s_d52d6cc0db761f::t_8ca152b4ab35fd 1-27
+packages/rspress-plugin-utils/package.json
+  s_d52d6cc0db761f::t_d001b2004541f0 18-19
+apps/site/rspress.config.ts
+  s_d52d6cc0db761f::t_6c102165f10d8b 101
+  s_d52d6cc0db761f::t_756583460ba16b 13
+apps/site/package.json
+  s_d52d6cc0db761f::t_ae44c5ad93c3c9 8
+.github/workflows/ci.yml
+  s_d52d6cc0db761f::t_4737e483bbcc26 39-45
+packages/rspress-plugin-utils/src/prepare-once.test.ts
+  s_d52d6cc0db761f::t_243fd00e8d94b4 7
+  s_d52d6cc0db761f::t_e28fa360eda337 1-6,8-15
+pnpm-lock.yaml
+  s_d52d6cc0db761f::t_1f650ada40f01b 410-412
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "30ac32b1ef86d93aa24b8d0c6a0470e97ddeb544",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
