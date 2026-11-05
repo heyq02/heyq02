@@ -1,26 +1,35 @@
-import { siteBody, siteH1, siteMeta } from '@heyq02/rspress-theme-ui'
+import type { Intro } from '@heyq02/rspress-site-content'
 import { Badge } from '@rspress/core/theme'
-import { useState } from 'react'
-import type { ReactElement } from 'react'
+import { useCallback, useState } from 'react'
+import type { AnimationEvent, ReactElement } from 'react'
 
-import { intro } from '../lib/intro.ts'
 import { HomeWeather } from './HomeWeather.tsx'
 import { SocialIcons } from './SocialIcons.tsx'
+import { siteBody, siteH1, siteMeta } from './tokens.ts'
 
-interface ProfilePlayProps {
-  tags: string[]
+export interface ProfileHeroProps {
+  intro: Intro
   /** Override for tests; defaults to Rspress SSG-MD env. */
   ssgMd?: boolean
 }
 
 /** Hero: copy left, large avatar right — layout inspired by diygod.cc. */
-export function ProfilePlay({
-  tags,
+export function ProfileHero({
+  intro,
   ssgMd = Boolean(import.meta.env.SSG_MD)
-}: ProfilePlayProps): ReactElement {
+}: ProfileHeroProps): ReactElement {
   const faces = intro.moods
   const [mood, setMood] = useState(0)
   const [spinning, setSpinning] = useState(false)
+
+  const poke = useCallback(() => {
+    setMood(index => (index + 1) % faces.length)
+    setSpinning(true)
+  }, [faces.length])
+
+  const stopSpin = useCallback((_event: AnimationEvent<HTMLButtonElement>) => {
+    setSpinning(false)
+  }, [])
 
   if (ssgMd) {
     return (
@@ -28,17 +37,12 @@ export function ProfilePlay({
         {`![${intro.name}](${intro.avatar})`}
         {`\n\n# ${intro.headline}\n\n${intro.kaomoji} · ${intro.badge} · ${intro.zodiac} · ${intro.home.label}\n\n`}
         {`${intro.bio}\n\n${intro.about}\n\n`}
-        {tags.map(tag => `\`${tag}\``).join(' ')}
+        {intro.tags.map(tag => `\`${tag}\``).join(' ')}
         {'\n'}
         {intro.places.map(place => `- [${place.label}](${place.href})`).join('\n')}
         {`\n- [Email](mailto:${intro.contact.email})\n`}
       </>
     )
-  }
-
-  const poke = () => {
-    setMood(index => (index + 1) % faces.length)
-    setSpinning(true)
   }
 
   const face = faces[mood % faces.length]
@@ -67,10 +71,14 @@ export function ProfilePlay({
           <HomeWeather home={intro.home} />
         </div>
         <div className='mt-[calc(var(--rp-radius-small)*1.5)] mb-0 flex flex-wrap items-center gap-[var(--rp-radius-small)]'>
-          {tags.map(tag => (
+          {intro.tags.map(tag => (
             <Badge key={tag} text={tag} type='info' outline />
           ))}
-          <SocialIcons className='ml-[calc(var(--rp-radius-small)/2)]' />
+          <SocialIcons
+            className='ml-[calc(var(--rp-radius-small)/2)]'
+            places={intro.places}
+            email={intro.contact.email}
+          />
         </div>
       </div>
 
@@ -79,9 +87,7 @@ export function ProfilePlay({
           type='button'
           className={`m-0 block max-w-xs cursor-pointer border-0 bg-transparent p-0 leading-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--rp-c-brand)]${spinning ? ' profile-avatar-button--spin' : ''}`}
           onClick={poke}
-          onAnimationEnd={() => {
-            setSpinning(false)
-          }}
+          onAnimationEnd={stopSpin}
           aria-label='戳一下头像'
           title='戳我'
         >

@@ -1,9 +1,9 @@
-import { siteFocusRing } from '@heyq02/rspress-theme-ui'
+import type { Place } from '@heyq02/rspress-site-content'
 import type { ReactElement, ReactNode } from 'react'
 import type { SimpleIcon } from 'simple-icons'
 import { siBilibili, siGithub, siX } from 'simple-icons'
 
-import { intro } from '../lib/intro.ts'
+import { siteFocusRing } from './tokens.ts'
 
 const iconClass = 'block size-[1.05rem]'
 
@@ -58,13 +58,19 @@ function SocialIconLink({
   )
 }
 
+export interface SocialIconsProps {
+  places: Place[]
+  email: string
+  className?: string
+}
+
 /** Compact brand icons for the hero tag row (paths from Simple Icons). */
-export function SocialIcons({ className = '' }: { className?: string }): ReactElement {
+export function SocialIcons({ places, email, className = '' }: SocialIconsProps): ReactElement {
   return (
     <span
       className={`inline-flex items-center gap-[calc(var(--rp-radius-small)*1.5)] ${className}`.trim()}
     >
-      {intro.places.map(place => {
+      {places.map(place => {
         const icon = PLACE_ICONS[place.label]
         if (!icon) {
           return null
@@ -75,7 +81,7 @@ export function SocialIcons({ className = '' }: { className?: string }): ReactEl
           </SocialIconLink>
         )
       })}
-      <SocialIconLink href={`mailto:${intro.contact.email}`} label='Email'>
+      <SocialIconLink href={`mailto:${email}`} label='Email'>
         <EmailIcon />
       </SocialIconLink>
     </span>

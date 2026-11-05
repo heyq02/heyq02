@@ -2,7 +2,7 @@
   "name": "@heyq02/rspress-theme-ui",
   "version": "2.0.0-beta.10",
   "private": true,
-  "description": "Rspress-token React UI primitives for heyq02 site theme pages",
+  "description": "Rspress-token React UI for heyq02 site theme pages",
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
@@ -11,8 +11,13 @@
   "scripts": {
     "check": "vp run ccheck"
   },
+  "dependencies": {
+    "@heyq02/rspress-site-content": "workspace:*",
+    "simple-icons": "^16.36.0"
+  },
   "devDependencies": {
     "@liangmi/vp-config": "catalog:",
+    "@rspress/core": "^2.1.0-beta.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "react": "^19.3.0",
@@ -21,6 +26,7 @@
     "vite-plus": "catalog:"
   },
   "peerDependencies": {
+    "@rspress/core": "^2.1.0-beta.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }

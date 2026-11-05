@@ -60,7 +60,7 @@ async function fetchHomeWeather(
   }
 }
 
-/** Live Tongzhou (or configured home) weather strip via Open-Meteo. */
+/** Live home-place weather strip via Open-Meteo. */
 export function HomeWeather({ home }: { home: HomePlace }): ReactElement {
   const [state, setState] = useState<WeatherState>({ status: 'loading' })
   const { label, latitude, longitude } = home

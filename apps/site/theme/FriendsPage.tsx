@@ -9,8 +9,8 @@ import {
 import { useMemo, useSyncExternalStore } from 'react'
 import type { ReactElement } from 'react'
 
-import { friendsData } from './friends-page.ts'
-import type { FriendLink } from './friends-page.ts'
+import { friendsData } from '../lib/friends.ts'
+import type { FriendLink } from '../lib/friends.ts'
 
 function friendLabel(friend: FriendLink): string {
   return friend.desc ? `${friend.name} · ${friend.desc}` : friend.name

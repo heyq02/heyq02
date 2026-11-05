@@ -2,6 +2,9 @@ import {
   CardLink,
   CardSummary,
   CardTitle,
+  ContributionHeatmap,
+  JumpRail,
+  ProfileHero,
   Section,
   siteCardChrome,
   siteCardSummary,
@@ -16,9 +19,6 @@ import { formatZhDate } from '../lib/format.ts'
 import { contributionCalendar, formatCount, pinnedProjects } from '../lib/github-profile.ts'
 import type { GithubPinnedProject } from '../lib/github-profile.ts'
 import { intro } from '../lib/intro.ts'
-import { ContributionHeatmap } from './ContributionHeatmap.tsx'
-import { JumpRail } from './JumpRail.tsx'
-import { ProfilePlay } from './ProfilePlay.tsx'
 import { recentPosts } from './recent-posts.ts'
 import type { RecentPost } from './recent-posts.ts'
 
@@ -57,7 +57,7 @@ function ProjectCard({ project }: { project: GithubPinnedProject }): ReactElemen
   )
 }
 
-/** Homepage profile — React page aligned with friends shell. */
+/** Homepage profile — wires site data into theme-ui sections. */
 export function ProfilePage({
   ssgMd = Boolean(import.meta.env.SSG_MD)
 }: {
@@ -73,7 +73,7 @@ export function ProfilePage({
 
     return (
       <>
-        <ProfilePlay tags={intro.tags} ssgMd />
+        <ProfileHero intro={intro} ssgMd />
         {`\n## ${intro.sections.openSource}\n\n`}
         {pinnedProjects
           .map(
@@ -94,7 +94,7 @@ export function ProfilePage({
 
   return (
     <div className={`profile ${sitePageRoot}`}>
-      <ProfilePlay tags={intro.tags} />
+      <ProfileHero intro={intro} />
 
       <JumpRail label={intro.sections.openSource} />
 
