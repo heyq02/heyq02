@@ -1,0 +1,86 @@
+packages/rspress-site-content/src/index.ts
+  s_d52d6cc0db761f::t_fe0e8f679df17d 1
+packages/rspress-plugin-profile/package.json
+  s_d52d6cc0db761f::t_edcebaa3e78e9e 5
+apps/site/lib/home-shell.ts
+  s_d52d6cc0db761f::t_c3ff13dbc95a18 1-43
+packages/rspress-plugin-profile/src/prepare-profile.ts
+  s_d52d6cc0db761f::t_31819e1e3a4e8e 1,5,10,19-20,24,26-27,29-30,35-36,40-42
+packages/rspress-plugin-utils/src/prepare-once.ts
+  s_d52d6cc0db761f::t_f0db42ad424d04 1-10
+packages/rspress-site-content/package.json
+  s_d52d6cc0db761f::t_e85e6cb81fa3b3 5
+packages/rspress-plugin-profile/src/github-pinned.ts
+  s_d52d6cc0db761f::t_be4f647bf69144 4-5,57,90,100,111
+  s_d52d6cc0db761f::t_4f7b5ed284af98 3
+packages/rspress-plugin-profile/src/github-client.ts
+  s_d52d6cc0db761f::t_e0ccd609e0fb3e 2-37
+  s_d52d6cc0db761f::t_4f7b5ed284af98 1
+packages/rspress-plugin-profile/src/github-contributions.ts
+  s_d52d6cc0db761f::t_4f7b5ed284af98 3
+  s_d52d6cc0db761f::t_99cebd9723c330 4,119,126,129,140
+apps/site/theme/ProfilePage.tsx
+  s_d52d6cc0db761f::t_7526d9db8c05e7 15
+packages/rspress-plugin-profile/src/profile-page.ts
+  s_d52d6cc0db761f::t_d058b461ddd3f7 24-31
+packages/rspress-plugin-site-dist/src/absolutize-md-links.ts
+  s_d52d6cc0db761f::t_73a2b765b50eb7 1-76
+packages/rspress-plugin-site-assets/src/index.ts
+  s_d52d6cc0db761f::t_56c42a8e6f6739 1,4,7,10-12,14
+packages/rspress-plugin-site-dist/vite.config.ts
+  s_d52d6cc0db761f::t_1c192869e45b40 1-3
+packages/rspress-plugin-blog-meta/src/prepare-blog-meta.ts
+  s_d52d6cc0db761f::t_82cc5a22ba27d0 4,14,19-24,34,52,72-74
+packages/rspress-plugin-site-dist/package.json
+  s_d52d6cc0db761f::t_51f1935c5c06a7 1-24
+packages/rspress-plugin-site-dist/tsconfig.json
+  s_d52d6cc0db761f::t_7e21835a7f9012 1-7
+packages/rspress-plugin-profile/src/index.ts
+  s_d52d6cc0db761f::t_ef08ce7f964530 6-13,25,28,33,35-36
+  s_d52d6cc0db761f::t_4f7b5ed284af98 24
+apps/site/lib/format.ts
+  s_d52d6cc0db761f::t_bb343f5f3487d7 1-8
+packages/rspress-plugin-blog-meta/src/blog-posts.ts
+  s_d52d6cc0db761f::t_363319fffb858d 129-134,136-140,143-145
+packages/rspress-plugin-site-assets/package.json
+  s_d52d6cc0db761f::t_97cf37208bc271 5,14-15
+  s_6bc744c4e13cf3::t_4b5f3618ef2e8c 16
+packages/rspress-plugin-site-dist/src/index.ts
+  s_d52d6cc0db761f::t_1a7a178ebfabde 1-34
+apps/site/rspress.config.ts
+  s_d52d6cc0db761f::t_613fce749fe913 6,14,91-93,97-100,103-107
+apps/site/package.json
+  s_d52d6cc0db761f::t_3c6af9a078b70a 14-15
+packages/rspress-plugin-blog-meta/package.json
+  s_d52d6cc0db761f::t_3d90269dcf77b2 5
+packages/rspress-plugin-blog-meta/src/index.ts
+  s_d52d6cc0db761f::t_5dd0a074b66215 14,20
+packages/rspress-plugin-utils/src/index.ts
+  s_d52d6cc0db761f::t_19812399781216 3
+pnpm-lock.yaml
+  s_6bc744c4e13cf3::t_445d9d69261b58 244-249,319,321-329,347,369,4273-4284,6336-6361
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "d0223505b0bd8e30197850445139182337df6d10",
+  "prompts": {},
+  "sessions": {
+    "s_6bc744c4e13cf3": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3c12c778-6e21-40db-b9ca-a3a06fe313c4",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    },
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
