@@ -1,0 +1,22 @@
+packages/rspress-theme-ui/src/blocks/ProfileHero.tsx
+  s_1463359ea2b6b7::t_a3bd097e8fbea4 49
+  s_1463359ea2b6b7::t_29b40d42d9bc52 107-119
+apps/site/theme/chrome.css
+  s_1463359ea2b6b7::t_8ed4319f4c1b35 220-221,224,230-240,246-247,264,268,287,295
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "b39c70adb25f1b9f2f321182893a9fcc2d466b9e",
+  "prompts": {},
+  "sessions": {
+    "s_1463359ea2b6b7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "db50ede7-489b-49d2-8a5f-0849c5e7be2f",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
