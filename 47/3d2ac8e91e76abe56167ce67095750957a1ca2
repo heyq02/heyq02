@@ -1,0 +1,30 @@
+apps/site/theme/chrome.css
+  s_d52d6cc0db761f::t_7212abf4da5bc8 169,175
+packages/rspress-theme-ui/src/widgets/ContributionHeatmap.tsx
+  s_d52d6cc0db761f::t_11218885d4e76d 90
+packages/rspress-theme-ui/src/blocks/ProfileHero.tsx
+  s_d52d6cc0db761f::t_047df9a27846f4 51-52,91-92,102
+packages/rspress-theme-ui/src/layout/JumpRail.tsx
+  s_d52d6cc0db761f::t_6a049be804af02 24
+apps/site/theme/ProfilePage.tsx
+  s_d52d6cc0db761f::t_25fb3d4f3578f7 28
+  s_d52d6cc0db761f::t_2e3b6224c132e2 135
+packages/rspress-theme-ui/src/widgets/SocialIcons.tsx
+  s_d52d6cc0db761f::t_4953c1801a59e9 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "473d2ac8e91e76abe56167ce67095750957a1ca2",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
