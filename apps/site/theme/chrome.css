@@ -38,6 +38,22 @@
   --rp-font-family-display: 'JINGDONGLangZhengTi', 'DM Sans', 'PingFang SC', sans-serif;
   --rp-font-family-mono:
     ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+
+  /*
+   * Named spacing scale (built from Rspress radius tokens).
+   * Prefer these over ad-hoc calc(var(--rp-radius-*) * N).
+   */
+  --hey-space-2xs: calc(var(--rp-radius-small) / 2);
+  --hey-space-xs: calc(var(--rp-radius-small) * 0.75);
+  --hey-space-sm: var(--rp-radius-small);
+  --hey-space-md: calc(var(--rp-radius-small) * 1.5);
+  --hey-space-lg: var(--rp-radius);
+  --hey-space-xl: calc(var(--rp-radius) * 2);
+  --hey-space-2xl: var(--rp-radius-large);
+  --hey-space-3xl: calc(var(--rp-radius-small) * 5);
+  --hey-space-rail: calc(var(--rp-radius-large) * 2);
+  --hey-avatar-size: 13.5rem;
+  --hey-friend-card-min: 15.5rem;
 }
 
 html {

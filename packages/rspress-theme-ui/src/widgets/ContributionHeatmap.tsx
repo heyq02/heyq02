@@ -58,7 +58,7 @@ export function ContributionHeatmap({
   const { activeDays, longest, current } = summarize(days)
 
   return (
-    <div className='profile-contributions flex w-full flex-col gap-[calc(var(--rp-radius-small)*1.5)] sm:flex-row sm:items-stretch'>
+    <div className='profile-contributions flex w-full flex-col gap-[var(--hey-space-md)] sm:flex-row sm:items-stretch'>
       <div
         className='flex w-full min-w-0 flex-1'
         role='img'
@@ -82,9 +82,9 @@ export function ContributionHeatmap({
       </div>
 
       <aside
-        className={`${sitePanelChrome} flex w-full shrink-0 items-center gap-[var(--rp-radius)] px-[calc(var(--rp-radius-small)*1.5)] py-[var(--rp-radius-small)] sm:w-auto sm:min-w-[11rem] sm:flex-col sm:items-start sm:justify-center sm:gap-[calc(var(--rp-radius-small)/2)]`}
+        className={`${sitePanelChrome} flex w-full shrink-0 items-center gap-[var(--hey-space-lg)] px-[var(--hey-space-md)] py-[var(--hey-space-sm)] sm:w-auto sm:min-w-[11rem] sm:flex-col sm:items-start sm:justify-center sm:gap-[var(--hey-space-2xs)]`}
       >
-        <div className='flex min-w-0 items-baseline gap-[var(--rp-radius-small)]'>
+        <div className='flex min-w-0 items-baseline gap-[var(--hey-space-sm)]'>
           <TextLink
             href={calendar.href}
             className='m-0 text-[1.25rem] leading-none font-bold text-[var(--rp-c-text-1)] tabular-nums !no-underline hover:text-[var(--rp-c-brand)]'
@@ -98,9 +98,9 @@ export function ContributionHeatmap({
         <p className='m-0 text-[0.75rem] leading-relaxed text-[var(--rp-c-text-2)]'>
           <span className='font-medium text-[var(--rp-c-text-1)] tabular-nums'>{activeDays}</span>{' '}
           活跃
-          <span className='mx-[calc(var(--rp-radius-small)/2)] text-[var(--rp-c-divider)]'>·</span>
+          <span className='mx-[var(--hey-space-2xs)] text-[var(--rp-c-divider)]'>·</span>
           <span className='font-medium text-[var(--rp-c-text-1)] tabular-nums'>{longest}</span> 最长
-          <span className='mx-[calc(var(--rp-radius-small)/2)] text-[var(--rp-c-divider)]'>·</span>
+          <span className='mx-[var(--hey-space-2xs)] text-[var(--rp-c-divider)]'>·</span>
           <span className='font-medium text-[var(--rp-c-text-1)] tabular-nums'>{current}</span> 当前
         </p>
       </aside>

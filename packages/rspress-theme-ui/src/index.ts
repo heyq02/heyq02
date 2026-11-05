@@ -15,6 +15,7 @@ export {
   siteCardChrome,
   siteCardName,
   siteCardSummary,
+  siteControlPad,
   siteEmpty,
   siteFocusRing,
   siteH1,
@@ -24,6 +25,7 @@ export {
   siteMeta,
   sitePageRoot,
   sitePanelChrome,
+  sitePillPadY,
   siteSection,
   siteSurface,
   siteWhen

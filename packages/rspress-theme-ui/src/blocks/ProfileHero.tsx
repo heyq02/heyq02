@@ -3,7 +3,7 @@ import { Badge } from '@rspress/core/theme'
 import { useCallback, useState } from 'react'
 import type { AnimationEvent, ReactElement } from 'react'
 
-import { siteBody, siteFocusRing, siteH1, siteMeta } from '../foundation/tokens.ts'
+import { siteBody, siteControlPad, siteFocusRing, siteH1, siteMeta } from '../foundation/tokens.ts'
 import { HomeWeather } from '../widgets/HomeWeather.tsx'
 import { SocialIcons } from '../widgets/SocialIcons.tsx'
 
@@ -48,17 +48,17 @@ export function ProfileHero({
   const face = faces[mood % faces.length]
 
   return (
-    <header className='hey-rise mt-[calc(var(--rp-radius-small)*5)] flex flex-col items-center gap-[var(--rp-radius-large)] md:flex-row md:items-start md:gap-[calc(var(--rp-radius)*2)]'>
+    <header className='hey-rise mt-[var(--hey-space-3xl)] flex flex-col items-center gap-[var(--hey-space-2xl)] md:flex-row md:items-start md:gap-[var(--hey-space-xl)]'>
       <div className='relative w-full min-w-0 flex-1'>
         <h1 className={siteH1}>{intro.headline}</h1>
-        <p className='font-display mt-[var(--rp-radius)] mb-0 text-[1.125rem] leading-snug font-bold text-[var(--rp-c-text-1)]'>
+        <p className='font-display mt-[var(--hey-space-lg)] mb-0 text-[1.125rem] leading-snug font-bold text-[var(--rp-c-text-1)]'>
           {intro.bio}
         </p>
-        <p className={`${siteBody} mt-[var(--rp-radius)] max-w-prose`}>{intro.about}</p>
-        <div className='mt-[var(--rp-radius)] flex flex-wrap items-baseline gap-x-[var(--rp-radius)] gap-y-[var(--rp-radius-small)]'>
+        <p className={`${siteBody} mt-[var(--hey-space-lg)] max-w-prose`}>{intro.about}</p>
+        <div className='mt-[var(--hey-space-lg)] flex flex-wrap items-baseline gap-x-[var(--hey-space-lg)] gap-y-[var(--hey-space-sm)]'>
           <button
             type='button'
-            className={`inline-flex shrink-0 cursor-pointer rounded-[var(--rp-radius-small)] border-0 bg-transparent px-[calc(var(--rp-radius-small)/2)] py-[calc(var(--rp-radius-small)/2)] font-mono text-[1.125rem] leading-snug text-[var(--rp-c-text-2)] transition-[color,background-color,transform] duration-200 hover:-translate-y-px hover:bg-[var(--rp-c-bg-soft)] hover:text-[var(--rp-c-brand)] active:scale-95 ${siteFocusRing}`}
+            className={`inline-flex shrink-0 cursor-pointer rounded-[var(--rp-radius-small)] border-0 bg-transparent ${siteControlPad} font-mono text-[1.125rem] leading-snug text-[var(--rp-c-text-2)] transition-[color,background-color,transform] duration-200 hover:-translate-y-px hover:bg-[var(--rp-c-bg-soft)] hover:text-[var(--rp-c-brand)] active:scale-95 ${siteFocusRing}`}
             onClick={poke}
             aria-label='换一个表情'
             title='换一个表情'
@@ -76,20 +76,20 @@ export function ProfileHero({
           </span>
           <HomeWeather home={intro.home} />
         </div>
-        <div className='mt-[calc(var(--rp-radius-small)*1.5)] mb-0 flex flex-wrap items-center gap-[var(--rp-radius-small)]'>
+        <div className='mt-[var(--hey-space-md)] mb-0 flex flex-wrap items-center gap-[var(--hey-space-sm)]'>
           {intro.tags.map(tag => (
             <Badge key={tag} text={tag} type='info' outline />
           ))}
           <SocialIcons
-            className='ml-[calc(var(--rp-radius-small)/2)]'
+            className='ml-[var(--hey-space-2xs)]'
             places={intro.places}
             email={intro.contact.email}
           />
         </div>
       </div>
 
-      {/* ~216px: roughly matches left copy block height on desktop. */}
-      <div className='hey-avatar-stage relative w-[min(100%,13.5rem)] shrink-0 md:pt-1'>
+      {/* Sized to roughly match left copy block height on desktop. */}
+      <div className='hey-avatar-stage relative w-[min(100%,var(--hey-avatar-size))] shrink-0 md:pt-1'>
         <button
           type='button'
           className={`m-0 block w-full cursor-pointer border-0 bg-transparent p-0 leading-none transition-transform duration-200 active:scale-[0.98] ${siteFocusRing}`}

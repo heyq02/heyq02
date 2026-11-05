@@ -67,9 +67,7 @@ export interface SocialIconsProps {
 /** Compact brand icons for the hero tag row (paths from Simple Icons). */
 export function SocialIcons({ places, email, className = '' }: SocialIconsProps): ReactElement {
   return (
-    <span
-      className={`inline-flex items-center gap-[calc(var(--rp-radius-small)*1.5)] ${className}`.trim()}
-    >
+    <span className={`inline-flex items-center gap-[var(--hey-space-md)] ${className}`.trim()}>
       {places.map(place => {
         const icon = PLACE_ICONS[place.label]
         if (!icon) {

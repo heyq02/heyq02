@@ -28,12 +28,12 @@ After editing blog posts, run `cprepare-content` and commit `content/data/recent
 
 Do **not** add new workspace packages unless something cannot live in an existing one. Prefer extending:
 
-| Layer | Package | Owns |
-| --- | --- | --- |
-| Contracts | `@heyq02/rspress-site-content` | Shared types + pure content helpers |
-| UI | `@heyq02/rspress-theme-ui` | Presentational components (`foundation` → `primitives` → `layout` → `widgets` → `blocks`) |
-| Plugins | `@heyq02/rspress-plugin-*` | Build-time prepare / Rspress hooks (`utils` for shared FS helpers) |
-| App | `@heyq02/site` | Pages, chrome, `lib/*` data adapters, Rspress config |
+| Layer     | Package                        | Owns                                                                                      |
+| --------- | ------------------------------ | ----------------------------------------------------------------------------------------- |
+| Contracts | `@heyq02/rspress-site-content` | Shared types + pure content helpers                                                       |
+| UI        | `@heyq02/rspress-theme-ui`     | Presentational components (`foundation` → `primitives` → `layout` → `widgets` → `blocks`) |
+| Plugins   | `@heyq02/rspress-plugin-*`     | Build-time prepare / Rspress hooks (`utils` for shared FS helpers)                        |
+| App       | `@heyq02/site`                 | Pages, chrome, `lib/*` data adapters, Rspress config                                      |
 
 `apps/site/theme` should stay thin (pages + Layout + chrome). Put reusable UI in `rspress-theme-ui`, not new site components.
 

@@ -5,6 +5,7 @@ import {
   Empty,
   PageShell,
   siteCardChrome,
+  siteControlPad,
   siteFocusRing,
   siteMeta
 } from '@heyq02/rspress-theme-ui'
@@ -49,7 +50,7 @@ function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): 
     <li className='hey-rise m-0 min-w-0'>
       <CardLink
         href={friend.url}
-        className={`flex h-full items-center gap-[calc(var(--rp-radius-small)*1.5)] ${siteCardChrome}`}
+        className={`flex h-full items-center gap-[var(--hey-space-md)] ${siteCardChrome}`}
         external
         rel='noopener noreferrer friend'
         title={friend.name}
@@ -64,7 +65,7 @@ function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): 
           loading='lazy'
           decoding='async'
         />
-        <span className='grid min-w-0 gap-[calc(var(--rp-radius-small)/2)]'>
+        <span className='grid min-w-0 gap-[var(--hey-space-2xs)]'>
           <CardTitle className='truncate'>{friend.name}</CardTitle>
           {friend.desc ? <CardSummary className='line-clamp-2'>{friend.desc}</CardSummary> : null}
         </span>
@@ -102,18 +103,18 @@ export function FriendsPage({
     <div id='hey-main' tabIndex={-1}>
       <PageShell title={title} ssgMd={ssgMd} tone='friends'>
         {ordered.length === 0 ? (
-          <Empty className='friends-empty mt-[calc(var(--rp-radius-small)*5)]'>还没有友链。</Empty>
+          <Empty className='friends-empty mt-[var(--hey-space-3xl)]'>还没有友链。</Empty>
         ) : (
           <>
             {ssgMd ? null : (
-              <p className='mt-[calc(var(--rp-radius-small)*5)] mb-0 flex items-center justify-end gap-[var(--rp-radius)]'>
+              <p className='mt-[var(--hey-space-3xl)] mb-0 flex items-center justify-end gap-[var(--hey-space-lg)]'>
                 <span className='sr-only' aria-live='polite'>
                   {deal === 0 ? '' : `已重新打乱，共 ${ordered.length} 个友链`}
                 </span>
                 <button
                   type='button'
                   onClick={reshuffle}
-                  className={`cursor-pointer rounded-[var(--rp-radius-small)] border-0 bg-transparent px-[calc(var(--rp-radius-small)/2)] py-[calc(var(--rp-radius-small)/2)] ${siteMeta} transition-[color,transform] duration-200 hover:-translate-y-px hover:text-[var(--rp-c-brand)] active:scale-95 ${siteFocusRing}`}
+                  className={`cursor-pointer rounded-[var(--rp-radius-small)] border-0 bg-transparent ${siteControlPad} ${siteMeta} transition-[color,transform] duration-200 hover:-translate-y-px hover:text-[var(--rp-c-brand)] active:scale-95 ${siteFocusRing}`}
                   aria-label='重新打乱友链顺序'
                   title='再洗一次'
                 >
@@ -123,7 +124,7 @@ export function FriendsPage({
             )}
             <ul
               key={deal}
-              className={`friends-grid mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(15.5rem,1fr))] gap-[calc(var(--rp-radius-small)*1.5)] p-0${ssgMd ? ' mt-[calc(var(--rp-radius-small)*5)]' : ' mt-[var(--rp-radius)]'}`}
+              className={`friends-grid mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(var(--hey-friend-card-min),1fr))] gap-[var(--hey-space-md)] p-0${ssgMd ? ' mt-[var(--hey-space-3xl)]' : ' mt-[var(--hey-space-lg)]'}`}
             >
               {ordered.map(friend => (
                 <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />

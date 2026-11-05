@@ -10,6 +10,7 @@ import {
   siteCardSummary,
   siteFocusRing,
   sitePageRoot,
+  sitePillPadY,
   siteWhen
 } from '@heyq02/rspress-theme-ui'
 import { Badge } from '@rspress/core/theme'
@@ -27,11 +28,11 @@ function PostCard({ post }: { post: RecentPost }): ReactElement {
     <CardLink href={post.href} external={false} className={`group block ${siteCardChrome}`}>
       <CardTitle>{post.title}</CardTitle>
       {post.description ? (
-        <CardSummary className='mt-[var(--rp-radius-small)] line-clamp-2'>
+        <CardSummary className='mt-[var(--hey-space-sm)] line-clamp-2'>
           {post.description}
         </CardSummary>
       ) : null}
-      <p className={`mt-[calc(var(--rp-radius-small)*1.5)] mb-0 ${siteWhen}`}>
+      <p className={`mt-[var(--hey-space-md)] mb-0 ${siteWhen}`}>
         {post.date ? formatZhDate(post.date) : null}
       </p>
     </CardLink>
@@ -42,12 +43,12 @@ function ProjectCard({ project }: { project: GithubPinnedProject }): ReactElemen
   return (
     <CardLink
       href={project.href}
-      className={`group relative flex h-full flex-col gap-[var(--rp-radius-small)] ${siteCardChrome} [&_.rp-badge]:no-underline`}
+      className={`group relative flex h-full flex-col gap-[var(--hey-space-sm)] ${siteCardChrome} [&_.rp-badge]:no-underline`}
       external={false}
     >
-      <span className='flex flex-wrap items-baseline gap-[var(--rp-radius-small)]'>
+      <span className='flex flex-wrap items-baseline gap-[var(--hey-space-sm)]'>
         <CardTitle className='profile-project-name'>{project.name}</CardTitle>
-        <span className='m-0 flex flex-wrap gap-[calc(var(--rp-radius-small)/2)]'>
+        <span className='m-0 flex flex-wrap gap-[var(--hey-space-2xs)]'>
           <Badge text={project.language} type='info' />
           <Badge text={`${formatCount(project.stars)} 星标`} type='info' />
         </span>
@@ -103,14 +104,14 @@ export function ProfilePage({
         title={intro.sections.openSource}
         titleSrOnly
         marker='profile-section hey-rise hey-rise-delay-1'
-        className='!mt-0 scroll-mt-[calc(var(--rp-radius-large)*2)]'
+        className='!mt-0 scroll-mt-[var(--hey-space-rail)]'
       >
-        <div className='profile-projects grid grid-cols-1 gap-[var(--rp-radius)] sm:grid-cols-2'>
+        <div className='profile-projects grid grid-cols-1 gap-[var(--hey-space-lg)] sm:grid-cols-2'>
           {pinnedProjects.map(project => (
             <ProjectCard key={project.href} project={project} />
           ))}
         </div>
-        <div className='mt-[var(--rp-radius-large)]'>
+        <div className='mt-[var(--hey-space-2xl)]'>
           <ContributionHeatmap calendar={contributionCalendar} />
         </div>
       </Section>
@@ -122,17 +123,17 @@ export function ProfilePage({
         title={intro.sections.blog}
         titleSrOnly
         marker='profile-section hey-rise hey-rise-delay-2'
-        className='!mt-0 scroll-mt-[calc(var(--rp-radius-large)*2)]'
+        className='!mt-0 scroll-mt-[var(--hey-space-rail)]'
       >
-        <div className='grid gap-[var(--rp-radius)]'>
+        <div className='grid gap-[var(--hey-space-lg)]'>
           {recentPosts.map(post => (
             <PostCard key={post.href} post={post} />
           ))}
         </div>
-        <p className='mt-[var(--rp-radius-large)] mb-0'>
+        <p className='mt-[var(--hey-space-2xl)] mb-0'>
           <a
             href='/blog/'
-            className={`inline-flex rounded-full bg-[var(--rp-c-text-1)] px-[var(--rp-radius)] py-[calc(var(--rp-radius-small)*0.75)] text-sm font-medium text-[var(--rp-c-bg)] no-underline transition-[color,background-color,transform] duration-200 hover:-translate-y-px hover:bg-[var(--rp-c-brand)] hover:no-underline active:scale-[0.98] ${siteFocusRing}`}
+            className={`inline-flex rounded-full bg-[var(--rp-c-text-1)] px-[var(--hey-space-lg)] ${sitePillPadY} text-sm font-medium text-[var(--rp-c-bg)] no-underline transition-[color,background-color,transform] duration-200 hover:-translate-y-px hover:bg-[var(--rp-c-brand)] hover:no-underline active:scale-[0.98] ${siteFocusRing}`}
           >
             查看所有文章
           </a>

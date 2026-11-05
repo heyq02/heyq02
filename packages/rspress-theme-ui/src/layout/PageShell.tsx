@@ -23,9 +23,7 @@ export function PageShell({
     <div className={cx(tone, sitePageRoot, rootClassName).trim()}>
       <header className={siteHeaderRule}>
         {ssgMd ? null : <h1 className={siteH1}>{title}</h1>}
-        {intro ? (
-          <p className={cx('mt-[calc(var(--rp-radius-small)*1.5)]', siteBody)}>{intro}</p>
-        ) : null}
+        {intro ? <p className={cx('mt-[var(--hey-space-md)]', siteBody)}>{intro}</p> : null}
       </header>
       {children}
     </div>
