@@ -1,0 +1,40 @@
+{
+  "Rspress": {
+    "id": "rspress",
+    "lang": {
+      "zh": {
+        "aliases": [{ "key": "Rspress" }],
+        "description": "面向内容站点的静态站点生成器，基于 Rsbuild / Rspack，本站博客即用其构建。",
+        "related_meta": {
+          "docs": [],
+          "links": [
+            {
+              "id": "rspress-site",
+              "title": "Rspress 官网",
+              "url": "https://rspress.rs/"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Giscus": {
+    "id": "giscus",
+    "lang": {
+      "zh": {
+        "aliases": [{ "key": "Giscus" }],
+        "description": "基于 GitHub Discussions 的开源评论系统，友链申请评论区使用它。",
+        "related_meta": {
+          "docs": [],
+          "links": [
+            {
+              "id": "giscus-app",
+              "title": "giscus.app",
+              "url": "https://giscus.app/zh-CN"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

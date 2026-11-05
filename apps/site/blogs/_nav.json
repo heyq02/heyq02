@@ -15,6 +15,16 @@
     "activeMatch": "^/friends(?:/|\\.html|$)"
   },
   {
+    "text": "变更",
+    "link": "/changes/",
+    "activeMatch": "^/changes(?:/|\\.html|$)"
+  },
+  {
+    "text": "更新",
+    "link": "/changelog/",
+    "activeMatch": "^/changelog(?:/|\\.html|$)"
+  },
+  {
     "text": "开往",
     "link": "https://www.travellings.cn/go.html"
   }

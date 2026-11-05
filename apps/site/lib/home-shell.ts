@@ -12,6 +12,7 @@ titleSuffix: ${JSON.stringify(documentTitleSuffix(intro))}
 sidebar: false
 outline: false
 footer: false
+hideReadingTime: true
 ---
 
 import { ProfilePage } from '@theme/ProfilePage'

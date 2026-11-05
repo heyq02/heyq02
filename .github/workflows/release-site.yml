@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          # lastUpdated reads git history for each page.
+          # lastUpdated + git-diff read full history.
           fetch-depth: 0
           # Allow the bot commit step to push back to main.
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -60,15 +60,14 @@ jobs:
             content/data/recent-posts.json
 
       - name: Build site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: vp run @heyq02/site#cbuild
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v6
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
+      - name: Publish Pages artifact
+        uses: ./packages/rspress-plugin-gh-pages-workflow
         with:
-          path: apps/site/dist
+          dist-path: apps/site/dist
 
   deploy:
     if: github.repository == 'heyq02/heyq02'

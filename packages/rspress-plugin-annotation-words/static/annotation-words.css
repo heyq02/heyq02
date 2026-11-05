@@ -1,0 +1,76 @@
+.hey-annotation-highlight {
+  cursor: pointer;
+  padding-bottom: 2px;
+  border-bottom: 1px dotted var(--rp-c-gray);
+}
+
+.hey-annotation-panel {
+  position: fixed;
+  z-index: 100;
+  width: min(20rem, calc(100vw - 2rem));
+  max-height: 31.25rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: var(--rp-radius-large, 1rem);
+  border: 1px solid var(--rp-c-divider);
+  background: var(--rp-c-bg);
+  box-shadow: var(--rp-shadow-2);
+}
+
+.hey-annotation-card {
+  display: grid;
+  gap: var(--hey-space-md, 0.75rem);
+  padding: var(--hey-space-lg, 1rem);
+}
+
+.hey-annotation-card__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.4;
+  color: var(--rp-c-text-1);
+}
+
+.hey-annotation-card__aliases {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--rp-c-text-2);
+}
+
+.hey-annotation-card__desc {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--rp-c-text-1);
+}
+
+.hey-annotation-card__section {
+  margin: 0;
+}
+
+.hey-annotation-card__section h4 {
+  margin: 0 0 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  color: var(--rp-c-text-1);
+}
+
+.hey-annotation-card__section ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hey-annotation-card__section li {
+  margin: 0 0 0.35rem;
+}
+
+.hey-annotation-card__section a {
+  color: var(--rp-c-link);
+  text-decoration: none;
+}
+
+.hey-annotation-card__section a:hover {
+  text-decoration: underline;
+}

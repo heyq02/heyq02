@@ -24,6 +24,7 @@ export function pluginSiteAssets(options: PluginSiteAssetsOptions): RspressPlugi
       '@heyq02/rspress-plugin-site-assets: `outDir`, `faviconPath`, `signaturePath`, `wechatPath`, and `watermarkPath` are required'
     )
   }
+  // `wordsMapPath` is optional — only needed when annotation-words is enabled.
 
   return {
     name: '@heyq02/rspress-plugin-site-assets',

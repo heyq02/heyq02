@@ -26,6 +26,7 @@ describe('renderHomeShellMdx', () => {
   it('embeds ProfilePage and intro-derived frontmatter', () => {
     const mdx = renderHomeShellMdx(intro)
     expect(mdx).toContain('title: "贺同学"')
+    expect(mdx).toContain('hideReadingTime: true')
     expect(mdx).toContain("import { ProfilePage } from '@theme/ProfilePage'")
     expect(mdx).toContain('<ProfilePage />')
   })

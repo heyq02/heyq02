@@ -1,13 +1,18 @@
 import { resolve } from 'node:path'
 
+import { pluginAnnotationWords } from '@heyq02/rspress-plugin-annotation-words'
 import { pluginBlogMeta } from '@heyq02/rspress-plugin-blog-meta'
+import { pluginGhPagesWorkflow } from '@heyq02/rspress-plugin-gh-pages-workflow'
 import { pluginSiteAssets } from '@heyq02/rspress-plugin-site-assets'
 import { pluginSiteDist } from '@heyq02/rspress-plugin-site-dist'
 import { pluginWatermark } from '@heyq02/rspress-plugin-watermark'
 import { siteDescription } from '@heyq02/rspress-site-content'
+import { pluginGitDiff } from '@kazamori/rspress-plugin-git-diff'
 import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss'
 import { defineConfig } from '@rspress/core'
 import { pluginRss } from '@rspress/plugin-rss'
+import { pluginChangelog } from 'rspress-plugin-changelog'
+import readingTime from 'rspress-plugin-reading-time'
 
 import { siteBlogMetaOptions } from './lib/blog-meta.ts'
 import { pluginHomeShell } from './lib/home-shell.ts'
@@ -19,6 +24,7 @@ const dir = import.meta.dirname
 const blogsRoot = resolve(dir, 'blogs')
 const themeDir = resolve(dir, 'theme')
 const brandRoot = resolve(dir, '../../content/brand')
+const dataRoot = resolve(dir, '../../content/data')
 const sitePublic = resolve(dir, 'public')
 
 export default defineConfig({
@@ -89,7 +95,8 @@ ${pages || '-（暂无其他页面）'}
       faviconPath: resolve(brandRoot, 'favicon.png'),
       signaturePath: resolve(brandRoot, 'signature.png'),
       wechatPath: resolve(sitePublic, 'wechat.jpg'),
-      watermarkPath: resolve(sitePublic, 'wuxian-jinbu.png')
+      watermarkPath: resolve(sitePublic, 'wuxian-jinbu.png'),
+      wordsMapPath: resolve(dataRoot, 'words-map.json')
     }),
     pluginSiteDist({
       siteOrigin: intro.site,
@@ -101,6 +108,34 @@ ${pages || '-（暂无其他页面）'}
     }),
     pluginBlogMeta(siteBlogMetaOptions()),
     pluginWatermark({ src: '/wuxian-jinbu.png' }),
+    pluginGitDiff({
+      // Keep ?diff= tags aligned with semver releases (avoids dumping every git tag).
+      tagPattern: /^v\d/
+    }),
+    pluginChangelog({
+      fetchOnDev: false,
+      routePrefix: '',
+      addSidebar: false,
+      items: [
+        {
+          type: 'github-releases',
+          routePath: 'changelog',
+          repo: 'heyq02/heyq02',
+          title: '更新日志'
+        }
+      ]
+    }),
+    readingTime({ defaultLocale: 'zh-CN' }),
+    pluginAnnotationWords({
+      wordsMapPath: 'words-map.json',
+      ignorePaths: [
+        /^\/(?:index\.html)?$/,
+        /^\/friends(?:\/|$|\.html)/,
+        /^\/changes(?:\/|$|\.html)/,
+        /^\/changelog(?:\/|$|\.html)/
+      ]
+    }),
+    pluginGhPagesWorkflow({ outDir: resolve(dir, 'dist') }),
     pluginRss({
       feed: {
         id: 'blog',

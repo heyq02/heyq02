@@ -1,0 +1,24 @@
+{
+  "name": "@heyq02/rspress-plugin-gh-pages-workflow",
+  "version": "2.0.5",
+  "private": true,
+  "description": "Rspress plugin + composite action contract for GitHub Actions Pages (not branch-push gh-pages)",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "check": "vp run ccheck"
+  },
+  "devDependencies": {
+    "@liangmi/vp-config": "catalog:",
+    "@rspress/core": "^2.1.0-beta.2",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "@rspress/core": "^2.1.0-beta.2"
+  }
+}
