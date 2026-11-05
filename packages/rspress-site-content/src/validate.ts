@@ -95,6 +95,14 @@ export function assertFriendsData(value: unknown): FriendsData {
     throw new TypeError('friends must be an object')
   }
   expectString(value.title, 'friends.title')
+  if (value.apply !== undefined) {
+    if (!isRecord(value.apply)) {
+      throw new TypeError('friends.apply must be an object')
+    }
+    expectString(value.apply.title, 'friends.apply.title')
+    expectString(value.apply.intro, 'friends.apply.intro')
+    expectString(value.apply.template, 'friends.apply.template')
+  }
   for (const [index, friend] of expectArray(value.friends, 'friends.friends').entries()) {
     if (!isRecord(friend)) {
       throw new TypeError(`friends.friends[${index}] must be an object`)

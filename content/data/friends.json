@@ -1,5 +1,10 @@
 {
   "title": "友链",
+  "apply": {
+    "title": "申请友链",
+    "intro": "用 GitHub 登录后在下方评论区留言即可。建议先互换本站，再按模板提交申请。",
+    "template": "名称：\n链接：\n头像：\n简介："
+  },
   "friends": [
     {
       "name": "DIYgod",

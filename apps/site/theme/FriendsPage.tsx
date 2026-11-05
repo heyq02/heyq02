@@ -4,16 +4,23 @@ import {
   CardTitle,
   Empty,
   PageShell,
+  Section,
+  siteBody,
   siteCardChrome,
   siteControlPad,
   siteFocusRing,
-  siteMeta
+  siteMeta,
+  sitePanelChrome,
+  TextLink
 } from '@heyq02/rspress-theme-ui'
 import { useCallback, useMemo, useState, useSyncExternalStore } from 'react'
-import type { ReactElement } from 'react'
+import type { ReactElement, ReactNode } from 'react'
+import { Giscus } from 'rspress-plugin-giscus'
 
 import { friendsData } from '../lib/friends.ts'
 import type { FriendLink } from '../lib/friends.ts'
+import { friendsGiscus } from '../lib/giscus.ts'
+import { intro } from '../lib/intro.ts'
 
 function friendLabel(friend: FriendLink): string {
   return friend.desc ? `${friend.name} · ${friend.desc}` : friend.name
@@ -71,6 +78,59 @@ function FriendCard({ friend, ssgMd }: { friend: FriendLink; ssgMd: boolean }): 
         </span>
       </CardLink>
     </li>
+  )
+}
+
+function ApplySection({ ssgMd }: { ssgMd: boolean }): ReactNode {
+  const apply = friendsData.apply
+  if (!apply) {
+    return null
+  }
+
+  const discussionsUrl = `https://github.com/${friendsGiscus.repo}/discussions/categories/announcements`
+
+  if (ssgMd) {
+    return `\n## ${apply.title}\n\n${apply.intro}\n\n本站：${intro.name} · ${intro.site} · ${intro.avatar} · ${intro.bio}\n\n申请模板：\n\n\`\`\`\n${apply.template}\n\`\`\`\n\n评论：${discussionsUrl}\n`
+  }
+
+  return (
+    <Section title={apply.title} id='apply'>
+      <p className={siteBody}>{apply.intro}</p>
+      <dl
+        className={`${sitePanelChrome} mt-[var(--hey-space-lg)] mb-0 grid gap-[var(--hey-space-sm)] text-[1rem] leading-relaxed`}
+      >
+        <div className='grid gap-[var(--hey-space-2xs)] sm:grid-cols-[4.5rem_1fr] sm:items-baseline'>
+          <dt className={siteMeta}>本站</dt>
+          <dd className='m-0'>
+            <TextLink href={intro.site}>{intro.name}</TextLink>
+          </dd>
+        </div>
+        <div className='grid gap-[var(--hey-space-2xs)] sm:grid-cols-[4.5rem_1fr] sm:items-baseline'>
+          <dt className={siteMeta}>链接</dt>
+          <dd className='m-0 break-all'>
+            <TextLink href={intro.site}>{intro.site}</TextLink>
+          </dd>
+        </div>
+        <div className='grid gap-[var(--hey-space-2xs)] sm:grid-cols-[4.5rem_1fr] sm:items-baseline'>
+          <dt className={siteMeta}>头像</dt>
+          <dd className='m-0 break-all'>
+            <TextLink href={intro.avatar}>{intro.avatar}</TextLink>
+          </dd>
+        </div>
+        <div className='grid gap-[var(--hey-space-2xs)] sm:grid-cols-[4.5rem_1fr] sm:items-baseline'>
+          <dt className={siteMeta}>简介</dt>
+          <dd className='m-0 text-[var(--rp-c-text-2)]'>{intro.bio}</dd>
+        </div>
+      </dl>
+      <pre
+        className={`${sitePanelChrome} mt-[var(--hey-space-lg)] mb-0 overflow-x-auto font-mono text-[length:var(--rp-code-font-size)] leading-relaxed whitespace-pre-wrap text-[var(--rp-c-text-2)]`}
+      >
+        {apply.template}
+      </pre>
+      <div className='friends-giscus mt-[var(--hey-space-xl)]'>
+        <Giscus {...friendsGiscus} />
+      </div>
+    </Section>
   )
 }
 
@@ -132,6 +192,7 @@ export function FriendsPage({
             </ul>
           </>
         )}
+        <ApplySection ssgMd={ssgMd} />
       </PageShell>
     </div>
   )

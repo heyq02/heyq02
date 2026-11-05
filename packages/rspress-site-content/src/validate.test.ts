@@ -46,6 +46,20 @@ describe('assertFriendsData', () => {
     ).toHaveLength(1)
   })
 
+  it('accepts optional apply copy', () => {
+    expect(
+      assertFriendsData({
+        title: '友链',
+        apply: {
+          title: '申请友链',
+          intro: '留言即可',
+          template: '名称：'
+        },
+        friends: []
+      }).apply?.title
+    ).toBe('申请友链')
+  })
+
   it('rejects empty friend name', () => {
     expect(() =>
       assertFriendsData({
