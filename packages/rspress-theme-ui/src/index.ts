@@ -1,20 +1,16 @@
-export { cx } from './cx.ts'
-export { CardLink } from './CardLink.tsx'
-export { ContributionHeatmap } from './ContributionHeatmap.tsx'
-export { Empty } from './Empty.tsx'
-export { HomeWeather } from './HomeWeather.tsx'
-export { JumpRail } from './JumpRail.tsx'
-export { PageShell } from './PageShell.tsx'
-export { ProfileHero } from './ProfileHero.tsx'
-export type { ProfileHeroProps } from './ProfileHero.tsx'
-export { Section } from './Section.tsx'
-export { SocialIcons } from './SocialIcons.tsx'
-export type { SocialIconsProps } from './SocialIcons.tsx'
-export { TextLink } from './TextLink.tsx'
-export { CardSummary, CardTitle } from './Text.tsx'
+/**
+ * Layered theme UI:
+ * - foundation — cx + design tokens
+ * - primitives — atomic links / text / empty
+ * - layout — page chrome (shell, section, jump rail)
+ * - widgets — composed pieces (icons, weather, heatmap)
+ * - blocks — page-level sections (profile hero)
+ *
+ * Public API stays flat for `@heyq02/rspress-theme-ui` consumers.
+ */
 
-/** Low-level Tailwind class tokens. */
 export {
+  cx,
   siteBody,
   siteCardChrome,
   siteCardName,
@@ -31,4 +27,14 @@ export {
   siteSection,
   siteSurface,
   siteWhen
-} from './tokens.ts'
+} from './foundation/index.ts'
+
+export { CardLink, CardSummary, CardTitle, Empty, TextLink } from './primitives/index.ts'
+
+export { JumpRail, PageShell, Section } from './layout/index.ts'
+
+export { ContributionHeatmap, HomeWeather, SocialIcons } from './widgets/index.ts'
+export type { SocialIconsProps } from './widgets/index.ts'
+
+export { ProfileHero } from './blocks/index.ts'
+export type { ProfileHeroProps } from './blocks/index.ts'

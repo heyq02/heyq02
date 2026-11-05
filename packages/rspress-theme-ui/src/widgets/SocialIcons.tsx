@@ -3,7 +3,7 @@ import type { ReactElement, ReactNode } from 'react'
 import type { SimpleIcon } from 'simple-icons'
 import { siBilibili, siGithub, siX } from 'simple-icons'
 
-import { siteFocusRing } from './tokens.ts'
+import { siteFocusRing } from '../foundation/tokens.ts'
 
 const iconClass = 'block size-[1.05rem]'
 

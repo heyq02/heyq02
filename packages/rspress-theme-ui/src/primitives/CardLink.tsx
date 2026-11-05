@@ -1,6 +1,6 @@
 import type { AnchorHTMLAttributes, ReactElement, ReactNode } from 'react'
 
-import { cx } from './cx.ts'
+import { cx } from '../foundation/cx.ts'
 
 export function CardLink({
   href,

@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactElement, ReactNode } from 'react'
 
-import { cx } from './cx.ts'
-import { siteCardName, siteCardSummary } from './tokens.ts'
+import { cx } from '../foundation/cx.ts'
+import { siteCardName, siteCardSummary } from '../foundation/tokens.ts'
 
 type SpanProps = {
   children: ReactNode

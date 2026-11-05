@@ -1,7 +1,7 @@
 import type { ReactElement, ReactNode } from 'react'
 
-import { cx } from './cx.ts'
-import { siteH2, siteSection } from './tokens.ts'
+import { cx } from '../foundation/cx.ts'
+import { siteH2, siteSection } from '../foundation/tokens.ts'
 
 export function Section({
   title,

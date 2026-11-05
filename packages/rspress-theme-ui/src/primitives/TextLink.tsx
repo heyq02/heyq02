@@ -1,7 +1,7 @@
 import type { AnchorHTMLAttributes, ReactElement, ReactNode } from 'react'
 
-import { cx } from './cx.ts'
-import { siteLink } from './tokens.ts'
+import { cx } from '../foundation/cx.ts'
+import { siteLink } from '../foundation/tokens.ts'
 
 export function TextLink({
   href,

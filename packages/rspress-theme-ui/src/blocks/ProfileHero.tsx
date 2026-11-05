@@ -3,9 +3,9 @@ import { Badge } from '@rspress/core/theme'
 import { useCallback, useState } from 'react'
 import type { AnimationEvent, ReactElement } from 'react'
 
-import { HomeWeather } from './HomeWeather.tsx'
-import { SocialIcons } from './SocialIcons.tsx'
-import { siteBody, siteH1, siteMeta } from './tokens.ts'
+import { siteBody, siteH1, siteMeta } from '../foundation/tokens.ts'
+import { HomeWeather } from '../widgets/HomeWeather.tsx'
+import { SocialIcons } from '../widgets/SocialIcons.tsx'
 
 export interface ProfileHeroProps {
   intro: Intro

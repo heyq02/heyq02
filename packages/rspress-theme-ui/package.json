@@ -2,7 +2,7 @@
   "name": "@heyq02/rspress-theme-ui",
   "version": "2.0.0-beta.11",
   "private": true,
-  "description": "Rspress-token React UI for heyq02 site theme pages",
+  "description": "Rspress-token React UI (foundation → primitives → layout → widgets → blocks)",
   "type": "module",
   "exports": {
     ".": "./src/index.ts",

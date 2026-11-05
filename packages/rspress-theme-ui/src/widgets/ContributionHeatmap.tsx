@@ -5,8 +5,8 @@ import type {
 } from '@heyq02/rspress-site-content'
 import type { ReactElement } from 'react'
 
-import { TextLink } from './TextLink.tsx'
-import { sitePanelChrome } from './tokens.ts'
+import { sitePanelChrome } from '../foundation/tokens.ts'
+import { TextLink } from '../primitives/TextLink.tsx'
 
 /** Contribution intensity on Rspress brand / surface tokens. */
 const LEVEL_CLASS: Record<ContributionLevel, string> = {

@@ -1,7 +1,7 @@
 import type { ReactElement, ReactNode } from 'react'
 
-import { cx } from './cx.ts'
-import { siteBody, siteH1, siteHeaderRule, sitePageRoot } from './tokens.ts'
+import { cx } from '../foundation/cx.ts'
+import { siteBody, siteH1, siteHeaderRule, sitePageRoot } from '../foundation/tokens.ts'
 
 export function PageShell({
   title,
