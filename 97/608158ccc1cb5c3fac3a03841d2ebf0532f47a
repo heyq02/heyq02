@@ -1,0 +1,20 @@
+apps/site/theme/chrome.css
+  s_d52d6cc0db761f::t_289a93e615889d 172,176
+  s_d52d6cc0db761f::t_7ef92e5d44a779 57,62,67
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "97608158ccc1cb5c3fac3a03841d2ebf0532f47a",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
