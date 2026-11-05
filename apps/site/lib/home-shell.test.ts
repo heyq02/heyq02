@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it } from 'vite-plus/test'
 
 import { renderHomeShellMdx } from './home-shell.ts'
 import type { Intro } from './intro.ts'

@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it } from 'vite-plus/test'
 
 import { mapPinnedRepository } from './github-pinned.ts'
 import type { GraphQlRepository } from './github-pinned.ts'
