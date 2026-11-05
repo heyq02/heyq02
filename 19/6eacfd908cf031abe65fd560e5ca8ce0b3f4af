@@ -1,0 +1,44 @@
+packages/rspress-site-content/src/index.ts
+  s_d52d6cc0db761f::t_4f01766d635a88 1
+content/data/intro.json
+  s_d52d6cc0db761f::t_c7152822720ac3 13,23-24
+apps/site/theme/ProfilePlay.tsx
+  s_d52d6cc0db761f::t_25766534094546 33
+  s_d52d6cc0db761f::t_fb5f01b58abd32 60
+apps/site/theme/SocialIcons.tsx
+  s_d52d6cc0db761f::t_3bc6a6a4bbb883 86
+packages/rspress-plugin-profile/src/profile-page.ts
+  s_d52d6cc0db761f::t_3ff126ab101285 1
+  s_d52d6cc0db761f::t_49ea43ceed293f 61
+packages/rspress-site-content/src/intro.ts
+  s_d52d6cc0db761f::t_b9081b39069413 49-66
+  s_d52d6cc0db761f::t_17e4d3c831569a 31
+  s_d52d6cc0db761f::t_cbc8ff5847f3aa 67
+packages/rspress-plugin-profile/src/index.ts
+  s_d52d6cc0db761f::t_63019d67de21e6 30
+  s_d52d6cc0db761f::t_198de39b911204 31
+apps/site/rspress.config.ts
+  s_d52d6cc0db761f::t_8467132f31c584 34,42,54,56
+  s_d52d6cc0db761f::t_45ebee7ee33063 110
+  s_d52d6cc0db761f::t_ab9390d766dc6a 7,14
+  s_d52d6cc0db761f::t_20a40545eadbc4 15
+apps/site/theme/ProfilePage.tsx
+  s_d52d6cc0db761f::t_ca2ae1581ef7e1 1
+  s_d52d6cc0db761f::t_38d082cedeff9d 80,95,108
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "196eacfd908cf031abe65fd560e5ca8ce0b3f4af",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
