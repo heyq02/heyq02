@@ -88,17 +88,67 @@ export function ProfileHero({
         </div>
       </div>
 
-      {/* Sized to roughly match left copy block height on desktop. */}
-      <div className='hey-avatar-stage relative w-[min(100%,var(--hey-avatar-size))] shrink-0 md:pt-1'>
-        <img
-          className={`block aspect-square w-full rounded-2xl border border-[var(--rp-c-divider-light)] object-cover shadow-[var(--rp-shadow-2)]${spinning ? ' animate-avatar-wobble' : ''}`}
-          src={intro.avatar}
-          alt={intro.name}
-          width={216}
-          height={216}
-          draggable={false}
-          onAnimationEnd={stopSpin}
-        />
+      {/* DeepSeek-inspired「深度思考」avatar frame — breathe + ripple. */}
+      <div className='hey-avatar-stage hey-avatar-think relative w-[min(100%,calc(var(--hey-avatar-size)+1.25rem))] shrink-0 md:pt-1'>
+        <div className='hey-avatar-think__frame relative mx-auto aspect-square w-[88%]'>
+          <div className='hey-avatar-think__ripples' aria-hidden>
+            <span className='hey-avatar-think__ripple' />
+            <span className='hey-avatar-think__ripple' />
+            <span className='hey-avatar-think__ripple' />
+          </div>
+          <div className='hey-avatar-think__pulse relative'>
+            <img
+              className={`hey-avatar-think__photo block aspect-square w-full rounded-full object-cover${spinning ? ' animate-avatar-wobble' : ''}`}
+              src={intro.avatar}
+              alt={intro.name}
+              width={216}
+              height={216}
+              draggable={false}
+              onAnimationEnd={stopSpin}
+            />
+            <span className='hey-avatar-think__badge'>
+              <svg
+                className='hey-avatar-think__atom'
+                viewBox='0 0 16 16'
+                width={14}
+                height={14}
+                aria-hidden
+              >
+                <circle cx='8' cy='8' r='1.35' fill='currentColor' />
+                <ellipse
+                  cx='8'
+                  cy='8'
+                  rx='6.2'
+                  ry='2.35'
+                  fill='none'
+                  stroke='currentColor'
+                  strokeWidth='1.1'
+                />
+                <ellipse
+                  cx='8'
+                  cy='8'
+                  rx='6.2'
+                  ry='2.35'
+                  fill='none'
+                  stroke='currentColor'
+                  strokeWidth='1.1'
+                  transform='rotate(60 8 8)'
+                />
+                <ellipse
+                  cx='8'
+                  cy='8'
+                  rx='6.2'
+                  ry='2.35'
+                  fill='none'
+                  stroke='currentColor'
+                  strokeWidth='1.1'
+                  transform='rotate(120 8 8)'
+                />
+              </svg>
+              深度思考
+            </span>
+          </div>
+        </div>
       </div>
     </header>
   )

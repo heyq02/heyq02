@@ -177,25 +177,120 @@ body::before {
   isolation: isolate;
 }
 
-.hey-avatar-stage::before {
-  content: '';
-  position: absolute;
-  inset: 8% 6% 4%;
-  z-index: -1;
-  border-radius: 1rem;
-  background: radial-gradient(
-    ellipse at 50% 40%,
-    color-mix(in srgb, var(--rp-c-brand) 10%, transparent),
-    transparent 68%
-  );
-  filter: blur(16px);
-  opacity: 0.55;
-  transform: scale(1.04);
-  transition: opacity 0.35s ease;
+/* DeepSeek「深度思考」frame: soft blue ring, breathe scale, expanding ripples. */
+.hey-avatar-think {
+  --hey-think: #4d6bfe;
+  --hey-think-soft: color-mix(in srgb, var(--hey-think) 22%, white);
 }
 
-.hey-avatar-stage:hover::before {
-  opacity: 1;
+.hey-avatar-think::before {
+  content: '';
+  position: absolute;
+  inset: 10% 8% 14%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 45%,
+    color-mix(in srgb, var(--hey-think) 28%, transparent),
+    transparent 70%
+  );
+  filter: blur(18px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.hey-avatar-think__ripples {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hey-avatar-think__ripple {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--hey-think) 48%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--hey-think) 18%, transparent);
+  opacity: 0;
+  animation: hey-think-ripple 2.8s ease-out infinite;
+}
+
+.hey-avatar-think__ripple:nth-child(2) {
+  animation-delay: 0.93s;
+}
+
+.hey-avatar-think__ripple:nth-child(3) {
+  animation-delay: 1.86s;
+}
+
+.hey-avatar-think__pulse {
+  border-radius: 50%;
+  animation: hey-think-breathe 2.8s ease-in-out infinite;
+}
+
+.hey-avatar-think__photo {
+  border: 2px solid color-mix(in srgb, var(--hey-think) 35%, white);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--hey-think) 12%, transparent),
+    var(--rp-shadow-2);
+}
+
+.hey-avatar-think__badge {
+  position: absolute;
+  left: 50%;
+  bottom: -0.15rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  transform: translateX(-50%);
+  padding: 0.22rem 0.7rem 0.24rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, white 72%, var(--hey-think));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--hey-think) 82%, white),
+    color-mix(in srgb, var(--hey-think) 92%, #1a2a7a)
+  );
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--hey-think) 25%, transparent),
+    0 4px 14px color-mix(in srgb, var(--hey-think) 28%, transparent);
+}
+
+.hey-avatar-think__atom {
+  display: block;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+@keyframes hey-think-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.045);
+  }
+}
+
+@keyframes hey-think-ripple {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0.12;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.42);
+  }
 }
 
 @keyframes hey-rise {
@@ -232,11 +327,14 @@ body::before {
 
   .hey-rise,
   .hey-rise-delay-1,
-  .hey-rise-delay-2 {
+  .hey-rise-delay-2,
+  .hey-avatar-think__pulse,
+  .hey-avatar-think__ripple {
     animation: none !important;
   }
 
-  .hey-avatar-stage::before {
-    transition: none;
+  .hey-avatar-think__ripple {
+    opacity: 0.28;
+    transform: scale(1.08);
   }
 }
