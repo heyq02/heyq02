@@ -27,7 +27,7 @@ export function ProfileHero({
     setSpinning(true)
   }, [faces.length])
 
-  const stopSpin = useCallback((_event: AnimationEvent<HTMLButtonElement>) => {
+  const stopSpin = useCallback((_event: AnimationEvent<HTMLImageElement>) => {
     setSpinning(false)
   }, [])
 
@@ -90,23 +90,15 @@ export function ProfileHero({
 
       {/* Sized to roughly match left copy block height on desktop. */}
       <div className='hey-avatar-stage relative w-[min(100%,var(--hey-avatar-size))] shrink-0 md:pt-1'>
-        <button
-          type='button'
-          className={`m-0 block w-full cursor-pointer border-0 bg-transparent p-0 leading-none transition-transform duration-200 active:scale-[0.98] ${siteFocusRing}`}
-          onClick={poke}
+        <img
+          className={`block aspect-square w-full rounded-2xl border border-[var(--rp-c-divider-light)] object-cover shadow-[var(--rp-shadow-2)]${spinning ? ' animate-avatar-wobble' : ''}`}
+          src={intro.avatar}
+          alt={intro.name}
+          width={216}
+          height={216}
+          draggable={false}
           onAnimationEnd={stopSpin}
-          aria-label='戳一下头像'
-          title='戳我'
-        >
-          <img
-            className={`block aspect-square w-full rounded-2xl border border-[var(--rp-c-divider-light)] object-cover shadow-[var(--rp-shadow-2)] transition-shadow duration-200 hover:shadow-[var(--rp-shadow-1)]${spinning ? ' animate-avatar-wobble' : ''}`}
-            src={intro.avatar}
-            alt={intro.name}
-            width={216}
-            height={216}
-            draggable={false}
-          />
-        </button>
+        />
       </div>
     </header>
   )
