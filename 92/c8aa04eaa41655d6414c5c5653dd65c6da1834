@@ -1,0 +1,46 @@
+apps/site/lib/friends.ts
+  s_d52d6cc0db761f::t_c72212906de7d1 1-8
+packages/rspress-theme-ui/tsconfig.json
+  s_d52d6cc0db761f::t_d971c128437f8b 8
+apps/site/theme/FriendsPage.tsx
+  s_d52d6cc0db761f::t_31d1ea2e93e7e3 12-13
+apps/site/theme/ProfilePage.tsx
+  s_d52d6cc0db761f::t_7da8573779e3b1 5-7,60,76,97
+packages/rspress-theme-ui/src/ContributionHeatmap.tsx
+  s_d52d6cc0db761f::t_df05300b944376 1-108
+apps/site/package.json
+  s_d52d6cc0db761f::t_45550bf79d00f9 22
+packages/rspress-theme-ui/env.d.ts
+  s_d52d6cc0db761f::t_d5545c7cec0d3b 1-7
+packages/rspress-theme-ui/src/HomeWeather.tsx
+  s_d52d6cc0db761f::t_2271c30ef2940d 1-118
+packages/rspress-theme-ui/package.json
+  s_d52d6cc0db761f::t_e39cee1da86a5c 5,14-17,20,29
+packages/rspress-theme-ui/src/ProfileHero.tsx
+  s_d52d6cc0db761f::t_6dd90136b6d082 3-4,25-33,90
+  s_d52d6cc0db761f::t_e506dc614e6033 1-2,5-24,34-89,91-106
+packages/rspress-theme-ui/src/JumpRail.tsx
+  s_d52d6cc0db761f::t_6840cb7ca29eae 1-16
+packages/rspress-theme-ui/src/SocialIcons.tsx
+  s_d52d6cc0db761f::t_d8edac10c09eb7 1-89
+packages/rspress-theme-ui/src/index.ts
+  s_d52d6cc0db761f::t_7a2f644287e7d4 3,5-6,8-9,11-12
+pnpm-lock.yaml
+  s_d52d6cc0db761f::t_fcf2c3c3a4d26c 445-451,456-458,1165-1169,1181-1183,2267-2269,2311-2313,2629-2631,3114-3116,3971-4018,4072-4083,5050-5069,5132-5133,5525-5526,6237-6240
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "92c8aa04eaa41655d6414c5c5653dd65c6da1834",
+  "prompts": {},
+  "sessions": {
+    "s_d52d6cc0db761f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96af020c-029f-4b62-a946-b24486f0b823",
+        "model": "default"
+      },
+      "human_author": "heyongqi10 <heyongqi10@jd.com>"
+    }
+  }
+}
