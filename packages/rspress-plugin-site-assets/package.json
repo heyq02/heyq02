@@ -1,6 +1,6 @@
 {
   "name": "@heyq02/rspress-plugin-site-assets",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "private": true,
   "description": "Rspress plugin: copy brand / public assets into blogs/public",
   "type": "module",
