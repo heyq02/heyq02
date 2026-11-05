@@ -109,40 +109,40 @@ export function ProfileHero({
             <span className='hey-avatar-think__badge'>
               <svg
                 className='hey-avatar-think__atom'
-                viewBox='0 0 16 16'
-                width={20}
-                height={20}
+                viewBox='0 0 24 24'
+                width={32}
+                height={32}
                 aria-hidden
               >
-                <circle cx='8' cy='8' r='1.5' fill='currentColor' />
+                <circle cx='12' cy='12' r='2.2' fill='currentColor' />
                 <ellipse
-                  cx='8'
-                  cy='8'
-                  rx='6.4'
-                  ry='2.45'
+                  cx='12'
+                  cy='12'
+                  rx='9.6'
+                  ry='3.7'
                   fill='none'
                   stroke='currentColor'
-                  strokeWidth='1.25'
+                  strokeWidth='1.7'
                 />
                 <ellipse
-                  cx='8'
-                  cy='8'
-                  rx='6.4'
-                  ry='2.45'
+                  cx='12'
+                  cy='12'
+                  rx='9.6'
+                  ry='3.7'
                   fill='none'
                   stroke='currentColor'
-                  strokeWidth='1.25'
-                  transform='rotate(60 8 8)'
+                  strokeWidth='1.7'
+                  transform='rotate(60 12 12)'
                 />
                 <ellipse
-                  cx='8'
-                  cy='8'
-                  rx='6.4'
-                  ry='2.45'
+                  cx='12'
+                  cy='12'
+                  rx='9.6'
+                  ry='3.7'
                   fill='none'
                   stroke='currentColor'
-                  strokeWidth='1.25'
-                  transform='rotate(120 8 8)'
+                  strokeWidth='1.7'
+                  transform='rotate(120 12 12)'
                 />
               </svg>
               深度思考
