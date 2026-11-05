@@ -1,3 +1,4 @@
+import { useLocation } from '@rspress/core/runtime'
 import type { LayoutProps } from '@rspress/core/theme-original'
 import { HomeFooter, Layout as BasicLayout } from '@rspress/core/theme-original'
 import type { ReactElement } from 'react'
@@ -10,9 +11,12 @@ import './chrome.css'
 // oxlint-disable-next-line import/export
 export * from '@rspress/core/theme-original'
 
-/** Site-wide layout with footer on every page. */
+/** Site layout — site footer only on the homepage. */
 export function Layout(props: LayoutProps): ReactElement {
   const { bottom, beforeNav, ...rest } = props
+  const { pathname } = useLocation()
+  const isHome = pathname === '/' || pathname === ''
+
   return (
     <BasicLayout
       {...rest}
@@ -26,10 +30,14 @@ export function Layout(props: LayoutProps): ReactElement {
         </>
       }
       bottom={
-        <>
-          {bottom}
-          <HomeFooter />
-        </>
+        isHome ? (
+          <>
+            {bottom}
+            <HomeFooter />
+          </>
+        ) : (
+          bottom
+        )
       }
     />
   )
