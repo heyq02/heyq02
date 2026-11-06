@@ -13,12 +13,12 @@
       "href": "https://github.com/heyq02/keyboard-source-locker",
       "summary": "macOS menu-bar utility that locks the active keyboard input source to your choice",
       "language": "Swift",
-      "stars": 28,
+      "stars": 33,
       "forks": 0
     }
   ],
   "contributions": {
-    "total": 811,
+    "total": 815,
     "href": "https://github.com/heyq02",
     "weeks": [
       [
@@ -1973,7 +1973,7 @@
         },
         {
           "date": "2026-11-06",
-          "count": 16,
+          "count": 20,
           "level": 2
         }
       ]
