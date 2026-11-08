@@ -8,13 +8,11 @@ import {
   Section,
   siteBody,
   siteCardChrome,
-  siteControlPad,
-  siteFocusRing,
   siteMeta,
   sitePanelChrome,
   TextLink
 } from '@heyq02/rspress-theme-ui'
-import { useCallback, useMemo, useState, useSyncExternalStore } from 'react'
+import { useMemo, useSyncExternalStore } from 'react'
 import type { ReactElement, ReactNode } from 'react'
 
 import { friendsData } from '../lib/friends.ts'
@@ -129,30 +127,21 @@ function ApplySection({ ssgMd }: { ssgMd: boolean }): ReactNode {
   )
 }
 
-/** Avatar + name + desc grid; client shuffle like YunYouJun's links page. */
+/** Avatar + name + desc grid; reshuffled once per page load (no manual control). */
 export function FriendsPage({
   ssgMd = Boolean(import.meta.env.SSG_MD)
 }: {
   ssgMd?: boolean
 } = {}): ReactElement {
   const { title, friends } = friendsData
-  const [deal, setDeal] = useState(0)
+  // SSR and hydration both render the declared order.
+  // The client snapshot flips afterwards, so each load shuffles once without a hydration mismatch.
   const isClient = useSyncExternalStore(
     subscribeNever,
     () => true,
     () => false
   )
-  const ordered = useMemo(() => {
-    if (!isClient) {
-      return friends
-    }
-    // `deal` is the reshuffle token — bumping it must re-run shuffle.
-    return deal >= 0 ? shuffle(friends) : friends
-  }, [friends, isClient, deal])
-
-  const reshuffle = useCallback(() => {
-    setDeal(value => value + 1)
-  }, [])
+  const ordered = useMemo(() => (isClient ? shuffle(friends) : friends), [friends, isClient])
 
   return (
     <div id='hey-main' tabIndex={-1}>
@@ -160,32 +149,11 @@ export function FriendsPage({
         {ordered.length === 0 ? (
           <Empty className='friends-empty mt-[var(--hey-space-3xl)]'>还没有友链。</Empty>
         ) : (
-          <>
-            {ssgMd ? null : (
-              <p className='mt-[var(--hey-space-3xl)] mb-0 flex items-center justify-end gap-[var(--hey-space-lg)]'>
-                <span className='sr-only' aria-live='polite'>
-                  {deal === 0 ? '' : `已重新打乱，共 ${ordered.length} 个友链`}
-                </span>
-                <button
-                  type='button'
-                  onClick={reshuffle}
-                  className={`cursor-pointer rounded-[var(--rp-radius-small)] border-0 bg-transparent ${siteControlPad} ${siteMeta} transition-[color,transform] duration-200 hover:-translate-y-px hover:text-[var(--rp-c-brand)] active:scale-95 ${siteFocusRing}`}
-                  aria-label='重新打乱友链顺序'
-                  title='再洗一次'
-                >
-                  换一批 ↻
-                </button>
-              </p>
-            )}
-            <ul
-              key={deal}
-              className={`friends-grid mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(var(--hey-friend-card-min),1fr))] gap-[var(--hey-space-md)] p-0${ssgMd ? ' mt-[var(--hey-space-3xl)]' : ' mt-[var(--hey-space-lg)]'}`}
-            >
-              {ordered.map(friend => (
-                <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />
-              ))}
-            </ul>
-          </>
+          <ul className='friends-grid mt-[var(--hey-space-3xl)] mb-0 grid list-none grid-cols-[repeat(auto-fill,minmax(var(--hey-friend-card-min),1fr))] gap-[var(--hey-space-md)] p-0'>
+            {ordered.map(friend => (
+              <FriendCard key={friend.url} friend={friend} ssgMd={ssgMd} />
+            ))}
+          </ul>
         )}
         <ApplySection ssgMd={ssgMd} />
       </PageShell>
