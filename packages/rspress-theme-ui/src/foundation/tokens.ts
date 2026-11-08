@@ -46,7 +46,7 @@ export const siteHeaderRule =
 
 export const siteBody = 'm-0 text-[1rem] leading-relaxed text-[var(--rp-c-text-2)]'
 
-/** Compact control padding (mood / reshuffle buttons). */
+/** Compact control padding for small icon/text buttons (e.g. the profile mood toggle). */
 export const siteControlPad =
   'px-[var(--hey-space-2xs,calc(var(--rp-radius-small)/2))] py-[var(--hey-space-2xs,calc(var(--rp-radius-small)/2))]'
 
