@@ -52,7 +52,7 @@ jobs:
         run: vp run @heyq02/site#crefresh-profile
 
       - name: Commit generated content data
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'chore(site): refresh generated content data'
           file_pattern: |
