@@ -22,7 +22,7 @@
     "@heyq02/rspress-plugin-watermark": "workspace:*",
     "@heyq02/rspress-site-content": "workspace:*",
     "@heyq02/rspress-theme-ui": "workspace:*",
-    "@rspress/core": "^2.1.0-beta.2",
+    "@rspress/core": "^2.1.1",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "rspress-plugin-reading-time": "^1.0.2"
