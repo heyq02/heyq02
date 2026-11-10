@@ -285,8 +285,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3(@rsbuild/core@2.3.0(core-js@3.42.0))(@rspack/core@2.3.0(@swc/helpers@0.5.23))(webpack@5.112.2(lightningcss@1.33.0)(postcss@8.5.31)(uglify-js@3.19.3))
       '@rspress/plugin-rss':
-        specifier: ^2.1.0-beta.2
-        version: 2.1.0-beta.2(@rspress/core@2.1.0-beta.2(@rspack/core@2.3.0(@swc/helpers@0.5.23))(core-js@3.42.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@8.1.1))(supports-color@8.1.1))
+        specifier: ^2.1.1
+        version: 2.1.1(@rspress/core@2.1.0-beta.2(@rspack/core@2.3.0(@swc/helpers@0.5.23))(core-js@3.42.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@8.1.1))(supports-color@8.1.1))
       '@types/node':
         specifier: 'catalog:'
         version: 26.6.6
@@ -1332,8 +1332,8 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
-  '@rspress/plugin-rss@2.1.0-beta.2':
-    resolution: {integrity: sha512-zUnjXCUyibFGxwst+9E7Q749VbByDXbN8n+Erkc1z1qmhWh1v1E8ByVF3IQIJk3WXfGnyf2XSM44F90UHeBgBw==}
+  '@rspress/plugin-rss@2.1.1':
+    resolution: {integrity: sha512-4rnVmvp95321FbXUTRbxbQpv4EWiyL/GVvefZjuLImMBF52+SEw8UYQsrKrfmFsrBWefTNIlp87XHqPETDmyoQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       '@rspress/core': ^2.1.0-beta.2
@@ -4747,7 +4747,7 @@ snapshots:
       - micromark-util-types
       - supports-color
 
-  '@rspress/plugin-rss@2.1.0-beta.2(@rspress/core@2.1.0-beta.2(@rspack/core@2.3.0(@swc/helpers@0.5.23))(core-js@3.42.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@8.1.1))(supports-color@8.1.1))':
+  '@rspress/plugin-rss@2.1.1(@rspress/core@2.1.0-beta.2(@rspack/core@2.3.0(@swc/helpers@0.5.23))(core-js@3.42.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@8.1.1))(supports-color@8.1.1))':
     dependencies:
       '@rspress/core': 2.1.0-beta.2(@rspack/core@2.3.0(@swc/helpers@0.5.23))(core-js@3.42.0)(micromark-util-types@2.0.3)(micromark@4.0.3(supports-color@8.1.1))(supports-color@8.1.1)
       feed: 5.2.1
@@ -5058,6 +5058,18 @@ snapshots:
     dependencies:
       react: 19.3.1
       unhead: 2.1.17
+
+  '@vitest/browser-preview@5.0.5(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(typescript@7.0.2)(yaml@2.9.1))(vitest@5.0.5)':
+    dependencies:
+      '@testing-library/dom': 10.4.2
+      '@testing-library/user-event': 14.6.8(@testing-library/dom@10.4.2)
+      '@vitest/browser': 5.0.5(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(typescript@7.0.2)(yaml@2.9.1))(vitest@5.0.5)
+      vitest: 5.0.5(@types/node@26.6.6)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(typescript@7.0.2)(yaml@2.9.1))(happy-dom@21.0.4)(jsdom@27.4.0(supports-color@8.1.1))
+    transitivePeerDependencies:
+      - bufferutil
+      - msw
+      - utf-8-validate
+      - vite
 
   '@vitest/browser-preview@5.0.5(@voidzero-dev/vite-plus-core@1.4.0(@types/node@26.6.6)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(typescript@7.0.2)(yaml@2.9.1))(vitest@5.0.5)':
     dependencies:
@@ -7587,6 +7599,32 @@ snapshots:
       - utf-8-validate
       - vue-tsc
       - yaml
+
+  vitest@5.0.5(@types/node@26.6.6)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(typescript@7.0.2)(yaml@2.9.1))(happy-dom@21.0.4)(jsdom@27.4.0(supports-color@8.1.1)):
+    dependencies:
+      '@types/chai': 5.2.3
+      '@vitest/mocker': 5.0.5(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(typescript@7.0.2)(yaml@2.9.1))
+      chai: 6.3.0
+      es-module-lexer: 2.3.2
+      expect-type: 1.4.0
+      magic-string: 1.4.3
+      obug: 3.0.0
+      picomatch: 4.0.7
+      std-env: 4.3.0
+      tinybench: 6.2.2
+      tinyexec: 1.3.1
+      tinyglobby: 0.2.17
+      vite: '@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(typescript@7.0.2)(yaml@2.9.1)'
+      why-is-node-running: 3.2.1
+    optionalDependencies:
+      '@types/node': 26.6.6
+      '@vitest/browser-preview': 5.0.5(@voidzero-dev/vite-plus-core@1.3.0(@types/node@26.6.6)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(typescript@7.0.2)(yaml@2.9.1))(vitest@5.0.5)
+      '@vitest/coverage-v8': 5.0.5(@vitest/browser@5.0.5)(vitest@5.0.5)
+      '@vitest/ui': 5.0.5(vitest@5.0.5)
+      happy-dom: 21.0.4
+      jsdom: 27.4.0(supports-color@8.1.1)
+    transitivePeerDependencies:
+      - msw
 
   vitest@5.0.5(@types/node@26.6.6)(@vitest/browser-preview@5.0.5)(@vitest/coverage-v8@5.0.5)(@vitest/ui@5.0.5)(@voidzero-dev/vite-plus-core@1.4.0(@types/node@26.6.6)(jiti@2.7.0)(sass-embedded@1.107.1)(sass@1.107.1)(terser@5.51.2)(typescript@7.0.2)(yaml@2.9.1))(happy-dom@21.0.4)(jsdom@27.4.0(supports-color@8.1.1)):
     dependencies:
