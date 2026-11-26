@@ -18,7 +18,7 @@
     }
   ],
   "contributions": {
-    "total": 287,
+    "total": 246,
     "href": "https://github.com/heyq02",
     "weeks": [
       [
@@ -1657,7 +1657,7 @@
         },
         {
           "date": "2026-09-28",
-          "count": 3,
+          "count": 2,
           "level": 1
         },
         {
@@ -1788,8 +1788,8 @@
         },
         {
           "date": "2026-10-23",
-          "count": 2,
-          "level": 1
+          "count": 0,
+          "level": 0
         },
         {
           "date": "2026-10-24",
@@ -1825,7 +1825,7 @@
         },
         {
           "date": "2026-10-30",
-          "count": 3,
+          "count": 2,
           "level": 1
         },
         {
@@ -1842,13 +1842,13 @@
         },
         {
           "date": "2026-11-02",
-          "count": 2,
-          "level": 1
+          "count": 0,
+          "level": 0
         },
         {
           "date": "2026-11-03",
-          "count": 9,
-          "level": 2
+          "count": 4,
+          "level": 1
         },
         {
           "date": "2026-11-04",
@@ -1867,7 +1867,7 @@
         },
         {
           "date": "2026-11-07",
-          "count": 3,
+          "count": 2,
           "level": 1
         }
       ],
@@ -1884,7 +1884,7 @@
         },
         {
           "date": "2026-11-10",
-          "count": 2,
+          "count": 1,
           "level": 1
         },
         {
@@ -1916,17 +1916,17 @@
         },
         {
           "date": "2026-11-16",
-          "count": 14,
-          "level": 2
+          "count": 1,
+          "level": 1
         },
         {
           "date": "2026-11-17",
-          "count": 14,
-          "level": 2
+          "count": 1,
+          "level": 1
         },
         {
           "date": "2026-11-18",
-          "count": 7,
+          "count": 1,
           "level": 1
         },
         {
@@ -1963,13 +1963,13 @@
         },
         {
           "date": "2026-11-25",
-          "count": 2,
+          "count": 1,
           "level": 1
         },
         {
           "date": "2026-11-26",
-          "count": 0,
-          "level": 0
+          "count": 5,
+          "level": 1
         }
       ]
     ]
