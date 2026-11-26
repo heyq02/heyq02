@@ -5,7 +5,7 @@
       "href": "https://github.com/heyq02/simpleicons.dev",
       "summary": "Showcase your skills on your GitHub readme or resumé with ease.",
       "language": "TypeScript",
-      "stars": 173,
+      "stars": 172,
       "forks": 0
     },
     {
@@ -13,12 +13,12 @@
       "href": "https://github.com/heyq02/keyboard-source-locker",
       "summary": "macOS menu-bar utility that locks the active keyboard input source to your choice",
       "language": "Swift",
-      "stars": 102,
+      "stars": 101,
       "forks": 0
     }
   ],
   "contributions": {
-    "total": 286,
+    "total": 287,
     "href": "https://github.com/heyq02",
     "weeks": [
       [
@@ -1963,8 +1963,13 @@
         },
         {
           "date": "2026-11-25",
-          "count": 1,
+          "count": 2,
           "level": 1
+        },
+        {
+          "date": "2026-11-26",
+          "count": 0,
+          "level": 0
         }
       ]
     ]
